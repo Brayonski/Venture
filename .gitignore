@@ -1,0 +1,4 @@
+*.pyc
+migrations
+settings.py
+media

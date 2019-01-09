@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% load cms_tags staticfiles %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+<div class="full_width h_A">
+  <div class="container h_A_container">
+    <div class="row clearfix">
+      <div class="col-md-10 clearfix">
+        <div class="in_style_A">
+          <div class="h_A_row_1 row clearfix">
+            <div class="h_A_row_1A col-md-8">
+              <div class="h_A_row_1A_in">
+                <div class="embed-responsive embed-responsive-16by9">
+                    {% placeholder 'Introductory Video' %}
+                </div>            
+              </div>
+            </div>
+            <div class="h_A_row_1B col-md-4">
+              <div class="h_A_row_1B_in">
+                <h5 class="meta_A">{{object_list.0.category}} <span>{{object_list.0.date|timesince}} AGO</span></h5>
+                <h1 class="style_A">
+                  <a class="a_A" href="#nogo">{{object_list.0.title}}</a>
+                </h1>
+                <ul class="h_A_row_1A_list">
+                {% for obj in object_list %}
+                  {% if forloop.counter > 1 %}
+                    <li>
+                      <a href="#nogo">{{object_list.1.title}}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}                                  
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="h_A_row_2 row clearfix">
+          {% for obj in other_articles %}
+            <div class="h_A_row_2_in col-md-3">
+              <h5 class="meta_A">{{obj.category}}</h5>
+              <h3 class="style_B">
+                <a href="#nogo">{{obj.title}}</a>
+              </h3>
+            </div>
+          {% endfor %}          
+          </div>                   
+        </div>
+      </div>
+      <div class="col-md-2 clearfix">
+        <div class="in_style_A">
+          <ul class="social_icons social_side">
+            <li><a class="li" href="#nogo"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+            <li><a class="tw" href="#nogo"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            <li><a class="fb" href="#nogo"><ion-icon name="logo-facebook"></ion-icon></a></li>
+            <li><a class="ig" href="#nogo"><ion-icon name="logo-instagram"></ion-icon></a></li>
+          </ul>
+          <ul class="sidebar_list">
+          {% for obj in stories_top %}
+            <li>
+              <a href="#nogo">
+                <figure class="h_A_list_1_img">
+                  <img src="{{obj.thumbnail_image.url}}">
+                </figure>
+                <h4 class="style_E">
+                  {{obj.title}}
+                </h4>
+              </a>
+            </li>
+          {% endfor %}                      
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="full_width h_B">
+  <div class="container h_B_container">
+    <h2 class="h_title_A">Podcasts</h2>
+    <div class="row clearfix">
+    {% for obj in podcasts %}
+      <div class="col-md-4 clearfix">
+        <div class="in_style_A">
+          <a href={{obj.path}}>
+            <img src="{% static 'img/podcast.jpg' %}">
+            <h3 class="style_C">{{obj.title}}</h3>
+          </a>  
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="full_width h_C">
+  <div class="container h_C_container">
+    <h2 class="h_title_A">Videos</h2>
+    <div class="row clearfix">
+      <div class="col-md-9 clearfix">
+        <div class="in_style_A">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="{{videos.0.path}}"></iframe>
+            </div> 
+        </div>
+      </div>
+      <div class="col-md-3 clearfix">
+        <div class="in_style_A">
+          <ul class="home_vide_list">
+          {% for obj in videos %}
+            {% if forloop.counter > 1 %}
+              <li>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="{{obj.path}}"></iframe>
+                </div>
+              </li>
+            {% endif %}
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="full_width h_D">
+  <div class="container h_D_container">
+    <h2 class="h_title_A">Stories</h2>
+    <div class="row clearfix">
+    {% for obj in stories_bottom %}
+      <div class="col-md-4 clearfix">
+        <div class="in_style_A">
+          <a href="#nogo">
+            <figure class="in_style_A_img">
+              <img src="{{obj.thumbnail_image.url}}">
+            </figure>
+            <h3 class="style_C">{{obj.title}}</h3>
+          </a>
+          <h5 class="meta_A">{{obj.category}}</h5>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock content %}

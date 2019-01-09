@@ -1,0 +1,342 @@
+body {
+	font-family: 'Nunito', sans-serif;
+    padding-top: 160px;
+}
+a {
+    color: #979797;
+}
+a:hover, a:focus {
+    color: #4aaded;
+    text-decoration: none;
+}
+
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+.col-sm-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-15 {
+        width: 20%;
+        float: left;
+    }
+	.container {
+	    width: 1260px;
+	}    
+}
+
+.nav-up, .nav-down {
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.nav-up {
+    max-height: 0px;
+    overflow: hidden;
+    /* transition: max-height 0.15s ease-out; */
+}
+.nav-down {
+    max-height: 100px;
+    /* transition: max-height 0.15s ease-out; */
+}
+
+.nav_nav_first {
+    width: 100%;
+}
+ul.in_line {
+    padding-left: 0px;
+    list-style: none;
+}
+ul.in_line li {
+    display: inline-block;
+}
+.vl_top_top {
+    margin-top: 8px;
+	display: flex;    
+}
+.vl_top_top ul li a {
+    padding: 8px 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.vl_top_top ul li a:hover {
+    color: #4aaded;
+}
+
+a.navbar-brand img {
+    max-width: 300px;
+}
+a.navbar-brand {
+    padding: 6px 10px 0px;
+}
+.top_container.container {
+    padding-right: 30px;
+}
+
+ul.navbarX2 {
+    width: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin: 0px 0px;
+}
+ul.navbarX2 li a {
+    color: #626262;
+    text-transform: uppercase;
+}
+ul.navbarX2 li {
+    float: none;
+    display: inline-block;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #4aaded;
+    background-color: transparent;
+}
+.navbar-default {
+    background-color: #283891;
+    border-bottom: 0px;
+    box-shadow: 0px 0px 8px 0px rgba(40, 56, 145, 0.20);
+    padding: 10px 0px;
+}
+
+.meta_A {
+    color: #9b9b9b;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+.meta_A span {
+    float: right;
+}
+a.a_A {
+    color: #283891;
+}
+a.a_A:hover {
+    color: #4aaded;
+}
+.style_A {
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+.h1, h1 {
+    font-size: 2.6em;
+}
+img {
+	max-width: 100%;
+}
+
+ul.h_A_row_1A_list li a {
+    display: block;
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+ul.h_A_row_1A_list {
+    list-style: none;
+    padding-left: 0px;
+    font-size: 1.5rem;
+}
+
+.btn-primary {
+    color: #fff !important;
+    background-color: #009cff;
+    border-color: transparent !important;
+    border-radius: 6px;
+}
+ul.sidebar_list {
+    list-style: none;
+    padding-left: 0px;
+}
+.style_E {
+    font-size: 1.4rem;
+}
+ul.sidebar_list li {
+    margin-bottom: 25px;
+}
+.style_B {
+    font-weight: 800;
+}
+.style_B a {
+    color: #585858;
+}
+.style_B a:hover {
+    color: #283891;
+}
+.btn-primary:hover {
+    color: #fff !important;
+    background-color: #0076dc;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: rgba(255, 255, 255, 0.68);
+    background-color: transparent;
+}
+a.navbar-brand {
+    background: white;
+}
+input.search_field.form-control {
+    border-color: #4aaded;
+    background: transparent;
+    color: #FFF;
+}
+button.search_button {
+    background: #009cff;
+    border-color: #009cff;
+}
+
+
+.h_title_A {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 2.1rem;
+    font-weight: 900;
+    color: #000;
+    margin: 40px 0px;
+}
+.in_style_A a {
+    color: #283890;
+}
+.style_C {
+    font-weight: 900;
+    font-size: 2.8rem;
+}
+.full_width.footer {
+    color: #7d7d7d;
+    background: #181818;
+    padding: 30px 0px;
+}
+.style_G {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.4rem;
+    font-weight: 900;
+    opacity: .5;
+	margin: 20px 0px;    
+}
+ul.in_style_A_list_A {
+    padding-left: 0px;
+    list-style: none;
+}
+ul.in_style_A_list_A li a {
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 1.2rem;
+    display: block;
+    padding: 3px 0px;    
+}
+ul.in_style_A_list_A li a:hover {
+    color: rgba(255, 255, 255, 1.0);
+}
+
+li.copright {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #505050;
+}
+.full_width {
+    padding: 40px 0px;
+}
+.full_width.h_A {
+    padding-top: 0px;
+}
+.full_width.h_C {
+    background: #f3f3f3;
+}
+.h_A_row_1A_in {
+    padding-top: 10px;
+}
+
+ul.home_vide_list li {
+    margin-bottom: 25px;
+}
+ul.home_vide_list {
+    list-style: none;
+    padding-left: 0px;
+    max-height: 515px;
+    overflow-y: auto;
+}
+.top_search {
+    max-width: 200px;
+}
+input.search_field {
+    box-shadow: none;
+}
+
+
+
+button.search_button {
+    padding: 0px;
+    height: 34px;
+}
+button.search_button ion-icon {
+    font-size: 2.2rem;
+    padding: 5px 6px 0px;
+    color: #ffffff;
+}
+
+input.search_field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(255, 255, 255, 0.5);
+}
+input.search_field::-moz-placeholder { /* Firefox 19+ */
+  color: rgba(255, 255, 255, 0.5);
+}
+input.search_field:-ms-input-placeholder { /* IE 10+ */
+  color: rgba(255, 255, 255, 0.5);
+}
+input.search_field:-moz-placeholder { /* Firefox 18- */
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.li { color: #206dbc !important; }
+.tw { color: #0196ff !important; }
+.fb { color: #002fc6 !important; }
+.ig { color: #7b0b86 !important; }
+
+.li:hover { color: #004a95 !important; }
+.tw:hover { color: #0484df !important; }
+.fb:hover { color: #0329a4 !important; }
+.ig:hover { color: #62036b !important; }
+
+ul.social_icons {
+    list-style: none;
+    padding-left: 0px;
+}
+ul.social_icons li {
+    display: inline-block;
+}
+ul.social_icons.social_side {
+    font-size: 3rem;
+}
+ul.social_icons.social_bottom li a {
+    font-size: 2.4rem;
+    padding: 0px 4px 0px 0px;
+}
