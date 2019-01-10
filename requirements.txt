@@ -22,3 +22,4 @@ django-sekizai>=0.9
 six
 psycopg2
 Towel
+celery
