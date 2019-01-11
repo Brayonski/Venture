@@ -143,6 +143,7 @@ INSTALLED_APPS = (
     'newsletter_subscription',
     'towel',
     'django_registration',
+    'crispy_forms',
 
     'venturelift_cms',
     'venturelift_media',
