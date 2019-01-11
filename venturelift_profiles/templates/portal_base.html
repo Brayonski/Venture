@@ -12,7 +12,10 @@
         {% render_block "css" %}
     </head>
     <body>
-    {% block content %} {% endblock %}
+    <div class="content_container">
+            {% block content %}{% endblock content %}
+    </div>
+    
     <div class="full_width footer">
         {% static_placeholder 'footer' %}
     </div>
