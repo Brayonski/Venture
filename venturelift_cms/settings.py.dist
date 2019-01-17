@@ -88,7 +88,9 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'sekizai.context_processors.sekizai',
                 'django.template.context_processors.static',
-                'cms.context_processors.cms_settings'
+                'cms.context_processors.cms_settings',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
@@ -112,7 +114,8 @@ MIDDLEWARE = (
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware'
+    'cms.middleware.language.LanguageCookieMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 )
 
 INSTALLED_APPS = (
@@ -144,6 +147,7 @@ INSTALLED_APPS = (
     'towel',
     'django_registration',
     'crispy_forms',
+    'social_django',
 
     'venturelift_cms',
     'venturelift_media',
@@ -224,3 +228,21 @@ MESSAGE_TAGS = {
 CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672/'
 
 ACCOUNT_ACTIVATION_DAYS = 7 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.open_id.OpenIdAuth',
+    'social_core.backends.google.GoogleOpenId',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_TWITTER_KEY = '<<key>>'
+SOCIAL_AUTH_TWITTER_SECRET = '<<secret>>'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '<<key>>'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '<<secret>>'
+
+LOGIN_REDIRECT_URL = '/accounts/profile'

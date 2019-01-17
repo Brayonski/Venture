@@ -25,3 +25,4 @@ Towel
 celery
 django-registration
 django-crispy-forms
+social-auth-app-django

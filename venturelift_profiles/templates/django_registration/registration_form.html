@@ -3,11 +3,23 @@
 
 {% block content %}
 
-<form method='post'>
-    {% csrf_token %}
-    <div class="form-group col-md-6 mb-0">
-        {{ form|crispy }}
-        <button type='submit' class='btn btn-primary'>Register</button>
+<div class="col-md-8">
+    <form method='post'>
+        {% csrf_token %}
+        <div class="form-group col-md-6 mb-0">
+            {{ form|crispy }}
+            <button type='submit' class='btn btn-primary'>Register</button>
+        </div>
+    </form>
+</div>
+
+<div class="col-md-4">
+    <div class="form-group">
+        <a href="{% url 'social:begin' 'google' %}"><button class="btn btn-success btn-lg">Sign up with google</button></a>
     </div>
-</form>
+
+    <div class="form-group">
+        <a href="{% url 'social:begin' 'twitter' %}"><button class="btn btn-primary btn-lg">Sign up with twitter</button></a>
+    </div>
+</div>
 {% endblock %}
