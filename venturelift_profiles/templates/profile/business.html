@@ -1,0 +1,15 @@
+{% extends 'profile/base.html' %}
+
+{% block content %}
+    <h3>Businesses</h3>
+    <ul>
+        {% for obj in object_list %}
+            <li>{{obj.name}}</li>
+            {% if obj in following %}
+                <a href="{% url 'business_unfollow' obj.id %}"><button class="btn btn-default">Unfollow</button></a>
+            {% else %}
+                <a href="{% url 'business_follow' obj.id %}"><button class="btn btn-default">Follow</button></a>
+            {% endif %}
+            {% endfor %}
+    </ul>
+{% endblock %}

@@ -151,7 +151,8 @@ INSTALLED_APPS = (
 
     'venturelift_cms',
     'venturelift_media',
-    'venturelift_profiles'
+    'venturelift_profiles',
+    'actstream',
 )
 
 LANGUAGES = (
