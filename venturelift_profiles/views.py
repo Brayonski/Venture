@@ -3,18 +3,26 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
-from venturelift_profiles.models import Supporter, Business
+from venturelift_profiles.models import Supporter, Business, Post
 from actstream.actions import follow, unfollow
 from django.contrib.auth.models import User
 from django.core.urlresolvers import resolve
 from actstream.models import following, followers
 from django.contrib.auth.mixins import LoginRequiredMixin
+from actstream.models import user_stream
+from django.db.models import Q
 
 class SummaryView(TemplateView):
     template_name = 'profile/home.html'
+    queryset = Post.objects.all()
 
     def get_context_data(self, *args, **kwargs):
-        pass
+        context = super(SummaryView , self).get_context_data(*args, **kwargs)
+        companies_following = following(self.request.user, Business)
+        supporters_following = following(self.request.user, Supporter)
+        posts = Post.objects.filter(Q(company__in=companies_following) | Q(author__in=supporters_following))
+        self.queryset = posts
+        return context
 
 class SupporterView(LoginRequiredMixin, ListView):
     template_name = 'profile/supporters.html'

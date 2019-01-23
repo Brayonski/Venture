@@ -39,11 +39,11 @@ class BusinessCategoryAdmin(admin.ModelAdmin):
         obj.save()
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'company', 'get_username', 'date']
+    list_display = ['title', 'company', 'author', 'date']
     list_filter = ['date']
 
-    def get_username(self, obj):
-        return obj.author.username
+    def author(self, obj):
+        return obj.author.user.username
 
 admin.site.register(Business, BusinessAdmin)
 admin.site.register(Post, PostAdmin)
