@@ -23,7 +23,7 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     url(r'^admin/', include(admin.site.urls)),  # NOQA
     url(r'^', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription),))),
-    url(r'^accounts/', include('venturelift_profiles.urls')),
+    url(r'^profile/', include('venturelift_profiles.urls')),
     url(r'^media/', include('cms.urls')),
 )
 

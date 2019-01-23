@@ -8,6 +8,7 @@ from actstream.actions import follow, unfollow
 from django.contrib.auth.models import User
 from django.core.urlresolvers import resolve
 from actstream.models import following, followers
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class SummaryView(TemplateView):
     template_name = 'profile/home.html'
@@ -15,7 +16,7 @@ class SummaryView(TemplateView):
     def get_context_data(self, *args, **kwargs):
         pass
 
-class SupporterView(ListView):
+class SupporterView(LoginRequiredMixin, ListView):
     template_name = 'profile/supporters.html'
     queryset = Supporter.objects.filter(verified=True)
 
@@ -30,7 +31,7 @@ class SupporterView(ListView):
         context['following'] = following(self.request.user)
         return context
 
-class BusinessView(ListView):
+class BusinessView(LoginRequiredMixin, ListView):
     template_name = 'profile/business.html'
     queryset = Business.objects.filter(verified=True)
 

@@ -16,4 +16,5 @@ urlpatterns = [
     url(r'^business/unfollow/(?P<pk>\d+)/$', views.BusinessView.as_view(), name='business_unfollow'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     url('^activity/', include('actstream.urls')),
+    url(r'comments/', include('django_comments_xtd.urls')),
 ]

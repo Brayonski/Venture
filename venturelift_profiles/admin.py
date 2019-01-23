@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from venturelift_profiles.models import Business, Supporter, BusinessCategory
+from venturelift_profiles.models import Business, Supporter, BusinessCategory, Post
 
 class BusinessAdmin(admin.ModelAdmin):
     search_fields = ['name']
@@ -38,6 +38,14 @@ class BusinessCategoryAdmin(admin.ModelAdmin):
             obj.added_by = request.user
         obj.save()
 
+class PostAdmin(admin.ModelAdmin):
+    list_display = ['title', 'company', 'get_username', 'date']
+    list_filter = ['date']
+
+    def get_username(self, obj):
+        return obj.author.username
+
 admin.site.register(Business, BusinessAdmin)
+admin.site.register(Post, PostAdmin)
 admin.site.register(Supporter, SupporterAdmin)
 admin.site.register(BusinessCategory, BusinessCategoryAdmin)
