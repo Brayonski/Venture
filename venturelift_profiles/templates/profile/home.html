@@ -21,6 +21,12 @@
                         <p>Company: {{post.company}}</p>
                     {% endif %}
                     <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
+                    {% if request.user in post.likes.all %}
+                    <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Liked</a>
+                    {% else %}
+                    <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like</a>
+                    {% endif %}
+                    <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
                 </div>
             {% endfor %}
         </div>

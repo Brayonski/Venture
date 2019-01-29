@@ -148,11 +148,11 @@ INSTALLED_APPS = (
     'django_registration',
     'crispy_forms',
     'social_django',
-
+    'actstream',
+    
     'venturelift_cms',
     'venturelift_media',
     'venturelift_profiles',
-    'actstream',
 )
 
 LANGUAGES = (

@@ -22,6 +22,13 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         supporters_following = following(self.request.user, Supporter)
         posts = Post.objects.filter(Q(company__in=companies_following) | Q(author__in=supporters_following))
         context['object_list'] = posts
+        if 'pk' in kwargs:
+            current_url = resolve(self.request.path_info).url_name
+            post = Post.objects.get(pk=kwargs['pk'])
+            if current_url == 'like_post':
+                post.likes.add(self.request.user)
+            if current_url == 'dislike_post':
+                post.likes.remove(self.request.user)
         return context
 
 class SupporterView(LoginRequiredMixin, ListView):

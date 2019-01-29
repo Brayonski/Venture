@@ -51,8 +51,8 @@ class Post(models.Model):
     body = fields.HTMLField()
     company = models.ForeignKey(Business, null=True, blank=True)
     author = models.ForeignKey(Supporter, null=True, blank=True)
-    allow_comments = models.BooleanField('allow comments', default=True)
     date = models.DateTimeField(auto_now_add=True)
+    likes = models.ManyToManyField(User, blank=True)
 
     class Meta:
         ordering = ('-date',)
