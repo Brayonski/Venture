@@ -1,6 +1,33 @@
 {% extends 'profile/base.html' %}
 
 {% block content %}
-    <h3>Summary details</h3>
-    <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+    <div class='container'>
+        <div class="col-md-4">
+            <h3>Summary details</h3>
+            <p>Welcome, <b>{{ user.get_username }}</b>. Thanks for logging in.</p>
+            <button class='btn btn-primary'>Edit my profile</button>
+            </br></br>
+            <button class='btn btn-primary'>Add a new business</button>
+        </div>
+
+        <div class="col-md-4">
+            <h3>Updates</h3>
+            {% for post in object_list %}
+                <div class="border border-info">
+                    <h4>{{post.title}}</h4>
+                    {% if post.author %}
+                        <p>Author: {{post.author}}</p>
+                    {% else %}
+                        <p>Company: {{post.company}}</p>
+                    {% endif %}
+                    <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-4">
+        
+        </div>
+
+    </div>
 {% endblock %}

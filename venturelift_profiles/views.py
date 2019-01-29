@@ -12,7 +12,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from actstream.models import user_stream
 from django.db.models import Q
 
-class SummaryView(TemplateView):
+class SummaryView(LoginRequiredMixin, TemplateView):
     template_name = 'profile/home.html'
     queryset = Post.objects.all()
 
@@ -21,7 +21,7 @@ class SummaryView(TemplateView):
         companies_following = following(self.request.user, Business)
         supporters_following = following(self.request.user, Supporter)
         posts = Post.objects.filter(Q(company__in=companies_following) | Q(author__in=supporters_following))
-        self.queryset = posts
+        context['object_list'] = posts
         return context
 
 class SupporterView(LoginRequiredMixin, ListView):

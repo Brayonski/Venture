@@ -18,12 +18,12 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^sitemap\.xml$', sitemap,
         {'sitemaps': {'cmspages': CMSSitemap}}),
+    url(r'^profile/', include('venturelift_profiles.urls')),
 ]
 
 urlpatterns += i18n_patterns(
     url(r'^admin/', include(admin.site.urls)),  # NOQA
     url(r'^', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription),))),
-    url(r'^profile/', include('venturelift_profiles.urls')),
     url(r'^media/', include('cms.urls')),
 )
 

@@ -246,5 +246,5 @@ SOCIAL_AUTH_TWITTER_SECRET = '<<secret>>'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '<<key>>'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '<<secret>>'
 
-LOGIN_REDIRECT_URL = '/accounts/profile'
-LOGIN_URL = '/en/accounts/accounts/login/'
+LOGIN_URL = '/profile/accounts/login/'
+LOGIN_REDIRECT_URL = '/profile/profile/'
