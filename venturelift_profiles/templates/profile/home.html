@@ -7,7 +7,7 @@
             <p>Welcome, <b>{{ user.get_username }}</b>. Thanks for logging in.</p>
             <button class='btn btn-primary'>Edit my profile</button>
             </br></br>
-            <button class='btn btn-primary'>Add a new business</button>
+            <a href="{% url 'my_business' %}"><button class='btn btn-primary'>Add business</button></a>
         </div>
 
         <div class="col-md-4">

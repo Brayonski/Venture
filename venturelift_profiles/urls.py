@@ -17,4 +17,13 @@ urlpatterns = [
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     url(r'^post-like/(?P<pk>\d+)/$', views.SummaryView.as_view(), name='like_post'),
     url(r'^post-dislike/(?P<pk>\d+)/$', views.SummaryView.as_view(), name='dislike_post'),
+    url(r'^create-business/step-1/$', views.CreateBusinessView.as_view(), name='create_business_step1'),
+    url(r'^create-business/step-1/(?P<pk>\d+)/$', views.UpdateBusinessView.as_view(), name='update_business_step1'),
+    url(r'^create-business/step-2/(?P<pk>\d+)/$', views.UpdateBusinessView.as_view(), name='update_business_step2'),
+    url(r'^create-business/step-3/(?P<pk>\d+)/$', views.UpdateBusinessView.as_view(), name='update_business_step3'),
+    url(r'^create-business/step-4/(?P<pk>\d+)/$', views.UpdateBusinessView.as_view(), name='update_business_step4'),
+    url(r'^create-business/step-5/(?P<pk>\d+)/$', views.UpdateBusinessView.as_view(), name='update_business_step5'),
+    url(r'^create-business/step-6/(?P<pk>\d+)/$', views.UpdateBusinessView.as_view(), name='update_business_step6'),
+    url(r'^create-business/step-7/(?P<pk>\d+)/$', views.UpdateBusinessView.as_view(), name='update_business_step7'),
+    url(r'^my-business/$', views.MyBusinessView.as_view(), name='my_business'),
 ]

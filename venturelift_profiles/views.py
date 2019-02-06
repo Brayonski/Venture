@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
-from venturelift_profiles.models import Supporter, Business, Post
+from django.shortcuts import render, redirect
+from django.views.generic import TemplateView, ListView, FormView
+from venturelift_profiles.models import *
 from actstream.actions import follow, unfollow
 from django.contrib.auth.models import User
 from django.core.urlresolvers import resolve
@@ -11,6 +11,9 @@ from actstream.models import following, followers
 from django.contrib.auth.mixins import LoginRequiredMixin
 from actstream.models import user_stream
 from django.db.models import Q
+from venturelift_profiles.forms import *
+from django.core.urlresolvers import reverse
+from django.views.generic.edit import CreateView, UpdateView, FormMixin
 
 class SummaryView(LoginRequiredMixin, TemplateView):
     template_name = 'profile/home.html'
@@ -59,4 +62,113 @@ class BusinessView(LoginRequiredMixin, ListView):
             if current_url == 'business_unfollow':
                 unfollow(self.request.user, Business.objects.get(id=self.kwargs['pk']))
         context['following'] = following(self.request.user)
+        return context
+
+
+class CreateBusinessView(LoginRequiredMixin, CreateView):
+    template_name = 'profile/create_business.html'
+    form_class = CreateBusinessForm
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.creator = self.request.user
+        self.object.save() 
+        business = Business.objects.get(name=form.cleaned_data['name'])
+        MarketDescription.objects.create(company_name=business)
+        BusinessModel.objects.create(company_name=business)
+        BusinessTeam.objects.create(company_name=business)
+        BusinessFinancial.objects.create(company_name=business)
+        BusinessInvestment.objects.create(company_name=business)
+        BusinessGoals.objects.create(company_name=business)
+
+        return redirect(reverse('update_business_step2', kwargs={'pk':business.id}))
+
+class UpdateBusinessView(LoginRequiredMixin, UpdateView):
+    template_name = 'profile/update_business.html'
+    
+    def get_form(self, form_class=None):
+        current_url = resolve(self.request.path_info).url_name
+        if current_url == 'update_business_step1':
+            form_class = CreateBusinessForm
+        if current_url == 'update_business_step2':
+            form_class = MarketDescriptionForm
+        if current_url == 'update_business_step3':
+            form_class = BusinessModelForm
+        if current_url == 'update_business_step4':
+            form_class = BusinessTeamForm
+        if current_url == 'update_business_step5':
+            form_class = BusinessFinancialForm
+        if current_url == 'update_business_step6':
+            form_class = BusinessInvestmentForm
+        if current_url == 'update_business_step7':
+            form_class = BusinessGoalsForm
+        return form_class(**self.get_form_kwargs())
+
+    def get_object(self):
+        business = Business.objects.get(id=self.kwargs['pk'])
+        current_url = resolve(self.request.path_info).url_name
+        if current_url == 'update_business_step1':
+            obj = business
+        if current_url == 'update_business_step2':
+            obj = MarketDescription.objects.get(company_name=business)
+        if current_url == 'update_business_step3':
+            obj = BusinessModel.objects.get(company_name=business)
+        if current_url == 'update_business_step4':
+            obj = BusinessTeam.objects.get(company_name=business)
+        if current_url == 'update_business_step5':
+            obj = BusinessFinancial.objects.get(company_name=business)
+        if current_url == 'update_business_step6':
+            obj = BusinessInvestment.objects.get(company_name=business)
+        if current_url == 'update_business_step7':
+            obj = BusinessGoals.objects.get(company_name=business)
+        return obj
+
+    def form_valid(self, form):
+        current_url = resolve(self.request.path_info).url_name
+        if current_url == 'update_business_step1':
+            form.save()
+            return redirect(reverse('update_business_step2', kwargs={'pk':self.kwargs['pk']}))
+        if current_url == 'update_business_step2':
+            form.save()
+            return redirect(reverse('update_business_step3', kwargs={'pk':self.kwargs['pk']}))
+        if current_url == 'update_business_step3':
+            form.save()
+            return redirect(reverse('update_business_step4', kwargs={'pk':self.kwargs['pk']}))
+        if current_url == 'update_business_step4':
+            form.save()
+            return redirect(reverse('update_business_step5', kwargs={'pk':self.kwargs['pk']}))
+        if current_url == 'update_business_step5':
+            form.save()
+            return redirect(reverse('update_business_step6', kwargs={'pk':self.kwargs['pk']}))
+        if current_url == 'update_business_step6':
+            form.save()
+            return redirect(reverse('update_business_step7', kwargs={'pk':self.kwargs['pk']}))
+        if current_url == 'update_business_step7':
+            form.save()
+            return redirect(reverse('my_business'))
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateBusinessView, self).get_context_data(**kwargs)
+        current_url = resolve(self.request.path_info).url_name
+        if current_url == 'update_business_step1':
+            context["step1"] = True
+        if current_url == 'update_business_step2':
+            context["step2"] = True
+        if current_url == 'update_business_step3':
+            context["step3"] = True
+        if current_url == 'update_business_step4':
+            context["step4"] = True
+        if current_url == 'update_business_step5':
+            context["step5"] = True
+        if current_url == 'update_business_step6':
+            context["step6"] = True
+        return context
+    
+class MyBusinessView(LoginRequiredMixin, ListView):
+    template_name = 'profile/my_business.html'
+    queryset = Business.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(MyBusinessView, self).get_context_data(**kwargs)
+        context['object_list'] = Business.objects.filter(creator=self.request.user)
         return context

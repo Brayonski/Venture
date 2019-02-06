@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from venturelift_profiles.models import Business, Supporter, BusinessCategory, Post
+from venturelift_profiles.models import *
 
 class BusinessAdmin(admin.ModelAdmin):
     search_fields = ['name']
@@ -45,7 +45,65 @@ class PostAdmin(admin.ModelAdmin):
     def author(self, obj):
         return obj.author.user.username
 
+class VlaServicesAdmin(admin.ModelAdmin):
+    list_display = ['name']
+    readonly_fields = ["added_by"]
+
+    def save_model(self, request, obj, form, change):
+        if getattr(obj, 'added_by', None) is None:
+            obj.added_by = request.user
+        obj.save()
+
+class MarketDescriptionAdmin(admin.ModelAdmin):
+    list_display = ['company_name']
+    search_fields = ['company_name']
+
+    def company_name(self, obj):
+        return obj.company_name.name
+
+class BusinessModelAdmin(admin.ModelAdmin):
+    list_display = ['company_name']
+    search_fields = ['company_name']
+
+    def company_name(self, obj):
+        return obj.company_name.name
+
+class BusinessTeamAdmin(admin.ModelAdmin):
+    list_display = ['company_name']
+    search_fields = ['company_name']
+
+    def company_name(self, obj):
+        return obj.company_name.name
+
+class BusinessFinancialAdmin(admin.ModelAdmin):
+    list_display = ['company_name']
+    search_fields = ['company_name']
+
+    def company_name(self, obj):
+        return obj.company_name.name
+
+class BusinessInvestmentAdmin(admin.ModelAdmin):
+    list_display = ['company_name']
+    search_fields = ['company_name']
+
+    def company_name(self, obj):
+        return obj.company_name.name
+
+class BusinessGoalsAdmin(admin.ModelAdmin):
+    list_display = ['company_name']
+    search_fields = ['company_name']
+
+    def company_name(self, obj):
+        return obj.company_name.name
+
 admin.site.register(Business, BusinessAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Supporter, SupporterAdmin)
 admin.site.register(BusinessCategory, BusinessCategoryAdmin)
+admin.site.register(VlaServices, VlaServicesAdmin)
+admin.site.register(MarketDescription, MarketDescriptionAdmin)
+admin.site.register(BusinessModel, BusinessModelAdmin)
+admin.site.register(BusinessTeam, BusinessTeamAdmin)
+admin.site.register(BusinessFinancial, BusinessFinancialAdmin)
+admin.site.register(BusinessInvestment, BusinessInvestmentAdmin)
+admin.site.register(BusinessGoals, BusinessGoalsAdmin)

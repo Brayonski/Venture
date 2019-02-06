@@ -5,6 +5,7 @@ from django.apps import AppConfig
 
 class VentureliftProfilesConfig(AppConfig):
     name = 'venturelift_profiles'
+    verbose_name = "VLA Portal"
 
     def ready(self):
         from actstream import registry
