@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from djangocms_text_ckeditor import fields
@@ -8,9 +9,8 @@ from djangocms_text_ckeditor import fields
 # Create your models here.
 
 BUSINESS_SIZE = (
-    ('Small', 'Small'),
-    ('Medium', 'Medium'),
-    ('Large', 'Large'),
+    ('Startup', 'Startup: 2+ years post-revenue $10,000 p.a., 3+ full time teams'),
+    ('SME', 'SME: 5+ years from first revenue, $500,000 p.a., 10+ full time team'),
 )
 
 FUNDING_SOURCES = (
@@ -18,6 +18,10 @@ FUNDING_SOURCES = (
     ('business revenue', 'business revenue'),
     ('personal loans', 'personal loans'),
 )
+
+YEAR_CHOICES = []
+for r in range(1960, (datetime.datetime.now().year+1)):
+    YEAR_CHOICES.append((r,r))
 
 class BusinessCategory(models.Model):
     name = models.CharField(max_length=100)
@@ -51,7 +55,7 @@ class Business(models.Model):
     twitter_profile = models.URLField(max_length=200, null=True, blank=True)
     instagram_profile = models.URLField(max_length=200, null=True, blank=True)
     address = models.CharField(max_length=200)
-    year_of_company_registration = models.DateField()
+    year_of_company_registration = models.IntegerField(choices=YEAR_CHOICES)
     value_proposition_statement = models.TextField(null=True, blank=True)
     full_time_employee_count = models.IntegerField()
     verified = models.BooleanField(default=False)
@@ -62,7 +66,6 @@ class Business(models.Model):
 
     def __unicode__(self):
         return self.name
-
 
 class MarketDescription(models.Model):
     company_name = models.ForeignKey(Business)

@@ -49,9 +49,10 @@ class SupporterView(LoginRequiredMixin, ListView):
         context['following'] = following(self.request.user)
         return context
 
-class BusinessView(LoginRequiredMixin, ListView):
+class BusinessView(LoginRequiredMixin, ListView, FormMixin):
     template_name = 'profile/business.html'
     queryset = Business.objects.filter(verified=True)
+    form_class = BusinessFilters
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessView, self).get_context_data(*args, **kwargs)

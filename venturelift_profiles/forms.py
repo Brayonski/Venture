@@ -1,5 +1,6 @@
 from venturelift_profiles.models import *
 from django.forms import ModelForm
+from django import forms
 
 class CreateBusinessForm(ModelForm):
     class Meta:
@@ -35,3 +36,24 @@ class BusinessGoalsForm(ModelForm):
     class Meta:
         model = BusinessGoals
         exclude = ['company_name']
+
+
+COMPANY_SIZE = (
+    ('', ''),
+    ('Startup', 'Startup: 2+ years post-revenue $10,000 p.a., 3+ full time teams'),
+    ('SME', 'SME: 5+ years from first revenue, $500,000 p.a., 10+ full time team'),
+)
+
+
+class BusinessFilters(forms.Form):
+    sector = forms.ModelChoiceField(queryset=BusinessCategory.objects.all(), required=False,
+                                    label='Sector')
+
+
+    service = forms.ModelChoiceField(queryset=VlaServices.objects.all(), required=False,
+                                     label='Services needed')
+
+    size = forms.ChoiceField(label='Company Size', choices=COMPANY_SIZE, required=False)
+
+    
+
