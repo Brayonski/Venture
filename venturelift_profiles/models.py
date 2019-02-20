@@ -185,9 +185,10 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     body = fields.HTMLField()
     company = models.ForeignKey(Business, null=True, blank=True)
-    author = models.ForeignKey(Supporter, null=True, blank=True)
+    author = models.ForeignKey(
+        User, null=True, blank=True, related_name='author')
     date = models.DateTimeField(auto_now_add=True)
-    likes = models.ManyToManyField(User, blank=True)
+    likes = models.ManyToManyField(User, blank=True, related_name='likes')
 
     class Meta:
         verbose_name = 'Business Updates'

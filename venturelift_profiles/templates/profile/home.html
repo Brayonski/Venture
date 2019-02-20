@@ -1,39 +1,41 @@
 {% extends 'profile/base.html' %}
 
 {% block content %}
-    <div class='container'>
-        <div class="col-md-4">
-            <h3>Summary details</h3>
-            <p>Welcome, <b>{{ user.get_username }}</b>. Thanks for logging in.</p>
-            <button class='btn btn-primary'>Edit my profile</button>
-            </br></br>
-            <a href="{% url 'my_business' %}"><button class='btn btn-primary'>Add business</button></a>
-        </div>
+<div class='container'>
+    <div class="col-md-4">
+        <h3>Summary details</h3>
+        <p>Welcome, <b>{{ user.get_username }}</b>. Thanks for logging in.</p>
+        <button class='btn btn-primary'>Edit my profile</button>
+        </br></br>
+        <a href="{% url 'my_business' %}"><button class='btn btn-primary'>Add business</button></a>
+        <br><br>
+        <a href="{% url 'new_blog_post' %}"><button class='btn btn-primary'>New Blog Post</button></a>
+    </div>
 
-        <div class="col-md-4">
-            <h3>Updates</h3>
-            {% for post in object_list %}
-                <div class="border border-info">
-                    <h4>{{post.title}}</h4>
-                    {% if post.author %}
-                        <p>Author: {{post.author}}</p>
-                    {% else %}
-                        <p>Company: {{post.company}}</p>
-                    {% endif %}
-                    <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
-                    {% if request.user in post.likes.all %}
-                    <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Liked</a>
-                    {% else %}
-                    <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like</a>
-                    {% endif %}
-                    <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
-                </div>
-            {% endfor %}
+    <div class="col-md-4">
+        <h3>Updates</h3>
+        {% for post in object_list %}
+        <div class="border border-info">
+            <h4>{{post.title}}</h4>
+            {% if post.author %}
+            <p>Author: {{post.author}}</p>
+            {% else %}
+            <p>Company: {{post.company}}</p>
+            {% endif %}
+            <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
+            {% if request.user in post.likes.all %}
+            <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Liked</a>
+            {% else %}
+            <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like</a>
+            {% endif %}
+            <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
         </div>
+        {% endfor %}
+    </div>
 
-        <div class="col-md-4">
-        
-        </div>
+    <div class="col-md-4">
 
     </div>
+
+</div>
 {% endblock %}
