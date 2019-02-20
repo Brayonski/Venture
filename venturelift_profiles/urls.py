@@ -26,4 +26,6 @@ urlpatterns = [
     url(r'^create-business/step-6/(?P<pk>\d+)/$', views.UpdateBusinessView.as_view(), name='update_business_step6'),
     url(r'^create-business/step-7/(?P<pk>\d+)/$', views.UpdateBusinessView.as_view(), name='update_business_step7'),
     url(r'^my-business/$', views.MyBusinessView.as_view(), name='my_business'),
+    url(r'^profile-create/$', views.ProfileCreateView.as_view(), name='profile_create'),
+    url(r'^supporter-create/$', views.SupporterCreateView.as_view(), name='supporter_create')
 ]

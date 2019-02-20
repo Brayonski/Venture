@@ -47,7 +47,7 @@ class Business(models.Model):
     name = models.CharField(max_length=255)
     sector = models.ForeignKey(BusinessCategory)
     size = models.CharField(max_length=50, choices=BUSINESS_SIZE)
-    creator = models.ForeignKey(User)
+    creator = models.ForeignKey(User, related_name='business_creator')
     company_primary_email = models.EmailField()
     company_secondary_email = models.EmailField(null=True, blank=True)
     facebook_profile = models.URLField(max_length=200, null=True, blank=True)
@@ -153,10 +153,10 @@ class BusinessGoals(models.Model):
         return self.company_name.name
 
 class Supporter(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, related_name='supporter_creator')
     interests = models.ManyToManyField(BusinessCategory, blank=True)
     verified = models.BooleanField(default=False)
-    verified_by = models.ForeignKey(User, related_name='supporter_verifier')
+    verified_by = models.ForeignKey(User, related_name='supporter_verifier', null=True, blank=True)
 
     def __unicode__(self):
         return self.user.username

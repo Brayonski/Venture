@@ -19,6 +19,11 @@ class SummaryView(LoginRequiredMixin, TemplateView):
     template_name = 'profile/home.html'
     queryset = Post.objects.all()
 
+    def dispatch(self, request, *args, **kwargs):
+        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()):
+            return redirect(reverse('profile_create'))
+        return super(SummaryView,self).dispatch(request, *args, **kwargs)
+
     def get_context_data(self, *args, **kwargs):
         context = super(SummaryView , self).get_context_data(*args, **kwargs)
         companies_following = following(self.request.user, Business)
@@ -33,6 +38,19 @@ class SummaryView(LoginRequiredMixin, TemplateView):
             if current_url == 'dislike_post':
                 post.likes.remove(self.request.user)
         return context
+
+class ProfileCreateView(LoginRequiredMixin, FormView):
+    template_name = 'profile/profile_create.html'
+    form_class = ChooseProfileForm
+
+    def form_valid(self, form):
+        if form.cleaned_data['profile_choice'] == 'Business':
+            return redirect(reverse('create_business_step1'))
+        return redirect(reverse('supporter_create'))
+
+class SupporterCreateView(LoginRequiredMixin, CreateView):
+    template_name = 'profile/create_supporter.html'
+    form_class = SupporterCreateForm    
 
 class SupporterView(LoginRequiredMixin, ListView):
     template_name = 'profile/supporters.html'

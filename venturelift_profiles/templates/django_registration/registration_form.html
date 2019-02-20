@@ -3,23 +3,51 @@
 
 {% block content %}
 
-<div class="col-md-8">
-    <form method='post'>
-        {% csrf_token %}
-        <div class="form-group col-md-6 mb-0">
-            {{ form|crispy }}
-            <button type='submit' class='btn btn-primary'>Register</button>
-        </div>
-    </form>
-</div>
+<div class="full_width h_auth">
+  	<div class="container h_auth_container">
 
-<div class="col-md-4">
-    <div class="form-group">
-        <a href="{% url 'social:begin' 'google' %}"><button class="btn btn-success btn-lg">Sign up with google</button></a>
-    </div>
+  		<div class="row cleafix">
+  			<div class="col-md-10 col-md-offset-1">
+		  		<div class="row cleafix">
+		  			<div class="col-md-6">
+		  				<div class="md-in-A">
+							<h3 class="style_3">
+								Looking To Take Your Business To The Next Level Or Find Great African Companies for Investment or Other Engagement? <b>We Can Help!</b>					
+							</h3>  		
+							<h2 class="style_2">
+								VentureLift Africa Connects African Early Stage and Growing Companies To:
+							</h2>			
+							<figure class="list_A">
+								<ul>
+									<li>Investors and Other Providers of Financial Capital</li>
+									<li>New Trade and Supply Chain Partners</li>
+									<li>International and Diaspora Customer Networks</li>
+									<li>Technology Innovations and Experienced Talent </li>
+									<li>Mentors and Value-Added Professional Services</li>
+								</ul>
+							</figure>
+		  				</div>
+		  			</div>
+		  			<div class="col-md-6 col-md-offset-0">
+		  				<div class="md-out-B">
+			  				<div class="md-in-B">
+			  					<h1 class="style_1">What Are You Waiting For?</h1>
+			  					<h4 class="style_4">Join Us For More Information And a Consultation</h4>
+								<form method='post' class="form_A">
+								    {% csrf_token %}
+								    <div class="form-group col-md-6 mb-0">
+								        {{ form|crispy }}
+								        <button type='submit' class='submit_A btn btn-primary'>Register</button>
+								    </div>
+								</form>  					
+			  				</div>
+			  			</div>	
+		  			</div>  			
+		  		</div>
+		  	</div>
+		</div>  	
 
-    <div class="form-group">
-        <a href="{% url 'social:begin' 'twitter' %}"><button class="btn btn-primary btn-lg">Sign up with twitter</button></a>
-    </div>
-</div>
+
+	</div>
+</div>	
 {% endblock %}

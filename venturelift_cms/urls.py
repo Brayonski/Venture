@@ -12,6 +12,7 @@ from django.views.static import serve
 from newsletter_subscription.backend import ModelBackend
 from newsletter_subscription.urls import newsletter_subscriptions_urlpatterns
 from venturelift_media.models import Subscription
+from django_registration.backends.activation.views import RegistrationView
 
 admin.autodiscover()
 
@@ -19,11 +20,12 @@ urlpatterns = [
     url(r'^sitemap\.xml$', sitemap,
         {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^profile/', include('venturelift_profiles.urls')),
+    url(r'^$', RegistrationView.as_view(), name='registration_in'),
 ]
 
 urlpatterns += i18n_patterns(
     url(r'^admin/', include(admin.site.urls)),  # NOQA
-    url(r'^', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription),))),
+    #url(r'^', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription),))),
     url(r'^media/', include('cms.urls')),
 )
 

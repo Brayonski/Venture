@@ -11,13 +11,32 @@
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
         {% render_block "css" %}
     </head>
-    <body>
+    <body class="auth_pages">
+
+
+    <nav id="navbar_out" class="navbar navbar-default navbar-static-top">
+        <div class="top_container container">
+            <div class="nav_nav_first navbar-header">
+                <a class="navbar-brand" href="/">
+                    <img src="{% static 'img/logo3.png' %}" alt="VentureLift Africa Media Centre">
+                </a>
+                <div class="vl_top_top navbar-right">
+                    <ul class="in_line">
+                        <li><a class="space_button btn btn-md btn-primary" href="/media">MEDIA CENTRE &rarr;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
     <div class="content_container">
-            {% block content %}{% endblock content %}
+        {% block content %}{% endblock content %}
     </div>
 
     <div class="full_width footer">
         {% static_placeholder 'footer' %}
     </div>
+    
     </body>
 </html>

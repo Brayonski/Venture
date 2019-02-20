@@ -44,6 +44,11 @@ COMPANY_SIZE = (
     ('SME', 'SME: 5+ years from first revenue, $500,000 p.a., 10+ full time team'),
 )
 
+PROFILE_CHOICES = (
+    ('Supporter', 'Supporter'),
+    ('Business', 'Business'),
+)
+
 
 class BusinessFilters(forms.Form):
     sector = forms.ModelChoiceField(queryset=BusinessCategory.objects.all(), required=False,
@@ -55,5 +60,14 @@ class BusinessFilters(forms.Form):
 
     size = forms.ChoiceField(label='Company Size', choices=COMPANY_SIZE, required=False)
 
-    
+class ChooseProfileForm(forms.Form):
+    profile_choice = forms.ChoiceField(choices=PROFILE_CHOICES, widget=forms.RadioSelect, label='')
 
+    def clean(self):
+        if not(self.cleaned_data.get('profile_choice', '')):
+            raise forms.ValidationError('You need to select a choice')
+
+class SupporterCreateForm(forms.ModelForm):
+    class Meta:
+        model = Supporter
+        exclude = ['user', 'verified_by', 'verified'] 
