@@ -1,0 +1,541 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+0001_initial.py	../venturelift_media/migrations/0001_initial.py	1;"	kind:file	line:1
+0001_initial.py	../venturelift_profiles/migrations/0001_initial.py	1;"	kind:file	line:1
+0002_auto_20190218_1650.py	../venturelift_profiles/migrations/0002_auto_20190218_1650.py	1;"	kind:file	line:1
+0003_auto_20190220_1425.py	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	1;"	kind:file	line:1
+ACCOUNT_ACTIVATION_DAYS	../venturelift_cms/settings.py	/^ACCOUNT_ACTIVATION_DAYS = 7 $/;"	kind:variable	line:225
+ALLOWED_HOSTS	../venturelift_cms/settings.py	/^ALLOWED_HOSTS = []$/;"	kind:variable	line:33
+AUDIOVISUALCHOICES	../venturelift_media/models.py	/^AUDIOVISUALCHOICES= ($/;"	kind:variable	line:13
+AUTHENTICATION_BACKENDS	../venturelift_cms/settings.py	/^AUTHENTICATION_BACKENDS = ($/;"	kind:variable	line:228
+AudioVisual	../venturelift_media/models.py	/^class AudioVisual(models.Model):$/;"	kind:class	line:44
+AudioVisualAdmin	../venturelift_media/admin.py	/^class AudioVisualAdmin(admin.ModelAdmin):$/;"	kind:class	line:18
+BASE_DIR	../venturelift_cms/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:21
+BUSINESS_SIZE	../venturelift_profiles/models.py	/^BUSINESS_SIZE = ($/;"	kind:variable	line:11
+Business	../venturelift_profiles/models.py	/^class Business(models.Model):$/;"	kind:class	line:46
+BusinessAdmin	../venturelift_profiles/admin.py	/^class BusinessAdmin(admin.ModelAdmin):$/;"	kind:class	line:7
+BusinessCategory	../venturelift_profiles/models.py	/^class BusinessCategory(models.Model):$/;"	kind:class	line:26
+BusinessCategoryAdmin	../venturelift_profiles/admin.py	/^class BusinessCategoryAdmin(admin.ModelAdmin):$/;"	kind:class	line:32
+BusinessFilters	../venturelift_profiles/forms.py	/^class BusinessFilters(forms.Form):$/;"	kind:class	line:53
+BusinessFinancial	../venturelift_profiles/models.py	/^class BusinessFinancial(models.Model):$/;"	kind:class	line:113
+BusinessFinancialAdmin	../venturelift_profiles/admin.py	/^class BusinessFinancialAdmin(admin.ModelAdmin):$/;"	kind:class	line:78
+BusinessFinancialForm	../venturelift_profiles/forms.py	/^class BusinessFinancialForm(ModelForm):$/;"	kind:class	line:25
+BusinessGoals	../venturelift_profiles/models.py	/^class BusinessGoals(models.Model):$/;"	kind:class	line:141
+BusinessGoalsAdmin	../venturelift_profiles/admin.py	/^class BusinessGoalsAdmin(admin.ModelAdmin):$/;"	kind:class	line:92
+BusinessGoalsForm	../venturelift_profiles/forms.py	/^class BusinessGoalsForm(ModelForm):$/;"	kind:class	line:35
+BusinessInvestment	../venturelift_profiles/models.py	/^class BusinessInvestment(models.Model):$/;"	kind:class	line:126
+BusinessInvestmentAdmin	../venturelift_profiles/admin.py	/^class BusinessInvestmentAdmin(admin.ModelAdmin):$/;"	kind:class	line:85
+BusinessInvestmentForm	../venturelift_profiles/forms.py	/^class BusinessInvestmentForm(ModelForm):$/;"	kind:class	line:30
+BusinessModel	../venturelift_profiles/models.py	/^class BusinessModel(models.Model):$/;"	kind:class	line:84
+BusinessModelAdmin	../venturelift_profiles/admin.py	/^class BusinessModelAdmin(admin.ModelAdmin):$/;"	kind:class	line:64
+BusinessModelForm	../venturelift_profiles/forms.py	/^class BusinessModelForm(ModelForm):$/;"	kind:class	line:15
+BusinessTeam	../venturelift_profiles/models.py	/^class BusinessTeam(models.Model):$/;"	kind:class	line:98
+BusinessTeamAdmin	../venturelift_profiles/admin.py	/^class BusinessTeamAdmin(admin.ModelAdmin):$/;"	kind:class	line:71
+BusinessTeamForm	../venturelift_profiles/forms.py	/^class BusinessTeamForm(ModelForm):$/;"	kind:class	line:20
+BusinessView	../venturelift_profiles/views.py	/^class BusinessView(LoginRequiredMixin, ListView, FormMixin):$/;"	kind:class	line:70
+CELERY_BROKER_URL	../venturelift_cms/settings.py	/^CELERY_BROKER_URL = 'amqp:\/\/guest:guest@localhost:5672\/'$/;"	kind:variable	line:223
+CMS_LANGUAGES	../venturelift_cms/settings.py	/^CMS_LANGUAGES = {$/;"	kind:variable	line:163
+CMS_PERMISSION	../venturelift_cms/settings.py	/^CMS_PERMISSION = True$/;"	kind:variable	line:188
+CMS_PLACEHOLDER_CONF	../venturelift_cms/settings.py	/^CMS_PLACEHOLDER_CONF = {}$/;"	kind:variable	line:190
+CMS_TEMPLATES	../venturelift_cms/settings.py	/^CMS_TEMPLATES = ($/;"	kind:variable	line:181
+COMPANY_SIZE	../venturelift_profiles/forms.py	/^COMPANY_SIZE = ($/;"	kind:variable	line:41
+CRISPY_TEMPLATE_PACK	../venturelift_cms/settings.py	/^CRISPY_TEMPLATE_PACK = 'bootstrap4'$/;"	kind:variable	line:226
+Category	../venturelift_media/models.py	/^class Category(models.Model):$/;"	kind:class	line:18
+CategoryAdmin	../venturelift_media/admin.py	/^class CategoryAdmin(admin.ModelAdmin):$/;"	kind:class	line:29
+ChooseProfileForm	../venturelift_profiles/forms.py	/^class ChooseProfileForm(forms.Form):$/;"	kind:class	line:63
+CreateBusinessForm	../venturelift_profiles/forms.py	/^class CreateBusinessForm(ModelForm):$/;"	kind:class	line:5
+CreateBusinessView	../venturelift_profiles/views.py	/^class CreateBusinessView(LoginRequiredMixin, CreateView):$/;"	kind:class	line:87
+DATABASES	../venturelift_cms/settings.py	/^DATABASES = {$/;"	kind:variable	line:192
+DATA_DIR	../venturelift_cms/settings.py	/^DATA_DIR = os.path.dirname(os.path.dirname(__file__))$/;"	kind:variable	line:5
+DEBUG	../venturelift_cms/settings.py	/^DEBUG = True$/;"	kind:variable	line:31
+FUNDING_SOURCES	../venturelift_profiles/models.py	/^FUNDING_SOURCES = ($/;"	kind:variable	line:16
+HomeApphook	../venturelift_cms/cms_apps.py	/^class HomeApphook(CMSApp):$/;"	kind:class	line:7
+HomeView	../venturelift_media/views.py	/^class HomeView(ListView):$/;"	kind:class	line:8
+INSTALLED_APPS	../venturelift_cms/settings.py	/^INSTALLED_APPS = ($/;"	kind:variable	line:121
+LANGUAGES	../venturelift_cms/settings.py	/^LANGUAGES = ($/;"	kind:variable	line:158
+LANGUAGE_CODE	../venturelift_cms/settings.py	/^LANGUAGE_CODE = 'en'$/;"	kind:variable	line:50
+LOGIN_REDIRECT_URL	../venturelift_cms/settings.py	/^LOGIN_REDIRECT_URL = '\/profile\/profile\/'/;"	kind:variable	line:238
+LOGIN_URL	../venturelift_cms/settings.py	/^LOGIN_URL = '\/profile\/accounts\/login\/'$/;"	kind:variable	line:237
+MEDIA_ROOT	../venturelift_cms/settings.py	/^MEDIA_ROOT = os.path.join(DATA_DIR, 'media')$/;"	kind:variable	line:66
+MEDIA_URL	../venturelift_cms/settings.py	/^MEDIA_URL = '\/media\/'$/;"	kind:variable	line:65
+MESSAGE_TAGS	../venturelift_cms/settings.py	/^MESSAGE_TAGS = {$/;"	kind:variable	line:215
+MIDDLEWARE	../venturelift_cms/settings.py	/^MIDDLEWARE = ($/;"	kind:variable	line:105
+MIGRATION_MODULES	../venturelift_cms/settings.py	/^MIGRATION_MODULES = {$/;"	kind:variable	line:204
+MarketDescription	../venturelift_profiles/models.py	/^class MarketDescription(models.Model):$/;"	kind:class	line:70
+MarketDescriptionAdmin	../venturelift_profiles/admin.py	/^class MarketDescriptionAdmin(admin.ModelAdmin):$/;"	kind:class	line:57
+MarketDescriptionForm	../venturelift_profiles/forms.py	/^class MarketDescriptionForm(ModelForm):$/;"	kind:class	line:10
+Meta	../newsletter_subscription/models.py	/^    class Meta:$/;"	kind:class	line:11
+Meta	../venturelift_media/models.py	/^    class Meta:$/;"	kind:class	line:25
+Meta	../venturelift_media/models.py	/^    class Meta:$/;"	kind:class	line:40
+Meta	../venturelift_media/models.py	/^    class Meta:$/;"	kind:class	line:54
+Meta	../venturelift_media/models.py	/^    class Meta:$/;"	kind:class	line:60
+Meta	../venturelift_profiles/forms.py	/^    class Meta:$/;"	kind:class	line:11
+Meta	../venturelift_profiles/forms.py	/^    class Meta:$/;"	kind:class	line:16
+Meta	../venturelift_profiles/forms.py	/^    class Meta:$/;"	kind:class	line:21
+Meta	../venturelift_profiles/forms.py	/^    class Meta:$/;"	kind:class	line:26
+Meta	../venturelift_profiles/forms.py	/^    class Meta:$/;"	kind:class	line:31
+Meta	../venturelift_profiles/forms.py	/^    class Meta:$/;"	kind:class	line:36
+Meta	../venturelift_profiles/forms.py	/^    class Meta:$/;"	kind:class	line:6
+Meta	../venturelift_profiles/forms.py	/^    class Meta:$/;"	kind:class	line:71
+Meta	../venturelift_profiles/models.py	/^    class Meta:$/;"	kind:class	line:106
+Meta	../venturelift_profiles/models.py	/^    class Meta:$/;"	kind:class	line:119
+Meta	../venturelift_profiles/models.py	/^    class Meta:$/;"	kind:class	line:134
+Meta	../venturelift_profiles/models.py	/^    class Meta:$/;"	kind:class	line:148
+Meta	../venturelift_profiles/models.py	/^    class Meta:$/;"	kind:class	line:172
+Meta	../venturelift_profiles/models.py	/^    class Meta:$/;"	kind:class	line:33
+Meta	../venturelift_profiles/models.py	/^    class Meta:$/;"	kind:class	line:40
+Meta	../venturelift_profiles/models.py	/^    class Meta:$/;"	kind:class	line:64
+Meta	../venturelift_profiles/models.py	/^    class Meta:$/;"	kind:class	line:77
+Meta	../venturelift_profiles/models.py	/^    class Meta:$/;"	kind:class	line:91
+Migration	../venturelift_media/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:12
+Migration	../venturelift_profiles/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:11
+Migration	../venturelift_profiles/migrations/0002_auto_20190218_1650.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:10
+Migration	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:10
+ModelBackend	../newsletter_subscription/backend.py	/^class ModelBackend(object):$/;"	kind:class	line:4
+MyBusinessView	../venturelift_profiles/views.py	/^class MyBusinessView(LoginRequiredMixin, ListView):$/;"	kind:class	line:186
+Newsletter	../venturelift_media/models.py	/^class Newsletter(models.Model):$/;"	kind:class	line:67
+NewsletterAdmin	../venturelift_media/admin.py	/^class NewsletterAdmin(admin.ModelAdmin):$/;"	kind:class	line:41
+NewsletterForm	../newsletter_subscription/views.py	/^class NewsletterForm(forms.Form):$/;"	kind:class	line:11
+PROFILE_CHOICES	../venturelift_profiles/forms.py	/^PROFILE_CHOICES = ($/;"	kind:variable	line:47
+Post	../venturelift_profiles/models.py	/^class Post(models.Model):$/;"	kind:class	line:164
+PostAdmin	../venturelift_profiles/admin.py	/^class PostAdmin(admin.ModelAdmin):$/;"	kind:class	line:41
+ProfileCreateView	../venturelift_profiles/views.py	/^class ProfileCreateView(LoginRequiredMixin, FormView):$/;"	kind:class	line:42
+ROOT_URLCONF	../venturelift_cms/settings.py	/^ROOT_URLCONF = 'venturelift_cms.urls'$/;"	kind:variable	line:42
+SECRET_KEY	../venturelift_cms/settings.py	/^SECRET_KEY = 'n5ay9hm_v*(^uepo6fkj=m#q1pf1e2p0!*90qg=gtq1)@p*7j6'$/;"	kind:variable	line:28
+SITE_ID	../venturelift_cms/settings.py	/^SITE_ID = 1$/;"	kind:variable	line:72
+STATICFILES_DIRS	../venturelift_cms/settings.py	/^STATICFILES_DIRS = ($/;"	kind:variable	line:69
+STATIC_ROOT	../venturelift_cms/settings.py	/^STATIC_ROOT = os.path.join(DATA_DIR, 'static')$/;"	kind:variable	line:67
+STATIC_URL	../venturelift_cms/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:64
+Subscription	../venturelift_media/models.py	/^class Subscription(SubscriptionBase):$/;"	kind:class	line:58
+SubscriptionAdmin	../venturelift_media/admin.py	/^class SubscriptionAdmin(admin.ModelAdmin):$/;"	kind:class	line:37
+SubscriptionBase	../newsletter_subscription/models.py	/^class SubscriptionBase(models.Model):$/;"	kind:class	line:7
+SummaryView	../venturelift_profiles/views.py	/^class SummaryView(LoginRequiredMixin, TemplateView):$/;"	kind:class	line:18
+Supporter	../venturelift_profiles/models.py	/^class Supporter(models.Model):$/;"	kind:class	line:155
+SupporterAdmin	../venturelift_profiles/admin.py	/^class SupporterAdmin(admin.ModelAdmin):$/;"	kind:class	line:18
+SupporterCreateForm	../venturelift_profiles/forms.py	/^class SupporterCreateForm(forms.ModelForm):$/;"	kind:class	line:70
+SupporterCreateView	../venturelift_profiles/views.py	/^class SupporterCreateView(LoginRequiredMixin, CreateView):$/;"	kind:class	line:51
+SupporterView	../venturelift_profiles/views.py	/^class SupporterView(LoginRequiredMixin, ListView):$/;"	kind:class	line:55
+TEMPLATES	../venturelift_cms/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:75
+THUMBNAIL_PROCESSORS	../venturelift_cms/settings.py	/^THUMBNAIL_PROCESSORS = ($/;"	kind:variable	line:208
+TIME_ZONE	../venturelift_cms/settings.py	/^TIME_ZONE = 'Africa\/Juba'$/;"	kind:variable	line:52
+TextMedia	../venturelift_media/models.py	/^class TextMedia(models.Model):$/;"	kind:class	line:29
+TextMediaAdmin	../venturelift_media/admin.py	/^class TextMediaAdmin(admin.ModelAdmin):$/;"	kind:class	line:7
+USE_I18N	../venturelift_cms/settings.py	/^USE_I18N = True$/;"	kind:variable	line:54
+USE_L10N	../venturelift_cms/settings.py	/^USE_L10N = True$/;"	kind:variable	line:56
+USE_TZ	../venturelift_cms/settings.py	/^USE_TZ = True$/;"	kind:variable	line:58
+UpdateBusinessView	../venturelift_profiles/views.py	/^class UpdateBusinessView(LoginRequiredMixin, UpdateView):$/;"	kind:class	line:105
+VERSION	../newsletter_subscription/__init__.py	/^VERSION = (0, 4, 0)$/;"	kind:variable	line:1
+VentureliftMediaConfig	../venturelift_media/apps.py	/^class VentureliftMediaConfig(AppConfig):$/;"	kind:class	line:7
+VentureliftProfilesConfig	../venturelift_profiles/apps.py	/^class VentureliftProfilesConfig(AppConfig):$/;"	kind:class	line:6
+VlaServices	../venturelift_profiles/models.py	/^class VlaServices(models.Model):$/;"	kind:class	line:36
+VlaServicesAdmin	../venturelift_profiles/admin.py	/^class VlaServicesAdmin(admin.ModelAdmin):$/;"	kind:class	line:48
+YEAR_CHOICES	../venturelift_profiles/models.py	/^YEAR_CHOICES = []$/;"	kind:variable	line:22
+__init__	../newsletter_subscription/backend.py	/^    def __init__(self, model_class):$/;"	kind:member	line:5
+__init__	../newsletter_subscription/views.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:21
+__init__.py	../newsletter_subscription/__init__.py	1;"	kind:file	line:1
+__init__.py	../venturelift_cms/__init__.py	1;"	kind:file	line:1
+__init__.py	../venturelift_media/__init__.py	1;"	kind:file	line:1
+__init__.py	../venturelift_media/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../venturelift_profiles/__init__.py	1;"	kind:file	line:1
+__init__.py	../venturelift_profiles/migrations/__init__.py	1;"	kind:file	line:1
+__str__	../newsletter_subscription/models.py	/^    def __str__(self):$/;"	kind:member	line:16
+__str__	../venturelift_profiles/models.py	/^    def __str__(self):$/;"	kind:member	line:177
+__unicode__	../venturelift_media/models.py	/^    def __unicode__(self):$/;"	kind:member	line:22
+__unicode__	../venturelift_media/models.py	/^    def __unicode__(self):$/;"	kind:member	line:37
+__unicode__	../venturelift_media/models.py	/^    def __unicode__(self):$/;"	kind:member	line:51
+__unicode__	../venturelift_media/models.py	/^    def __unicode__(self):$/;"	kind:member	line:64
+__unicode__	../venturelift_media/models.py	/^    def __unicode__(self):$/;"	kind:member	line:73
+__unicode__	../venturelift_profiles/models.py	/^    def __unicode__(self):$/;"	kind:member	line:110
+__unicode__	../venturelift_profiles/models.py	/^    def __unicode__(self):$/;"	kind:member	line:123
+__unicode__	../venturelift_profiles/models.py	/^    def __unicode__(self):$/;"	kind:member	line:138
+__unicode__	../venturelift_profiles/models.py	/^    def __unicode__(self):$/;"	kind:member	line:152
+__unicode__	../venturelift_profiles/models.py	/^    def __unicode__(self):$/;"	kind:member	line:161
+__unicode__	../venturelift_profiles/models.py	/^    def __unicode__(self):$/;"	kind:member	line:30
+__unicode__	../venturelift_profiles/models.py	/^    def __unicode__(self):$/;"	kind:member	line:43
+__unicode__	../venturelift_profiles/models.py	/^    def __unicode__(self):$/;"	kind:member	line:67
+__unicode__	../venturelift_profiles/models.py	/^    def __unicode__(self):$/;"	kind:member	line:81
+__unicode__	../venturelift_profiles/models.py	/^    def __unicode__(self):$/;"	kind:member	line:95
+__version__	../newsletter_subscription/__init__.py	/^__version__ = '.'.join(map(str, VERSION))$/;"	kind:variable	line:2
+abstract	../newsletter_subscription/models.py	/^        abstract = True$/;"	kind:variable	line:12
+added_by	../venturelift_profiles/models.py	/^    added_by = models.ForeignKey(User)$/;"	kind:variable	line:28
+added_by	../venturelift_profiles/models.py	/^    added_by = models.ForeignKey(User)$/;"	kind:variable	line:38
+address	../venturelift_profiles/models.py	/^    address = models.CharField(max_length=200)$/;"	kind:variable	line:57
+admin.py	../venturelift_media/admin.py	1;"	kind:file	line:1
+admin.py	../venturelift_profiles/admin.py	1;"	kind:file	line:1
+ajax_subscribe	../newsletter_subscription/ajax_views.py	/^def ajax_subscribe(request, backend):$/;"	kind:function	line:11
+ajax_views.py	../newsletter_subscription/ajax_views.py	1;"	kind:file	line:1
+app	../venturelift_cms/celery.py	/^app = Celery(broker=settings.CELERY_BROKER_URL)$/;"	kind:variable	line:10
+app_name	../venturelift_cms/cms_apps.py	/^    app_name = "venturelift_media"$/;"	kind:variable	line:8
+application	../venturelift_cms/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
+apps.py	../venturelift_media/apps.py	1;"	kind:file	line:1
+apps.py	../venturelift_profiles/apps.py	1;"	kind:file	line:1
+author	../venturelift_media/models.py	/^    author = models.ForeignKey(User)$/;"	kind:variable	line:20
+author	../venturelift_media/models.py	/^    author = models.ForeignKey(User)$/;"	kind:variable	line:32
+author	../venturelift_media/models.py	/^    author = models.ForeignKey(User)$/;"	kind:variable	line:48
+author	../venturelift_profiles/admin.py	/^    def author(self, obj):$/;"	kind:member	line:45
+author	../venturelift_profiles/models.py	/^    author = models.ForeignKey(Supporter, null=True, blank=True)$/;"	kind:variable	line:168
+backend.py	../newsletter_subscription/backend.py	1;"	kind:file	line:1
+board_of_advisors	../venturelift_profiles/models.py	/^    board_of_advisors = models.FileField(upload_to='board_advisors\/', null=True, blank=True)$/;"	kind:variable	line:103
+board_of_directors	../venturelift_profiles/models.py	/^    board_of_directors = models.FileField(upload_to='board_directors\/', null=True, blank=True)$/;"	kind:variable	line:104
+body	../venturelift_media/models.py	/^    body = fields.HTMLField()$/;"	kind:variable	line:33
+body	../venturelift_media/models.py	/^    body = fields.HTMLField()$/;"	kind:variable	line:69
+body	../venturelift_profiles/models.py	/^    body = fields.HTMLField()$/;"	kind:variable	line:166
+business_model	../venturelift_profiles/models.py	/^    business_model = models.TextField(null=True, blank=True)$/;"	kind:variable	line:86
+capital_to_raise	../venturelift_profiles/models.py	/^    capital_to_raise = models.TextField(null=True, blank=True)$/;"	kind:variable	line:132
+category	../venturelift_media/models.py	/^    category = models.CharField(max_length=100, choices=AUDIOVISUALCHOICES)$/;"	kind:variable	line:49
+category	../venturelift_media/models.py	/^    category = models.ForeignKey(Category)$/;"	kind:variable	line:31
+celery.py	../venturelift_cms/celery.py	1;"	kind:file	line:1
+clean	../newsletter_subscription/views.py	/^    def clean(self):$/;"	kind:member	line:26
+clean	../venturelift_profiles/forms.py	/^    def clean(self):$/;"	kind:member	line:66
+cms_apps.py	../venturelift_cms/cms_apps.py	1;"	kind:file	line:1
+company	../venturelift_profiles/models.py	/^    company = models.ForeignKey(Business, null=True, blank=True)$/;"	kind:variable	line:167
+company_name	../venturelift_profiles/admin.py	/^    def company_name(self, obj):$/;"	kind:member	line:61
+company_name	../venturelift_profiles/admin.py	/^    def company_name(self, obj):$/;"	kind:member	line:68
+company_name	../venturelift_profiles/admin.py	/^    def company_name(self, obj):$/;"	kind:member	line:75
+company_name	../venturelift_profiles/admin.py	/^    def company_name(self, obj):$/;"	kind:member	line:82
+company_name	../venturelift_profiles/admin.py	/^    def company_name(self, obj):$/;"	kind:member	line:89
+company_name	../venturelift_profiles/admin.py	/^    def company_name(self, obj):$/;"	kind:member	line:96
+company_name	../venturelift_profiles/models.py	/^    company_name = models.ForeignKey(Business)$/;"	kind:variable	line:114
+company_name	../venturelift_profiles/models.py	/^    company_name = models.ForeignKey(Business)$/;"	kind:variable	line:127
+company_name	../venturelift_profiles/models.py	/^    company_name = models.ForeignKey(Business)$/;"	kind:variable	line:142
+company_name	../venturelift_profiles/models.py	/^    company_name = models.ForeignKey(Business)$/;"	kind:variable	line:71
+company_name	../venturelift_profiles/models.py	/^    company_name = models.ForeignKey(Business)$/;"	kind:variable	line:85
+company_name	../venturelift_profiles/models.py	/^    company_name = models.ForeignKey(Business)$/;"	kind:variable	line:99
+company_primary_email	../venturelift_profiles/models.py	/^    company_primary_email = models.EmailField()$/;"	kind:variable	line:51
+company_secondary_email	../venturelift_profiles/models.py	/^    company_secondary_email = models.EmailField(null=True, blank=True)$/;"	kind:variable	line:52
+competitive_advantage	../venturelift_profiles/models.py	/^    competitive_advantage = models.TextField(null=True, blank=True)$/;"	kind:variable	line:88
+competitors	../venturelift_profiles/models.py	/^    competitors = models.TextField(null=True, blank=True)$/;"	kind:variable	line:87
+constraints_to_growth	../venturelift_profiles/models.py	/^    constraints_to_growth = models.TextField(null=True, blank=True)$/;"	kind:variable	line:144
+creator	../venturelift_profiles/models.py	/^    creator = models.ForeignKey(User, related_name='business_creator')$/;"	kind:variable	line:50
+current_debt	../venturelift_profiles/models.py	/^    current_debt = models.BooleanField(default=False)$/;"	kind:variable	line:131
+date	../venturelift_media/models.py	/^    date = models.DateTimeField(auto_now_add=True)$/;"	kind:variable	line:34
+date	../venturelift_media/models.py	/^    date = models.DateTimeField(auto_now_add=True)$/;"	kind:variable	line:46
+date	../venturelift_media/models.py	/^    date = models.DateTimeField(auto_now_add=True)$/;"	kind:variable	line:71
+date	../venturelift_profiles/models.py	/^    date = models.DateTimeField(auto_now_add=True)$/;"	kind:variable	line:169
+default_app_config	../venturelift_profiles/__init__.py	/^default_app_config = 'venturelift_profiles.apps.VentureliftProfilesConfig'/;"	kind:variable	line:1
+dependencies	../venturelift_media/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:16
+dependencies	../venturelift_profiles/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:15
+dependencies	../venturelift_profiles/migrations/0002_auto_20190218_1650.py	/^    dependencies = [$/;"	kind:variable	line:12
+dependencies	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^    dependencies = [$/;"	kind:variable	line:12
+dispatch	../venturelift_profiles/views.py	/^    def dispatch(self, request, *args, **kwargs):$/;"	kind:member	line:22
+email	../newsletter_subscription/models.py	/^    email = models.EmailField(_('email address'), max_length=254, unique=True)$/;"	kind:variable	line:8
+email	../newsletter_subscription/views.py	/^    email = forms.EmailField($/;"	kind:variable	line:12
+exclude	../venturelift_profiles/forms.py	/^        exclude = ['company_name']$/;"	kind:variable	line:13
+exclude	../venturelift_profiles/forms.py	/^        exclude = ['company_name']$/;"	kind:variable	line:18
+exclude	../venturelift_profiles/forms.py	/^        exclude = ['company_name']$/;"	kind:variable	line:23
+exclude	../venturelift_profiles/forms.py	/^        exclude = ['company_name']$/;"	kind:variable	line:28
+exclude	../venturelift_profiles/forms.py	/^        exclude = ['company_name']$/;"	kind:variable	line:33
+exclude	../venturelift_profiles/forms.py	/^        exclude = ['company_name']$/;"	kind:variable	line:38
+exclude	../venturelift_profiles/forms.py	/^        exclude = ['user', 'verified_by', 'verified'] /;"	kind:variable	line:73
+exclude	../venturelift_profiles/forms.py	/^        exclude = ['verified', 'verified_by', 'creator']$/;"	kind:variable	line:8
+external_funds_invested	../venturelift_profiles/models.py	/^    external_funds_invested = models.IntegerField(null=True, blank=True)$/;"	kind:variable	line:130
+facebook_profile	../venturelift_profiles/models.py	/^    facebook_profile = models.URLField(max_length=200, null=True, blank=True)$/;"	kind:variable	line:53
+field	../venturelift_profiles/migrations/0001_initial.py	/^            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='business_verifier', to=settings.AUTH_USER_MODEL),$/;"	kind:variable	line:211
+field	../venturelift_profiles/migrations/0001_initial.py	/^            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='venturelift_profiles.Business'),$/;"	kind:variable	line:186
+field	../venturelift_profiles/migrations/0001_initial.py	/^            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='venturelift_profiles.Supporter'),$/;"	kind:variable	line:181
+field	../venturelift_profiles/migrations/0001_initial.py	/^            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='venturelift_profiles.BusinessCategory'),$/;"	kind:variable	line:206
+field	../venturelift_profiles/migrations/0001_initial.py	/^            field=models.ManyToManyField(blank=True, related_name='primary_services', to='venturelift_profiles.VlaServices'),$/;"	kind:variable	line:196
+field	../venturelift_profiles/migrations/0001_initial.py	/^            field=models.ManyToManyField(blank=True, related_name='secondary_services', to='venturelift_profiles.VlaServices'),$/;"	kind:variable	line:201
+field	../venturelift_profiles/migrations/0001_initial.py	/^            field=models.ManyToManyField(blank=True, to=settings.AUTH_USER_MODEL),$/;"	kind:variable	line:191
+field	../venturelift_profiles/migrations/0002_auto_20190218_1650.py	/^            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='author', to=settings.AUTH_USER_MODEL),$/;"	kind:variable	line:20
+field	../venturelift_profiles/migrations/0002_auto_20190218_1650.py	/^            field=models.ManyToManyField(blank=True, related_name='likes', to=settings.AUTH_USER_MODEL),$/;"	kind:variable	line:25
+field	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='supporter_verifier', to=settings.AUTH_USER_MODEL),$/;"	kind:variable	line:40
+field	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='venturelift_profiles.Supporter'),$/;"	kind:variable	line:25
+field	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='business_creator', to=settings.AUTH_USER_MODEL),$/;"	kind:variable	line:20
+field	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='supporter_creator', to=settings.AUTH_USER_MODEL),$/;"	kind:variable	line:35
+field	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            field=models.ManyToManyField(blank=True, to=settings.AUTH_USER_MODEL),$/;"	kind:variable	line:30
+fields	../venturelift_media/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:24
+fields	../venturelift_media/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:39
+fields	../venturelift_media/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:51
+fields	../venturelift_media/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:61
+fields	../venturelift_media/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:73
+fields	../venturelift_profiles/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:114
+fields	../venturelift_profiles/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:130
+fields	../venturelift_profiles/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:145
+fields	../venturelift_profiles/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:159
+fields	../venturelift_profiles/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:169
+fields	../venturelift_profiles/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:22
+fields	../venturelift_profiles/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:45
+fields	../venturelift_profiles/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:56
+fields	../venturelift_profiles/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:70
+fields	../venturelift_profiles/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:83
+fields	../venturelift_profiles/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:99
+form	../newsletter_subscription/views.py	/^def form(request, backend):$/;"	kind:function	line:50
+form_class	../venturelift_profiles/views.py	/^    form_class = BusinessFilters$/;"	kind:variable	line:73
+form_class	../venturelift_profiles/views.py	/^    form_class = ChooseProfileForm$/;"	kind:variable	line:44
+form_class	../venturelift_profiles/views.py	/^    form_class = CreateBusinessForm$/;"	kind:variable	line:89
+form_class	../venturelift_profiles/views.py	/^    form_class = SupporterCreateForm    $/;"	kind:variable	line:53
+form_valid	../venturelift_profiles/views.py	/^    def form_valid(self, form):$/;"	kind:member	line:145
+form_valid	../venturelift_profiles/views.py	/^    def form_valid(self, form):$/;"	kind:member	line:46
+form_valid	../venturelift_profiles/views.py	/^    def form_valid(self, form):$/;"	kind:member	line:91
+forms.py	../venturelift_profiles/forms.py	1;"	kind:file	line:1
+founders_info	../venturelift_profiles/models.py	/^    founders_info = models.FileField(upload_to='founders_info\/', null=True, blank=True)$/;"	kind:variable	line:100
+full_time_employee_count	../venturelift_profiles/models.py	/^    full_time_employee_count = models.IntegerField()$/;"	kind:variable	line:60
+funding_source	../venturelift_profiles/models.py	/^    funding_source = models.CharField(max_length=200, choices=FUNDING_SOURCES, null=True, blank=True)$/;"	kind:variable	line:128
+get_context_data	../venturelift_media/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:12
+get_context_data	../venturelift_profiles/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:169
+get_context_data	../venturelift_profiles/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:190
+get_context_data	../venturelift_profiles/views.py	/^    def get_context_data(self, *args, **kwargs):$/;"	kind:member	line:27
+get_context_data	../venturelift_profiles/views.py	/^    def get_context_data(self, *args, **kwargs):$/;"	kind:member	line:59
+get_context_data	../venturelift_profiles/views.py	/^    def get_context_data(self, *args, **kwargs):$/;"	kind:member	line:75
+get_form	../venturelift_profiles/views.py	/^    def get_form(self, form_class=None):$/;"	kind:member	line:108
+get_object	../venturelift_profiles/views.py	/^    def get_object(self):$/;"	kind:member	line:126
+get_other_articles	../venturelift_media/views.py	/^    def get_other_articles(self):$/;"	kind:member	line:21
+get_signer	../newsletter_subscription/utils.py	/^def get_signer(salt='newsletter_subscription'):$/;"	kind:function	line:10
+get_urls	../venturelift_cms/cms_apps.py	/^    def get_urls(self, page=None, language=None, **kwargs):$/;"	kind:member	line:11
+get_username	../venturelift_profiles/admin.py	/^    def get_username(self, obj):$/;"	kind:member	line:29
+gettext	../venturelift_cms/settings.py	/^gettext = lambda s: s$/;"	kind:variable	line:4
+growth_margin	../venturelift_profiles/models.py	/^    growth_margin = models.IntegerField(null=True, blank=True)$/;"	kind:variable	line:117
+initial	../venturelift_media/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:14
+initial	../venturelift_profiles/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:13
+instagram_profile	../venturelift_profiles/models.py	/^    instagram_profile = models.URLField(max_length=200, null=True, blank=True)$/;"	kind:variable	line:56
+intellectual_property_info	../venturelift_profiles/models.py	/^    intellectual_property_info = models.TextField(null=True, blank=True)$/;"	kind:variable	line:89
+interests	../venturelift_profiles/models.py	/^    interests = models.ManyToManyField(BusinessCategory, blank=True)$/;"	kind:variable	line:157
+is_active	../newsletter_subscription/models.py	/^    is_active = models.BooleanField(_('is active'), default=True)$/;"	kind:variable	line:9
+is_subscribed	../newsletter_subscription/backend.py	/^    def is_subscribed(self, email):$/;"	kind:member	line:8
+label	../newsletter_subscription/views.py	/^        label='',$/;"	kind:variable	line:13
+label	../venturelift_profiles/forms.py	/^                                     label='Services needed')$/;"	kind:variable	line:59
+label	../venturelift_profiles/forms.py	/^                                    label='Sector')$/;"	kind:variable	line:55
+last_year_profit	../venturelift_profiles/models.py	/^    last_year_profit = models.IntegerField(null=True, blank=True)$/;"	kind:variable	line:116
+last_year_revenue	../venturelift_profiles/models.py	/^    last_year_revenue = models.IntegerField(null=True, blank=True)$/;"	kind:variable	line:115
+likes	../venturelift_profiles/models.py	/^    likes = models.ManyToManyField(User, blank=True)$/;"	kind:variable	line:170
+linkedin_profile	../venturelift_profiles/models.py	/^    linkedin_profile = models.URLField(max_length=200, null=True, blank=True)$/;"	kind:variable	line:54
+list_display	../venturelift_media/admin.py	/^    list_display = ['email', 'is_active']$/;"	kind:variable	line:38
+list_display	../venturelift_media/admin.py	/^    list_display = ['title', 'category', 'date']$/;"	kind:variable	line:11
+list_display	../venturelift_media/admin.py	/^    list_display = ['title', 'date', 'category']$/;"	kind:variable	line:22
+list_display	../venturelift_media/admin.py	/^    list_display = ['title', 'date']$/;"	kind:variable	line:42
+list_display	../venturelift_profiles/admin.py	/^    list_display = ['company_name']$/;"	kind:variable	line:58
+list_display	../venturelift_profiles/admin.py	/^    list_display = ['company_name']$/;"	kind:variable	line:65
+list_display	../venturelift_profiles/admin.py	/^    list_display = ['company_name']$/;"	kind:variable	line:72
+list_display	../venturelift_profiles/admin.py	/^    list_display = ['company_name']$/;"	kind:variable	line:79
+list_display	../venturelift_profiles/admin.py	/^    list_display = ['company_name']$/;"	kind:variable	line:86
+list_display	../venturelift_profiles/admin.py	/^    list_display = ['company_name']$/;"	kind:variable	line:93
+list_display	../venturelift_profiles/admin.py	/^    list_display = ['get_username', 'verified']$/;"	kind:variable	line:20
+list_display	../venturelift_profiles/admin.py	/^    list_display = ['name', 'sector', 'verified']$/;"	kind:variable	line:10
+list_display	../venturelift_profiles/admin.py	/^    list_display = ['name']$/;"	kind:variable	line:33
+list_display	../venturelift_profiles/admin.py	/^    list_display = ['name']$/;"	kind:variable	line:49
+list_display	../venturelift_profiles/admin.py	/^    list_display = ['title', 'company', 'author', 'date']$/;"	kind:variable	line:42
+list_filter	../venturelift_media/admin.py	/^    list_filter = ['date', 'category', 'author']$/;"	kind:variable	line:9
+list_filter	../venturelift_media/admin.py	/^    list_filter = ['date', 'category']$/;"	kind:variable	line:20
+list_filter	../venturelift_media/admin.py	/^    list_filter = ['is_active']$/;"	kind:variable	line:39
+list_filter	../venturelift_profiles/admin.py	/^    list_filter = ['date']$/;"	kind:variable	line:43
+list_filter	../venturelift_profiles/admin.py	/^    list_filter = ['size', 'sector', 'verified']$/;"	kind:variable	line:9
+list_filter	../venturelift_profiles/admin.py	/^    list_filter = ['verified']$/;"	kind:variable	line:21
+manage.py	../manage.py	1;"	kind:file	line:1
+market_segment	../venturelift_profiles/models.py	/^    market_segment = models.TextField(null=True, blank=True)$/;"	kind:variable	line:73
+market_size	../venturelift_profiles/models.py	/^    market_size = models.TextField(null=True, blank=True)$/;"	kind:variable	line:75
+max_length	../newsletter_subscription/views.py	/^        max_length=254,$/;"	kind:variable	line:14
+model	../venturelift_profiles/forms.py	/^        model = Business$/;"	kind:variable	line:7
+model	../venturelift_profiles/forms.py	/^        model = BusinessFinancial$/;"	kind:variable	line:27
+model	../venturelift_profiles/forms.py	/^        model = BusinessGoals$/;"	kind:variable	line:37
+model	../venturelift_profiles/forms.py	/^        model = BusinessInvestment$/;"	kind:variable	line:32
+model	../venturelift_profiles/forms.py	/^        model = BusinessModel$/;"	kind:variable	line:17
+model	../venturelift_profiles/forms.py	/^        model = BusinessTeam$/;"	kind:variable	line:22
+model	../venturelift_profiles/forms.py	/^        model = MarketDescription$/;"	kind:variable	line:12
+model	../venturelift_profiles/forms.py	/^        model = Supporter$/;"	kind:variable	line:72
+model_name	../venturelift_profiles/migrations/0001_initial.py	/^            model_name='business',$/;"	kind:variable	line:204
+model_name	../venturelift_profiles/migrations/0001_initial.py	/^            model_name='business',$/;"	kind:variable	line:209
+model_name	../venturelift_profiles/migrations/0001_initial.py	/^            model_name='businessgoals',$/;"	kind:variable	line:194
+model_name	../venturelift_profiles/migrations/0001_initial.py	/^            model_name='businessgoals',$/;"	kind:variable	line:199
+model_name	../venturelift_profiles/migrations/0001_initial.py	/^            model_name='post',$/;"	kind:variable	line:179
+model_name	../venturelift_profiles/migrations/0001_initial.py	/^            model_name='post',$/;"	kind:variable	line:184
+model_name	../venturelift_profiles/migrations/0001_initial.py	/^            model_name='post',$/;"	kind:variable	line:189
+model_name	../venturelift_profiles/migrations/0002_auto_20190218_1650.py	/^            model_name='post',$/;"	kind:variable	line:18
+model_name	../venturelift_profiles/migrations/0002_auto_20190218_1650.py	/^            model_name='post',$/;"	kind:variable	line:23
+model_name	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            model_name='business',$/;"	kind:variable	line:18
+model_name	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            model_name='post',$/;"	kind:variable	line:23
+model_name	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            model_name='post',$/;"	kind:variable	line:28
+model_name	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            model_name='supporter',$/;"	kind:variable	line:33
+model_name	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            model_name='supporter',$/;"	kind:variable	line:38
+models.py	../newsletter_subscription/models.py	1;"	kind:file	line:1
+models.py	../venturelift_media/models.py	1;"	kind:file	line:1
+models.py	../venturelift_profiles/models.py	1;"	kind:file	line:1
+name	../venturelift_cms/cms_apps.py	/^    name = _("Homepage Application")$/;"	kind:variable	line:9
+name	../venturelift_media/apps.py	/^    name = 'venturelift_media'$/;"	kind:variable	line:8
+name	../venturelift_media/migrations/0001_initial.py	/^            name='AudioVisual',$/;"	kind:variable	line:23
+name	../venturelift_media/migrations/0001_initial.py	/^            name='Category',$/;"	kind:variable	line:38
+name	../venturelift_media/migrations/0001_initial.py	/^            name='Newsletter',$/;"	kind:variable	line:50
+name	../venturelift_media/migrations/0001_initial.py	/^            name='Subscription',$/;"	kind:variable	line:60
+name	../venturelift_media/migrations/0001_initial.py	/^            name='TextMedia',$/;"	kind:variable	line:72
+name	../venturelift_profiles/apps.py	/^    name = 'venturelift_profiles'$/;"	kind:variable	line:7
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='Business',$/;"	kind:variable	line:21
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='BusinessCategory',$/;"	kind:variable	line:44
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='BusinessFinancial',$/;"	kind:variable	line:55
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='BusinessGoals',$/;"	kind:variable	line:69
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='BusinessInvestment',$/;"	kind:variable	line:82
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='BusinessModel',$/;"	kind:variable	line:98
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='BusinessTeam',$/;"	kind:variable	line:113
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='MarketDescription',$/;"	kind:variable	line:129
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='Post',$/;"	kind:variable	line:144
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='Supporter',$/;"	kind:variable	line:158
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='VlaServices',$/;"	kind:variable	line:168
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='author',$/;"	kind:variable	line:180
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='company',$/;"	kind:variable	line:185
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='likes',$/;"	kind:variable	line:190
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='primary_services_interested_in',$/;"	kind:variable	line:195
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='secondary_services_interested_in',$/;"	kind:variable	line:200
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='sector',$/;"	kind:variable	line:205
+name	../venturelift_profiles/migrations/0001_initial.py	/^            name='verified_by',$/;"	kind:variable	line:210
+name	../venturelift_profiles/migrations/0002_auto_20190218_1650.py	/^            name='author',$/;"	kind:variable	line:19
+name	../venturelift_profiles/migrations/0002_auto_20190218_1650.py	/^            name='likes',$/;"	kind:variable	line:24
+name	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            name='author',$/;"	kind:variable	line:24
+name	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            name='creator',$/;"	kind:variable	line:19
+name	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            name='likes',$/;"	kind:variable	line:29
+name	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            name='user',$/;"	kind:variable	line:34
+name	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^            name='verified_by',$/;"	kind:variable	line:39
+name	../venturelift_profiles/models.py	/^    name = models.CharField(max_length=100)$/;"	kind:variable	line:27
+name	../venturelift_profiles/models.py	/^    name = models.CharField(max_length=250)$/;"	kind:variable	line:37
+name	../venturelift_profiles/models.py	/^    name = models.CharField(max_length=255)$/;"	kind:variable	line:47
+needs_fulfilled_by_product	../venturelift_profiles/models.py	/^    needs_fulfilled_by_product = models.TextField(null=True, blank=True)$/;"	kind:variable	line:74
+newsletter_subscriptions_urlpatterns	../newsletter_subscription/urls.py	/^def newsletter_subscriptions_urlpatterns(**kwargs):$/;"	kind:function	line:7
+number_of_staff	../venturelift_profiles/models.py	/^    number_of_staff = models.IntegerField(null=True, blank=True)$/;"	kind:variable	line:102
+operations	../venturelift_media/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:21
+operations	../venturelift_profiles/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:19
+operations	../venturelift_profiles/migrations/0002_auto_20190218_1650.py	/^    operations = [$/;"	kind:variable	line:16
+operations	../venturelift_profiles/migrations/0003_auto_20190220_1425.py	/^    operations = [$/;"	kind:variable	line:16
+options	../venturelift_media/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:32
+options	../venturelift_media/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:44
+options	../venturelift_media/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:66
+options	../venturelift_media/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:82
+options	../venturelift_profiles/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:107
+options	../venturelift_profiles/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:123
+options	../venturelift_profiles/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:138
+options	../venturelift_profiles/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:151
+options	../venturelift_profiles/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:174
+options	../venturelift_profiles/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:39
+options	../venturelift_profiles/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:50
+options	../venturelift_profiles/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:63
+options	../venturelift_profiles/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:76
+options	../venturelift_profiles/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:92
+ordering	../venturelift_profiles/models.py	/^        ordering = ('-date',)$/;"	kind:variable	line:175
+path	../venturelift_media/models.py	/^    path = models.URLField(max_length=200)$/;"	kind:variable	line:47
+personal_funds_invested	../venturelift_profiles/models.py	/^    personal_funds_invested = models.IntegerField(null=True, blank=True)$/;"	kind:variable	line:129
+primary_services_interested_in	../venturelift_profiles/models.py	/^    primary_services_interested_in = models.ManyToManyField(VlaServices, blank=True, related_name='primary_services')$/;"	kind:variable	line:145
+process	../newsletter_subscription/views.py	/^    def process(self):$/;"	kind:member	line:40
+product_offering	../venturelift_profiles/models.py	/^    product_offering = models.TextField(null=True, blank=True)$/;"	kind:variable	line:72
+profile_choice	../venturelift_profiles/forms.py	/^    profile_choice = forms.ChoiceField(choices=PROFILE_CHOICES, widget=forms.RadioSelect, label='')$/;"	kind:variable	line:64
+queryset	../venturelift_media/views.py	/^    queryset = TextMedia.objects.filter(category__pk=1).order_by('-date')[:4]$/;"	kind:variable	line:9
+queryset	../venturelift_profiles/views.py	/^    queryset = Business.objects.all()$/;"	kind:variable	line:188
+queryset	../venturelift_profiles/views.py	/^    queryset = Business.objects.filter(verified=True)$/;"	kind:variable	line:72
+queryset	../venturelift_profiles/views.py	/^    queryset = Post.objects.all()$/;"	kind:variable	line:20
+queryset	../venturelift_profiles/views.py	/^    queryset = Supporter.objects.filter(verified=True)$/;"	kind:variable	line:57
+readonly_fields	../venturelift_media/admin.py	/^    readonly_fields = ["author"]$/;"	kind:variable	line:10
+readonly_fields	../venturelift_media/admin.py	/^    readonly_fields = ["author"]$/;"	kind:variable	line:21
+readonly_fields	../venturelift_media/admin.py	/^    readonly_fields = ["author"]$/;"	kind:variable	line:30
+readonly_fields	../venturelift_media/admin.py	/^    readonly_fields = ["recipients"]$/;"	kind:variable	line:43
+readonly_fields	../venturelift_profiles/admin.py	/^    readonly_fields = ["added_by"]$/;"	kind:variable	line:34
+readonly_fields	../venturelift_profiles/admin.py	/^    readonly_fields = ["added_by"]$/;"	kind:variable	line:50
+readonly_fields	../venturelift_profiles/admin.py	/^    readonly_fields = ["verified_by"]$/;"	kind:variable	line:11
+readonly_fields	../venturelift_profiles/admin.py	/^    readonly_fields = ["verified_by"]$/;"	kind:variable	line:22
+ready	../venturelift_profiles/apps.py	/^    def ready(self):$/;"	kind:member	line:10
+recipients	../venturelift_media/models.py	/^    recipients = models.TextField(null=True, blank=True)$/;"	kind:variable	line:70
+render_to_mail	../newsletter_subscription/utils.py	/^def render_to_mail(template, context, **kwargs):$/;"	kind:function	line:74
+resubscribe	../newsletter_subscription/views.py	/^def resubscribe(request, code, backend):$/;"	kind:function	line:105
+save	../venturelift_media/models.py	/^    def save(self, *args, **kwargs):$/;"	kind:member	line:76
+save_model	../venturelift_media/admin.py	/^    def save_model(self, request, obj, form, change):$/;"	kind:member	line:13
+save_model	../venturelift_media/admin.py	/^    def save_model(self, request, obj, form, change):$/;"	kind:member	line:24
+save_model	../venturelift_media/admin.py	/^    def save_model(self, request, obj, form, change):$/;"	kind:member	line:32
+save_model	../venturelift_profiles/admin.py	/^    def save_model(self, request, obj, form, change):$/;"	kind:member	line:13
+save_model	../venturelift_profiles/admin.py	/^    def save_model(self, request, obj, form, change):$/;"	kind:member	line:24
+save_model	../venturelift_profiles/admin.py	/^    def save_model(self, request, obj, form, change):$/;"	kind:member	line:36
+save_model	../venturelift_profiles/admin.py	/^    def save_model(self, request, obj, form, change):$/;"	kind:member	line:52
+search_fields	../venturelift_media/admin.py	/^    search_fields = ['title', 'author']$/;"	kind:variable	line:19
+search_fields	../venturelift_media/admin.py	/^    search_fields = ['title', 'category', 'author']$/;"	kind:variable	line:8
+search_fields	../venturelift_profiles/admin.py	/^    search_fields = ['company_name']$/;"	kind:variable	line:59
+search_fields	../venturelift_profiles/admin.py	/^    search_fields = ['company_name']$/;"	kind:variable	line:66
+search_fields	../venturelift_profiles/admin.py	/^    search_fields = ['company_name']$/;"	kind:variable	line:73
+search_fields	../venturelift_profiles/admin.py	/^    search_fields = ['company_name']$/;"	kind:variable	line:80
+search_fields	../venturelift_profiles/admin.py	/^    search_fields = ['company_name']$/;"	kind:variable	line:87
+search_fields	../venturelift_profiles/admin.py	/^    search_fields = ['company_name']$/;"	kind:variable	line:94
+search_fields	../venturelift_profiles/admin.py	/^    search_fields = ['name']$/;"	kind:variable	line:8
+search_fields	../venturelift_profiles/admin.py	/^    search_fields = ['username']$/;"	kind:variable	line:19
+secondary_services_interested_in	../venturelift_profiles/models.py	/^    secondary_services_interested_in = models.ManyToManyField(VlaServices, blank=True, related_name='secondary_services')$/;"	kind:variable	line:146
+sector	../venturelift_profiles/forms.py	/^    sector = forms.ModelChoiceField(queryset=BusinessCategory.objects.all(), required=False,$/;"	kind:variable	line:54
+sector	../venturelift_profiles/models.py	/^    sector = models.ForeignKey(BusinessCategory)$/;"	kind:variable	line:48
+send_notification	../venturelift_cms/tasks.py	/^def send_notification(title, body, EMAIL_HOST_USER, emails):$/;"	kind:function	line:7
+send_subscription_mail	../newsletter_subscription/utils.py	/^def send_subscription_mail(email, request):$/;"	kind:function	line:18
+send_unsubscription_mail	../newsletter_subscription/utils.py	/^def send_unsubscription_mail(email, request):$/;"	kind:function	line:57
+service	../venturelift_profiles/forms.py	/^    service = forms.ModelChoiceField(queryset=VlaServices.objects.all(), required=False,$/;"	kind:variable	line:58
+settings.py	../venturelift_cms/settings.py	1;"	kind:file	line:1
+size	../venturelift_profiles/forms.py	/^    size = forms.ChoiceField(label='Company Size', choices=COMPANY_SIZE, required=False)$/;"	kind:variable	line:61
+size	../venturelift_profiles/models.py	/^    size = models.CharField(max_length=50, choices=BUSINESS_SIZE)$/;"	kind:variable	line:49
+subscribe	../newsletter_subscription/backend.py	/^    def subscribe(self, email):$/;"	kind:member	line:14
+subscribe	../newsletter_subscription/views.py	/^def subscribe(request, code, backend):$/;"	kind:function	line:69
+subscription_details_form	../newsletter_subscription/backend.py	/^    def subscription_details_form(self, email, request):$/;"	kind:member	line:33
+tasks.py	../venturelift_cms/tasks.py	1;"	kind:file	line:1
+team_roles_and_structure	../venturelift_profiles/models.py	/^    team_roles_and_structure = models.FileField(upload_to='team_info\/', null=True, blank=True)$/;"	kind:variable	line:101
+template_name	../venturelift_media/views.py	/^    template_name = 'index.html' $/;"	kind:variable	line:10
+template_name	../venturelift_profiles/views.py	/^    template_name = 'profile\/business.html'$/;"	kind:variable	line:71
+template_name	../venturelift_profiles/views.py	/^    template_name = 'profile\/create_business.html'$/;"	kind:variable	line:88
+template_name	../venturelift_profiles/views.py	/^    template_name = 'profile\/create_supporter.html'$/;"	kind:variable	line:52
+template_name	../venturelift_profiles/views.py	/^    template_name = 'profile\/home.html'$/;"	kind:variable	line:19
+template_name	../venturelift_profiles/views.py	/^    template_name = 'profile\/my_business.html'$/;"	kind:variable	line:187
+template_name	../venturelift_profiles/views.py	/^    template_name = 'profile\/profile_create.html'$/;"	kind:variable	line:43
+template_name	../venturelift_profiles/views.py	/^    template_name = 'profile\/supporters.html'$/;"	kind:variable	line:56
+template_name	../venturelift_profiles/views.py	/^    template_name = 'profile\/update_business.html'$/;"	kind:variable	line:106
+tests.py	../venturelift_media/tests.py	1;"	kind:file	line:1
+tests.py	../venturelift_profiles/tests.py	1;"	kind:file	line:1
+three_year_targeted_revenue	../venturelift_profiles/models.py	/^    three_year_targeted_revenue = models.TextField(null=True, blank=True)$/;"	kind:variable	line:143
+thumbnail_image	../venturelift_media/models.py	/^    thumbnail_image = FilerImageField(null=True, blank=True)$/;"	kind:variable	line:35
+title	../venturelift_media/models.py	/^    title = models.CharField(max_length=100)$/;"	kind:variable	line:19
+title	../venturelift_media/models.py	/^    title = models.CharField(max_length=100)$/;"	kind:variable	line:30
+title	../venturelift_media/models.py	/^    title = models.CharField(max_length=100)$/;"	kind:variable	line:45
+title	../venturelift_media/models.py	/^    title = models.CharField(max_length=250)$/;"	kind:variable	line:68
+title	../venturelift_profiles/models.py	/^    title = models.CharField(max_length=250)$/;"	kind:variable	line:165
+twitter_profile	../venturelift_profiles/models.py	/^    twitter_profile = models.URLField(max_length=200, null=True, blank=True)$/;"	kind:variable	line:55
+unsubscribe	../newsletter_subscription/backend.py	/^    def unsubscribe(self, email):$/;"	kind:member	line:24
+unsubscribe	../newsletter_subscription/views.py	/^def unsubscribe(request, code, backend):$/;"	kind:function	line:118
+urlpatterns	../venturelift_cms/urls.py	/^    urlpatterns = [$/;"	kind:variable	line:34
+urlpatterns	../venturelift_cms/urls.py	/^urlpatterns = [$/;"	kind:variable	line:19
+urlpatterns	../venturelift_media/urls.py	/^urlpatterns = [$/;"	kind:variable	line:4
+urlpatterns	../venturelift_profiles/urls.py	/^urlpatterns = [$/;"	kind:variable	line:6
+urls.py	../newsletter_subscription/urls.py	1;"	kind:file	line:1
+urls.py	../venturelift_cms/urls.py	1;"	kind:file	line:1
+urls.py	../venturelift_media/urls.py	1;"	kind:file	line:1
+urls.py	../venturelift_profiles/urls.py	1;"	kind:file	line:1
+user	../venturelift_profiles/models.py	/^    user = models.ForeignKey(User, related_name='supporter_creator')$/;"	kind:variable	line:156
+utils.py	../newsletter_subscription/utils.py	1;"	kind:file	line:1
+value_proposition_statement	../venturelift_profiles/models.py	/^    value_proposition_statement = models.TextField(null=True, blank=True)$/;"	kind:variable	line:59
+verbose_name	../newsletter_subscription/models.py	/^        verbose_name = _('subscription')$/;"	kind:variable	line:13
+verbose_name	../venturelift_media/apps.py	/^    verbose_name = "VLA Media"$/;"	kind:variable	line:9
+verbose_name	../venturelift_media/models.py	/^        verbose_name = 'Audio\/visual media'$/;"	kind:variable	line:55
+verbose_name	../venturelift_media/models.py	/^        verbose_name = 'Media article'$/;"	kind:variable	line:41
+verbose_name	../venturelift_media/models.py	/^        verbose_name = 'Media category'$/;"	kind:variable	line:26
+verbose_name	../venturelift_media/models.py	/^        verbose_name = 'Newsletter subscriber'$/;"	kind:variable	line:61
+verbose_name	../venturelift_profiles/apps.py	/^    verbose_name = "VLA Portal"$/;"	kind:variable	line:8
+verbose_name	../venturelift_profiles/models.py	/^        verbose_name = 'Business Financials'$/;"	kind:variable	line:120
+verbose_name	../venturelift_profiles/models.py	/^        verbose_name = 'Business Goal'$/;"	kind:variable	line:149
+verbose_name	../venturelift_profiles/models.py	/^        verbose_name = 'Business Investment'$/;"	kind:variable	line:135
+verbose_name	../venturelift_profiles/models.py	/^        verbose_name = 'Business Market Description'$/;"	kind:variable	line:78
+verbose_name	../venturelift_profiles/models.py	/^        verbose_name = 'Business Model'$/;"	kind:variable	line:92
+verbose_name	../venturelift_profiles/models.py	/^        verbose_name = 'Business Team'$/;"	kind:variable	line:107
+verbose_name	../venturelift_profiles/models.py	/^        verbose_name = 'Business Updates'$/;"	kind:variable	line:173
+verbose_name_plural	../newsletter_subscription/models.py	/^        verbose_name_plural = _('subscriptions')$/;"	kind:variable	line:14
+verbose_name_plural	../venturelift_media/models.py	/^        verbose_name_plural = 'Articles media'$/;"	kind:variable	line:42
+verbose_name_plural	../venturelift_media/models.py	/^        verbose_name_plural = 'Audio\/visual media'$/;"	kind:variable	line:56
+verbose_name_plural	../venturelift_media/models.py	/^        verbose_name_plural = 'Media categories'$/;"	kind:variable	line:27
+verbose_name_plural	../venturelift_media/models.py	/^        verbose_name_plural = 'Newsletter subscribers'$/;"	kind:variable	line:62
+verbose_name_plural	../venturelift_profiles/models.py	/^        verbose_name_plural = 'Business Categories'$/;"	kind:variable	line:34
+verbose_name_plural	../venturelift_profiles/models.py	/^        verbose_name_plural = 'Business Financials'$/;"	kind:variable	line:121
+verbose_name_plural	../venturelift_profiles/models.py	/^        verbose_name_plural = 'Business Goals'$/;"	kind:variable	line:150
+verbose_name_plural	../venturelift_profiles/models.py	/^        verbose_name_plural = 'Business Investments'$/;"	kind:variable	line:136
+verbose_name_plural	../venturelift_profiles/models.py	/^        verbose_name_plural = 'Business Market Description'$/;"	kind:variable	line:79
+verbose_name_plural	../venturelift_profiles/models.py	/^        verbose_name_plural = 'Business Models'$/;"	kind:variable	line:93
+verbose_name_plural	../venturelift_profiles/models.py	/^        verbose_name_plural = 'Business Teams'$/;"	kind:variable	line:108
+verbose_name_plural	../venturelift_profiles/models.py	/^        verbose_name_plural = 'Business Updates'$/;"	kind:variable	line:174
+verbose_name_plural	../venturelift_profiles/models.py	/^        verbose_name_plural = 'Businesses'$/;"	kind:variable	line:65
+verbose_name_plural	../venturelift_profiles/models.py	/^        verbose_name_plural = 'Vla Services'$/;"	kind:variable	line:41
+verified	../venturelift_profiles/models.py	/^    verified = models.BooleanField(default=False)$/;"	kind:variable	line:158
+verified	../venturelift_profiles/models.py	/^    verified = models.BooleanField(default=False)$/;"	kind:variable	line:61
+verified_by	../venturelift_profiles/models.py	/^    verified_by = models.ForeignKey(User, related_name='business_verifier', null=True, blank=True)$/;"	kind:variable	line:62
+verified_by	../venturelift_profiles/models.py	/^    verified_by = models.ForeignKey(User, related_name='supporter_verifier', null=True, blank=True)$/;"	kind:variable	line:159
+views.py	../newsletter_subscription/views.py	1;"	kind:file	line:1
+views.py	../venturelift_media/views.py	1;"	kind:file	line:1
+views.py	../venturelift_profiles/views.py	1;"	kind:file	line:1
+widget	../newsletter_subscription/views.py	/^        widget=forms.TextInput(attrs={$/;"	kind:variable	line:15
+wsgi.py	../venturelift_cms/wsgi.py	1;"	kind:file	line:1
+year_of_company_registration	../venturelift_profiles/models.py	/^    year_of_company_registration = models.IntegerField(choices=YEAR_CHOICES)$/;"	kind:variable	line:58
