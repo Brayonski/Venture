@@ -2,35 +2,48 @@ from venturelift_profiles.models import *
 from django.forms import ModelForm
 from django import forms
 
+
 class CreateBusinessForm(ModelForm):
     class Meta:
         model = Business
         exclude = ['verified', 'verified_by', 'creator']
+
+
+class CreateBlogForm(ModelForm):
+    class Meta:
+        model = Post
+        exclude = ['date', 'likes', 'author']
+
 
 class MarketDescriptionForm(ModelForm):
     class Meta:
         model = MarketDescription
         exclude = ['company_name']
 
+
 class BusinessModelForm(ModelForm):
     class Meta:
         model = BusinessModel
         exclude = ['company_name']
+
 
 class BusinessTeamForm(ModelForm):
     class Meta:
         model = BusinessTeam
         exclude = ['company_name']
 
+
 class BusinessFinancialForm(ModelForm):
     class Meta:
         model = BusinessFinancial
         exclude = ['company_name']
 
+
 class BusinessInvestmentForm(ModelForm):
     class Meta:
         model = BusinessInvestment
         exclude = ['company_name']
+
 
 class BusinessGoalsForm(ModelForm):
     class Meta:
@@ -49,11 +62,8 @@ class BusinessFilters(forms.Form):
     sector = forms.ModelChoiceField(queryset=BusinessCategory.objects.all(), required=False,
                                     label='Sector')
 
-
     service = forms.ModelChoiceField(queryset=VlaServices.objects.all(), required=False,
                                      label='Services needed')
 
-    size = forms.ChoiceField(label='Company Size', choices=COMPANY_SIZE, required=False)
-
-    
-
+    size = forms.ChoiceField(label='Company Size',
+                             choices=COMPANY_SIZE, required=False)

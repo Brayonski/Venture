@@ -21,7 +21,8 @@ FUNDING_SOURCES = (
 
 YEAR_CHOICES = []
 for r in range(1960, (datetime.datetime.now().year+1)):
-    YEAR_CHOICES.append((r,r))
+    YEAR_CHOICES.append((r, r))
+
 
 class BusinessCategory(models.Model):
     name = models.CharField(max_length=100)
@@ -33,6 +34,7 @@ class BusinessCategory(models.Model):
     class Meta:
         verbose_name_plural = 'Business Categories'
 
+
 class VlaServices(models.Model):
     name = models.CharField(max_length=250)
     added_by = models.ForeignKey(User)
@@ -42,6 +44,7 @@ class VlaServices(models.Model):
 
     def __unicode__(self):
         return self.name
+
 
 class Business(models.Model):
     name = models.CharField(max_length=255)
@@ -59,13 +62,15 @@ class Business(models.Model):
     value_proposition_statement = models.TextField(null=True, blank=True)
     full_time_employee_count = models.IntegerField()
     verified = models.BooleanField(default=False)
-    verified_by = models.ForeignKey(User, related_name='business_verifier', null=True, blank=True)
+    verified_by = models.ForeignKey(
+        User, related_name='business_verifier', null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Businesses'
 
     def __unicode__(self):
         return self.name
+
 
 class MarketDescription(models.Model):
     company_name = models.ForeignKey(Business)
@@ -81,6 +86,7 @@ class MarketDescription(models.Model):
     def __unicode__(self):
         return self.company_name.name
 
+
 class BusinessModel(models.Model):
     company_name = models.ForeignKey(Business)
     business_model = models.TextField(null=True, blank=True)
@@ -95,13 +101,18 @@ class BusinessModel(models.Model):
     def __unicode__(self):
         return self.company_name.name
 
+
 class BusinessTeam(models.Model):
     company_name = models.ForeignKey(Business)
-    founders_info = models.FileField(upload_to='founders_info/', null=True, blank=True)
-    team_roles_and_structure = models.FileField(upload_to='team_info/', null=True, blank=True)
+    founders_info = models.FileField(
+        upload_to='founders_info/', null=True, blank=True)
+    team_roles_and_structure = models.FileField(
+        upload_to='team_info/', null=True, blank=True)
     number_of_staff = models.IntegerField(null=True, blank=True)
-    board_of_advisors = models.FileField(upload_to='board_advisors/', null=True, blank=True)
-    board_of_directors = models.FileField(upload_to='board_directors/', null=True, blank=True)
+    board_of_advisors = models.FileField(
+        upload_to='board_advisors/', null=True, blank=True)
+    board_of_directors = models.FileField(
+        upload_to='board_directors/', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Business Team'
@@ -109,6 +120,7 @@ class BusinessTeam(models.Model):
 
     def __unicode__(self):
         return self.company_name.name
+
 
 class BusinessFinancial(models.Model):
     company_name = models.ForeignKey(Business)
@@ -123,9 +135,11 @@ class BusinessFinancial(models.Model):
     def __unicode__(self):
         return self.company_name.name
 
+
 class BusinessInvestment(models.Model):
     company_name = models.ForeignKey(Business)
-    funding_source = models.CharField(max_length=200, choices=FUNDING_SOURCES, null=True, blank=True)
+    funding_source = models.CharField(
+        max_length=200, choices=FUNDING_SOURCES, null=True, blank=True)
     personal_funds_invested = models.IntegerField(null=True, blank=True)
     external_funds_invested = models.IntegerField(null=True, blank=True)
     current_debt = models.BooleanField(default=False)
@@ -138,12 +152,15 @@ class BusinessInvestment(models.Model):
     def __unicode__(self):
         return self.company_name.name
 
+
 class BusinessGoals(models.Model):
     company_name = models.ForeignKey(Business)
     three_year_targeted_revenue = models.TextField(null=True, blank=True)
     constraints_to_growth = models.TextField(null=True, blank=True)
-    primary_services_interested_in = models.ManyToManyField(VlaServices, blank=True, related_name='primary_services')
-    secondary_services_interested_in = models.ManyToManyField(VlaServices, blank=True, related_name='secondary_services')
+    primary_services_interested_in = models.ManyToManyField(
+        VlaServices, blank=True, related_name='primary_services')
+    secondary_services_interested_in = models.ManyToManyField(
+        VlaServices, blank=True, related_name='secondary_services')
 
     class Meta:
         verbose_name = 'Business Goal'
@@ -151,6 +168,7 @@ class BusinessGoals(models.Model):
 
     def __unicode__(self):
         return self.company_name.name
+
 
 class Supporter(models.Model):
     user = models.ForeignKey(User)
@@ -161,13 +179,15 @@ class Supporter(models.Model):
     def __unicode__(self):
         return self.user.username
 
+
 class Post(models.Model):
     title = models.CharField(max_length=250)
     body = fields.HTMLField()
     company = models.ForeignKey(Business, null=True, blank=True)
-    author = models.ForeignKey(Supporter, null=True, blank=True)
+    author = models.ForeignKey(
+        User, null=True, blank=True, related_name='author')
     date = models.DateTimeField(auto_now_add=True)
-    likes = models.ManyToManyField(User, blank=True)
+    likes = models.ManyToManyField(User, blank=True, related_name='likes')
 
     class Meta:
         verbose_name = 'Business Updates'
