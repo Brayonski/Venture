@@ -29,6 +29,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         context = super(SummaryView, self).get_context_data(*args, **kwargs)
         companies_following = following(self.request.user, Business)
         supporters_following = following(self.request.user, Supporter)
+        print(supporters_following)
         posts = Post.objects.filter(
             Q(company__in=companies_following) | Q(author__in=supporters_following))
         context['object_list'] = posts
@@ -117,19 +118,24 @@ class CreateBlogPostView(LoginRequiredMixin, CreateView):
     template_name = 'blog/create_post.html'
     form_class = CreateBlogForm
 
+    def get_form_kwargs(self):
+        kwargs = super(CreateBlogPostView, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
+
     def get_initial(self):
         queryset = Business.objects.filter(creator=self.request.user)
-        businesses = [q.name for q in queryset]
-        print(businesses)
-        return {'company': businesses}
+        return {'company': queryset}
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
-        self.object.author = self.request.user
+        if 'company' in form.cleaned_data:
+            self.object.company = form.cleaned_data['company']
+        else:
+            self.object.author = Supporter.objects.get(user=self.request.user)
         self.object.save()
 
         return redirect(reverse('profile_summary'))
-
 
 class UpdateBusinessView(LoginRequiredMixin, UpdateView):
     template_name = 'profile/update_business.html'

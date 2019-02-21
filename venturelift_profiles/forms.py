@@ -8,11 +8,22 @@ class CreateBusinessForm(ModelForm):
         model = Business
         exclude = ['verified', 'verified_by', 'creator']
 
-
 class CreateBlogForm(ModelForm):
     class Meta:
         model = Post
         exclude = ['date', 'likes', 'author']
+
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None)
+        super(CreateBlogForm, self).__init__(*args, **kwargs)
+        modelchoicefields = [field for field_name, field in self.fields.iteritems() if
+            isinstance(field, forms.ModelChoiceField)]
+
+        for field in modelchoicefields:
+            field.empty_label = None
+
+        if self.user.supporter_creator.exists():
+            self.fields.pop("company")
 
 
 class MarketDescriptionForm(ModelForm):
