@@ -154,7 +154,7 @@ class BusinessInvestment(models.Model):
 
 
 class BusinessGoals(models.Model):
-    company_name = models.ForeignKey(Business)
+    company_name = models.ForeignKey(Business, related_name='business_goals')
     three_year_targeted_revenue = models.TextField(null=True, blank=True)
     constraints_to_growth = models.TextField(null=True, blank=True)
     primary_services_interested_in = models.ManyToManyField(

@@ -1,9 +1,10 @@
-{% extends 'profile/base.html' %}
+{% extends 'profile/base.html' %}%%
 {% load crispy_forms_tags %}
 
 {% block content %}
     <h3>Businesses</h3>
     <form method='post' class='col-sm-6'>
+        {% csrf_token %}
         <input class='form-control' name='company-name' placeholder='search a business'/>
     </form>
     <br/>

@@ -29,7 +29,6 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         context = super(SummaryView, self).get_context_data(*args, **kwargs)
         companies_following = following(self.request.user, Business)
         supporters_following = following(self.request.user, Supporter)
-        print(supporters_following)
         posts = Post.objects.filter(
             Q(company__in=companies_following) | Q(author__in=supporters_following))
         context['object_list'] = posts
@@ -80,6 +79,18 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
     template_name = 'profile/business.html'
     queryset = Business.objects.filter(verified=True)
     form_class = BusinessFilters
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            if request.POST.get('company-name'):
+                business = Business.objects.filter(name__icontains=request.POST.get('company-name'))
+            else:                
+                business = Business.objects.filter(Q(sector=form.cleaned_data['sector'])|
+                                                Q(size=form.cleaned_data['size'])|
+                                                Q(business_goals__primary_services_interested_in=form.cleaned_data['service'])|
+                                                Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
+            return render(request, self.template_name, {'object_list':business, 'form':form})
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessView, self).get_context_data(*args, **kwargs)
