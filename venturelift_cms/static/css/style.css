@@ -380,7 +380,7 @@ body.auth_pages a.navbar-brand {
     background: transparent !important;
 }
 body.auth_pages {
-    background: #040439 url('static/img/signup-bg.jpg') center center no-repeat;
+    background: #040439 url('../img/signup-bg.jpg') center center no-repeat;
     background-size: cover; 
     color: #FFF;
     padding-top: 0px;
@@ -390,11 +390,9 @@ body.auth_pages .full_width.footer {
 }
 figure.list_A ul li {
     margin-bottom: 20px;
-    padding-left: 65px;
-    background-image: url('static/img/favicon.png');
-    background-repeat: no-repeat;
-    background-size: 25px;
-    background-position: 25px 15px;
+    padding-left: 60px;
+    background-size: 30px;
+    background-position: 10px 0px;
     -moz-transition-duration: .6s;
     -o-transition-duration: .6s;
     -webkit-transition-duration: .6s;
@@ -404,7 +402,14 @@ figure.list_A ul li {
     -ms-transform: translate(0,0);
     -webkit-transform: translate(0,0);
     transform: translate(0,0);
+    background-repeat: no-repeat;
+    line-height: 1.6em;
 }
+figure.list_A ul li:nth-child(1) { background-image: url('../img/icon-1.svg'); }
+figure.list_A ul li:nth-child(2) { background-image: url('../img/icon-2.svg'); }
+figure.list_A ul li:nth-child(3) { background-image: url('../img/icon-3.svg'); }
+figure.list_A ul li:nth-child(4) { background-image: url('../img/icon-4.svg'); }
+figure.list_A ul li:nth-child(5) { background-image: url('../img/icon-5.svg'); }
 
 figure.list_A ul {
     padding-left: 0px;
@@ -466,13 +471,57 @@ form.form_A textarea {
     box-shadow: none;
     min-height: 40px;
 }
+.onboarding_A button.btn {
+    width: 100%;
+}
+div#div_id_profile_choice {
+    margin-bottom: 3px;
+}
+.onboarding_A {
+    padding-bottom: 60px;
+}
+
+div#div_id_profile_choice, .alert.alert-block.alert-danger {
+    text-align: left;
+}
+
+.form-check {
+    background: rgba(40, 56, 145, 0.04);
+    padding: 4px 12px;
+    margin-bottom: 4px;
+}
+.form-check, label {
+    width: 100%;
+}
+
 .submit_A {
     display: block;
     width: 100%;
     background: #29ac4b;
     font-size: 1.2em;
+    border-radius: 0px;
     font-weight: 300;
 }
 .submit_A:hover {
     background: #138c33;
+}
+.full_w_form, 
+.full_w_form form, 
+.full_w_form input {
+    width: 100%;
+    position: relative;
+}
+.full_w_form .form-group {
+    width: 100%;
+}
+.full_w_form label {
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.62);
+}
+.full_w_form input {
+    border-radius: 0px;
+    background: transparent;
+    color: #FFF;
+    border: 2px solid rgba(255, 255, 255, 0.23);
+    height: 40px;
 }
