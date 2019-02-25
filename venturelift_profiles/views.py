@@ -80,6 +80,18 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
     queryset = Business.objects.filter(verified=True)
     form_class = BusinessFilters
 
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            if request.POST.get('company-name'):
+                business = Business.objects.filter(name__icontains=request.POST.get('company-name'))
+            else:                
+                business = Business.objects.filter(Q(sector=form.cleaned_data['sector'])|
+                                                Q(size=form.cleaned_data['size'])|
+                                                Q(business_goals__primary_services_interested_in=form.cleaned_data['service'])|
+                                                Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
+            return render(request, self.template_name, {'object_list':business, 'form':form})
+
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessView, self).get_context_data(*args, **kwargs)
         current_url = resolve(self.request.path_info).url_name
@@ -117,19 +129,24 @@ class CreateBlogPostView(LoginRequiredMixin, CreateView):
     template_name = 'blog/create_post.html'
     form_class = CreateBlogForm
 
+    def get_form_kwargs(self):
+        kwargs = super(CreateBlogPostView, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
+
     def get_initial(self):
         queryset = Business.objects.filter(creator=self.request.user)
-        businesses = [q.name for q in queryset]
-        print(businesses)
-        return {'company': businesses}
+        return {'company': queryset}
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
-        self.object.author = self.request.user
+        if 'company' in form.cleaned_data:
+            self.object.company = form.cleaned_data['company']
+        else:
+            self.object.author = Supporter.objects.get(user=self.request.user)
         self.object.save()
 
         return redirect(reverse('profile_summary'))
-
 
 class UpdateBusinessView(LoginRequiredMixin, UpdateView):
     template_name = 'profile/update_business.html'

@@ -154,7 +154,7 @@ class BusinessInvestment(models.Model):
 
 
 class BusinessGoals(models.Model):
-    company_name = models.ForeignKey(Business)
+    company_name = models.ForeignKey(Business, related_name='business_goals')
     three_year_targeted_revenue = models.TextField(null=True, blank=True)
     constraints_to_growth = models.TextField(null=True, blank=True)
     primary_services_interested_in = models.ManyToManyField(
@@ -186,7 +186,7 @@ class Post(models.Model):
     body = fields.HTMLField()
     company = models.ForeignKey(Business, null=True, blank=True)
     author = models.ForeignKey(
-        User, null=True, blank=True, related_name='author')
+        Supporter, null=True, blank=True, related_name='author')
     date = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, blank=True, related_name='likes')
 
