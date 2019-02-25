@@ -1,15 +1,47 @@
 {% extends 'profile/base.html' %}
-
 {% block content %}
-    <h3>Supporters</h3>
-    <ul>
-        {% for obj in object_list %}
-            <li>{{obj.user.username}}</li>
-            {% if obj in following %}
-                <a href="{% url 'supporter_unfollow' obj.id %}"><button class="btn btn-default">Unfollow</button></a>
-            {% else %}
-                <a href="{% url 'supporter_follow' obj.id %}"><button class="btn btn-default">Follow</button></a>
-            {% endif %}
-            {% endfor %}
-    </ul>
+
+<div class="full_A">
+    <div class="columns_A flex row clearfix">
+        <div class="col_A_out col_A_out_1 col-md-3 clearfix">
+            <div class="col_A_in col_A_in_1">
+                <!--
+                <figure class="user_icon_nav_2 side_nav">
+                    <img src="http://localhost:8000/static/img/icon-user3.png" alt="Welcome">
+                </figure>                
+                <h4 class="style_F">{{ user.get_username }}</h4>
+                -->
+
+                <ul class="actions_A">
+                    <li><a href="#nogo">Edit my profile</a></li>
+                    <li><a href="{% url 'my_business' %}">Add business</a></li>
+                    <li><a href="{% url 'new_blog_post' %}">New Blog Post</a></li>
+                </ul>
+            
+            </div>  
+        </div>  
+        <div class="col_A_out col_A_out_2 col-md-7 clearfix">
+            <div class="col_A_in col_A_in_2">
+                <h3>Supporters</h3>
+                <ul>
+                    {% for obj in object_list %}
+                        <li>{{obj.user.username}}</li>
+                        {% if obj in following %}
+                            <a href="{% url 'supporter_unfollow' obj.id %}"><button class="btn btn-default">Unfollow</button></a>
+                        {% else %}
+                            <a href="{% url 'supporter_follow' obj.id %}"><button class="btn btn-default">Follow</button></a>
+                        {% endif %}
+                        {% endfor %}
+                </ul>              
+            </div>              
+        </div>
+        <div class="col_A_out col_A_out_3 col-md-2 clearfix">
+            <div class="col_A_in col_A_in_3">
+                <h4>Sidebar</h4>
+            </div>              
+        </div>        
+    </div>
+</div>
+
+
 {% endblock %}

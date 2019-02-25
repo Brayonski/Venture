@@ -1,33 +1,63 @@
 {% extends 'profile/base.html' %}%%
 {% load crispy_forms_tags %}
-
 {% block content %}
-    <h3>Businesses</h3>
-    <form method='post' class='col-sm-6'>
-        {% csrf_token %}
-        <input class='form-control' name='company-name' placeholder='search a business'/>
-    </form>
-    <br/>
-    <br/>
-    <div class='col-md-6'>
-        <ul>
-            {% for obj in object_list %}
-                <li>{{obj.name}}</li>
-                {% if obj in following %}
-                    <a href="{% url 'business_unfollow' obj.id %}"><button class="btn btn-default">Unfollow</button></a>
-                {% else %}
-                    <a href="{% url 'business_follow' obj.id %}"><button class="btn btn-default">Follow</button></a>
-                {% endif %}
-                {% endfor %}
-        </ul>
-    </div>
 
-    <div class='col-md-4'>
-    <p><b>Filter company by:</b></p>
-    <form method='post'>
-    {% csrf_token %}
-    {{form|crispy }}
-    <button class='btn btn-success'>Filter</button>
-    </form>
+
+<div class="full_A">
+    <div class="columns_A flex row clearfix">
+        <div class="col_A_out col_A_out_1 col-md-3 clearfix">
+            <div class="col_A_in col_A_in_1">
+
+                <ul class="actions_A">
+                    <li><a href="#nogo">Edit my profile</a></li>
+                    <li><a href="{% url 'my_business' %}">Add business</a></li>
+                    <li><a href="{% url 'new_blog_post' %}">New Blog Post</a></li>
+                </ul>
+            
+            </div>  
+        </div>  
+        <div class="col_A_out col_A_out_2 col-md-7 clearfix">
+            <div class="col_A_in col_A_in_2">
+
+                <h3>Businesses</h3>
+                <form method='post' class='col-sm-6'>
+                    {% csrf_token %}
+                    <input class='form-control' name='company-name' placeholder='search a business'/>
+                </form>
+
+                <div class='col-md-6'>
+                    <ul>
+                        {% for obj in object_list %}
+                            <li>{{obj.name}}</li>
+                            {% if obj in following %}
+                                <a href="{% url 'business_unfollow' obj.id %}"><button class="btn btn-default">Unfollow</button></a>
+                            {% else %}
+                                <a href="{% url 'business_follow' obj.id %}"><button class="btn btn-default">Follow</button></a>
+                            {% endif %}
+                            {% endfor %}
+                    </ul>
+                </div>
+
+                <div class='col-md-4'>
+                <p><b>Filter company by:</b></p>
+                <form method='post'>
+                {% csrf_token %}
+                {{form|crispy }}
+                <button class='btn btn-success'>Filter</button>
+                </form>
+                </div>
+
+            </div>  
+        </div>
+        <div class="col_A_out col_A_out_3 col-md-2 clearfix">
+            <div class="col_A_in col_A_in_3">
+                <h4>Sidebar</h4>
+            </div>              
+        </div>        
     </div>
+</div>
+
+
+
+
 {% endblock %}

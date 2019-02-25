@@ -2,29 +2,55 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <div class='container'>
-    <h3>My Businesses</h3>
-    <a href="{% url 'create_business_step1' %}"><button class='btn btn-primary'>Add a new business</button></a>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Sector</th>
-                <th scope="col">Address</th>
-                <th scope="col">Verified</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for obj in object_list %}
-                <tr>       
-                    <td><a href="{% url 'update_business_step1' obj.id %}">
-                    {{obj.name}}</a></td>
-                    <td>{{obj.sector}}</td>
-                    <td>{{obj.address}}</td>
-                    <td>{{obj.verified}}</td>   
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+
+
+<div class="full_A">
+    <div class="columns_A flex row clearfix">
+        <div class="col_A_out col_A_out_1 col-md-3 clearfix">
+            <div class="col_A_in col_A_in_1">
+
+                <ul class="actions_A">
+                    <li><a href="#nogo">Edit my profile</a></li>
+                    <li><a href="{% url 'my_business' %}">Add business</a></li>
+                    <li><a href="{% url 'new_blog_post' %}">New Blog Post</a></li>
+                </ul>
+            
+            </div>  
+        </div>  
+        <div class="col_A_out col_A_out_2 col-md-7 clearfix">
+            <div class="col_A_in col_A_in_2">
+                <h3>My Businesses</h3>
+                <a href="{% url 'create_business_step1' %}"><button class='btn btn-primary'>Add a new business</button></a>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Sector</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Verified</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for obj in object_list %}
+                        <tr>       
+                            <td><a href="{% url 'update_business_step1' obj.id %}">
+                            {{obj.name}}</a></td>
+                            <td>{{obj.sector}}</td>
+                            <td>{{obj.address}}</td>
+                            <td>{{obj.verified}}</td>   
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>  
+        </div>
+        <div class="col_A_out col_A_out_3 col-md-2 clearfix">
+            <div class="col_A_in col_A_in_3">
+                <h4>Sidebar</h4>
+            </div>              
+        </div>        
     </div>
+</div>
+
+
 {% endblock %}
