@@ -56,10 +56,14 @@ class SupporterCreateView(LoginRequiredMixin, CreateView):
     template_name = 'profile/create_supporter.html'
     form_class = SupporterCreateForm
 
-
 class SupporterView(LoginRequiredMixin, ListView):
     template_name = 'profile/supporters.html'
     queryset = Supporter.objects.filter(verified=True)
+
+    def dispatch(self, request, *args, **kwargs):
+        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()):
+            return redirect(reverse('profile_create'))
+        return super(SupporterView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, *args, **kwargs):
         context = super(SupporterView, self).get_context_data(*args, **kwargs)
@@ -79,6 +83,11 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
     template_name = 'profile/business.html'
     queryset = Business.objects.filter(verified=True)
     form_class = BusinessFilters
+
+    def dispatch(self, request, *args, **kwargs):
+        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()):
+            return redirect(reverse('profile_create'))
+        return super(BusinessView, self).dispatch(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
