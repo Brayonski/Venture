@@ -98,5 +98,3 @@ class SupporterCreateForm(forms.ModelForm):
     class Meta:
         model = Supporter
         exclude = ['user', 'verified_by', 'verified']
-    size = forms.ChoiceField(label='Company Size',
-                             choices=COMPANY_SIZE, required=False)
