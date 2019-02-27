@@ -37,7 +37,11 @@
                             {{obj.name}}</a></td>
                             <td>{{obj.sector}}</td>
                             <td>{{obj.address}}</td>
-                            <td>{{obj.verified}}</td>   
+                            {% if obj.verified %}
+                                <td><i class='glyphicon glyphicon-ok'></i></td>   
+                            {% else %}
+                                <td><i class='glyphicon glyphicon-remove'></i>{{obj.verified}}</td>
+                            {% endif %}
                         </tr>
                         {% endfor %}
                     </tbody>
