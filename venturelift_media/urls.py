@@ -1,6 +1,8 @@
 from django.conf.urls import include, url
-from .views import HomeView
+from venturelift_media import views
 
 urlpatterns = [
-    url(r'^$', HomeView.as_view(), name='homepage'),
+    url(r'^$', views.HomeView.as_view(), name='homepage'),
+    url(r'^stories/media/(?P<pk>\d+)/$',
+        views.TextMediaView.as_view(), name='media_story'),
 ]

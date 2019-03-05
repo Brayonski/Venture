@@ -56,6 +56,7 @@ class SupporterCreateView(LoginRequiredMixin, CreateView):
     template_name = 'profile/create_supporter.html'
     form_class = SupporterCreateForm
 
+
 class SupporterView(LoginRequiredMixin, ListView):
     template_name = 'profile/supporters.html'
     queryset = Supporter.objects.filter(verified=True)
@@ -93,13 +94,14 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
         form = self.get_form()
         if form.is_valid():
             if request.POST.get('company-name'):
-                business = Business.objects.filter(name__icontains=request.POST.get('company-name'))
-            else:                
-                business = Business.objects.filter(Q(sector=form.cleaned_data['sector'])|
-                                                Q(size=form.cleaned_data['size'])|
-                                                Q(business_goals__primary_services_interested_in=form.cleaned_data['service'])|
-                                                Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
-            return render(request, self.template_name, {'object_list':business, 'form':form})
+                business = Business.objects.filter(
+                    name__icontains=request.POST.get('company-name'))
+            else:
+                business = Business.objects.filter(Q(sector=form.cleaned_data['sector']) |
+                                                   Q(size=form.cleaned_data['size']) |
+                                                   Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
+                                                   Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
+            return render(request, self.template_name, {'object_list': business, 'form': form})
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessView, self).get_context_data(*args, **kwargs)
@@ -156,6 +158,7 @@ class CreateBlogPostView(LoginRequiredMixin, CreateView):
         self.object.save()
 
         return redirect(reverse('profile_summary'))
+
 
 class UpdateBusinessView(LoginRequiredMixin, UpdateView):
     template_name = 'profile/update_business.html'
