@@ -10,21 +10,23 @@ from newsletter_subscription.models import SubscriptionBase
 from django.conf import settings
 from venturelift_cms.tasks import send_notification
 
-AUDIOVISUALCHOICES= (
+AUDIOVISUALCHOICES = (
     ("Podcast", "Podcast"),
     ("Video", "Video"),
 )
+
 
 class Category(models.Model):
     title = models.CharField(max_length=100)
     author = models.ForeignKey(User)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     class Meta:
         verbose_name = 'Media category'
         verbose_name_plural = 'Media categories'
+
 
 class TextMedia(models.Model):
     title = models.CharField(max_length=100)
@@ -34,12 +36,13 @@ class TextMedia(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     thumbnail_image = FilerImageField(null=True, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     class Meta:
         verbose_name = 'Media article'
         verbose_name_plural = 'Articles media'
+
 
 class AudioVisual(models.Model):
     title = models.CharField(max_length=100)
@@ -48,21 +51,23 @@ class AudioVisual(models.Model):
     author = models.ForeignKey(User)
     category = models.CharField(max_length=100, choices=AUDIOVISUALCHOICES)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     class Meta:
         verbose_name = 'Audio/visual media'
         verbose_name_plural = 'Audio/visual media'
 
+
 class Subscription(SubscriptionBase):
 
     class Meta:
         verbose_name = 'Newsletter subscriber'
         verbose_name_plural = 'Newsletter subscribers'
-    
-    def __unicode__(self):
+
+    def __str__(self):
         return self.email
+
 
 class Newsletter(models.Model):
     title = models.CharField(max_length=250)
@@ -70,7 +75,7 @@ class Newsletter(models.Model):
     recipients = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def save(self, *args, **kwargs):
@@ -78,5 +83,6 @@ class Newsletter(models.Model):
         emails = [sub.email for sub in subs]
         self.recipients = json.dumps(emails)
 
-        send_notification.delay(self.title, self.body, settings.EMAIL_HOST_USER, emails)
+        send_notification.delay(self.title, self.body,
+                                settings.EMAIL_HOST_USER, emails)
         super(Newsletter, self).save(*args, **kwargs)
