@@ -1,8 +1,10 @@
 {% extends 'portal_base.html' %}
 {% block content %}
-    <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Registration successful!</h4>
-        <p>Your account is active </p>
-        <a href="{% url 'login_override' %}"><button class='btn btn-success'>Login to your account</button></a>
-    </div>
+	<div class="feedback_A row clearfix">
+	    <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 text-center alert alert-success" role="alert">
+        	<h2 class="alert-heading">Registration successful!</h2>
+    	    <p>Your account is active </p>
+	        <a href="{% url 'login_override' %}"><button class='btn btn-success'>Login to your account</button></a>
+	    </div>
+	</div> 
 {% endblock %}
