@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from .models import TextMedia, AudioVisual, Category
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 class HomeView(ListView):
     queryset = TextMedia.objects.filter(category__pk=1).order_by('-date')[:4]
@@ -25,3 +25,6 @@ class HomeView(ListView):
             article = TextMedia.objects.filter(category=category)[:1]
             articles.append(article[0])
         return articles
+
+class StoryDetailView(DetailView):
+    pass

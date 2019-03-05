@@ -130,7 +130,7 @@
     {% for obj in stories_bottom %}
       <div class="col-md-4 clearfix">
         <div class="in_style_A">
-          <a href="#nogo">
+          <a href="{% url 'story_detail' obj.pk%}">
             <figure class="in_style_A_img">
               <img src="{{obj.thumbnail_image.url}}">
             </figure>

@@ -20,7 +20,8 @@ urlpatterns = [
     url(r'^sitemap\.xml$', sitemap,
         {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^profile/', include('venturelift_profiles.urls')),
-    url(r'^$', RegistrationView.as_view(), name='registration_in'),
+    url(r'^registration/', RegistrationView.as_view(), name='registration_in'),
+    url(r'^', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription),))),
 ]
 
 urlpatterns += i18n_patterns(
