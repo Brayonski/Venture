@@ -29,7 +29,7 @@
 
 <style type="text/css">
 body {
-    background: url("/static/img/newsletter-bg.jpg");
+    background: #283891 url(/static/img/signup-bg.jpg) bottom center fixed;
     background-size: cover;
 }
 a.navbar-brand {
@@ -57,32 +57,39 @@ a.navbar-brand img {
     font-size: 1.8em;
     padding-right: 100px;
     line-height: 1.4em;
+    margin-top: 0px;
 }  
+.md-in-A h2.style_2 {
+    margin: 0px 0px;
+}
 .form_control {
-    padding: 0px 0px 40px;
+    padding: 0px 0px 0px;
 }
 .form_control input#EmailA {
     box-shadow: none;
     border: 0px;
     border-bottom: 2px solid #283891;
     border-radius: 0px !important;
-    margin-top: 20px;
-    max-width: 290px;
+    /* margin-top: 20px; */
+    max-width: 360px;
     font-size: 1.2em;
     font-weight: 300;
     height: 50px;
+    width: 100%;
+    padding-left: 10px;
 }
 .SignMeA {
-    background: #283891;
+    background: #29ac4b;
     border: 0px;
     color: #FFF;
     font-weight: 300;
     padding: 10px 25px;
     font-size: 1.3em;
+    width: 100%;
 }
 .SignMeA:hover {
     color: #FFF;
-    background: #07176f;
+    background: #118a30;
 }
 .messages{
   list-style: none;
@@ -91,18 +98,67 @@ a.navbar-brand img {
    margin-left: 0px;
    margin-right: 0px;
 }
+.newsletter_container {
+    max-width: 860px;
+    margin: 60px auto 0;
+    color: #FFF;
+}
+p.navbar-brand-p {
+    max-width: 360px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: .75em;
+    color: rgba(255, 255, 255, 0.68);
+}
+.signup_right {
+    color: #283891;
+    padding: 20px 20px 0px 20px;
+    background: #FFF;
+}
+.signup_right h2.style_2 {
+    margin: 0px;
+    font-weight: 900;
+    font-size: 1.7em;
+}
+.signup_right p {
+    margin-top: 0px;
+}
+.signup_right_bottom {
+    background: #0004d0;
+    padding: 20px;
+    margin-top: -10px;
+}
+figure.list_A ul li {
+    margin-bottom: 20px;
+    padding-left: 60px;
+    background-size: 30px;
+    background-position: 10px 0px;
+    -moz-transition-duration: .6s;
+    -o-transition-duration: .6s;
+    -webkit-transition-duration: .6s;
+    transition-duration: .6s;
+    -moz-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -webkit-transform: translate(0,0);
+    transform: translate(0,0);
+    background-repeat: no-repeat;
+    line-height: 1.4em;
+    font-size: .9em;
+}
 </style>
 
 
-  <body>
+  <body style="padding-top: 20px;">
 
     <!-- Fixed navbar -->
-    <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
+    <nav id="navbar_out" class="navbar navbar-default2 navbar-static-top">
       <div class="top_container container">
         <div class="nav_nav_first text-center navbar-header">
-          <a class="navbar-brand" href="#">
-            <img src="{% static 'img/logo2.png' %}" alt="VentureLift Africa">
-          </a>
+          <a class="navbar-brand" href="/">
+            <img src="{% static 'img/logo3.png' %}" alt="VentureLift Africa">
+            <p class="navbar-brand-p">Helping entrepreneurship ecosystems across Africa succeed and receive Diaspora support</p>
+          </a>          
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -120,36 +176,56 @@ a.navbar-brand img {
     {% endif %}
 
       <div class="newsletter_container row clearfix">
-        <div class="col-md-4 col-md-offset-2">
-          <h1 class="style_J">We are a fintech and curation platform for helping Africa’s top startups and early growth stage businesses scale faster.</h1>
-        </div>
-        <div class="col-md-4">
-          <h2 class="style_K">For more information and to
-          join our network</h2>
 
-          <div class="form_control">
-            <form action="." method="post" class="form form-horizontal">
-              {% csrf_token %}
-              <div class="form-group">
-                {{form}}
-              </div>
-
-              <div class="form-group">
-                <button type="submit" class="SignMeA btn btn-default">{% trans "Sign me up!" %}</button>
-              </div>
-
-              <script>
-                document.getElementById("{{ form.email.auto_id }}").focus();
-              </script>
-            </form>
+        <div class="col-md-6">
+          <div class="md-in-A">
+          <h2 class="style_2">
+            VentureLift Africa connects African early-stage and growing companies to:
+          </h2>     
+          <figure class="list_A">
+            <ul>
+              <li>Investors and Other Providers of Financial Capital</li>
+              <li>New Trade and Supply Chain Partners</li>
+              <li>International and Diaspora Customer Networks</li>
+              <li>Technology Innovations and Experienced Talent </li>
+              <li>Mentors and Value-Added Professional Services</li>
+            </ul>
+          </figure>
           </div>
+        </div>
 
-          <ul class="social_icons social_side">
-            <li><a class="li" href="#nogo"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-            <li><a class="tw" href="#nogo"><ion-icon name="logo-twitter"></ion-icon></a></li>
-            <li><a class="fb" href="#nogo"><ion-icon name="logo-facebook"></ion-icon></a></li>
-            <li><a class="ig" href="#nogo"><ion-icon name="logo-instagram"></ion-icon></a></li>
-          </ul>          
+        <div class="col-md-6">
+          <div class="signup_right">
+            <h2 class="style_2">What are you waiting for?</h2>
+            <p>For more information, a consultation and to join our network:</p>
+
+            <div class="form_control">
+              <form action="." method="post" class="form form-horizontal">
+                {% csrf_token %}
+                <div class="form-group">
+                  {{form}}
+                </div>
+
+                <div class="form-group">
+                  <button type="submit" class="SignMeA btn btn-default">{% trans "Sign me up!" %}</button>
+                </div>
+
+                <script>
+                  document.getElementById("{{ form.email.auto_id }}").focus();
+                </script>
+              </form>
+            </div>
+
+            <ul class="social_icons social_side">
+              <li><a class="li" href="https://ke.linkedin.com/company/venturelift-africa" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+              <li><a class="tw" href="https://twitter.com/vliftafrica" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a></li>
+              <li><a class="fb" href="https://facebook.com/vlafrica" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a></li>
+              <li><a class="ig" href="https://www.instagram.com/vlafrica/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a></li>
+            </ul>    
+          </div> 
+          <div class="signup_right_bottom">
+            The gateway for Diaspora engagement with Africa’s top startups & SMEs             
+          </div>       
         </div>  
       </div>
   </div>

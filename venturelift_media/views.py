@@ -29,7 +29,6 @@ class HomeView(ListView):
             articles.append(article[0])
         return articles
 
-
 class TextMediaView(DetailView):
     model = TextMedia
     template_name = 'blog/text_media.html'

@@ -38,7 +38,7 @@ h3.style_3 {
     font-weight: 300;
 }
 h2.style_2 {
-    font-size: 1.4em;
+    font-size: 1.7em;
     line-height: 1.5em;
     font-weight: 700;
 }
@@ -370,6 +370,7 @@ ul.social_icons {
 }
 ul.social_icons li {
     display: inline-block;
+    margin: 20px 0px;
 }
 ul.social_icons.social_side {
     font-size: 3rem;
@@ -378,7 +379,10 @@ ul.social_icons.social_bottom li a {
     font-size: 2.4rem;
     padding: 0px 4px 0px 0px;
 }
-
+.signup_right .form_control {
+    padding: 0px 0px 0px;
+    margin: 20px 0px;
+}
 
 body.auth_pages .navbar-default {
     background: transparent;
