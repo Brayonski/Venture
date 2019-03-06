@@ -12,6 +12,8 @@ urlpatterns = [
     url(r'^business/list/$', views.BusinessView.as_view(), name='business_list'),
     url(r'^supporter/follow/(?P<pk>\d+)/$',
         views.SupporterView.as_view(), name='supporter_follow'),
+    url(r'^business/profile/(?P<pk>\d+)/$',
+        views.BusinessProfileView.as_view(), name='business_profile'),
     url(r'^supporter/unfollow/(?P<pk>\d+)/$',
         views.SupporterView.as_view(), name='supporter_unfollow'),
     url(r'^business/follow/(?P<pk>\d+)/$',

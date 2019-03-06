@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, ListView, FormView
+from django.views.generic import TemplateView, ListView, FormView, DetailView
 from venturelift_profiles.models import *
 from actstream.actions import follow, unfollow
 from django.contrib.auth.models import User
@@ -250,4 +250,16 @@ class MyBusinessView(LoginRequiredMixin, ListView):
         context = super(MyBusinessView, self).get_context_data(**kwargs)
         context['object_list'] = Business.objects.filter(
             creator=self.request.user)
+        return context
+
+
+class BusinessProfileView(DetailView):
+    model = Business
+    template_name = 'profile/business_profile.html'
+
+    def get_context_data(self, **kwargs):
+        """Returns the TextMedia instance that the view displays"""
+        context = super(BusinessProfileView, self).get_context_data(**kwargs)
+        context['business_profile'] = Business.objects.get(
+            pk=self.kwargs.get("pk"))
         return context

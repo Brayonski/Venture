@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load cms_tags staticfiles %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+<!-- Square, 350 X 350 PX -->
+{% if business_profile.thumbnail_image.url is empty %}
+<img src="https://www.dairynz.co.nz/media/5786895/icons-500x500px-cash-management.png">
+{% else %}
+<img src="{{ business_profile.thumbnail_image.url }}">
+{% endif %}
+<h1>Business Name {{ business_profile.name }} Verified {{ business_profile.verified}}</h1>
+<p>Business Sector {{ business_profile.sector }}</p>
+<p>Email {{ business_profile.company_primary_email }}</p>
+<p>Facebook {{ business_profile.facebook_profile }}</p>
+<p>Linkeldn{{ business_profile.linkedin_profile }}</p>
+<p>Twitter {{ business_profile.twitter_profile }}</p>
+<p>Instagram {{ business_profile.instagram_profile }}</p>
+<p>Address {{ business_profile.address }}</p>
+<p>Proposition Statement {{ business_profile.value_proposition_statement }}</p>
+
+{% endblock %}
