@@ -79,7 +79,7 @@ class Newsletter(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        subs = User.objects.filter(is_staff=False)
+        subs = Subscription.objects.filter(is_active=True)
         emails = [sub.email for sub in subs]
         self.recipients = json.dumps(emails)
 
