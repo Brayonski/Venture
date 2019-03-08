@@ -93,7 +93,7 @@ def render_to_mail(template, context, **kwargs):
         message = render_to_mail('myproject/hello_mail', {}, to=[email])
         message.send()
     """
-    lines = iter(render_to_string('%s.txt' % template, context).splitlines())
+    lines = iter(render_to_string('%s.html' % template, context).splitlines())
 
     subject = u''
     while True:
