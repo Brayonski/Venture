@@ -22,7 +22,12 @@
         <div class="onboarding_A">
           <div class="row clearfix">
             <div class="col-md-8 col-md-offset-2 clearfix">
+              <!-- Square, 350 X 350 PX -->
+              {% if business_profile.thumbnail_image.url is empty %}
+              <img src="{% static 'no-img.jpg' %}">
+              {% else %}
               <img src="{{ business_profile.thumbnail_image.url }}">
+              {% endif %}
 
               <h1>Business Name {{ business_profile.name }} Verified {{ business_profile.verified}}</h1>
               <p>Business Sector {{ business_profile.sector }}</p>

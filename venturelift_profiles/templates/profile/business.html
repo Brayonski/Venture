@@ -1,4 +1,5 @@
-{% extends 'profile/base.html' %}%%
+{% extends 'profile/base.html' %}
+{% load cms_tags staticfiles %}
 {% load crispy_forms_tags %}
 {% block content %}
 
@@ -41,7 +42,11 @@
                                 <div class="box_box_in">
                                     <figure class="box_avi">
                                         <!-- Square, 350 X 350 PX -->
+                                        {% if obj.thumbnail_image.url is empty %}
+                                        <img src="{% static 'no-img.jpg' %}">
+                                        {% else %}
                                         <img src="{{ obj.thumbnail_image.url }}">
+                                        {% endif %}
                                     </figure>
                                     <figure class="box_details">
                                         <p class="box_title"><a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a></p>
