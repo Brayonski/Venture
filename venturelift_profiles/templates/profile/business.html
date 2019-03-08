@@ -41,11 +41,7 @@
                                 <div class="box_box_in">
                                     <figure class="box_avi">
                                         <!-- Square, 350 X 350 PX -->
-                                        {% if obj.thumbnail_image.url is empty %}
-                                        <img src="https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png">
-                                        {% else %}
                                         <img src="{{ obj.thumbnail_image.url }}">
-                                        {% endif %}
                                     </figure>
                                     <figure class="box_details">
                                         <p class="box_title"><a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a></p>

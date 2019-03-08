@@ -1,23 +1,49 @@
-{% extends "base.html" %}
+{% extends 'profile/base.html' %}
 {% load cms_tags staticfiles %}
 
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 
 {% block content %}
-<!-- Square, 350 X 350 PX -->
-{% if business_profile.thumbnail_image.url is empty %}
-<img src="https://www.dairynz.co.nz/media/5786895/icons-500x500px-cash-management.png">
-{% else %}
-<img src="{{ business_profile.thumbnail_image.url }}">
-{% endif %}
-<h1>Business Name {{ business_profile.name }} Verified {{ business_profile.verified}}</h1>
-<p>Business Sector {{ business_profile.sector }}</p>
-<p>Email {{ business_profile.company_primary_email }}</p>
-<p>Facebook {{ business_profile.facebook_profile }}</p>
-<p>Linkeldn{{ business_profile.linkedin_profile }}</p>
-<p>Twitter {{ business_profile.twitter_profile }}</p>
-<p>Instagram {{ business_profile.instagram_profile }}</p>
-<p>Address {{ business_profile.address }}</p>
-<p>Proposition Statement {{ business_profile.value_proposition_statement }}</p>
+<div class="full_A">
+  <div class="columns_A flex row clearfix">
+    <div class="col_A_out col_A_out_1 col-md-3 clearfix">
+      <div class="col_A_in col_A_in_1">
+
+        <ul class="actions_A">
+          <li><a href="#nogo">Edit my profile</a></li>
+          <li><a href="{% url 'my_business' %}">Add business</a></li>
+          <li><a href="{% url 'new_blog_post' %}">New Blog Post</a></li>
+        </ul>
+
+      </div>
+    </div>
+    <div class="col_A_out col_A_out_2 col-md-7 clearfix">
+      <div class="col_A_in col_A_in_2">
+        <div class="onboarding_A">
+          <div class="row clearfix">
+            <div class="col-md-8 col-md-offset-2 clearfix">
+              <img src="{{ business_profile.thumbnail_image.url }}">
+
+              <h1>Business Name {{ business_profile.name }} Verified {{ business_profile.verified}}</h1>
+              <p>Business Sector {{ business_profile.sector }}</p>
+              <p>Email {{ business_profile.company_primary_email }}</p>
+              <p>Facebook {{ business_profile.facebook_profile }}</p>
+              <p>Linkeldn{{ business_profile.linkedin_profile }}</p>
+              <p>Twitter {{ business_profile.twitter_profile }}</p>
+              <p>Instagram {{ business_profile.instagram_profile }}</p>
+              <p>Address {{ business_profile.address }}</p>
+              <p>Proposition Statement {{ business_profile.value_proposition_statement }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col_A_out col_A_out_3 col-md-2 clearfix">
+      <div class="col_A_in col_A_in_3">
+        <h4>Sidebar</h4>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
