@@ -34,7 +34,7 @@ class TextMedia(models.Model):
     author = models.ForeignKey(User)
     body = fields.HTMLField()
     date = models.DateTimeField(auto_now_add=True)
-    thumbnail_image = FilerImageField(null=True, blank=True)
+    thumbnail_image = FilerImageField()
 
     def __str__(self):
         return self.title
@@ -79,7 +79,7 @@ class Newsletter(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        subs = User.objects.filter(is_staff=False)
+        subs = Subscription.objects.filter(is_active=True)
         emails = [sub.email for sub in subs]
         self.recipients = json.dumps(emails)
 
