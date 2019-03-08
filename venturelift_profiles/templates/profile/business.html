@@ -42,10 +42,10 @@
                                 <div class="box_box_in">
                                     <figure class="box_avi">
                                         <!-- Square, 350 X 350 PX -->
-                                        {% if obj.thumbnail_image.url is empty %}
-                                        <img src="{% static 'no-img.jpg' %}">
-                                        {% else %}
+                                        {% if obj.thumbnail_image %}
                                         <img src="{{ obj.thumbnail_image.url }}">
+                                        {% else %}
+                                        <img src="{% static 'img/no-img.jpg' %}">
                                         {% endif %}
                                     </figure>
                                     <figure class="box_details">

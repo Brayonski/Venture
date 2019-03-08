@@ -52,7 +52,7 @@ class Business(models.Model):
     size = models.CharField(max_length=50, choices=BUSINESS_SIZE)
     creator = models.ForeignKey(User, related_name='business_creator')
     thumbnail_image = models.ImageField(
-        upload_to='pic_folder/')
+        upload_to='pic_folder/', blank=True)
     company_primary_email = models.EmailField()
     company_secondary_email = models.EmailField(null=True, blank=True)
     facebook_profile = models.URLField(max_length=200, null=True, blank=True)

@@ -23,13 +23,20 @@
           <div class="row clearfix">
             <div class="col-md-8 col-md-offset-2 clearfix">
               <!-- Square, 350 X 350 PX -->
-              {% if business_profile.thumbnail_image.url is empty %}
-              <img src="{% static 'no-img.jpg' %}">
-              {% else %}
+              {% if business_profile.thumbnail_image %}
               <img src="{{ business_profile.thumbnail_image.url }}">
+              {% else %}
+              <img src="{% static 'img/no-img.jpg' %}">
               {% endif %}
 
-              <h1>Business Name {{ business_profile.name }} Verified {{ business_profile.verified}}</h1>
+              <h1>{{ business_profile.name }}
+
+                {% if business_profile.verified %}
+                <i class='glyphicon glyphicon-ok text-primary'></i>
+                {% else %}
+                <i class='glyphicon glyphicon-remove'></i>
+                {% endif %}
+              </h1>
               <p>Business Sector {{ business_profile.sector }}</p>
               <p>Email {{ business_profile.company_primary_email }}</p>
               <p>Facebook {{ business_profile.facebook_profile }}</p>
