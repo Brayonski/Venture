@@ -5,7 +5,6 @@ import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from djangocms_text_ckeditor import fields
-from filer.fields.image import FilerImageField
 
 # Create your models here.
 
@@ -52,7 +51,8 @@ class Business(models.Model):
     sector = models.ForeignKey(BusinessCategory)
     size = models.CharField(max_length=50, choices=BUSINESS_SIZE)
     creator = models.ForeignKey(User, related_name='business_creator')
-    thumbnail_image = FilerImageField(null=True, blank=True)
+    thumbnail_image = models.ImageField(
+        upload_to='pic_folder/', blank=True)
     company_primary_email = models.EmailField()
     company_secondary_email = models.EmailField(null=True, blank=True)
     facebook_profile = models.URLField(max_length=200, null=True, blank=True)
