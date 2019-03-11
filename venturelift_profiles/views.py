@@ -54,7 +54,14 @@ class ProfileCreateView(LoginRequiredMixin, FormView):
 
 class SupporterCreateView(LoginRequiredMixin, CreateView):
     template_name = 'profile/create_supporter.html'
-    form_class = SupporterCreateForm
+
+    def get_form(self, form_class=None):
+        current_url = resolve(self.request.path_info).url_name
+        if current_url == 'supporter_create':
+            form_class = SupporterCreateForm
+        if current_url == 'supporter_create_step_2':
+            form_class = SupporterProfileCreateForm
+        return form_class(**self.get_form_kwargs())
 
 
 class SupporterView(LoginRequiredMixin, ListView):
@@ -99,13 +106,14 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
             else:
                 business = Business.objects.filter(verified=True)
                 if form.cleaned_data['sector']:
-                    business = business.filter(sector=form.cleaned_data['sector'])
+                    business = business.filter(
+                        sector=form.cleaned_data['sector'])
                 if form.cleaned_data['size']:
                     business = business.filter(size=form.cleaned_data['size'])
                 if form.cleaned_data['service']:
                     business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
-                                    Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
-            return render(request, self.template_name, {'object_list': business, 'form': form, 'following':following(self.request.user)})
+                                               Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
+            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user)})
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessView, self).get_context_data(*args, **kwargs)

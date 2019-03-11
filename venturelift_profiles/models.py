@@ -5,12 +5,79 @@ import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from djangocms_text_ckeditor import fields
+from django.core.validators import MinLengthValidator
 
 # Create your models here.
 
 BUSINESS_SIZE = (
     ('Startup', 'Startup: 2+ years post-revenue $10,000 p.a., 3+ full time teams'),
     ('SME', 'SME: 5+ years from first revenue, $500,000 p.a., 10+ full time team'),
+)
+
+SUPPORTER_INTEREST = (
+    ('supply chain', 'Supply chain(i.e. I am looking for suppliers from Africa)'),
+    ('trade partner', 'Trade partner: I want to trade with African companies'),
+    ('technology provider', 'Technology Provider'),
+    ('talent provider', 'Talent Provider'),
+    ('professional support', 'Professional Support'),
+)
+
+PROFESSIONAL_SUPPORT = (
+    ('business accelerator', 'Business Accelerator'),
+    ('business incubator', 'Business Incubator'),
+    ('mentor', 'Mentor'),
+    ('transaction advisor', 'Transaction Advisor'),
+    ('accounting and finance', 'Accounting And Finance'),
+    ('legal', 'Legal'),
+    ('technology', 'Technology')
+)
+
+INTEREST_STARTUPS = (
+    ('SME', 'SME: 5+ years from first revenue, at least $500,000 in revenue in the last two years of operations, 10 + full time team'),
+    ('startup', 'Startup: 2+ years post-revenue, at least $100,000 in revenue in the last year of operations, 3+ full time team'),
+    ('both', 'Both SMEs and Startups')
+)
+
+INTEREST_SECTORS = (
+    ('retail', 'Retail'),
+    ('fmcg', 'FMCG'),
+    ('technology', 'Technology'),
+    ('manufacturing', 'Manufacturing'),
+    ('agriculture', 'Agriculture'),
+    ('hospitality', 'Hospitality and Tourism'),
+    ('real estate', 'Real Estate and Infastructure'),
+    ('transport', 'Transport')
+)
+
+INTEREST_COUNTRIES = (
+    ('rwanda', 'Rwanda'),
+    ('uganda', 'Uganda'),
+    ('tanzania', 'Tanzania'),
+    ('kenya', 'Kenya'),
+    ('ghana', 'Ghana'),
+    ('nigeria', 'Nigeria'),
+    ('ivory coast', 'Ivory Coast'),
+    ('senegal', 'Senegal'),
+    ('botswana', 'Bootswana'),
+    ('nambia', 'Nambia'),
+    ('zambia', 'Zambia'),
+    ('south africa', 'South Africa'),
+    ('egypt', 'Egypt'),
+    ('tunisia', 'Tunisia'),
+    ('morocco', 'Morocco'),
+    ('other eastern africa ', 'Other Eastern Africa'),
+    ('other western africa', 'Other Western Africa'),
+    ('other northern africa', 'Other Nothern Africa'),
+    ('other francophone africa', 'Other Francophone africa'),
+    ('other southern africa', 'Other Southern Africa'),
+    ('other', 'Other'),
+)
+
+TRADING_PARTNERS = (
+    ('fair_trade', 'Fair Trade'),
+    ('haccp', 'HACCP'),
+    ('ISO 9001', 'ISO 9001'),
+    ('other', 'Other'),
 )
 
 FUNDING_SOURCES = (
@@ -174,6 +241,23 @@ class BusinessGoals(models.Model):
 
 class Supporter(models.Model):
     user = models.ForeignKey(User, related_name='supporter_creator')
+    phone_number = models.CharField(max_length=20, validators=[
+                                    MinLengthValidator(11)], default="+2547000000", help_text="My Phone Number")
+    company = models.CharField(max_length=250, default="Testing")
+    role = models.CharField(max_length=250, default="Testing")
+    company_operations = models.CharField(max_length=250, default="Testing")
+    physical_address = models.CharField(max_length=250, default="Testing")
+    postal_address = models.CharField(max_length=250, default="Testing")
+    company_website = models.URLField(
+        max_length=250, blank=True, null=True, default="www.google.com")
+    company_registration_year = models.IntegerField(
+        choices=YEAR_CHOICES, default=2010)
+    year_operation = models.IntegerField(choices=YEAR_CHOICES, default=2010)
+    facebook_profile = models.URLField(max_length=200, null=True, blank=True)
+    linkedin_profile = models.URLField(max_length=200, null=True, blank=True)
+    twitter_profile = models.URLField(max_length=200, null=True, blank=True)
+    instagram_profile = models.URLField(max_length=200, null=True, blank=True)
+    subscribe = models.BooleanField(default=True)
     interests = models.ManyToManyField(BusinessCategory, blank=True)
     verified = models.BooleanField(default=False)
     verified_by = models.ForeignKey(
@@ -181,6 +265,35 @@ class Supporter(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class SupporterProfile(models.Model):
+    supporter_profile = models.ForeignKey(
+        Supporter, related_name='supporter_profile')
+    supporter_interest = models.CharField(
+        max_length=50, choices=SUPPORTER_INTEREST)
+
+    professional_support = models.CharField(
+        max_length=50, choices=PROFESSIONAL_SUPPORT, null=True, blank=True)
+
+    interest_startups = models.CharField(
+        max_length=50, choices=INTEREST_STARTUPS, null=True, blank=True)
+
+    interest_sectors = models.CharField(
+        max_length=50, choices=INTEREST_SECTORS)
+
+    interest_countries = models.CharField(
+        max_length=50, choices=INTEREST_COUNTRIES)
+
+    trading_partners = models.CharField(
+        max_length=50, choices=TRADING_PARTNERS, null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Supporter Profile'
+        verbose_name_plural = 'Supporter Profiles'
+
+    def __str__(self):
+        return self.supporter_profile.user.name
 
 
 class Post(models.Model):

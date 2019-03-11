@@ -44,5 +44,7 @@ urlpatterns = [
     url(r'^profile-create/$', views.ProfileCreateView.as_view(), name='profile_create'),
     url(r'^supporter-create/$', views.SupporterCreateView.as_view(),
         name='supporter_create'),
+    url(r'^supporter-create/step-2/(?P<pk>\d+)/$', views.SupporterCreateView.as_view(),
+        name='supporter_create_step_2'),
     url(r'^new-blog-post/$', views.CreateBlogPostView.as_view(), name='new_blog_post'),
 ]
