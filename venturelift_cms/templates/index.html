@@ -21,7 +21,9 @@
               <div class="h_A_row_1B_in">
                 <h5 class="meta_A">{{object_list.0.category}} <span>{{object_list.0.date|timesince}} AGO</span></h5>
                 <h1 class="style_A">
+                {% if object_list %}
                   <a class="a_A" href="{% url 'venturelift_media:media_story' object_list.0.pk %}">{{object_list.0.title}}</a>
+                {% endif %}
                 </h1>
                 <ul class="h_A_row_1A_list">
                   {% for obj in object_list %}
@@ -50,16 +52,16 @@
       <div class="col-md-2 clearfix">
         <div class="in_style_A">
           <ul class="social_icons social_side">
-            <li><a class="li" href="#nogo">
+            <li><a class="li" href="https://ke.linkedin.com/company/venturelift-africa">
                 <ion-icon name="logo-linkedin"></ion-icon>
               </a></li>
-            <li><a class="tw" href="#nogo">
+            <li><a class="tw" href="https://twitter.com/vliftafrica">
                 <ion-icon name="logo-twitter"></ion-icon>
               </a></li>
-            <li><a class="fb" href="#nogo">
+            <li><a class="fb" href="https://facebook.com/vlafrica">
                 <ion-icon name="logo-facebook"></ion-icon>
               </a></li>
-            <li><a class="ig" href="#nogo">
+            <li><a class="ig" href="https://www.instagram.com/vlafrica/">
                 <ion-icon name="logo-instagram"></ion-icon>
               </a></li>
           </ul>
@@ -83,17 +85,20 @@
   </div>
 </div>
 
-<div class="full_width h_B">
-  <div class="container h_B_container">
-    <h2 class="h_title_A">Podcasts</h2>
+<div class="full_width h_D">
+  <div class="container h_D_container">
+    <h2 class="h_title_A">Stories</h2>
     <div class="row clearfix">
-      {% for obj in podcasts %}
+      {% for obj in stories_bottom %}
       <div class="col-md-4 clearfix">
         <div class="in_style_A">
-          <a href={{obj.path}}>
-            <img src="{% static 'img/podcast.jpg' %}">
+          <a href="{% url 'venturelift_media:media_story' obj.pk %}">
+            <figure class="in_style_A_img">
+              <img src="{{obj.thumbnail_image.url}}">
+            </figure>
             <h3 class="style_C">{{obj.title}}</h3>
           </a>
+          <h5 class="meta_A">{{obj.category}}</h5>
         </div>
       </div>
       {% endfor %}
@@ -131,24 +136,22 @@
   </div>
 </div>
 
-<div class="full_width h_D">
-  <div class="container h_D_container">
-    <h2 class="h_title_A">Stories</h2>
+<div class="full_width h_B">
+  <div class="container h_B_container">
+    <h2 class="h_title_A">Podcasts</h2>
     <div class="row clearfix">
-      {% for obj in stories_bottom %}
+      {% for obj in podcasts %}
       <div class="col-md-4 clearfix">
         <div class="in_style_A">
-          <a href="{% url 'venturelift_media:media_story' obj.pk %}">
-            <figure class="in_style_A_img">
-              <img src="{{obj.thumbnail_image.url}}">
-            </figure>
+          <a href={{obj.path}}>
+            <img src="{% static 'img/podcast.jpg' %}">
             <h3 class="style_C">{{obj.title}}</h3>
           </a>
-          <h5 class="meta_A">{{obj.category}}</h5>
         </div>
       </div>
       {% endfor %}
     </div>
   </div>
 </div>
+
 {% endblock content %}

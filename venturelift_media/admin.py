@@ -19,7 +19,7 @@ class AudioVisualAdmin(admin.ModelAdmin):
     search_fields = ['title', 'author']
     list_filter = ['date', 'category']
     readonly_fields = ["author"]
-    list_display = ['title', 'date', 'category']
+    list_display = ['title', 'date', 'category', 'sub_category']
 
     def save_model(self, request, obj, form, change):
         if getattr(obj, 'author', None) is None:

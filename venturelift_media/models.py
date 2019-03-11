@@ -50,7 +50,8 @@ class AudioVisual(models.Model):
     path = models.URLField(max_length=200)
     author = models.ForeignKey(User)
     category = models.CharField(max_length=100, choices=AUDIOVISUALCHOICES)
-
+    sub_category = models.ForeignKey(Category)
+    
     def __str__(self):
         return self.title
 

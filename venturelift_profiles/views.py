@@ -95,13 +95,17 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
         if form.is_valid():
             if request.POST.get('company-name'):
                 business = Business.objects.filter(
-                    name__icontains=request.POST.get('company-name'))
+                    name__icontains=request.POST.get('company-name'), verified=True)
             else:
-                business = Business.objects.filter(Q(sector=form.cleaned_data['sector']) |
-                                                   Q(size=form.cleaned_data['size']) |
-                                                   Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
-                                                   Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
-            return render(request, self.template_name, {'object_list': business, 'form': form})
+                business = Business.objects.filter(verified=True)
+                if form.cleaned_data['sector']:
+                    business = business.filter(sector=form.cleaned_data['sector'])
+                if form.cleaned_data['size']:
+                    business = business.filter(size=form.cleaned_data['size'])
+                if form.cleaned_data['service']:
+                    business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
+                                    Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
+            return render(request, self.template_name, {'object_list': business, 'form': form, 'following':following(self.request.user)})
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessView, self).get_context_data(*args, **kwargs)
