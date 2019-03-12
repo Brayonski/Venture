@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView, ListView, FormView, DetailView
 from venturelift_profiles.models import *
 from actstream.actions import follow, unfollow
@@ -50,18 +50,6 @@ class ProfileCreateView(LoginRequiredMixin, FormView):
         if form.cleaned_data['profile_choice'] == 'Business':
             return redirect(reverse('create_business_step1'))
         return redirect(reverse('supporter_create'))
-
-
-class SupporterCreateView(LoginRequiredMixin, CreateView):
-    template_name = 'profile/create_supporter.html'
-
-    def get_form(self, form_class=None):
-        current_url = resolve(self.request.path_info).url_name
-        if current_url == 'supporter_create':
-            form_class = SupporterCreateForm
-        if current_url == 'supporter_create_step_2':
-            form_class = SupporterProfileCreateForm
-        return form_class(**self.get_form_kwargs())
 
 
 class SupporterView(LoginRequiredMixin, ListView):
@@ -146,6 +134,46 @@ class CreateBusinessView(LoginRequiredMixin, CreateView):
         BusinessGoals.objects.create(company_name=business)
 
         return redirect(reverse('update_business_step2', kwargs={'pk': business.id}))
+
+
+class CreateSupporterView(LoginRequiredMixin, CreateView):
+    template_name = 'profile/create_supporter.html'
+    form_class = SupporterCreateForm
+
+    def get_form(self, form_class=None):
+        supporter = Supporter.objects.filter(user=self.request.user)
+        print(supporter)
+        if (supporter.exists()):
+            redirect(reverse('supporter_create_step_2',
+                             kwargs={'pk': supporter.id}))
+        else:
+            form_class = SupporterCreateForm
+
+        return form_class(**self.get_form_kwargs())
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.user.first_name = form.cleaned_data['first_name']
+        self.object.user.last_name = form.cleaned_data['last_name']
+        self.object.save()
+        supporter = Supporter.objects.get(user=self.request.user)
+        return redirect(reverse('supporter_create_step_2', kwargs={'pk': supporter.id}))
+
+
+class SupporterUpdateProfileView(LoginRequiredMixin, CreateView):
+    template_name = 'profile/create_supporter.html'
+    form_class = SupporterProfileCreateForm
+
+    def get_object(self):
+        supporter = Supporter.objects.get(id=self.kwargs['pk'])
+        obj = SupporterProfile.objects.get(
+            supporter_profile=supporter)
+        return obj
+
+    def form_valid(self, form):
+        form.save()
+        return redirect(reverse('supporter_list'))
 
 
 class CreateBlogPostView(LoginRequiredMixin, CreateView):
