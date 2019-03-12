@@ -29,7 +29,7 @@
                   {% for obj in object_list %}
                   {% if forloop.counter > 1 %}
                   <li>
-                    <a href="{% url 'venturelift_media:media_story' object_list.1.pk %}">{{object_list.1.title}}</a>
+                    <a href="{% url 'venturelift_media:media_story' obj.pk %}">{{obj.title}}</a>
                   </li>
                   {% endif %}
                   {% endfor %}
