@@ -70,8 +70,15 @@ COMPANY_SIZE = (
 )
 
 PROFILE_CHOICES = (
-    ('Supporter', 'Supporter'),
-    ('Business', 'Business'),
+    ('Business', 'BUSINESS'),
+    ('Investor', 'INVESTOR'),
+    ('Supporter', 'SUPPORTER')
+)
+
+IMPACT_INVESTOR = (
+    ('yes', 'YES'),
+    ('no', 'NO'),
+    ('maybe', 'Maybe')
 )
 
 
@@ -157,40 +164,81 @@ class SupporterProfileCreateForm(forms.ModelForm):
         }
 
 
-# class InvestorrCreateForm(forms.ModelForm):
-#     subscribe = forms.TypedChoiceField(
-#         coerce=lambda x: x == 'True',
-#         choices=((False, 'No'), (True, 'Yes')), widget=forms.RadioSelect, label="Would you like us to add you to our email newsletter?"
-#     )
-#     first_name = forms.CharField(max_length=250, label="First Name")
-#     last_name = forms.CharField(max_length=250, label="Last Name")
+class InvestorCreateForm(forms.ModelForm):
+    subscribe = forms.TypedChoiceField(
+        coerce=lambda x: x == 'True',
+        choices=((False, 'No'), (True, 'Yes')), widget=forms.RadioSelect, label="Would you like us to add you to our email newsletter?"
+    )
+    first_name = forms.CharField(max_length=250, label="First Name")
+    last_name = forms.CharField(max_length=250, label="Last Name")
 
-#     class Meta:
-#         model = Supporter
-#         exclude = ['user', 'verified_by', 'verified']
-#         fields = [
-#             'first_name',
-#             'last_name',
-#             'phone_number',
-#             'company',
-#             'role',
-#             'company_website',
-#             'company_registration_year',
-#             'year_operation',
-#             'company_location',
-#             'physical_address',
-#             'facebook_profile',
-#             'linkedin_profile',
-#             'twitter_profile',
-#             'instagram_profile',
-#             'subscribe'
-#         ]
-#         labels = {
-#             "phone_number": "Phone Number",
-#             "company": "Company Name",
-#             "role": "My role at the company?",
-#             "company_location": "Where are the company's main operations based?",
-#             "company_registration_year": "Year of company registration",
-#             "year_operation": "Year company commenced operations",
-#             "interests": "Interests"
-#         }
+    class Meta:
+        model = Investor
+        exclude = ['user', 'verified_by', 'verified']
+        fields = [
+            'first_name',
+            'last_name',
+            'phone_number',
+            'company',
+            'role',
+            'company_website',
+            'company_registration_year',
+            'year_operation',
+            'company_location',
+            'physical_address',
+            'facebook_profile',
+            'linkedin_profile',
+            'twitter_profile',
+            'instagram_profile',
+            'subscribe'
+        ]
+        labels = {
+            "phone_number": "Phone Number",
+            "company": "Company Name",
+            "role": "My role at the company?",
+            "company_location": "Where are the company's main operations based?",
+            "company_registration_year": "Year of company registration?",
+            "year_operation": "Year company commenced operations?"
+        }
+
+
+class InvestorProfileCreateForm(forms.ModelForm):
+    impact_investor = forms.TypedChoiceField(choices=IMPACT_INVESTOR, widget=forms.RadioSelect, label="Which are your key impact metrics?"
+                                             )
+
+    gender_lens_investor = forms.TypedChoiceField(
+        choices=IMPACT_INVESTOR, widget=forms.RadioSelect, label="Do you Consider your firm a 'Gender-Lens' Investor?"
+    )
+
+    class Meta:
+        model = InvestorProfile
+        fields = [
+            'company_classification',
+            'investor_forms',
+            'elevator_pitch',
+            'target_countries',
+            'target_sectors',
+            'managed_funds',
+            'assets_under_management',
+            'investor_portfolio',
+            'exits_executed',
+            'impact_investor',
+            'impact_measurement',
+            'impact_metrics',
+            'gender_lens_investor',
+        ]
+        labels = {
+            'company_classification': "How would you classify your firm?",
+            'investor_forms': "What forms of investment do you make?",
+            'elevator_pitch': "What's your investment thesis in brief(Elevator Pitch)?",
+            'target_countries': "Which are your target countries?",
+            'target_sectors': "Target Sectors",
+            'managed_funds': "How Many different funds have you managed to date?",
+            'assets_under_management': "What's the value of your Assets under Management(AUM)?",
+            'investor_portfolio': "How many active portfolio investments do you currently hold?",
+            'exits_executed': "How many exits have you executed to date?",
+            'impact_investor': "Do you classify yourself as an impact investor?",
+            'impact_measurement': "Which impact measurement standard do you follow?",
+            'impact_metrics': "Which are your key impact metrics?",
+            'gender_lens_investor': "Do you Consider your firm a 'Gender-Lens' Investor?"
+        }

@@ -107,7 +107,42 @@ MANAGED_FUNDS = (
 )
 
 AUM = (
-    ('<usd 1M', '<USD 1M')
+    ('<usd 1M', '<USD 1M'),
+    ('usd 1 - 10', 'USD 1M - USD 10M'),
+    ('usd 10 - 50', 'USD 10M - USD 50M'),
+    ('usd 50 - 100', 'USD 5M - USD 100M'),
+    ('usd 100 - 250', 'USD 100M - USD 250M'),
+    ('usd 250 - 500', 'USD 250M - USD 500M'),
+    ('usd 500 - 1b', 'USD 500M - USD 1B'),
+    ('over 1b', 'OVER USD 1B')
+)
+
+INVESTOR_PORTFOLIO = (
+    ('< 5', '<5'),
+    ('5-10', '5 - 10'),
+    ('10-20', '10 - 20'),
+    ('over 20', 'Over 20'),
+)
+EXIT_EXECUTED = (
+    ('none', 'NONE'),
+    ('< 5', '< 5'),
+    ('5-10', '5 - 10'),
+    ('10-20', '10 - 20'),
+    ('Over 20', 'Over 20')
+)
+
+IMPACT_INVESTOR = (
+    ('yes', 'YES'),
+    ('no', 'NO'),
+    ('maybe', 'Maybe')
+)
+
+IMPACT_MEASUREMENT = (
+    ('giin iris', 'GIIN IRIS'),
+    ('b-corp', 'B-Corp'),
+    ('msci', 'MSCI Sustainable Impact Metrics'),
+    ('proprietary standard', 'Proprietary Standard'),
+    ('other', 'other')
 )
 
 FUNDING_SOURCES = (
@@ -273,7 +308,7 @@ class Supporter(models.Model):
     user = models.ForeignKey(User, related_name='supporter_creator')
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number")
-    company = models.CharField(max_length=250)
+    company = models.CharField(max_length=250, unique=True)
     role = models.CharField(max_length=250)
     company_operations = models.CharField(max_length=250)
     physical_address = models.CharField(max_length=250)
@@ -323,14 +358,14 @@ class SupporterProfile(models.Model):
         verbose_name_plural = 'Supporters Profiles'
 
     def __str__(self):
-        return self.supporter_profile.user.name
+        return self.supporter_profile.user.first_name + " " + self.supporter_profile.user.last_name
 
 
 class Investor(models.Model):
     user = models.ForeignKey(User, related_name='investor_creator')
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number")
-    company = models.CharField(max_length=250)
+    company = models.CharField(max_length=250, unique=True)
     role = models.CharField(max_length=250)
     company_location = models.CharField(max_length=250)
     physical_address = models.CharField(max_length=250)
@@ -355,33 +390,53 @@ class Investor(models.Model):
 class InvestorProfile(models.Model):
     investor_profile = models.ForeignKey(
         Investor, related_name='investor_profile')
-    investor_interest = models.CharField(
-        max_length=50, choices=SUPPORTER_INTEREST)
 
     company_classification = models.CharField(
-        max_length=50, choices=COMPANY_CLASSIFICATION, null=True, blank=True)
+        max_length=50, choices=COMPANY_CLASSIFICATION, null=True, blank=True, help_text="How would you classify your firm?")
 
     investor_forms = models.CharField(
-        max_length=50, choices=INVESTOR_FORMS, null=True, blank=True)
+        max_length=50, choices=INVESTOR_FORMS, null=True, blank=True, help_text="What forms of investment do you make?")
 
-    interest_sectors = models.CharField(
-        max_length=50, choices=INTEREST_SECTORS)
+    target_sectors = models.CharField(
+        max_length=50, choices=INTEREST_SECTORS, help_text="Target Sectors", null=True, blank=True)
 
-    interest_countries = models.CharField(
-        max_length=50, choices=INTEREST_COUNTRIES)
+    target_countries = models.CharField(
+        max_length=50, choices=INTEREST_COUNTRIES, help_text="Which are your target countries?", null=True, blank=True)
 
-    elevator_pitch = models.CharField(
-        max_length=250, choices=TRADING_PARTNERS, null=True, blank=True)
+    elevator_pitch = fields.HTMLField(
+        null=True, blank=True, help_text="What's your investment thesis in brief?")
 
     managed_funds = models.CharField(
-        max_length=10, null=True, blank=True, choices=MANAGED_FUNDS)
+        max_length=100, null=True, blank=True, choices=MANAGED_FUNDS, help_text="How Many different funds have you managed to date?")
+
+    assets_under_management = models.CharField(
+        max_length=250, null=True, blank=True, choices=AUM, help_text="What's the value of your Assets under Management (AUM)?")
+
+    investor_portfolio = models.CharField(
+        max_length=250, null=True, blank=True, choices=INVESTOR_PORTFOLIO, help_text="How many active portfolio investments do you currently hold?")
+
+    exits_executed = models.CharField(
+        max_length=250, null=True, blank=True, choices=EXIT_EXECUTED, help_text="How many exits have you executed to date?")
+
+    impact_investor = models.CharField(
+        max_length=250, null=True, blank=True, choices=IMPACT_INVESTOR, help_text="Do you classify yourself as an impact investor?")
+
+    impact_measurement = models.CharField(
+        max_length=250, null=True, blank=True, choices=IMPACT_MEASUREMENT, help_text="Which impact measurement standard do you follow?")
+
+    impact_metrics = fields.HTMLField(
+        max_length=250, null=True, blank=True, help_text="Which are your key impact metrics")
+
+    gender_lens_investor = models.CharField(
+        max_length=250, null=True, blank=True, choices=IMPACT_INVESTOR, help_text="Do you Consider your firm a 'Gender-Lens' Investor?"
+    )
 
     class Meta:
         verbose_name = 'Investor Profile'
         verbose_name_plural = 'Investors Profiles'
 
     def __str__(self):
-        return self.supporter_profile.user.name
+        return self.investor_profile.user.first_name + " " + self.investor_profile.user.last_name
 
 
 class Post(models.Model):

@@ -47,4 +47,9 @@ urlpatterns = [
     url(r'^supporter-create/step-2/(?P<pk>\d+)/$', views.SupporterUpdateProfileView.as_view(),
         name='supporter_create_step_2'),
     url(r'^new-blog-post/$', views.CreateBlogPostView.as_view(), name='new_blog_post'),
+
+    url(r'^investor-create/$', views.CreateInvestorView.as_view(),
+        name='investor_create'),
+    url(r'^investor-create/step-2/(?P<pk>\d+)/$', views.InvestorUpdateProfileView.as_view(),
+        name='investor_create_step_2'),
 ]

@@ -21,7 +21,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
     queryset = Post.objects.all()
 
     def dispatch(self, request, *args, **kwargs):
-        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()):
+        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
         return super(SummaryView, self).dispatch(request, *args, **kwargs)
 
@@ -49,6 +49,8 @@ class ProfileCreateView(LoginRequiredMixin, FormView):
     def form_valid(self, form):
         if form.cleaned_data['profile_choice'] == 'Business':
             return redirect(reverse('create_business_step1'))
+        if form.cleaned_data['profile_choice'] == 'Investor':
+            return redirect(reverse('investor_create'))
         return redirect(reverse('supporter_create'))
 
 
@@ -136,9 +138,71 @@ class CreateBusinessView(LoginRequiredMixin, CreateView):
         return redirect(reverse('update_business_step2', kwargs={'pk': business.id}))
 
 
+class CreateInvestorView(LoginRequiredMixin, CreateView):
+    template_name = 'profile/create_supporter.html'
+    form_class = InvestorCreateForm
+
+    def dispatch(self, request, *args, **kwargs):
+        if (request.user.investor_creator.exists()):
+            investor = Investor.objects.get(user=self.request.user)
+            return redirect(reverse('investor_create_step_2', kwargs={'pk': investor.id}))
+        return super(CreateInvestorView, self).dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.user.first_name = form.cleaned_data['first_name']
+        self.object.user.last_name = form.cleaned_data['last_name']
+        self.object.save()
+        investor = Investor.objects.get(user=self.request.user)
+        InvestorProfile.objects.create(investor_profile=investor)
+        return redirect(reverse('investor_create_step_2', kwargs={'pk': investor.id}))
+
+    def get_context_data(self, **kwargs):
+        current_url = resolve(self.request.path_info).url_name
+        context = super(CreateInvestorView, self).get_context_data(**kwargs)
+        if current_url == 'investor_create':
+            context["step1"] = True
+        if current_url == 'investor_create_step_2':
+            context["step2"] = True
+        return context
+
+
+class InvestorUpdateProfileView(LoginRequiredMixin, UpdateView):
+    template_name = 'profile/create_supporter.html'
+    form_class = InvestorProfileCreateForm
+
+    def get_object(self):
+        investor = Investor.objects.get(id=self.kwargs['pk'])
+        obj = InvestorProfile.objects.get(
+            investor_profile=investor)
+        print(obj)
+        return obj
+
+    def get_context_data(self, **kwargs):
+        current_url = resolve(self.request.path_info).url_name
+        context = super(InvestorUpdateProfileView,
+                        self).get_context_data(**kwargs)
+        if current_url == 'investor_create':
+            context["step1"] = True
+        if current_url == 'investor_create_step_2':
+            context["step2"] = True
+        return context
+
+    def form_valid(self, form):
+        form.save()
+        return redirect(reverse('business_list'))
+
+
 class CreateSupporterView(LoginRequiredMixin, CreateView):
     template_name = 'profile/create_supporter.html'
     form_class = SupporterCreateForm
+
+    def dispatch(self, request, *args, **kwargs):
+        if (request.user.supporter_creator.exists()):
+            supporter = Supporter.objects.get(user=self.request.user)
+            return redirect(reverse('supporter_create_step_2', kwargs={'pk': supporter.id}))
+        return super(CreateSupporterView, self).dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -150,6 +214,15 @@ class CreateSupporterView(LoginRequiredMixin, CreateView):
         SupporterProfile.objects.create(supporter_profile=supporter)
         return redirect(reverse('supporter_create_step_2', kwargs={'pk': supporter.id}))
 
+    def get_context_data(self, **kwargs):
+        current_url = resolve(self.request.path_info).url_name
+        context = super(CreateSupporterView, self).get_context_data(**kwargs)
+        if current_url == 'supporter_create':
+            context["step1"] = True
+        if current_url == 'supporter_create_step_2':
+            context["step2"] = True
+        return context
+
 
 class SupporterUpdateProfileView(LoginRequiredMixin, UpdateView):
     template_name = 'profile/create_supporter.html'
@@ -160,6 +233,16 @@ class SupporterUpdateProfileView(LoginRequiredMixin, UpdateView):
         obj = SupporterProfile.objects.get(
             supporter_profile=supporter)
         return obj
+
+    def get_context_data(self, **kwargs):
+        current_url = resolve(self.request.path_info).url_name
+        context = super(SupporterUpdateProfileView,
+                        self).get_context_data(**kwargs)
+        if current_url == 'supporter_create':
+            context["step1"] = True
+        if current_url == 'supporter_create_step_2':
+            context["step2"] = True
+        return context
 
     def form_valid(self, form):
         form.save()
