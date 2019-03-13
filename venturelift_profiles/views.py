@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView, ListView, FormView, DetailView
 from venturelift_profiles.models import *
 from actstream.actions import follow, unfollow
@@ -52,11 +52,6 @@ class ProfileCreateView(LoginRequiredMixin, FormView):
         return redirect(reverse('supporter_create'))
 
 
-class SupporterCreateView(LoginRequiredMixin, CreateView):
-    template_name = 'profile/create_supporter.html'
-    form_class = SupporterCreateForm
-
-
 class SupporterView(LoginRequiredMixin, ListView):
     template_name = 'profile/supporters.html'
     queryset = Supporter.objects.filter(verified=True)
@@ -99,13 +94,14 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
             else:
                 business = Business.objects.filter(verified=True)
                 if form.cleaned_data['sector']:
-                    business = business.filter(sector=form.cleaned_data['sector'])
+                    business = business.filter(
+                        sector=form.cleaned_data['sector'])
                 if form.cleaned_data['size']:
                     business = business.filter(size=form.cleaned_data['size'])
                 if form.cleaned_data['service']:
                     business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
-                                    Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
-            return render(request, self.template_name, {'object_list': business, 'form': form, 'following':following(self.request.user)})
+                                               Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
+            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user)})
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessView, self).get_context_data(*args, **kwargs)
@@ -138,6 +134,36 @@ class CreateBusinessView(LoginRequiredMixin, CreateView):
         BusinessGoals.objects.create(company_name=business)
 
         return redirect(reverse('update_business_step2', kwargs={'pk': business.id}))
+
+
+class CreateSupporterView(LoginRequiredMixin, CreateView):
+    template_name = 'profile/create_supporter.html'
+    form_class = SupporterCreateForm
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.user.first_name = form.cleaned_data['first_name']
+        self.object.user.last_name = form.cleaned_data['last_name']
+        self.object.save()
+        supporter = Supporter.objects.get(user=self.request.user)
+        SupporterProfile.objects.create(supporter_profile=supporter)
+        return redirect(reverse('supporter_create_step_2', kwargs={'pk': supporter.id}))
+
+
+class SupporterUpdateProfileView(LoginRequiredMixin, UpdateView):
+    template_name = 'profile/create_supporter.html'
+    form_class = SupporterProfileCreateForm
+
+    def get_object(self):
+        supporter = Supporter.objects.get(id=self.kwargs['pk'])
+        obj = SupporterProfile.objects.get(
+            supporter_profile=supporter)
+        return obj
+
+    def form_valid(self, form):
+        form.save()
+        return redirect(reverse('supporter_list'))
 
 
 class CreateBlogPostView(LoginRequiredMixin, CreateView):

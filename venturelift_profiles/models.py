@@ -5,12 +5,109 @@ import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from djangocms_text_ckeditor import fields
+from django.core.validators import MinLengthValidator
 
 # Create your models here.
 
 BUSINESS_SIZE = (
     ('Startup', 'Startup: 2+ years post-revenue $10,000 p.a., 3+ full time teams'),
     ('SME', 'SME: 5+ years from first revenue, $500,000 p.a., 10+ full time team'),
+)
+
+SUPPORTER_INTEREST = (
+    ('supply chain', 'Supply chain(i.e. I am looking for suppliers from Africa)'),
+    ('trade partner', 'Trade partner: I want to trade with African companies'),
+    ('technology provider', 'Technology Provider'),
+    ('talent provider', 'Talent Provider'),
+    ('professional support', 'Professional Support'),
+)
+
+COMPANY_CLASSIFICATION = (
+    ('crowdfunder', 'Crowdfunder'),
+    ('angel investor', 'Angel Investor'),
+    ('venture capital', 'Venture Capital'),
+    ('private equity', 'Private Equity'),
+    ('fund of funds', 'Fund of Funds'),
+    ('challenge funds', 'Challenge Fund'),
+    ('commercial bank', 'Commercial Bank'),
+    ('microfinance', 'Microfinance'),
+    ('other', 'Other')
+)
+
+PROFESSIONAL_SUPPORT = (
+    ('business accelerator', 'Business Accelerator'),
+    ('business incubator', 'Business Incubator'),
+    ('mentor', 'Mentor'),
+    ('transaction advisor', 'Transaction Advisor'),
+    ('accounting and finance', 'Accounting And Finance'),
+    ('legal', 'Legal'),
+    ('technology', 'Technology')
+)
+
+INTEREST_STARTUPS = (
+    ('SME', 'SME: 5+ years from first revenue, at least $500,000 in revenue in the last two years of operations, 10 + full time team'),
+    ('startup', 'Startup: 2+ years post-revenue, at least $100,000 in revenue in the last year of operations, 3+ full time team'),
+    ('both', 'Both SMEs and Startups')
+)
+
+INTEREST_SECTORS = (
+    ('retail', 'Retail'),
+    ('fmcg', 'FMCG'),
+    ('technology', 'Technology'),
+    ('manufacturing', 'Manufacturing'),
+    ('agriculture', 'Agriculture'),
+    ('hospitality', 'Hospitality and Tourism'),
+    ('real estate', 'Real Estate and Infastructure'),
+    ('transport', 'Transport')
+)
+INVESTOR_FORMS = (
+    ('equity', 'Equity'),
+    ('debt', 'Debt'),
+    ('mezzanine', 'Mezzanine'),
+    ('grants', 'Grants'),
+    ('crowdfunding platform', 'Crowdfunding Platform'),
+    ('other', 'Other')
+)
+
+INTEREST_COUNTRIES = (
+    ('rwanda', 'Rwanda'),
+    ('uganda', 'Uganda'),
+    ('tanzania', 'Tanzania'),
+    ('kenya', 'Kenya'),
+    ('ghana', 'Ghana'),
+    ('nigeria', 'Nigeria'),
+    ('ivory coast', 'Ivory Coast'),
+    ('senegal', 'Senegal'),
+    ('botswana', 'Bootswana'),
+    ('nambia', 'Nambia'),
+    ('zambia', 'Zambia'),
+    ('south africa', 'South Africa'),
+    ('egypt', 'Egypt'),
+    ('tunisia', 'Tunisia'),
+    ('morocco', 'Morocco'),
+    ('other eastern africa ', 'Other Eastern Africa'),
+    ('other western africa', 'Other Western Africa'),
+    ('other northern africa', 'Other Nothern Africa'),
+    ('other francophone africa', 'Other Francophone africa'),
+    ('other southern africa', 'Other Southern Africa'),
+    ('other', 'Other'),
+)
+
+TRADING_PARTNERS = (
+    ('fair_trade', 'Fair Trade'),
+    ('haccp', 'HACCP'),
+    ('ISO 9001', 'ISO 9001'),
+    ('other', 'Other'),
+)
+
+MANAGED_FUNDS = (
+    ('1', '1'),
+    ('1-5', '1-5'),
+    ('5+', '5+')
+)
+
+AUM = (
+    ('<usd 1M', '<USD 1M')
 )
 
 FUNDING_SOURCES = (
@@ -174,6 +271,23 @@ class BusinessGoals(models.Model):
 
 class Supporter(models.Model):
     user = models.ForeignKey(User, related_name='supporter_creator')
+    phone_number = models.CharField(max_length=20, validators=[
+                                    MinLengthValidator(5)], help_text="My Phone Number")
+    company = models.CharField(max_length=250)
+    role = models.CharField(max_length=250)
+    company_operations = models.CharField(max_length=250)
+    physical_address = models.CharField(max_length=250)
+    postal_address = models.CharField(max_length=250)
+    company_website = models.URLField(
+        max_length=250, blank=True, null=True)
+    company_registration_year = models.IntegerField(
+        choices=YEAR_CHOICES, default=2010)
+    year_operation = models.IntegerField(choices=YEAR_CHOICES, default=2010)
+    facebook_profile = models.URLField(max_length=200, null=True, blank=True)
+    linkedin_profile = models.URLField(max_length=200, null=True, blank=True)
+    twitter_profile = models.URLField(max_length=200, null=True, blank=True)
+    instagram_profile = models.URLField(max_length=200, null=True, blank=True)
+    subscribe = models.BooleanField(default=True)
     interests = models.ManyToManyField(BusinessCategory, blank=True)
     verified = models.BooleanField(default=False)
     verified_by = models.ForeignKey(
@@ -181,6 +295,93 @@ class Supporter(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class SupporterProfile(models.Model):
+    supporter_profile = models.ForeignKey(
+        Supporter, related_name='supporter_profile')
+    supporter_interest = models.CharField(
+        max_length=50, choices=SUPPORTER_INTEREST)
+
+    professional_support = models.CharField(
+        max_length=50, choices=PROFESSIONAL_SUPPORT, null=True, blank=True)
+
+    interest_startups = models.CharField(
+        max_length=50, choices=INTEREST_STARTUPS, null=True, blank=True)
+
+    interest_sectors = models.CharField(
+        max_length=50, choices=INTEREST_SECTORS, null=True, blank=True)
+
+    interest_countries = models.CharField(
+        max_length=50, choices=INTEREST_COUNTRIES, null=True, blank=True)
+
+    trading_partners = models.CharField(
+        max_length=50, choices=TRADING_PARTNERS, null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Supporter Profile'
+        verbose_name_plural = 'Supporters Profiles'
+
+    def __str__(self):
+        return self.supporter_profile.user.name
+
+
+class Investor(models.Model):
+    user = models.ForeignKey(User, related_name='investor_creator')
+    phone_number = models.CharField(max_length=20, validators=[
+                                    MinLengthValidator(5)], help_text="My Phone Number")
+    company = models.CharField(max_length=250)
+    role = models.CharField(max_length=250)
+    company_location = models.CharField(max_length=250)
+    physical_address = models.CharField(max_length=250)
+    company_website = models.URLField(
+        max_length=250, blank=True, null=True)
+    company_registration_year = models.IntegerField(
+        choices=YEAR_CHOICES)
+    year_operation = models.IntegerField(choices=YEAR_CHOICES)
+    facebook_profile = models.URLField(max_length=200, null=True, blank=True)
+    linkedin_profile = models.URLField(max_length=200, null=True, blank=True)
+    twitter_profile = models.URLField(max_length=200, null=True, blank=True)
+    instagram_profile = models.URLField(max_length=200, null=True, blank=True)
+    subscribe = models.BooleanField(default=True)
+    verified = models.BooleanField(default=False)
+    verified_by = models.ForeignKey(
+        User, related_name='investor_verifier', null=True, blank=True)
+
+    def __str__(self):
+        return self.user.username
+
+
+class InvestorProfile(models.Model):
+    investor_profile = models.ForeignKey(
+        Investor, related_name='investor_profile')
+    investor_interest = models.CharField(
+        max_length=50, choices=SUPPORTER_INTEREST)
+
+    company_classification = models.CharField(
+        max_length=50, choices=COMPANY_CLASSIFICATION, null=True, blank=True)
+
+    investor_forms = models.CharField(
+        max_length=50, choices=INVESTOR_FORMS, null=True, blank=True)
+
+    interest_sectors = models.CharField(
+        max_length=50, choices=INTEREST_SECTORS)
+
+    interest_countries = models.CharField(
+        max_length=50, choices=INTEREST_COUNTRIES)
+
+    elevator_pitch = models.CharField(
+        max_length=250, choices=TRADING_PARTNERS, null=True, blank=True)
+
+    managed_funds = models.CharField(
+        max_length=10, null=True, blank=True, choices=MANAGED_FUNDS)
+
+    class Meta:
+        verbose_name = 'Investor Profile'
+        verbose_name_plural = 'Investors Profiles'
+
+    def __str__(self):
+        return self.supporter_profile.user.name
 
 
 class Post(models.Model):
