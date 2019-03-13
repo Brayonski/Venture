@@ -47,7 +47,7 @@ class HomeView(ListView):
 
 class TextMediaView(DetailView):
     model = TextMedia
-    template_name = 'blog/text_media.html'
+    template_name = 'text_media.html'
 
     def get_context_data(self, **kwargs):
         """Returns the TextMedia instance that the view displays"""
