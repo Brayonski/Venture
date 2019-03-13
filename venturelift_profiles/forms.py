@@ -155,3 +155,42 @@ class SupporterProfileCreateForm(forms.ModelForm):
             "interest_countries": "Target countries? ",
             "trading_partners": "Do you have specific requirements for trading partners?"
         }
+
+
+# class InvestorrCreateForm(forms.ModelForm):
+#     subscribe = forms.TypedChoiceField(
+#         coerce=lambda x: x == 'True',
+#         choices=((False, 'No'), (True, 'Yes')), widget=forms.RadioSelect, label="Would you like us to add you to our email newsletter?"
+#     )
+#     first_name = forms.CharField(max_length=250, label="First Name")
+#     last_name = forms.CharField(max_length=250, label="Last Name")
+
+#     class Meta:
+#         model = Supporter
+#         exclude = ['user', 'verified_by', 'verified']
+#         fields = [
+#             'first_name',
+#             'last_name',
+#             'phone_number',
+#             'company',
+#             'role',
+#             'company_website',
+#             'company_registration_year',
+#             'year_operation',
+#             'company_location',
+#             'physical_address',
+#             'facebook_profile',
+#             'linkedin_profile',
+#             'twitter_profile',
+#             'instagram_profile',
+#             'subscribe'
+#         ]
+#         labels = {
+#             "phone_number": "Phone Number",
+#             "company": "Company Name",
+#             "role": "My role at the company?",
+#             "company_location": "Where are the company's main operations based?",
+#             "company_registration_year": "Year of company registration",
+#             "year_operation": "Year company commenced operations",
+#             "interests": "Interests"
+#         }

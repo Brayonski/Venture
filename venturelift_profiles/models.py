@@ -22,6 +22,18 @@ SUPPORTER_INTEREST = (
     ('professional support', 'Professional Support'),
 )
 
+COMPANY_CLASSIFICATION = (
+    ('crowdfunder', 'Crowdfunder'),
+    ('angel investor', 'Angel Investor'),
+    ('venture capital', 'Venture Capital'),
+    ('private equity', 'Private Equity'),
+    ('fund of funds', 'Fund of Funds'),
+    ('challenge funds', 'Challenge Fund'),
+    ('commercial bank', 'Commercial Bank'),
+    ('microfinance', 'Microfinance'),
+    ('other', 'Other')
+)
+
 PROFESSIONAL_SUPPORT = (
     ('business accelerator', 'Business Accelerator'),
     ('business incubator', 'Business Incubator'),
@@ -47,6 +59,14 @@ INTEREST_SECTORS = (
     ('hospitality', 'Hospitality and Tourism'),
     ('real estate', 'Real Estate and Infastructure'),
     ('transport', 'Transport')
+)
+INVESTOR_FORMS = (
+    ('equity', 'Equity'),
+    ('debt', 'Debt'),
+    ('mezzanine', 'Mezzanine'),
+    ('grants', 'Grants'),
+    ('crowdfunding platform', 'Crowdfunding Platform'),
+    ('other', 'Other')
 )
 
 INTEREST_COUNTRIES = (
@@ -78,6 +98,16 @@ TRADING_PARTNERS = (
     ('haccp', 'HACCP'),
     ('ISO 9001', 'ISO 9001'),
     ('other', 'Other'),
+)
+
+MANAGED_FUNDS = (
+    ('1', '1'),
+    ('1-5', '1-5'),
+    ('5+', '5+')
+)
+
+AUM = (
+    ('<usd 1M', '<USD 1M')
 )
 
 FUNDING_SOURCES = (
@@ -242,14 +272,14 @@ class BusinessGoals(models.Model):
 class Supporter(models.Model):
     user = models.ForeignKey(User, related_name='supporter_creator')
     phone_number = models.CharField(max_length=20, validators=[
-                                    MinLengthValidator(11)], default="+2547000000", help_text="My Phone Number")
-    company = models.CharField(max_length=250, default="Testing")
-    role = models.CharField(max_length=250, default="Testing")
-    company_operations = models.CharField(max_length=250, default="Testing")
-    physical_address = models.CharField(max_length=250, default="Testing")
-    postal_address = models.CharField(max_length=250, default="Testing")
+                                    MinLengthValidator(5)], help_text="My Phone Number")
+    company = models.CharField(max_length=250)
+    role = models.CharField(max_length=250)
+    company_operations = models.CharField(max_length=250)
+    physical_address = models.CharField(max_length=250)
+    postal_address = models.CharField(max_length=250)
     company_website = models.URLField(
-        max_length=250, blank=True, null=True, default="www.google.com")
+        max_length=250, blank=True, null=True)
     company_registration_year = models.IntegerField(
         choices=YEAR_CHOICES, default=2010)
     year_operation = models.IntegerField(choices=YEAR_CHOICES, default=2010)
@@ -280,17 +310,75 @@ class SupporterProfile(models.Model):
         max_length=50, choices=INTEREST_STARTUPS, null=True, blank=True)
 
     interest_sectors = models.CharField(
-        max_length=50, choices=INTEREST_SECTORS)
+        max_length=50, choices=INTEREST_SECTORS, null=True, blank=True)
 
     interest_countries = models.CharField(
-        max_length=50, choices=INTEREST_COUNTRIES)
+        max_length=50, choices=INTEREST_COUNTRIES, null=True, blank=True)
 
     trading_partners = models.CharField(
         max_length=50, choices=TRADING_PARTNERS, null=True, blank=True)
 
     class Meta:
         verbose_name = 'Supporter Profile'
-        verbose_name_plural = 'Supporter Profiles'
+        verbose_name_plural = 'Supporters Profiles'
+
+    def __str__(self):
+        return self.supporter_profile.user.name
+
+
+class Investor(models.Model):
+    user = models.ForeignKey(User, related_name='investor_creator')
+    phone_number = models.CharField(max_length=20, validators=[
+                                    MinLengthValidator(5)], help_text="My Phone Number")
+    company = models.CharField(max_length=250)
+    role = models.CharField(max_length=250)
+    company_location = models.CharField(max_length=250)
+    physical_address = models.CharField(max_length=250)
+    company_website = models.URLField(
+        max_length=250, blank=True, null=True)
+    company_registration_year = models.IntegerField(
+        choices=YEAR_CHOICES)
+    year_operation = models.IntegerField(choices=YEAR_CHOICES)
+    facebook_profile = models.URLField(max_length=200, null=True, blank=True)
+    linkedin_profile = models.URLField(max_length=200, null=True, blank=True)
+    twitter_profile = models.URLField(max_length=200, null=True, blank=True)
+    instagram_profile = models.URLField(max_length=200, null=True, blank=True)
+    subscribe = models.BooleanField(default=True)
+    verified = models.BooleanField(default=False)
+    verified_by = models.ForeignKey(
+        User, related_name='investor_verifier', null=True, blank=True)
+
+    def __str__(self):
+        return self.user.username
+
+
+class InvestorProfile(models.Model):
+    investor_profile = models.ForeignKey(
+        Investor, related_name='investor_profile')
+    investor_interest = models.CharField(
+        max_length=50, choices=SUPPORTER_INTEREST)
+
+    company_classification = models.CharField(
+        max_length=50, choices=COMPANY_CLASSIFICATION, null=True, blank=True)
+
+    investor_forms = models.CharField(
+        max_length=50, choices=INVESTOR_FORMS, null=True, blank=True)
+
+    interest_sectors = models.CharField(
+        max_length=50, choices=INTEREST_SECTORS)
+
+    interest_countries = models.CharField(
+        max_length=50, choices=INTEREST_COUNTRIES)
+
+    elevator_pitch = models.CharField(
+        max_length=250, choices=TRADING_PARTNERS, null=True, blank=True)
+
+    managed_funds = models.CharField(
+        max_length=10, null=True, blank=True, choices=MANAGED_FUNDS)
+
+    class Meta:
+        verbose_name = 'Investor Profile'
+        verbose_name_plural = 'Investors Profiles'
 
     def __str__(self):
         return self.supporter_profile.user.name

@@ -140,17 +140,6 @@ class CreateSupporterView(LoginRequiredMixin, CreateView):
     template_name = 'profile/create_supporter.html'
     form_class = SupporterCreateForm
 
-    def get_form(self, form_class=None):
-        supporter = Supporter.objects.filter(user=self.request.user)
-        print(supporter)
-        if (supporter.exists()):
-            redirect(reverse('supporter_create_step_2',
-                             kwargs={'pk': supporter.id}))
-        else:
-            form_class = SupporterCreateForm
-
-        return form_class(**self.get_form_kwargs())
-
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.user = self.request.user
@@ -158,10 +147,11 @@ class CreateSupporterView(LoginRequiredMixin, CreateView):
         self.object.user.last_name = form.cleaned_data['last_name']
         self.object.save()
         supporter = Supporter.objects.get(user=self.request.user)
+        SupporterProfile.objects.create(supporter_profile=supporter)
         return redirect(reverse('supporter_create_step_2', kwargs={'pk': supporter.id}))
 
 
-class SupporterUpdateProfileView(LoginRequiredMixin, CreateView):
+class SupporterUpdateProfileView(LoginRequiredMixin, UpdateView):
     template_name = 'profile/create_supporter.html'
     form_class = SupporterProfileCreateForm
 
