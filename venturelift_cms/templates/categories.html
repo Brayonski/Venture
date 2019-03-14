@@ -6,7 +6,6 @@
 {% block content %}
 <div class="full_width h_D">
   <div class="container h_D_container">
-    <h2 class="h_title_A">Stories</h2>
     <ul>
       <li><a href="/media/{{category}}">Stories</a></li>
       <li><a href="{% url 'venturelift_media:media_videos' category %}">Videos</a></li>
@@ -21,7 +20,7 @@
             <figure class="in_style_A_img">
               <img src="{{obj.thumbnail_image.url}}">
             </figure>
-            <h3 class="style_C">{{obj.title}}</h3>
+            <h3 class="style_C">{{obj.title|truncatechars:50}}..</h3>
           </a>
         </div>
       </div>
@@ -37,7 +36,7 @@
             <figure class="in_style_A_img">
               <iframe class="embed-responsive-item" src="{{obj.path}}"></iframe>
             </figure>
-            <h3 class="style_C">{{obj.title}}</h3>
+            <h3 class="style_C">{{obj.title|truncatechars:50}}..</h3>
           </a>
         </div>
       </div>
@@ -53,7 +52,7 @@
             <figure class="in_style_A_img">
               <iframe class="embed-responsive-item" src="{{obj.path}}"></iframe>
             </figure>
-            <h3 class="style_C">{{obj.title}}</h3>
+            <h3 class="style_C">{{obj.title|truncatechars:50}}..</h3>
           </a>
         </div>
       </div>
