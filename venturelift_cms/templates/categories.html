@@ -6,7 +6,12 @@
 {% block content %}
 <div class="full_width h_D">
   <div class="container h_D_container">
-    <h2 class="h_title_A">Stories</h2>
+    <ul>
+      <li><a href="/media/{{category}}">Stories</a></li>
+      <li><a href="{% url 'venturelift_media:media_videos' category %}">Videos</a></li>
+      <li><a href="{% url 'venturelift_media:media_podcast' category %}">Podcasts</a></li>
+    </ul>
+    {% if media %}
     <div class="row clearfix">
       {% for obj in media %}
       <div class="col-md-4 clearfix">
@@ -17,11 +22,43 @@
             </figure>
             <h3 class="style_C">{{obj.title}}</h3>
           </a>
-          <h5 class="meta_A">{{obj.category}}</h5>
         </div>
       </div>
       {% endfor %}
     </div>
+    {% endif %}
+
+    {% if visual %}
+    <div class="row clearfix">
+      {% for obj in visual %}
+      <div class="col-md-4 clearfix">
+        <div class="in_style_A">
+            <figure class="in_style_A_img">
+              <iframe class="embed-responsive-item" src="{{obj.path}}"></iframe>
+            </figure>
+            <h3 class="style_C">{{obj.title}}</h3>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if audio %}
+    <div class="row clearfix">
+      {% for obj in audio %}
+      <div class="col-md-4 clearfix">
+        <div class="in_style_A">
+            <figure class="in_style_A_img">
+              <iframe class="embed-responsive-item" src="{{obj.path}}"></iframe>
+            </figure>
+            <h3 class="style_C">{{obj.title}}</h3>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
   </div>
 </div>
 

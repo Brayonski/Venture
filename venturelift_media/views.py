@@ -5,8 +5,7 @@ from django.shortcuts import get_object_or_404, render
 from .models import TextMedia, AudioVisual, Category
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render, redirect
-from django.core.urlresolvers import reverse
-
+from django.core.urlresolvers import reverse, resolve
 
 class HomeView(ListView):
     queryset = TextMedia.objects.filter(category__pk=1).order_by('-date')[:4]
@@ -33,7 +32,14 @@ class HomeView(ListView):
         path = self.request.path.rsplit('/', 1)[0]
         category = path.rsplit('/', 1)[-1]
         context = {}
-        context['media'] = TextMedia.objects.filter(category__title__iexact=category)
+        context['category'] = category   
+        current_url = resolve(self.request.path_info).url_name         
+        if current_url == 'media_videos':
+            context['visual'] = AudioVisual.objects.filter(category='Video', sub_category__title__iexact=category).order_by('-date')
+        elif current_url == 'media_podcast':
+            context['audio'] = AudioVisual.objects.filter(category='Podcast', sub_category__title__iexact=category).order_by('-date')
+        else:
+            context['media'] = TextMedia.objects.filter(category__title__iexact=category).order_by('-date')
         return context
 
     def get_other_articles(self):
