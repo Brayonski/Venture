@@ -1,62 +1,43 @@
 {% extends 'profile/base.html' %}
 {% load crispy_forms_tags %}
 
-{% block content %}
+{% block content_1 %}
+<div class="col_A_in col_A_in_2">
+    <div class="onboarding_A">
+        <div class="row clearfix">
+            <div class="col-md-8 col-md-offset-2 clearfix">
+                {% if step1 %}
+                <h3>Stage 1: Eligibility screening</h3>
+                {% elif step2 %}
+                <h3>Stage 2: Describe your product and Market</h3>
+                {% elif step3 %}
+                <h3>Stage 3: Business Model</h3>
+                {% elif step4 %}
+                <h3>Stage 3: Your team</h3>
+                {% elif step5 %}
+                <h3>Stage 5: Business Finance</h3>
+                {% elif step6 %}
+                <h3>Stage 6: Investor Information</h3>
+                {% else %}
+                <h3>Stage 7: Goals/challenges</h3>
+                {% endif %}
+                <div>
+                    <form method='post'>
+                        {% csrf_token %}
+                        {{form|crispy }}
+                        <button class='btn btn-success'>Go to next step</button>
+                    </form>
+                    <br />
+                    <a href="{% url 'my_business' %}"><button class='btn btn-success'>Continue later</button></a>
+                </div>
 
-<div class="full_A">
-    <div class="columns_A flex row clearfix">
-        <div class="col_A_out col_A_out_1 col-md-3 clearfix">
-            <div class="col_A_in col_A_in_1">
-
-                <ul class="actions_A">
-                    <li><a href="#nogo">Edit my profile</a></li>
-                    <li><a href="{% url 'my_business' %}">Add business</a></li>
-                    <li><a href="{% url 'new_blog_post' %}">New Blog Post</a></li>
-                </ul>
-            
-            </div>  
-        </div>  
-        <div class="col_A_out col_A_out_2 col-md-7 clearfix">
-            <div class="col_A_in col_A_in_2">
-                <div class="onboarding_A">
-                    <div class="row clearfix">
-                        <div class="col-md-8 col-md-offset-2 clearfix">
-                            {% if step1 %}
-                            <h3>Stage 1: Eligibility screening</h3>
-                            {% elif step2 %}
-                            <h3>Stage 2: Describe your product and Market</h3>
-                            {% elif step3 %}
-                            <h3>Stage 3: Business Model</h3>
-                            {% elif step4 %}
-                            <h3>Stage 3: Your team</h3>
-                            {% elif step5 %}
-                            <h3>Stage 5: Business Finance</h3>
-                            {% elif step6 %}
-                            <h3>Stage 6: Investor Information</h3>
-                            {% else %}
-                            <h3>Stage 7: Goals/challenges</h3>
-                            {% endif %}
-                            <div>
-                                <form method='post'>
-                                    {% csrf_token %}
-                                    {{form|crispy }}
-                                    <button class='btn btn-success'>Go to next step</button>
-                                </form>
-                                <br/>
-                                <a href="{% url 'my_business' %}"><button class='btn btn-success'>Continue later</button></a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>               
-            </div>              
+            </div>
         </div>
-        <div class="col_A_out col_A_out_3 col-md-2 clearfix">
-            <div class="col_A_in col_A_in_3">
-                <h4>Sidebar</h4>
-            </div>              
-        </div>        
     </div>
 </div>
-
+{% endblock %}
+{% block content_2 %}
+<div class="company_filter">
+    <h4>Sidebar</h4>
+</div>
 {% endblock %}

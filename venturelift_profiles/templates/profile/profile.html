@@ -1,20 +1,20 @@
-{% extends 'profile/base.html' %}
+{% extends 'profile/base2.html' %}
 {% block content %}
 
 <div class="full_A full_width">
 	<div class="columns_A flex row clearfix">
 		<div class="col-md-4 clearfix">
 			<div class="col_A_in col_A_in_1">
-			    <h3>User profile</h3>
-			    <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>				
-			</div>	
-		</div>	
+				<h3>User profile</h3>
+				<p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+			</div>
+		</div>
 		<div class="col-md-8 clearfix">
 			<div class="col_A_in col_A_in_2">
 				<h4>Updates</h4>
-			</div>				
+			</div>
 		</div>
 	</div>
 </div>
-    
+
 {% endblock %}

@@ -1,44 +1,27 @@
 {% extends 'profile/base.html' %}
 {% load crispy_forms_tags %}
-{% block content %}
+{% block content_1 %}
 
-<div class="full_A">
-    <div class="columns_A flex row clearfix">
-        <div class="col_A_out col_A_out_1 col-md-3 clearfix">
-            <div class="col_A_in col_A_in_1">
-
-                <ul class="actions_A">
-                    <li><a href="#nogo">Edit my profile</a></li>
-                    <li><a href="{% url 'my_business' %}">Add business</a></li>
-                    <li><a href="{% url 'new_blog_post' %}">Add new blog post</a></li>
-                </ul>
-            
-            </div>  
-        </div>  
-        <div class="col_A_out col_A_out_2 col-md-7 clearfix">
-            <div class="col_A_in col_A_in_2">
-                <div class="onboarding_A">
-                    <div class="row clearfix">
-                        <div class="col-md-8 col-md-offset-2 clearfix">
-                            <h3>New Blog Post</h3>
-                            <div>
-							    <form method='post'>
-							      {% csrf_token %}
-							      {{form|crispy }}
-							      <button class='btn btn-success'>Save and continue</button>
-							    </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>               
-            </div>              
+<div class="col_A_in col_A_in_2">
+    <div class="onboarding_A">
+        <div class="row clearfix">
+            <div class="col-md-8 col-md-offset-2 clearfix">
+                <h3>New Blog Post</h3>
+                <div>
+                    <form method='post'>
+                        {% csrf_token %}
+                        {{form|crispy }}
+                        <button class='btn btn-success'>Save and continue</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="col_A_out col_A_out_3 col-md-2 clearfix">
-            <div class="col_A_in col_A_in_3">
-                <h4>Sidebar</h4>
-            </div>              
-        </div>        
     </div>
 </div>
 
+{% endblock %}
+{% block content_2 %}
+<div class="company_filter">
+    <h4>Sidebar</h4>
+</div>
 {% endblock %}

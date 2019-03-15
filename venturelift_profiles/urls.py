@@ -12,15 +12,24 @@ urlpatterns = [
     url(r'^business/list/$', views.BusinessView.as_view(), name='business_list'),
     url(r'^supporter/follow/(?P<pk>\d+)/$',
         views.SupporterView.as_view(), name='supporter_follow'),
+
     url(r'^business/profile/(?P<pk>\d+)/$',
         views.BusinessProfileView.as_view(), name='business_profile'),
+
+    url(r'^supporter/profile/(?P<pk>\d+)/$',
+        views.SupporterProfileView.as_view(), name='supporter_profile'),
+
     url(r'^supporter/unfollow/(?P<pk>\d+)/$',
         views.SupporterView.as_view(), name='supporter_unfollow'),
+
     url(r'^business/follow/(?P<pk>\d+)/$',
         views.BusinessView.as_view(), name='business_follow'),
+
     url(r'^business/unfollow/(?P<pk>\d+)/$',
         views.BusinessView.as_view(), name='business_unfollow'),
+
     url(r'^oauth/', include('social_django.urls', namespace='social')),
+
     url(r'^post-like/(?P<pk>\d+)/$', views.SummaryView.as_view(), name='like_post'),
     url(r'^post-dislike/(?P<pk>\d+)/$',
         views.SummaryView.as_view(), name='dislike_post'),

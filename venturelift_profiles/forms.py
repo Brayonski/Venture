@@ -17,11 +17,13 @@ class CreateBlogForm(ModelForm):
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
         super(CreateBlogForm, self).__init__(*args, **kwargs)
+        '''
         modelchoicefields = [field for field_name, field in self.fields.iteritems() if
                              isinstance(field, forms.ModelChoiceField)]
 
         for field in modelchoicefields:
             field.empty_label = None
+        '''
 
         if self.user.supporter_creator.exists():
             self.fields.pop("company")
@@ -116,6 +118,8 @@ class SupporterCreateForm(forms.ModelForm):
         fields = [
             'first_name',
             'last_name',
+            'thumbnail_image',
+            'about',
             'phone_number',
             'company',
             'company_website',
@@ -138,7 +142,9 @@ class SupporterCreateForm(forms.ModelForm):
             "company_operations": "Where are the company's main operations based?",
             "company_registration_year": "Year of company registration",
             "year_operation": "Year company commenced operations",
-            "interests": "Interests"
+            "interests": "Interests",
+            "thumbnail_image": "Profile Image",
+            "about": "About Me"
         }
 
 
@@ -178,6 +184,7 @@ class InvestorCreateForm(forms.ModelForm):
         fields = [
             'first_name',
             'last_name',
+            'thumbnail_image',
             'phone_number',
             'company',
             'role',
@@ -198,7 +205,8 @@ class InvestorCreateForm(forms.ModelForm):
             "role": "My role at the company?",
             "company_location": "Where are the company's main operations based?",
             "company_registration_year": "Year of company registration?",
-            "year_operation": "Year company commenced operations?"
+            "year_operation": "Year company commenced operations?",
+            "thumbnail_image": "Profile Image"
         }
 
 
