@@ -38,7 +38,14 @@
           </div>
           <div class="card-body">
             <h1 class="card-title text-primary">Verification</h1>
-            {{ supporter_profile.verification_status }}
+            {% if supporter_profile.verification_status >= 0 or supporter_profile.verification_status <= 20 %} <img src="{% static 'img/blue-user-icon.svg' %}">
+              {% elif supporter_profile.verification_status > 20 or supporter_profile.verification_status <= 40 %} <img
+                src="{% static 'img/blue-user-icon.svg' %}">
+                {% elif supporter_profile.verification_status > 60 or supporter_profile.verification_status <= 80 %}
+                  <img src="{% static 'img/blue-user-icon.svg' %}">
+                  {% elif supporter_profile.verification_status > 80 or supporter_profile.verification_status <= 100 %}
+                    <img src="{% static 'img/blue-user-icon.svg' %}">
+                    {% endif %}
           </div>
           <div class="card-body">
             <h1 class="card-title text-primary">Contact</h1>
@@ -167,7 +174,7 @@
                             {% endif %}
                           </figure>
                           <figure class="box_details">
-                            <p class="box_title"><a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a></p>
+                            <p class="box_title"><a href="{% url 'supporter_profile' obj.pk %}">{{obj.fullname}}</a></p>
                             <div class="box_social">
                               {% if obj in following %}
                               <a href="{% url 'investor_unfollow' obj.id %}"><button class="btn-actioned btn btn-sm btn-default">Following</button></a>
