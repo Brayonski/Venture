@@ -29,7 +29,7 @@
                   {% for obj in object_list %}
                   {% if forloop.counter > 1 %}
                   <li>
-                    <a href="{% url 'venturelift_media:media_story' object_list.1.pk %}">{{object_list.1.title}}</a>
+                    <a href="{% url 'venturelift_media:media_story' obj.pk %}">{{obj.title}}</a>
                   </li>
                   {% endif %}
                   {% endfor %}
@@ -113,7 +113,7 @@
       <div class="col-md-9 clearfix">
         <div class="in_style_A">
           <div class="embed-responsive embed-responsive-16by9">
-            {{videos.0.path}}
+            {{videos.0.path|safe}}
           </div>
         </div>
       </div>
@@ -124,7 +124,7 @@
             {% if forloop.counter > 1 %}
             <li>
               <div class="embed-responsive embed-responsive-16by9">
-                {{obj.path}}
+                {{obj.path|safe}}
               </div>
             </li>
             {% endif %}
@@ -143,7 +143,7 @@
       {% for obj in podcasts %}
       <div class="col-md-4 clearfix">
         <div class="in_style_A">
-          {{obj.path}}
+          {{obj.path|safe}}
             <img src="{% static 'img/podcast.jpg' %}">
             <h3 class="style_C">{{obj.title}}</h3>
           </a>
