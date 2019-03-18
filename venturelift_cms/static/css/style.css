@@ -201,7 +201,7 @@ ul.category_nav li a {
     padding: 8px 10px;
     display: block;
     border-bottom: 1px solid #CCC;
-    padding: 20px 10px;
+    padding: 40px 10px 20px;
 }
 ul.category_nav li:nth-child(1) a { border-bottom: 1px solid #00aeff; background: #00aeff; color: #FFF; }
 ul.category_nav li:nth-child(2) a { border-bottom: 1px solid #00ff59; background: #00ff59; color: #FFF; }
@@ -219,7 +219,7 @@ ul.category_nav {
     display: table;
     table-layout: fixed;
     width: 100%;
-    margin-top: -35px;
+    margin-top: -55px;
 }
 
 .h1, h1 {
