@@ -49,6 +49,7 @@ class AudioVisual(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     path = models.TextField()
     author = models.ForeignKey(User)
+    vla_tv = models.BooleanField(default=False, help_text='This media is property of VLA')
     category = models.CharField(max_length=100, choices=AUDIOVISUALCHOICES)
     sub_category = models.ForeignKey(Category, null=True)
     

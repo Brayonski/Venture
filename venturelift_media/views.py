@@ -22,7 +22,9 @@ class HomeView(ListView):
         context["podcasts"] = AudioVisual.objects.filter(
             category='Podcast').order_by('-date')[:3]
         context["videos"] = AudioVisual.objects.filter(
-            category='Video').order_by('-date')[:7]
+            category='Video').order_by('-date')[:6]
+        context["vla_tv"] = AudioVisual.objects.filter(
+            category='Video', vla_tv=True).order_by('-date')[:1]
         context['other_articles'] = self.get_other_articles()
         context['stories_top'] = TextMedia.objects.all()[:3]
         context['stories_bottom'] = TextMedia.objects.all().order_by('-date')[:3]

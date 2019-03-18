@@ -116,7 +116,7 @@
       <div class="col-md-9 clearfix">
         <div class="in_style_A">
           <div class="embed-responsive embed-responsive-16by9">
-            {{videos.0.path|safe}}
+            {{vla_tv.0.path|safe}}
           </div>
         </div>
       </div>
@@ -125,14 +125,12 @@
           <h2 class="h_title_A h_title_AB">VIDEOS</h2>
           <ul class="home_vide_list">
             {% for obj in videos %}
-            {% if forloop.counter > 1 %}
             <li>
               <div class="embed-responsive embed-responsive-16by9">
                 {{obj.path|safe}}
                 <h5 class="meta_A">{{obj.category}}</h5>
               </div>
             </li>
-            {% endif %}
             {% endfor %}
           </ul>
         </div>
