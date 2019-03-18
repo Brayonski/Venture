@@ -29,8 +29,9 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         context = super(SummaryView, self).get_context_data(*args, **kwargs)
         companies_following = following(self.request.user, Business)
         supporters_following = following(self.request.user, Supporter)
+        investors_following = following(self.request.user, Investor)
         posts = Post.objects.filter(
-            Q(company__in=companies_following) | Q(author__in=supporters_following))
+            Q(company__in=companies_following) | Q(author__in=supporters_following) | Q(author__in=investors_following))
         context['object_list'] = posts
         if 'pk' in kwargs:
             current_url = resolve(self.request.path_info).url_name
@@ -59,7 +60,7 @@ class SupporterView(LoginRequiredMixin, ListView):
     queryset = Supporter.objects.filter(verified=True)
 
     def dispatch(self, request, *args, **kwargs):
-        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()):
+        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
         return super(SupporterView, self).dispatch(request, *args, **kwargs)
 
@@ -77,13 +78,36 @@ class SupporterView(LoginRequiredMixin, ListView):
         return context
 
 
+class InvestorView(LoginRequiredMixin, ListView):
+    template_name = 'profile/investors.html'
+    queryset = Investor.objects.filter(verified=True)
+
+    def dispatch(self, request, *args, **kwargs):
+        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
+            return redirect(reverse('profile_create'))
+        return super(InvestorView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(InvestorView, self).get_context_data(*args, **kwargs)
+        current_url = resolve(self.request.path_info).url_name
+        if 'pk' in self.kwargs:
+            if current_url == 'investor_follow':
+                follow(self.request.user, Investor.objects.get(
+                    id=self.kwargs['pk']))
+            if current_url == 'investor_unfollow':
+                unfollow(self.request.user, Investor.objects.get(
+                    id=self.kwargs['pk']))
+        context['following'] = following(self.request.user)
+        return context
+
+
 class BusinessView(LoginRequiredMixin, ListView, FormMixin):
     template_name = 'profile/business.html'
     queryset = Business.objects.filter(verified=True)
     form_class = BusinessFilters
 
     def dispatch(self, request, *args, **kwargs):
-        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()):
+        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
         return super(BusinessView, self).dispatch(request, *args, **kwargs)
 
@@ -389,4 +413,25 @@ class SupporterProfileView(DetailView):
             pk=self.kwargs.get("pk"))
         context['supporter_profile'] = SupporterProfile.objects.get(
             supporter_profile_id=context['supporter'].id)
+        return context
+
+
+class InvestorProfileView(DetailView):
+    model = Investor
+    template_name = 'profile/investor_profile.html'
+
+    def get_context_data(self, **kwargs):
+        """Returns the Investor instance that the view displays"""
+        context = super(InvestorProfileView, self).get_context_data(**kwargs)
+        context['investor'] = Investor.objects.get(
+            pk=self.kwargs.get("pk"))
+        context['investor_profile'] = InvestorProfile.objects.get(
+            investor_profile_id=context['investor'].id)
+        context['post'] = Post.objects.filter(
+            author=context['investor'].user)[:5]
+        context['following'] = following(self.request.user, Investor.objects.get(
+            id=self.kwargs['pk']))
+
+        context['followers'] = followers(self.request.user)
+        print(context['followers'])
         return context

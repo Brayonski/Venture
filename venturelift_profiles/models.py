@@ -322,10 +322,14 @@ class Supporter(models.Model):
     company_registration_year = models.IntegerField(
         choices=YEAR_CHOICES, default=2010)
     year_operation = models.IntegerField(choices=YEAR_CHOICES, default=2010)
-    facebook_profile = models.URLField(max_length=200, null=True, blank=True)
-    linkedin_profile = models.URLField(max_length=200, null=True, blank=True)
-    twitter_profile = models.URLField(max_length=200, null=True, blank=True)
-    instagram_profile = models.URLField(max_length=200, null=True, blank=True)
+    facebook_profile = models.URLField(
+        max_length=200, null=True, blank=True, help_text="https://www.facebook.com/my user name")
+    linkedin_profile = models.URLField(
+        max_length=200, null=True, blank=True, help_text="https://www.linkedin.com/in/my user name")
+    twitter_profile = models.URLField(
+        max_length=200, null=True, blank=True, help_text="https://twitter.com/my user name")
+    instagram_profile = models.URLField(
+        max_length=200, null=True, blank=True, help_text="https://www.instagram.com/my user nam ")
     subscribe = models.BooleanField(default=True)
     interests = models.ManyToManyField(BusinessCategory, blank=True)
     verified = models.BooleanField(default=False)
@@ -369,27 +373,77 @@ class SupporterProfile(models.Model):
 
     def verification_status(self):
         count = 0
+        if not (self.supporter_profile.instagram_profile):
+            count -= 1
+        else:
+            count += 1
+        if not (self.supporter_profile.facebook_profile):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.supporter_profile.linkedin_profile):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.supporter_profile.twitter_profile):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.supporter_profile.company_website):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.supporter_profile.thumbnail_image):
+            count -= 1
+        else:
+            count += 1
+
         if not (self.supporter_interest):
+            count -= 1
+        else:
             count += 1
+
         if not (self.professional_support):
+            count -= 1
+        else:
             count += 1
+
         if not (self.interest_startups):
+            count -= 1
+        else:
             count += 1
+
         if not (self.interest_sectors):
+            count -= 1
+        else:
             count += 1
+
         if not (self.interest_countries):
+            count -= 1
+        else:
             count += 1
+
         if not (self.trading_partners):
+            count -= 1
+        else:
             count += 1
 
         if count == 0:
-            return "100%"
+            return 100
+        elif count < 0:
+            return 0
         else:
-            return (count/6)*100+"%"
+            return round((count/12)*100)
 
 
 class Investor(models.Model):
     user = models.ForeignKey(User, related_name='investor_creator')
+    about = models.CharField(
+        max_length=250, help_text="Briefly describe your self?")
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
     phone_number = models.CharField(max_length=20, validators=[
@@ -470,13 +524,119 @@ class InvestorProfile(models.Model):
     def __str__(self):
         return self.investor_profile.user.first_name + " " + self.investor_profile.user.last_name
 
+    def verification_status(self):
+        count = 0
+        if not (self.investor_profile.facebook_profile):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.investor_profile.thumbnail_image):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.investor_profile.company_website):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.investor_profile.linkedin_profile):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.investor_profile.twitter_profile):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.investor_profile.instagram_profile):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.company_classification):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.investor_forms):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.target_sectors):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.target_countries):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.elevator_pitch):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.managed_funds):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.assets_under_management):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.investor_portfolio):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.exits_executed):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.impact_investor):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.impact_measurement):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.impact_metrics):
+            count -= 1
+        else:
+            count += 1
+
+        if not (self.gender_lens_investor):
+            count -= 1
+        else:
+            count += 1
+
+        if count == 0:
+            return 100
+        elif count < 0:
+            return 0
+        else:
+            return (round((count/14)*100))
+
 
 class Post(models.Model):
     title = models.CharField(max_length=250)
     body = fields.HTMLField()
     company = models.ForeignKey(Business, null=True, blank=True)
     author = models.ForeignKey(
-        Supporter, null=True, blank=True, related_name='author')
+        User, null=True, blank=True, related_name='author')
+    post_image = models.ImageField(
+        upload_to='pic_folder/', null=True, blank=True, help_text="Upload an Image")
     date = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, blank=True, related_name='likes')
 

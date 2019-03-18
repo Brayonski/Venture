@@ -1,0 +1,59 @@
+{% extends 'profile/base.html' %}
+{% load cms_tags staticfiles %}
+{% load crispy_forms_tags %}
+{% block content_1 %}
+
+
+<div class="col_A_in col_A_in_2">
+  <div class="topbar_2">
+    <div class="row clearfix">
+      <div class="col-md-6 clearfix">
+        <p class="p_title">Investor</p>
+      </div>
+      <div class="col-md-6 clearfix">
+        <div class="company_filter pull-right">
+          <form method='post' class='' action="#">
+            {% csrf_token %}
+            <input class='form-control' name='investor-name' placeholder='Search a Investor' />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row clearfix">
+    <div class='col-md-12 clearfix'>
+      <div class="row clearfix">
+        {% for obj in object_list %}
+        <div class="col-md-3 box_box">
+          <div class="box_box_in">
+            <figure class="box_avi">
+              <!-- Square, 350 X 350 PX -->
+              {% if obj.thumbnail_image %}
+              <img src="{{ obj.thumbnail_image.url }}">
+              {% else %}
+              <img src="{% static 'img/blue-user-icon.svg' %}">
+              {% endif %}
+            </figure>
+            <figure class="box_details">
+              <p class="box_title"><a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a></p>
+              <div class="box_social">
+                {% if obj in following %}
+                <a href="{% url 'investor_unfollow' obj.id %}"><button class="btn-actioned btn btn-sm btn-default">Following</button></a>
+                {% else %}
+                <a href="{% url 'investor_follow' obj.id %}"><button class=" btn btn-sm btn-default">Follow</button></a>
+                {% endif %}
+              </div>
+            </figure>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block content_2 %}
+<div class="company_filter">
+  <h4>Sidebar</h4>
+</div>
+{% endblock %}
