@@ -29,8 +29,8 @@
                   {% for obj in object_list %}
                   {% if forloop.counter > 1 %}
                   <li>
-                    <a href="{% url 'venturelift_media:media_story' object_list.1.pk %}">
-                      {{object_list.1.title}}
+                    <a href="{% url 'venturelift_media:media_story' obj.pk %}">
+                      {{obj.title}}
                       <h5 class="meta_A">{{obj.category}}</h5>
                     </a>
                   </li>
