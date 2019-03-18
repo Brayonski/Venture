@@ -443,7 +443,7 @@ class SupporterProfile(models.Model):
 class Investor(models.Model):
     user = models.ForeignKey(User, related_name='investor_creator')
     about = models.CharField(
-        max_length=250, help_text="Briefly describe your self?")
+        max_length=250, help_text="Briefly describe your self?", null=True)
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
     phone_number = models.CharField(max_length=20, validators=[
