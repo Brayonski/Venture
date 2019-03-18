@@ -38,15 +38,21 @@
           </div>
           <div class="card-body">
             <h1 class="card-title text-primary">Verification</h1>
-
-            {% if investor_profile.verification_status >= 0 or investor_profile.verification_status <= 20 %} <img src="{% static 'img/blue-user-icon.svg' %}">
-              {% elif investor_profile.verification_status > 20 or investor_profile.verification_status <= 40 %} <img
-                src="{% static 'img/blue-user-icon.svg' %}">
-                {% elif investor_profile.verification_status > 60 or investor_profile.verification_status <= 80 %} <img
-                  src="{% static 'img/blue-user-icon.svg' %}">
-                  {% elif investor_profile.verification_status > 80 or investor_profile.verification_status <= 100 %}
-                    <img src="{% static 'img/blue-user-icon.svg' %}">
-                    {% endif %}
+            {% if investor.verification_status > 0 %}
+            <img src="{% static 'img/blue-user-icon.svg' %}">
+            {% elif investor.verification_status >= 20 %}
+            <img src="{% static 'img/blue-user-icon.svg' %}">
+            {% elif investor.verification_status >= 40 %}
+            <img src="{% static 'img/blue-user-icon.svg' %}">
+            {% elif investor.verification_status >= 60 %}
+            <img src="{% static 'img/blue-user-icon.svg' %}">
+            {% elif investor.verification_status >= 80 %}
+            <img src="{% static 'img/blue-user-icon.svg' %}">
+            {% elif investor.verification_status >= 90 %}
+            <img src="{% static 'img/blue-user-icon.svg' %}">
+            {% else %}
+            <img src="{% static 'img/blue-user-icon.svg' %}">
+            {% endif %}
           </div>
           <div class="card-body">
             <h1 class="card-title text-primary">Contact</h1>

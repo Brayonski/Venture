@@ -29,7 +29,21 @@
   </div>
   <div class="card-body">
     <h1 class="card-title text-primary">Verification</h1>
-    {{ context.supporter_profile.verification_status }}
+    {% if context.supporter_profile.verification_status > 0 %}
+    <img src="{% static 'img/blue-user-icon.svg' %}">
+    {% elif context.supporter_profile.verification_status >= 20 %}
+    <img src="{% static 'img/blue-user-icon.svg' %}">
+    {% elif context.supporter_profile.verification_status >= 40 %}
+    <img src="{% static 'img/blue-user-icon.svg' %}">
+    {% elif context.supporter_profile.verification_status >= 60 %}
+    <img src="{% static 'img/blue-user-icon.svg' %}">
+    {% elif context.supporter_profile.verification_status >= 80 %}
+    <img src="{% static 'img/blue-user-icon.svg' %}">
+    {% elif context.supporter_profile.verification_status >= 90 %}
+    <img src="{% static 'img/blue-user-icon.svg' %}">
+    {% else %}
+    <img src="{% static 'img/blue-user-icon.svg' %}">
+    {% endif %}
   </div>
   <div class="card-body">
     <h1 class="card-title text-primary">Contact</h1>
