@@ -308,7 +308,7 @@ class Supporter(models.Model):
     user = models.ForeignKey(User, related_name='supporter_creator')
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number")
-    company = models.CharField(max_length=250, unique=True)
+    company = models.CharField(max_length=250, unique=True, null=True)
     role = models.CharField(max_length=250)
     company_operations = models.CharField(max_length=250)
     physical_address = models.CharField(max_length=250)
