@@ -47,7 +47,7 @@ class TextMedia(models.Model):
 class AudioVisual(models.Model):
     title = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
-    path = fields.HTMLField()
+    path = models.TextField()
     author = models.ForeignKey(User)
     category = models.CharField(max_length=100, choices=AUDIOVISUALCHOICES)
     sub_category = models.ForeignKey(Category, null=True)
