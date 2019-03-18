@@ -311,7 +311,7 @@ class Supporter(models.Model):
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number")
     about = models.CharField(
-        max_length=250, help_text="Briefly describe your self?")
+        max_length=250, help_text="Briefly describe your self?", null=True)
     company = models.CharField(max_length=250, unique=True, null=True)
     role = models.CharField(max_length=250)
     company_operations = models.CharField(max_length=250)
