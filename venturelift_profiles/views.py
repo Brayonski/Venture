@@ -31,7 +31,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         supporters_following = following(self.request.user, Supporter)
         investors_following = following(self.request.user, Investor)
         posts = Post.objects.filter(
-            Q(company__in=companies_following) | Q(author__in=supporters_following) | Q(author__in=investors_following))
+            Q(company__in=companies_following) | Q(supporter_author__in=supporters_following) | Q(investor_author__in=investors_following))
         context['object_list'] = posts
         if 'pk' in kwargs:
             current_url = resolve(self.request.path_info).url_name
@@ -290,8 +290,12 @@ class CreateBlogPostView(LoginRequiredMixin, CreateView):
         self.object = form.save(commit=False)
         if 'company' in form.cleaned_data:
             self.object.company = form.cleaned_data['company']
+        elif self.request.user.supporter_creator.exists():
+            self.object.supporter_author = Supporter.objects.get(
+                user=self.request.user)
         else:
-            self.object.author = Supporter.objects.get(user=self.request.user)
+            self.object.investor_author = Investor.objects.get(
+                user=self.request.user)
         self.object.save()
 
         return redirect(reverse('profile_summary'))
@@ -413,6 +417,12 @@ class SupporterProfileView(DetailView):
             pk=self.kwargs.get("pk"))
         context['supporter_profile'] = SupporterProfile.objects.get(
             supporter_profile_id=context['supporter'].id)
+        context['post'] = Post.objects.filter(
+            supporter_author=context['supporter'])[:5]
+        context['following'] = following(self.request.user, Supporter.objects.get(
+            id=self.kwargs['pk']))
+
+        context['followers'] = followers(self.request.user)
         return context
 
 
@@ -428,10 +438,9 @@ class InvestorProfileView(DetailView):
         context['investor_profile'] = InvestorProfile.objects.get(
             investor_profile_id=context['investor'].id)
         context['post'] = Post.objects.filter(
-            author=context['investor'].user)[:5]
+            investor_author=context['investor'])[:5]
         context['following'] = following(self.request.user, Investor.objects.get(
             id=self.kwargs['pk']))
 
         context['followers'] = followers(self.request.user)
-        print(context['followers'])
         return context

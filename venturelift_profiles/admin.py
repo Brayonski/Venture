@@ -84,7 +84,12 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ['date']
 
     def author(self, obj):
-        return obj.author.user.username
+        if obj.supporter_author:
+            return obj.supporter_author.user.username
+        elif obj.investor_author:
+            return obj.investor_author.user.username
+        else:
+            return obj.company.name
 
 
 class VlaServicesAdmin(admin.ModelAdmin):

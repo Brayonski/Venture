@@ -633,8 +633,10 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     body = fields.HTMLField()
     company = models.ForeignKey(Business, null=True, blank=True)
-    author = models.ForeignKey(
-        User, null=True, blank=True, related_name='author')
+    supporter_author = models.ForeignKey(
+        Supporter, null=True, blank=True, related_name='author_supporter')
+    investor_author = models.ForeignKey(
+        Investor, null=True, blank=True, related_name='author_investor')
     post_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True, help_text="Upload an Image")
     date = models.DateTimeField(auto_now_add=True)

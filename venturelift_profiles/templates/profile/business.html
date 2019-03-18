@@ -1,50 +1,74 @@
+{% extends 'profile/base.html' %}
 {% load cms_tags staticfiles %}
-<div class="card card-body">
-    <div class="card card-body">
-        <div class="col-md-12 clearfix">
-            <div class="col-md-8 col-md-offset-2 clearfix">
-                <!-- Square, 350 X 350 PX -->
-                {% if context.investor.thumbnail_image %}
-                <img src="{{ context.investor.thumbnail_image.url }}">
-                {% else %}
-                <img src="{% static 'img/blue-user-icon.svg' %}">
-                {% endif %}
+{% load crispy_forms_tags %}
+{% block content_1 %}
 
-                {% if context.investor.verified %}
-                <i>{{ context.investor.fullname }}</i><i class='glyphicon glyphicon-ok text-primary'></i>
-                {% else %}
-                <i class='glyphicon glyphicon-remove'></i>
-                {% endif %}
-                <p>{{ context.investor.about }}</p>
+<div class="col_A_in col_A_in_2">
+    <div class="topbar_2">
+        <div class="row clearfix">
+            <div class="col-md-6 clearfix">
+                <p class="p_title">Businesses</p>
+            </div>
+            <div class="col-md-6 clearfix">
+                <div class="company_filter pull-right">
+                    <form method='post' class=''>
+                        {% csrf_token %}
+                        <input class='form-control' name='company-name' placeholder='Find a business' />
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-    <div class="card-body">
-        <h2 class="card-title text-primary">About</h2>
-        <h3 class="text-primary">Track Record</h3>
-        {{ context.investor.company }}
-        {{ context.investor.year_operation}}
-        {{ context.investor.role }}
-        {{ context.investor_profile.interest_sectors }}
-    </div>
-    <div class="card-body">
-        <h1 class="card-title text-primary">Verification</h1>
-        {{ context.investor_profile.verification_status }}
-    </div>
-    <div class="card-body">
-        <h1 class="card-title text-primary">Contact</h1>
-        {# use icons #}
-        {% if context.investor.facebook_profile is not empty %}
-        <p>{{ context.investor.facebook_profile }}</p>
-        {% endif %}
-        {% if context.investor.linkedin_profile is not empty %}
-        <p>{{ context.investor.linkedin_profile }}</p>
-        {% endif %}
-        {% if context.investor.twitter_profile is not empty %}
-        <p>{{ context.investor.twitter_profile }}</p>
-        {% endif %}
-        {% if context.investor.instagram_profile is not empty %}
-        <p>{{ context.investor.instagram_profile }}</p>
-        {% endif %}
+    <div class="row clearfix">
+        <div class='col-md-12 clearfix'>
+            <div class="row clearfix">
+                {% for obj in object_list %}
+                <div class="col-md-3 box_box">
+                    <div class="box_box_in">
+                        <figure class="box_avi">
+                            <!-- Square, 350 X 350 PX -->
+                            {% if obj.thumbnail_image %}
+                            <img src="{{ obj.thumbnail_image.url }}">
+                            {% else %}
+                            <img src="{% static 'img/no-img.jpg' %}">
+                            {% endif %}
+                        </figure>
+                        <figure class="box_details">
+                            <p class="box_title"><a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a></p>
+                            <div class="box_social">
+                                {% if obj in following %}
+                                <a href="{% url 'business_unfollow' obj.id %}"><button class="btn-actioned btn btn-sm btn-default">Following</button></a>
+                                {% else %}
+                                <a href="{% url 'business_follow' obj.id %}"><button class=" btn btn-sm btn-default">Follow</button></a>
+                                {% endif %}
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </div>
+
+
+
+
+{% endblock %}
+{% block content_2 %}
+<div class="company_filter">
+    <h4>Filter Companies</h4>
+    <ul class="search_A search_A2">
+        <form method='post'>
+            <li>
+                {% csrf_token %}
+                {{form|crispy }}
+            </li>
+            <li>
+                <button class='btn btn-success'>Filter</button>
+            </li>
+        </form>
+    </ul>
+</div>
+
+{% endblock %}
