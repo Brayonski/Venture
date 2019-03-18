@@ -313,7 +313,7 @@ class Supporter(models.Model):
     about = models.CharField(
         max_length=250, help_text="Briefly describe your self?", null=True)
     company = models.CharField(max_length=250, unique=True, null=True)
-    role = models.CharField(max_length=250)
+    role = models.CharField(max_length=250, null=True)
     company_operations = models.CharField(max_length=250, null=True)
     physical_address = models.CharField(max_length=250, null=True)
     postal_address = models.CharField(max_length=250, null=True)
