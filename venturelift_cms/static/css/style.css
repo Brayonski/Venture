@@ -665,11 +665,23 @@ ul.user_nav_item_drop.dropdown-menu.pull-right .divider {
 .col_A_out {
     padding: 60px;
 }
+/*
 .col_A_out.col_A_out_1 {
     background: #ffffff;
     text-align: center;
     box-shadow: 0px -8px 18px #e6e6e6;
 }
+*/
+.col_A_out.col_A_out_1 {
+    background: #121e63;
+    text-align: center;
+    box-shadow: 0px -8px 18px #e6e6e6;
+    color: rgba(255, 255, 255, 0.51);
+}
+img.sidebar_avi_A {
+    border-radius: 1000px;
+}
+
 .col_A_out_2, .col_A_out_3 {
     background: #f9f9f9;
 }

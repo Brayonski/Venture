@@ -5,9 +5,9 @@
       <div class="col-md-8 col-md-offset-2 clearfix">
         <!-- Square, 350 X 350 PX -->
         {% if context.investor.thumbnail_image %}
-        <img src="{{ context.investor.thumbnail_image.url }}">
+          <img class="sidebar_avi_A" src="{{ context.investor.thumbnail_image.url }}">
         {% else %}
-        <img src="{% static 'img/blue-user-icon.svg' %}">
+          <img class="sidebar_avi_A" src="{% static 'img/icon-user.png' %}">
         {% endif %}
 
         {% if context.investor.verified %}
@@ -20,19 +20,21 @@
     </div>
   </div>
   <div class="card-body">
-    <h2 class="card-title text-primary">About</h2>
-    <h3 class="text-primary">Track Record</h3>
+    <!--<h5 class="">About</h5>-->
+    <h5 class=" text-primary">Company</h5>
     {{ context.investor.company }}
-    {{ context.investor.year_operation}}
-    {{ context.investor.role }}
+    <br>
+    {{ context.investor.role }}, since {{ context.investor.year_operation}}
+    <h5 class=" text-primary">Sectors I'm Interested In</h5>
     {{ context.investor_profile.interest_sectors }}
   </div>
+  <br>
   <div class="card-body">
-    <h1 class="card-title text-primary">Verification</h1>
-    {{ context.investor_profile.verification_status }}
+    <h5 class="card-title text-primary">Account Verification</h5>
+    {{ context.investor_profile.verification_status }} %
   </div>
   <div class="card-body">
-    <h1 class="card-title text-primary">Contact</h1>
+    <h5 class=" text-primary">Social Profiles</h5>
     {# use icons #}
     {% if context.investor.facebook_profile is not empty %}
     <p>{{ context.investor.facebook_profile }}</p>
