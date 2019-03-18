@@ -84,71 +84,49 @@
               </ul>
               <div class="tab-content">
                 <div id="about" class="tab-pane fade in active">
-                  <p>
-                    <h1>My phone Number</h1>{{ investor.phone_number }}
-                  </p>
-                  <p>
-                    <h1>Physical Address</h1> {{ investor.physical_address }}
-                  </p>
-                  <p>
-                    <h1>Company Website</h1> {{ investor.company_website }}
-                  </p>
-                  <p>
-                    <h1>Company Registration Year</h1> {{ investor.company_registration_year }}
-                  </p>
-                  <p>
-                    <h1>Year of Operation</h1>{{ investor.year_operation }}
-                  </p>
+                  <div class="col-md-12 clearfix">
+                    <p>
+                      <h1>My phone Number</h1>{{ supporter.phone_number }}
+                    </p>
+                    <p>
+                      <h1>About Me</h1>{{ supporter.about }}
+                    </p>
+                    <p>
+                      <h1>Physical Address</h1> {{ supporter.physical_address }}
+                    </p>
+                    <p>
+                      <h1>Postal Address</h1> {{ supporter.postal_address }}
+                    </p>
+                    <p>
+                      <h1>Company Website</h1> {{ supporter.company_website }}
+                    </p>
+                    <p>
+                      <h1>Company Registration Year</h1> {{ supporter.company_registration_year }}
+                    </p>
+                    <p>
+                      <h1>Year of Operation</h1>{{ supporter.year_operation }}
+                    </p>
 
-                  <p>
-                    <h1>Type of Investor </h1> {{ investor_profile.company_classification }}
-                  </p>
-                  <p>
-                    <h1>Forms of Investment </h1> {{ investor_profile.company_classification }}
-                  </p>
-                  <p>
-                    <h1>Investment Thesis </h1> {{ investor_profile.elevator_pitch }}
-                  </p>
+                    <p>
+                      <h1>My Interests</h1> {{ supporter_profile.supporter_interest }}
+                    </p>
+                    <p>
+                      <h1>Professional Support</h1> {{ supporter_profile.professional_support }}
+                    </p>
+                    <p>
+                      <h1>Startups of Interest</h1> In</h1> {{ supporter_profile.interest_startups }}
+                    </p>
+                    <p>
+                      <h1>Sectors of Interest </h1>{{ supporter_profile.interest_sectors }}
+                    </p>
+                    <p>
+                      <h1>Counties of Interest</h1>{{ supporter_profile.interest_countries }}
+                    </p>
+                    <p>
+                      <h1>Trading Partners</h1>{{ supporter_profile.trading_partners }}
+                    </p>
 
-                  <p>
-                    <h1>Target Sectors</h1> {{ investor_profile.target_sectors }}
-                  </p>
-                  <p>
-                    <h1>Countries of Interest</h1>{{ investor_profile.interest_countries }}
-                  </p>
-                  <p>
-                    <h1>How many different funds have you managed to date?</h1>{{ investor_profile.managed_funds }}
-                  </p>
-                  <p>
-                    <h1>Assets under management (range)?</h1>{{ investor_profile.assets_under_management }}
-                  </p>
-                  <p>
-                    <h1>Number of portfolio companies (at the time of registration)</h1>{{
-                    investor_profile.investor_portfolio
-                    }}
-                  </p>
-                  <p>
-                    <h1>Number of exits</h1>{{ investor_profile.exits_executed }}
-                  </p>
-                  <p>
-                    <h1>Do you consider your fund an Impact Investor?</h1>{{ investor_profile.impact_investor }}
-                  </p>
-                  <p>
-                    <h1>Which impact measurement standard do you adhere to?</h1>{{ investor_profile.impact_measurement
-                    }}
-                  </p>
-                  <p>
-                    <h1>What are you key impact metrics</h1> {{ investor_profile.impact_metrics }}
-                  </p>
-                  <p>
-                    <h1>Startups of Interest</h1> In</h1> {{ investor_profile.interest_startups }}
-                  </p>
-                  <p>
-                    <h1>Sectors of Interest </h1>{{ investor_profile.interest_sectors }}
-                  </p>
-                  <p>
-                    <h1>Do you apply ‘Gender Lens’ investing </h1>{{ investor_profile.gender_lens_investor }}
-                  </p>
+                  </div>
                 </div>
                 <div id="updates" class="tab-pane fade">
                   <div class="col_A_in col_A_in_2">
