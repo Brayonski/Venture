@@ -30,7 +30,7 @@ class Category(models.Model):
 
 class TextMedia(models.Model):
     title = models.CharField(max_length=100)
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, null=True)
     author = models.ForeignKey(User)
     body = fields.HTMLField()
     date = models.DateTimeField(auto_now_add=True)
@@ -47,7 +47,7 @@ class TextMedia(models.Model):
 class AudioVisual(models.Model):
     title = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
-    path = models.URLField(max_length=200)
+    path = models.TextField()
     author = models.ForeignKey(User)
     category = models.CharField(max_length=100, choices=AUDIOVISUALCHOICES)
     sub_category = models.ForeignKey(Category, null=True)

@@ -4,9 +4,24 @@
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 
 {% block content %}
-<h1>{{ text_media.title }}</h1>
-<img src="{{ text_media.thumbnail_image.url }}">
-<p>Stories {{ text_media.body}}</p>
-<p>Category: {{ text_media.category}}</p>
+
+<div class="container single_post_container">
+	<div class="row clearfix">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="single_header">
+				<h1 class="style_D">{{ text_media.title }}</h1>
+				<p class="meta">Category: {{ text_media.category}}</p>
+			</div>
+				
+			<figure class="single_banner">
+				<img src="{{ text_media.thumbnail_image.url }}">
+			</figure>
+					
+			<div class="single_body">
+				{{ text_media.body}}
+			</div>	
+		</div>
+	</div>		
+</div>
 
 {% endblock %}

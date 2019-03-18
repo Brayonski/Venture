@@ -180,6 +180,48 @@ a.a_A:hover {
     font-weight: 900;
     margin-bottom: 20px;
 }
+.style_D {
+    font-weight: 800;
+    margin-bottom: 20px;
+    font-size: 4em;
+}
+figure.single_banner {
+    margin: 30px 0px;
+}
+.single_post_container .style_D {
+    color: #283891;
+}
+p.meta {
+    color: #bfbfbf;
+}
+.single_body {
+    margin-bottom: 40px;
+}
+ul.category_nav li a {
+    padding: 8px 10px;
+    display: block;
+    border-bottom: 1px solid #CCC;
+    padding: 20px 10px;
+}
+ul.category_nav li:nth-child(1) a { border-bottom: 1px solid #00aeff; background: #00aeff; color: #FFF; }
+ul.category_nav li:nth-child(2) a { border-bottom: 1px solid #00ff59; background: #00ff59; color: #FFF; }
+ul.category_nav li:nth-child(3) a { border-bottom: 1px solid #ff9800; background: #ff9800; color: #FFF; }
+
+ul.category_nav li {
+    display: table-cell;
+}
+ul.category_nav {
+    list-style: none;
+    padding-left: 0px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    margin-top: -35px;
+}
+
 .h1, h1 {
     font-size: 2.6em;
 }
@@ -237,7 +279,7 @@ ul.sidebar_list li {
     background-color: transparent;
 }
 a.navbar-brand {
-    background: white;
+    /* background: white; */
 }
 input.search_field.form-control {
     border-color: #4aaded;

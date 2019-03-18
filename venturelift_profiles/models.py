@@ -309,14 +309,14 @@ class Supporter(models.Model):
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
     phone_number = models.CharField(max_length=20, validators=[
-                                    MinLengthValidator(5)], help_text="My Phone Number")
+                                    MinLengthValidator(5)], help_text="My Phone Number", null=True)
     about = models.CharField(
-        max_length=250, help_text="Briefly describe your self?")
-    company = models.CharField(max_length=250, unique=True)
-    role = models.CharField(max_length=250)
-    company_operations = models.CharField(max_length=250)
-    physical_address = models.CharField(max_length=250)
-    postal_address = models.CharField(max_length=250)
+        max_length=250, help_text="Briefly describe your self?", null=True)
+    company = models.CharField(max_length=250, unique=True, null=True)
+    role = models.CharField(max_length=250, null=True)
+    company_operations = models.CharField(max_length=250, null=True)
+    physical_address = models.CharField(max_length=250, null=True)
+    postal_address = models.CharField(max_length=250, null=True)
     company_website = models.URLField(
         max_length=250, blank=True, null=True)
     company_registration_year = models.IntegerField(
