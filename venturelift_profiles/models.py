@@ -315,8 +315,8 @@ class Supporter(models.Model):
     company = models.CharField(max_length=250, unique=True, null=True)
     role = models.CharField(max_length=250)
     company_operations = models.CharField(max_length=250, null=True)
-    physical_address = models.CharField(max_length=250)
-    postal_address = models.CharField(max_length=250)
+    physical_address = models.CharField(max_length=250, null=True)
+    postal_address = models.CharField(max_length=250, null=True)
     company_website = models.URLField(
         max_length=250, blank=True, null=True)
     company_registration_year = models.IntegerField(
