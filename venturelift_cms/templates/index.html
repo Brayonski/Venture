@@ -29,7 +29,10 @@
                   {% for obj in object_list %}
                   {% if forloop.counter > 1 %}
                   <li>
-                    <a href="{% url 'venturelift_media:media_story' object_list.1.pk %}">{{object_list.1.title}}</a>
+                    <a href="{% url 'venturelift_media:media_story' object_list.1.pk %}">
+                      {{object_list.1.title}}
+                      <h5 class="meta_A">{{obj.category}}</h5>
+                    </a>
                   </li>
                   {% endif %}
                   {% endfor %}
@@ -75,6 +78,7 @@
                 <h4 class="style_E">
                   {{obj.title}}
                 </h4>
+                <h5 class="meta_A">{{obj.category}}</h5>
               </a>
             </li>
             {% endfor %}
@@ -96,6 +100,7 @@
           {{obj.path|safe}}
             <!--<img src="{% static 'img/podcast.jpg' %}">-->
             <h3 class="style_C">{{obj.title}}</h3>
+            <h5 class="meta_A">{{obj.category}}</h5>
           </a>
         </div>
       </div>
@@ -106,7 +111,7 @@
 
 <div class="full_width h_C">
   <div class="container h_C_container">
-    <h2 class="h_title_A">Videos</h2>
+    <h2 class="h_title_A">VLA TV</h2>
     <div class="row clearfix">
       <div class="col-md-9 clearfix">
         <div class="in_style_A">
@@ -117,12 +122,14 @@
       </div>
       <div class="col-md-3 clearfix">
         <div class="in_style_A">
+          <h2 class="h_title_A h_title_AB">VIDEOS</h2>
           <ul class="home_vide_list">
             {% for obj in videos %}
             {% if forloop.counter > 1 %}
             <li>
               <div class="embed-responsive embed-responsive-16by9">
                 {{obj.path|safe}}
+                <h5 class="meta_A">{{obj.category}}</h5>
               </div>
             </li>
             {% endif %}
@@ -136,7 +143,7 @@
 
 <div class="full_width h_D">
   <div class="container h_D_container">
-    <h2 class="h_title_A">Stories</h2>
+    <h2 class="h_title_A">MORE STORIES</h2>
     <div class="row clearfix">
       {% for obj in stories_bottom %}
       <div class="col-md-4 clearfix">

@@ -164,8 +164,9 @@ ul.navbarX2 li {
     color: #9b9b9b;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     font-weight: 300;
+    margin: 4px 0px;
 }
 .meta_A span {
     float: right;
@@ -254,6 +255,9 @@ ul.sidebar_list {
 }
 .style_E {
     font-size: 1.4rem;
+}
+h2.h_title_A.h_title_AB {
+    margin-top: 0px;
 }
 ul.sidebar_list li {
     margin-bottom: 25px;
