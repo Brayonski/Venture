@@ -4,8 +4,8 @@
     <div class="col-md-12 clearfix">
       <div class="col-md-8 col-md-offset-2 clearfix">
         <!-- Square, 350 X 350 PX -->
-        {% if supporter.thumbnail_image %}
-        <img src="{{ supporter.thumbnail_image.url }}">
+        {% if context.supporter.thumbnail_image %}
+        <img src="{{ context.supporter.thumbnail_image.url }}">
         {% else %}
         <img src="{% static 'img/blue-user-icon.svg' %}">
         {% endif %}

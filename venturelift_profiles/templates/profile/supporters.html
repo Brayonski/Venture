@@ -40,7 +40,7 @@
                                 {% if obj in following %}
                                 <a href="{% url 'supporter_unfollow' obj.id %}"><button class="btn-actioned btn btn-sm btn-default">Following</button></a>
                                 {% else %}
-                                <a href="{% url 'supporter_unfollow' obj.id %}"><button class=" btn btn-sm btn-default">Follow</button></a>
+                                <a href="{% url 'supporter_follow' obj.id %}"><button class=" btn btn-sm btn-default">Follow</button></a>
                                 {% endif %}
                             </div>
                         </figure>

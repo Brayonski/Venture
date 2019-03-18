@@ -185,6 +185,7 @@ class InvestorCreateForm(forms.ModelForm):
             'first_name',
             'last_name',
             'thumbnail_image',
+            'about',
             'phone_number',
             'company',
             'role',
@@ -200,6 +201,7 @@ class InvestorCreateForm(forms.ModelForm):
             'subscribe'
         ]
         labels = {
+            "about": "Briefly describe your self?",
             "phone_number": "Phone Number",
             "company": "Company Name",
             "role": "My role at the company?",

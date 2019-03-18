@@ -1,0 +1,50 @@
+{% load cms_tags staticfiles %}
+<div class="card card-body">
+  <div class="card card-body">
+    <div class="col-md-12 clearfix">
+      <div class="col-md-8 col-md-offset-2 clearfix">
+        <!-- Square, 350 X 350 PX -->
+        {% if context.business.thumbnail_image %}
+        <img src="{{ context.business.thumbnail_image.url }}">
+        {% else %}
+        <img src="{% static 'img/blue-user-icon.svg' %}">
+        {% endif %}
+
+        {% if context.business.verified %}
+        <i>{{ context.business.name }}</i><i class='glyphicon glyphicon-ok text-primary'></i>
+        {% else %}
+        <i class='glyphicon glyphicon-remove'></i>
+        {% endif %}
+        <p>{{ context.business.about }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <h2 class="card-title text-primary">About</h2>
+    <h3 class="text-primary">Track Record</h3>
+    {{ context.business.company }}
+    {{ context.business.year_operation}}
+    {{ context.business.role }}
+    {{ context.business_profile.interest_sectors }}
+  </div>
+  <div class="card-body">
+    <h1 class="card-title text-primary">Verification</h1>
+    {{ context.business_profile.verification_status }}
+  </div>
+  <div class="card-body">
+    <h1 class="card-title text-primary">Contact</h1>
+    {# use icons #}
+    {% if context.business.facebook_profile is not empty %}
+    <p>{{ context.business.facebook_profile }}</p>
+    {% endif %}
+    {% if context.business.linkedin_profile is not empty %}
+    <p>{{ context.business.linkedin_profile }}</p>
+    {% endif %}
+    {% if context.business.twitter_profile is not empty %}
+    <p>{{ context.business.twitter_profile }}</p>
+    {% endif %}
+    {% if context.business.instagram_profile is not empty %}
+    <p>{{ context.business.instagram_profile }}</p>
+    {% endif %}
+  </div>
+</div>

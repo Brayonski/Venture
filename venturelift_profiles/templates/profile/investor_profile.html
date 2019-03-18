@@ -1,0 +1,179 @@
+{% extends 'profile/base.html' %}
+{% load cms_tags staticfiles %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content_1 %}
+<div class="col_A_in col_A_in_2">
+  <div class="onboarding_A">
+    <div class="row clearfix">
+      <div class="col-md-12 clearfix">
+
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#about">About </a></li>
+          <li><a data-toggle="tab" href="#updates">Latest Updates</a></li>
+          <li><a data-toggle="tab" href="#following">Following</a></li>
+          <li><a data-toggle="tab" href="#followers">Followers</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="about" class="tab-pane fade in active">
+            <p>
+              <h1>My phone Number</h1>{{ investor.phone_number }}
+            </p>
+            <p>
+              <h1>Physical Address</h1> {{ investor.physical_address }}
+            </p>
+            <p>
+              <h1>Company Website</h1> {{ investor.company_website }}
+            </p>
+            <p>
+              <h1>Company Registration Year</h1> {{ investor.company_registration_year }}
+            </p>
+            <p>
+              <h1>Year of Operation</h1>{{ investor.year_operation }}
+            </p>
+
+            <p>
+              <h1>Type of Investor </h1> {{ investor_profile.company_classification }}
+            </p>
+            <p>
+              <h1>Forms of Investment </h1> {{ investor_profile.company_classification }}
+            </p>
+            <p>
+              <h1>Investment Thesis </h1> {{ investor_profile.elevator_pitch }}
+            </p>
+
+            <p>
+              <h1>Target Sectors</h1> {{ investor_profile.target_sectors }}
+            </p>
+            <p>
+              <h1>Countries of Interest</h1>{{ investor_profile.interest_countries }}
+            </p>
+            <p>
+              <h1>How many different funds have you managed to date?</h1>{{ investor_profile.managed_funds }}
+            </p>
+            <p>
+              <h1>Assets under management (range)?</h1>{{ investor_profile.assets_under_management }}
+            </p>
+            <p>
+              <h1>Number of portfolio companies (at the time of registration)</h1>{{
+              investor_profile.investor_portfolio
+              }}
+            </p>
+            <p>
+              <h1>Number of exits</h1>{{ investor_profile.exits_executed }}
+            </p>
+            <p>
+              <h1>Do you consider your fund an Impact Investor?</h1>{{ investor_profile.impact_investor }}
+            </p>
+            <p>
+              <h1>Which impact measurement standard do you adhere to?</h1>{{ investor_profile.impact_measurement }}
+            </p>
+            <p>
+              <h1>What are you key impact metrics</h1> {{ investor_profile.impact_metrics }}
+            </p>
+            <p>
+              <h1>Startups of Interest</h1> In</h1> {{ investor_profile.interest_startups }}
+            </p>
+            <p>
+              <h1>Sectors of Interest </h1>{{ investor_profile.interest_sectors }}
+            </p>
+            <p>
+              <h1>Do you apply ‘Gender Lens’ investing </h1>{{ investor_profile.gender_lens_investor }}
+            </p>
+          </div>
+          <div id="updates" class="tab-pane fade">
+            <div class="col_A_in col_A_in_2">
+              <h3>Updates</h3>
+              {% for post in post %}
+              <div class="border border-info">
+                <h4>{{post.title}}</h4>
+                {% if post.author %}
+                <p>Author: {{post.author}}</p>
+                {% else %}
+                <p>Company: {{post.company}}</p>
+                {% endif %}
+                <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
+                {% if request.user in post.likes.all %}
+                <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
+                  ({{post.likes.count}} likes)</a>
+                {% else %}
+                <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
+                  ({{post.likes.count}} likes)</a>
+                {% endif %}
+                <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div id="following" class="tab-pane fade">
+            <div class='col-md-12 clearfix'>
+              <div class="row clearfix">
+                {% for obj in following %}
+                <div class="col-md-3 box_box">
+                  <div class="box_box_in">
+                    <figure class="box_avi">
+                      <!-- Square, 350 X 350 PX -->
+                      {% if obj.thumbnail_image %}
+                      <img src="{{ obj.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% endif %}
+                    </figure>
+                    <figure class="box_details">
+                      <p class="box_title"><a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a></p>
+                      <div class="box_social">
+                        {% if obj in following %}
+                        <a href="{% url 'investor_unfollow' obj.id %}"><button class="btn-actioned btn btn-sm btn-default">Following</button></a>
+                        {% endif %}
+                      </div>
+                    </figure>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+          <div id="followers" class="tab-pane fade">
+            <div class='col-md-12 clearfix'>
+              <div class="row clearfix">
+                <p>Stttttts</p>
+                {% for obj in followers %}
+                <div class="col-md-3 box_box">
+                  <div class="box_box_in">
+                    <figure class="box_avi">
+                      <!-- Square, 350 X 350 PX -->
+                      {% if obj.thumbnail_image %}
+                      <img src="{{ obj.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% endif %}
+                    </figure>
+                    <figure class="box_details">
+                      <p class="box_title"><a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a></p>
+                      <div class="box_social">
+                        {% if obj in followers %}
+                        <a href="{% url 'investor_follow' obj.id %}"><button class="btn-actioned btn btn-sm btn-default">Follow</button></a>
+                        {% endif %}
+                      </div>
+                    </figure>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block content_2 %}
+<div class="company_filter">
+  <h4>Sidebar</h4>
+</div>
+{% endblock %}
