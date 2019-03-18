@@ -309,7 +309,7 @@ class Supporter(models.Model):
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
     phone_number = models.CharField(max_length=20, validators=[
-                                    MinLengthValidator(5)], help_text="My Phone Number")
+                                    MinLengthValidator(5)], help_text="My Phone Number", null=True)
     about = models.CharField(
         max_length=250, help_text="Briefly describe your self?", null=True)
     company = models.CharField(max_length=250, unique=True, null=True)
