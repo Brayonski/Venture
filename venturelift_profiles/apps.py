@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.apps import AppConfig
 
+
 class VentureliftProfilesConfig(AppConfig):
     name = 'venturelift_profiles'
     verbose_name = "VLA Portal"
@@ -13,3 +14,4 @@ class VentureliftProfilesConfig(AppConfig):
         registry.register(User)
         registry.register(self.get_model('Supporter'))
         registry.register(self.get_model('Business'))
+        registry.register(self.get_model('Investor'))
