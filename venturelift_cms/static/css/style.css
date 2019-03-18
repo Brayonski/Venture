@@ -160,6 +160,13 @@ ul.navbarX2 li {
     padding: 10px 0px;
 }
 
+.in_style_A {
+    min-height: 360px;
+}
+.style_C {
+    font-weight: 700;
+    font-size: 2.2rem;
+}
 .meta_A {
     color: #9b9b9b;
     text-transform: uppercase;
