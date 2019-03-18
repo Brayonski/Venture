@@ -113,7 +113,7 @@
       <div class="col-md-9 clearfix">
         <div class="in_style_A">
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="{{videos.0.path}}"></iframe>
+            {{videos.0.path}}
           </div>
         </div>
       </div>
@@ -124,7 +124,7 @@
             {% if forloop.counter > 1 %}
             <li>
               <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="{{obj.path}}"></iframe>
+                {{obj.path}}
               </div>
             </li>
             {% endif %}
@@ -143,7 +143,7 @@
       {% for obj in podcasts %}
       <div class="col-md-4 clearfix">
         <div class="in_style_A">
-          <a href={{obj.path}}>
+          {{obj.path}}
             <img src="{% static 'img/podcast.jpg' %}">
             <h3 class="style_C">{{obj.title}}</h3>
           </a>
