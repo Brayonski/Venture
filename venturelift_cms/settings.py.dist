@@ -91,6 +91,7 @@ TEMPLATES = [
                 'cms.context_processors.cms_settings',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
+                'venturelift_profiles.context_processors.account_type'
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
@@ -248,3 +249,4 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '<<secret>>'
 
 LOGIN_URL = '/profile/accounts/login/'
 LOGIN_REDIRECT_URL = '/profile/profile/'
+LOGOUT_REDIRECT_URL = LOGIN_

@@ -1,0 +1,62 @@
+{% extends 'profile/base.html' %}
+{% load cms_tags staticfiles %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content_1 %}
+<div class="col_A_in col_A_in_2">
+  <div class="onboarding_A">
+    <div class="row clearfix">
+      <div class="col-md-12 clearfix">
+        <p>
+          <h1>My phone Number</h1>{{ supporter.phone_number }}
+        </p>
+        <p>
+          <h1>About Me</h1>{{ supporter.about }}
+        </p>
+        <p>
+          <h1>Physical Address</h1> {{ supporter.physical_address }}
+        </p>
+        <p>
+          <h1>Postal Address</h1> {{ supporter.postal_address }}
+        </p>
+        <p>
+          <h1>Company Website</h1> {{ supporter.company_website }}
+        </p>
+        <p>
+          <h1>Company Registration Year</h1> {{ supporter.company_registration_year }}
+        </p>
+        <p>
+          <h1>Year of Operation</h1>{{ supporter.year_operation }}
+        </p>
+
+        <p>
+          <h1>My Interests</h1> {{ supporter_profile.supporter_interest }}
+        </p>
+        <p>
+          <h1>Professional Support</h1> {{ supporter_profile.professional_support }}
+        </p>
+        <p>
+          <h1>Startups of Interest</h1> In</h1> {{ supporter_profile.interest_startups }}
+        </p>
+        <p>
+          <h1>Sectors of Interest </h1>{{ supporter_profile.interest_sectors }}
+        </p>
+        <p>
+          <h1>Counties of Interest</h1>{{ supporter_profile.interest_countries }}
+        </p>
+        <p>
+          <h1>Trading Partners</h1>{{ supporter_profile.trading_partners }}
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block content_2 %}
+<div class="company_filter">
+  <h4>Sidebar</h4>
+</div>
+{% endblock %}

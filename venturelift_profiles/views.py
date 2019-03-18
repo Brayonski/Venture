@@ -371,8 +371,22 @@ class BusinessProfileView(DetailView):
     template_name = 'profile/business_profile.html'
 
     def get_context_data(self, **kwargs):
-        """Returns the TextMedia instance that the view displays"""
+        """Returns the Business Profile instance that the view displays"""
         context = super(BusinessProfileView, self).get_context_data(**kwargs)
         context['business_profile'] = Business.objects.get(
             pk=self.kwargs.get("pk"))
+        return context
+
+
+class SupporterProfileView(DetailView):
+    model = Supporter
+    template_name = 'profile/supporter_profile.html'
+
+    def get_context_data(self, **kwargs):
+        """Returns the Supporter instance that the view displays"""
+        context = super(SupporterProfileView, self).get_context_data(**kwargs)
+        context['supporter'] = Supporter.objects.get(
+            pk=self.kwargs.get("pk"))
+        context['supporter_profile'] = SupporterProfile.objects.get(
+            supporter_profile_id=context['supporter'].id)
         return context

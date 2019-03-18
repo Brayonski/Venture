@@ -94,7 +94,7 @@ INTEREST_COUNTRIES = (
 )
 
 TRADING_PARTNERS = (
-    ('fair_trade', 'Fair Trade'),
+    ('fair trade', 'Fair Trade'),
     ('haccp', 'HACCP'),
     ('ISO 9001', 'ISO 9001'),
     ('other', 'Other'),
@@ -306,8 +306,12 @@ class BusinessGoals(models.Model):
 
 class Supporter(models.Model):
     user = models.ForeignKey(User, related_name='supporter_creator')
+    thumbnail_image = models.ImageField(
+        upload_to='pic_folder/', null=True, blank=True)
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number")
+    about = models.CharField(
+        max_length=250, help_text="Briefly describe your self?")
     company = models.CharField(max_length=250, unique=True, null=True)
     role = models.CharField(max_length=250)
     company_operations = models.CharField(max_length=250)
@@ -330,6 +334,9 @@ class Supporter(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    def fullname(self):
+        return self.user.first_name + " " + self.user.last_name
 
 
 class SupporterProfile(models.Model):
@@ -360,9 +367,31 @@ class SupporterProfile(models.Model):
     def __str__(self):
         return self.supporter_profile.user.first_name + " " + self.supporter_profile.user.last_name
 
+    def verification_status(self):
+        count = 0
+        if not (self.supporter_interest):
+            count += 1
+        if not (self.professional_support):
+            count += 1
+        if not (self.interest_startups):
+            count += 1
+        if not (self.interest_sectors):
+            count += 1
+        if not (self.interest_countries):
+            count += 1
+        if not (self.trading_partners):
+            count += 1
+
+        if count == 0:
+            return "100%"
+        else:
+            return (count/6)*100+"%"
+
 
 class Investor(models.Model):
     user = models.ForeignKey(User, related_name='investor_creator')
+    thumbnail_image = models.ImageField(
+        upload_to='pic_folder/', null=True, blank=True)
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number")
     company = models.CharField(max_length=250, unique=True)
@@ -385,6 +414,9 @@ class Investor(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    def fullname(self):
+        return self.user.first_name + " " + self.user.last_name
 
 
 class InvestorProfile(models.Model):

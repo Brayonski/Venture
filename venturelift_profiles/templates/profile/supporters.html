@@ -1,47 +1,59 @@
 {% extends 'profile/base.html' %}
-{% block content %}
+{% load cms_tags staticfiles %}
+{% load crispy_forms_tags %}
+{% block content_1 %}
 
-<div class="full_A">
-    <div class="columns_A flex row clearfix">
-        <div class="col_A_out col_A_out_1 col-md-3 clearfix">
-            <div class="col_A_in col_A_in_1">
-                <!--
-                <figure class="user_icon_nav_2 side_nav">
-                    <img src="http://localhost:8000/static/img/icon-user3.png" alt="Welcome">
-                </figure>                
-                <h4 class="style_F">{{ user.get_username }}</h4>
-                -->
 
-                <ul class="actions_A">
-                    <li><a href="#nogo">Edit my profile</a></li>
-                    <li><a href="{% url 'my_business' %}">Add business</a></li>
-                    <li><a href="{% url 'new_blog_post' %}">New Blog Post</a></li>
-                </ul>
-            
-            </div>  
-        </div>  
-        <div class="col_A_out col_A_out_2 col-md-7 clearfix">
-            <div class="col_A_in col_A_in_2">
-                <h3>Supporters</h3>
-                <ul>
-                    {% for obj in object_list %}
-                        <li>{{obj.user.username}}</li>
-                        {% if obj in following %}
-                            <a href="{% url 'supporter_unfollow' obj.id %}"><button class="btn btn-default">Unfollow</button></a>
-                        {% else %}
-                            <a href="{% url 'supporter_follow' obj.id %}"><button class="btn btn-default">Follow</button></a>
-                        {% endif %}
-                        {% endfor %}
-                </ul>              
-            </div>              
+<div class="col_A_in col_A_in_2">
+    <div class="topbar_2">
+        <div class="row clearfix">
+            <div class="col-md-6 clearfix">
+                <p class="p_title">Supporters</p>
+            </div>
+            <div class="col-md-6 clearfix">
+                <div class="company_filter pull-right">
+                    <form method='post' class='' action="#">
+                        {% csrf_token %}
+                        <input class='form-control' name='suppoter-name' placeholder='Search a Supporter' />
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="col_A_out col_A_out_3 col-md-2 clearfix">
-            <div class="col_A_in col_A_in_3">
-                <h4>Sidebar</h4>
-            </div>              
-        </div>        
+    </div>
+    <div class="row clearfix">
+        <div class='col-md-12 clearfix'>
+            <div class="row clearfix">
+                {% for obj in object_list %}
+                <div class="col-md-3 box_box">
+                    <div class="box_box_in">
+                        <figure class="box_avi">
+                            <!-- Square, 350 X 350 PX -->
+                            {% if obj.thumbnail_image %}
+                            <img src="{{ obj.thumbnail_image.url }}">
+                            {% else %}
+                            <img src="{% static 'img/blue-user-icon.svg' %}">
+                            {% endif %}
+                        </figure>
+                        <figure class="box_details">
+                            <p class="box_title"><a href="{% url 'supporter_profile' obj.pk %}">{{obj.fullname}}</a></p>
+                            <div class="box_social">
+                                {% if obj in following %}
+                                <a href="{% url 'supporter_unfollow' obj.id %}"><button class="btn-actioned btn btn-sm btn-default">Following</button></a>
+                                {% else %}
+                                <a href="{% url 'supporter_unfollow' obj.id %}"><button class=" btn btn-sm btn-default">Follow</button></a>
+                                {% endif %}
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </div>
-
-
+{% endblock %}
+{% block content_2 %}
+<div class="company_filter">
+    <h4>Sidebar</h4>
+</div>
 {% endblock %}
