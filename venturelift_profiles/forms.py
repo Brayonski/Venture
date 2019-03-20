@@ -25,7 +25,7 @@ class CreateBlogForm(ModelForm):
             field.empty_label = None
         '''
 
-        if self.user.supporter_creator.exists():
+        if self.user.supporter_creator.exists() and self.user.investor_creator.exists():
             self.fields.pop("company")
 
 
@@ -213,7 +213,7 @@ class InvestorCreateForm(forms.ModelForm):
 
 
 class InvestorProfileCreateForm(forms.ModelForm):
-    impact_investor = forms.TypedChoiceField(choices=IMPACT_INVESTOR, widget=forms.RadioSelect, label="Which are your key impact metrics?"
+    impact_investor = forms.TypedChoiceField(choices=IMPACT_INVESTOR, widget=forms.RadioSelect, label="Do you classify yourself as an impact investor?"
                                              )
 
     gender_lens_investor = forms.TypedChoiceField(
@@ -233,8 +233,8 @@ class InvestorProfileCreateForm(forms.ModelForm):
             'investor_portfolio',
             'exits_executed',
             'impact_investor',
-            'impact_measurement',
             'impact_metrics',
+            'impact_measurement',
             'gender_lens_investor',
         ]
         labels = {

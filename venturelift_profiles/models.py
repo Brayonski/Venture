@@ -448,7 +448,7 @@ class Investor(models.Model):
         upload_to='pic_folder/', null=True, blank=True)
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number")
-    company = models.CharField(max_length=250, unique=True)
+    company = models.CharField(max_length=250)
     role = models.CharField(max_length=250)
     company_location = models.CharField(max_length=250)
     physical_address = models.CharField(max_length=250)

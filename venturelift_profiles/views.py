@@ -174,6 +174,7 @@ class CreateInvestorView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
+
         self.object.user = self.request.user
         self.object.user.first_name = form.cleaned_data['first_name']
         self.object.user.last_name = form.cleaned_data['last_name']
@@ -200,7 +201,6 @@ class InvestorUpdateProfileView(LoginRequiredMixin, UpdateView):
         investor = Investor.objects.get(id=self.kwargs['pk'])
         obj = InvestorProfile.objects.get(
             investor_profile=investor)
-        print(obj)
         return obj
 
     def get_context_data(self, **kwargs):
@@ -215,7 +215,7 @@ class InvestorUpdateProfileView(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         form.save()
-        return redirect(reverse('business_list'))
+        return redirect(reverse('investor_list'))
 
 
 class CreateSupporterView(LoginRequiredMixin, CreateView):
