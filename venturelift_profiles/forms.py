@@ -12,7 +12,7 @@ class CreateBusinessForm(ModelForm):
 class CreateBlogForm(ModelForm):
     class Meta:
         model = Post
-        exclude = ['date', 'likes', 'author']
+        exclude = ['date', 'likes', 'supporter_author', 'investor_author']
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
@@ -24,7 +24,6 @@ class CreateBlogForm(ModelForm):
         for field in modelchoicefields:
             field.empty_label = None
         '''
-
         if self.user.supporter_creator.exists() and self.user.investor_creator.exists():
             self.fields.pop("company")
 

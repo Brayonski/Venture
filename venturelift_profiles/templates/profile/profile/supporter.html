@@ -30,19 +30,19 @@
   <div class="card-body">
     <h1 class="card-title text-primary">Verification</h1>
     {% if context.supporter_profile.verification_status > 0 %}
-    <img src="{% static 'img/blue-user-icon.svg' %}">
+    <img src="{% static 'img/progress.png' %}">
     {% elif context.supporter_profile.verification_status >= 20 %}
-    <img src="{% static 'img/blue-user-icon.svg' %}">
+    <img src="{% static 'img/progress.png' %}">
     {% elif context.supporter_profile.verification_status >= 40 %}
-    <img src="{% static 'img/blue-user-icon.svg' %}">
+    <img src="{% static 'img/progress.png' %}">
     {% elif context.supporter_profile.verification_status >= 60 %}
-    <img src="{% static 'img/blue-user-icon.svg' %}">
+    <img src="{% static 'img/progress.png' %}">
     {% elif context.supporter_profile.verification_status >= 80 %}
-    <img src="{% static 'img/blue-user-icon.svg' %}">
+    <img src="{% static 'img/progress.png' %}">
     {% elif context.supporter_profile.verification_status >= 90 %}
-    <img src="{% static 'img/blue-user-icon.svg' %}">
+    <img src="{% static 'img/progress.png' %}">
     {% else %}
-    <img src="{% static 'img/blue-user-icon.svg' %}">
+    <img src="{% static 'img/progress.png' %}">
     {% endif %}
   </div>
   <div class="card-body">

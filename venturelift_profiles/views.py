@@ -163,70 +163,85 @@ class CreateBusinessView(LoginRequiredMixin, CreateView):
 
 
 class CreateInvestorView(LoginRequiredMixin, CreateView):
-    template_name = 'profile/create_supporter.html'
+    template_name = 'profile/create_investor.html'
     form_class = InvestorCreateForm
-
-    def dispatch(self, request, *args, **kwargs):
-        if (request.user.investor_creator.exists()):
-            investor = Investor.objects.get(user=self.request.user)
-            return redirect(reverse('investor_create_step_2', kwargs={'pk': investor.id}))
-        return super(CreateInvestorView, self).dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
-
         self.object.user = self.request.user
         self.object.user.first_name = form.cleaned_data['first_name']
         self.object.user.last_name = form.cleaned_data['last_name']
+        self.object.user.save()
         self.object.save()
         investor = Investor.objects.get(user=self.request.user)
         InvestorProfile.objects.create(investor_profile=investor)
-        return redirect(reverse('investor_create_step_2', kwargs={'pk': investor.id}))
+        return redirect(reverse('update_investor_step2', kwargs={'pk': investor.id}))
 
     def get_context_data(self, **kwargs):
         current_url = resolve(self.request.path_info).url_name
         context = super(CreateInvestorView, self).get_context_data(**kwargs)
         if current_url == 'investor_create':
             context["step1"] = True
-        if current_url == 'investor_create_step_2':
+        if current_url == 'update_investor_step2':
             context["step2"] = True
         return context
 
 
 class InvestorUpdateProfileView(LoginRequiredMixin, UpdateView):
-    template_name = 'profile/create_supporter.html'
-    form_class = InvestorProfileCreateForm
+    template_name = 'profile/update_investor.html'
+
+    def get_form(self, form_class=None):
+        current_url = resolve(self.request.path_info).url_name
+        if current_url == 'update_investor_step1':
+            form_class = InvestorCreateForm
+        if current_url == 'update_investor_step2':
+            form_class = InvestorProfileCreateForm
+
+        return form_class(**self.get_form_kwargs())
+
+    def get_initial(self):
+        return {'first_name': self.request.user.first_name, 'last_name': self.request.user.last_name}
 
     def get_object(self):
         investor = Investor.objects.get(id=self.kwargs['pk'])
-        obj = InvestorProfile.objects.get(
-            investor_profile=investor)
+        current_url = resolve(self.request.path_info).url_name
+        if current_url == 'update_investor_step1':
+            obj = investor
+        if current_url == 'update_investor_step2':
+            obj = InvestorProfile.objects.get(investor_profile=investor)
         return obj
 
-    def get_context_data(self, **kwargs):
+    def form_valid(self, form):
         current_url = resolve(self.request.path_info).url_name
+        if current_url == 'update_investor_step1':
+            self.object = form.save(commit=False)
+            self.object.user = self.request.user
+            self.object.user.first_name = form.cleaned_data['first_name']
+            self.object.user.last_name = form.cleaned_data['last_name']
+            self.object.user.save()
+            self.object.save()
+            return redirect(reverse('update_investor_step2',
+                                    kwargs={'pk': self.kwargs['pk']}))
+        if current_url == 'update_investor_step2':
+            form.save()
+            return redirect(reverse('investor_list'))
+
+    def get_context_data(self, **kwargs):
         context = super(InvestorUpdateProfileView,
                         self).get_context_data(**kwargs)
-        if current_url == 'investor_create':
+        current_url = resolve(self.request.path_info).url_name
+        if current_url == 'update_investor_step1':
             context["step1"] = True
-        if current_url == 'investor_create_step_2':
+        if current_url == 'update_investor_step2':
             context["step2"] = True
+        context['investor'] = Investor.objects.get(
+            user=self.request.user)
         return context
-
-    def form_valid(self, form):
-        form.save()
-        return redirect(reverse('investor_list'))
 
 
 class CreateSupporterView(LoginRequiredMixin, CreateView):
     template_name = 'profile/create_supporter.html'
     form_class = SupporterCreateForm
-
-    def dispatch(self, request, *args, **kwargs):
-        if (request.user.supporter_creator.exists()):
-            supporter = Supporter.objects.get(user=self.request.user)
-            return redirect(reverse('supporter_create_step_2', kwargs={'pk': supporter.id}))
-        return super(CreateSupporterView, self).dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -236,41 +251,68 @@ class CreateSupporterView(LoginRequiredMixin, CreateView):
         self.object.save()
         supporter = Supporter.objects.get(user=self.request.user)
         SupporterProfile.objects.create(supporter_profile=supporter)
-        return redirect(reverse('supporter_create_step_2', kwargs={'pk': supporter.id}))
+        return redirect(reverse('update_supporter_step2', kwargs={'pk': supporter.id}))
 
     def get_context_data(self, **kwargs):
         current_url = resolve(self.request.path_info).url_name
         context = super(CreateSupporterView, self).get_context_data(**kwargs)
         if current_url == 'supporter_create':
             context["step1"] = True
-        if current_url == 'supporter_create_step_2':
+        if current_url == 'update_supporter_step2':
             context["step2"] = True
         return context
 
 
 class SupporterUpdateProfileView(LoginRequiredMixin, UpdateView):
-    template_name = 'profile/create_supporter.html'
-    form_class = SupporterProfileCreateForm
+    template_name = 'profile/update_supporter.html'
+
+    def get_form(self, form_class=None):
+        current_url = resolve(self.request.path_info).url_name
+        if current_url == 'update_supporter_step1':
+            form_class = SupporterCreateForm
+        if current_url == 'update_supporter_step2':
+            form_class = SupporterProfileCreateForm
+
+        return form_class(**self.get_form_kwargs())
 
     def get_object(self):
         supporter = Supporter.objects.get(id=self.kwargs['pk'])
-        obj = SupporterProfile.objects.get(
-            supporter_profile=supporter)
+        current_url = resolve(self.request.path_info).url_name
+        if current_url == 'update_supporter_step1':
+            obj = supporter
+        if current_url == 'update_supporter_step2':
+            obj = SupporterProfile.objects.get(supporter_profile=supporter)
         return obj
+
+    def get_initial(self):
+        return {'first_name': self.request.user.first_name, 'last_name': self.request.user.last_name}
 
     def get_context_data(self, **kwargs):
         current_url = resolve(self.request.path_info).url_name
         context = super(SupporterUpdateProfileView,
                         self).get_context_data(**kwargs)
-        if current_url == 'supporter_create':
+        if current_url == 'update_supporter_step1':
             context["step1"] = True
-        if current_url == 'supporter_create_step_2':
+        if current_url == 'update_supporter_step2':
             context["step2"] = True
+        context['supporter'] = Supporter.objects.get(
+            user=self.request.user)
         return context
 
     def form_valid(self, form):
-        form.save()
-        return redirect(reverse('supporter_list'))
+        current_url = resolve(self.request.path_info).url_name
+        if current_url == 'update_supporter_step1':
+            self.object = form.save(commit=False)
+            self.object.user = self.request.user
+            self.object.user.first_name = form.cleaned_data['first_name']
+            self.object.user.last_name = form.cleaned_data['last_name']
+            self.object.user.save()
+            self.object.save()
+            return redirect(reverse('update_supporter_step2',
+                                    kwargs={'pk': self.kwargs['pk']}))
+        if current_url == 'update_supporter_step2':
+            form.save()
+            return redirect(reverse('supporter_list'))
 
 
 class CreateBlogPostView(LoginRequiredMixin, CreateView):
@@ -290,10 +332,10 @@ class CreateBlogPostView(LoginRequiredMixin, CreateView):
         self.object = form.save(commit=False)
         if 'company' in form.cleaned_data:
             self.object.company = form.cleaned_data['company']
-        elif self.request.user.supporter_creator.exists():
+        if self.request.user.supporter_creator.exists():
             self.object.supporter_author = Supporter.objects.get(
                 user=self.request.user)
-        else:
+        if self.request.user.investor_creator.exists():
             self.object.investor_author = Investor.objects.get(
                 user=self.request.user)
         self.object.save()
@@ -412,6 +454,9 @@ class SupporterProfileView(DetailView):
 
     def get_context_data(self, **kwargs):
         """Returns the Supporter instance that the view displays"""
+        investor_list = []
+        supporter_list = []
+        business_list = []
         context = super(SupporterProfileView, self).get_context_data(**kwargs)
         context['supporter'] = Supporter.objects.get(
             pk=self.kwargs.get("pk"))
@@ -419,10 +464,23 @@ class SupporterProfileView(DetailView):
             supporter_profile_id=context['supporter'].id)
         context['post'] = Post.objects.filter(
             supporter_author=context['supporter'])[:5]
-        context['following'] = following(self.request.user, Supporter.objects.get(
-            id=self.kwargs['pk']))
 
-        context['followers'] = followers(self.request.user)
+        context['investor_following'] = following(self.request.user, Investor)
+        context['supporter_following'] = following(
+            self.request.user, Supporter)
+        context['business_following'] = following(self.request.user, Business)
+        context['followers'] = followers(context['supporter'])
+        context['user'] = self.request.user
+        for obj in context['followers']:
+            if obj.investor_creator.exists():
+                investor_list.append(Investor.objects.get(user=obj))
+            elif obj.supporter_creator.exists():
+                supporter_list.append(Supporter.objects.get(user=obj))
+            elif obj.business_creator.exists():
+                business_list.append(Business.objects.get(creator=obj))
+        context['investor_followers'] = investor_list
+        context['supporter_followers'] = supporter_list
+        context['business_followers'] = business_list
         return context
 
 
@@ -432,15 +490,30 @@ class InvestorProfileView(DetailView):
 
     def get_context_data(self, **kwargs):
         """Returns the Investor instance that the view displays"""
+        investor_list = []
+        supporter_list = []
+        business_list = []
         context = super(InvestorProfileView, self).get_context_data(**kwargs)
         context['investor'] = Investor.objects.get(
             pk=self.kwargs.get("pk"))
         context['investor_profile'] = InvestorProfile.objects.get(
-            investor_profile_id=context['investor'].id)
+            investor_profile=context['investor'])
         context['post'] = Post.objects.filter(
             investor_author=context['investor'])[:5]
-        context['following'] = following(self.request.user, Investor.objects.get(
-            id=self.kwargs['pk']))
-
-        context['followers'] = followers(self.request.user)
+        context['investor_following'] = following(self.request.user, Investor)
+        context['supporter_following'] = following(
+            self.request.user, Supporter)
+        context['business_following'] = following(self.request.user, Business)
+        context['followers'] = followers(context['investor'])
+        context['user'] = self.request.user
+        for obj in context['followers']:
+            if obj.investor_creator.exists():
+                investor_list.append(Investor.objects.get(user=obj))
+            elif obj.supporter_creator.exists():
+                supporter_list.append(Supporter.objects.get(user=obj))
+            elif obj.business_creator.exists():
+                business_list.append(Business.objects.get(creator=obj))
+        context['investor_followers'] = investor_list
+        context['supporter_followers'] = supporter_list
+        context['business_followers'] = business_list
         return context

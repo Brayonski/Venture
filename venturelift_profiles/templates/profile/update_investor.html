@@ -1,0 +1,33 @@
+{% extends 'profile/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content_1 %}
+<div class="col_A_in col_A_in_2">
+  <h1>Eligibility screening</h1>
+  {% if step1 %}
+  <h3>Stage 1: Create My Profile</h3>
+  {% elif step2 %}
+  <h3>Stage 2: Update My Profile</h3>
+  {% endif %}
+  <form method='post' enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form|crispy }}
+    <div>
+      {% if step1 %}
+      <button class='btn btn-success'>Go to next step</button>
+      {% elif step2 %}
+      <button class='btn btn-success'>Save</button>
+      {% endif %}
+  </form>
+  {% if step2 %}
+  <a href="{% url 'update_investor_step1' investor.pk  %}" class="btn btn-success">previous</a>
+  {% endif %}
+  <a href="{% url 'investor_list' %}" class="btn btn-warning">Continue
+    later</a>
+</div>
+{% endblock %}
+{% block content_2 %}
+<div class="company_filter">
+  <h4>Sidebar</h4>
+</div>
+{% endblock %}
