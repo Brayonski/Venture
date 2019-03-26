@@ -84,13 +84,12 @@ IMPACT_INVESTOR = (
 
 
 class BusinessFilters(forms.Form):
+    service = forms.ModelChoiceField(queryset=VlaServices.objects.all(), required=False,
+                                     label='Resources needed')
     sector = forms.ModelChoiceField(queryset=BusinessCategory.objects.all(), required=False,
                                     label='Sector')
 
-    service = forms.ModelChoiceField(queryset=VlaServices.objects.all(), required=False,
-                                     label='Services needed')
-
-    size = forms.ChoiceField(label='Company Size',
+    size = forms.ChoiceField(label='Company Stage',
                              choices=COMPANY_SIZE, required=False)
 
 
