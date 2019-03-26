@@ -143,7 +143,6 @@
                         {% include 'profile/profile/investor.html'%}
                         {% endif %}
                         <ul class="actions_A">
-
                             {% if context.supporter %}
                             {% url 'update_supporter_step1' context.supporter.pk as my_profile %}
                             {% if my_profile == request.path %}
