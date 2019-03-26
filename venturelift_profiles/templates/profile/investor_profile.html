@@ -58,16 +58,21 @@
             <h1 class="card-title text-primary">Contact</h1>
             {# use icons #}
             {% if investor.facebook_profile is not empty %}
-            <p>{{ investor.facebook_profile }}</p>
+            <a href="{{ investor.facebook_profile }}" target="_blank"><i class='fa fa-facebook-official text-primary'
+                style='font-size:48px;'></i></a>
             {% endif %}
             {% if investor.linkedin_profile is not empty %}
-            <p>{{ investor.linkedin_profile }}</p>
+            <a href="{{ investor.linkedin_profile }}" target="_blank"><i class="fa fa-linkedin-square text-primary"
+                aria-hidden="true" style='font-size:48px;'></i></a>
+
             {% endif %}
             {% if investor.twitter_profile is not empty %}
-            <p>{{ investor.twitter_profile }}</p>
+            <a href="{{ investor.twitter_profile }}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"
+                style='font-size:48px; color:#55acee'></i></a>
             {% endif %}
             {% if investor.instagram_profile is not empty %}
-            <p>{{ investor.instagram_profile }}</p>
+            <a href="{{ investor.instagram_profile }}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"
+                style='font-size:48px;'></i></a>
             {% endif %}
           </div>
         </div>
@@ -454,5 +459,14 @@
       </div>
     </div>
   </div>
+  <style>
+    .fa.fa-instagram {
+      color: transparent;
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+  </style>
 </div>
 {% endblock %}
