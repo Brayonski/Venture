@@ -35,6 +35,10 @@ a:focus {
 h4.style_4 {
     font-size: 1.2em;
 }
+body.auth_pages h4.style_4 {
+    font-size: 2.2em;
+    font-weight: 100;
+}
 
 h3.style_3 {
     font-size: 1.1em;
