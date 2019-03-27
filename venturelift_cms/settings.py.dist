@@ -121,7 +121,7 @@ MIDDLEWARE = (
 )
 
 INSTALLED_APPS = (
-    'djangocms_admin_style',
+    'jet',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
