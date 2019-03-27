@@ -7,7 +7,7 @@
         {% if context.business.thumbnail_image %}
         <img src="{{ context.business.thumbnail_image.url }}">
         {% else %}
-        <img src="{% static 'img/blue-user-icon.svg' %}">
+        <img src="{% static 'img/no-img.jpg' %}">
         {% endif %}
 
         {% if context.business.verified %}
