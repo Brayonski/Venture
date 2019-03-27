@@ -12,7 +12,7 @@ class CreateBusinessForm(ModelForm):
 class CreateBlogForm(ModelForm):
     class Meta:
         model = Post
-        exclude = ['date', 'likes', 'author']
+        exclude = ['date', 'likes', 'supporter_author', 'investor_author']
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
@@ -24,8 +24,7 @@ class CreateBlogForm(ModelForm):
         for field in modelchoicefields:
             field.empty_label = None
         '''
-
-        if self.user.supporter_creator.exists():
+        if self.user.supporter_creator.exists() and self.user.investor_creator.exists():
             self.fields.pop("company")
 
 
@@ -85,13 +84,12 @@ IMPACT_INVESTOR = (
 
 
 class BusinessFilters(forms.Form):
+    service = forms.ModelChoiceField(queryset=VlaServices.objects.all(), required=False,
+                                     label='Resources needed')
     sector = forms.ModelChoiceField(queryset=BusinessCategory.objects.all(), required=False,
                                     label='Sector')
 
-    service = forms.ModelChoiceField(queryset=VlaServices.objects.all(), required=False,
-                                     label='Services needed')
-
-    size = forms.ChoiceField(label='Company Size',
+    size = forms.ChoiceField(label='Company Stage',
                              choices=COMPANY_SIZE, required=False)
 
 
@@ -124,8 +122,8 @@ class SupporterCreateForm(forms.ModelForm):
             'company',
             'company_website',
             'company_registration_year',
-            'role',
             'company_operations',
+            'role',
             'physical_address',
             'postal_address',
             'year_operation',
@@ -213,7 +211,7 @@ class InvestorCreateForm(forms.ModelForm):
 
 
 class InvestorProfileCreateForm(forms.ModelForm):
-    impact_investor = forms.TypedChoiceField(choices=IMPACT_INVESTOR, widget=forms.RadioSelect, label="Which are your key impact metrics?"
+    impact_investor = forms.TypedChoiceField(choices=IMPACT_INVESTOR, widget=forms.RadioSelect, label="Do you classify yourself as an impact investor?"
                                              )
 
     gender_lens_investor = forms.TypedChoiceField(
@@ -233,8 +231,8 @@ class InvestorProfileCreateForm(forms.ModelForm):
             'investor_portfolio',
             'exits_executed',
             'impact_investor',
-            'impact_measurement',
             'impact_metrics',
+            'impact_measurement',
             'gender_lens_investor',
         ]
         labels = {

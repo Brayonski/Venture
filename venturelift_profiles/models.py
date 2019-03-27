@@ -6,6 +6,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from djangocms_text_ckeditor import fields
 from django.core.validators import MinLengthValidator
+from multiselectfield import MultiSelectField
 
 # Create your models here.
 
@@ -355,13 +356,13 @@ class SupporterProfile(models.Model):
     interest_startups = models.CharField(
         max_length=50, choices=INTEREST_STARTUPS, null=True, blank=True)
 
-    interest_sectors = models.CharField(
-        max_length=50, choices=INTEREST_SECTORS, null=True, blank=True)
+    interest_sectors = MultiSelectField(
+        max_length=250, choices=INTEREST_SECTORS, help_text="Target Sectors", null=True, blank=True)
 
-    interest_countries = models.CharField(
-        max_length=50, choices=INTEREST_COUNTRIES, null=True, blank=True)
+    interest_countries = MultiSelectField(
+        max_length=250, choices=INTEREST_COUNTRIES, null=True, blank=True, help_text="Counties of Interest")
 
-    trading_partners = models.CharField(
+    trading_partners = MultiSelectField(
         max_length=50, choices=TRADING_PARTNERS, null=True, blank=True)
 
     class Meta:
@@ -448,7 +449,7 @@ class Investor(models.Model):
         upload_to='pic_folder/', null=True, blank=True)
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number")
-    company = models.CharField(max_length=250, unique=True)
+    company = models.CharField(max_length=250)
     role = models.CharField(max_length=250)
     company_location = models.CharField(max_length=250)
     physical_address = models.CharField(max_length=250)
@@ -480,14 +481,14 @@ class InvestorProfile(models.Model):
     company_classification = models.CharField(
         max_length=50, choices=COMPANY_CLASSIFICATION, null=True, blank=True, help_text="How would you classify your firm?")
 
-    investor_forms = models.CharField(
-        max_length=50, choices=INVESTOR_FORMS, null=True, blank=True, help_text="What forms of investment do you make?")
+    investor_forms = MultiSelectField(
+        max_length=250, choices=INVESTOR_FORMS, null=True, blank=True, help_text="What forms of investment do you make?")
 
-    target_sectors = models.CharField(
-        max_length=50, choices=INTEREST_SECTORS, help_text="Target Sectors", null=True, blank=True)
+    target_sectors = MultiSelectField(
+        max_length=250, choices=INTEREST_SECTORS, help_text="Target Sectors", null=True, blank=True)
 
-    target_countries = models.CharField(
-        max_length=50, choices=INTEREST_COUNTRIES, help_text="Which are your target countries?", null=True, blank=True)
+    target_countries = MultiSelectField(
+        max_length=250, choices=INTEREST_COUNTRIES, help_text="Which are your target countries?", null=True, blank=True)
 
     elevator_pitch = fields.HTMLField(
         null=True, blank=True, help_text="What's your investment thesis in brief?")

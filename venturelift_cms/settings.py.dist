@@ -91,7 +91,8 @@ TEMPLATES = [
                 'cms.context_processors.cms_settings',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
-                'venturelift_profiles.context_processors.account_type'
+                'venturelift_profiles.context_processors.account_type',
+                'venturelift_profiles.context_processors.verified_account'
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
@@ -120,7 +121,7 @@ MIDDLEWARE = (
 )
 
 INSTALLED_APPS = (
-    'djangocms_admin_style',
+    'jet',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -154,6 +155,7 @@ INSTALLED_APPS = (
     'venturelift_cms',
     'venturelift_media',
     'venturelift_profiles',
+    'multiselectfield',
 )
 
 LANGUAGES = (

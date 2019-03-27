@@ -88,7 +88,7 @@ class PostAdmin(admin.ModelAdmin):
             return obj.supporter_author.user.username
         elif obj.investor_author:
             return obj.investor_author.user.username
-        else:
+        elif obj.company:
             return obj.company.name
 
 

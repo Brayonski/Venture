@@ -11,7 +11,7 @@
         {% endif %}
 
         {% if context.investor.verified %}
-        <i>{{ context.investor.name }}</i><i class='glyphicon glyphicon-ok text-primary'></i>
+        <i>{{ context.investor.fullname }}</i><i class='glyphicon glyphicon-ok text-primary'></i>
         {% else %}
         <i class='glyphicon glyphicon-remove'></i>
         {% endif %}
@@ -30,23 +30,56 @@
   </div>
   <br>
   <div class="card-body">
+<<<<<<< HEAD
     <h5 class="card-title text-primary">Account Verification</h5>
     {{ context.investor_profile.verification_status }} %
+=======
+    <h1 class="card-title text-primary">Verification</h1>
+    {% if context.investor_profile.verification_status > 0 %}
+    <img src="{% static 'img/progress.png' %}">
+    {% elif context.investor_profile.verification_status >= 20 %}
+    <img src="{% static 'img/progress.png' %}">
+    {% elif context.investor_profile.verification_status >= 40 %}
+    <img src="{% static 'img/progress.png' %}">
+    {% elif context.investor_profile.verification_status >= 60 %}
+    <img src="{% static 'img/progress.png' %}">
+    {% elif context.investor_profile.verification_status >= 80 %}
+    <img src="{% static 'img/progress.png' %}">
+    {% elif context.investor_profile.verification_status >= 90 %}
+    <img src="{% static 'img/progress.png' %}">
+    {% else %}
+    <img src="{% static 'img/progress.png' %}">
+    {% endif %}
+>>>>>>> 557c06473d369c6d7e0f480ec9975a5a7c34ce43
   </div>
   <div class="card-body">
     <h5 class=" text-primary">Social Profiles</h5>
     {# use icons #}
     {% if context.investor.facebook_profile is not empty %}
-    <p>{{ context.investor.facebook_profile }}</p>
+    <a href="{{ context.investor.facebook_profile }}" target="_blank"><i class='fa fa-facebook-official text-primary'
+        style='font-size:48px;'></i></a>
     {% endif %}
     {% if context.investor.linkedin_profile is not empty %}
-    <p>{{ context.investor.linkedin_profile }}</p>
+    <a href="{{ context.investor.linkedin_profile }}" target="_blank"><i class="fa fa-linkedin-square text-primary"
+        aria-hidden="true" style='font-size:48px;'></i></a>
+
     {% endif %}
     {% if context.investor.twitter_profile is not empty %}
-    <p>{{ context.investor.twitter_profile }}</p>
+    <a href="{{ context.investor.twitter_profile }}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"
+        style='font-size:48px; color:#55acee'></i></a>
     {% endif %}
     {% if context.investor.instagram_profile is not empty %}
-    <p>{{ context.investor.instagram_profile }}</p>
+    <a href="{{ context.investor.instagram_profile }}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"
+        style='font-size:48px;'></i></a>
     {% endif %}
   </div>
+  <style>
+    .fa.fa-instagram {
+      color: transparent;
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+  </style>
 </div>

@@ -25,6 +25,7 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
+    url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^admin/', include(admin.site.urls)),  # NOQA
     #url(r'^', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription),))),
     url(r'^media/', include('cms.urls')),

@@ -10,7 +10,7 @@
   <h3>Stage 2: Update My Profile</h3>
   {% endif %}
   <div>
-    <form method='post'>
+    <form method='post' enctype="multipart/form-data">
       {% csrf_token %}
       {{form|crispy }}
       <button class='btn btn-success'>Save and continue</button>
