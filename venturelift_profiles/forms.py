@@ -250,3 +250,13 @@ class InvestorProfileCreateForm(forms.ModelForm):
             'impact_metrics': "Which are your key impact metrics?",
             'gender_lens_investor': "Do you Consider your firm a 'Gender-Lens' Investor?"
         }
+
+
+class InvestorFilters(forms.Form):
+    service = forms.ModelChoiceField(queryset=VlaServices.objects.all(), required=False,
+                                     label='Resources needed')
+    sector = forms.ModelChoiceField(queryset=BusinessCategory.objects.all(), required=False,
+                                    label='Sector')
+
+    size = forms.ChoiceField(label='Company Stage',
+                             choices=COMPANY_SIZE, required=False)
