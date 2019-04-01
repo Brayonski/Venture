@@ -94,16 +94,12 @@ class BusinessFilters(forms.Form):
                              choices=COMPANY_SIZE, required=False)
 
 class SupporterFilters(forms.Form):
-    service = forms.ChoiceField(widget=Select2Widget, label='Interests', choices=SUPPORTER_INTEREST, required=False)
-    profession = forms.ChoiceField(widget=Select2Widget, label='Professional services offered', choices=PROFESSIONAL_SUPPORT, required=False)
+    profession = forms.ChoiceField(widget=Select2Widget, label='Resource offered', choices=PROFESSIONAL_SUPPORT, required=False)
     size = forms.ChoiceField(widget=Select2Widget, label='Company Stage interested in', choices=INTEREST_STARTUPS, required=False)
     countries = forms.MultipleChoiceField(widget=Select2MultipleWidget,
-                                          label='Countries interested in', required=False,
+                                          label='Countries of interest', required=False,
                                           choices=INTEREST_COUNTRIES)
 
-    trading_partner = forms.MultipleChoiceField(label='Trading partners', required=False,
-                                                widget=Select2MultipleWidget,
-                                                 choices=TRADING_PARTNERS)
 
 class ChooseProfileForm(forms.Form):
     profile_choice = forms.ChoiceField(
