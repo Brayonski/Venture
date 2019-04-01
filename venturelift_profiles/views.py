@@ -23,6 +23,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
     def dispatch(self, request, *args, **kwargs):
         if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
+
         return super(SummaryView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, *args, **kwargs):
@@ -41,6 +42,10 @@ class SummaryView(LoginRequiredMixin, TemplateView):
             if current_url == 'dislike_post':
                 post.likes.remove(self.request.user)
         return context
+
+
+class VerificationAccountWaiting(LoginRequiredMixin, TemplateView):
+    template_name = 'profile/account_verification_waiting.html'
 
 
 class ProfileCreateView(LoginRequiredMixin, FormView):
@@ -107,14 +112,31 @@ class SupporterView(LoginRequiredMixin, ListView, FormMixin):
         return context
 
 
-class InvestorView(LoginRequiredMixin, ListView):
+class InvestorView(LoginRequiredMixin, ListView, FormMixin):
     template_name = 'profile/investors.html'
     queryset = Investor.objects.filter(verified=True)
+    form_class = InvestorFilters
 
     def dispatch(self, request, *args, **kwargs):
         if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
         return super(InvestorView, self).dispatch(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            if request.POST.get('investor-name'):
+                fullname = request.POST.get('investor-name').split(' ')
+                if len(fullname) >= 2:
+                    last_name = fullname[1]
+                else:
+                    last_name = request.POST.get('investor-name')
+                first_name = fullname[0]
+
+                investor = Investor.objects.filter((Q(
+                    user__first_name__icontains=first_name) | Q(user__last_name__icontains=last_name)), verified=True)
+
+        return render(request, self.template_name, {'object_list': investor, 'form': form, 'following': following(self.request.user)})
 
     def get_context_data(self, *args, **kwargs):
         context = super(InvestorView, self).get_context_data(*args, **kwargs)
@@ -471,9 +493,42 @@ class BusinessProfileView(DetailView):
 
     def get_context_data(self, **kwargs):
         """Returns the Business Profile instance that the view displays"""
+        investor_list = []
+        supporter_list = []
+        business_list = []
         context = super(BusinessProfileView, self).get_context_data(**kwargs)
-        context['business_profile'] = Business.objects.get(
+        context['business'] = Business.objects.get(
             pk=self.kwargs.get("pk"))
+        context['post'] = Post.objects.filter(
+            company=context['business'])[:5]
+        context['business_market'] = MarketDescription.objects.filter(
+            company_name=context['business'])
+        context['business_model'] = BusinessModel.objects.filter(
+            company_name=context['business'])
+        context['business_team'] = BusinessTeam.objects.filter(
+            company_name=context['business'])
+        context['business_finance'] = BusinessFinancial.objects.filter(
+            company_name=context['business'])
+        context['business_investment'] = BusinessInvestment.objects.filter(
+            company_name=context['business'])
+        context['business_goals'] = BusinessGoals.objects.filter(
+            company_name=context['business'])
+        context['investor_following'] = following(self.request.user, Investor)
+        context['supporter_following'] = following(
+            self.request.user, Supporter)
+        context['business_following'] = following(self.request.user, Business)
+        context['followers'] = followers(context['business'])
+        context['user'] = self.request.user
+        for obj in context['followers']:
+            if obj.investor_creator.exists():
+                investor_list.append(Investor.objects.get(user=obj))
+            elif obj.supporter_creator.exists():
+                supporter_list.append(Supporter.objects.get(user=obj))
+            elif obj.business_creator.exists():
+                business_list.append(Business.objects.get(creator=obj))
+        context['investor_followers'] = investor_list
+        context['supporter_followers'] = supporter_list
+        context['business_followers'] = business_list
         return context
 
 

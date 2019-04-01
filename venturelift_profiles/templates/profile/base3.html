@@ -48,27 +48,47 @@
                     -->
           <ul class="vl_top_nav in_line">
             <li><a href="{% url 'profile_summary' %}">
-                <ion-icon name="home"></ion-icon> Home
-              </a></li>
+            <ion-icon name="home"></ion-icon> Home
+            </a></li>
+            <li><a href="{% url 'business_list' %}">
+            <ion-icon name="briefcase"></ion-icon> Businesses
+            </a></li>
             <li><a href="{% url 'supporter_list' %}">
-                <ion-icon name="people"></ion-icon> Supporters
-              </a></li>
-            <li><a href="{% url 'business_list' %}">
-                <ion-icon name="briefcase"></ion-icon> Businesses
-              </a></li>
+            <ion-icon name="people"></ion-icon> Supporters
+            </a></li>
+
             <li><a href="{% url 'investor_list' %}">
-                <ion-icon name="briefcase"></ion-icon> Investors
-              </a></li>
+            <ion-icon name="briefcase"></ion-icon> Investors
+            </a></li>
+
             <li><a href="{% url 'business_list' %}">
-                <ion-icon name="paper-plane"></ion-icon> Media Center
-              </a></li>
+            <ion-icon name="paper-plane"></ion-icon> Media Center
+            </a></li>
 
             <li class="user_nav_item pull_right">
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="true">
                   <figure class="user_icon_nav">
-                    <img src="{% static 'img/icon-user.png' %}" alt="Welcome">
+                    {% if context.supporter %}
+                    {% if context.supporter.thumbnail_image %}
+                    <img src="{{ context.supporter.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/blue-user-icon.svg' %}">
+                    {% endif %}
+                    {% elif context.investor %}
+                    {% if context.investor.thumbnail_image %}
+                    <img src="{{ context.investor.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/blue-user-icon.svg' %}">
+                    {% endif %}
+                    {% elif context.business %}
+                    {% if context.business.thumbnail_image %}
+                    <img src="{{ context.business.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/no-img.jpg' %}">
+                    {% endif %}
+                    {% endif %}
                   </figure>
                 </button>
                 <ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
