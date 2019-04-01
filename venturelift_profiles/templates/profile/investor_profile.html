@@ -5,7 +5,7 @@
 {% endblock title %}
 {% block content %}
 <div class="full_A">
-  <div class="columns_A flex row clearfix">
+  <div class="columns_A flexX row clearfix">
     <div class="col_A_out col_A_out_1 col-md-3 clearfix">
       <div class="col_A_in col_A_in_1">
         <div class="card card-body">
@@ -19,7 +19,7 @@
                 <img src="{% static 'img/blue-user-icon.svg' %}">
                 {% endif %}
                 {% if investor.verified %}
-                <i>{{ investor.name }}</i>
+                <i>{{ investor.fullname }}</i>
                 <i class='glyphicon glyphicon-ok text-primary'></i>
                 {% else %}
                 <i class='glyphicon glyphicon-remove'></i>
@@ -99,6 +99,16 @@
         <div class="onboarding_A">
           <div class="row clearfix">
             <div class="col-md-12 clearfix">
+
+              <div class="card" style="width: 100%;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+
               <ul class="nav nav-tabs">
                 <li class="active">
                   <a data-toggle="tab" href="#about">About

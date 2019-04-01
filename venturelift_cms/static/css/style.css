@@ -196,12 +196,9 @@ ul.navbarX2 li {
 .in_style_A {
     min-height: 360px;
 }
-.style_C {
-    font-weight: 700;
-    font-size: 2.2rem;
-}
+
 .meta_A {
-    color: #9b9b9b;
+    color: #000000;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 1.0rem;
@@ -223,6 +220,13 @@ a.a_A:hover {
 
 .style_A {
     font-weight: 900;
+    margin-bottom: 20px;
+}
+.h_A_row_1B_in h1.style_A {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.h_A_row_1B_in > h5.meta_A {
     margin-bottom: 20px;
 }
 
@@ -260,16 +264,31 @@ ul.category_nav li:nth-child(1) a {
     background: #00aeff;
     color: #FFF;
 }
+ul.category_nav li:nth-child(1) a:hover {
+    border-bottom: 1px solid #029ee6;
+    background: #029ee6;
+    color: #FFF;
+}
 
 ul.category_nav li:nth-child(2) a {
-    border-bottom: 1px solid #00ff59;
-    background: #00ff59;
+    border-bottom: 1px solid #e2005c;
+    background: #e2005c;
+    color: #FFF;
+}
+ul.category_nav li:nth-child(2) a:hover {
+    border-bottom: 1px solid #bf004e;
+    background: #bf004e;
     color: #FFF;
 }
 
 ul.category_nav li:nth-child(3) a {
     border-bottom: 1px solid #ff9800;
     background: #ff9800;
+    color: #FFF;
+}
+ul.category_nav li:nth-child(3) a:hover {
+    border-bottom: 1px solid #e68900;
+    background: #e68900;
     color: #FFF;
 }
 
@@ -329,7 +348,7 @@ ul.sidebar_list {
 }
 
 h2.h_title_A.h_title_AB {
-    margin-top: 0px;
+    margin-top: -63px;
 }
 
 ul.sidebar_list li {
@@ -393,8 +412,8 @@ button.search_button {
 }
 
 .style_C {
-    font-weight: 900;
-    font-size: 2.4rem;
+    font-weight: 600;
+    font-size: 2.2rem;
 }
 
 .full_width.footer {
@@ -852,17 +871,12 @@ ul.user_nav_item_drop.dropdown-menu.pull-right .divider {
 .col_A_out {
     padding: 60px;
 }
-<<<<<<< HEAD
 /*
-=======
-
->>>>>>> 557c06473d369c6d7e0f480ec9975a5a7c34ce43
 .col_A_out.col_A_out_1 {
     background: #ffffff;
     text-align: center;
     box-shadow: 0px -8px 18px #e6e6e6;
 }
-<<<<<<< HEAD
 */
 .col_A_out.col_A_out_1 {
     background: #121e63;
@@ -875,11 +889,6 @@ img.sidebar_avi_A {
 }
 
 .col_A_out_2, .col_A_out_3 {
-=======
-
-.col_A_out_2,
-.col_A_out_3 {
->>>>>>> 557c06473d369c6d7e0f480ec9975a5a7c34ce43
     background: #f9f9f9;
 }
 

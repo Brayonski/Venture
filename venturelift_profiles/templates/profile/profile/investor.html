@@ -30,10 +30,7 @@
   </div>
   <br>
   <div class="card-body">
-<<<<<<< HEAD
     <h5 class="card-title text-primary">Account Verification</h5>
-    {{ context.investor_profile.verification_status }} %
-=======
     <h1 class="card-title text-primary">Verification</h1>
     {% if context.investor_profile.verification_status > 0 %}
     <img src="{% static 'img/progress.png' %}">
@@ -50,7 +47,6 @@
     {% else %}
     <img src="{% static 'img/progress.png' %}">
     {% endif %}
->>>>>>> 557c06473d369c6d7e0f480ec9975a5a7c34ce43
   </div>
   <div class="card-body">
     <h5 class=" text-primary">Social Profiles</h5>
