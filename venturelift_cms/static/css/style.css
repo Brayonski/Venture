@@ -576,6 +576,24 @@ ul.social_icons.social_bottom li a {
     padding: 0px 4px 0px 0px;
 }
 
+li.social_right_CTA {
+    float: right;
+    font-size: .40em;
+    max-width: 52%;
+    /* border: 2px solid #0004d0; */
+    padding: 0px 6px;
+    /* background: #f5f5f5; */
+    font-weight: 700;
+}
+li.social_right_CTA a {
+    color: #0004d0;
+    border-bottom: 1px solid transparent;
+}
+li.social_right_CTA a:hover {
+    color: #0004d0;
+    border-bottom: 1px solid #0004d0;
+}
+
 .signup_right .form_control {
     padding: 0px 0px 0px;
     margin: 20px 0px;

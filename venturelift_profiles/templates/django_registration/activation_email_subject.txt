@@ -1,2 +1,2 @@
 {% load i18n %}
-{% trans "Venture lift portal registration" %}
+{% trans "VentureLift User Registration" %}
