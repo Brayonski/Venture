@@ -83,14 +83,31 @@ class SupporterView(LoginRequiredMixin, ListView):
         return context
 
 
-class InvestorView(LoginRequiredMixin, ListView):
+class InvestorView(LoginRequiredMixin, ListView, FormMixin):
     template_name = 'profile/investors.html'
     queryset = Investor.objects.filter(verified=True)
+    form_class = InvestorFilters
 
     def dispatch(self, request, *args, **kwargs):
         if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
         return super(InvestorView, self).dispatch(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            if request.POST.get('investor-name'):
+                fullname = request.POST.get('investor-name').split(' ')
+                if len(fullname) >= 2:
+                    last_name = fullname[1]
+                else:
+                    last_name = request.POST.get('investor-name')
+                first_name = fullname[0]
+
+                investor = Investor.objects.filter((Q(
+                    user__first_name__icontains=first_name) | Q(user__last_name__icontains=last_name)), verified=True)
+
+        return render(request, self.template_name, {'object_list': investor, 'form': form, 'following': following(self.request.user)})
 
     def get_context_data(self, *args, **kwargs):
         context = super(InvestorView, self).get_context_data(*args, **kwargs)
