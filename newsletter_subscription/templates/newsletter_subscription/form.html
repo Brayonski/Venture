@@ -168,14 +168,6 @@ figure.list_A ul li {
 <div class="full_width newsletter_A">
   <div class="container newsletter_A_container">
 
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-
       <div class="newsletter_container row clearfix">
 
         <div class="col-md-6">
@@ -201,6 +193,15 @@ figure.list_A ul li {
             <p>For more information, a consultation and to join our network:</p>
 
             <div class="form_control">
+
+              {% if messages %}
+              <ul class="messages">
+                  {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                  {% endfor %}
+              </ul>
+              {% endif %}
+
               <form action="." method="post" class="form form-horizontal">
                 {% csrf_token %}
                 <div class="form-group">
