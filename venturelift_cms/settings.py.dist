@@ -151,6 +151,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'social_django',
     'actstream',
+    'django_select2',
     
     'venturelift_cms',
     'venturelift_media',

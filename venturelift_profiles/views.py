@@ -55,9 +55,38 @@ class ProfileCreateView(LoginRequiredMixin, FormView):
         return redirect(reverse('supporter_create'))
 
 
-class SupporterView(LoginRequiredMixin, ListView):
+class SupporterView(LoginRequiredMixin, ListView, FormMixin):
     template_name = 'profile/supporters.html'
     queryset = Supporter.objects.filter(verified=True)
+    form_class = SupporterFilters
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            if request.POST.get('supporter-name'):
+                supporter = Supporter.objects.filter(Q(
+                    user__first_name__icontains=request.POST.get('supporter-name')) |
+                    Q(user__last_name__icontains=request.POST.get('supporter-name')), verified=True)
+            else:
+                supporter = Supporter.objects.filter(verified=True)
+                if form.cleaned_data['service']:
+                    supporter = supporter.filter(
+                        supporter_profile__supporter_interest=form.cleaned_data['service'])
+                if form.cleaned_data['profession']:
+                    supporter = supporter.filter(
+                        supporter_profile__professional_support=form.cleaned_data['profession'])
+                if form.cleaned_data['size']:
+                    supporter = supporter.filter(
+                        supporter_profile__interest_startups__in=form.cleaned_data['size'])
+                if form.cleaned_data['countries']:
+                    supporter = supporter.filter(
+                        supporter_profile__interest_countries__in=form.cleaned_data['countries']
+                    )
+                if form.cleaned_data['trading_partner']:
+                    supporter = supporter.filter(
+                        supporter_profile__trading_partners__in=form.cleaned_data['trading_partner']
+                    )
+            return render(request, self.template_name, {'object_list': supporter, 'form': form, 'following': following(self.request.user)})
 
     def dispatch(self, request, *args, **kwargs):
         if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
