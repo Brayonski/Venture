@@ -60,9 +60,37 @@ class ProfileCreateView(LoginRequiredMixin, FormView):
         return redirect(reverse('supporter_create'))
 
 
-class SupporterView(LoginRequiredMixin, ListView):
+class SupporterView(LoginRequiredMixin, ListView, FormMixin):
     template_name = 'profile/supporters.html'
     queryset = Supporter.objects.filter(verified=True)
+    form_class = SupporterFilters
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            if request.POST.get('supporter-name'):
+                fullname = request.POST.get('supporter-name').split(' ')
+                if len(fullname) >= 2:
+                    last_name = fullname[1]
+                else:
+                    last_name = request.POST.get('supporter-name')
+                first_name = fullname[0]
+
+                supporter = Supporter.objects.filter((Q(
+                    user__first_name__icontains=first_name) | Q(user__last_name__icontains=last_name)), verified=True)
+            else:
+                supporter = Supporter.objects.filter(verified=True)
+                if form.cleaned_data['profession']:
+                    supporter = supporter.filter(
+                        supporter_profile__professional_support=form.cleaned_data['profession'])
+                if form.cleaned_data['size']:
+                    supporter = supporter.filter(
+                        supporter_profile__interest_startups__in=form.cleaned_data['size'])
+                if form.cleaned_data['countries']:
+                    supporter = supporter.filter(
+                        supporter_profile__interest_countries__in=form.cleaned_data['countries']
+                    )
+            return render(request, self.template_name, {'object_list': supporter, 'form': form, 'following': following(self.request.user)})
 
     def dispatch(self, request, *args, **kwargs):
         if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):

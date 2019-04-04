@@ -29,3 +29,4 @@ social-auth-app-django
 django-activity-stream
 django-multiselectfield
 django-jet
+django_select2

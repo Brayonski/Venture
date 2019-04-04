@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^profile/', include('venturelift_profiles.urls')),
     url(r'^registration/', RegistrationView.as_view(), name='registration_in'),
     url(r'^', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription),))),
+    url(r'^select2/', include('django_select2.urls')),
 ]
 
 urlpatterns += i18n_patterns(

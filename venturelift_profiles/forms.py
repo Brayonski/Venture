@@ -1,6 +1,7 @@
 from venturelift_profiles.models import *
 from django.forms import ModelForm
 from django import forms
+from django_select2.forms import Select2MultipleWidget, Select2Widget
 
 
 class CreateBusinessForm(ModelForm):
@@ -91,6 +92,13 @@ class BusinessFilters(forms.Form):
 
     size = forms.ChoiceField(label='Company Stage',
                              choices=COMPANY_SIZE, required=False)
+
+class SupporterFilters(forms.Form):
+    profession = forms.ChoiceField(widget=Select2Widget, label='Resource offered', choices=PROFESSIONAL_SUPPORT, required=False)
+    size = forms.ChoiceField(widget=Select2Widget, label='Company Stage interested in', choices=INTEREST_STARTUPS, required=False)
+    countries = forms.MultipleChoiceField(widget=Select2MultipleWidget,
+                                          label='Countries of interest', required=False,
+                                          choices=INTEREST_COUNTRIES)
 
 
 class ChooseProfileForm(forms.Form):
