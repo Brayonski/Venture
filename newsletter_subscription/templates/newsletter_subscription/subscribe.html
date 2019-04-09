@@ -173,7 +173,7 @@ figure.list_A ul li {
         <div class="col-md-6 col-md-offset-3">
           <div class="signup_alert">
             <ul class="messages">
-                <li class="alert alert-info">{% trans 'You successfully subscribed to our newsletter.' %}</li>
+                <li class="alert alert-info">{% trans 'You successfully subscribed to our newsletter. <a href="/">Go Home</a>' %}</li>
             </ul>
           </div>  
         </div>
@@ -239,5 +239,14 @@ figure.list_A ul li {
       }  
     </script>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137967572-1');
+    </script>
   </body>
 </html>

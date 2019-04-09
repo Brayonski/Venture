@@ -1,14 +1,16 @@
-{% extends 'profile/base.html' %}
+{% extends 'profile/base4.html' %}
 {% load cms_tags staticfiles %}
 {% load crispy_forms_tags %}
 {% block content_1 %}
+
+
 
 
 <div class="col_A_in col_A_in_2">
   <div class="topbar_2">
     <div class="row clearfix">
       <div class="col-md-6 clearfix">
-        <p class="p_title">Investor</p>
+        <p class="p_title">Investors</p>
       </div>
       <div class="col-md-6 clearfix">
         <div class="company_filter pull-right">
@@ -52,9 +54,14 @@
     </div>
   </div>
 </div>
+
+
 {% endblock %}
 {% block content_2 %}
 <div class="company_filter">
-  <h4>Sidebar</h4>
+  <h4>Options</h4>
+  <div class="sidebar_actions">
+      <a class="btn-primary btn" href="{% url 'new_blog_post' %}">+ New Blog Post</a>
+  </div>  
 </div>
 {% endblock %}

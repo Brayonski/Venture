@@ -101,11 +101,11 @@
             <div class="col-md-12 clearfix">
 
               <div class="card" style="width: 100%;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+                <img class="card-img-top" src="http://vlafrica.com/media/filer_public/99/62/99620e13-8d11-4f2d-b74c-cc8379331413/16.jpg" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
                 </div>
               </div>
 
@@ -215,10 +215,11 @@
                 </div>
                 <div class="tab-pane fade" id="updates">
                   <div class="col_A_in col_A_in_2">
-                    <h3>Updates</h3>
+                    <!--<h3>Updates</h3>-->
                     {% for post in post %}
                     <div class="border border-info">
-                      <h4>{{post.title}}</h4>
+                      <h4><a href='#nogo'>{{post.title}}</a></h4>
+
                       {% if post.author %}
                       <p>Author:
                         {{post.author}}</p>
@@ -226,9 +227,13 @@
                       <p>Company:
                         {{post.company}}</p>
                       {% endif %}
-                      <p>{{post.body|safe|truncatechars:250}}
-                        <a href=''>Read more</a>
-                      </p>
+
+                      <div class="card_summary">
+                        <p>{{post.body|safe|truncatechars:250}}
+                          <a href='#nogo'>Read more</a>
+                        </p>
+                      </div>
+                        
                       {% if request.user in post.likes.all %}
                       <a href="{% url 'dislike_post' post.id %}">
                         <i class='glyphicon glyphicon-heart'></i>
@@ -465,7 +470,10 @@
     </div>
     <div class="col_A_out col_A_out_3 col-md-2 clearfix">
       <div class="col_A_in col_A_in_3">
-        <h4>Sidebar</h4>
+        <h4>Options</h4>
+        <div class="sidebar_actions">
+            <a class="btn-primary btn" href="{% url 'new_blog_post' %}">+ New Blog Post</a>
+        </div>
       </div>
     </div>
   </div>
