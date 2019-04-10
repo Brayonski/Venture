@@ -24,7 +24,7 @@
                   <a class="a_A" href="{% url 'venturelift_media:media_story' object_list.0.pk %}">{{object_list.0.title}}</a>
                 {% endif %}
                 </h1>
-                <h5 class="meta_A">{{object_list.0.category}} <span>{{object_list.0.date|timesince}} AGO</span></h5>                
+                <h5 class="meta_A">{{object_list.0.category}} <!--<span>{{object_list.0.date|timesince}} AGO</span>--></h5>
                 <ul class="h_A_row_1A_list">
                   {% for obj in object_list %}
                   {% if forloop.counter > 1 %}
