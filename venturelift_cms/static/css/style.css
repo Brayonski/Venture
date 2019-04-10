@@ -1002,6 +1002,8 @@ figure.box_avi img {
 
 figure.box_details {
     padding: 8px;
+    background: #FFF !important;
+    position: relative;
 }
 
 button.btn-actioned {
