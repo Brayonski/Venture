@@ -134,7 +134,23 @@ class InvestorView(LoginRequiredMixin, ListView, FormMixin):
 
                 investor = Investor.objects.filter((Q(
                     user__first_name__icontains=first_name) | Q(user__last_name__icontains=last_name)), verified=True)
-
+            else:
+                investor = Investor.objects.filter(verified=True)
+                if form.cleaned_data['invest_forms']:
+                    print(form.cleaned_data['invest_forms'])
+                    investor = investor.filter(
+                        investor_profile__investor_forms__in=form.cleaned_data['invest_forms'])
+                if form.cleaned_data['sectors']:
+                    investor = investor.filter(
+                        investor_profile__target_sectors__in=form.cleaned_data['sectors'])
+                if form.cleaned_data['countries']:
+                    investor = investor.filter(
+                        investor_profile__target_countries__in=form.cleaned_data['countries']
+                    )
+                if form.cleaned_data['exists']:
+                    investor = investor.filter(
+                        investor_profile__exits_executed=form.cleaned_data['exists']
+                    )
         return render(request, self.template_name, {'object_list': investor, 'form': form, 'following': following(self.request.user)})
 
     def get_context_data(self, *args, **kwargs):
