@@ -136,17 +136,13 @@ class InvestorView(LoginRequiredMixin, ListView, FormMixin):
                     user__first_name__icontains=first_name) | Q(user__last_name__icontains=last_name)), verified=True)
             else:
                 investors = Investor.objects.filter(verified=True)
-                for investor in investors:
-                    print(investor.investor_profile)
-
                 if form.cleaned_data['invest_forms']:
                     print(form.cleaned_data['invest_forms'])
                     investor = investors.filter(
-                        investor_profile__investor_forms=form.cleaned_data['invest_forms'])
-                    print(investor)
+                        investor_profile__investor_forms__icontains=form.cleaned_data['invest_forms'])
                 if form.cleaned_data['sectors']:
                     investor = investors.filter(
-                        investor_profile__target_sectors__in=form.cleaned_data['sectors'])
+                        investor_profile__target_sectors__icontains=form.cleaned_data['sectors'])
                 if form.cleaned_data['countries']:
                     investor = investors.filter(
                         investor_profile__target_countries__in=form.cleaned_data['countries']
