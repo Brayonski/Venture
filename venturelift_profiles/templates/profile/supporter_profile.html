@@ -7,12 +7,177 @@
 <div class="full_A">
   <div class="columns_A flex row clearfix">
     <div class="col_A_out col_A_out_1 col-md-3 clearfix">
+
       <div class="col_A_in col_A_in_1">
+
+        <div class="maxi_profile">
+            <figure class="maxi_avi">
+                {% if supporter.thumbnail_image %}
+                <img src="{{ supporter.thumbnail_image.url }}">
+                {% else %}
+                <img src="{% static 'img/blue-user-icon.svg' %}">
+                {% endif %}
+            </figure>
+            <div class="maxi_content_A text-center">
+                <h4>
+                  {{ supporter.fullname }}
+
+                  {% if supporter.verified %}
+                  <span class="badge_A"><ion-icon name="checkmark"></ion-icon></span>
+                  {% else %}
+                  {% endif %}
+
+                </h4>
+                <p>Supporter</p>
+
+
+                <div class="mini_list">
+                    <ul class="buttons_yo">
+                        {% if context.supporter %}
+                          <li><a class="btn btn-sm btn-primary" href="{% url 'update_supporter_step1' context.supporter.pk %}">Edit Profile</a></li>
+                        {% endif %}
+
+                        {% if context.investor %}
+                          <li><a class="btn btn-sm btn-primary" href="{% url 'update_investor_step1' context.investor.pk %}">Edit Profile</a></li>
+                        {% endif %}  
+                    </ul>
+                </div>
+
+            </div>
+
+            <!--
+            <div class="maxi_list">
+                <ul class="buttons_yo">
+                    <li><a class="btn btn-sm btn-primary" href="#nogo">View Profile</a></li>
+                    <li><a class="btn btn-sm btn-primary" href="#nogo">Edit Profile</a></li>
+                </ul>
+            </div>
+            -->
+
+            <div class="profile_data">
+                <div class="about_bubble">
+                  {{ supporter.about }}
+                </div>
+
+                <div class="track_record">
+                  <table>
+                    <tr>
+                      <th>Company</th>
+                      <td>{{ supporter.company }}</td>
+                    </tr>
+                    <tr>
+                      <th>Year</th>
+                      <td>{{ supporter.year_operation}}</td>
+                    </tr>
+                    <tr>
+                      <th>Role</th>
+                      <td>{{ supporter.role }}</td>
+                    </tr>
+
+                    <tr>
+                      <th>My Interest</th>
+                      <td>{{ supporter_profile.supporter_interest }}</td>
+                    </tr> 
+                    <tr>
+                      <th>Countries of Interest</th>
+                      <td>{{ supporter_profile.interest_countries }}</td>
+                    </tr> 
+
+                    <tr>
+                      <th>Sectors of Interest</th>
+                      <td>{{ supporter_profile.interest_sectors }}</td>
+                    </tr> 
+                    <tr>
+                      <th>Professional Support</th>
+                      <td>{{ supporter_profile.professional_support }}</td>
+                    </tr>   
+
+                    <tr>
+                      <th>Startups of Interest</th>
+                      <td>{{ supporter_profile.interest_startups }}</td>
+                    </tr> 
+                    <tr>
+                      <th>Trading Partners</th>
+                      <td>{{ supporter_profile.trading_partners }}</td>
+                    </tr>  
+
+                  </table>
+                </div>
+
+                <div class="contact_info">
+                  <div class="contact_body">
+                    <p>Contact</p>
+
+                    <ul class="contact_socials">
+
+                      {% if supporter.facebook_profile is not empty %}
+                        <li>
+                          <a href="{{ supporter.facebook_profile }}" target="_blank">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                          </a>
+                        </li>
+                      {% endif %}
+
+                      {% if supporter.linkedin_profile is not empty %}
+                        <li>
+                          <a href="{{ supporter.linkedin_profile }}" target="_blank">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                          </a>
+                        </li>
+                      {% endif %}
+
+                      {% if supporter.twitter_profile is not empty %}
+                        <li>
+                          <a href="{{ supporter.twitter_profile }}" target="_blank">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                          </a>
+                        </li>
+                      {% endif %}
+
+                      {% if supporter.instagram_profile is not empty %}
+                        <li>
+                          <a href="{{ supporter.instagram_profile }}" target="_blank">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                          </a>
+                        </li>
+                      {% endif %}                                                                  
+                      
+                    </ul>
+
+                    <!--
+                    {# use icons #}
+                    {% if supporter.facebook_profile is not empty %}
+                    <a href="{{ supporter.facebook_profile }}" target="_blank"><i class='fa fa-facebook-official text-primary'
+                        style='font-size:48px;'></i></a>
+                    {% endif %}
+                    {% if supporter.linkedin_profile is not empty %}
+                    <a href="{{ supporter.linkedin_profile }}" target="_blank"><i class="fa fa-linkedin-square text-primary"
+                        aria-hidden="true" style='font-size:48px;'></i></a>
+
+                    {% endif %}
+                    {% if supporter.twitter_profile is not empty %}
+                    <a href="{{ supporter.twitter_profile }}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"
+                        style='font-size:48px; color:#55acee'></i></a>
+                    {% endif %}
+                    {% if supporter.instagram_profile is not empty %}
+                    <a href="{{ supporter.instagram_profile }}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"
+                        style='font-size:48px;'></i></a>
+                    {% endif %}
+                    -->
+
+
+                  </div>                  
+                </div>
+            </div>
+
+        </div>
+
         <div class="card card-body">
+          <!--
           <div class="card card-body">
             <div class="col-md-12 clearfix">
               <div class="col-md-8 col-md-offset-2 clearfix">
-                <!-- Square, 350 X 350 PX -->
+                
                 {% if supporter.thumbnail_image %}
                 <img src="{{ supporter.thumbnail_image.url }}">
                 {% else %}
@@ -28,6 +193,8 @@
               </div>
             </div>
           </div>
+          
+
           <div class="card-body">
             <h2 class="card-title text-primary">About</h2>
             <h3 class="text-primary">Track Record</h3>
@@ -36,64 +203,10 @@
             {{ supporter.role }}
             {{ supporter_profile.interest_sectors }}
           </div>
-          <div class="card-body">
-            <h1 class="card-title text-primary">Verification</h1>
-            {% if supporter_profile.verification_status > 0 %}
-            <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 20 %}
-            <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 40 %}
-            <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 60 %}
-            <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 80 %}
-            <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 90 %}
-            <img src="{% static 'img/progress.png' %}">
-            {% else %}
-            <img src="{% static 'img/progress.png' %}">
-            {% endif %}
-          </div>
-          <div class="card-body">
-            <h1 class="card-title text-primary">Contact</h1>
-            {# use icons #}
-            {% if supporter.facebook_profile is not empty %}
-            <a href="{{ supporter.facebook_profile }}" target="_blank"><i class='fa fa-facebook-official text-primary'
-                style='font-size:48px;'></i></a>
-            {% endif %}
-            {% if supporter.linkedin_profile is not empty %}
-            <a href="{{ supporter.linkedin_profile }}" target="_blank"><i class="fa fa-linkedin-square text-primary"
-                aria-hidden="true" style='font-size:48px;'></i></a>
+          -->
 
-            {% endif %}
-            {% if supporter.twitter_profile is not empty %}
-            <a href="{{ supporter.twitter_profile }}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"
-                style='font-size:48px; color:#55acee'></i></a>
-            {% endif %}
-            {% if supporter.instagram_profile is not empty %}
-            <a href="{{ supporter.instagram_profile }}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"
-                style='font-size:48px;'></i></a>
-            {% endif %}
-          </div>
         </div>
-        <ul class="actions_A">
 
-          <li>
-            {% if context.supporter %}
-            <a href="{% url 'update_supporter_step1' context.supporter.pk %}">Edit my profile</a>
-            {% endif %}
-            {% if context.investor %}
-            <a href="{% url 'update_investor_step1' context.investor.pk %}">Edit my profile</a>
-            {% endif %}
-          </li>
-
-          <li>
-            <a href="{% url 'my_business' %}">Add business</a>
-          </li>
-          <li>
-            <a href="{% url 'new_blog_post' %}">New Blog Post</a>
-          </li>
-        </ul>
       </div>
     </div>
     <div class="col_A_out col_A_out_2 col-md-7 clearfix">
@@ -102,13 +215,14 @@
           <div class="row clearfix">
             <div class="col-md-12 clearfix">
 
-              <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#about">About </a></li>
-                <li><a data-toggle="tab" href="#updates">Latest Updates</a></li>
+              <ul class="tab_B nav nav-tabs">
+                <!--<li><a data-toggle="tab" href="#about">About </a></li>-->
+                <li class="active"><a data-toggle="tab" href="#updates">Latest Updates</a></li>
                 <li><a data-toggle="tab" href="#following">Following</a></li>
                 <li><a data-toggle="tab" href="#followers">Followers</a></li>
               </ul>
               <div class="tab-content">
+                <!--
                 <div id="about" class="tab-pane fade in active">
                   <div class="col-md-12 clearfix">
                     <p>
@@ -155,28 +269,43 @@
 
                   </div>
                 </div>
-                <div id="updates" class="tab-pane fade">
+              -->
+
+                <div id="updates" class="tab-pane fade in active">
                   <div class="col_A_in col_A_in_2">
-                    <h3>Updates</h3>
+
                     {% for post in post %}
-                    <div class="border border-info">
-                      <h4>{{post.title}}</h4>
-                      {% if post.author %}
-                      <p>Author: {{post.author}}</p>
-                      {% else %}
-                      <p>Company: {{post.company}}</p>
-                      {% endif %}
-                      <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
-                      {% if request.user in post.likes.all %}
-                      <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
-                        ({{post.likes.count}} likes)</a>
-                      {% else %}
-                      <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
-                        ({{post.likes.count}} likes)</a>
-                      {% endif %}
-                      <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
-                    </div>
+
+                      <div class="card">
+                          <div class="card-body">
+                              <h4><a href="#nogo">{{post.title}}</a></h4>
+                              {% if post.author %}
+                              <p>Author: {{post.author}}</p>
+                              {% else %}
+                              <p>Company: {{post.company}}</p>
+                              {% endif %}
+
+                              <div class="card_summary">
+                                  <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
+                              </div>  
+                          </div>    
+                          <div class="card_footer">
+                              {% if request.user in post.likes.all %}
+                              <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
+                                  ({{post.likes.count}} likes)</a>
+                              {% else %}
+                              <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
+                                  ({{post.likes.count}} likes)</a>
+                              {% endif %}
+                              <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
+                          </div>          
+                      </div>
                     {% endfor %}
+
+                    <div class="no_post_hero">
+                      <h3>This user has not posted any update yet.</h3>
+                    </div>
+
                   </div>
                 </div>
                 <div class="tab-pane fade" id="following">
@@ -186,7 +315,7 @@
                       <p class="alert alert-danger">Businesses</p>
                       {% endif %}
                       {% for obj in business_following %}
-                      <div class="col-md-3 box_box">
+                      <div class="col-md-4 box_box">
                         <div class="box_box_in">
                           <figure class="box_avi">
                             <!-- Square, 350 X 350 PX -->
@@ -220,7 +349,7 @@
                       <p class="alert alert-success">Supporters</p>
                       {% endif %}
                       {% for obj in supporter_following %}
-                      <div class="col-md-3 box_box">
+                      <div class="col-md-4 box_box">
                         <div class="box_box_in">
                           <figure class="box_avi">
                             <!-- Square, 350 X 350 PX -->
@@ -254,7 +383,7 @@
                       <p class="alert alert-danger">Investors</p>
                       {% endif %}
                       {% for obj in investor_following %}
-                      <div class="col-md-3 box_box">
+                      <div class="col-md-4 box_box">
                         <div class="box_box_in">
                           <figure class="box_avi">
                             <!-- Square, 350 X 350 PX -->
@@ -397,17 +526,39 @@
     <div class="col_A_out col_A_out_3 col-md-2 clearfix">
       <div class="col_A_in col_A_in_3">
         <h4>Sidebar</h4>
+
+          <div class="card-body">
+            <p>Verification</p>
+            {% if supporter_profile.verification_status > 0 %}
+            <img src="{% static 'img/progress.png' %}">
+            {% elif supporter_profile.verification_status >= 20 %}
+            <img src="{% static 'img/progress.png' %}">
+            {% elif supporter_profile.verification_status >= 40 %}
+            <img src="{% static 'img/progress.png' %}">
+            {% elif supporter_profile.verification_status >= 60 %}
+            <img src="{% static 'img/progress.png' %}">
+            {% elif supporter_profile.verification_status >= 80 %}
+            <img src="{% static 'img/progress.png' %}">
+            {% elif supporter_profile.verification_status >= 90 %}
+            <img src="{% static 'img/progress.png' %}">
+            {% else %}
+            <img src="{% static 'img/progress.png' %}">
+            {% endif %}
+          </div>
+
+          <div class="sidebar_actions">
+              <a class="btn-primary btn" href="{% url 'new_blog_post' %}">+ New Blog Post</a>
+              <a class="btn-primary btn" href="{% url 'my_business' %}">+ Add a Business</a>
+          </div>          
+
+          <div class="card-body">
+            <p>Companies to follow</p>
+            <p>Similar Supporters</p>
+          </div>
+      
       </div>
     </div>
   </div>
-  <style>
-    .fa.fa-instagram {
-      color: transparent;
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-      background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-      background-clip: text;
-      -webkit-background-clip: text;
-    }
-  </style>
+
 </div>
 {% endblock %}

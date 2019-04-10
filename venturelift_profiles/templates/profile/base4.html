@@ -89,7 +89,7 @@
                                         {% if context.business.thumbnail_image %}
                                         <img src="{{ context.business.thumbnail_image.url }}">
                                         {% else %}
-                                        <img src="{% static 'img/no-img.png' %}">
+                                        <img src="{% static 'img/no-img.jpg' %}">
                                         {% endif %}
                                         {% endif %}
 
@@ -137,62 +137,7 @@
 
         <div class="full_A with-side-filter">
             <div class="columns_A flex row clearfix">
-                <div class="col_B_out col_B_out_1 col-md-3 clearfix">
-
-                    <div class="col_B_in col_B_in_1">
-                        <div class="mini_profile">
-                            <figure class="mini_avi">
-                                <img src="/media/pic_folder/pic-Eugene-Nyawara.jpg">
-                            </figure>
-                            <div class="mini_content_A text-center">
-                                <h4>Eugene Nyawara</h4>
-                                <p>Supporter</p>
-                            </div>
-                            <div class="mini_list">
-                                <ul class="buttons_yo">
-                                    <li><a class="btn btn-sm btn-primary" href="#nogo">View Profile</a></li>
-                                    <li><a class="btn btn-sm btn-primary" href="#nogo">Edit Profile</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <div class="col_A_in col_A_in_1">
-                            {% if context.business %}
-                            {% include 'profile/profile/business.html'%}
-                            {% elif context.supporter %}
-                            {% include 'profile/profile/supporter.html'%}
-                            {% elif context.investor %}
-                            {% include 'profile/profile/investor.html'%}
-                            {% endif %}
-                        <ul class="actions_A">
-                            {% if context.supporter %}
-                            {% url 'update_supporter_step1' context.supporter.pk as my_profile %}
-                            {% if my_profile == request.path %}
-                            {% else %}
-                            <li><a href="{% url 'update_supporter_step1' context.supporter.pk %}">Edit my profile</a>
-                            </li>
-                            {% endif %}
-                            {% endif %}
-                            {% if context.investor %}
-                            {% url 'update_investor_step1' context.investor.pk as my_profile %}
-                            {% if my_profile == request.path %}
-                            {% else %}
-                            <li><a href="{% url 'update_investor_step1' context.investor.pk %}">Edit my profile</a></li>
-                            </li>
-                            {% endif %}
-
-                            {% endif %}
-
-                            <li><a href="{% url 'my_business' %}">Add a Business</a></li>
-                            <li><a href="{% url 'new_blog_post' %}">New Blog Post</a></li>
-                        </ul>
-                    </div>
-                    
-
-                </div>
-                <div class="col_A_out col_A_out_2 col-md-7 clearfix">
+                <div class="col_A_out col_A_out_2 col-md-10 clearfix">
                     {% block content_1 %}{% endblock %}
                 </div>
                 <div class="col_A_out col_A_out_3 col-md-2 clearfix">
