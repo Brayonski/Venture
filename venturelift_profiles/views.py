@@ -137,7 +137,7 @@ class InvestorView(LoginRequiredMixin, ListView, FormMixin):
             else:
                 investors = Investor.objects.filter(verified=True)
                 for investor in investors:
-                    print(investor.investor_profile.target_countries)
+                    print(investor.investor_profile)
 
                 if form.cleaned_data['invest_forms']:
                     print(form.cleaned_data['invest_forms'])
