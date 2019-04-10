@@ -142,11 +142,11 @@
                     <div class="col_B_in col_B_in_1">
                         <div class="mini_profile">
                             <figure class="mini_avi">
-                                {% if context.business %}
+                                {% if context.business and context.business.thumbnail_image.url %}
                                 <img src="{{ context.business.thumbnail_image.url }}">
-                                {% elif context.investor %}
+                                {% elif context.investor and context.business.thumbnail_image.url %}
                                 <img src="{{ context.investor.thumbnail_image.url }}">
-                                {% elif context.supporter %}
+                                {% elif context.supporter and context.business.thumbnail_image.url %}
                                 <img src="{{ context.supporter.thumbnail_image.url }}">
                                 {% else %}
                                 <img src="{% static 'img/no-img.jpg' %}">
