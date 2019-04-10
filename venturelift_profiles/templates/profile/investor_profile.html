@@ -101,10 +101,13 @@
             <div class="col-md-12 clearfix">
 
               <div class="card" style="width: 100%;">
-                <img class="card-img-top" src="http://vlafrica.com/media/filer_public/99/62/99620e13-8d11-4f2d-b74c-cc8379331413/16.jpg" alt="Card image cap">
+                <img class="card-img-top"
+                  src="http://vlafrica.com/media/filer_public/99/62/99620e13-8d11-4f2d-b74c-cc8379331413/16.jpg"
+                  alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
                   <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
                 </div>
               </div>
@@ -154,7 +157,7 @@
                   <p>
                     <h1>Forms of Investment
                     </h1>
-                    {{ investor_profile.company_classification }}
+                    {{ investor_profile.investor_forms }}
                   </p>
                   <p>
                     <h1>Investment Thesis
@@ -233,7 +236,7 @@
                           <a href='#nogo'>Read more</a>
                         </p>
                       </div>
-                        
+
                       {% if request.user in post.likes.all %}
                       <a href="{% url 'dislike_post' post.id %}">
                         <i class='glyphicon glyphicon-heart'></i>
@@ -472,7 +475,7 @@
       <div class="col_A_in col_A_in_3">
         <h4>Options</h4>
         <div class="sidebar_actions">
-            <a class="btn-primary btn" href="{% url 'new_blog_post' %}">+ New Blog Post</a>
+          <a class="btn-primary btn" href="{% url 'new_blog_post' %}">+ New Blog Post</a>
         </div>
       </div>
     </div>
