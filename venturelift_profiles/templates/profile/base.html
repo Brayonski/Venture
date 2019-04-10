@@ -142,11 +142,30 @@
                     <div class="col_B_in col_B_in_1">
                         <div class="mini_profile">
                             <figure class="mini_avi">
-                                <img src="/media/pic_folder/pic-Eugene-Nyawara.jpg">
+                                {% if context.business and context.business.thumbnail_image %}
+                                <img src="{{ context.business.thumbnail_image.url }}">
+                                {% elif context.investor and context.investor.thumbnail_image %}
+                                <img src="{{ context.investor.thumbnail_image.url }}">
+                                {% elif context.supporter and context.supporter.thumbnail_image %}
+                                <img src="{{ context.supporter.thumbnail_image.url }}">
+                                {% else %}
+                                <img src="{% static 'img/no-img.jpg' %}">
+                                {% endif %}
                             </figure>
                             <div class="mini_content_A text-center">
-                                <h4>Eugene Nyawara</h4>
-                                <p>Supporter</p>
+                                {% if context.business %}
+                                <h4>{{ context.business.name }}</h4>
+                                <p> Business </p>
+                                {% elif context.investor %}
+                                <h4>{{ context.investor.fullname }}</h4>
+                                <p>Funder</p>
+                                {% elif context.supporter %}
+                                <h4>{{ context.supporter.fullname }}</h4>
+                                <p>Partner</p>
+                                {% else %}
+                                <h4>Venture Lift</h4>
+                                <p>Africa</p>
+                                {% endif %}
                             </div>
                             <div class="mini_list">
                                 <ul class="buttons_yo">
@@ -157,15 +176,15 @@
                         </div>
                     </div>
 
-                    
+
                     <div class="col_A_in col_A_in_1">
-                            {% if context.business %}
-                            {% include 'profile/profile/business.html'%}
-                            {% elif context.supporter %}
-                            {% include 'profile/profile/supporter.html'%}
-                            {% elif context.investor %}
-                            {% include 'profile/profile/investor.html'%}
-                            {% endif %}
+                        {% if context.business %}
+                        {% include 'profile/profile/business.html'%}
+                        {% elif context.supporter %}
+                        {% include 'profile/profile/supporter.html'%}
+                        {% elif context.investor %}
+                        {% include 'profile/profile/investor.html'%}
+                        {% endif %}
                         <ul class="actions_A">
                             {% if context.supporter %}
                             {% url 'update_supporter_step1' context.supporter.pk as my_profile %}
@@ -189,7 +208,7 @@
                             <li><a href="{% url 'new_blog_post' %}">New Blog Post</a></li>
                         </ul>
                     </div>
-                    
+
 
                 </div>
                 <div class="col_A_out col_A_out_2 col-md-7 clearfix">
@@ -200,7 +219,7 @@
                         {% block content_2 %}{% endblock %}
                         <div class="sidebar_actions">
                             <a class="btn-primary btn" href="{% url 'new_blog_post' %}">+ New Blog Post</a>
-                        </div>    
+                        </div>
                     </div>
                 </div>
             </div>
@@ -227,11 +246,14 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'UA-137967572-1');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137967572-1');
     </script>
 
 </body>

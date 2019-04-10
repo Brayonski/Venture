@@ -25,7 +25,7 @@ class CreateBlogForm(ModelForm):
         for field in modelchoicefields:
             field.empty_label = None
         '''
-        if self.user.supporter_creator.exists() and self.user.investor_creator.exists():
+        if self.user.supporter_creator.exists() or self.user.investor_creator.exists():
             self.fields.pop("company")
 
 
@@ -93,12 +93,28 @@ class BusinessFilters(forms.Form):
     size = forms.ChoiceField(label='Company Stage',
                              choices=COMPANY_SIZE, required=False)
 
+
 class SupporterFilters(forms.Form):
-    profession = forms.ChoiceField(widget=Select2Widget, label='Resource offered', choices=PROFESSIONAL_SUPPORT, required=False)
-    size = forms.ChoiceField(widget=Select2Widget, label='Company Stage interested in', choices=INTEREST_STARTUPS, required=False)
+    profession = forms.ChoiceField(
+        widget=Select2Widget, label='Resource offered', choices=PROFESSIONAL_SUPPORT, required=False)
+    size = forms.ChoiceField(
+        widget=Select2Widget, label='Company Stage interested in', choices=INTEREST_STARTUPS, required=False)
     countries = forms.MultipleChoiceField(widget=Select2MultipleWidget,
                                           label='Countries of interest', required=False,
                                           choices=INTEREST_COUNTRIES)
+
+
+class InvestorFilters(forms.Form):
+    invest_forms = forms.ChoiceField(
+        widget=Select2Widget, label='Forms of Investement offered', choices=INVESTOR_FORMS, required=False)
+    sectors = forms.ChoiceField(
+        widget=Select2Widget, label='Sectors of Interest', choices=INTEREST_SECTORS, required=False)
+    countries = forms.MultipleChoiceField(widget=Select2MultipleWidget,
+                                          label='Countries of interest', required=False,
+                                          choices=INTEREST_COUNTRIES)
+    exists = forms.MultipleChoiceField(widget=Select2MultipleWidget,
+                                       label='Exits Executed', required=False,
+                                       choices=EXIT_EXECUTED)
 
 
 class ChooseProfileForm(forms.Form):
@@ -258,13 +274,3 @@ class InvestorProfileCreateForm(forms.ModelForm):
             'impact_metrics': "Which are your key impact metrics?",
             'gender_lens_investor': "Do you Consider your firm a 'Gender-Lens' Investor?"
         }
-
-
-class InvestorFilters(forms.Form):
-    service = forms.ModelChoiceField(queryset=VlaServices.objects.all(), required=False,
-                                     label='Resources needed')
-    sector = forms.ModelChoiceField(queryset=BusinessCategory.objects.all(), required=False,
-                                    label='Sector')
-
-    size = forms.ChoiceField(label='Company Stage',
-                             choices=COMPANY_SIZE, required=False)

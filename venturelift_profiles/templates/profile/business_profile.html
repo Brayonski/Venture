@@ -324,11 +324,11 @@
                           </figure>
                           <figure class="box_details">
                             <p class="box_title">
-                              <a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a>
+                              <a href="{% url 'business_profile' obj.0.pk %}">{{obj.0.name}}</a>
                             </p>
                             <div class="box_social">
                               {% if obj in business_followers %}
-                              <a href="{% url 'business_follow' obj.id %}">
+                              <a href="{% url 'business_follow' obj.0.pk %}">
                                 <button class="btn-actioned btn btn-sm btn-default">Follow</button>
                               </a>
                               {% endif %}
