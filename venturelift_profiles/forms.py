@@ -25,7 +25,7 @@ class CreateBlogForm(ModelForm):
         for field in modelchoicefields:
             field.empty_label = None
         '''
-        if self.user.supporter_creator.exists() and self.user.investor_creator.exists():
+        if self.user.supporter_creator.exists() or self.user.investor_creator.exists():
             self.fields.pop("company")
 
 
