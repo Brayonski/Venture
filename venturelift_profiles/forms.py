@@ -106,7 +106,7 @@ class SupporterFilters(forms.Form):
 
 class InvestorFilters(forms.Form):
     invest_forms = forms.ChoiceField(
-        widget=Select2Widget, label='Forms of Investement offered', choices=INVESTOR_FORMS, required=False)
+        widget=Select2Widget, label='Funding Offered', choices=INVESTOR_FORMS, required=False)
     sectors = forms.ChoiceField(
         widget=Select2Widget, label='Sectors of Interest', choices=INTEREST_SECTORS, required=False)
     countries = forms.MultipleChoiceField(widget=Select2MultipleWidget,
