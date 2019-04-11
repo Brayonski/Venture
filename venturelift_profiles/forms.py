@@ -112,9 +112,9 @@ class InvestorFilters(forms.Form):
     countries = forms.MultipleChoiceField(widget=Select2MultipleWidget,
                                           label='Countries of interest', required=False,
                                           choices=INTEREST_COUNTRIES)
-    exists = forms.MultipleChoiceField(widget=Select2MultipleWidget,
-                                       label='Exits Executed', required=False,
-                                       choices=EXIT_EXECUTED)
+    exists = forms.ChoiceField(widget=Select2Widget,
+                               label='Exits Executed', required=False,
+                               choices=EXIT_EXECUTED)
 
 
 class ChooseProfileForm(forms.Form):

@@ -6,7 +6,8 @@
   <title>{% block title %}VentureLift Africa - Portal{% endblock title %}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -48,22 +49,22 @@
                     -->
           <ul class="vl_top_nav in_line">
             <li><a href="{% url 'profile_summary' %}">
-            <ion-icon name="home"></ion-icon> Home
-            </a></li>
+                <ion-icon name="home"></ion-icon> Home
+              </a></li>
             <li><a href="{% url 'business_list' %}">
-            <ion-icon name="briefcase"></ion-icon> Businesses
-            </a></li>
+                <ion-icon name="briefcase"></ion-icon> Businesses
+              </a></li>
             <li><a href="{% url 'supporter_list' %}">
-            <ion-icon name="people"></ion-icon> Supporters
-            </a></li>
+                <ion-icon name="people"></ion-icon> Partners
+              </a></li>
 
             <li><a href="{% url 'investor_list' %}">
-            <ion-icon name="briefcase"></ion-icon> Investors
-            </a></li>
+                <ion-icon name="briefcase"></ion-icon> Funders
+              </a></li>
 
             <li><a href="{% url 'business_list' %}">
-            <ion-icon name="paper-plane"></ion-icon> Media Center
-            </a></li>
+                <ion-icon name="paper-plane"></ion-icon> Media Center
+              </a></li>
 
             <li class="user_nav_item pull_right">
               <div class="dropdown">
@@ -155,7 +156,10 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
 
     gtag('config', 'UA-137967572-1');
