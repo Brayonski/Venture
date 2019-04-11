@@ -2,7 +2,12 @@
 {% block content_1 %}
 
 <div class="col_A_in col_A_in_2">
-    <h3>Updates</h3>
+    
+    <ul class="home_p_navs">
+        <li><a class="current" href="#nogo">Timeline</a></li>
+        <li><a href="#nogo">My Updates</a></li>
+        <li><a href="#nogo">My Settings</a></li>
+    </ul>
 
     {% for post in object_list %}
     <div class="card">

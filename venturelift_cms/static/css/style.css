@@ -1331,3 +1331,17 @@ ul.Xuser_label.Xfunder_label {
 ul.Xuser_label.Xinvestor_label {
     color: #ff00ba;
 }
+
+
+
+ul.home_p_navs li a.current {
+    color: #1f417f;
+}
+ul.home_p_navs li a {
+    padding: 8px 12px;
+}
+ul.home_p_navs li {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

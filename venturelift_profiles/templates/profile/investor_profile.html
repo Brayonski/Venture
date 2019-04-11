@@ -9,12 +9,6 @@
   
   <div class="columns_A flex row clearfix">
     <div class="col_A_out col_A_out_1 col-md-3 clearfix">
-      <!--
-      <div class="user_label investor_label">
-        <div class="user_label_icon"><ion-icon name="finger-print"></ion-icon></div>
-        <div class="user_label_title">Investor</div>
-      </div>
-      -->
       <div class="col_A_in col_A_in_1">
 
         <div class="maxi_profile">
@@ -407,37 +401,42 @@
                 <div id="updates" class="tab-pane fade in active">
                   <div class="col_A_in col_A_in_2">
 
-                    {% for post in post %}
+                    {% if post %}
+                      {% for post in post %}
 
-                      <div class="card">
-                          <div class="card-body">
-                              <h4><a href="#nogo">{{post.title}}</a></h4>
-                              {% if post.author %}
-                              <p>Author: {{post.author}}</p>
-                              {% else %}
-                              <p>Company: {{post.company}}</p>
-                              {% endif %}
+                        <div class="card">
+                            <div class="card-body">
+                                <h4><a href="#nogo">{{post.title}}</a></h4>
+                                {% if post.author %}
+                                <p>Author: {{post.author}}</p>
+                                {% else %}
+                                <p>Company: {{post.company}}</p>
+                                {% endif %}
 
-                              <div class="card_summary">
-                                  <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
-                              </div>  
-                          </div>    
-                          <div class="card_footer">
-                              {% if request.user in post.likes.all %}
-                              <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
-                                  ({{post.likes.count}} likes)</a>
-                              {% else %}
-                              <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
-                                  ({{post.likes.count}} likes)</a>
-                              {% endif %}
-                              <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
-                          </div>          
+                                <div class="card_summary">
+                                    <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
+                                </div>  
+                            </div>    
+                            <div class="card_footer">
+                                {% if request.user in post.likes.all %}
+                                <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
+                                    ({{post.likes.count}} likes)</a>
+                                {% else %}
+                                <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
+                                    ({{post.likes.count}} likes)</a>
+                                {% endif %}
+                                <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
+                            </div>          
+                        </div>
+
+                      {% endfor %}
+                    {% else %}
+
+                      <div class="no_post_hero">
+                        <h3>This user has not posted any update yet.</h3>
                       </div>
-                    {% endfor %}
 
-                    <div class="no_post_hero">
-                      <h3>This user has not posted any update yet.</h3>
-                    </div>
+                    {% endif %} 
 
                   </div>
                 </div>
