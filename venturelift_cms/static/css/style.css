@@ -1171,16 +1171,17 @@ figure.maxi_avi {
     text-align: center;
     padding-left: 0px;
 }
-
 span.badge_A {
     color: #FFF;
     background: #009cff;
-    font-size: .6em;
-    width: 20px;
-    height: 20px;
-    margin-top: -10px;
+    font-size: .4em;
+    width: 16px;
+    height: 16px;
+    margin-top: -10px !important;
     border-radius: 100px;
-    padding: 2px 3px 0px;
+    padding: 2px 0px 0px;
+    position: absolute;
+    margin-left: 0px;
 }
 .about_bubble {
     background: rgba(0, 156, 255, 0.14);
@@ -1266,7 +1267,7 @@ ul.tab_B.nav.nav-tabs li {
     float: none;
 }
 ul.tab_B.nav.nav-tabs {
-    text-align: center;
+    /* text-align: center; */
     width: 100%;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -1282,4 +1283,51 @@ ul.tab_B.nav>li>a {
     position: relative;
     display: block;
     padding: 10px 25px;
+}
+
+.user_label_icon {
+    font-size: 1.4em;
+    padding-right: 10px;
+}
+.user_label li {
+    float: left;
+    text-align: center;
+}
+
+.user_label.investor_label {
+    background: #009256;
+    color: #FFF;
+}
+.user_label.funder_label {
+    background: #760092;
+    color: #FFF;
+}
+.maxi_content_A h4 {
+    font-size: 1.6em;
+    color: #FFF;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+
+
+
+
+ul.Xuser_label {
+    width: 100%;
+    text-align: center;
+    padding-left: 0px;
+}
+ul.Xuser_label li {
+    display: inline-block;
+    vertical-align: top;
+}
+li.Xuser_label_icon {
+    font-size: 1.4em;
+}
+ul.Xuser_label.Xfunder_label {
+    color: #00ff8b;
+}
+ul.Xuser_label.Xinvestor_label {
+    color: #ff00ba;
 }

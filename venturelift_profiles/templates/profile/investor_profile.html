@@ -9,7 +9,12 @@
   
   <div class="columns_A flex row clearfix">
     <div class="col_A_out col_A_out_1 col-md-3 clearfix">
-
+      <!--
+      <div class="user_label investor_label">
+        <div class="user_label_icon"><ion-icon name="finger-print"></ion-icon></div>
+        <div class="user_label_title">Investor</div>
+      </div>
+      -->
       <div class="col_A_in col_A_in_1">
 
         <div class="maxi_profile">
@@ -30,7 +35,13 @@
                   {% endif %}
 
                 </h4>
-                <p>Investor</p>
+
+                <div class="Xuser_label_wrap">
+                  <ul class="Xuser_label Xinvestor_label">
+                    <li class="Xuser_label_icon"><ion-icon name="finger-print"></ion-icon></li>
+                    <li class="Xuser_label_title">Investor</li>
+                  </ul>
+                </div>  
 
 
                 <div class="mini_list">
@@ -255,7 +266,7 @@
                 <li><a data-toggle="tab" href="#followers">Followers</a></li>
               </ul>
               <div class="tab-content">
-<<<<<<< HEAD
+
                 <!--
                 <div id="about" class="tab-pane fade in active">
                   <div class="col-md-12 clearfix">
@@ -390,7 +401,6 @@
                     </h1>
                     {{ investor_profile.gender_lens_investor }}
                   </p>
->>>>>>> 08dbb57672d59ab1c448ab384c7ad0efbfad1250
                 </div>
               -->
 
@@ -502,10 +512,10 @@
                   <hr>
                   <div class='col-md-12 clearfix'>
                     <div class="row clearfix">
-                      {% if investor_following %}
-                      <p class="alert alert-danger">Investors</p>
+                      {% if supporter_following %}
+                      <p class="alert alert-danger">Supporters</p>
                       {% endif %}
-                      {% for obj in investor_following %}
+                      {% for obj in supporter_following %}
                       <div class="col-md-4 box_box">
                         <div class="box_box_in">
                           <figure class="box_avi">
@@ -521,7 +531,7 @@
                               <a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a>
                             </p>
                             <div class="box_social">
-                              {% if obj in investor_following %}
+                              {% if obj in supporter_following %}
                               <a href="{% url 'investor_unfollow' obj.id %}">
                                 <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
                               </a>
@@ -606,10 +616,10 @@
                   <hr>
                   <div class='col-md-12 clearfix'>
                     <div class="row clearfix">
-                      {% if investor_followers %}
-                      <p class="alert alert-danger">Investors</p>
+                      {% if supporter_followers %}
+                      <p class="alert alert-danger">Supporters</p>
                       {% endif %}
-                      {% for obj in investor_followers %}
+                      {% for obj in supporter_followers %}
                       <div class="col-md-3 box_box">
                         <div class="box_box_in">
                           <figure class="box_avi">
@@ -625,7 +635,7 @@
                               <a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a>
                             </p>
                             <div class="box_social">
-                              {% if obj in investor_followers %}
+                              {% if obj in supporter_followers %}
                               <a href="{% url 'investor_follow' obj.id %}">
                                 <button class="btn-actioned btn btn-sm btn-default">Follow</button>
                               </a>
