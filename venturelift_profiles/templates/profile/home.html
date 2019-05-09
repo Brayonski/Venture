@@ -2,24 +2,37 @@
 {% block content_1 %}
 
 <div class="col_A_in col_A_in_2">
-    <h3>Updates</h3>
+    
+    <ul class="home_p_navs">
+        <li><a class="current" href="#nogo">Timeline</a></li>
+        <li><a href="#nogo">My Updates</a></li>
+        <li><a href="#nogo">My Settings</a></li>
+    </ul>
+
     {% for post in object_list %}
-    <div class="border border-info">
-        <h4>{{post.title}}</h4>
-        {% if post.author %}
-        <p>Author: {{post.author}}</p>
-        {% else %}
-        <p>Company: {{post.company}}</p>
-        {% endif %}
-        <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
-        {% if request.user in post.likes.all %}
-        <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
-            ({{post.likes.count}} likes)</a>
-        {% else %}
-        <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
-            ({{post.likes.count}} likes)</a>
-        {% endif %}
-        <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
+    <div class="card">
+        <div class="card-body">
+            <h4><a href="#nogo">{{post.title}}</a></h4>
+            {% if post.author %}
+            <p>Author: {{post.author}}</p>
+            {% else %}
+            <p>Company: {{post.company}}</p>
+            {% endif %}
+
+            <div class="card_summary">
+                <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
+            </div>  
+        </div>    
+        <div class="card_footer">
+            {% if request.user in post.likes.all %}
+            <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
+                ({{post.likes.count}} likes)</a>
+            {% else %}
+            <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
+                ({{post.likes.count}} likes)</a>
+            {% endif %}
+            <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
+        </div>          
     </div>
     {% endfor %}
 </div>

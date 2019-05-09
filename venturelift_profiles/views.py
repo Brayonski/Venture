@@ -134,7 +134,23 @@ class InvestorView(LoginRequiredMixin, ListView, FormMixin):
 
                 investor = Investor.objects.filter((Q(
                     user__first_name__icontains=first_name) | Q(user__last_name__icontains=last_name)), verified=True)
-
+            else:
+                investors = Investor.objects.filter(verified=True)
+                if form.cleaned_data['invest_forms']:
+                    print(form.cleaned_data['invest_forms'])
+                    investor = investors.filter(
+                        investor_profile__investor_forms__icontains=form.cleaned_data['invest_forms'])
+                if form.cleaned_data['sectors']:
+                    investor = investors.filter(
+                        investor_profile__target_sectors__icontains=form.cleaned_data['sectors'])
+                if form.cleaned_data['countries']:
+                    investor = investors.filter(
+                        investor_profile__target_countries__in=form.cleaned_data['countries']
+                    )
+                if form.cleaned_data['exists']:
+                    investor = investors.filter(
+                        investor_profile__exits_executed=form.cleaned_data['exists']
+                    )
         return render(request, self.template_name, {'object_list': investor, 'form': form, 'following': following(self.request.user)})
 
     def get_context_data(self, *args, **kwargs):
@@ -524,7 +540,7 @@ class BusinessProfileView(DetailView):
             elif obj.supporter_creator.exists():
                 supporter_list.append(Supporter.objects.get(user=obj))
             elif obj.business_creator.exists():
-                business_list.append(Business.objects.get(creator=obj))
+                business_list.append(Business.objects.filter(creator=obj))
         context['investor_followers'] = investor_list
         context['supporter_followers'] = supporter_list
         context['business_followers'] = business_list

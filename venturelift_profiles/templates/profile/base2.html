@@ -51,7 +51,7 @@
                 <ion-icon name="home"></ion-icon> Home
               </a></li>
             <li><a href="{% url 'supporter_list' %}">
-                <ion-icon name="people"></ion-icon> Supporters
+                <ion-icon name="people"></ion-icon> Partners
               </a></li>
             <li><a href="{% url 'business_list' %}">
                 <ion-icon name="briefcase"></ion-icon> Businesses
@@ -127,6 +127,16 @@
   <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-137967572-1');
+  </script>
 
 </body>
 

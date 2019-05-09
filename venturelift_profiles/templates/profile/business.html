@@ -1,4 +1,4 @@
-{% extends 'profile/base.html' %}
+{% extends 'profile/base4.html' %}
 {% load cms_tags staticfiles %}
 {% load crispy_forms_tags %}
 {% block content_1 %}
@@ -23,15 +23,17 @@
         <div class='col-md-12 clearfix'>
             <div class="row clearfix">
                 {% for obj in object_list %}
-                <div class="col-md-3 box_box">
+                <div id="" class="col-md-3 box_box">
+
                     <div class="box_box_in">
                         <figure class="box_avi">
-                            <!-- Square, 350 X 350 PX -->
-                            {% if obj.thumbnail_image %}
-                            <img src="{{ obj.thumbnail_image.url }}">
-                            {% else %}
-                            <img src="{% static 'img/no-img.jpg' %}">
-                            {% endif %}
+                            <div class="box_B box_obj.id">
+                                {% if obj.thumbnail_image %}
+                                <img src="{{ obj.thumbnail_image.url }}">
+                                {% else %}
+                                <img src="{% static 'img/no-img.jpg' %}">
+                                {% endif %}
+                            </div>    
                         </figure>
                         <figure class="box_details">
                             <p class="box_title"><a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a></p>

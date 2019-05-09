@@ -5,7 +5,7 @@
 
 {% block content %}
 <div class="full_A">
-  <div class="columns_A flex row clearfix">
+  <div class="columns_A flexX row clearfix">
     <div class="col_A_out col_A_out_1 col-md-3 clearfix">
       <div class="col_A_in col_A_in_1">
         <div class="card card-body">
@@ -13,40 +13,42 @@
             <div class="col-md-12 clearfix">
               <div class="col-md-8 col-md-offset-2 clearfix">
                 <!-- Square, 350 X 350 PX -->
-                {% if business.thumbnail_image %}
-                <img src="{{ business.thumbnail_image.url }}">
+                {% if investor.thumbnail_image %}
+                <img src="{{ investor.thumbnail_image.url }}">
                 {% else %}
-                <img src="{% static 'img/no-img.jpg' %}">
+                <img src="{% static 'img/blue-user-icon.svg' %}">
                 {% endif %}
-
-                {% if business.verified %}
-                <i>{{ business.name }}</i><i class='glyphicon glyphicon-ok text-primary'></i>
+                {% if investor.verified %}
+                <i>{{ investor.fullname }}</i>
+                <i class='glyphicon glyphicon-ok text-primary'></i>
                 {% else %}
                 <i class='glyphicon glyphicon-remove'></i>
                 {% endif %}
-                <p>{{ business.address }}</p>
+                <p>{{ investor.about }}</p>
               </div>
             </div>
           </div>
           <div class="card-body">
             <h2 class="card-title text-primary">About</h2>
-            <p> {{ business.sector }}</p>
-            <p>{{ business.size }}</p>
-            <p>{{ business.year_of_company_registration}}</p>
+            <h3 class="text-primary">Track Record</h3>
+            {{ investor.company }}
+            {{ investor.year_operation}}
+            {{ investor.role }}
+            {{ investor_profile.interest_sectors }}
           </div>
           <div class="card-body">
             <h1 class="card-title text-primary">Verification</h1>
-            {% if supporter_profile.verification_status > 0 %}
+            {% if investor.verification_status > 0 %}
             <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 20 %}
+            {% elif investor.verification_status >= 20 %}
             <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 40 %}
+            {% elif investor.verification_status >= 40 %}
             <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 60 %}
+            {% elif investor.verification_status >= 60 %}
             <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 80 %}
+            {% elif investor.verification_status >= 80 %}
             <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 90 %}
+            {% elif investor.verification_status >= 90 %}
             <img src="{% static 'img/progress.png' %}">
             {% else %}
             <img src="{% static 'img/progress.png' %}">
@@ -55,42 +57,34 @@
           <div class="card-body">
             <h1 class="card-title text-primary">Contact</h1>
             {# use icons #}
-            {% if business.company_primary_email is not empty %}
-            <a href="{{ business_profile.company_primary_email }}" target="_blank"><i class='fa-envelope text-danger'
+            {% if investor.facebook_profile is not empty %}
+            <a href="{{ investor.facebook_profile }}" target="_blank"><i class='fa fa-facebook-official text-primary'
                 style='font-size:48px;'></i></a>
             {% endif %}
-            {% if business.facebook_profile is not empty %}
-            <a href="{{ business.facebook_profile }}" target="_blank"><i class='fa fa-facebook-official text-primary'
-                style='font-size:48px;'></i></a>
-            {% endif %}
-            {% if business.linkedin_profile is not empty %}
-            <a href="{{ business.linkedin_profile }}" target="_blank"><i class="fa fa-linkedin-square text-primary"
+            {% if investor.linkedin_profile is not empty %}
+            <a href="{{ investor.linkedin_profile }}" target="_blank"><i class="fa fa-linkedin-square text-primary"
                 aria-hidden="true" style='font-size:48px;'></i></a>
 
             {% endif %}
-            {% if business.twitter_profile is not empty %}
-            <a href="{{ business.twitter_profile }}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"
+            {% if investor.twitter_profile is not empty %}
+            <a href="{{ investor.twitter_profile }}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"
                 style='font-size:48px; color:#55acee'></i></a>
             {% endif %}
-            {% if business.instagram_profile is not empty %}
-            <a href="{{ business.instagram_profile }}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"
+            {% if investor.instagram_profile is not empty %}
+            <a href="{{ investor.instagram_profile }}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"
                 style='font-size:48px;'></i></a>
             {% endif %}
           </div>
         </div>
         <ul class="actions_A">
-
           <li>
             {% if context.supporter %}
             <a href="{% url 'update_supporter_step1' context.supporter.pk %}">Edit my profile</a>
             {% endif %}
             {% if context.investor %}
             <a href="{% url 'update_investor_step1' context.investor.pk %}">Edit my profile</a>
-            {% else %}
-            <a href="{% url 'create_business_step1' context.business.pk %}">Edit Business</a>
             {% endif %}
           </li>
-
           <li>
             <a href="{% url 'my_business' %}">Add business</a>
           </li>
@@ -106,97 +100,159 @@
           <div class="row clearfix">
             <div class="col-md-12 clearfix">
 
-              <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#about">About </a></li>
-                <li><a data-toggle="tab" href="#updates">Latest Updates</a></li>
-                <li><a data-toggle="tab" href="#following">Following</a></li>
-                <li><a data-toggle="tab" href="#followers">Followers</a></li>
-              </ul>
-              <br>
-              <hr>
-              <div class="tab-content">
-                <div id="about" class="tab-pane fade in active">
-                  <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#market">Market </a></li>
-                    <li><a data-toggle="tab" href="#model">Business Model</a></li>
-                    <li><a data-toggle="tab" href="#team">Business Team</a></li>
-                    <li><a data-toggle="tab" href="#finance">Business Finances</a></li>
-                    <li><a data-toggle="tab" href="#investment">Business Investment</a></li>
-                    <li><a data-toggle="tab" href="#goals">Business Goals</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="col-md-12 clearfix">
-                      <div id="market" class="tab-pane fade">
-                        <div class="col_A_in col_A_in_2">
-                          
-                          <p>Product offering: {{ business_market.0.product_offering }} </p>
-                          <p>Market Segment: {{ business_market.0.market_segment }} </p>
-                          <p>Market Size: {{ business_market.0.size }} </p>
-                        </div>
-                      </div>
-
-                      <div id="model" class="tab-pane fade">
-                        <div class="col_A_in col_A_in_2">
-                          <p>Business Model: {{ business_model.0.business_model }} </p>
-                          <p>Competitors: {{ business_model.0.competitors }} </p>
-                          <p>Competitive Advantage: {{ business_model.0.competitive_advantage }} </p>
-                        </div>
-                      </div>
-                      <div id="goals" class="tab-pane fade">
-                        <div class="col_A_in col_A_in_2">
-                          <p>Three Year Target Revenue: {{ business_goals.0.capital_to_raise }} </p>
-                          <p>Constraints to Growth: {{ business_goals.0.capital_to_raise }} </p>
-                          <p>Primary Services Interested In: {{ business_goals.0.capital_to_raise }} </p>
-                          <p>Secondary Services Interested In: {{ business_goals.0.capital_to_raise }} </p>
-                        </div>
-                      </div>
-
-                      <div id="team" class="tab-pane fade">
-                        <div class="col_A_in col_A_in_2">
-                          <p>Intellectual Property Info: {{ business_market.0.0.size }} </p>
-                          <p>Founders Info: {{ business_team.0.0.founders_info }} </p>
-                          <p>Team Roles And Structure: {{ business_team.0.0.team_roles_and_structure }} </p>
-                          <p>Number of Staff: {{ business_team.0.0.number_of_staff }} </p>
-                          <p>Board Of Advisors: {{ business_team.0.0.board_of_advisors }} </p>
-                          <p>Board of Directors: {{ business_team.0.0.board_of_directors }} </p>
-                        </div>
-                      </div>
-                      <div id="finance" class="tab-pane fade">
-                        <div class="col_A_in col_A_in_2">
-                          {{ business_finance}}
-                          <p>Last Year Revenue: {{ business_finance.0.0.last_year_revenue }} </p>
-                          <p>Last Year Profit: {{ business_finance.0.0.last_year_profit }} </p>
-                          <p>Funding Source: {{ business_finance.0.0.funding_source }} </p>
-                          <p>Personal Funds Invested: {{ business_finance.0.0.personal_funds_invested }} </p>
-                          <p>External FUnds Invested: {{ business_finance.0.0.external_funds_invested }} </p>
-                          <p>Current Debt: {{ business_finance.0.current_debt }} </p>
-                          <p>Captial to Raise: {{ business_finance.0.capital_to_raise }} </p>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              <div class="card" style="width: 100%;">
+                <img class="card-img-top"
+                  src="http://vlafrica.com/media/filer_public/99/62/99620e13-8d11-4f2d-b74c-cc8379331413/16.jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
                 </div>
-                <div id="updates" class="tab-pane fade">
+              </div>
+
+              <ul class="nav nav-tabs">
+                <li class="active">
+                  <a data-toggle="tab" href="#about">About
+                  </a>
+                </li>
+                <li>
+                  <a data-toggle="tab" href="#updates">Latest Updates</a>
+                </li>
+                <li>
+                  <a data-toggle="tab" href="#following">Following</a>
+                </li>
+                <li>
+                  <a data-toggle="tab" href="#followers">Followers</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade in active" id="about">
+                  <p>
+                    <h1>My phone Number</h1>
+                    {{ investor.phone_number }}
+                  </p>
+                  <p>
+                    <h1>Physical Address</h1>
+                    {{ investor.physical_address }}
+                  </p>
+                  <p>
+                    <h1>Company Website</h1>
+                    {{ investor.company_website }}
+                  </p>
+                  <p>
+                    <h1>Company Registration Year</h1>
+                    {{ investor.company_registration_year }}
+                  </p>
+                  <p>
+                    <h1>Year of Operation</h1>
+                    {{ investor.year_operation }}
+                  </p>
+                  <p>
+                    <h1>Type of Investor
+                    </h1>
+                    {{ investor_profile.company_classification }}
+                  </p>
+                  <p>
+                    <h1>Forms of Investment
+                    </h1>
+                    {{ investor_profile.investor_forms }}
+                  </p>
+                  <p>
+                    <h1>Investment Thesis
+                    </h1>
+                    {{ investor_profile.elevator_pitch }}
+                  </p>
+                  <p>
+                    <h1>Target Sectors</h1>
+                    {{ investor_profile.target_sectors }}
+                  </p>
+                  <p>
+                    <h1>Countries of Interest</h1>
+                    {{ investor_profile.interest_countries }}
+                  </p>
+                  <p>
+                    <h1>How many different funds have you managed to date?</h1>
+                    {{ investor_profile.managed_funds }}
+                  </p>
+                  <p>
+                    <h1>Assets under management (range)?</h1>
+                    {{ investor_profile.assets_under_management }}
+                  </p>
+                  <p>
+                    <h1>Number of portfolio companies (at the time of registration)</h1>
+                    {{ investor_profile.investor_portfolio }}
+                  </p>
+                  <p>
+                    <h1>Number of exits</h1>
+                    {{ investor_profile.exits_executed }}
+                  </p>
+                  <p>
+                    <h1>Do you consider your fund an Impact Investor?</h1>
+                    {{ investor_profile.impact_investor }}
+                  </p>
+                  <p>
+                    <h1>Which impact measurement standard do you adhere to?</h1>
+                    {{ investor_profile.impact_measurement }}
+                  </p>
+                  <p>
+                    <h1>What are you key impact metrics</h1>
+                    {{ investor_profile.impact_metrics }}
+                  </p>
+                  <p>
+                    <h1>Startups of Interest</h1>
+                    In</h1>
+                    {{ investor_profile.interest_startups }}
+                  </p>
+                  <p>
+                    <h1>Sectors of Interest
+                    </h1>
+                    {{ investor_profile.interest_sectors }}
+                  </p>
+                  <p>
+                    <h1>Do you apply â€˜Gender Lensâ€™ investing
+                    </h1>
+                    {{ investor_profile.gender_lens_investor }}
+                  </p>
+                </div>
+                <div class="tab-pane fade" id="updates">
                   <div class="col_A_in col_A_in_2">
-                    <h3>Updates</h3>
+                    <!--<h3>Updates</h3>-->
                     {% for post in post %}
                     <div class="border border-info">
-                      <h4>{{post.title}}</h4>
+                      <h4><a href='#nogo'>{{post.title}}</a></h4>
+
                       {% if post.author %}
-                      <p>Author: {{post.author}}</p>
+                      <p>Author:
+                        {{post.author}}</p>
                       {% else %}
-                      <p>Company: {{post.company}}</p>
+                      <p>Company:
+                        {{post.company}}</p>
                       {% endif %}
-                      <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
+
+                      <div class="card_summary">
+                        <p>{{post.body|safe|truncatechars:250}}
+                          <a href='#nogo'>Read more</a>
+                        </p>
+                      </div>
+
                       {% if request.user in post.likes.all %}
-                      <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
-                        ({{post.likes.count}} likes)</a>
+                      <a href="{% url 'dislike_post' post.id %}">
+                        <i class='glyphicon glyphicon-heart'></i>
+                        Unlike
+                        ({{post.likes.count}}
+                        likes)</a>
                       {% else %}
-                      <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
-                        ({{post.likes.count}} likes)</a>
+                      <a href="{% url 'like_post' post.id %}">
+                        <i class='glyphicon glyphicon-heart'></i>
+                        Like
+                        ({{post.likes.count}}
+                        likes)</a>
                       {% endif %}
-                      <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
+                      <a href="">
+                        <i class='glyphicon glyphicon-comment'></i>
+                        Comment</a>
                     </div>
                     {% endfor %}
                   </div>
@@ -215,7 +271,7 @@
                             {% if obj.thumbnail_image %}
                             <img src="{{ obj.thumbnail_image.url }}">
                             {% else %}
-                            <img src="{% static 'img/no-img.jpg' %}">
+                            <img src="{% static 'img/blue-user-icon.svg' %}">
                             {% endif %}
                           </figure>
                           <figure class="box_details">
@@ -304,7 +360,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="tab-pane fade" id="followers">
                   <div class='col-md-12 clearfix'>
                     <div class="row clearfix">
@@ -319,16 +374,16 @@
                             {% if obj.thumbnail_image %}
                             <img src="{{ obj.thumbnail_image.url }}">
                             {% else %}
-                            <img src="{% static 'img/no-img.jpg' %}">
+                            <img src="{% static 'img/blue-user-icon.svg' %}">
                             {% endif %}
                           </figure>
                           <figure class="box_details">
                             <p class="box_title">
-                              <a href="{% url 'business_profile' obj.0.pk %}">{{obj.0.name}}</a>
+                              <a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a>
                             </p>
                             <div class="box_social">
                               {% if obj in business_followers %}
-                              <a href="{% url 'business_follow' obj.0.pk %}">
+                              <a href="{% url 'business_follow' obj.id %}">
                                 <button class="btn-actioned btn btn-sm btn-default">Follow</button>
                               </a>
                               {% endif %}
@@ -409,8 +464,8 @@
                   </div>
                   <hr>
                 </div>
-              </div>
 
+              </div>
             </div>
           </div>
         </div>
@@ -418,7 +473,10 @@
     </div>
     <div class="col_A_out col_A_out_3 col-md-2 clearfix">
       <div class="col_A_in col_A_in_3">
-        <h4>Sidebar</h4>
+        <h4>Options</h4>
+        <div class="sidebar_actions">
+          <a class="btn-primary btn" href="{% url 'new_blog_post' %}">+ New Blog Post</a>
+        </div>
       </div>
     </div>
   </div>

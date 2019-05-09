@@ -3,8 +3,143 @@
 
 {% block content %}
 
+
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style type="text/css">
+
+.section {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 30px 0px 10px;
+}
+.section > div {
+    flex: 1;
+    padding: 0.5rem;
+    margin: 5px;
+}
+.section input[type="radio"] {
+  display: none;
+  &:not(:disabled) ~ label {
+    cursor: pointer;
+  }
+  &:disabled ~ label {
+    color: hsla(150, 5%, 75%, 1);
+    border-color: hsla(150, 5%, 75%, 1);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+.section label {
+  height: 100%;
+  display: block;
+  background: white;
+  border: 1px solid hsla(150, 75%, 50%, 0.15);
+  border-radius: 20px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.5);
+  position: relative;
+  color: #20df80;
+}
+.section input[type="radio"]:checked + label {
+  background: hsla(150, 75%, 50%, 1);
+  color: hsla(215, 0%, 100%, 1);
+  box-shadow: 0px 0px 20px hsla(150, 100%, 50%, 0.75);
+  &::after {
+    color: hsla(215, 5%, 25%, 1);
+    font-family: FontAwesome;
+    border: 2px solid hsla(150, 75%, 45%, 1);
+    content: "\f00c";
+    font-size: 24px;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0px 2px 5px -2px hsla(0, 0%, 0%, 0.25);
+  }
+}
+.section input[type="radio"]#control_05:checked + label {
+  background: red;
+  border-color: red;
+}
+
+@media only screen and (max-width: 700px) {
+  .section {
+    flex-direction: column;
+  }
+}
+section.section h2 {
+    font-weight: 100;
+    font-size: 1.7em;
+    margin-top: 26px;
+}
+
+</style>
+
+
+
 <div class='container'>
     <div class="onboarding_A">
+
+
+        <div class="row clearfix">
+            <div class="col-md-6 col-md-offset-3 clearfix">
+                <div class="text-center">
+                    <h3>Great! Let's start by setting up your profile</h3>
+                    <br>
+                </div>
+
+                <section class="section">
+                    <div>
+                      <input type="radio" id="control_01" name="select" value="1" checked>
+                      <label for="control_01">
+                        <div class="select_icon"><ion-icon name="briefcase"></ion-icon></div>
+                        <h2>I am a business</h2>
+                      </label>
+                    </div>
+                    <div>
+                      <input type="radio" id="control_02" name="select" value="2">
+                      <label for="control_02">
+                        <div class="select_icon"><ion-icon name="sunny"></ion-icon></div>
+                        <h2>I am an funder</h2>
+                      </label>
+                    </div>
+                    <div>
+                      <input type="radio" id="control_03" name="select" value="3">
+                      <label for="control_03">
+                        <div class="select_icon"><ion-icon name="people"></ion-icon></div>
+                        <h2>I am a partner</h2>
+                      </label>
+                    </div>
+                </section>
+
+                <figure class="btn_cover">
+                    <button class="btn btn-B">Next &rarr;</button>
+                </figure>    
+            </div>
+        </div>    
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- REMOVE THIS CODE ONCE THE ABOVE FORM BECOMES FUNCTIONAL -->
+        <br><br><br><br><br><br><br><br>
         <div class="row clearfix">
             <div class="col-md-4 col-md-offset-4 clearfix">
                 <h4 class="text-center">Great! Let's start by setting up your profile</h4>
@@ -18,6 +153,8 @@
                 </div>
             </div>
         </div>
+        <!-- END REMOVE SECTION -->
+
     </div>
 </div>
 
