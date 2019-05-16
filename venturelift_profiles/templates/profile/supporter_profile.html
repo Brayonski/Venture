@@ -32,7 +32,9 @@
                 <div class="Xuser_label_wrap">
                   <ul class="Xuser_label Xfunder_label">
                     <li class="Xuser_label_icon"><ion-icon name="finger-print"></ion-icon></li>
-                    <li class="Xuser_label_title">Supporter</li>
+                    <li class="Xuser_label_title">Trader Partner</li>
+                    <li class="Xuser_label_company">{{ supporter.company }}</li>
+
                   </ul>
                 </div>  
 
@@ -60,10 +62,16 @@
             -->
 
             <div class="profile_data">
+
                 <div class="about_bubble">
                   {{ supporter.about }}
                 </div>
+            
+                <div class="about_bubble_2 text-center">
+                  <a href="#nogo" target="_blank">Website</a>
+                </div>
 
+                <!--
                 <div class="track_record">
                   <table>
                     <tr>
@@ -108,6 +116,7 @@
 
                   </table>
                 </div>
+                -->
 
                 <div class="contact_info">
                   <div class="contact_body">
@@ -220,13 +229,187 @@
           <div class="row clearfix">
             <div class="col-md-12 clearfix">
 
+              <!--
+              <div class="top_banner_cta">
+                <a href="#connect" class="btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Connect</a>
+              </div>
+              -->
+
               <ul class="tab_B nav nav-tabs">
-                <!--<li><a data-toggle="tab" href="#about">About </a></li>-->
-                <li class="active"><a data-toggle="tab" href="#updates">Latest Updates</a></li>
+                <li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
+                <!--<li><a data-toggle="tab" href="#updates">Updates</a></li>-->
                 <li><a data-toggle="tab" href="#following">Following</a></li>
                 <li><a data-toggle="tab" href="#followers">Followers</a></li>
+                <!--
+                <li class="main_cta_B">
+                  <div class="top_banner_cta">
+                    <a href="#connect" class="btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Connect</a>
+                  </div>
+                </li>
+                -->
               </ul>
+              <div class="top_left_nav">
+                  <div class="top_banner_cta">
+                    <a href="#connect" class="btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Connect</a>
+                  </div>                
+              </div>
               <div class="tab-content">
+                <div id="profile" class="tab-pane fade in active">
+                  <div class="col-md-12 clearfix">
+                    <div class="profile_data">
+
+                        <div class="track_record_2">
+                          <!--<h3>Track Record</h3>-->
+
+                          <div class="row clearfix">
+                            <div class="no_padd col-md-12 clearfix">
+                              <div class="single_card_wrapper">
+                                <div class="card_C card" style="">
+                                  <div class="card-body">
+                                    <div class="pull-left">
+                                      <h5 class="card-title">
+                                        <ion-icon name="briefcase"></ion-icon> {{ supporter.company }}
+                                      </h5>
+                                      <p class="card-text">{{ supporter.role }} since {{ supporter.year_operation}}</p>
+                                    </div>
+                                    <div class="pull-right">
+                                      <p class="card-text"><span>Interests &mdash;</span> {{ supporter_profile.supporter_interest }}</p>
+                                      <p class="card-text"><span>Professional Support &mdash;</span> {{ supporter_profile.professional_support }}</p>
+                                    </div>  
+                                  </div>
+                                </div>                                
+                              </div>
+                            </div>                                                      
+                          </div>
+
+                          <div class="row clearfix">
+                            <div class="no_padd col-md-4 clearfix">
+                              <div class="single_card_wrapper">
+                                <div class="card" style="">
+                                  <div class="card-body">
+                                    <h5 class="card-title">Countries of Interest</h5>
+                                    <p class="card-text">{{ supporter_profile.interest_countries }}</p>
+                                  </div>
+                                </div>                                
+                              </div>
+                            </div>
+                            <div class="col-md-4 clearfix">
+                              <div class="single_card_wrapper">
+                                <div class="card" style="">
+                                  <div class="card-body">
+                                    <h5 class="card-title">Sectors of Interest</h5>
+                                    <p class="card-text">{{ supporter_profile.interest_sectors }}</p>
+                                  </div>
+                                </div>                                
+                              </div>
+                            </div>
+                            <div class="no_padd col-md-4 clearfix">
+                              <div class="single_card_wrapper">
+                                <div class="card" style="">
+                                  <div class="card-body">
+                                    <h5 class="card-title">Trading Partners</h5>
+                                    <p class="card-text">{{ supporter_profile.trading_partners }}</p>                               
+                                  </div>
+                                </div>                                
+                              </div>
+                            </div>                                                        
+                          </div>
+
+                          <div class="row clearfix updates_B">
+                              <div class="no_padd col-md-12 clearfix">
+                                <h3 class="h3_A">Updates</h3>
+                                <div class="col_A_in col_A_in_2">
+
+                                  {% if post %}
+                                    {% for post in post %}
+
+                                      <div class="card">
+                                          <div class="card-body">
+                                              <h4><a href="#nogo">{{post.title}}</a></h4>
+                                              {% if post.author %}
+                                              <p>Author: {{post.author}}</p>
+                                              {% else %}
+                                              <p>Company: {{post.company}}</p>
+                                              {% endif %}
+
+                                              <div class="card_summary">
+                                                  <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
+                                              </div>  
+                                          </div>    
+                                          <div class="card_footer">
+                                              {% if request.user in post.likes.all %}
+                                              <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
+                                                  ({{post.likes.count}} likes)</a>
+                                              {% else %}
+                                              <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
+                                                  ({{post.likes.count}} likes)</a>
+                                              {% endif %}
+                                              <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
+                                          </div>          
+                                      </div>
+
+                                    {% endfor %}
+                                  {% else %}
+
+                                    <div class="no_post_hero">
+                                      <h3>This user has not posted any update yet.</h3>
+                                    </div>
+
+                                  {% endif %}                   
+                                </div>
+                              </div>    
+                          </div>
+
+                          <!--
+                          <table>
+                            <tr>
+                              <th>Company</th>
+                              <td>{{ supporter.company }}</td>
+                            </tr>
+                            <tr>
+                              <th>Year of Operation</th>
+                              <td>{{ supporter.year_operation}}</td>
+                            </tr>
+                            <tr>
+                              <th>Role</th>
+                              <td>{{ supporter.role }}</td>
+                            </tr>
+
+                            <tr>
+                              <th>My Interest</th>
+                              <td>{{ supporter_profile.supporter_interest }}</td>
+                            </tr> 
+                            <tr>
+                              <th>Countries of Interest</th>
+                              <td>{{ supporter_profile.interest_countries }}</td>
+                            </tr> 
+
+                            <tr>
+                              <th>Sectors of Interest</th>
+                              <td>{{ supporter_profile.interest_sectors }}</td>
+                            </tr> 
+                            <tr>
+                              <th>Professional Support</th>
+                              <td>{{ supporter_profile.professional_support }}</td>
+                            </tr>   
+
+                            <tr>
+                              <th>Startups of Interest</th>
+                              <td>{{ supporter_profile.interest_startups }}</td>
+                            </tr> 
+                            <tr>
+                              <th>Trading Partners</th>
+                              <td>{{ supporter_profile.trading_partners }}</td>
+                            </tr>  
+
+                          </table>
+                          -->
+
+                        </div>
+
+                    </div>
+                  </div>
+                </div>                  
                 <!--
                 <div id="about" class="tab-pane fade in active">
                   <div class="col-md-12 clearfix">
@@ -274,9 +457,9 @@
 
                   </div>
                 </div>
-              -->
+                -->
 
-                <div id="updates" class="tab-pane fade in active">
+                <div class="tab-pane fade" id="updates">
                   <div class="col_A_in col_A_in_2">
 
                     {% if post %}
@@ -534,8 +717,6 @@
     </div>
     <div class="col_A_out col_A_out_3 col-md-2 clearfix">
       <div class="col_A_in col_A_in_3">
-        <h4>Sidebar</h4>
-
           <div class="card-body">
             <p>Verification</p>
             {% if supporter_profile.verification_status > 0 %}
@@ -555,10 +736,12 @@
             {% endif %}
           </div>
 
+          <!--
           <div class="sidebar_actions">
               <a class="btn-primary btn" href="{% url 'new_blog_post' %}">+ New Blog Post</a>
               <a class="btn-primary btn" href="{% url 'my_business' %}">+ Add a Business</a>
-          </div>          
+          </div>      
+          -->    
 
           <div class="card-body">
             <p>Companies to follow</p>

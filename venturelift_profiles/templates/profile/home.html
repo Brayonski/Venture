@@ -19,6 +19,19 @@
             <p>Company: {{post.company}}</p>
             {% endif %}
 
+            <figure class="box_list_details">
+                <ul class="box_list_B">
+                    <li class="b_list_icon"><img src="http://52.37.84.193:8081/static/img/blue-user-icon.svg"></li>
+                    <li class="b_list_title">
+                        <a href="#nogo">{% if post.author %}{{post.author}}{% else %}{{post.company}}{% endif %}</a>
+                        <p>{% if post.author %}Partner/Funder{% else %}Business{% endif %}</p>
+                    </li>
+                    <li class="b_list_social">
+                        <a href="#nogo"><button class="btn-actioned btn btn-sm btn-default">Following</button></a>
+                    </li>
+                </ul>    
+            </figure>
+
             <div class="card_summary">
                 <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
             </div>  

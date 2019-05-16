@@ -1070,7 +1070,11 @@ button.btn-actioned {
     margin-bottom: 15px;
 }
 .col_A_in_2 .card h5.card-title {
-    font-weight: 600;
+    font-weight: 300;
+    font-size: 1.3em;
+}
+.top_left_nav {
+    float: right;
 }
 .card_summary {
     opacity: .6;
@@ -1225,13 +1229,22 @@ ul.contact_socials {
 }
 
 .contact_body {
-    text-align: left;
+    /* text-align: left; */
 }
 .contact_body p {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: .9em;
     color: #009cff;
+}
+.top_banner_cta a {
+    min-width: 170px;
+}
+.top_banner_cta {
+    float: right;
+    width: 100%;
+    text-align: right;
+    margin-bottom: 20px;
 }
 
 
@@ -1270,10 +1283,12 @@ ul.tab_B.nav.nav-tabs {
     /* text-align: center; */
     width: 100%;
     margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: .9em;
-    font-weight: 600;
+    /* text-transform: uppercase; */
+    /* letter-spacing: 1px; */
+    font-size: 1.1em;
+    font-weight: 400;
+    width: 70%;
+    float: left;
 }
 .onboarding_A {
     padding-bottom: 60px;
@@ -1282,7 +1297,11 @@ ul.tab_B.nav.nav-tabs {
 ul.tab_B.nav>li>a {
     position: relative;
     display: block;
-    padding: 10px 25px;
+    padding: 10px 16px;
+}
+.single_card_wrapper p {
+    font-size: .9em;
+    color: #a0a0a0;
 }
 
 .user_label_icon {
@@ -1344,4 +1363,46 @@ ul.home_p_navs li {
     display: inline-block;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+ul.box_list_B {
+    padding-left: 0px;
+    list-style: none;
+    display: table;
+}
+ul.box_list_B li {
+    /* display: inline-block; */
+    padding-right: 10px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+li.b_list_icon img {
+    height: 35px;
+    width: 35px;
+}
+li.Xuser_label_company {
+    color: #FFF;
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-top: 10px;
+    width: 100%;
+}
+.single_card_wrapper .pull-right {
+    text-align: right;
+}
+p.card-text span {
+    color: #000;
+}
+.h3_A {
+    font-size: 1.0em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.updates_B {
+    margin-top: 50px;
+}
+.no_padd {
+    padding: 0px;
 }
