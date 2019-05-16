@@ -13,6 +13,7 @@ from newsletter_subscription.backend import ModelBackend
 from newsletter_subscription.urls import newsletter_subscriptions_urlpatterns
 from venturelift_media.models import Subscription
 from django_registration.backends.activation.views import RegistrationView
+from django.views.generic import TemplateView
 
 admin.autodiscover()
 
@@ -21,7 +22,8 @@ urlpatterns = [
         {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^profile/', include('venturelift_profiles.urls')),
     url(r'^registration/', RegistrationView.as_view(), name='registration_in'),
-    url(r'^', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription),))),
+    url(r'^newsletter/', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription),))),
+    url(r'^$', TemplateView.as_view(template_name="landing.html")),
     url(r'^select2/', include('django_select2.urls')),
 ]
 
