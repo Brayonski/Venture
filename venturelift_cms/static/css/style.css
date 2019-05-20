@@ -84,7 +84,7 @@ h1.style_1 {
     }
 
     .container {
-        width: 1260px;
+        width: 1160px;
     }
 }
 
@@ -139,6 +139,64 @@ ul.in_line li {
 .vl_top_top ul li a:hover {
     color: #4aaded;
 }
+
+ul.top_top_right {
+    list-style: none;
+    padding-left: 0px;
+    float: right;
+    text-align: right;
+    font-size: 1.2em;
+    margin-top: 40px;
+}
+li.top_top_linkedin {
+    font-size: 2em;
+}
+figure.box_aviY {
+    float: left;
+    max-width: 60px;
+    margin-right: 10px;
+}
+figure.box_aviY img {
+    display: block;
+    width: 100%;
+}
+.box_boxY, .box_box_inY {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: auto;
+}
+
+figure.box_detailsY {
+    float: left;
+}
+p.box_titleY {
+    margin-bottom: 0px;
+}
+.btn-group-sm>.btn, .btn-sm {
+    padding: 5px 10px;
+    font-size: 11px;
+    line-height: 1.0;
+    border-radius: 3px;
+}
+
+.profile_list_side p {
+    margin: 20px 0px 10px;
+}
+.profile_list_side p.profile_list_side_title, .profile_list_side h4 {
+    width: 100%;
+    clear: both;
+    position: relative;
+    float: left;
+}
+p.box_titleY {
+    margin: 0px;
+    display: flex;
+}
+p.box_titleY a {
+    display: table-caption;
+}
+
 
 li.user_nav_item .dropdown {
     padding-top: 5px;
@@ -887,7 +945,7 @@ ul.user_nav_item_drop.dropdown-menu.pull-right .divider {
 }
 
 .col_A_out {
-    padding: 60px;
+    padding: 40px;
 }
 /*
 .col_A_out.col_A_out_1 {
@@ -895,13 +953,46 @@ ul.user_nav_item_drop.dropdown-menu.pull-right .divider {
     text-align: center;
     box-shadow: 0px -8px 18px #e6e6e6;
 }
-*/
+
 .col_A_out.col_A_out_1 {
     background: #121e63;
     text-align: center;
     box-shadow: 0px -8px 18px #e6e6e6;
     color: rgba(255, 255, 255, 0.51);
 }
+*/
+.col_A_out.col_A_out_1 {
+    /* background: #ececec; */
+    /* text-align: center; */
+    box-shadow: 0px 10px 18px #e6e6e6;
+    /* color: rgba(255, 255, 255, 0.51); */
+}
+.profile_top {
+    background: #121e63;
+    text-align: center;
+    box-shadow: 0px -8px 18px #e6e6e6;
+    color: rgba(255, 255, 255, 0.51);
+    position: relative;
+    float: left;
+    width: 100%;
+    clear: both;
+    color: #FFF;
+    margin-top: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.card-body.progress-card {
+    border-bottom: 1px solid #28f29b;
+    border-radius: 0px;
+    margin-bottom: 50px;
+    padding: 20px;
+    color: #27ef9e;
+}
+.card-body.progress-card img {
+    max-width: 70px;
+}
+
+
 img.sidebar_avi_A {
     border-radius: 1000px;
 }
@@ -1038,6 +1129,20 @@ button.btn-actioned {
 
 .col_A_out.col_A_out_3 button {
     width: 100%;
+    width: 70px;
+}
+.profile_list_side {
+    position: relative;
+    min-height: 100px;
+}
+.profile_list_side {
+    text-align: left;
+}
+.profile_list_side h4 {
+    font-size: .8em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: .5;
 }
 
 .btn-success {
@@ -1167,6 +1272,54 @@ figure.maxi_avi {
     margin: 0 auto;
     border: 3px solid rgba(0, 156, 255, 0.17);
 }
+
+figure.maxi_avi2 {
+    border-radius: 5px;
+    overflow: hidden;
+    max-width: 160px;
+    /* margin: 0 auto; */
+    border: 3px solid rgba(0, 156, 255, 0.17);
+    float: left;
+    margin-right: 20px;
+}
+figure.maxi_avi2 img {
+    width: 100%;
+    height: auto;
+}
+.columns_A.flex {
+    padding-bottom: 50px;
+}
+ul.Xuser_label.Xfunder_label.Xtop {
+    text-align: left;
+}
+li.Xuser_label_company.Xtop {
+    color: #fff;
+    /* display: block; */
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+li.Xuser_label_company2.Xtop {
+    color: #FFF;
+}
+ul.top_top_right a {
+    color: #FFF;
+}
+
+ul.Xuser_label.Xfunder_label.Xtop {
+    text-align: left;
+    display: table-row;
+}
+.ptin_A.ptin_1A h4 {
+    padding-top: 30px;
+}
+.padless-left {
+    padding-left: 0px;
+}
+.padless-right {
+    padding-right: 0px;
+}
+
+
 .maxi_list ul li {
     display: inline-block;
 }
@@ -1302,7 +1455,24 @@ ul.tab_B.nav>li>a {
 .single_card_wrapper p {
     font-size: .9em;
     color: #a0a0a0;
+    margin-bottom: 4px;
 }
+p.card-text.dark-text {
+    color: #000;
+}
+div#profile h3 {
+    text-align: center;
+}
+.top_center_nav {
+    background: rgba(18, 30, 99, 0.05);
+    padding: 30px 20px;
+    border-radius: 5px;
+}
+a.button_A {
+    width: 180px;
+}
+
+
 
 .user_label_icon {
     font-size: 1.4em;
