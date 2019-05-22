@@ -356,8 +356,7 @@ class SupporterProfile(models.Model):
     interest_startups = models.CharField(
         max_length=50, choices=INTEREST_STARTUPS, null=True, blank=True)
 
-    interest_sectors = MultiSelectField(
-        max_length=250, choices=INTEREST_SECTORS, help_text="Target Sectors", null=True, blank=True)
+    interest_sectors = models.ManyToManyField(BusinessCategory, help_text="Target Sectors", null=True, blank=True)
 
     interest_countries = MultiSelectField(
         max_length=250, choices=INTEREST_COUNTRIES, null=True, blank=True, help_text="Counties of Interest")
@@ -484,8 +483,7 @@ class InvestorProfile(models.Model):
     investor_forms = MultiSelectField(
         max_length=250, choices=INVESTOR_FORMS, null=True, blank=True, help_text="What forms of investment do you make?")
 
-    target_sectors = MultiSelectField(
-        max_length=250, choices=INTEREST_SECTORS, help_text="Target Sectors", null=True, blank=True)
+    target_sectors = models.ManyToManyField(BusinessCategory, help_text="Target Sectors", null=True, blank=True)
 
     target_countries = MultiSelectField(
         max_length=250, choices=INTEREST_COUNTRIES, help_text="Which are your target countries?", null=True, blank=True)

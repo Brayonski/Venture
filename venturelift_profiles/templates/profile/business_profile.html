@@ -86,8 +86,9 @@
             {% endif %}
             {% if context.investor %}
             <a href="{% url 'update_investor_step1' context.investor.pk %}">Edit my profile</a>
-            {% else %}
-            <a href="{% url 'create_business_step1' context.business.pk %}">Edit Business</a>
+            {% endif %}
+            {% if context.investor %}
+            <a href="{% url 'create_business_step1' context.business.pk %}">Edit my profile</a>
             {% endif %}
           </li>
 
