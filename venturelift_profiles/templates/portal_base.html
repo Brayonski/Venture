@@ -22,11 +22,26 @@
                     <img src="{% static 'img/logo3.png' %}" alt="VentureLift Africa Media Centre">
                 </a>
 
+                <!--
                 <div class="vl_top_top navbar-right">
                     <ul class="in_line">
                         <li><a class="space_button btn btn-md btn-primary" href="/en/media">MEDIA CENTRE &rarr;</a></li>
                     </ul>
                 </div>
+                -->
+
+                <div class="vl_top_top navbar-right">
+                    <ul class="in_line">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#nogo">Discover</a></li>
+                        <li><a href="#nogo">Fund</a></li>
+                        <li><a href="#nogo">Partner</a></li>
+                        <li><a href="/en/media">VLA Media</a></li>
+                        <li><a href="{% url 'login' %}">Sign In</a></li>
+                        <li><a class="btn btn-md btn-primary" href="{% url 'registration_in' %}">Join VentureLift Africa</a></li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </nav>
