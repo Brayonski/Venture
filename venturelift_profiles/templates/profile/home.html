@@ -62,7 +62,7 @@
     <h4>Recommended Funders</h4>
         {% for funder in r_investor %}
             <li>
-                <a href="{% url 'investor_profile' funder.investor_profile.pk %}">{{funder.investor_profile}}</a>
+                <a href="{% url 'investor_profile' funder.investor_profile.pk %}">{{funder.investor_profile.user.username}}</a>
             </li>
         {% endfor %}
     <h4>Recommended Partners</h4>
