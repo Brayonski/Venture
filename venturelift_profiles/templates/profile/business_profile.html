@@ -1,435 +1,546 @@
 {% extends 'profile/base3.html' %}
 {% load cms_tags staticfiles %}
-
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
-
 {% block content %}
+
+
 <div class="full_A">
-  <div class="columns_A flex row clearfix">
-    <div class="col_A_out col_A_out_1 col-md-3 clearfix">
-      <div class="col_A_in col_A_in_1">
-        <div class="card card-body">
-          <div class="card card-body">
-            <div class="col-md-12 clearfix">
-              <div class="col-md-8 col-md-offset-2 clearfix">
-                <!-- Square, 350 X 350 PX -->
+
+  <div class="container">
+    <div class="profile_top full_widthX">
+      <div class="profile_top_in">
+        <div class="padless-leftX col-md-6 col-sm-6 col-xs-6">
+          <div class="ptin_A ptin_1A">
+            <figure class="maxi_avi2">
                 {% if business.thumbnail_image %}
                 <img src="{{ business.thumbnail_image.url }}">
                 {% else %}
-                <img src="{% static 'img/no-img.jpg' %}">
+                <img src="{% static 'img/blue-user-icon.svg' %}">
                 {% endif %}
+            </figure>  
+            <div class="ptin_1A1">
+              <div class="Xuser_label_wrap Xtop">
+                <ul class="Xuser_label Xfunder_label Xtop">
+                  <li class="Xuser_label_company2 Xtop">
+                      <h4><ion-icon name="briefcase"></ion-icon>  {{ business.name }}</h4>                    
+                  </li>
+                  <li class="Xuser_label_company Xtop">
+                    {{ business.name }}-
+                    {% if business.verified %}
+                    {% else %}
+                    {% endif %}                    
+                  </li>
+                  <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Funder - Crowdfunding</li>                  
+                </ul>
+              </div>            
+            </div>                      
+          </div>
 
-                {% if business.verified %}
-                <i>{{ business.name }}</i><i class='glyphicon glyphicon-ok text-primary'></i>
-                {% else %}
-                <i class='glyphicon glyphicon-remove'></i>
-                {% endif %}
-                <p>{{ business.address }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <h2 class="card-title text-primary">About</h2>
-            <p> {{ business.sector }}</p>
-            <p>{{ business.size }}</p>
-            <p>{{ business.year_of_company_registration}}</p>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title text-primary">Verification</h1>
-            {% if supporter_profile.verification_status > 0 %}
-            <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 20 %}
-            <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 40 %}
-            <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 60 %}
-            <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 80 %}
-            <img src="{% static 'img/progress.png' %}">
-            {% elif supporter_profile.verification_status >= 90 %}
-            <img src="{% static 'img/progress.png' %}">
-            {% else %}
-            <img src="{% static 'img/progress.png' %}">
-            {% endif %}
-          </div>
-          <div class="card-body">
-            <h1 class="card-title text-primary">Contact</h1>
-            {# use icons #}
-            {% if business.company_primary_email is not empty %}
-            <a href="{{ business_profile.company_primary_email }}" target="_blank"><i class='fa-envelope text-danger'
-                style='font-size:48px;'></i></a>
-            {% endif %}
-            {% if business.facebook_profile is not empty %}
-            <a href="{{ business.facebook_profile }}" target="_blank"><i class='fa fa-facebook-official text-primary'
-                style='font-size:48px;'></i></a>
-            {% endif %}
-            {% if business.linkedin_profile is not empty %}
-            <a href="{{ business.linkedin_profile }}" target="_blank"><i class="fa fa-linkedin-square text-primary"
-                aria-hidden="true" style='font-size:48px;'></i></a>
-
-            {% endif %}
-            {% if business.twitter_profile is not empty %}
-            <a href="{{ business.twitter_profile }}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"
-                style='font-size:48px; color:#55acee'></i></a>
-            {% endif %}
-            {% if business.instagram_profile is not empty %}
-            <a href="{{ business.instagram_profile }}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"
-                style='font-size:48px;'></i></a>
-            {% endif %}
-          </div>
         </div>
-        <ul class="actions_A">
-
-          <li>
-            {% if context.supporter %}
-            <a href="{% url 'update_supporter_step1' context.supporter.pk %}">Edit my profile</a>
-            {% endif %}
-            {% if context.investor %}
-            <a href="{% url 'update_investor_step1' context.investor.pk %}">Edit my profile</a>
-            {% else %}
-            <a href="{% url 'create_business_step1' context.business.pk %}">Edit Business</a>
-            {% endif %}
-          </li>
-
-          <li>
-            <a href="{% url 'my_business' %}">Add business</a>
-          </li>
-          <li>
-            <a href="{% url 'new_blog_post' %}">New Blog Post</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="col_A_out col_A_out_2 col-md-7 clearfix">
-      <div class="col_A_in col_A_in_2">
-        <div class="onboarding_A">
-          <div class="row clearfix">
-            <div class="col-md-12 clearfix">
-
-              <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#about">About </a></li>
-                <li><a data-toggle="tab" href="#updates">Latest Updates</a></li>
-                <li><a data-toggle="tab" href="#following">Following</a></li>
-                <li><a data-toggle="tab" href="#followers">Followers</a></li>
-              </ul>
-              <br>
-              <hr>
-              <div class="tab-content">
-                <div id="about" class="tab-pane fade in active">
-                  <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#market">Market </a></li>
-                    <li><a data-toggle="tab" href="#model">Business Model</a></li>
-                    <li><a data-toggle="tab" href="#team">Business Team</a></li>
-                    <li><a data-toggle="tab" href="#finance">Business Finances</a></li>
-                    <li><a data-toggle="tab" href="#investment">Business Investment</a></li>
-                    <li><a data-toggle="tab" href="#goals">Business Goals</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="col-md-12 clearfix">
-                      <div id="market" class="tab-pane fade">
-                        <div class="col_A_in col_A_in_2">
-                          
-                          <p>Product offering: {{ business_market.0.product_offering }} </p>
-                          <p>Market Segment: {{ business_market.0.market_segment }} </p>
-                          <p>Market Size: {{ business_market.0.size }} </p>
-                        </div>
-                      </div>
-
-                      <div id="model" class="tab-pane fade">
-                        <div class="col_A_in col_A_in_2">
-                          <p>Business Model: {{ business_model.0.business_model }} </p>
-                          <p>Competitors: {{ business_model.0.competitors }} </p>
-                          <p>Competitive Advantage: {{ business_model.0.competitive_advantage }} </p>
-                        </div>
-                      </div>
-                      <div id="goals" class="tab-pane fade">
-                        <div class="col_A_in col_A_in_2">
-                          <p>Three Year Target Revenue: {{ business_goals.0.capital_to_raise }} </p>
-                          <p>Constraints to Growth: {{ business_goals.0.capital_to_raise }} </p>
-                          <p>Primary Services Interested In: {{ business_goals.0.capital_to_raise }} </p>
-                          <p>Secondary Services Interested In: {{ business_goals.0.capital_to_raise }} </p>
-                        </div>
-                      </div>
-
-                      <div id="team" class="tab-pane fade">
-                        <div class="col_A_in col_A_in_2">
-                          <p>Intellectual Property Info: {{ business_market.0.0.size }} </p>
-                          <p>Founders Info: {{ business_team.0.0.founders_info }} </p>
-                          <p>Team Roles And Structure: {{ business_team.0.0.team_roles_and_structure }} </p>
-                          <p>Number of Staff: {{ business_team.0.0.number_of_staff }} </p>
-                          <p>Board Of Advisors: {{ business_team.0.0.board_of_advisors }} </p>
-                          <p>Board of Directors: {{ business_team.0.0.board_of_directors }} </p>
-                        </div>
-                      </div>
-                      <div id="finance" class="tab-pane fade">
-                        <div class="col_A_in col_A_in_2">
-                          {{ business_finance}}
-                          <p>Last Year Revenue: {{ business_finance.0.0.last_year_revenue }} </p>
-                          <p>Last Year Profit: {{ business_finance.0.0.last_year_profit }} </p>
-                          <p>Funding Source: {{ business_finance.0.0.funding_source }} </p>
-                          <p>Personal Funds Invested: {{ business_finance.0.0.personal_funds_invested }} </p>
-                          <p>External FUnds Invested: {{ business_finance.0.0.external_funds_invested }} </p>
-                          <p>Current Debt: {{ business_finance.0.current_debt }} </p>
-                          <p>Captial to Raise: {{ business_finance.0.capital_to_raise }} </p>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div id="updates" class="tab-pane fade">
-                  <div class="col_A_in col_A_in_2">
-                    <h3>Updates</h3>
-                    {% for post in post %}
-                    <div class="border border-info">
-                      <h4>{{post.title}}</h4>
-                      {% if post.author %}
-                      <p>Author: {{post.author}}</p>
-                      {% else %}
-                      <p>Company: {{post.company}}</p>
-                      {% endif %}
-                      <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
-                      {% if request.user in post.likes.all %}
-                      <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
-                        ({{post.likes.count}} likes)</a>
-                      {% else %}
-                      <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
-                        ({{post.likes.count}} likes)</a>
-                      {% endif %}
-                      <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
-                    </div>
-                    {% endfor %}
-                  </div>
-                </div>
-                <div class="tab-pane fade" id="following">
-                  <div class='col-md-12 clearfix'>
-                    <div class="row clearfix">
-                      {% if business_following %}
-                      <p class="alert alert-danger">Businesses</p>
-                      {% endif %}
-                      {% for obj in business_following %}
-                      <div class="col-md-3 box_box">
-                        <div class="box_box_in">
-                          <figure class="box_avi">
-                            <!-- Square, 350 X 350 PX -->
-                            {% if obj.thumbnail_image %}
-                            <img src="{{ obj.thumbnail_image.url }}">
-                            {% else %}
-                            <img src="{% static 'img/no-img.jpg' %}">
-                            {% endif %}
-                          </figure>
-                          <figure class="box_details">
-                            <p class="box_title">
-                              <a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a>
-                            </p>
-                            <div class="box_social">
-                              {% if obj in business_following %}
-                              <a href="{% url 'business_unfollow' obj.id %}">
-                                <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
-                              </a>
-                              {% endif %}
-                            </div>
-                          </figure>
-                        </div>
-                      </div>
-                      {% endfor %}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class='col-md-12 clearfix'>
-                    <div class="row clearfix">
-                      {% if supporter_following %}
-                      <p class="alert alert-success">Supporters</p>
-                      {% endif %}
-                      {% for obj in supporter_following %}
-                      <div class="col-md-3 box_box">
-                        <div class="box_box_in">
-                          <figure class="box_avi">
-                            <!-- Square, 350 X 350 PX -->
-                            {% if obj.thumbnail_image %}
-                            <img src="{{ obj.thumbnail_image.url }}">
-                            {% else %}
-                            <img src="{% static 'img/blue-user-icon.svg' %}">
-                            {% endif %}
-                          </figure>
-                          <figure class="box_details">
-                            <p class="box_title">
-                              <a href="{% url 'supporter_profile' obj.pk %}">{{obj.fullname}}</a>
-                            </p>
-                            <div class="box_social">
-                              {% if obj in supporter_following %}
-                              <a href="{% url 'supporter_unfollow' obj.id %}">
-                                <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
-                              </a>
-                              {% endif %}
-                            </div>
-                          </figure>
-                        </div>
-                      </div>
-                      {% endfor %}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class='col-md-12 clearfix'>
-                    <div class="row clearfix">
-                      {% if investor_following %}
-                      <p class="alert alert-danger">Investors</p>
-                      {% endif %}
-                      {% for obj in investor_following %}
-                      <div class="col-md-3 box_box">
-                        <div class="box_box_in">
-                          <figure class="box_avi">
-                            <!-- Square, 350 X 350 PX -->
-                            {% if obj.thumbnail_image %}
-                            <img src="{{ obj.thumbnail_image.url }}">
-                            {% else %}
-                            <img src="{% static 'img/blue-user-icon.svg' %}">
-                            {% endif %}
-                          </figure>
-                          <figure class="box_details">
-                            <p class="box_title">
-                              <a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a>
-                            </p>
-                            <div class="box_social">
-                              {% if obj in investor_following %}
-                              <a href="{% url 'investor_unfollow' obj.id %}">
-                                <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
-                              </a>
-                              {% endif %}
-                            </div>
-                          </figure>
-                        </div>
-                      </div>
-                      {% endfor %}
-                    </div>
-                  </div>
-                </div>
-
-                <div class="tab-pane fade" id="followers">
-                  <div class='col-md-12 clearfix'>
-                    <div class="row clearfix">
-                      {% if business_followers %}
-                      <p class="alert alert-danger">Businesses</p>
-                      {% endif %}
-                      {% for obj in business_followers %}
-                      <div class="col-md-3 box_box">
-                        <div class="box_box_in">
-                          <figure class="box_avi">
-                            <!-- Square, 350 X 350 PX -->
-                            {% if obj.thumbnail_image %}
-                            <img src="{{ obj.thumbnail_image.url }}">
-                            {% else %}
-                            <img src="{% static 'img/no-img.jpg' %}">
-                            {% endif %}
-                          </figure>
-                          <figure class="box_details">
-                            <p class="box_title">
-                              <a href="{% url 'business_profile' obj.0.pk %}">{{obj.0.name}}</a>
-                            </p>
-                            <div class="box_social">
-                              {% if obj in business_followers %}
-                              <a href="{% url 'business_follow' obj.0.pk %}">
-                                <button class="btn-actioned btn btn-sm btn-default">Follow</button>
-                              </a>
-                              {% endif %}
-                            </div>
-                          </figure>
-                        </div>
-                      </div>
-                      {% endfor %}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class='col-md-12 clearfix'>
-                    <div class="row clearfix">
-                      {% if supporter_followers %}
-                      <p class="alert alert-success">Supporters</p>
-                      {% endif %}
-                      {% for obj in supporter_followers %}
-                      <div class="col-md-3 box_box">
-                        <div class="box_box_in">
-                          <figure class="box_avi">
-                            <!-- Square, 350 X 350 PX -->
-                            {% if obj.thumbnail_image %}
-                            <img src="{{ obj.thumbnail_image.url }}">
-                            {% else %}
-                            <img src="{% static 'img/blue-user-icon.svg' %}">
-                            {% endif %}
-                          </figure>
-                          <figure class="box_details">
-                            <p class="box_title">
-                              <a href="{% url 'supporter_profile' obj.pk %}">{{obj.fullname}}</a>
-                            </p>
-                            <div class="box_social">
-                              {% if obj in supporter_followers %}
-                              <a href="{% url 'supporter_follow' obj.id %}">
-                                <button class="btn-actioned btn btn-sm btn-default">Follow</button>
-                              </a>
-                              {% endif %}
-                            </div>
-                          </figure>
-                        </div>
-                      </div>
-                      {% endfor %}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class='col-md-12 clearfix'>
-                    <div class="row clearfix">
-                      {% if investor_followers %}
-                      <p class="alert alert-danger">Investors</p>
-                      {% endif %}
-                      {% for obj in investor_followers %}
-                      <div class="col-md-3 box_box">
-                        <div class="box_box_in">
-                          <figure class="box_avi">
-                            <!-- Square, 350 X 350 PX -->
-                            {% if obj.thumbnail_image %}
-                            <img src="{{ obj.thumbnail_image.url }}">
-                            {% else %}
-                            <img src="{% static 'img/blue-user-icon.svg' %}">
-                            {% endif %}
-                          </figure>
-                          <figure class="box_details">
-                            <p class="box_title">
-                              <a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a>
-                            </p>
-                            <div class="box_social">
-                              {% if obj in investor_followers %}
-                              <a href="{% url 'investor_follow' obj.id %}">
-                                <button class="btn-actioned btn btn-sm btn-default">Follow</button>
-                              </a>
-                              {% endif %}
-                            </div>
-                          </figure>
-                        </div>
-                      </div>
-                      {% endfor %}
-                    </div>
-                  </div>
-                  <hr>
-                </div>
-              </div>
-
-            </div>
-          </div>
+        <div class="padless-rightX col-md-6 col-sm-6 col-xs-6">
+          <div class="ptin_A ptin_1B">
+            <ul class="top_top_right">
+              <li class="top_top_website">
+                <ion-icon name="globe"></ion-icon> <a href="{{ business.company_website }}" target="_blank">{{ investor.company_website }}</a>
+              </li>
+              {% if business.linkedin_profile is not empty %}
+                <li class="top_top_linkedin">
+                  <a href="{{ business.linkedin_profile }}" target="_blank">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </li>
+              {% endif %}                
+            </ul>
+            
+          </div>          
         </div>
-      </div>
-    </div>
-    <div class="col_A_out col_A_out_3 col-md-2 clearfix">
-      <div class="col_A_in col_A_in_3">
-        <h4>Sidebar</h4>
       </div>
     </div>
   </div>
-  <style>
-    .fa.fa-instagram {
-      color: transparent;
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-      background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-      background-clip: text;
-      -webkit-background-clip: text;
-    }
-  </style>
+
+  <div class="container">
+    <div class="columns_A flex row clearfix">
+
+      <div class="col_A_out col_A_out_1 col-md-3 clearfix">
+        <div class="col_A_in col_A_in_1">
+
+            <div class="card-body progress-card text-center">
+              <p>Verification in progress</p>
+              <img src="{% static 'img/progress.png' %}">
+            </div>
+
+          <div class="card card-body">
+
+          </div>
+
+
+
+
+
+          <div class="profile_list_side">
+            <h4>Similar Funders</h4>
+
+          </div>
+
+          <div class="profile_list_side">
+            <h4>Followers</h4>
+                   
+            {% if business_followers %}
+            <p class="profile_list_side_title">Businesses</p>
+            {% endif %}
+            {% for obj in business_followers %}
+            <div class="box_boxY">
+              <div class="box_box_inY">
+                <figure class="box_aviY">
+                  <a href="{% url 'business_profile' obj.pk %}">
+                    {% if obj.thumbnail_image %}
+                    <img src="{{ obj.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/no-img.jpg' %}">
+                    {% endif %}
+                  </a>  
+                </figure>
+                <figure class="box_detailsY">
+                  <p class="box_titleY">
+                    <a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a>
+                  </p>
+                  <div class="box_socialY">
+                    {% if obj in business_followers %}
+                    <a href="{% url 'business_follow' obj.id %}">
+                      <button class="btn-actioned btn btn-sm btn-default">Follow</button>
+                    </a>
+                    {% endif %}
+                  </div>
+                </figure>
+              </div>
+            </div>
+            {% endfor %}
+          
+          
+            {% if supporter_followers %}
+            <p class="profile_list_side_title">Supporters</p>
+            {% endif %}
+            {% for obj in supporter_followers %}
+            <div class="box_boxY">
+              <div class="box_box_inY">
+                <figure class="box_aviY">
+                  <a href="{% url 'business_profile' obj.pk %}">
+                    {% if obj.thumbnail_image %}
+                    <img src="{{ obj.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/blue-user-icon.svg' %}">
+                    {% endif %}
+                  </a>  
+                </figure>
+                <figure class="box_detailsY">
+                  <p class="box_titleY">
+                    <a href="{% url 'supporter_profile' obj.pk %}">{{obj.fullname}}</a>
+                  </p>
+                  <div class="box_socialY">
+                    {% if obj in supporter_followers %}
+                    <a href="{% url 'supporter_follow' obj.id %}">
+                      <button class="btn-actioned btn btn-sm btn-default">Follow</button>
+                    </a>
+                    {% endif %}
+                  </div>
+                </figure>
+              </div>
+            </div>
+            {% endfor %}
+          
+          
+            {% if investor_followers %}
+            <p class="profile_list_side_title">Investors</p>
+            {% endif %}
+            {% for obj in investor_followers %}
+            <div class="box_boxY">
+              <div class="box_box_inY">
+                <figure class="box_aviY">
+                  <a href="{% url 'business_profile' obj.pk %}">
+                    {% if obj.thumbnail_image %}
+                    <img src="{{ obj.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/blue-user-icon.svg' %}">
+                    {% endif %}
+                  </a>  
+                </figure>
+                <figure class="box_detailsY">
+                  <p class="box_titleY">
+                    <a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a>
+                  </p>
+                  <div class="box_socialY">
+                    {% if obj in investor_followers %}
+                    <a href="{% url 'investor_follow' obj.id %}">
+                      <button class="btn-actioned btn btn-sm btn-default">Follow</button>
+                    </a>
+                    {% endif %}
+                  </div>
+                </figure>
+              </div>
+            </div>
+            {% endfor %}
+                      
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="col_A_out col_A_out_2 col-md-6 clearfix">
+        <div class="col_A_in col_A_in_2">
+          <div class="onboarding_A">
+            <div class="row clearfix">
+              <div class="col-md-12 clearfix">
+
+                <div class="tab-content">
+                  <div id="profile" class="tab-pane fade in active">
+                    <div class="col-md-12 clearfix">
+                      <div class="profile_data">
+
+                          <div class="track_record_2">
+                            <h3>Nairobi, Kenya</h3>
+
+                            <div class="row clearfix">
+                              <div class="no_padd col-md-12 clearfix">
+                                <h3>Profession</h3>
+                                <div class="single_card_wrapper">
+                                  <div class="card_C card" style="">
+                                    <div class="card-body">
+                                      <div class=""> 
+                                        <p class="card-text dark-text">
+                                          Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+                                        </p>
+                                      </div>
+ 
+                                    </div>
+                                  </div>                                
+                                </div>
+                              </div>                                                      
+                            </div>
+
+                            <div class="row clearfix">
+                              <div class="no_padd col-md-12 clearfix">
+                                <div class="single_card_wrapper">
+                                  <div class="card_C card" style="">
+                                    <div class="card-body">
+                                      <div class="pull-left">
+
+                                        <h5 class="card-title">
+                                          Equity Investor Type
+                                        </h5>  
+                                        <p class="card-text">
+                                          Angel
+                                        </p>
+
+                                        <h5 class="card-title">
+                                          Experience in Crowdfunding
+                                        </h5>  
+                                        <p class="card-text">
+                                          1st time
+                                        </p>
+                                      </div>
+                                      <div class="pull-right">
+
+                                        <h5 class="card-title">
+                                          Sector of Interest
+                                        </h5>  
+                                        <p class="card-text">Agriculture</p>
+
+                                        <h5 class="card-title">
+                                          Stage of <br>Company Preference
+                                        </h5>  
+                                        <p class="card-text">Start-up (pre-seed) </p>
+
+                                        <h5 class="card-title">
+                                          Region of interest
+                                        </h5>  
+                                        <p class="card-text">East Africa</p>                                        
+
+                                      </div>  
+                                    </div>
+                                  </div>                                
+                                </div>
+                              </div>                                                      
+                            </div>
+
+                            <div class="row clearfix">
+                              <div class="no_padd col-md-12 clearfix">
+                                <h3>What I hope to deliver and gain</h3>
+                                <div class="single_card_wrapper">
+                                  <div class="card_C card" style="">
+                                    <div class="card-body">
+                                      <div class=""> 
+                                        <p class="card-text dark-text">
+                                          Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+                                        </p>
+                                      </div>
+ 
+                                    </div>
+                                  </div>                                
+                                </div>
+                              </div>                                                      
+                            </div>
+
+                            <div class="row clearfix">
+                              <div class="no_padd col-md-12 clearfix">
+                                <h3>What Investment Amount I am Offering</h3>
+                                <div class="single_card_wrapper">
+                                  <div class="card_C card" style="">
+                                    <div class="card-body">
+                                      <div class=""> 
+                                        <p class="card-text dark-text">
+                                          Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+                                        </p>
+                                      </div>
+ 
+                                    </div>
+                                  </div>                                
+                                </div>
+                              </div>                                                      
+                            </div>
+
+                            <div class="row clearfix">
+                              <div class="no_padd col-md-12 clearfix">
+                                <h3>Return Expectation</h3>
+                                <div class="single_card_wrapper">
+                                  <div class="card_C card" style="">
+                                    <div class="card-body">
+                                      <div class=""> 
+                                        <p class="card-text dark-text">
+                                          Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+                                        </p>
+                                      </div>
+ 
+                                    </div>
+                                  </div>                                
+                                </div>
+                              </div>                                                      
+                            </div>
+
+
+                            <div class="top_center_nav text-center">
+                                <div class="top_banner_ctaY">
+                                  <div class="contact_infoY">
+                                    <h3>Contact Information</h3>
+                                    <p>Email Address</p>
+                                  </div>
+                                  <a href="#connect" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Connect</a>
+                                </div>                
+                            </div>
+
+
+                            <div class="profile_notes">
+                              <h5>Short-Term Loan</h5>
+                              <p>Interested in Borrowing for 1-6 months. VentureLift Africa has a network of third-party financial institutions that can serve you. Please connect with us for a consultation.</p>                              
+                            </div>
+
+
+
+                            <div class="row clearfix updates_B">
+                                <div class="no_padd col-md-12 clearfix">
+                                  <h3 class="h3_A">Updates</h3>
+                                  <div class="col_A_in col_A_in_2">
+
+                                    {% if post %}
+                                      {% for post in post %}
+
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4><a href="#nogo">{{post.title}}</a></h4>
+                                                {% if post.author %}
+                                                <p>Author: {{post.author}}</p>
+                                                {% else %}
+                                                <p>Company: {{post.company}}</p>
+                                                {% endif %}
+
+                                                <div class="card_summary">
+                                                    <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
+                                                </div>  
+                                            </div>    
+                                            <div class="card_footer">
+                                                {% if request.user in post.likes.all %}
+                                                <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
+                                                    ({{post.likes.count}} likes)</a>
+                                                {% else %}
+                                                <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
+                                                    ({{post.likes.count}} likes)</a>
+                                                {% endif %}
+                                                <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
+                                            </div>          
+                                        </div>
+
+                                      {% endfor %}
+                                    {% else %}
+
+                                      <div class="no_post_hero">
+                                        <h3>This user has not posted any update yet.</h3>
+                                      </div>
+
+                                    {% endif %}                   
+                                  </div>
+                                </div>    
+                            </div>
+
+                          </div>
+
+                      </div>
+                    </div>
+                  </div>                  
+
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col_A_out col_A_out_3 col-md-3 clearfix">
+        <div class="col_A_in col_A_in_3">
+
+          <div class="profile_list_side">
+            <h4>Recommended Businesses</h4>
+
+          </div>            
+
+          <div class="profile_list_side">
+            <h4>Following</h4
+              >
+              {% if business_following %}
+              <p class="profile_list_side_title">Businesses</p>
+              {% endif %}
+              {% for obj in business_following %}
+              <div class="box_boxY">
+                <div class="box_box_inY">
+                  <figure class="box_aviY">
+                    <a href="{% url 'business_profile' obj.pk %}">
+                      {% if obj.thumbnail_image %}
+                      <img src="{{ obj.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/no-img.jpg' %}">
+                      {% endif %}
+                    </a>  
+                  </figure>
+                  <figure class="box_detailsY">
+                    <p class="box_titleY">
+                      <a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a>
+                    </p>
+                    <div class="box_socialY">
+                      {% if obj in business_following %}
+                      <a href="{% url 'business_unfollow' obj.id %}">
+                        <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                      </a>
+                      {% endif %}
+                    </div>
+                  </figure>
+                </div>
+              </div>
+              {% endfor %}
+            
+            
+              {% if supporter_following %}
+              <p class="profile_list_side_title">Partners</p>
+              {% endif %}
+              {% for obj in supporter_following %}
+              <div class="box_boxY">
+                <div class="box_box_inY">
+                  <figure class="box_aviY">
+                    <a href="{% url 'supporter_profile' obj.pk %}">
+                      {% if obj.thumbnail_image %}
+                      <img src="{{ obj.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% endif %}
+                    </a>  
+                  </figure>
+                  <figure class="box_detailsY">
+                    <p class="box_titleY">
+                      <a href="{% url 'supporter_profile' obj.pk %}">{{obj.fullname}}</a>
+                    </p>
+                    <div class="box_socialY">
+                      {% if obj in supporter_following %}
+                      <a href="{% url 'supporter_unfollow' obj.id %}">
+                        <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                      </a>
+                      {% endif %}
+                    </div>
+                  </figure>
+                </div>
+              </div>
+              {% endfor %}
+            
+            
+              {% if investor_following %}
+              <p class="profile_list_side_title">Funders</p>
+              {% endif %}
+              {% for obj in investor_following %}
+              <div class="box_boxY">
+                <div class="box_box_inY">
+                  <figure class="box_aviY">
+                    <a href="{% url 'investor_profile' obj.pk %}">
+                      {% if obj.thumbnail_image %}
+                      <img src="{{ obj.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% endif %}
+                    </a>  
+                  </figure>
+                  <figure class="box_detailsY">
+                    <p class="box_titleY">
+                      <a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a>
+                    </p>
+                    <div class="box_socialY">
+                      {% if obj in investor_following %}
+                      <a href="{% url 'investor_unfollow' obj.id %}">
+                        <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                      </a>
+                      {% endif %}
+                    </div>
+                  </figure>
+                </div>
+              </div>
+              {% endfor %}
+            
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 {% endblock %}
