@@ -21,7 +21,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
     queryset = Post.objects.all()
 
     def dispatch(self, request, *args, **kwargs):
-        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
+        if request.user.is_authenticated() and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
 
         return super(SummaryView, self).dispatch(request, *args, **kwargs)
