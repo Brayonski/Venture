@@ -21,7 +21,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
     queryset = Post.objects.all()
 
     def dispatch(self, request, *args, **kwargs):
-        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
+        if request.user.is_authenticated() and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
 
         return super(SummaryView, self).dispatch(request, *args, **kwargs)
@@ -116,7 +116,7 @@ class SupporterView(LoginRequiredMixin, ListView, FormMixin):
             return render(request, self.template_name, {'object_list': supporter, 'form': form, 'following': following(self.request.user)})
 
     def dispatch(self, request, *args, **kwargs):
-        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
+        if request.user.is_authenticated() and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
         return super(SupporterView, self).dispatch(request, *args, **kwargs)
 
@@ -140,7 +140,7 @@ class InvestorView(LoginRequiredMixin, ListView, FormMixin):
     form_class = InvestorFilters
 
     def dispatch(self, request, *args, **kwargs):
-        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
+        if request.user.is_authenticated and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
         return super(InvestorView, self).dispatch(request, *args, **kwargs)
 
@@ -196,7 +196,7 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
     form_class = BusinessFilters
 
     def dispatch(self, request, *args, **kwargs):
-        if not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
+        if request.user.is_authenticated and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
         return super(BusinessView, self).dispatch(request, *args, **kwargs)
 
