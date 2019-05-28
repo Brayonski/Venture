@@ -140,6 +140,10 @@ ul.in_line li {
     color: #4aaded;
 }
 
+.vl_top_top ul li.active a {
+    color: rgb(0, 156, 255);
+}
+
 ul.top_top_right {
     list-style: none;
     padding-left: 0px;
@@ -156,6 +160,11 @@ figure.box_aviY {
     max-width: 60px;
     margin-right: 10px;
 }
+figure.box_aviY a {
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    padding: 1px;
+    display: block;
+}
 figure.box_aviY img {
     display: block;
     width: 100%;
@@ -165,6 +174,7 @@ figure.box_aviY img {
     float: left;
     width: 100%;
     height: auto;
+    margin-bottom: 4px;    
 }
 
 figure.box_detailsY {
@@ -1318,7 +1328,8 @@ figure.btn_cover {
     /* background-image: url("http://i.stack.imgur.com/2OrtT.jpg"); */
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50% 50%    
+    background-position: 50% 50%;
+    overflow: hidden;    
 }
 .col_A_in_2 .card .card-body h4 a {
     color: #009cff;
