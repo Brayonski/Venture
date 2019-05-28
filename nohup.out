@@ -17972,3 +17972,461 @@ Not Found: /favicon.ico
 [28/May/2019 15:42:46] "GET /static/img/logo3.png HTTP/1.1" 200 8136
 [28/May/2019 15:42:46] "GET /static/img/signup-bg.jpg HTTP/1.1" 304 0
 [28/May/2019 15:42:46] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Performing system checks...
+
+JSONField implementation is: <class 'django.db.models.fields.TextField'>
+May 27, 2019 - 12:54:00
+Django version 1.11.18, using settings 'venturelift_cms.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+/mnt/otb/venturelift/venv/lib/python2.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+System check identified some issues:
+
+WARNINGS:
+venturelift_profiles.InvestorProfile.target_sectors: (fields.W340) null has no effect on ManyToManyField.
+venturelift_profiles.SupporterProfile.interest_sectors: (fields.W340) null has no effect on ManyToManyField.
+
+System check identified 2 issues (0 silenced).
+[28/May/2019 15:44:51] "GET /profile/profile/ HTTP/1.1" 200 30248
+[28/May/2019 15:44:51] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[28/May/2019 15:44:52] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 15:45:52] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 200 23208
+[28/May/2019 15:45:52] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 15:47:12] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 200 23208
+[28/May/2019 15:47:13] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 15:47:36] "GET /profile/profile/ HTTP/1.1" 200 30248
+[28/May/2019 15:47:37] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[28/May/2019 15:47:37] "GET /favicon.ico HTTP/1.1" 404 2909
+Internal Server Error: /profile/supporter/list/
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 82, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 64, in resolve_template
+    return select_template(template, using=self.using)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader.py", line 48, in select_template
+    return engine.get_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 515, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: 'block' tag with name 'content_1' appears more than once
+[28/May/2019 15:50:16] "GET /profile/supporter/list/ HTTP/1.1" 500 135811
+Not Found: /favicon.ico
+[28/May/2019 15:50:18] "GET /favicon.ico HTTP/1.1" 404 2909
+Internal Server Error: /profile/supporter/list/
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 82, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 64, in resolve_template
+    return select_template(template, using=self.using)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader.py", line 48, in select_template
+    return engine.get_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 515, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: 'block' tag with name 'content_1' appears more than once
+[28/May/2019 15:52:00] "GET /profile/supporter/list/ HTTP/1.1" 500 135650
+[28/May/2019 15:52:11] "GET /profile/profile/ HTTP/1.1" 200 30248
+[28/May/2019 15:52:12] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[28/May/2019 15:52:12] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+Internal Server Error: /profile/investor/list/
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 82, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 64, in resolve_template
+    return select_template(template, using=self.using)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader.py", line 48, in select_template
+    return engine.get_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 515, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: 'block' tag with name 'content_1' appears more than once
+[28/May/2019 15:52:15] "GET /profile/investor/list/ HTTP/1.1" 500 136036
+Not Found: /favicon.ico
+[28/May/2019 15:52:17] "GET /favicon.ico HTTP/1.1" 404 2909
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 84, in rendered_content
+    content = template.render(context, self._request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 515, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: 'block' tag with name 'title' appears more than once
+[28/May/2019 15:53:26] "GET / HTTP/1.1" 500 151460
+Not Found: /favicon.ico
+[28/May/2019 15:53:28] "GET /favicon.ico HTTP/1.1" 404 2909
+Internal Server Error: /profile/investor/list/
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 82, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 64, in resolve_template
+    return select_template(template, using=self.using)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader.py", line 48, in select_template
+    return engine.get_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 515, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: 'block' tag with name 'content_1' appears more than once
+[28/May/2019 15:55:19] "GET /profile/investor/list/ HTTP/1.1" 500 135704
+[28/May/2019 15:55:27] "GET /profile/profile/ HTTP/1.1" 200 30248
+Internal Server Error: /profile/investor/list/
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 82, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 64, in resolve_template
+    return select_template(template, using=self.using)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader.py", line 48, in select_template
+    return engine.get_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 515, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: 'block' tag with name 'content_1' appears more than once
+[28/May/2019 15:55:30] "GET /profile/investor/list/ HTTP/1.1" 500 136036
+[28/May/2019 15:55:32] "GET /profile/profile/ HTTP/1.1" 200 30248
+Not Found: /favicon.ico
+[28/May/2019 15:55:32] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 15:55:33] "GET /profile/supporter/list/ HTTP/1.1" 200 16484
+[28/May/2019 15:55:34] "GET /static/django_select2/django_select2.js HTTP/1.1" 200 1783
+[28/May/2019 15:55:34] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[28/May/2019 15:55:34] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[28/May/2019 15:55:34] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 15:55:36] "GET /profile/supporter/profile/2/ HTTP/1.1" 200 53384
+[28/May/2019 15:55:36] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[28/May/2019 15:55:36] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[28/May/2019 15:55:36] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[28/May/2019 15:55:36] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[28/May/2019 15:55:36] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[28/May/2019 15:55:36] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[28/May/2019 15:55:37] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 15:55:37] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[28/May/2019 15:55:37] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[28/May/2019 15:55:44] "GET /profile/supporter/list/ HTTP/1.1" 200 16484
+[28/May/2019 15:55:45] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[28/May/2019 15:55:45] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[28/May/2019 15:57:21] "GET /profile/supporter/list/ HTTP/1.1" 200 16484
+[28/May/2019 15:57:22] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 15:57:22] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[28/May/2019 15:57:22] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+Not Found: /favicon.ico
+[28/May/2019 15:57:22] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 15:57:23] "GET /profile/investor/list/ HTTP/1.1" 200 17396
+[28/May/2019 15:57:24] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 15:57:24] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[28/May/2019 15:57:24] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[28/May/2019 15:57:24] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[28/May/2019 15:57:24] "GET /media/pic_folder/index_lGdLbDy.jpeg HTTP/1.1" 200 47047
+Not Found: /favicon.ico
+[28/May/2019 15:57:24] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 15:57:26] "GET /profile/investor/profile/2/ HTTP/1.1" 200 30820
+[28/May/2019 15:57:27] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 15:57:27] "GET /static/img/progress.png HTTP/1.1" 200 32213
+[28/May/2019 15:57:27] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[28/May/2019 15:57:27] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[28/May/2019 15:57:27] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[28/May/2019 15:57:27] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[28/May/2019 15:57:27] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[28/May/2019 15:57:27] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[28/May/2019 15:57:27] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[28/May/2019 15:57:27] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[28/May/2019 15:58:03] "GET /profile/profile/ HTTP/1.1" 200 30199
+[28/May/2019 15:58:04] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 15:58:04] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+Internal Server Error: /profile/business/list/
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 82, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 64, in resolve_template
+    return select_template(template, using=self.using)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader.py", line 53, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+TemplateDoesNotExist: profile/business.html, venturelift_profiles/business_list.html
+[28/May/2019 15:58:39] "GET /profile/business/list/ HTTP/1.1" 500 128735
+Not Found: /favicon.ico
+[28/May/2019 15:58:41] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 15:58:56] "GET /profile/business/list/ HTTP/1.1" 200 15504
+[28/May/2019 15:58:57] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[28/May/2019 15:58:57] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[28/May/2019 15:58:57] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[28/May/2019 15:58:57] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 15:58:57] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[28/May/2019 15:58:59] "GET /profile/business/profile/1/ HTTP/1.1" 200 32267
+[28/May/2019 15:59:00] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 15:59:00] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[28/May/2019 15:59:00] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[28/May/2019 15:59:00] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[28/May/2019 15:59:00] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[28/May/2019 15:59:00] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[28/May/2019 15:59:00] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[28/May/2019 15:59:00] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[28/May/2019 15:59:00] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+Not Found: /favicon.ico
+[28/May/2019 15:59:01] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 15:59:04] "GET /profile/profile/ HTTP/1.1" 200 30199
+[28/May/2019 15:59:05] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 15:59:09] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 200 23208
+[28/May/2019 15:59:10] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 15:59:18] "GET /profile/profile/ HTTP/1.1" 200 30199
+[28/May/2019 15:59:19] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 15:59:19] "GET /static/css/style.css HTTP/1.1" 200 29586
+[28/May/2019 15:59:19] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 84, in rendered_content
+    content = template.render(context, self._request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 515, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: 'block' tag with name 'title' appears more than once
+[28/May/2019 16:01:11] "GET / HTTP/1.1" 500 151460
+Not Found: /favicon.ico
+[28/May/2019 16:01:13] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 16:13:53] "GET / HTTP/1.1" 200 26415
+[28/May/2019 16:13:54] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:13:54] "GET /static/cms/css/3.5.3/cms.base.css HTTP/1.1" 304 0
+[28/May/2019 16:13:54] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:13:54] "GET /static/img/home_icon_2.png HTTP/1.1" 304 0
+[28/May/2019 16:13:54] "GET /static/img/home_icon_1.png HTTP/1.1" 304 0
+[28/May/2019 16:13:54] "GET /static/img/home_icon_3.png HTTP/1.1" 304 0
+[28/May/2019 16:13:54] "GET /static/img/sector_icon_1.png HTTP/1.1" 304 0
+[28/May/2019 16:13:54] "GET /static/img/sector_icon_2.png HTTP/1.1" 304 0
+[28/May/2019 16:13:55] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:14:01] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
+[28/May/2019 16:14:02] "GET /static/css/style.css HTTP/1.1" 200 29586
+[28/May/2019 16:14:02] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+[28/May/2019 16:14:05] "GET / HTTP/1.1" 200 26415
+[28/May/2019 16:14:05] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:14:05] "GET /static/cms/css/3.5.3/cms.base.css HTTP/1.1" 200 66722
+[28/May/2019 16:14:05] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[28/May/2019 16:14:06] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 16:14:08] "GET /en/media HTTP/1.1" 301 0
+Internal Server Error: /en/media/
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 84, in rendered_content
+    content = template.render(context, self._request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 515, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: 'block' tag with name 'title' appears more than once
+[28/May/2019 16:14:08] "GET /en/media/ HTTP/1.1" 500 153185
+[28/May/2019 16:18:28] "GET /en/media/ HTTP/1.1" 200 25627
+[28/May/2019 16:18:28] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:18:28] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:18:29] "GET /static/img/logo.png HTTP/1.1" 200 9123
+[28/May/2019 16:18:29] "GET /static/cms/fonts/3.5.3/django-cms-iconfont.woff2 HTTP/1.1" 200 5272
+[28/May/2019 16:18:29] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[28/May/2019 16:18:29] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 16:18:37] "GET /en/media/ HTTP/1.1" 200 25627
+[28/May/2019 16:18:37] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:18:37] "GET /static/css/style.css HTTP/1.1" 200 29586
+[28/May/2019 16:18:38] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:18:41] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
+[28/May/2019 16:18:41] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:18:43] "GET / HTTP/1.1" 200 26415
+[28/May/2019 16:18:44] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:18:45] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:18:45] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+[28/May/2019 16:18:45] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+Not Found: /favicon.ico
+[28/May/2019 16:18:46] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 16:18:48] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
+[28/May/2019 16:18:49] "GET /static/css/style.css HTTP/1.1" 304 0

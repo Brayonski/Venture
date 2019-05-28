@@ -36,13 +36,15 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         context['object_list'] = posts
 
         if self.request.user.business_creator.exists():
-            business = Business.objects.get(creator=self.request.user, verified=True)
+            business = Business.objects.get(creator=self.request.user)
+            context['business'] = business
             context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors=business.sector)[:3]
             context['r_investor'] = InvestorProfile.objects.filter(target_sectors=business.sector)[:3]
             context['r_businesses'] = Business.objects.filter(sector=business.sector).exclude(creator=self.request.user)[:3]
 
         if self.request.user.supporter_creator.exists():
-            supporter = Supporter.objects.get(user=self.request.user, verified=True)
+            supporter = Supporter.objects.get(user=self.request.user)
+            context['supporter'] = supporter
             profile = SupporterProfile.objects.get(supporter_profile=supporter)
             interests = profile.interest_sectors.all()
             context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct().exclude(supporter_profile=supporter)[:3]
@@ -50,7 +52,8 @@ class SummaryView(LoginRequiredMixin, TemplateView):
             context['r_investor'] = InvestorProfile.objects.filter(target_sectors__in=interests).distinct()[:3]
 
         if self.request.user.investor_creator.exists():
-            investor = Investor.objects.get(user=self.request.user, verified=True)
+            investor = Investor.objects.get(user=self.request.user)
+            context['investor'] = investor
             profile = InvestorProfile.objects.get(investor_profile=investor)
             interests = profile.target_sectors.all()
             context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct()[:3]
