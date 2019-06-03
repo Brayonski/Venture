@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>VentureLift Africa {% block title %} VentureLift Africa {% endblock title %}</title>
+        <title>Media Center - VentureLift Africa {% block title %}VentureLift Africa - Media Center{% endblock title %}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
 
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -12,11 +12,11 @@
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
         {% render_block "css" %}
     </head>
-    <body class="root_A">
+    <body class="">
         {% cms_toolbar %}
 
         <!-- Fixed navbar -->
-        <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
+        <nav id="navbar_out" class="navbar navbar-default navbar-fixed-top">
             <div class="top_container container">
               
                 <div class="nav_nav_first navbar-header">
@@ -27,29 +27,38 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                        <img src="{% static 'img/logo2.png' %}" alt="VentureLift Africa Media Centre">
+                        <img src="{% static 'img/logo.png' %}" alt="VentureLift Africa Media Centre">
                     </a>
                     <div class="vl_top_top navbar-right">
+                        <!--
+                        <div class="top_search">
+                            <div class="input-group">
+                                <input type="text" class="search_field form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                <button class="search_button btn btn-default" type="button"><ion-icon name="search"></ion-icon></button>
+                                </span>
+                            </div>
+                        </div>
+                        -->
+
                         <ul class="in_line">
-                            <li class="active"><a href="/">Home</a></li>
+                            <li><a href="/">Home</a></li>
                             <li><a href="{% url 'registration_in' %}">Business</a></li>
                             <li><a href="{% url 'registration_in' %}">Funder</a></li>
                             <li><a href="{% url 'registration_in' %}">Partner</a></li>
                             <li><a href="#nogo">Knowledge Center</a></li>
-                            <li><a href="/en/media">VLA Media</a></li>
+                            <li class="active"><a href="/en/media">VLA Media</a></li>
                             <li><a href="{% url 'login' %}">Sign In</a></li>
                             <li><a class="btn btn-md btn-primary" href="{% url 'registration_in' %}">Join VentureLift Africa</a></li>
                         </ul>
                     </div>
                 </div>
 
-                <!--
                 <div id="navbarX" class="nav_nav_second navbar-collapse collapse nav-down">
                     <ul id="navbar2" class="navbarX2 nav navbar-nav">
                         {% show_menu 0 100 100 100 "menu.html" %}
                     </ul>
-                </div>
-		-->            
+                </div><!--/.nav-collapse -->
             </div>
         </nav>
 
@@ -125,4 +134,5 @@
 
     </script>
 </html>
+
 
