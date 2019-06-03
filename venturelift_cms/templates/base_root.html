@@ -1,3 +1,4 @@
+
 {% load cms_tags menu_tags sekizai_tags staticfiles %}
 <!doctype html>
 <html>
@@ -30,10 +31,11 @@
                     </a>
                     <div class="vl_top_top navbar-right">
                         <ul class="in_line">
-                            <li><a href="/">Home</a></li>
+                            <li class="active"><a href="/">Home</a></li>
                             <li><a href="#nogo">Discover</a></li>
                             <li><a href="#nogo">Fund</a></li>
                             <li><a href="#nogo">Partner</a></li>
+                            <li><a href="#nogo">Knowledge Center</a></li>
                             <li><a href="/en/media">VLA Media</a></li>
                             <li><a href="{% url 'login' %}">Sign In</a></li>
                             <li><a class="btn btn-md btn-primary" href="{% url 'registration_in' %}">Join VentureLift Africa</a></li>
@@ -47,7 +49,7 @@
                         {% show_menu 0 100 100 100 "menu.html" %}
                     </ul>
                 </div>
-                -->
+		-->            
             </div>
         </nav>
 
