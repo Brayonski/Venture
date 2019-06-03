@@ -1693,3 +1693,16 @@ p.card-text span {
 .no_padd {
     padding: 0px;
 }
+
+h4.h4_C {
+    text-transform: none;
+    letter-spacing: 0px;
+    font-size: 1.6em;
+    font-weight: 300;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.4em;
+}
+.h4_C_space {
+    margin-bottom: 80px;
+}
