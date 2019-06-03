@@ -34,6 +34,8 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         posts = Post.objects.filter(
             Q(company__in=companies_following) | Q(supporter_author__in=supporters_following) | Q(investor_author__in=investors_following)).order_by('-date')[:5]
         context['object_list'] = posts
+        print(companies_following)
+        context.update({'investor_following': investors_following, 'supporter_following':supporters_following, 'business_following': companies_following})
 
         if self.request.user.business_creator.exists():
             business = Business.objects.get(creator=self.request.user)
@@ -536,9 +538,6 @@ class BusinessProfileView(DetailView):
 
     def get_context_data(self, **kwargs):
         """Returns the Business Profile instance that the view displays"""
-        investor_list = []
-        supporter_list = []
-        business_list = []
         context = super(BusinessProfileView, self).get_context_data(**kwargs)
         business = Business.objects.get(
             pk=self.kwargs.get("pk"))
@@ -553,18 +552,6 @@ class BusinessProfileView(DetailView):
         context['supporter_following'] = following(
             self.request.user, Supporter)[:3]
         context['business_following'] = following(self.request.user, Business)[:3]
-        context['followers'] = followers(context['business'])
-        context['user'] = self.request.user
-        for obj in context['followers']:
-            if obj.investor_creator.exists():
-                investor_list.append(Investor.objects.get(user=obj))
-            elif obj.supporter_creator.exists():
-                supporter_list.append(Supporter.objects.get(user=obj))
-            elif obj.business_creator.exists():
-                business_list.append(Business.objects.filter(creator=obj))
-        context['investor_followers'] = investor_list[:3]
-        context['supporter_followers'] = supporter_list[:3]
-        context['business_followers'] = business_list[:3]
         return context
 
 
