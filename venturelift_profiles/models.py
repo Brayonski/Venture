@@ -368,74 +368,6 @@ class SupporterProfile(models.Model):
     def __str__(self):
         return self.supporter_profile.user.first_name + " " + self.supporter_profile.user.last_name
 
-    def verification_status(self):
-        count = 0
-        if not (self.supporter_profile.instagram_profile):
-            count -= 1
-        else:
-            count += 1
-        if not (self.supporter_profile.facebook_profile):
-            count -= 1
-        else:
-            count += 1
-
-        if not (self.supporter_profile.linkedin_profile):
-            count -= 1
-        else:
-            count += 1
-
-        if not (self.supporter_profile.twitter_profile):
-            count -= 1
-        else:
-            count += 1
-
-        if not (self.supporter_profile.company_website):
-            count -= 1
-        else:
-            count += 1
-
-        if not (self.supporter_profile.thumbnail_image):
-            count -= 1
-        else:
-            count += 1
-
-        if not (self.supporter_interest):
-            count -= 1
-        else:
-            count += 1
-
-        if not (self.professional_support):
-            count -= 1
-        else:
-            count += 1
-
-        if not (self.interest_startups):
-            count -= 1
-        else:
-            count += 1
-
-        if not (self.interest_sectors):
-            count -= 1
-        else:
-            count += 1
-
-        if not (self.interest_countries):
-            count -= 1
-        else:
-            count += 1
-
-        if not (self.trading_partners):
-            count -= 1
-        else:
-            count += 1
-
-        if count == 0:
-            return 100
-        elif count < 0:
-            return 0
-        else:
-            return round((count/12)*100)
-
 
 class Investor(models.Model):
     user = models.ForeignKey(User, related_name='investor_creator')
@@ -458,7 +390,6 @@ class Investor(models.Model):
     linkedin_profile = models.URLField(max_length=200, null=True, blank=True)
     twitter_profile = models.URLField(max_length=200, null=True, blank=True)
     instagram_profile = models.URLField(max_length=200, null=True, blank=True)
-    subscribe = models.BooleanField(default=True)
     verified = models.BooleanField(default=False)
     verified_by = models.ForeignKey(
         User, related_name='investor_verifier', null=True, blank=True)
