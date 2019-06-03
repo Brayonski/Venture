@@ -30,7 +30,7 @@
                     {% else %}
                     {% endif %}                    
                   </li>
-                  <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Funder - Crowdfunding</li>                  
+                  <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Sector: {{business.sector}}</li>                  
                 </ul>
               </div>            
             </div>                      
@@ -42,14 +42,7 @@
             <ul class="top_top_right">
               <li class="top_top_website">
                 <ion-icon name="globe"></ion-icon> <a href="{{ business.company_website }}" target="_blank">{{ investor.company_website }}</a>
-              </li>
-              {% if business.linkedin_profile is not empty %}
-                <li class="top_top_linkedin">
-                  <a href="{{ business.linkedin_profile }}" target="_blank">
-                    <ion-icon name="logo-linkedin"></ion-icon>
-                  </a>
-                </li>
-              {% endif %}                
+              </li>             
             </ul>
             
           </div>          
@@ -65,8 +58,13 @@
         <div class="col_A_in col_A_in_1">
 
             <div class="card-body progress-card text-center">
+              {% if business.verified %}
+              <p>Verified</p>
+              <img src="{% static 'img/verified.png' %}">
+              {% else %}
               <p>Verification in progress</p>
               <img src="{% static 'img/progress.png' %}">
+              {% endif %}
             </div>
 
           <div class="card card-body">
@@ -78,7 +76,7 @@
 
 
           <div class="profile_list_side">
-            <h4>Similar Businesses</h4>
+            <h4>Following</h4>
 
           </div>
 
@@ -206,17 +204,21 @@
                       <div class="profile_data">
 
                           <div class="track_record_2">
-                            <h3>Nairobi, Kenya</h3>
+                            <h3>Address: {{business.address}}</h3>
 
                             <div class="row clearfix">
                               <div class="no_padd col-md-12 clearfix">
-                                <h3>Profession</h3>
+                                <h3>Value Proposition</h3>
                                 <div class="single_card_wrapper">
                                   <div class="card_C card" style="">
                                     <div class="card-body">
                                       <div class=""> 
                                         <p class="card-text dark-text">
-                                          Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+                                          {% if business.value_proposition_statement %}
+                                            {{business.value_proposition_statement}}
+                                          {% else %}
+                                            No value proposition statement provided
+                                          {% endif %}
                                         </p>
                                       </div>
  
@@ -234,35 +236,35 @@
                                       <div class="pull-left">
 
                                         <h5 class="card-title">
-                                          Equity Investor Type
+                                          Employee count
                                         </h5>  
                                         <p class="card-text">
-                                          Angel
+                                          {{business.full_time_employee_count}}
                                         </p>
 
                                         <h5 class="card-title">
-                                          Experience in Crowdfunding
+                                          Company Size
                                         </h5>  
                                         <p class="card-text">
-                                          1st time
+                                          {{business.size}}
                                         </p>
                                       </div>
                                       <div class="pull-right">
 
                                         <h5 class="card-title">
-                                          Sector of Interest
+                                          Sector
                                         </h5>  
-                                        <p class="card-text">Agriculture</p>
+                                        <p class="card-text">{{business.sector}}</p>
 
                                         <h5 class="card-title">
-                                          Stage of <br>Company Preference
+                                          Year of registration
                                         </h5>  
-                                        <p class="card-text">Start-up (pre-seed) </p>
+                                        <p class="card-text">{{business.year_of_company_registration}} </p>
 
                                         <h5 class="card-title">
-                                          Region of interest
+                                          Address
                                         </h5>  
-                                        <p class="card-text">East Africa</p>                                        
+                                        <p class="card-text">{{business.address}}</p>                                        
 
                                       </div>  
                                     </div>
@@ -273,13 +275,17 @@
 
                             <div class="row clearfix">
                               <div class="no_padd col-md-12 clearfix">
-                                <h3>What I hope to deliver and gain</h3>
+                                <h3>Product/Service Offering</h3>
                                 <div class="single_card_wrapper">
                                   <div class="card_C card" style="">
                                     <div class="card-body">
                                       <div class=""> 
                                         <p class="card-text dark-text">
-                                          Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+                                          {% if description.product_offering %}
+                                            {{description.product_offering}}
+                                          {% else %}
+                                            No product description provided
+                                          {% endif %}
                                         </p>
                                       </div>
  
@@ -291,13 +297,17 @@
 
                             <div class="row clearfix">
                               <div class="no_padd col-md-12 clearfix">
-                                <h3>What Investment Amount I am Offering</h3>
+                                <h3>Needs fulfilled by Product/service</h3>
                                 <div class="single_card_wrapper">
                                   <div class="card_C card" style="">
                                     <div class="card-body">
                                       <div class=""> 
                                         <p class="card-text dark-text">
-                                          Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+                                          {% if description.needs_fulfilled_by_product %}
+                                          {{description.needs_fulfilled_by_product}}
+                                          {% else %}
+                                          Information not provided
+                                          {% endif %}
                                         </p>
                                       </div>
  
@@ -309,13 +319,17 @@
 
                             <div class="row clearfix">
                               <div class="no_padd col-md-12 clearfix">
-                                <h3>Return Expectation</h3>
+                                <h3>Market Segment information</h3>
                                 <div class="single_card_wrapper">
                                   <div class="card_C card" style="">
                                     <div class="card-body">
                                       <div class=""> 
                                         <p class="card-text dark-text">
-                                          Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+                                          {% if description.market_segment %}
+                                          {{description.market_segment}}
+                                          {% else%}
+                                          This information is not provided
+                                          {% endif %}
                                         </p>
                                       </div>
  
@@ -323,12 +337,6 @@
                                   </div>                                
                                 </div>
                               </div>                                                      
-                            </div>
-
-
-                            <div class="profile_notes">
-                              <h5>Short-Term Loan</h5>
-                              <p>Interested in Borrowing for 1-6 months. VentureLift Africa has a network of third-party financial institutions that can serve you. Please connect with us for a consultation.</p>                              
                             </div>
 
 
@@ -369,7 +377,7 @@
                                     {% else %}
 
                                       <div class="no_post_hero">
-                                        <h3>This user has not posted any update yet.</h3>
+                                        <h3>Is there any new information you wish to share with our network of supporters and investors.</h3>
                                       </div>
 
                                     {% endif %}                   
@@ -418,8 +426,6 @@
           </div>            
 
           <div class="profile_list_side">
-            <h4>Following</h4
-              >
               {% if business_following %}
               <p class="profile_list_side_title">Businesses</p>
               {% endif %}

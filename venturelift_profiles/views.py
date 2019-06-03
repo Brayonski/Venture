@@ -32,15 +32,17 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         supporters_following = following(self.request.user, Supporter)
         investors_following = following(self.request.user, Investor)
         posts = Post.objects.filter(
-            Q(company__in=companies_following) | Q(supporter_author__in=supporters_following) | Q(investor_author__in=investors_following))
+            Q(company__in=companies_following) | Q(supporter_author__in=supporters_following) | Q(investor_author__in=investors_following)).order_by('-date')[:5]
         context['object_list'] = posts
 
         if self.request.user.business_creator.exists():
             business = Business.objects.get(creator=self.request.user)
-            context['business'] = business
-            context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors=business.sector)[:3]
-            context['r_investor'] = InvestorProfile.objects.filter(target_sectors=business.sector)[:3]
-            context['r_businesses'] = Business.objects.filter(sector=business.sector).exclude(creator=self.request.user)[:3]
+            description =  MarketDescription.objects.get(company_name=business)
+            r_supporter = SupporterProfile.objects.filter(interest_sectors=business.sector)[:3]
+            r_investor = InvestorProfile.objects.filter(target_sectors=business.sector)[:3]
+            r_businesses = Business.objects.filter(sector=business.sector).exclude(creator=self.request.user)[:3]
+            context.update({'business': business, 'description': description, 'r_supporter': r_supporter,
+                            'r_investor':r_investor, 'r_businesses':r_businesses})
 
         if self.request.user.supporter_creator.exists():
             supporter = Supporter.objects.get(user=self.request.user)

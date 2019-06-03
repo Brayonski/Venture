@@ -47,7 +47,7 @@ PROFESSIONAL_SUPPORT = (
 
 INTEREST_STARTUPS = (
     ('SME', 'SME: 5+ years from first revenue, at least $500,000 in revenue in the last two years of operations, 10 + full time team'),
-    ('startup', 'Startup: 2+ years post-revenue, at least $100,000 in revenue in the last year of operations, 3+ full time team'),
+    ('Startup', 'Startup: 2+ years post-revenue, at least $100,000 in revenue in the last year of operations, 3+ full time team'),
     ('both', 'Both SMEs and Startups')
 )
 
@@ -182,16 +182,13 @@ class VlaServices(models.Model):
 class Business(models.Model):
     name = models.CharField(max_length=255)
     sector = models.ForeignKey(BusinessCategory)
-    size = models.CharField(max_length=50, choices=BUSINESS_SIZE)
+    size = models.CharField(max_length=100, choices=BUSINESS_SIZE)
     creator = models.ForeignKey(User, related_name='business_creator')
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
     company_primary_email = models.EmailField()
     company_secondary_email = models.EmailField(null=True, blank=True)
-    facebook_profile = models.URLField(max_length=200, null=True, blank=True)
-    linkedin_profile = models.URLField(max_length=200, null=True, blank=True)
-    twitter_profile = models.URLField(max_length=200, null=True, blank=True)
-    instagram_profile = models.URLField(max_length=200, null=True, blank=True)
+    company_website = models.URLField(max_length=200, null=True, blank=True)
     address = models.CharField(max_length=200)
     year_of_company_registration = models.IntegerField(choices=YEAR_CHOICES)
     value_proposition_statement = models.TextField(null=True, blank=True)

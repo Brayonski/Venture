@@ -11,29 +11,29 @@
       <div class="profile_top_in">
         <div class="padless-leftX col-md-6 col-sm-6 col-xs-6">
           <div class="ptin_A ptin_1A">
-            <figure class="maxi_avi2">
-                {% if business.thumbnail_image %}
-                <img src="{{ business.thumbnail_image.url }}">
-                {% else %}
-                <img src="{% static 'img/blue-user-icon.svg' %}">
-                {% endif %}
-            </figure>  
-            <div class="ptin_1A1">
-              <div class="Xuser_label_wrap Xtop">
-                <ul class="Xuser_label Xfunder_label Xtop">
-                  <li class="Xuser_label_company2 Xtop">
-                      <h4><ion-icon name="briefcase"></ion-icon>  {{ business.name }}</h4>                    
-                  </li>
-                  <li class="Xuser_label_company Xtop">
-                    {{ business.name }}-
-                    {% if business.verified %}
-                    {% else %}
-                    {% endif %}                    
-                  </li>
-                  <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Funder - Crowdfunding</li>                  
-                </ul>
-              </div>            
-            </div>                      
+              <figure class="maxi_avi2">
+                  {% if business.thumbnail_image %}
+                  <img src="{{ business.thumbnail_image.url }}">
+                  {% else %}
+                  <img src="{% static 'img/blue-user-icon.svg' %}">
+                  {% endif %}
+              </figure>  
+              <div class="ptin_1A1">
+                <div class="Xuser_label_wrap Xtop">
+                  <ul class="Xuser_label Xfunder_label Xtop">
+                    <li class="Xuser_label_company2 Xtop">
+                        <h4><ion-icon name="briefcase"></ion-icon>  {{ business.name }}</h4>                    
+                    </li>
+                    <li class="Xuser_label_company Xtop">
+                      {{ business.name }}-
+                      {% if business.verified %}
+                      {% else %}
+                      {% endif %}                    
+                    </li>
+                    <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Sector: {{business.sector}}</li>                  
+                  </ul>
+                </div>            
+              </div>                       
           </div>
 
         </div>
@@ -42,14 +42,7 @@
             <ul class="top_top_right">
               <li class="top_top_website">
                 <ion-icon name="globe"></ion-icon> <a href="{{ business.company_website }}" target="_blank">{{ investor.company_website }}</a>
-              </li>
-              {% if business.linkedin_profile is not empty %}
-                <li class="top_top_linkedin">
-                  <a href="{{ business.linkedin_profile }}" target="_blank">
-                    <ion-icon name="logo-linkedin"></ion-icon>
-                  </a>
-                </li>
-              {% endif %}                
+              </li>             
             </ul>
             
           </div>          
@@ -65,8 +58,13 @@
         <div class="col_A_in col_A_in_1">
 
             <div class="card-body progress-card text-center">
-              <p>Verification in progress</p>
-              <img src="{% static 'img/progress.png' %}">
+                {% if business.verified %}
+                <p>Verified</p>
+                <img src="{% static 'img/verified.png' %}">
+                {% else %}
+                <p>Verification in progress</p>
+                <img src="{% static 'img/progress.png' %}">
+                {% endif %}
             </div>
 
           <div class="card card-body">
@@ -77,344 +75,9 @@
 
 
 
-          <div class="profile_list_side">
-            <h4>Similar Businesses</h4>
-
-          </div>
 
           <div class="profile_list_side">
-            <h4>Followers</h4>
-                   
-            {% if business_followers %}
-            <p class="profile_list_side_title">Businesses</p>
-            {% endif %}
-            {% for obj in business_followers %}
-            <div class="box_boxY">
-              <div class="box_box_inY">
-                <figure class="box_aviY">
-                  <a href="{% url 'business_profile' obj.pk %}">
-                    {% if obj.thumbnail_image %}
-                    <img src="{{ obj.thumbnail_image.url }}">
-                    {% else %}
-                    <img src="{% static 'img/no-img.jpg' %}">
-                    {% endif %}
-                  </a>  
-                </figure>
-                <figure class="box_detailsY">
-                  <p class="box_titleY">
-                    <a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a>
-                  </p>
-                  <div class="box_socialY">
-                    {% if obj in business_followers %}
-                    <a href="{% url 'business_follow' obj.id %}">
-                      <button class="btn-actioned btn btn-sm btn-default">Follow</button>
-                    </a>
-                    {% endif %}
-                  </div>
-                </figure>
-              </div>
-            </div>
-            {% endfor %}
-          
-          
-            {% if supporter_followers %}
-            <p class="profile_list_side_title">Supporters</p>
-            {% endif %}
-            {% for obj in supporter_followers %}
-            <div class="box_boxY">
-              <div class="box_box_inY">
-                <figure class="box_aviY">
-                  <a href="{% url 'business_profile' obj.pk %}">
-                    {% if obj.thumbnail_image %}
-                    <img src="{{ obj.thumbnail_image.url }}">
-                    {% else %}
-                    <img src="{% static 'img/blue-user-icon.svg' %}">
-                    {% endif %}
-                  </a>  
-                </figure>
-                <figure class="box_detailsY">
-                  <p class="box_titleY">
-                    <a href="{% url 'supporter_profile' obj.pk %}">{{obj.fullname}}</a>
-                  </p>
-                  <div class="box_socialY">
-                    {% if obj in supporter_followers %}
-                    <a href="{% url 'supporter_follow' obj.id %}">
-                      <button class="btn-actioned btn btn-sm btn-default">Follow</button>
-                    </a>
-                    {% endif %}
-                  </div>
-                </figure>
-              </div>
-            </div>
-            {% endfor %}
-          
-          
-            {% if investor_followers %}
-            <p class="profile_list_side_title">Investors</p>
-            {% endif %}
-            {% for obj in investor_followers %}
-            <div class="box_boxY">
-              <div class="box_box_inY">
-                <figure class="box_aviY">
-                  <a href="{% url 'business_profile' obj.pk %}">
-                    {% if obj.thumbnail_image %}
-                    <img src="{{ obj.thumbnail_image.url }}">
-                    {% else %}
-                    <img src="{% static 'img/blue-user-icon.svg' %}">
-                    {% endif %}
-                  </a>  
-                </figure>
-                <figure class="box_detailsY">
-                  <p class="box_titleY">
-                    <a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a>
-                  </p>
-                  <div class="box_socialY">
-                    {% if obj in investor_followers %}
-                    <a href="{% url 'investor_follow' obj.id %}">
-                      <button class="btn-actioned btn btn-sm btn-default">Follow</button>
-                    </a>
-                    {% endif %}
-                  </div>
-                </figure>
-              </div>
-            </div>
-            {% endfor %}
-                      
-          </div>
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="col_A_out col_A_out_2 col-md-6 clearfix">
-        <div class="col_A_in col_A_in_2">
-          <div class="onboarding_A">
-            <div class="row clearfix">
-              <div class="col-md-12 clearfix">
-
-                <div class="tab-content">
-                  <div id="profile" class="tab-pane fade in active">
-                    <div class="col-md-12 clearfix">
-                      <div class="profile_data">
-
-                          <div class="track_record_2">
-                            <h3>Nairobi, Kenya</h3>
-
-                            <div class="row clearfix">
-                              <div class="no_padd col-md-12 clearfix">
-                                <h3>Profession</h3>
-                                <div class="single_card_wrapper">
-                                  <div class="card_C card" style="">
-                                    <div class="card-body">
-                                      <div class=""> 
-                                        <p class="card-text dark-text">
-                                          Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
-                                        </p>
-                                      </div>
- 
-                                    </div>
-                                  </div>                                
-                                </div>
-                              </div>                                                      
-                            </div>
-
-                            <div class="row clearfix">
-                              <div class="no_padd col-md-12 clearfix">
-                                <div class="single_card_wrapper">
-                                  <div class="card_C card" style="">
-                                    <div class="card-body">
-                                      <div class="pull-left">
-
-                                        <h5 class="card-title">
-                                          Equity Investor Type
-                                        </h5>  
-                                        <p class="card-text">
-                                          Angel
-                                        </p>
-
-                                        <h5 class="card-title">
-                                          Experience in Crowdfunding
-                                        </h5>  
-                                        <p class="card-text">
-                                          1st time
-                                        </p>
-                                      </div>
-                                      <div class="pull-right">
-
-                                        <h5 class="card-title">
-                                          Sector of Interest
-                                        </h5>  
-                                        <p class="card-text">Agriculture</p>
-
-                                        <h5 class="card-title">
-                                          Stage of <br>Company Preference
-                                        </h5>  
-                                        <p class="card-text">Start-up (pre-seed) </p>
-
-                                        <h5 class="card-title">
-                                          Region of interest
-                                        </h5>  
-                                        <p class="card-text">East Africa</p>                                        
-
-                                      </div>  
-                                    </div>
-                                  </div>                                
-                                </div>
-                              </div>                                                      
-                            </div>
-
-                            <div class="row clearfix">
-                              <div class="no_padd col-md-12 clearfix">
-                                <h3>What I hope to deliver and gain</h3>
-                                <div class="single_card_wrapper">
-                                  <div class="card_C card" style="">
-                                    <div class="card-body">
-                                      <div class=""> 
-                                        <p class="card-text dark-text">
-                                          Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
-                                        </p>
-                                      </div>
- 
-                                    </div>
-                                  </div>                                
-                                </div>
-                              </div>                                                      
-                            </div>
-
-                            <div class="row clearfix">
-                              <div class="no_padd col-md-12 clearfix">
-                                <h3>What Investment Amount I am Offering</h3>
-                                <div class="single_card_wrapper">
-                                  <div class="card_C card" style="">
-                                    <div class="card-body">
-                                      <div class=""> 
-                                        <p class="card-text dark-text">
-                                          Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
-                                        </p>
-                                      </div>
- 
-                                    </div>
-                                  </div>                                
-                                </div>
-                              </div>                                                      
-                            </div>
-
-                            <div class="row clearfix">
-                              <div class="no_padd col-md-12 clearfix">
-                                <h3>Return Expectation</h3>
-                                <div class="single_card_wrapper">
-                                  <div class="card_C card" style="">
-                                    <div class="card-body">
-                                      <div class=""> 
-                                        <p class="card-text dark-text">
-                                          Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
-                                        </p>
-                                      </div>
- 
-                                    </div>
-                                  </div>                                
-                                </div>
-                              </div>                                                      
-                            </div>
-
-
-                            <div class="top_center_nav text-center">
-                                <div class="top_banner_ctaY">
-                                  <div class="contact_infoY">
-                                    <h3>Contact Information</h3>
-                                    <p>Email Address</p>
-                                  </div>
-                                  <a href="#connect" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Connect</a>
-                                </div>                
-                            </div>
-
-
-                            <div class="profile_notes">
-                              <h5>Short-Term Loan</h5>
-                              <p>Interested in Borrowing for 1-6 months. VentureLift Africa has a network of third-party financial institutions that can serve you. Please connect with us for a consultation.</p>                              
-                            </div>
-
-
-
-                            <div class="row clearfix updates_B">
-                                <div class="no_padd col-md-12 clearfix">
-                                  <h3 class="h3_A">Updates</h3>
-                                  <div class="col_A_in col_A_in_2">
-
-                                    {% if post %}
-                                      {% for post in post %}
-
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h4><a href="#nogo">{{post.title}}</a></h4>
-                                                {% if post.author %}
-                                                <p>Author: {{post.author}}</p>
-                                                {% else %}
-                                                <p>Company: {{post.company}}</p>
-                                                {% endif %}
-
-                                                <div class="card_summary">
-                                                    <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
-                                                </div>  
-                                            </div>    
-                                            <div class="card_footer">
-                                                {% if request.user in post.likes.all %}
-                                                <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
-                                                    ({{post.likes.count}} likes)</a>
-                                                {% else %}
-                                                <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
-                                                    ({{post.likes.count}} likes)</a>
-                                                {% endif %}
-                                                <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
-                                            </div>          
-                                        </div>
-
-                                      {% endfor %}
-                                    {% else %}
-
-                                      <div class="no_post_hero">
-                                        <h3>This user has not posted any update yet.</h3>
-                                      </div>
-
-                                    {% endif %}                   
-                                  </div>
-                                </div>    
-                            </div>
-
-                          </div>
-
-                      </div>
-                    </div>
-                  </div>                  
-
-                </div>
-
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col_A_out col_A_out_3 col-md-3 clearfix">
-        <div class="col_A_in col_A_in_3">
-
-          <div class="profile_list_side">
-            <h4>Recommended Businesses</h4>
-
-          </div>            
-
-          <div class="profile_list_side">
-            <h4>Following</h4
-              >
+              <h4>Following</h4>
               {% if business_following %}
               <p class="profile_list_side_title">Businesses</p>
               {% endif %}
@@ -509,11 +172,367 @@
                 </div>
               </div>
               {% endfor %}
-            
+            </div>
+  
+            <div class="profile_list_side">
+              <h4>Followers</h4>
+                     
+              {% if business_followers %}
+              <p class="profile_list_side_title">Businesses</p>
+              {% endif %}
+              {% for obj in business_followers %}
+              <div class="box_boxY">
+                <div class="box_box_inY">
+                  <figure class="box_aviY">
+                    <a href="{% url 'business_profile' obj.pk %}">
+                      {% if obj.thumbnail_image %}
+                      <img src="{{ obj.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/no-img.jpg' %}">
+                      {% endif %}
+                    </a>  
+                  </figure>
+                  <figure class="box_detailsY">
+                    <p class="box_titleY">
+                      <a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a>
+                    </p>
+                    <div class="box_socialY">
+                      {% if obj in business_followers %}
+                      <a href="{% url 'business_follow' obj.id %}">
+                        <button class="btn-actioned btn btn-sm btn-default">Follow</button>
+                      </a>
+                      {% endif %}
+                    </div>
+                  </figure>
+                </div>
+              </div>
+              {% endfor %}
+          
+          
+              {% if supporter_followers %}
+              <p class="profile_list_side_title">Supporters</p>
+              {% endif %}
+              {% for obj in supporter_followers %}
+              <div class="box_boxY">
+                <div class="box_box_inY">
+                  <figure class="box_aviY">
+                    <a href="{% url 'business_profile' obj.pk %}">
+                      {% if obj.thumbnail_image %}
+                      <img src="{{ obj.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% endif %}
+                    </a>  
+                  </figure>
+                  <figure class="box_detailsY">
+                    <p class="box_titleY">
+                      <a href="{% url 'supporter_profile' obj.pk %}">{{obj.fullname}}</a>
+                    </p>
+                    <div class="box_socialY">
+                      {% if obj in supporter_followers %}
+                      <a href="{% url 'supporter_follow' obj.id %}">
+                        <button class="btn-actioned btn btn-sm btn-default">Follow</button>
+                      </a>
+                      {% endif %}
+                    </div>
+                  </figure>
+                </div>
+              </div>
+              {% endfor %}
+          
+          
+              {% if investor_followers %}
+              <p class="profile_list_side_title">Investors</p>
+              {% endif %}
+              {% for obj in investor_followers %}
+              <div class="box_boxY">
+                <div class="box_box_inY">
+                  <figure class="box_aviY">
+                    <a href="{% url 'business_profile' obj.pk %}">
+                      {% if obj.thumbnail_image %}
+                      <img src="{{ obj.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% endif %}
+                    </a>  
+                  </figure>
+                  <figure class="box_detailsY">
+                    <p class="box_titleY">
+                      <a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a>
+                    </p>
+                    <div class="box_socialY">
+                      {% if obj in investor_followers %}
+                      <a href="{% url 'investor_follow' obj.id %}">
+                        <button class="btn-actioned btn btn-sm btn-default">Follow</button>
+                      </a>
+                      {% endif %}
+                    </div>
+                  </figure>
+                </div>
+              </div>
+              {% endfor %}
+                      
           </div>
+
+
+
+
+
+
+
+
+
+
 
         </div>
       </div>
+      <div class="col_A_out col_A_out_2 col-md-6 clearfix">
+        <div class="col_A_in col_A_in_2">
+          <div class="onboarding_A">
+            <div class="row clearfix">
+              <div class="col-md-12 clearfix">
+
+                <div class="tab-content">
+                  <div id="profile" class="tab-pane fade in active">
+                    <div class="col-md-12 clearfix">
+                      <div class="profile_data">
+
+                          <div class="track_record_2">
+                              <h3>Address: {{business.address}}</h3>
+  
+                              <div class="row clearfix">
+                                <div class="no_padd col-md-12 clearfix">
+                                  <h3>Value Proposition</h3>
+                                  <div class="single_card_wrapper">
+                                    <div class="card_C card" style="">
+                                      <div class="card-body">
+                                        <div class=""> 
+                                          <p class="card-text dark-text">
+                                            {% if business.value_proposition_statement %}
+                                              {{business.value_proposition_statement}}
+                                            {% else %}
+                                              No value proposition statement provided
+                                            {% endif %}
+                                          </p>
+                                        </div>
+   
+                                      </div>
+                                    </div>                                
+                                  </div>
+                                </div>                                                      
+                              </div>
+
+                              <div class="row clearfix">
+                                  <div class="no_padd col-md-12 clearfix">
+                                    <div class="single_card_wrapper">
+                                      <div class="card_C card" style="">
+                                        <div class="card-body">
+                                          <div class="pull-left">
+    
+                                            <h5 class="card-title">
+                                              Employee count
+                                            </h5>  
+                                            <p class="card-text">
+                                              {{business.full_time_employee_count}}
+                                            </p>
+    
+                                            <h5 class="card-title">
+                                              Company Size
+                                            </h5>  
+                                            <p class="card-text">
+                                              {{business.size}}
+                                            </p>
+                                          </div>
+                                          <div class="pull-right">
+    
+                                            <h5 class="card-title">
+                                              Sector
+                                            </h5>  
+                                            <p class="card-text">{{business.sector}}</p>
+    
+                                            <h5 class="card-title">
+                                              Year of registration
+                                            </h5>  
+                                            <p class="card-text">{{business.year_of_company_registration}} </p>
+    
+                                            <h5 class="card-title">
+                                              Address
+                                            </h5>  
+                                            <p class="card-text">{{business.address}}</p>                                        
+    
+                                          </div>  
+                                        </div>
+                                      </div>                                
+                                    </div>
+                                  </div>                                                      
+                                </div>
+    
+
+                                <div class="row clearfix">
+                                    <div class="no_padd col-md-12 clearfix">
+                                      <h3>Product/Service Offering</h3>
+                                      <div class="single_card_wrapper">
+                                        <div class="card_C card" style="">
+                                          <div class="card-body">
+                                            <div class=""> 
+                                              <p class="card-text dark-text">
+                                                {% if description.product_offering %}
+                                                  {{description.product_offering}}
+                                                {% else %}
+                                                  No product description provided
+                                                {% endif %}
+                                              </p>
+                                            </div>
+       
+                                          </div>
+                                        </div>                                
+                                      </div>
+                                    </div>                                                      
+                                  </div>
+      
+                                  <div class="row clearfix">
+                                    <div class="no_padd col-md-12 clearfix">
+                                      <h3>Needs fulfilled by Product/service</h3>
+                                      <div class="single_card_wrapper">
+                                        <div class="card_C card" style="">
+                                          <div class="card-body">
+                                            <div class=""> 
+                                              <p class="card-text dark-text">
+                                                {% if description.needs_fulfilled_by_product %}
+                                                {{description.needs_fulfilled_by_product}}
+                                                {% else %}
+                                                Information not provided
+                                                {% endif %}
+                                              </p>
+                                            </div>
+       
+                                          </div>
+                                        </div>                                
+                                      </div>
+                                    </div>                                                      
+                                  </div>
+
+                                  <div class="row clearfix">
+                                      <div class="no_padd col-md-12 clearfix">
+                                        <h3>Market Segment information</h3>
+                                        <div class="single_card_wrapper">
+                                          <div class="card_C card" style="">
+                                            <div class="card-body">
+                                              <div class=""> 
+                                                <p class="card-text dark-text">
+                                                  {% if description.market_segment %}
+                                                  {{description.market_segment}}
+                                                  {% else%}
+                                                  This information is not provided
+                                                  {% endif %}
+                                                </p>
+                                              </div>
+         
+                                            </div>
+                                          </div>                                
+                                        </div>
+                                      </div>                                                      
+                                    </div>
+
+
+                            <div class="top_center_nav text-center">
+                                <div class="top_banner_ctaY">
+                                  <div class="contact_infoY">
+                                    <h3>Contact Information</h3>
+                                    <p>Connect me with this company</p>
+                                  </div>
+                                  <a href="#connect" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Connect</a>
+                                </div>                
+                            </div>
+
+
+                            <div class="row clearfix updates_B">
+                                <div class="no_padd col-md-12 clearfix">
+                                  <h3 class="h3_A">Updates</h3>
+                                  <div class="col_A_in col_A_in_2">
+
+                                    {% if post %}
+                                      {% for post in post %}
+
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4><a href="#nogo">{{post.title}}</a></h4>
+                                                {% if post.author %}
+                                                <p>Author: {{post.author}}</p>
+                                                {% else %}
+                                                <p>Company: {{post.company}}</p>
+                                                {% endif %}
+
+                                                <div class="card_summary">
+                                                    <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
+                                                </div>  
+                                            </div>    
+                                            <div class="card_footer">
+                                                {% if request.user in post.likes.all %}
+                                                <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
+                                                    ({{post.likes.count}} likes)</a>
+                                                {% else %}
+                                                <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
+                                                    ({{post.likes.count}} likes)</a>
+                                                {% endif %}
+                                                <a href=""><i class='glyphicon glyphicon-comment'></i> Comment</a>
+                                            </div>          
+                                        </div>
+
+                                      {% endfor %}
+                                    {% else %}
+
+                                      <div class="no_post_hero">
+                                        <h3>This user has not posted any update yet.</h3>
+                                      </div>
+
+                                    {% endif %}                   
+                                  </div>
+                                </div>    
+                            </div>
+
+                          </div>
+
+                      </div>
+                    </div>
+                  </div>                  
+
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col_A_out col_A_out_3 col-md-3 clearfix">
+          <div class="col_A_in col_A_in_3">
+  
+            <div class="profile_list_side">
+              <h4>Recommended Businesses</h4>
+              {% for business in r_businesses %}
+              <li>
+                  <a href="{% url 'business_profile' business.pk %}">{{business.name}}</a>
+              </li>
+              {% endfor %}
+  
+              <h4>Recommended Funders</h4>
+              {% for funder in r_investor %}
+                  <li>
+                      <a href="{% url 'investor_profile' funder.investor_profile.pk %}">{{funder.investor_profile.user.username}}</a>
+                  </li>
+              {% endfor %}
+              <h4>Recommended Partners</h4>
+              {% for partner in r_supporter %}
+                  <li>
+                      <a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a>
+                  </li>
+              {% endfor %}
+            </div>            
+  
+          </div>
+        </div>
     </div>
   </div>
 
