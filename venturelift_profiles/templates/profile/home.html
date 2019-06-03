@@ -15,7 +15,7 @@
                 {% if business.thumbnail_image %}
                 <img src="{{ business.thumbnail_image.url }}">
                 {% else %}
-                <img src="{% static 'img/blue-user-icon.svg' %}">
+                <img src="{% static 'img/no-img.png' %}">
                 {% endif %}
             </figure>  
             <div class="ptin_1A1">
@@ -404,24 +404,71 @@
         <div class="col_A_in col_A_in_3">
 
           <div class="profile_list_side">
-            <h4>Recommended Businesses</h4>
-            {% for business in r_businesses %}
-            <li>
-                <a href="{% url 'business_profile' business.pk %}">{{business.name}}</a>
-            </li>
-            {% endfor %}
+              <div class="profile_list_side">
+                  <h4>Recommended Businesses</h4>
+                  {% for business in r_businesses %}
+                  <div class="box_boxY">
+                    <div class="box_box_inY">
+                      <figure class="box_aviY">
+                        <a href="#">
+                          {% if business.thumbnail_image %}
+                          <img src="{{ business.thumbnail_image.url }}">
+                          {% else %}
+                          <img src="{% static 'img/no-img.png' %}">
+                          {% endif %}
+                        </a>  
+                      </figure>
+                      <figure class="box_detailsY">
+                        <p class="box_titleY">
+                          <a href="{% url 'business_profile' business.pk %}">{{business.name}}</a>
+                        </p>
+                      </figure>
+                    </div>
+                  </div>
+                  {% endfor %}
 
             <h4>Recommended Funders</h4>
             {% for funder in r_investor %}
-                <li>
-                    <a href="{% url 'investor_profile' funder.investor_profile.pk %}">{{funder.investor_profile.user.username}}</a>
-                </li>
+            <div class="box_boxY">
+              <div class="box_box_inY">
+                <figure class="box_aviY">
+                  <a href="#">
+                    {% if funder.thumbnail_image %}
+                    <img src="{{ funder.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/funder.jpg' %}">
+                    {% endif %}
+                  </a>  
+                </figure>
+                <figure class="box_detailsY">
+                  <p class="box_titleY">
+                      <a href="{% url 'investor_profile' funder.investor_profile.pk %}">{{funder.investor_profile.user.username}}</a>
+                  </p>
+                </figure>
+              </div>
+            </div>
             {% endfor %}
+
             <h4>Recommended Partners</h4>
             {% for partner in r_supporter %}
-                <li>
-                    <a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a>
-                </li>
+            <div class="box_boxY">
+              <div class="box_box_inY">
+                <figure class="box_aviY">
+                  <a href="#">
+                    {% if partner.thumbnail_image %}
+                    <img src="{{ partner.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/blue-user-icon.svg' %}">
+                    {% endif %}
+                  </a>  
+                </figure>
+                <figure class="box_detailsY">
+                  <p class="box_titleY">
+                      <a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a>
+                  </p>
+                </figure>
+              </div>
+            </div>
             {% endfor %}
           </div>            
 

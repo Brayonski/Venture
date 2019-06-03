@@ -78,100 +78,103 @@
 
           <div class="profile_list_side">
               <h4>Following</h4>
-              {% if business_following %}
-              <p class="profile_list_side_title">Businesses</p>
-              {% endif %}
-              {% for obj in business_following %}
-              <div class="box_boxY">
-                <div class="box_box_inY">
-                  <figure class="box_aviY">
-                    <a href="{% url 'business_profile' obj.pk %}">
-                      {% if obj.thumbnail_image %}
-                      <img src="{{ obj.thumbnail_image.url }}">
-                      {% else %}
-                      <img src="{% static 'img/no-img.jpg' %}">
-                      {% endif %}
-                    </a>  
-                  </figure>
-                  <figure class="box_detailsY">
-                    <p class="box_titleY">
-                      <a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a>
-                    </p>
-                    <div class="box_socialY">
-                      {% if obj in business_following %}
-                      <a href="{% url 'business_unfollow' obj.id %}">
-                        <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
-                      </a>
-                      {% endif %}
+              <div class="profile_list_side">
+                  {% if business_following %}
+                  <p class="profile_list_side_title">Businesses</p>
+                  {% endif %}
+                  {% for obj in business_following %}
+                  <div class="box_boxY">
+                    <div class="box_box_inY">
+                      <figure class="box_aviY">
+                        <a href="{% url 'business_profile' obj.pk %}">
+                          {% if obj.thumbnail_image %}
+                          <img src="{{ obj.thumbnail_image.url }}">
+                          {% else %}
+                          <img src="{% static 'img/no-img.jpg' %}">
+                          {% endif %}
+                        </a>  
+                      </figure>
+                      <figure class="box_detailsY">
+                        <p class="box_titleY">
+                          <a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a>
+                        </p>
+                        <div class="box_socialY">
+                          {% if obj in business_following %}
+                          <a href="{% url 'business_unfollow' obj.id %}">
+                            <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                          </a>
+                          {% endif %}
+                        </div>
+                      </figure>
                     </div>
-                  </figure>
-                </div>
-              </div>
-              {% endfor %}
-            
-            
-              {% if supporter_following %}
-              <p class="profile_list_side_title">Partners</p>
-              {% endif %}
-              {% for obj in supporter_following %}
-              <div class="box_boxY">
-                <div class="box_box_inY">
-                  <figure class="box_aviY">
-                    <a href="{% url 'supporter_profile' obj.pk %}">
-                      {% if obj.thumbnail_image %}
-                      <img src="{{ obj.thumbnail_image.url }}">
-                      {% else %}
-                      <img src="{% static 'img/blue-user-icon.svg' %}">
-                      {% endif %}
-                    </a>  
-                  </figure>
-                  <figure class="box_detailsY">
-                    <p class="box_titleY">
-                      <a href="{% url 'supporter_profile' obj.pk %}">{{obj.fullname}}</a>
-                    </p>
-                    <div class="box_socialY">
-                      {% if obj in supporter_following %}
-                      <a href="{% url 'supporter_unfollow' obj.id %}">
-                        <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
-                      </a>
-                      {% endif %}
+                  </div>
+                  {% endfor %}
+                
+                
+                  {% if supporter_following %}
+                  <p class="profile_list_side_title">Partners</p>
+                  {% endif %}
+                  {% for obj in supporter_following %}
+                  <div class="box_boxY">
+                    <div class="box_box_inY">
+                      <figure class="box_aviY">
+                        <a href="{% url 'supporter_profile' obj.pk %}">
+                          {% if obj.thumbnail_image %}
+                          <img src="{{ obj.thumbnail_image.url }}">
+                          {% else %}
+                          <img src="{% static 'img/blue-user-icon.svg' %}">
+                          {% endif %}
+                        </a>  
+                      </figure>
+                      <figure class="box_detailsY">
+                        <p class="box_titleY">
+                          <a href="{% url 'supporter_profile' obj.pk %}">{{obj.fullname}}</a>
+                        </p>
+                        <div class="box_socialY">
+                          {% if obj in supporter_following %}
+                          <a href="{% url 'supporter_unfollow' obj.id %}">
+                            <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                          </a>
+                          {% endif %}
+                        </div>
+                      </figure>
                     </div>
-                  </figure>
-                </div>
-              </div>
-              {% endfor %}
-            
-            
-              {% if investor_following %}
-              <p class="profile_list_side_title">Funders</p>
-              {% endif %}
-              {% for obj in investor_following %}
-              <div class="box_boxY">
-                <div class="box_box_inY">
-                  <figure class="box_aviY">
-                    <a href="{% url 'investor_profile' obj.pk %}">
-                      {% if obj.thumbnail_image %}
-                      <img src="{{ obj.thumbnail_image.url }}">
-                      {% else %}
-                      <img src="{% static 'img/blue-user-icon.svg' %}">
-                      {% endif %}
-                    </a>  
-                  </figure>
-                  <figure class="box_detailsY">
-                    <p class="box_titleY">
-                      <a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a>
-                    </p>
-                    <div class="box_socialY">
-                      {% if obj in investor_following %}
-                      <a href="{% url 'investor_unfollow' obj.id %}">
-                        <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
-                      </a>
-                      {% endif %}
+                  </div>
+                  {% endfor %}
+                
+                
+                  {% if investor_following %}
+                  <p class="profile_list_side_title">Funders</p>
+                  {% endif %}
+                  {% for obj in investor_following %}
+                  <div class="box_boxY">
+                    <div class="box_box_inY">
+                      <figure class="box_aviY">
+                        <a href="{% url 'investor_profile' obj.pk %}">
+                          {% if obj.thumbnail_image %}
+                          <img src="{{ obj.thumbnail_image.url }}">
+                          {% else %}
+                          <img src="{% static 'img/blue-user-icon.svg' %}">
+                          {% endif %}
+                        </a>  
+                      </figure>
+                      <figure class="box_detailsY">
+                        <p class="box_titleY">
+                          <a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a>
+                        </p>
+                        <div class="box_socialY">
+                          {% if obj in investor_following %}
+                          <a href="{% url 'investor_unfollow' obj.id %}">
+                            <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                          </a>
+                          {% endif %}
+                        </div>
+                      </figure>
                     </div>
-                  </figure>
-                </div>
+                  </div>
+                  {% endfor %}
+                
               </div>
-              {% endfor %}
             </div>
   
             <div class="profile_list_side">
@@ -509,28 +512,74 @@
       <div class="col_A_out col_A_out_3 col-md-3 clearfix">
           <div class="col_A_in col_A_in_3">
   
-            <div class="profile_list_side">
-              <h4>Recommended Businesses</h4>
-              {% for business in r_businesses %}
-              <li>
-                  <a href="{% url 'business_profile' business.pk %}">{{business.name}}</a>
-              </li>
-              {% endfor %}
-  
-              <h4>Recommended Funders</h4>
-              {% for funder in r_investor %}
-                  <li>
-                      <a href="{% url 'investor_profile' funder.investor_profile.pk %}">{{funder.investor_profile.user.username}}</a>
-                  </li>
-              {% endfor %}
-              <h4>Recommended Partners</h4>
-              {% for partner in r_supporter %}
-                  <li>
-                      <a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a>
-                  </li>
-              {% endfor %}
-            </div>            
-  
+              <div class="profile_list_side">
+                  <div class="profile_list_side">
+                      <h4>Recommended Businesses</h4>
+                      {% for business in r_businesses %}
+                      <div class="box_boxY">
+                        <div class="box_box_inY">
+                          <figure class="box_aviY">
+                            <a href="#">
+                              {% if business.thumbnail_image %}
+                              <img src="{{ business.thumbnail_image.url }}">
+                              {% else %}
+                              <img src="{% static 'img/no-img.png' %}">
+                              {% endif %}
+                            </a>  
+                          </figure>
+                          <figure class="box_detailsY">
+                            <p class="box_titleY">
+                              <a href="{% url 'business_profile' business.pk %}">{{business.name}}</a>
+                            </p>
+                          </figure>
+                        </div>
+                      </div>
+                      {% endfor %}
+    
+                <h4>Recommended Funders</h4>
+                {% for funder in r_investor %}
+                <div class="box_boxY">
+                  <div class="box_box_inY">
+                    <figure class="box_aviY">
+                      <a href="#">
+                        {% if funder.thumbnail_image %}
+                        <img src="{{ funder.thumbnail_image.url }}">
+                        {% else %}
+                        <img src="{% static 'img/funder.jpg' %}">
+                        {% endif %}
+                      </a>  
+                    </figure>
+                    <figure class="box_detailsY">
+                      <p class="box_titleY">
+                          <a href="{% url 'investor_profile' funder.investor_profile.pk %}">{{funder.investor_profile.user.username}}</a>
+                      </p>
+                    </figure>
+                  </div>
+                </div>
+                {% endfor %}
+    
+                <h4>Recommended Partners</h4>
+                {% for partner in r_supporter %}
+                <div class="box_boxY">
+                  <div class="box_box_inY">
+                    <figure class="box_aviY">
+                      <a href="#">
+                        {% if partner.thumbnail_image %}
+                        <img src="{{ partner.thumbnail_image.url }}">
+                        {% else %}
+                        <img src="{% static 'img/blue-user-icon.svg' %}">
+                        {% endif %}
+                      </a>  
+                    </figure>
+                    <figure class="box_detailsY">
+                      <p class="box_titleY">
+                          <a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a>
+                      </p>
+                    </figure>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>                        
           </div>
         </div>
     </div>

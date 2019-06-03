@@ -540,26 +540,19 @@ class BusinessProfileView(DetailView):
         supporter_list = []
         business_list = []
         context = super(BusinessProfileView, self).get_context_data(**kwargs)
-        context['business'] = Business.objects.get(
+        business = Business.objects.get(
             pk=self.kwargs.get("pk"))
+        r_supporter = SupporterProfile.objects.filter(interest_sectors=business.sector)[:3]
+        r_investor = InvestorProfile.objects.filter(target_sectors=business.sector)[:3]
+        r_businesses = Business.objects.filter(sector=business.sector).exclude(creator=self.request.user)[:3]
+        context.update({'r_supporter': r_supporter,
+                        'r_investor':r_investor, 'r_businesses':r_businesses, 'business': business})
         context['post'] = Post.objects.filter(
             company=context['business'])[:5]
-        context['business_market'] = MarketDescription.objects.filter(
-            company_name=context['business'])
-        context['business_model'] = BusinessModel.objects.filter(
-            company_name=context['business'])
-        context['business_team'] = BusinessTeam.objects.filter(
-            company_name=context['business'])
-        context['business_finance'] = BusinessFinancial.objects.filter(
-            company_name=context['business'])
-        context['business_investment'] = BusinessInvestment.objects.filter(
-            company_name=context['business'])
-        context['business_goals'] = BusinessGoals.objects.filter(
-            company_name=context['business'])
-        context['investor_following'] = following(self.request.user, Investor)
+        context['investor_following'] = following(self.request.user, Investor)[:3]
         context['supporter_following'] = following(
-            self.request.user, Supporter)
-        context['business_following'] = following(self.request.user, Business)
+            self.request.user, Supporter)[:3]
+        context['business_following'] = following(self.request.user, Business)[:3]
         context['followers'] = followers(context['business'])
         context['user'] = self.request.user
         for obj in context['followers']:
@@ -569,9 +562,9 @@ class BusinessProfileView(DetailView):
                 supporter_list.append(Supporter.objects.get(user=obj))
             elif obj.business_creator.exists():
                 business_list.append(Business.objects.filter(creator=obj))
-        context['investor_followers'] = investor_list
-        context['supporter_followers'] = supporter_list
-        context['business_followers'] = business_list
+        context['investor_followers'] = investor_list[:3]
+        context['supporter_followers'] = supporter_list[:3]
+        context['business_followers'] = business_list[:3]
         return context
 
 
