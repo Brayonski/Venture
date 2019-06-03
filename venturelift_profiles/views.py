@@ -32,17 +32,21 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         supporters_following = following(self.request.user, Supporter)
         investors_following = following(self.request.user, Investor)
         posts = Post.objects.filter(
-            Q(company__in=companies_following) | Q(supporter_author__in=supporters_following) | Q(investor_author__in=investors_following))
+            Q(company__in=companies_following) | Q(supporter_author__in=supporters_following) | Q(investor_author__in=investors_following)).order_by('-date')[:5]
         context['object_list'] = posts
 
         if self.request.user.business_creator.exists():
-            business = Business.objects.get(creator=self.request.user, verified=True)
-            context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors=business.sector)[:3]
-            context['r_investor'] = InvestorProfile.objects.filter(target_sectors=business.sector)[:3]
-            context['r_businesses'] = Business.objects.filter(sector=business.sector).exclude(creator=self.request.user)[:3]
+            business = Business.objects.get(creator=self.request.user)
+            description =  MarketDescription.objects.get(company_name=business)
+            r_supporter = SupporterProfile.objects.filter(interest_sectors=business.sector)[:3]
+            r_investor = InvestorProfile.objects.filter(target_sectors=business.sector)[:3]
+            r_businesses = Business.objects.filter(sector=business.sector).exclude(creator=self.request.user)[:3]
+            context.update({'business': business, 'description': description, 'r_supporter': r_supporter,
+                            'r_investor':r_investor, 'r_businesses':r_businesses})
 
         if self.request.user.supporter_creator.exists():
-            supporter = Supporter.objects.get(user=self.request.user, verified=True)
+            supporter = Supporter.objects.get(user=self.request.user)
+            context['supporter'] = supporter
             profile = SupporterProfile.objects.get(supporter_profile=supporter)
             interests = profile.interest_sectors.all()
             context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct().exclude(supporter_profile=supporter)[:3]
@@ -50,7 +54,8 @@ class SummaryView(LoginRequiredMixin, TemplateView):
             context['r_investor'] = InvestorProfile.objects.filter(target_sectors__in=interests).distinct()[:3]
 
         if self.request.user.investor_creator.exists():
-            investor = Investor.objects.get(user=self.request.user, verified=True)
+            investor = Investor.objects.get(user=self.request.user)
+            context['investor'] = investor
             profile = InvestorProfile.objects.get(investor_profile=investor)
             interests = profile.target_sectors.all()
             context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct()[:3]
@@ -535,26 +540,19 @@ class BusinessProfileView(DetailView):
         supporter_list = []
         business_list = []
         context = super(BusinessProfileView, self).get_context_data(**kwargs)
-        context['business'] = Business.objects.get(
+        business = Business.objects.get(
             pk=self.kwargs.get("pk"))
+        r_supporter = SupporterProfile.objects.filter(interest_sectors=business.sector)[:3]
+        r_investor = InvestorProfile.objects.filter(target_sectors=business.sector)[:3]
+        r_businesses = Business.objects.filter(sector=business.sector).exclude(creator=self.request.user)[:3]
+        context.update({'r_supporter': r_supporter,
+                        'r_investor':r_investor, 'r_businesses':r_businesses, 'business': business})
         context['post'] = Post.objects.filter(
             company=context['business'])[:5]
-        context['business_market'] = MarketDescription.objects.filter(
-            company_name=context['business'])
-        context['business_model'] = BusinessModel.objects.filter(
-            company_name=context['business'])
-        context['business_team'] = BusinessTeam.objects.filter(
-            company_name=context['business'])
-        context['business_finance'] = BusinessFinancial.objects.filter(
-            company_name=context['business'])
-        context['business_investment'] = BusinessInvestment.objects.filter(
-            company_name=context['business'])
-        context['business_goals'] = BusinessGoals.objects.filter(
-            company_name=context['business'])
-        context['investor_following'] = following(self.request.user, Investor)
+        context['investor_following'] = following(self.request.user, Investor)[:3]
         context['supporter_following'] = following(
-            self.request.user, Supporter)
-        context['business_following'] = following(self.request.user, Business)
+            self.request.user, Supporter)[:3]
+        context['business_following'] = following(self.request.user, Business)[:3]
         context['followers'] = followers(context['business'])
         context['user'] = self.request.user
         for obj in context['followers']:
@@ -564,9 +562,9 @@ class BusinessProfileView(DetailView):
                 supporter_list.append(Supporter.objects.get(user=obj))
             elif obj.business_creator.exists():
                 business_list.append(Business.objects.filter(creator=obj))
-        context['investor_followers'] = investor_list
-        context['supporter_followers'] = supporter_list
-        context['business_followers'] = business_list
+        context['investor_followers'] = investor_list[:3]
+        context['supporter_followers'] = supporter_list[:3]
+        context['business_followers'] = business_list[:3]
         return context
 
 
