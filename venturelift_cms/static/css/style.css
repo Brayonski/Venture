@@ -140,6 +140,10 @@ ul.in_line li {
     color: #4aaded;
 }
 
+.vl_top_top ul li.active a {
+    color: rgb(0, 156, 255);
+}
+
 ul.top_top_right {
     list-style: none;
     padding-left: 0px;
@@ -595,7 +599,7 @@ button.search_button {
     font-size: 1.4rem;
     font-weight: 900;
     opacity: .5;
-    margin: 20px 0px;
+    margin: 10px 0px;
 }
 
 ul.in_style_A_list_A {
