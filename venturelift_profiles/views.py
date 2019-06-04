@@ -597,9 +597,6 @@ class InvestorProfileView(DetailView):
 
     def get_context_data(self, **kwargs):
         """Returns the Investor instance that the view displays"""
-        investor_list = []
-        supporter_list = []
-        business_list = []
         context = super(InvestorProfileView, self).get_context_data(**kwargs)
         context['investor'] = Investor.objects.get(
             pk=self.kwargs.get("pk"))
@@ -611,16 +608,9 @@ class InvestorProfileView(DetailView):
         context['supporter_following'] = following(
             self.request.user, Supporter)
         context['business_following'] = following(self.request.user, Business)
-        context['followers'] = followers(context['investor'])
-        context['user'] = self.request.user
-        for obj in context['followers']:
-            if obj.investor_creator.exists():
-                investor_list.append(Investor.objects.get(user=obj))
-            elif obj.supporter_creator.exists():
-                supporter_list.append(Supporter.objects.get(user=obj))
-            elif obj.business_creator.exists():
-                business_list.append(Business.objects.get(creator=obj))
-        context['investor_followers'] = investor_list
-        context['supporter_followers'] = supporter_list
-        context['business_followers'] = business_list
+
+        interests = context['investor_profile'].target_sectors.all()
+        context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct()[:3]
+        context['r_businesses'] = Business.objects.filter(sector__in=interests).distinct()[:3]
+        context['r_investor'] = InvestorProfile.objects.filter(target_sectors__in=interests).distinct().exclude(investor_profile=context['investor'])[:3]
         return context
