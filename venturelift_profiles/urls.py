@@ -74,6 +74,6 @@ urlpatterns = [
         views.InvestorUpdateProfileView.as_view(), name='update_investor_step1'),
     url(r'^investor-create/step-2/(?P<pk>\d+)/$',
         views.InvestorUpdateProfileView.as_view(), name='update_investor_step2'),
-    url(r'^account_activation/$',
-        views.VerificationAccountWaiting.as_view(), name='account_verification_waiting'),
+    #url(r'^account_activation/$',
+    #    views.VerificationAccountWaiting.as_view(), name='account_verification_waiting'),
 ]

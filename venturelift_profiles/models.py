@@ -16,11 +16,11 @@ BUSINESS_SIZE = (
 )
 
 SUPPORTER_INTEREST = (
-    ('supply chain', 'Supply chain(i.e. I am looking for suppliers from Africa)'),
-    ('trade partner', 'Trade partner: I want to trade with African companies'),
-    ('technology provider', 'Technology Provider'),
-    ('talent provider', 'Talent Provider'),
-    ('professional support', 'Professional Support'),
+    ('Supply chain (i.e. I am looking for suppliers from Africa)', 'Supply chain(i.e. I am looking for suppliers from Africa)'),
+    ('Trade partner: I want to trade with African companies', 'Trade partner: I want to trade with African companies'),
+    ('Technology provider', 'Technology Provider'),
+    ('Talent provider', 'Talent Provider'),
+    ('Professional support', 'Professional Support'),
 )
 
 COMPANY_CLASSIFICATION = (
@@ -48,7 +48,6 @@ PROFESSIONAL_SUPPORT = (
 INTEREST_STARTUPS = (
     ('SME', 'SME: 5+ years from first revenue, at least $500,000 in revenue in the last two years of operations, 10 + full time team'),
     ('Startup', 'Startup: 2+ years post-revenue, at least $100,000 in revenue in the last year of operations, 3+ full time team'),
-    ('both', 'Both SMEs and Startups')
 )
 
 INTEREST_SECTORS = (
@@ -328,8 +327,6 @@ class Supporter(models.Model):
         max_length=200, null=True, blank=True, help_text="https://twitter.com/my user name")
     instagram_profile = models.URLField(
         max_length=200, null=True, blank=True, help_text="https://www.instagram.com/my user nam ")
-    subscribe = models.BooleanField(default=True)
-    interests = models.ManyToManyField(BusinessCategory, blank=True)
     verified = models.BooleanField(default=False)
     verified_by = models.ForeignKey(
         User, related_name='supporter_verifier', null=True, blank=True)
@@ -345,7 +342,7 @@ class SupporterProfile(models.Model):
     supporter_profile = models.ForeignKey(
         Supporter, related_name='supporter_profile')
     supporter_interest = models.CharField(
-        max_length=50, choices=SUPPORTER_INTEREST)
+        max_length=200, choices=SUPPORTER_INTEREST)
 
     professional_support = models.CharField(
         max_length=50, choices=PROFESSIONAL_SUPPORT, null=True, blank=True)

@@ -34,7 +34,6 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         posts = Post.objects.filter(
             Q(company__in=companies_following) | Q(supporter_author__in=supporters_following) | Q(investor_author__in=investors_following)).order_by('-date')[:5]
         context['object_list'] = posts
-        print(companies_following)
         context.update({'investor_following': investors_following, 'supporter_following':supporters_following, 'business_following': companies_following})
 
         if self.request.user.business_creator.exists():
@@ -49,8 +48,8 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         if self.request.user.supporter_creator.exists():
             supporter = Supporter.objects.get(user=self.request.user)
             context['supporter'] = supporter
-            profile = SupporterProfile.objects.get(supporter_profile=supporter)
-            interests = profile.interest_sectors.all()
+            context['profile'] = SupporterProfile.objects.get(supporter_profile=supporter)
+            interests = context['profile'].interest_sectors.all()
             context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct().exclude(supporter_profile=supporter)[:3]
             context['r_businesses'] = Business.objects.filter(sector__in=interests).distinct()[:3]
             context['r_investor'] = InvestorProfile.objects.filter(target_sectors__in=interests).distinct()[:3]
@@ -74,10 +73,6 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         return context
 
 
-class VerificationAccountWaiting(LoginRequiredMixin, TemplateView):
-    template_name = 'profile/account_verification_waiting.html'
-
-
 class ProfileCreateView(LoginRequiredMixin, FormView):
     template_name = 'profile/profile_create.html'
     form_class = ChooseProfileForm
@@ -91,7 +86,7 @@ class ProfileCreateView(LoginRequiredMixin, FormView):
 
 
 class SupporterView(LoginRequiredMixin, ListView, FormMixin):
-    template_name = 'profile/supporters.html'
+    template_name = 'profile/supporter/supporters.html'
     queryset = Supporter.objects.filter(verified=True)
     form_class = SupporterFilters
 
@@ -142,7 +137,7 @@ class SupporterView(LoginRequiredMixin, ListView, FormMixin):
 
 
 class InvestorView(LoginRequiredMixin, ListView, FormMixin):
-    template_name = 'profile/investors.html'
+    template_name = 'profile/investor/investors.html'
     queryset = Investor.objects.filter(verified=True)
     form_class = InvestorFilters
 
@@ -198,7 +193,7 @@ class InvestorView(LoginRequiredMixin, ListView, FormMixin):
 
 
 class BusinessView(LoginRequiredMixin, ListView, FormMixin):
-    template_name = 'profile/business.html'
+    template_name = 'profile/business/business.html'
     queryset = Business.objects.filter(verified=True)
     form_class = BusinessFilters
 
@@ -240,7 +235,7 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
 
 
 class CreateBusinessView(LoginRequiredMixin, CreateView):
-    template_name = 'profile/create_business.html'
+    template_name = 'profile/business/create_business.html'
     form_class = CreateBusinessForm
 
     def form_valid(self, form):
@@ -259,7 +254,7 @@ class CreateBusinessView(LoginRequiredMixin, CreateView):
 
 
 class CreateInvestorView(LoginRequiredMixin, CreateView):
-    template_name = 'profile/create_investor.html'
+    template_name = 'profile/investor/create_investor.html'
     form_class = InvestorCreateForm
 
     def form_valid(self, form):
@@ -284,7 +279,7 @@ class CreateInvestorView(LoginRequiredMixin, CreateView):
 
 
 class InvestorUpdateProfileView(LoginRequiredMixin, UpdateView):
-    template_name = 'profile/update_investor.html'
+    template_name = 'profile/investor/update_investor.html'
 
     def get_form(self, form_class=None):
         current_url = resolve(self.request.path_info).url_name
@@ -336,7 +331,7 @@ class InvestorUpdateProfileView(LoginRequiredMixin, UpdateView):
 
 
 class CreateSupporterView(LoginRequiredMixin, CreateView):
-    template_name = 'profile/create_supporter.html'
+    template_name = 'profile/supporter/create_supporter.html'
     form_class = SupporterCreateForm
 
     def form_valid(self, form):
@@ -360,7 +355,7 @@ class CreateSupporterView(LoginRequiredMixin, CreateView):
 
 
 class SupporterUpdateProfileView(LoginRequiredMixin, UpdateView):
-    template_name = 'profile/update_supporter.html'
+    template_name = 'profile/supporter/update_supporter.html'
 
     def get_form(self, form_class=None):
         current_url = resolve(self.request.path_info).url_name
@@ -440,7 +435,7 @@ class CreateBlogPostView(LoginRequiredMixin, CreateView):
 
 
 class UpdateBusinessView(LoginRequiredMixin, UpdateView):
-    template_name = 'profile/update_business.html'
+    template_name = 'profile/business/update_business.html'
 
     def get_form(self, form_class=None):
         current_url = resolve(self.request.path_info).url_name
@@ -522,7 +517,7 @@ class UpdateBusinessView(LoginRequiredMixin, UpdateView):
 
 
 class MyBusinessView(LoginRequiredMixin, ListView):
-    template_name = 'profile/my_business.html'
+    template_name = 'profile/business/my_business.html'
     queryset = Business.objects.all()
 
     def get_context_data(self, **kwargs):
@@ -534,7 +529,7 @@ class MyBusinessView(LoginRequiredMixin, ListView):
 
 class BusinessProfileView(DetailView):
     model = Business
-    template_name = 'profile/business_profile.html'
+    template_name = 'profile/business/business_profile.html'
 
     def get_context_data(self, **kwargs):
         """Returns the Business Profile instance that the view displays"""
@@ -557,7 +552,7 @@ class BusinessProfileView(DetailView):
 
 class SupporterProfileView(DetailView):
     model = Supporter
-    template_name = 'profile/supporter_profile.html'
+    template_name = 'profile/supporter/supporter_profile.html'
 
     def get_context_data(self, **kwargs):
         """Returns the Supporter instance that the view displays"""
@@ -593,7 +588,7 @@ class SupporterProfileView(DetailView):
 
 class InvestorProfileView(DetailView):
     model = Investor
-    template_name = 'profile/investor_profile.html'
+    template_name = 'profile/investor/investor_profile.html'
 
     def get_context_data(self, **kwargs):
         """Returns the Investor instance that the view displays"""
