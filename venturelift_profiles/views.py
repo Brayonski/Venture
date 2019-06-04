@@ -559,11 +559,11 @@ class SupporterProfileView(DetailView):
         context = super(SupporterProfileView, self).get_context_data(**kwargs)
         context['supporter'] = Supporter.objects.get(
             pk=self.kwargs.get("pk"))
-        context['supporter_profile'] = SupporterProfile.objects.get(
+        context['profile'] = SupporterProfile.objects.get(
             supporter_profile_id=context['supporter'].id)
         context['post'] = Post.objects.filter(
             supporter_author=context['supporter'])[:5]
-        interests = context['supporter_profile'].interest_sectors.all()
+        interests = context['profile'].interest_sectors.all()
         context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct().exclude(supporter_profile=context['supporter'])[:3]
         context['r_businesses'] = Business.objects.filter(sector__in=interests).distinct()[:3]
         context['r_investor'] = InvestorProfile.objects.filter(target_sectors__in=interests).distinct()[:3]
