@@ -556,9 +556,6 @@ class SupporterProfileView(DetailView):
 
     def get_context_data(self, **kwargs):
         """Returns the Supporter instance that the view displays"""
-        investor_list = []
-        supporter_list = []
-        business_list = []
         context = super(SupporterProfileView, self).get_context_data(**kwargs)
         context['supporter'] = Supporter.objects.get(
             pk=self.kwargs.get("pk"))
@@ -566,23 +563,15 @@ class SupporterProfileView(DetailView):
             supporter_profile_id=context['supporter'].id)
         context['post'] = Post.objects.filter(
             supporter_author=context['supporter'])[:5]
+        interests = context['supporter_profile'].interest_sectors.all()
+        context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct().exclude(supporter_profile=context['supporter'])[:3]
+        context['r_businesses'] = Business.objects.filter(sector__in=interests).distinct()[:3]
+        context['r_investor'] = InvestorProfile.objects.filter(target_sectors__in=interests).distinct()[:3]
 
         context['investor_following'] = following(self.request.user, Investor)
         context['supporter_following'] = following(
             self.request.user, Supporter)
         context['business_following'] = following(self.request.user, Business)
-        context['followers'] = followers(context['supporter'])
-        context['user'] = self.request.user
-        for obj in context['followers']:
-            if obj.investor_creator.exists():
-                investor_list.append(Investor.objects.get(user=obj))
-            elif obj.supporter_creator.exists():
-                supporter_list.append(Supporter.objects.get(user=obj))
-            elif obj.business_creator.exists():
-                business_list.append(Business.objects.get(creator=obj))
-        context['investor_followers'] = investor_list
-        context['supporter_followers'] = supporter_list
-        context['business_followers'] = business_list
         return context
 
 
