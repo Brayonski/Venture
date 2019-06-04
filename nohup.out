@@ -18430,3 +18430,1725 @@ Not Found: /favicon.ico
 [28/May/2019 16:18:46] "GET /favicon.ico HTTP/1.1" 404 2909
 [28/May/2019 16:18:48] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
 [28/May/2019 16:18:49] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:19:59] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
+[28/May/2019 16:19:59] "GET /static/css/style.css HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[28/May/2019 16:20:00] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 16:20:06] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[28/May/2019 16:20:06] "GET /profile/profile/ HTTP/1.1" 200 30199
+[28/May/2019 16:20:07] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:20:07] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[28/May/2019 16:20:07] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 16:20:14] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 200 23208
+[28/May/2019 16:20:15] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:20:15] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:20:15] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:20:24] "POST /profile/investor-create/step-1/1/ HTTP/1.1" 302 0
+[28/May/2019 16:20:25] "GET /profile/investor-create/step-2/1/ HTTP/1.1" 200 30962
+[28/May/2019 16:20:25] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:20:25] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:20:25] "GET /static/djangocms_text_ckeditor/css/cms.ckeditor.css HTTP/1.1" 200 2758
+[28/May/2019 16:20:26] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:20:26] "GET /static/djangocms_text_ckeditor/ckeditor/config.js?t=H8DA HTTP/1.1" 200 332
+[28/May/2019 16:20:26] "GET /static/djangocms_text_ckeditor/ckeditor/skins/moono-lisa/editor_gecko.css?t=H8DA HTTP/1.1" 200 46982
+[28/May/2019 16:20:27] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/copyformatting/styles/copyformatting.css HTTP/1.1" 304 0
+[28/May/2019 16:20:27] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/copyformatting/styles/copyformatting.css HTTP/1.1" 200 1493
+[28/May/2019 16:20:27] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/copyformatting/styles/copyformatting.css HTTP/1.1" 200 1493
+[28/May/2019 16:20:27] "GET /static/djangocms_text_ckeditor/ckeditor/skins/moono-lisa/icons.png?t=dee99e2 HTTP/1.1" 200 12421
+[28/May/2019 16:20:41] "POST /profile/investor-create/step-2/1/ HTTP/1.1" 302 0
+[28/May/2019 16:20:41] "GET /profile/investor/list/ HTTP/1.1" 200 17396
+[28/May/2019 16:20:42] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:20:42] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:20:42] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:20:43] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[28/May/2019 16:20:43] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[28/May/2019 16:20:43] "GET /media/pic_folder/index_lGdLbDy.jpeg HTTP/1.1" 200 47047
+[28/May/2019 16:20:43] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[28/May/2019 16:20:49] "GET /profile/investor/profile/2/ HTTP/1.1" 200 30820
+[28/May/2019 16:20:50] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:20:50] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:20:50] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[28/May/2019 16:20:50] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[28/May/2019 16:20:50] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[28/May/2019 16:20:50] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[28/May/2019 16:20:51] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[28/May/2019 16:20:51] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[28/May/2019 16:20:51] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[28/May/2019 16:20:51] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[28/May/2019 16:21:01] "GET /profile/profile/ HTTP/1.1" 200 30199
+[28/May/2019 16:21:01] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:21:02] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:21:02] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[28/May/2019 16:21:02] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 16:25:01] "GET / HTTP/1.1" 200 26415
+[28/May/2019 16:25:01] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:25:02] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:25:02] "GET /static/cms/fonts/3.5.3/django-cms-iconfont.woff2 HTTP/1.1" 200 5272
+[28/May/2019 16:25:04] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
+[28/May/2019 16:25:04] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:25:12] "GET /profile/profile/ HTTP/1.1" 200 30199
+[28/May/2019 16:25:12] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:25:13] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:25:13] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[28/May/2019 16:25:14] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 16:25:20] "GET /profile/profile/ HTTP/1.1" 302 0
+[28/May/2019 16:25:20] "GET /profile/accounts/login/?next=/profile/profile/ HTTP/1.1" 200 5558
+[28/May/2019 16:25:21] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[28/May/2019 16:25:21] "GET /static/css/style.css HTTP/1.1" 200 29586
+[28/May/2019 16:25:22] "GET /static/img/logo3.png HTTP/1.1" 200 8136
+[28/May/2019 16:25:22] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+Not Found: /favicon.ico
+[28/May/2019 16:25:22] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 16:25:47] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 200 23208
+[28/May/2019 16:25:48] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:25:48] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:25:48] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:26:39] "GET /profile/business/list/ HTTP/1.1" 200 15504
+[28/May/2019 16:26:39] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:26:39] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:26:39] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[28/May/2019 16:26:40] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[28/May/2019 16:26:40] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[28/May/2019 16:26:40] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+Not Found: /favicon.ico
+[28/May/2019 16:26:40] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 16:26:44] "GET /profile/business/profile/1/ HTTP/1.1" 200 32267
+[28/May/2019 16:26:44] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/May/2019 16:26:44] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:26:45] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[28/May/2019 16:26:45] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[28/May/2019 16:26:45] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 16:26:45] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[28/May/2019 16:26:45] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[28/May/2019 16:26:45] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[28/May/2019 16:26:45] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[28/May/2019 16:26:46] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[28/May/2019 16:26:46] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+Not Found: /favicon.ico
+[28/May/2019 16:26:46] "GET /favicon.ico HTTP/1.1" 404 2909
+Not Found: /favicon.ico
+[28/May/2019 19:45:07] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 23:39:21] "GET / HTTP/1.1" 200 10623
+[28/May/2019 23:39:22] "GET /static/css/style.css HTTP/1.1" 200 29586
+[28/May/2019 23:39:22] "GET /static/img/home_icon_1.png HTTP/1.1" 304 0
+[28/May/2019 23:39:22] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 23:39:22] "GET /static/img/home_icon_2.png HTTP/1.1" 304 0
+[28/May/2019 23:39:23] "GET /static/img/home_icon_3.png HTTP/1.1" 304 0
+[28/May/2019 23:39:23] "GET /static/img/sector_icon_1.png HTTP/1.1" 304 0
+[28/May/2019 23:39:23] "GET /static/img/sector_icon_2.png HTTP/1.1" 304 0
+[28/May/2019 23:39:23] "GET /static/img/home_banner.jpg HTTP/1.1" 304 0
+[28/May/2019 23:39:23] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 23:39:23] "GET /static/img/sector_icon_3.png HTTP/1.1" 304 0
+[28/May/2019 23:39:23] "GET /static/img/sector_icon_4.png HTTP/1.1" 304 0
+[28/May/2019 23:39:23] "GET /static/img/sector_icon_5.png HTTP/1.1" 304 0
+[28/May/2019 23:39:23] "GET /static/img/sector_icon_6.png HTTP/1.1" 304 0
+[28/May/2019 23:39:23] "GET /static/img/sector_icon_7.png HTTP/1.1" 304 0
+[28/May/2019 23:39:23] "GET /static/img/sector_icon_10.png HTTP/1.1" 304 0
+[28/May/2019 23:39:23] "GET /static/img/sector_icon_8.png HTTP/1.1" 304 0
+[28/May/2019 23:39:23] "GET /static/img/sector_icon_9.png HTTP/1.1" 304 0
+[28/May/2019 23:39:23] "GET /static/img/home_section_3.png HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[28/May/2019 23:39:24] "GET /favicon.ico HTTP/1.1" 404 2909
+[28/May/2019 23:44:39] "GET /en/media HTTP/1.1" 301 0
+[28/May/2019 23:44:40] "GET /en/media/ HTTP/1.1" 200 10105
+[28/May/2019 23:44:40] "GET /static/img/logo.png HTTP/1.1" 200 9123
+[28/May/2019 23:44:40] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 23:44:40] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+[28/May/2019 23:44:44] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
+[28/May/2019 23:44:45] "GET /static/img/logo3.png HTTP/1.1" 200 8136
+[28/May/2019 23:44:57] "GET / HTTP/1.1" 200 10623
+[28/May/2019 23:45:13] "GET / HTTP/1.1" 200 10623
+[28/May/2019 23:45:14] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[28/May/2019 23:45:18] "GET /registration/ HTTP/1.1" 200 7516
+[28/May/2019 23:45:19] "GET /static/img/icon-1.svg HTTP/1.1" 200 2550
+[28/May/2019 23:45:19] "GET /static/img/icon-2.svg HTTP/1.1" 200 3317
+[28/May/2019 23:45:19] "GET /static/img/icon-3.svg HTTP/1.1" 200 2404
+[28/May/2019 23:45:19] "GET /static/img/icon-4.svg HTTP/1.1" 200 1447
+[28/May/2019 23:45:19] "GET /static/img/icon-5.svg HTTP/1.1" 200 1366
+[28/May/2019 23:49:49] "GET /registration/ HTTP/1.1" 200 7516
+[28/May/2019 23:52:00] "GET / HTTP/1.1" 200 10623
+[28/May/2019 23:52:00] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 00:04:01] "GET / HTTP/1.1" 200 10623
+[29/May/2019 00:04:01] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[29/May/2019 00:04:02] "GET /static/css/style.css HTTP/1.1" 200 29586
+[29/May/2019 00:04:02] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[29/May/2019 00:04:02] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[29/May/2019 00:04:02] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[29/May/2019 00:04:02] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[29/May/2019 00:04:02] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 00:04:03] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[29/May/2019 00:04:03] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[29/May/2019 00:04:03] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[29/May/2019 00:04:03] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[29/May/2019 00:04:03] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[29/May/2019 00:04:03] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[29/May/2019 00:04:03] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[29/May/2019 00:04:03] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[29/May/2019 00:04:03] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[29/May/2019 00:04:03] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[29/May/2019 00:04:03] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[29/May/2019 00:04:03] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[29/May/2019 00:04:04] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+Not Found: /favicon.ico
+[29/May/2019 00:04:05] "GET /favicon.ico HTTP/1.1" 404 2909
+[29/May/2019 00:04:56] "GET / HTTP/1.1" 200 10623
+[29/May/2019 00:04:57] "GET / HTTP/1.1" 200 10623
+[29/May/2019 00:04:57] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 00:05:27] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 00:05:27] "GET / HTTP/1.1" 200 10623
+Invalid HTTP_HOST header: 'ip-172-31-24-121.us-west-2.compute.internal'. You may need to add u'ip-172-31-24-121.us-west-2.compute.internal' to ALLOWED_HOSTS.
+[29/May/2019 03:50:57] "GET / HTTP/1.1" 400 67558
+[29/May/2019 08:41:11] "GET / HTTP/1.1" 200 10623
+[29/May/2019 08:41:11] "GET /static/css/style.css HTTP/1.1" 200 29586
+[29/May/2019 08:41:11] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[29/May/2019 08:41:11] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[29/May/2019 08:41:11] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 08:41:12] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[29/May/2019 08:41:12] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[29/May/2019 08:41:12] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[29/May/2019 08:41:12] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[29/May/2019 08:41:12] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[29/May/2019 08:41:12] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 08:41:12] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[29/May/2019 08:41:12] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[29/May/2019 08:41:12] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[29/May/2019 08:41:12] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[29/May/2019 08:41:12] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[29/May/2019 08:41:12] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[29/May/2019 08:41:12] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[29/May/2019 08:41:12] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[29/May/2019 08:41:13] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[29/May/2019 08:41:13] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+Not Found: /favicon.ico
+[29/May/2019 08:41:13] "GET /favicon.ico HTTP/1.1" 404 2909
+[29/May/2019 08:41:14] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+Invalid HTTP_HOST header: 'hm.baidu.com'. You may need to add u'hm.baidu.com' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'hm.baidu.com'. You may need to add u'hm.baidu.com' to ALLOWED_HOSTS.
+[29/May/2019 08:46:31] "GET / HTTP/1.1" 400 66910
+Invalid HTTP_HOST header: 'hm.baidu.com'. You may need to add u'hm.baidu.com' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'hm.baidu.com'. You may need to add u'hm.baidu.com' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'hm.baidu.com'. You may need to add u'hm.baidu.com' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'hm.baidu.com'. You may need to add u'hm.baidu.com' to ALLOWED_HOSTS.
+[29/May/2019 08:46:32] "GET / HTTP/1.1" 400 66910
+[29/May/2019 08:46:32] "GET / HTTP/1.1" 400 66910
+[29/May/2019 08:46:32] "GET / HTTP/1.1" 400 66910
+[29/May/2019 08:46:32] "GET / HTTP/1.1" 400 66910
+[2019-05-29 08:46:32,175] - Broken pipe from ('127.0.0.1', 47780)
+
+[29/May/2019 08:46:32] "GET / HTTP/1.1" 400 66910
+[29/May/2019 09:44:14] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
+[29/May/2019 09:44:15] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[29/May/2019 09:44:15] "GET /static/css/style.css HTTP/1.1" 200 29586
+[29/May/2019 09:44:15] "GET /static/img/logo3.png HTTP/1.1" 200 8136
+[29/May/2019 09:44:16] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+Not Found: /favicon.ico
+[29/May/2019 09:44:17] "GET /favicon.ico HTTP/1.1" 404 2909
+[29/May/2019 09:44:21] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[29/May/2019 09:44:21] "GET /profile/profile/ HTTP/1.1" 200 30199
+[29/May/2019 09:44:21] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 09:44:21] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[29/May/2019 09:44:22] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[29/May/2019 09:44:22] "GET /static/img/blue-user-icon.svg HTTP/1.1" 200 3656
+[29/May/2019 09:44:22] "GET /static/img/progress.png HTTP/1.1" 200 32213
+[29/May/2019 09:44:22] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[29/May/2019 09:44:22] "GET /favicon.ico HTTP/1.1" 404 2909
+[29/May/2019 09:44:27] "GET /profile/business/list/ HTTP/1.1" 200 15504
+[29/May/2019 09:44:27] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[29/May/2019 09:44:27] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[29/May/2019 09:44:27] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 09:44:28] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[29/May/2019 09:44:28] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[29/May/2019 09:44:47] "POST /profile/business/list/ HTTP/1.1" 200 12439
+[29/May/2019 09:44:48] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 09:44:48] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[29/May/2019 09:45:16] "GET / HTTP/1.1" 200 26415
+[29/May/2019 09:45:16] "GET /static/cms/css/3.5.3/cms.base.css HTTP/1.1" 200 66722
+[29/May/2019 09:45:16] "GET /static/cms/js/dist/3.5.3/bundle.toolbar.min.js HTTP/1.1" 200 445140
+[29/May/2019 09:45:16] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 09:45:16] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[29/May/2019 09:45:17] "GET /static/cms/fonts/3.5.3/django-cms-iconfont.woff2 HTTP/1.1" 200 5272
+[29/May/2019 09:45:17] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[29/May/2019 09:45:17] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[29/May/2019 09:45:17] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[29/May/2019 09:45:17] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[29/May/2019 09:45:17] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[29/May/2019 09:45:17] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[29/May/2019 09:45:17] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[29/May/2019 09:45:17] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[29/May/2019 09:45:17] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[29/May/2019 09:45:17] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[29/May/2019 09:45:18] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 09:45:18] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[29/May/2019 09:45:18] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[29/May/2019 09:45:18] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[29/May/2019 09:45:18] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+[29/May/2019 09:45:21] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[29/May/2019 10:17:20] "GET /profile/profile/ HTTP/1.1" 200 30199
+[29/May/2019 10:17:24] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 200 23208
+[29/May/2019 10:17:24] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 10:17:25] "GET /static/img/no-img.jpg HTTP/1.1" 200 36535
+[29/May/2019 10:17:25] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 10:17:25] "GET /static/img/icon-user.png HTTP/1.1" 200 157440
+[29/May/2019 10:39:11] "GET / HTTP/1.1" 200 26415
+[29/May/2019 10:39:11] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[29/May/2019 10:39:11] "GET /static/css/style.css HTTP/1.1" 200 29586
+[29/May/2019 10:39:12] "GET /static/cms/css/3.5.3/cms.base.css HTTP/1.1" 200 66722
+[29/May/2019 10:39:12] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 10:39:12] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[29/May/2019 10:39:12] "GET /static/cms/js/dist/3.5.3/bundle.toolbar.min.js HTTP/1.1" 200 445140
+[29/May/2019 10:39:12] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[29/May/2019 10:39:12] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[29/May/2019 10:39:12] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[29/May/2019 10:39:12] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[29/May/2019 10:39:12] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[29/May/2019 10:39:12] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+[29/May/2019 10:39:12] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[29/May/2019 10:39:12] "GET /static/cms/fonts/3.5.3/django-cms-iconfont.woff2 HTTP/1.1" 200 5272
+[29/May/2019 10:39:12] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[29/May/2019 10:39:12] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[29/May/2019 10:39:12] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[29/May/2019 10:39:12] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[29/May/2019 10:39:13] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[29/May/2019 10:39:13] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[29/May/2019 10:39:13] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[29/May/2019 10:39:13] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[29/May/2019 10:39:13] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[29/May/2019 10:39:13] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[29/May/2019 10:39:13] "GET /favicon.ico HTTP/1.1" 404 2909
+[29/May/2019 10:39:16] "GET /en/media HTTP/1.1" 301 0
+[29/May/2019 10:39:16] "GET /en/media/ HTTP/1.1" 200 25627
+[29/May/2019 10:39:16] "GET /static/img/logo.png HTTP/1.1" 200 9123
+[29/May/2019 10:39:16] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 10:39:17] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+[29/May/2019 10:39:17] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 10:39:30] "GET / HTTP/1.1" 200 26415
+[29/May/2019 10:39:30] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 10:41:24] "GET /en/media/ HTTP/1.1" 200 25627
+[29/May/2019 10:41:24] "GET /static/img/logo.png HTTP/1.1" 200 9123
+[29/May/2019 10:41:24] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 10:41:25] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+[29/May/2019 10:41:25] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 10:45:51] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
+[29/May/2019 10:45:51] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[29/May/2019 10:45:52] "GET /static/img/logo3.png HTTP/1.1" 200 8136
+[29/May/2019 10:46:06] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[29/May/2019 10:46:07] "GET /profile/profile/ HTTP/1.1" 200 30199
+[29/May/2019 10:46:08] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 10:46:08] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[29/May/2019 10:46:08] "GET /static/img/progress.png HTTP/1.1" 200 32213
+Not Found: /favicon.ico
+[29/May/2019 10:46:09] "GET /favicon.ico HTTP/1.1" 404 2909
+[29/May/2019 10:46:09] "GET /static/img/blue-user-icon.svg HTTP/1.1" 200 3656
+[29/May/2019 10:46:38] "GET /profile/profile/ HTTP/1.1" 200 30199
+[29/May/2019 10:46:43] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 10:47:13] "GET /profile/profile/ HTTP/1.1" 200 30199
+[29/May/2019 10:47:13] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[29/May/2019 10:47:14] "GET /favicon.ico HTTP/1.1" 404 2909
+[29/May/2019 10:47:29] "GET /profile/business/profile/1/ HTTP/1.1" 200 32267
+[29/May/2019 10:47:30] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[29/May/2019 10:47:30] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 10:47:30] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[29/May/2019 10:47:30] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[29/May/2019 10:47:30] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[29/May/2019 10:47:30] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[29/May/2019 10:47:30] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[29/May/2019 10:47:30] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+Not Found: /favicon.ico
+[29/May/2019 10:47:31] "GET /favicon.ico HTTP/1.1" 404 2909
+[29/May/2019 10:47:31] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[29/May/2019 11:46:16] "GET /en/media HTTP/1.1" 301 0
+[29/May/2019 11:46:16] "GET /en/media/ HTTP/1.1" 200 25627
+[29/May/2019 11:46:17] "GET /static/css/style.css HTTP/1.1" 200 29586
+[29/May/2019 11:46:17] "GET /static/cms/css/3.5.3/cms.base.css HTTP/1.1" 200 66722
+[29/May/2019 11:46:17] "GET /static/cms/js/dist/3.5.3/bundle.toolbar.min.js HTTP/1.1" 200 445140
+[29/May/2019 11:46:17] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 11:46:18] "GET /static/img/logo.png HTTP/1.1" 200 9123
+[29/May/2019 11:46:18] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+[29/May/2019 11:46:19] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 11:51:28] "GET / HTTP/1.1" 200 10623
+[29/May/2019 11:51:29] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[29/May/2019 11:51:29] "GET /static/css/style.css HTTP/1.1" 200 29586
+[29/May/2019 11:51:29] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[29/May/2019 11:51:29] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[29/May/2019 11:51:29] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[29/May/2019 11:51:29] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 11:51:29] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[29/May/2019 11:51:30] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[29/May/2019 11:51:30] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[29/May/2019 11:51:30] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[29/May/2019 11:51:30] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[29/May/2019 11:51:30] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[29/May/2019 11:51:30] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[29/May/2019 11:51:30] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[29/May/2019 11:51:30] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[29/May/2019 11:51:31] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[29/May/2019 11:51:31] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[29/May/2019 11:51:31] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[29/May/2019 11:51:31] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[29/May/2019 11:51:31] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+[29/May/2019 12:22:25] "GET / HTTP/1.1" 200 26415
+[29/May/2019 12:22:26] "GET /static/css/style.css HTTP/1.1" 304 0
+[29/May/2019 12:22:26] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 12:22:26] "GET /static/img/home_icon_1.png HTTP/1.1" 304 0
+[29/May/2019 12:22:26] "GET /static/img/home_icon_3.png HTTP/1.1" 304 0
+[29/May/2019 12:22:26] "GET /static/img/sector_icon_1.png HTTP/1.1" 304 0
+[29/May/2019 12:22:26] "GET /static/img/home_icon_2.png HTTP/1.1" 304 0
+[29/May/2019 12:22:26] "GET /static/cms/fonts/3.5.3/django-cms-iconfont.woff2 HTTP/1.1" 200 5272
+[29/May/2019 12:22:26] "GET /static/img/home_section_3.png HTTP/1.1" 304 0
+[29/May/2019 12:22:26] "GET /static/img/sector_icon_2.png HTTP/1.1" 304 0
+[29/May/2019 12:22:26] "GET /static/img/sector_icon_3.png HTTP/1.1" 304 0
+[29/May/2019 12:22:26] "GET /static/img/sector_icon_4.png HTTP/1.1" 304 0
+[29/May/2019 12:22:26] "GET /static/img/sector_icon_5.png HTTP/1.1" 304 0
+[29/May/2019 12:22:27] "GET /static/img/sector_icon_6.png HTTP/1.1" 304 0
+[29/May/2019 12:22:27] "GET /static/img/sector_icon_7.png HTTP/1.1" 304 0
+[29/May/2019 12:22:27] "GET /static/img/sector_icon_8.png HTTP/1.1" 304 0
+[29/May/2019 12:22:27] "GET /static/img/sector_icon_9.png HTTP/1.1" 304 0
+[29/May/2019 12:22:27] "GET /static/img/sector_icon_10.png HTTP/1.1" 304 0
+[29/May/2019 12:22:27] "GET /static/img/home_banner.jpg HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[29/May/2019 12:22:27] "GET /favicon.ico HTTP/1.1" 404 2909
+[29/May/2019 12:22:29] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
+[29/May/2019 12:22:37] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[29/May/2019 12:22:37] "GET /profile/profile/ HTTP/1.1" 200 30199
+[29/May/2019 12:22:37] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 12:22:37] "GET /static/img/blue-user-icon.svg HTTP/1.1" 304 0
+[29/May/2019 12:22:37] "GET /static/img/progress.png HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[29/May/2019 12:22:38] "GET /favicon.ico HTTP/1.1" 404 2909
+[29/May/2019 12:40:43] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 200 23208
+[29/May/2019 12:40:44] "GET /static/img/no-img.jpg HTTP/1.1" 304 0
+[29/May/2019 12:40:44] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[29/May/2019 12:40:44] "GET /favicon.ico HTTP/1.1" 404 2909
+[29/May/2019 16:17:20] "GET / HTTP/1.1" 200 10623
+[29/May/2019 16:17:21] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[29/May/2019 16:17:21] "GET /static/css/style.css HTTP/1.1" 200 29586
+[29/May/2019 16:17:21] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[29/May/2019 16:17:21] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[29/May/2019 16:17:21] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[29/May/2019 16:17:21] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 16:17:21] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[29/May/2019 16:17:21] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[29/May/2019 16:17:21] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[29/May/2019 16:17:21] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[29/May/2019 16:17:21] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[29/May/2019 16:17:21] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[29/May/2019 16:17:22] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[29/May/2019 16:17:22] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[29/May/2019 16:17:22] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[29/May/2019 16:17:22] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[29/May/2019 16:17:22] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[29/May/2019 16:17:22] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[29/May/2019 16:17:22] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[29/May/2019 16:17:22] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+[29/May/2019 16:17:23] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[29/May/2019 16:17:24] "GET /favicon.ico HTTP/1.1" 404 2909
+Not Found: /manager/html
+[29/May/2019 18:58:32] "GET /manager/html HTTP/1.1" 404 2912
+[29/May/2019 19:40:15] "GET / HTTP/1.1" 200 26415
+[29/May/2019 19:40:17] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[29/May/2019 19:40:17] "GET /static/css/style.css HTTP/1.1" 200 29586
+[29/May/2019 19:40:19] "GET /static/cms/css/3.5.3/cms.base.css HTTP/1.1" 200 66722
+[29/May/2019 19:40:19] "GET /static/cms/js/dist/3.5.3/bundle.toolbar.min.js HTTP/1.1" 200 445140
+[29/May/2019 19:40:23] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[29/May/2019 19:40:28] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 19:40:28] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[29/May/2019 19:40:30] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[29/May/2019 19:40:31] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[29/May/2019 19:40:31] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[29/May/2019 19:40:32] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[29/May/2019 19:40:32] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 19:40:34] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[29/May/2019 19:40:34] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[29/May/2019 19:40:36] "GET /static/cms/fonts/3.5.3/django-cms-iconfont.woff2 HTTP/1.1" 200 5272
+[29/May/2019 19:40:37] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[29/May/2019 19:40:39] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[29/May/2019 19:40:39] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[29/May/2019 19:40:40] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[29/May/2019 19:40:40] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[29/May/2019 19:40:42] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[29/May/2019 19:40:42] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[29/May/2019 19:40:44] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[29/May/2019 19:40:44] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+Not Found: /favicon.ico
+[29/May/2019 19:40:49] "GET /favicon.ico HTTP/1.1" 404 2909
+[29/May/2019 20:57:24] "GET / HTTP/1.1" 200 10623
+[29/May/2019 20:57:24] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[29/May/2019 20:57:25] "GET /static/css/style.css HTTP/1.1" 200 29586
+[29/May/2019 20:57:25] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[29/May/2019 20:57:25] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[29/May/2019 20:57:25] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[29/May/2019 20:57:25] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[29/May/2019 20:57:25] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[29/May/2019 20:57:26] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[29/May/2019 20:57:26] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[29/May/2019 20:57:26] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[29/May/2019 20:57:26] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[29/May/2019 20:57:27] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[29/May/2019 20:57:27] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[29/May/2019 20:57:27] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[29/May/2019 20:57:27] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[29/May/2019 20:57:27] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[29/May/2019 20:57:27] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[29/May/2019 20:57:27] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[29/May/2019 20:57:27] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[29/May/2019 20:57:28] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+Invalid HTTP_HOST header: 'ip-172-31-24-121.us-west-2.compute.internal'. You may need to add u'ip-172-31-24-121.us-west-2.compute.internal' to ALLOWED_HOSTS.
+[30/May/2019 00:34:04] "GET / HTTP/1.1" 400 67559
+Not Found: /manager/html
+[30/May/2019 01:49:13] "GET /manager/html HTTP/1.1" 404 2912
+[30/May/2019 04:45:15] "GET / HTTP/1.1" 200 10623
+[30/May/2019 06:13:50] "GET / HTTP/1.1" 200 10623
+[30/May/2019 08:17:17] "GET / HTTP/1.1" 200 10623
+Not Found: /HNAP1/
+[30/May/2019 08:17:18] "GET /HNAP1/ HTTP/1.1" 404 2894
+[30/May/2019 11:42:45] "GET / HTTP/1.1" 200 26415
+[30/May/2019 11:42:52] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[30/May/2019 11:42:57] "GET /static/css/style.css HTTP/1.1" 200 29586
+[30/May/2019 11:42:59] "GET /static/cms/css/3.5.3/cms.base.css HTTP/1.1" 200 66722
+[30/May/2019 11:43:23] "GET /static/cms/js/dist/3.5.3/bundle.toolbar.min.js HTTP/1.1" 200 445140
+[30/May/2019 11:46:05] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[30/May/2019 11:46:05] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[30/May/2019 11:46:05] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[30/May/2019 11:46:06] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[30/May/2019 11:46:08] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[30/May/2019 11:46:26] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[30/May/2019 11:46:29] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[30/May/2019 11:46:30] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[30/May/2019 11:46:31] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[30/May/2019 11:46:33] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[30/May/2019 11:46:36] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[30/May/2019 12:36:15] "GET / HTTP/1.1" 200 10623
+Not Found: /manager/html
+[30/May/2019 15:27:44] "GET /manager/html HTTP/1.1" 404 2912
+[30/May/2019 17:45:49] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
+[30/May/2019 17:45:49] "GET /static/css/style.css HTTP/1.1" 200 29586
+[30/May/2019 17:45:49] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[30/May/2019 17:45:50] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+[30/May/2019 17:45:50] "GET /static/img/logo3.png HTTP/1.1" 200 8136
+Not Found: /favicon.ico
+[30/May/2019 17:45:50] "GET /favicon.ico HTTP/1.1" 404 2909
+[30/May/2019 17:46:02] "GET /admin/ HTTP/1.1" 302 0
+[30/May/2019 17:46:02] "GET /en/admin/ HTTP/1.1" 200 70989
+[30/May/2019 17:46:03] "GET /static/admin/css/base.css HTTP/1.1" 200 0
+[30/May/2019 17:46:03] "GET /static/jet/css/icons/style.css?v=1.0.8 HTTP/1.1" 200 2248
+[30/May/2019 17:46:03] "GET /static/jet/css/themes/default/jquery-ui.theme.css?v=1.0.8 HTTP/1.1" 200 6760
+[30/May/2019 17:46:03] "GET /static/jet/css/themes/default/select2.theme.css?v=1.0.8 HTTP/1.1" 200 23574
+[30/May/2019 17:46:03] "GET /static/jet/css/vendor.css?v=1.0.8 HTTP/1.1" 200 53889
+[30/May/2019 17:46:03] "GET /static/jet/css/themes/default/base.css?v=1.0.8 HTTP/1.1" 200 178918
+[30/May/2019 17:46:03] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 0
+[30/May/2019 17:46:03] "GET /static/jet/js/build/bundle.min.js?v=1.0.8 HTTP/1.1" 200 417084
+[30/May/2019 17:46:03] "GET /static/jet/js/i18n/select2/en.js?v=1.0.8 HTTP/1.1" 200 827
+[30/May/2019 17:46:03] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+Not Found: /favicon.ico
+[30/May/2019 17:46:05] "GET /favicon.ico HTTP/1.1" 404 2909
+[30/May/2019 17:46:05] "GET /static/jet/css/icons/fonts/jet-icons.ttf?415d6s HTTP/1.1" 200 6240
+[30/May/2019 17:46:13] "GET /en/admin/logout/ HTTP/1.1" 302 0
+[30/May/2019 17:46:14] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
+Not Found: /favicon.ico
+[30/May/2019 17:46:14] "GET /favicon.ico HTTP/1.1" 404 2909
+[30/May/2019 17:46:18] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[30/May/2019 17:46:18] "GET /profile/profile/ HTTP/1.1" 200 30199
+[30/May/2019 17:46:19] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[30/May/2019 17:46:19] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[30/May/2019 17:46:19] "GET /static/img/blue-user-icon.svg HTTP/1.1" 200 3656
+[30/May/2019 17:46:19] "GET /static/img/progress.png HTTP/1.1" 200 32213
+[30/May/2019 17:46:19] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[30/May/2019 17:46:19] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[30/May/2019 17:46:20] "GET /favicon.ico HTTP/1.1" 404 2909
+[30/May/2019 17:46:22] "GET /profile/profile/ HTTP/1.1" 200 30199
+[30/May/2019 17:46:23] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[30/May/2019 17:46:23] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[30/May/2019 17:46:23] "GET /static/css/style.css HTTP/1.1" 200 29586
+[30/May/2019 17:46:30] "GET /admin/ HTTP/1.1" 302 0
+[30/May/2019 17:46:30] "GET /en/admin/ HTTP/1.1" 200 70989
+[30/May/2019 17:46:31] "GET /static/admin/css/base.css HTTP/1.1" 200 0
+[30/May/2019 17:46:31] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:46:52] "GET /en/admin/cms/ HTTP/1.1" 200 51678
+[30/May/2019 17:46:53] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+Not Found: /favicon.ico
+[30/May/2019 17:46:54] "GET /favicon.ico HTTP/1.1" 404 2909
+[30/May/2019 17:46:57] "GET /en/admin/venturelift_media/ HTTP/1.1" 200 51518
+[30/May/2019 17:46:58] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:47:02] "GET /en/admin/cms/ HTTP/1.1" 200 51678
+[30/May/2019 17:47:03] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:47:12] "GET /en/admin/venturelift_media/ HTTP/1.1" 200 51518
+[30/May/2019 17:47:12] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:47:17] "GET /en/admin/venturelift_media/textmedia/ HTTP/1.1" 200 54812
+[30/May/2019 17:47:18] "GET /en/admin/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:47:18] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:47:18] "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+[30/May/2019 17:47:18] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+[30/May/2019 17:47:18] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+[30/May/2019 17:47:18] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 0
+[30/May/2019 17:47:18] "GET /static/admin/css/changelists.css HTTP/1.1" 200 0
+[30/May/2019 17:47:18] "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+[30/May/2019 17:47:18] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+[30/May/2019 17:47:18] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+[30/May/2019 17:47:18] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+[30/May/2019 17:47:19] "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[30/May/2019 17:47:31] "GET /en/admin/venturelift_media/textmedia/add/ HTTP/1.1" 200 58110
+[30/May/2019 17:47:32] "GET /static/admin/css/forms.css HTTP/1.1" 200 0
+[30/May/2019 17:47:32] "GET /static/djangocms_text_ckeditor/css/cms.ckeditor.css HTTP/1.1" 200 2758
+[30/May/2019 17:47:32] "GET /en/admin/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:47:32] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:47:32] "GET /static/filer/css/admin_filer.css HTTP/1.1" 200 90492
+[30/May/2019 17:47:32] "GET /static/cms/js/dist/3.5.3/bundle.admin.base.min.js HTTP/1.1" 200 191750
+[30/May/2019 17:47:32] "GET /static/filer/js/libs/dropzone.min.js HTTP/1.1" 200 34316
+[30/May/2019 17:47:32] "GET /static/filer/js/addons/dropzone.init.js HTTP/1.1" 200 6469
+[30/May/2019 17:47:32] "GET /static/djangocms_text_ckeditor/js/dist/bundle-45a646fecc.cms.ckeditor.min.js HTTP/1.1" 200 709594
+[30/May/2019 17:47:32] "GET /static/filer/js/addons/popup_handling.js HTTP/1.1" 200 1876
+[30/May/2019 17:47:33] "GET /static/filer/js/addons/widget.js HTTP/1.1" 200 1261
+[30/May/2019 17:47:33] "GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+[30/May/2019 17:47:33] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+[30/May/2019 17:47:35] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[30/May/2019 17:47:35] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[30/May/2019 17:47:35] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[30/May/2019 17:47:35] "GET /static/filer/fonts/fontawesome-webfont.woff2?v=4.4.0 HTTP/1.1" 200 64464
+[30/May/2019 17:47:35] "GET /static/djangocms_text_ckeditor/ckeditor/config.js?t=H8DA HTTP/1.1" 200 332
+[30/May/2019 17:47:35] "GET /static/djangocms_text_ckeditor/ckeditor/skins/moono-lisa/editor_gecko.css?t=H8DA HTTP/1.1" 200 46982
+[30/May/2019 17:47:35] "GET /static/djangocms_text_ckeditor/ckeditor/lang/en.js?t=H8DA HTTP/1.1" 200 17820
+[30/May/2019 17:47:36] "GET /static/djangocms_text_ckeditor/ckeditor/styles.js?t=H8DA HTTP/1.1" 200 5546
+[30/May/2019 17:47:36] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css HTTP/1.1" 200 381
+[30/May/2019 17:47:36] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/scayt/dialogs/dialog.css HTTP/1.1" 200 419
+[30/May/2019 17:47:36] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/copyformatting/styles/copyformatting.css HTTP/1.1" 200 1493
+[30/May/2019 17:47:36] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css HTTP/1.1" 200 1306
+[30/May/2019 17:47:36] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/copyformatting/styles/copyformatting.css HTTP/1.1" 200 1493
+[30/May/2019 17:47:36] "GET /static/djangocms_text_ckeditor/ckeditor/contents.css?t=H8DA HTTP/1.1" 200 2955
+[30/May/2019 17:47:36] "GET /static/djangocms_text_ckeditor/ckeditor/skins/moono-lisa/icons_hidpi.png?t=dee99e2 HTTP/1.1" 200 40265
+[30/May/2019 17:47:44] "GET /en/admin/venturelift_media/textmedia/ HTTP/1.1" 200 54812
+[30/May/2019 17:47:45] "GET /static/jet/css/vendor.css?v=1.0.8 HTTP/1.1" 200 53889
+[30/May/2019 17:47:45] "GET /static/admin/css/base.css HTTP/1.1" 200 0
+[30/May/2019 17:47:45] "GET /static/jet/css/icons/style.css?v=1.0.8 HTTP/1.1" 200 2248
+[30/May/2019 17:47:45] "GET /static/jet/css/themes/default/base.css?v=1.0.8 HTTP/1.1" 200 178918
+[30/May/2019 17:47:45] "GET /en/admin/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:47:45] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:48:11] "GET /en/admin/venturelift_media/textmedia/add/ HTTP/1.1" 200 58110
+[30/May/2019 17:48:12] "GET /static/admin/css/base.css HTTP/1.1" 200 0
+[30/May/2019 17:48:12] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:48:12] "GET /en/admin/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:48:13] "GET /static/djangocms_text_ckeditor/ckeditor/skins/moono-lisa/editor_gecko.css?t=H8DA HTTP/1.1" 200 46982
+[30/May/2019 17:48:13] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css HTTP/1.1" 200 381
+[30/May/2019 17:48:13] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css HTTP/1.1" 200 1306
+[30/May/2019 17:48:13] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/scayt/dialogs/dialog.css HTTP/1.1" 200 419
+[30/May/2019 17:48:13] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/copyformatting/styles/copyformatting.css HTTP/1.1" 200 1493
+[30/May/2019 17:48:13] "GET /static/djangocms_text_ckeditor/ckeditor/contents.css?t=H8DA HTTP/1.1" 200 2955
+[30/May/2019 17:52:57] "GET /en/admin/venturelift_media/textmedia/ HTTP/1.1" 200 54812
+[30/May/2019 17:52:57] "GET /en/admin/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:52:57] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:53:02] "GET /en/admin/venturelift_media/textmedia/add/ HTTP/1.1" 200 58110
+[30/May/2019 17:53:03] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:53:03] "GET /en/admin/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:53:04] "GET /static/djangocms_text_ckeditor/ckeditor/skins/moono-lisa/editor_gecko.css?t=H8DA HTTP/1.1" 200 46982
+[30/May/2019 17:53:04] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css HTTP/1.1" 200 381
+[30/May/2019 17:53:04] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css HTTP/1.1" 200 1306
+[30/May/2019 17:53:04] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/scayt/dialogs/dialog.css HTTP/1.1" 200 419
+[30/May/2019 17:53:04] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/copyformatting/styles/copyformatting.css HTTP/1.1" 200 1493
+[30/May/2019 17:53:09] "GET /en/admin/venturelift_media/category/add/?_to_field=id&_popup=1 HTTP/1.1" 200 4453
+[30/May/2019 17:53:09] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:53:10] "GET /en/admin/jsi18n/ HTTP/1.1" 200 3217
+[30/May/2019 17:54:42] "GET /en/media HTTP/1.1" 301 0
+[30/May/2019 17:54:42] "GET /en/media/ HTTP/1.1" 200 25627
+[30/May/2019 17:54:43] "GET /static/cms/css/3.5.3/cms.base.css HTTP/1.1" 200 66722
+[30/May/2019 17:54:43] "GET /static/cms/js/dist/3.5.3/bundle.toolbar.min.js HTTP/1.1" 200 445140
+[30/May/2019 17:54:43] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[30/May/2019 17:54:43] "GET /static/img/logo.png HTTP/1.1" 200 9123
+[30/May/2019 17:54:44] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+[30/May/2019 17:54:44] "GET /static/cms/fonts/3.5.3/django-cms-iconfont.woff2 HTTP/1.1" 200 5272
+[30/May/2019 17:54:44] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[30/May/2019 17:58:04] "GET /?edit HTTP/1.1" 200 30924
+[30/May/2019 17:58:05] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[30/May/2019 17:58:05] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[30/May/2019 17:58:05] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[30/May/2019 17:58:05] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[30/May/2019 17:58:05] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[30/May/2019 17:58:06] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[30/May/2019 17:58:06] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[30/May/2019 17:58:06] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[30/May/2019 17:58:06] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[30/May/2019 17:58:06] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[30/May/2019 17:58:06] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[30/May/2019 17:58:06] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[30/May/2019 17:58:06] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[30/May/2019 17:58:06] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[30/May/2019 17:58:06] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[30/May/2019 17:58:06] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[30/May/2019 17:58:06] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+[30/May/2019 17:58:09] "GET /?edit&structure HTTP/1.1" 200 30951
+[30/May/2019 17:58:33] "GET /?preview&edit_off HTTP/1.1" 200 26415
+[30/May/2019 17:58:34] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[30/May/2019 17:58:44] "GET /profile/logout/ HTTP/1.1" 302 0
+[30/May/2019 17:58:44] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
+[30/May/2019 17:58:45] "GET /static/css/style.css HTTP/1.1" 200 29586
+[30/May/2019 17:58:45] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+Not Found: /favicon.ico
+[30/May/2019 17:58:45] "GET /favicon.ico HTTP/1.1" 404 2909
+[30/May/2019 17:58:46] "GET /?preview&edit_off HTTP/1.1" 200 10623
+[30/May/2019 17:58:47] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[30/May/2019 17:58:47] "GET /static/css/style.css HTTP/1.1" 304 0
+[30/May/2019 17:58:47] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[30/May/2019 17:58:47] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[30/May/2019 17:58:47] "GET /static/img/home_icon_1.png HTTP/1.1" 304 0
+[30/May/2019 17:58:47] "GET /static/img/home_icon_2.png HTTP/1.1" 304 0
+[30/May/2019 17:58:47] "GET /static/img/home_icon_3.png HTTP/1.1" 304 0
+[30/May/2019 17:58:47] "GET /static/img/sector_icon_1.png HTTP/1.1" 304 0
+[30/May/2019 17:58:47] "GET /static/img/logo2.png HTTP/1.1" 304 0
+[30/May/2019 17:58:47] "GET /static/img/sector_icon_2.png HTTP/1.1" 304 0
+[30/May/2019 17:58:48] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[30/May/2019 17:58:48] "GET /static/img/sector_icon_3.png HTTP/1.1" 304 0
+[30/May/2019 17:58:48] "GET /static/img/sector_icon_4.png HTTP/1.1" 304 0
+[30/May/2019 17:58:48] "GET /static/img/sector_icon_5.png HTTP/1.1" 304 0
+[30/May/2019 17:58:48] "GET /static/img/sector_icon_6.png HTTP/1.1" 304 0
+[30/May/2019 17:58:48] "GET /static/img/sector_icon_7.png HTTP/1.1" 304 0
+[30/May/2019 17:58:48] "GET /static/img/sector_icon_8.png HTTP/1.1" 304 0
+[30/May/2019 17:58:48] "GET /static/img/sector_icon_9.png HTTP/1.1" 304 0
+[30/May/2019 17:58:48] "GET /static/img/sector_icon_10.png HTTP/1.1" 304 0
+[30/May/2019 17:58:48] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[30/May/2019 17:58:48] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+Not Found: /favicon.ico
+[30/May/2019 17:58:49] "GET /favicon.ico HTTP/1.1" 404 2909
+[30/May/2019 18:34:17] "GET / HTTP/1.1" 200 10623
+Invalid HTTP_HOST header: 'ip-172-31-24-121.us-west-2.compute.internal'. You may need to add u'ip-172-31-24-121.us-west-2.compute.internal' to ALLOWED_HOSTS.
+[30/May/2019 23:05:48] "GET / HTTP/1.1" 400 67560
+[31/May/2019 13:31:27] "GET / HTTP/1.1" 200 10623
+[31/May/2019 13:31:27] "GET /static/css/style.css HTTP/1.1" 200 29586
+[31/May/2019 13:31:28] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[31/May/2019 13:31:28] "GET /static/img/home_icon_1.png HTTP/1.1" 304 0
+[31/May/2019 13:31:28] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[31/May/2019 13:31:28] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[31/May/2019 13:31:28] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[31/May/2019 13:31:29] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[31/May/2019 13:31:29] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[31/May/2019 13:31:29] "GET /static/img/sector_icon_3.png HTTP/1.1" 304 0
+[31/May/2019 13:31:29] "GET /static/img/sector_icon_4.png HTTP/1.1" 304 0
+[31/May/2019 13:31:29] "GET /static/img/sector_icon_5.png HTTP/1.1" 304 0
+[31/May/2019 13:31:29] "GET /static/img/sector_icon_6.png HTTP/1.1" 304 0
+[31/May/2019 13:31:30] "GET /static/img/sector_icon_7.png HTTP/1.1" 304 0
+[31/May/2019 13:31:30] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[31/May/2019 13:31:30] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[31/May/2019 13:31:30] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[31/May/2019 13:31:31] "GET /static/img/home_banner.jpg HTTP/1.1" 304 0
+[31/May/2019 13:31:31] "GET /static/img/home_section_3.png HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[31/May/2019 13:31:31] "GET /favicon.ico HTTP/1.1" 404 2909
+[31/May/2019 18:21:14] "GET / HTTP/1.1" 200 10623
+Invalid HTTP_HOST header: 'econstruction.otbafrica.com:8081'. You may need to add u'econstruction.otbafrica.com' to ALLOWED_HOSTS.
+[31/May/2019 19:20:42] "GET /robots.txt HTTP/1.1" 400 67765
+Invalid HTTP_HOST header: 'econstruction.otbafrica.com:8081'. You may need to add u'econstruction.otbafrica.com' to ALLOWED_HOSTS.
+[31/May/2019 19:20:46] "GET / HTTP/1.1" 400 67795
+[31/May/2019 19:32:00] "GET / HTTP/1.1" 200 10623
+[31/May/2019 19:32:00] "GET /static/css/style.css HTTP/1.1" 200 29586
+[31/May/2019 19:32:00] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[31/May/2019 19:32:01] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[31/May/2019 19:32:01] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[31/May/2019 19:32:01] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[31/May/2019 19:32:02] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[31/May/2019 19:32:02] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[31/May/2019 19:32:02] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[31/May/2019 19:32:02] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[31/May/2019 19:32:02] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[31/May/2019 19:32:02] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[31/May/2019 19:32:02] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[31/May/2019 19:32:02] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[31/May/2019 19:32:02] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[31/May/2019 19:32:02] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[31/May/2019 19:32:02] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[31/May/2019 19:32:02] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[31/May/2019 19:32:02] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[31/May/2019 19:32:03] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[31/May/2019 19:32:03] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[31/May/2019 19:32:03] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+Not Found: /favicon.ico
+[31/May/2019 19:32:04] "GET /favicon.ico HTTP/1.1" 404 2909
+[31/May/2019 19:32:57] "GET / HTTP/1.1" 200 10623
+[31/May/2019 19:32:59] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[31/May/2019 19:32:59] "GET /static/css/style.css HTTP/1.1" 200 29586
+[31/May/2019 19:32:59] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[31/May/2019 19:32:59] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[31/May/2019 19:33:00] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[31/May/2019 19:33:00] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[31/May/2019 19:33:00] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[31/May/2019 19:33:00] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[31/May/2019 19:33:00] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[31/May/2019 19:33:00] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[31/May/2019 19:33:00] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[31/May/2019 19:33:00] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[31/May/2019 19:33:00] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[31/May/2019 19:33:00] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[31/May/2019 19:33:00] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[31/May/2019 19:33:01] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[31/May/2019 19:33:01] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[31/May/2019 19:33:01] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[31/May/2019 19:33:01] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[31/May/2019 19:33:01] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+[31/May/2019 19:33:02] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[31/May/2019 19:33:06] "GET /favicon.ico HTTP/1.1" 404 2909
+Invalid HTTP_HOST header: 'ip-172-31-24-121.us-west-2.compute.internal'. You may need to add u'ip-172-31-24-121.us-west-2.compute.internal' to ALLOWED_HOSTS.
+[31/May/2019 21:44:35] "GET / HTTP/1.1" 400 67560
+Invalid HTTP_HOST header: 'econstruction.otbafrica.com'. You may need to add u'econstruction.otbafrica.com' to ALLOWED_HOSTS.
+[01/Jun/2019 08:54:29] "GET / HTTP/1.1" 400 67353
+Invalid HTTP_HOST header: 'ip-172-31-24-121.us-west-2.compute.internal'. You may need to add u'ip-172-31-24-121.us-west-2.compute.internal' to ALLOWED_HOSTS.
+[01/Jun/2019 09:11:45] "GET / HTTP/1.1" 400 67600
+[01/Jun/2019 13:21:01] "GET / HTTP/1.1" 200 10623
+[01/Jun/2019 16:17:42] "GET / HTTP/1.1" 200 10623
+Invalid HTTP_HOST header: 'ip-172-31-24-121.us-west-2.compute.internal'. You may need to add u'ip-172-31-24-121.us-west-2.compute.internal' to ALLOWED_HOSTS.
+[02/Jun/2019 02:33:21] "GET / HTTP/1.1" 400 67558
+[02/Jun/2019 04:23:11] "GET / HTTP/1.1" 200 10623
+Invalid HTTP_HOST header: '5.188.210.101'. You may need to add u'5.188.210.101' to ALLOWED_HOSTS.
+[02/Jun/2019 09:05:57] "GET /echo.php HTTP/1.1" 400 68317
+[02/Jun/2019 11:38:58] "GET / HTTP/1.1" 200 26415
+[02/Jun/2019 11:38:58] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[02/Jun/2019 11:38:58] "GET /static/css/style.css HTTP/1.1" 200 29586
+[02/Jun/2019 11:38:58] "GET /static/cms/css/3.5.3/cms.base.css HTTP/1.1" 200 66722
+[02/Jun/2019 11:38:59] "GET /static/cms/js/dist/3.5.3/bundle.toolbar.min.js HTTP/1.1" 200 445140
+[02/Jun/2019 11:38:59] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[02/Jun/2019 11:38:59] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[02/Jun/2019 11:38:59] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[02/Jun/2019 11:38:59] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[02/Jun/2019 11:38:59] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[02/Jun/2019 11:38:59] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[02/Jun/2019 11:38:59] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[02/Jun/2019 11:38:59] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[02/Jun/2019 11:38:59] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[02/Jun/2019 11:38:59] "GET /static/cms/fonts/3.5.3/django-cms-iconfont.woff2 HTTP/1.1" 200 5272
+[02/Jun/2019 11:38:59] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[02/Jun/2019 11:38:59] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[02/Jun/2019 11:38:59] "GET /static/img/sector_icon_5.png HTTP/1.1" 304 0
+[02/Jun/2019 11:38:59] "GET /static/img/sector_icon_6.png HTTP/1.1" 304 0
+[02/Jun/2019 11:39:00] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[02/Jun/2019 11:39:00] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[02/Jun/2019 11:39:00] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[02/Jun/2019 11:39:00] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[02/Jun/2019 11:39:00] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+[02/Jun/2019 11:39:00] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[02/Jun/2019 11:39:01] "GET /favicon.ico HTTP/1.1" 404 2909
+[02/Jun/2019 13:24:00] "GET /registration/ HTTP/1.1" 200 7516
+[02/Jun/2019 13:24:00] "GET /static/img/logo3.png HTTP/1.1" 200 8136
+[02/Jun/2019 13:24:00] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+[02/Jun/2019 13:24:00] "GET /static/img/icon-1.svg HTTP/1.1" 200 2550
+[02/Jun/2019 13:24:00] "GET /static/img/icon-2.svg HTTP/1.1" 200 3317
+[02/Jun/2019 13:24:00] "GET /static/img/icon-3.svg HTTP/1.1" 200 2404
+[02/Jun/2019 13:24:00] "GET /static/img/icon-4.svg HTTP/1.1" 200 1447
+[02/Jun/2019 13:24:00] "GET /static/img/icon-5.svg HTTP/1.1" 200 1366
+[02/Jun/2019 15:19:55] "GET / HTTP/1.1" 200 26415
+[02/Jun/2019 15:19:56] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[02/Jun/2019 15:19:56] "GET / HTTP/1.1" 200 26415
+[02/Jun/2019 15:19:56] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[02/Jun/2019 15:20:38] "GET /?edit HTTP/1.1" 200 30924
+[02/Jun/2019 15:20:38] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[02/Jun/2019 15:20:41] "GET /?edit&structure HTTP/1.1" 200 30951
+[02/Jun/2019 15:20:51] "GET / HTTP/1.1" 200 30924
+[02/Jun/2019 15:20:51] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[02/Jun/2019 15:20:54] "GET /?structure HTTP/1.1" 200 30951
+[02/Jun/2019 17:37:48] "GET / HTTP/1.1" 200 10623
+Invalid HTTP_HOST header: 'ip-172-31-24-121.us-west-2.compute.internal'. You may need to add u'ip-172-31-24-121.us-west-2.compute.internal' to ALLOWED_HOSTS.
+[02/Jun/2019 23:39:46] "GET / HTTP/1.1" 400 67559
+[03/Jun/2019 07:37:31] "GET / HTTP/1.1" 200 10623
+[03/Jun/2019 07:37:31] "GET /static/css/style.css HTTP/1.1" 200 29586
+[03/Jun/2019 07:37:31] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[03/Jun/2019 07:37:32] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[03/Jun/2019 07:37:32] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[03/Jun/2019 07:37:32] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[03/Jun/2019 07:37:32] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 07:37:32] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[03/Jun/2019 07:37:32] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[03/Jun/2019 07:37:32] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[03/Jun/2019 07:37:32] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[03/Jun/2019 07:37:32] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[03/Jun/2019 07:37:32] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[03/Jun/2019 07:37:32] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[03/Jun/2019 07:37:33] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[03/Jun/2019 07:37:33] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[03/Jun/2019 07:37:33] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[03/Jun/2019 07:37:33] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[03/Jun/2019 07:37:33] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[03/Jun/2019 07:37:33] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[03/Jun/2019 07:37:33] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 07:37:33] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+Not Found: /favicon.ico
+[03/Jun/2019 07:37:37] "GET /favicon.ico HTTP/1.1" 404 2909
+[03/Jun/2019 08:48:40] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
+[03/Jun/2019 08:48:40] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[03/Jun/2019 08:48:40] "GET /static/img/logo3.png HTTP/1.1" 200 8136
+[03/Jun/2019 08:48:40] "GET /static/css/style.css HTTP/1.1" 200 29586
+[03/Jun/2019 08:48:41] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+[03/Jun/2019 08:48:48] "GET / HTTP/1.1" 200 10623
+[03/Jun/2019 08:48:49] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[03/Jun/2019 08:48:49] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[03/Jun/2019 08:48:49] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[03/Jun/2019 08:48:49] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[03/Jun/2019 08:48:49] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[03/Jun/2019 08:48:49] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[03/Jun/2019 08:48:49] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[03/Jun/2019 08:48:49] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[03/Jun/2019 08:48:50] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[03/Jun/2019 08:48:50] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[03/Jun/2019 08:48:50] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[03/Jun/2019 08:48:50] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[03/Jun/2019 08:48:50] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[03/Jun/2019 08:48:51] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[03/Jun/2019 08:48:51] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[03/Jun/2019 08:48:51] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[03/Jun/2019 08:48:51] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+[03/Jun/2019 09:45:11] "GET / HTTP/1.1" 200 26415
+[03/Jun/2019 09:45:11] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[03/Jun/2019 09:45:11] "GET /static/css/style.css HTTP/1.1" 200 29586
+[03/Jun/2019 09:45:11] "GET /static/cms/css/3.5.3/cms.base.css HTTP/1.1" 200 66722
+[03/Jun/2019 09:45:11] "GET /static/cms/js/dist/3.5.3/bundle.toolbar.min.js HTTP/1.1" 200 445140
+[03/Jun/2019 09:45:12] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[03/Jun/2019 09:45:12] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 09:45:12] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[03/Jun/2019 09:45:12] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[03/Jun/2019 09:45:12] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[03/Jun/2019 09:45:12] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[03/Jun/2019 09:45:13] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[03/Jun/2019 09:45:13] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[03/Jun/2019 09:45:13] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[03/Jun/2019 09:45:13] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 09:45:13] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[03/Jun/2019 09:45:13] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[03/Jun/2019 09:45:14] "GET /static/cms/fonts/3.5.3/django-cms-iconfont.woff2 HTTP/1.1" 200 5272
+[03/Jun/2019 09:45:14] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[03/Jun/2019 09:45:14] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[03/Jun/2019 09:45:14] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[03/Jun/2019 09:45:14] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[03/Jun/2019 09:45:14] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[03/Jun/2019 09:45:14] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[03/Jun/2019 09:45:14] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+Not Found: /favicon.ico
+[03/Jun/2019 09:45:15] "GET /favicon.ico HTTP/1.1" 404 2909
+[03/Jun/2019 09:45:59] "GET / HTTP/1.1" 200 26415
+[03/Jun/2019 09:45:59] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 09:46:30] "GET /profile/accounts/login/ HTTP/1.1" 200 5558
+[03/Jun/2019 09:46:31] "GET /static/img/logo3.png HTTP/1.1" 200 8136
+[03/Jun/2019 09:46:31] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+[03/Jun/2019 09:46:38] "POST /profile/accounts/login/ HTTP/1.1" 200 5735
+[03/Jun/2019 09:46:46] "POST /profile/accounts/login/ HTTP/1.1" 200 5735
+[03/Jun/2019 09:47:00] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[03/Jun/2019 09:47:00] "GET /profile/profile/ HTTP/1.1" 200 30199
+[03/Jun/2019 09:47:01] "GET /static/img/blue-user-icon.svg HTTP/1.1" 200 3656
+[03/Jun/2019 09:47:01] "GET /static/img/progress.png HTTP/1.1" 200 32213
+[03/Jun/2019 09:47:01] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 09:47:01] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[03/Jun/2019 09:47:09] "GET /profile/profile/ HTTP/1.1" 200 30199
+[03/Jun/2019 09:47:09] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 09:47:22] "GET /profile/business/list/ HTTP/1.1" 200 15504
+[03/Jun/2019 09:47:22] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 09:47:22] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 09:47:22] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 09:47:22] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 09:47:22] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[03/Jun/2019 09:47:29] "GET /profile/supporter/list/ HTTP/1.1" 200 16484
+[03/Jun/2019 09:47:29] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[03/Jun/2019 09:47:29] "GET /static/django_select2/django_select2.js HTTP/1.1" 200 1783
+[03/Jun/2019 09:47:29] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[03/Jun/2019 09:47:30] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 09:47:38] "GET /profile/investor/list/ HTTP/1.1" 200 17396
+[03/Jun/2019 09:47:38] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[03/Jun/2019 09:47:38] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 09:47:38] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 09:47:39] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 09:47:39] "GET /media/pic_folder/index_lGdLbDy.jpeg HTTP/1.1" 200 47047
+[03/Jun/2019 09:48:01] "GET / HTTP/1.1" 200 26415
+[03/Jun/2019 09:48:01] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 09:50:24] "GET /profile/business/list/ HTTP/1.1" 200 15504
+[03/Jun/2019 09:50:24] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 09:50:24] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 09:50:24] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 09:50:24] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 09:50:24] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[03/Jun/2019 10:40:58] "GET / HTTP/1.1" 200 10623
+[03/Jun/2019 10:40:58] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 10:45:36] "GET / HTTP/1.1" 200 30924
+[03/Jun/2019 10:45:36] "GET /static/css/style.css HTTP/1.1" 304 0
+[03/Jun/2019 10:45:36] "GET /static/img/home_icon_2.png HTTP/1.1" 304 0
+[03/Jun/2019 10:45:36] "GET /static/img/home_icon_1.png HTTP/1.1" 304 0
+[03/Jun/2019 10:45:37] "GET /static/img/sector_icon_1.png HTTP/1.1" 304 0
+[03/Jun/2019 10:45:37] "GET /static/img/home_icon_3.png HTTP/1.1" 304 0
+[03/Jun/2019 10:45:37] "GET /static/img/sector_icon_2.png HTTP/1.1" 304 0
+[03/Jun/2019 10:45:37] "GET /static/img/sector_icon_3.png HTTP/1.1" 304 0
+[03/Jun/2019 10:45:37] "GET /static/img/sector_icon_4.png HTTP/1.1" 304 0
+[03/Jun/2019 10:45:37] "GET /static/img/sector_icon_5.png HTTP/1.1" 304 0
+[03/Jun/2019 10:45:37] "GET /static/img/sector_icon_7.png HTTP/1.1" 304 0
+[03/Jun/2019 10:45:37] "GET /static/img/sector_icon_8.png HTTP/1.1" 304 0
+[03/Jun/2019 10:45:37] "GET /static/img/sector_icon_6.png HTTP/1.1" 304 0
+[03/Jun/2019 10:45:37] "GET /static/img/sector_icon_9.png HTTP/1.1" 304 0
+[03/Jun/2019 10:45:37] "GET /static/img/sector_icon_10.png HTTP/1.1" 304 0
+[03/Jun/2019 10:45:37] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 10:45:38] "GET / HTTP/1.1" 200 30924
+[03/Jun/2019 10:45:38] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 10:45:38] "GET /static/img/home_section_3.png HTTP/1.1" 304 0
+[03/Jun/2019 10:45:38] "GET /static/img/home_banner.jpg HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[03/Jun/2019 10:45:39] "GET /favicon.ico HTTP/1.1" 404 2909
+[03/Jun/2019 10:45:41] "GET /?structure HTTP/1.1" 200 30951
+[03/Jun/2019 10:55:57] "GET / HTTP/1.1" 200 30924
+[03/Jun/2019 10:55:57] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Performing system checks...
+
+JSONField implementation is: <class 'django.db.models.fields.TextField'>
+May 28, 2019 - 15:43:47
+Django version 1.11.18, using settings 'venturelift_cms.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+/mnt/otb/venturelift/venv/lib/python2.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+System check identified some issues:
+
+WARNINGS:
+venturelift_profiles.InvestorProfile.target_sectors: (fields.W340) null has no effect on ManyToManyField.
+venturelift_profiles.SupporterProfile.interest_sectors: (fields.W340) null has no effect on ManyToManyField.
+
+System check identified 2 issues (0 silenced).
+/mnt/otb/venturelift/venv/lib/python2.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+/mnt/otb/venturelift/venv/lib/python2.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+System check identified some issues:
+
+WARNINGS:
+venturelift_profiles.InvestorProfile.target_sectors: (fields.W340) null has no effect on ManyToManyField.
+venturelift_profiles.SupporterProfile.interest_sectors: (fields.W340) null has no effect on ManyToManyField.
+
+System check identified 2 issues (0 silenced).
+[03/Jun/2019 11:03:34] "GET /profile/profile/ HTTP/1.1" 200 32722
+[03/Jun/2019 11:03:36] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:03:42] "GET /profile/profile/ HTTP/1.1" 200 32722
+[03/Jun/2019 11:03:42] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:03:50] "GET /profile/business/list/ HTTP/1.1" 200 19717
+[03/Jun/2019 11:03:50] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:03:50] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 11:03:50] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 11:03:50] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 11:03:50] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[03/Jun/2019 11:03:52] "GET /profile/business/profile/1/ HTTP/1.1" 200 35603
+[03/Jun/2019 11:03:52] "GET /static/img/verified.png HTTP/1.1" 304 0
+[03/Jun/2019 11:03:52] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:03:52] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 11:03:52] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 11:03:52] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 11:03:52] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[03/Jun/2019 11:03:52] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[03/Jun/2019 11:03:52] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 11:03:52] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 11:03:53] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[03/Jun/2019 11:28:44] "GET /profile/logout/ HTTP/1.1" 302 0
+[03/Jun/2019 11:28:45] "GET /profile/accounts/login/ HTTP/1.1" 200 5624
+[03/Jun/2019 11:28:47] "GET / HTTP/1.1" 200 10623
+[03/Jun/2019 11:28:48] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:31:59] "GET /en/media HTTP/1.1" 301 0
+[03/Jun/2019 11:32:00] "GET /en/media/ HTTP/1.1" 200 10105
+[03/Jun/2019 11:32:00] "GET /static/img/logo.png HTTP/1.1" 200 9123
+[03/Jun/2019 11:32:01] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:34:26] "GET /profile/accounts/login/ HTTP/1.1" 200 5624
+[03/Jun/2019 11:34:41] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[03/Jun/2019 11:34:42] "GET /profile/profile/ HTTP/1.1" 200 28701
+[03/Jun/2019 11:34:42] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:35:22] "GET /profile/business/list/ HTTP/1.1" 200 15696
+[03/Jun/2019 11:35:22] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 11:35:22] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 11:35:22] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:35:22] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 11:35:23] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[03/Jun/2019 11:35:25] "GET /profile/business/profile/1/ HTTP/1.1" 200 31582
+[03/Jun/2019 11:35:25] "GET /static/img/verified.png HTTP/1.1" 304 0
+[03/Jun/2019 11:35:25] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 11:35:25] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:35:26] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 11:35:26] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 11:35:26] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[03/Jun/2019 11:35:26] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[03/Jun/2019 11:35:26] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 11:35:26] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 11:35:26] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[03/Jun/2019 11:37:34] "GET /profile/business/list/ HTTP/1.1" 200 15696
+[03/Jun/2019 11:37:35] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 11:37:35] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:37:38] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 11:37:38] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 11:37:39] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[03/Jun/2019 11:37:43] "GET /profile/supporter/list/ HTTP/1.1" 200 16676
+[03/Jun/2019 11:37:44] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[03/Jun/2019 11:37:44] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:37:44] "GET /static/django_select2/django_select2.js HTTP/1.1" 304 0
+[03/Jun/2019 11:37:45] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[03/Jun/2019 11:37:45] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:37:46] "GET /profile/investor/list/ HTTP/1.1" 200 17588
+[03/Jun/2019 11:37:47] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 11:37:47] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 11:37:47] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:37:48] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[03/Jun/2019 11:37:49] "GET /media/pic_folder/index_lGdLbDy.jpeg HTTP/1.1" 200 47047
+[03/Jun/2019 11:37:55] "GET /profile/profile/ HTTP/1.1" 200 28701
+[03/Jun/2019 11:37:56] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:38:31] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 200 23377
+[03/Jun/2019 11:38:32] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 11:38:32] "GET /static/img/no-img.jpg HTTP/1.1" 200 36535
+[03/Jun/2019 11:38:32] "GET /static/img/icon-user.png HTTP/1.1" 200 157440
+[03/Jun/2019 11:38:35] "GET /profile/profile/ HTTP/1.1" 200 28701
+[03/Jun/2019 11:38:35] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 12:02:22] "GET / HTTP/1.1" 200 26415
+[03/Jun/2019 12:02:23] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[03/Jun/2019 12:02:24] "GET /static/css/style.css HTTP/1.1" 200 29586
+[03/Jun/2019 12:02:24] "GET /static/cms/css/3.5.3/cms.base.css HTTP/1.1" 200 66722
+[03/Jun/2019 12:02:24] "GET /static/cms/js/dist/3.5.3/bundle.toolbar.min.js HTTP/1.1" 200 445140
+[03/Jun/2019 12:02:25] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[03/Jun/2019 12:02:25] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 12:02:25] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[03/Jun/2019 12:02:26] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[03/Jun/2019 12:02:26] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[03/Jun/2019 12:02:26] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[03/Jun/2019 12:02:26] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[03/Jun/2019 12:02:26] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[03/Jun/2019 12:02:27] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[03/Jun/2019 12:02:27] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[03/Jun/2019 12:02:27] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[03/Jun/2019 12:02:27] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[03/Jun/2019 12:02:28] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 12:02:28] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[03/Jun/2019 12:02:28] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[03/Jun/2019 12:02:29] "GET /static/cms/fonts/3.5.3/django-cms-iconfont.woff2 HTTP/1.1" 200 5272
+[03/Jun/2019 12:02:30] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[03/Jun/2019 12:02:30] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[03/Jun/2019 12:02:30] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[03/Jun/2019 12:02:30] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+Not Found: /favicon.ico
+[03/Jun/2019 12:02:32] "GET /favicon.ico HTTP/1.1" 404 2909
+[03/Jun/2019 12:09:44] "GET / HTTP/1.1" 200 10623
+[03/Jun/2019 12:09:45] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Performing system checks...
+
+JSONField implementation is: <class 'django.db.models.fields.TextField'>
+June 03, 2019 - 11:03:29
+Django version 1.11.18, using settings 'venturelift_cms.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+/mnt/otb/venturelift/venv/lib/python2.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+System check identified some issues:
+
+WARNINGS:
+venturelift_profiles.InvestorProfile.target_sectors: (fields.W340) null has no effect on ManyToManyField.
+venturelift_profiles.SupporterProfile.interest_sectors: (fields.W340) null has no effect on ManyToManyField.
+
+System check identified 2 issues (0 silenced).
+[03/Jun/2019 13:23:21] "GET /profile/profile/ HTTP/1.1" 200 28701
+[03/Jun/2019 13:23:21] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 13:23:23] "GET /profile/profile/ HTTP/1.1" 200 28701
+[03/Jun/2019 13:23:24] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 13:23:27] "GET /profile/business/list/ HTTP/1.1" 200 15696
+[03/Jun/2019 13:23:28] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 13:23:28] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 13:23:28] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 13:23:28] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 13:23:28] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[03/Jun/2019 13:23:29] "GET /profile/business/profile/1/ HTTP/1.1" 200 35849
+[03/Jun/2019 13:23:29] "GET /static/img/verified.png HTTP/1.1" 304 0
+[03/Jun/2019 13:23:29] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 13:23:29] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 13:23:29] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 13:23:29] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 13:23:30] "GET /static/img/no-img.png HTTP/1.1" 200 17629
+[03/Jun/2019 13:23:30] "GET /static/img/funder.jpg HTTP/1.1" 200 4823
+[03/Jun/2019 13:23:30] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[03/Jun/2019 13:23:30] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[03/Jun/2019 13:23:30] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[03/Jun/2019 13:23:30] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 13:23:30] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 13:37:06] "GET /profile/business/profile/4/ HTTP/1.1" 200 34969
+[03/Jun/2019 13:37:06] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[03/Jun/2019 13:37:06] "GET /static/img/funder.jpg HTTP/1.1" 304 0
+[03/Jun/2019 13:37:06] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 13:37:06] "GET /static/img/verified.png HTTP/1.1" 304 0
+[03/Jun/2019 13:37:07] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 13:37:07] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 13:37:07] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 13:37:07] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[03/Jun/2019 13:37:08] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 13:37:08] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[03/Jun/2019 13:37:08] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 13:38:31] "GET /profile/profile/ HTTP/1.1" 200 28701
+[03/Jun/2019 13:38:32] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 13:38:51] "GET /profile/business/list/ HTTP/1.1" 200 15696
+[03/Jun/2019 13:38:51] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 13:38:51] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 13:38:52] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 13:38:52] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 13:38:52] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[03/Jun/2019 13:38:54] "GET /profile/business/profile/1/ HTTP/1.1" 200 35849
+[03/Jun/2019 13:38:54] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 13:38:54] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 13:38:54] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 13:38:54] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 13:38:54] "GET /static/img/funder.jpg HTTP/1.1" 304 0
+[03/Jun/2019 13:38:55] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[03/Jun/2019 13:38:55] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[03/Jun/2019 13:38:55] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[03/Jun/2019 13:38:55] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 13:38:55] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 13:40:33] "GET / HTTP/1.1" 200 26415
+[03/Jun/2019 13:40:36] "GET /profile/investor/list/ HTTP/1.1" 200 17588
+[03/Jun/2019 13:40:37] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 13:40:37] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 13:40:37] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[03/Jun/2019 13:40:37] "GET /media/pic_folder/index_lGdLbDy.jpeg HTTP/1.1" 200 47047
+[03/Jun/2019 13:43:29] "GET / HTTP/1.1" 200 26415
+[03/Jun/2019 13:43:29] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 13:43:30] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 13:58:40] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 200 542194
+[03/Jun/2019 14:04:57] "GET / HTTP/1.1" 200 26756
+[03/Jun/2019 14:04:57] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:05:56] "GET / HTTP/1.1" 200 26769
+[03/Jun/2019 14:05:56] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:05:58] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:06:04] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 200 542194
+[03/Jun/2019 14:08:46] "GET / HTTP/1.1" 200 26769
+[03/Jun/2019 14:08:46] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:11:47] "GET / HTTP/1.1" 200 26769
+[03/Jun/2019 14:11:47] "GET /static/css/style.css HTTP/1.1" 200 29814
+[03/Jun/2019 14:11:47] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[03/Jun/2019 14:11:47] "GET /static/cms/css/3.5.3/cms.base.css HTTP/1.1" 200 66722
+[03/Jun/2019 14:11:47] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[03/Jun/2019 14:11:48] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[03/Jun/2019 14:11:48] "GET /static/cms/js/dist/3.5.3/bundle.toolbar.min.js HTTP/1.1" 200 445140
+[03/Jun/2019 14:11:48] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[03/Jun/2019 14:11:48] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[03/Jun/2019 14:11:48] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:11:49] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[03/Jun/2019 14:11:49] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[03/Jun/2019 14:11:49] "GET /static/cms/fonts/3.5.3/django-cms-iconfont.woff2 HTTP/1.1" 200 5272
+[03/Jun/2019 14:11:49] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[03/Jun/2019 14:11:49] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[03/Jun/2019 14:11:49] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[03/Jun/2019 14:11:49] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[03/Jun/2019 14:11:49] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[03/Jun/2019 14:11:50] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[03/Jun/2019 14:11:50] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[03/Jun/2019 14:11:50] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[03/Jun/2019 14:11:50] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[03/Jun/2019 14:11:50] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[03/Jun/2019 14:11:50] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+[03/Jun/2019 14:11:52] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[03/Jun/2019 14:11:54] "GET /favicon.ico HTTP/1.1" 404 2909
+[03/Jun/2019 14:20:02] "GET /?edit HTTP/1.1" 200 31278
+[03/Jun/2019 14:20:03] "GET /static/css/style.css HTTP/1.1" 304 0
+[03/Jun/2019 14:20:03] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:20:06] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:20:08] "GET /en/admin/cms/staticplaceholder/edit-plugin/1/?cms_path=/?edit HTTP/1.1" 200 5767
+[03/Jun/2019 14:20:08] "GET /static/cms/img/loader.gif?uf5b664wnc HTTP/1.1" 200 4992
+[03/Jun/2019 14:20:09] "GET /static/admin/css/base.css HTTP/1.1" 200 0
+[03/Jun/2019 14:20:09] "GET /static/jet/css/vendor.css?v=1.0.8 HTTP/1.1" 200 53889
+[03/Jun/2019 14:20:09] "GET /static/jet/css/themes/default/base.css?v=1.0.8 HTTP/1.1" 200 178918
+[03/Jun/2019 14:20:09] "GET /static/jet/css/icons/style.css?v=1.0.8 HTTP/1.1" 200 2248
+[03/Jun/2019 14:20:09] "GET /static/jet/css/themes/default/select2.theme.css?v=1.0.8 HTTP/1.1" 200 23574
+[03/Jun/2019 14:20:09] "GET /static/jet/css/themes/default/jquery-ui.theme.css?v=1.0.8 HTTP/1.1" 200 6760
+[03/Jun/2019 14:20:09] "GET /static/admin/css/forms.css HTTP/1.1" 200 0
+[03/Jun/2019 14:20:09] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[03/Jun/2019 14:20:09] "GET /static/jet/js/build/bundle.min.js?v=1.0.8 HTTP/1.1" 200 417084
+[03/Jun/2019 14:20:09] "GET /static/jet/js/i18n/select2/en.js?v=1.0.8 HTTP/1.1" 200 827
+[03/Jun/2019 14:20:09] "GET /static/cms/js/dist/3.5.3/bundle.admin.base.min.js HTTP/1.1" 200 191750
+[03/Jun/2019 14:20:10] "GET /en/admin/jsi18n/ HTTP/1.1" 200 3217
+[03/Jun/2019 14:20:10] "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+[03/Jun/2019 14:20:10] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+[03/Jun/2019 14:20:10] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+[03/Jun/2019 14:20:10] "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+[03/Jun/2019 14:20:10] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 0
+[03/Jun/2019 14:20:10] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+[03/Jun/2019 14:20:11] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+[03/Jun/2019 14:20:11] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+[03/Jun/2019 14:20:11] "GET /static/jet/css/themes/default/select2.theme.css.map HTTP/1.1" 200 44244
+[03/Jun/2019 14:20:11] "GET /static/jet/css/themes/default/jquery-ui.theme.css.map HTTP/1.1" 200 23121
+[03/Jun/2019 14:20:11] "GET /static/jet/css/themes/default/base.css.map HTTP/1.1" 200 303057
+[03/Jun/2019 14:20:13] "GET /?edit&structure HTTP/1.1" 200 31305
+[03/Jun/2019 14:20:32] "GET /en/admin/cms/staticplaceholder/edit-plugin/1/?cms_path=/?edit HTTP/1.1" 200 5767
+[03/Jun/2019 14:20:33] "GET /static/jet/js/build/bundle.min.js?v=1.0.8 HTTP/1.1" 200 417084
+[03/Jun/2019 14:20:33] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[03/Jun/2019 14:20:33] "GET /static/cms/js/dist/3.5.3/bundle.admin.base.min.js HTTP/1.1" 200 191750
+[03/Jun/2019 14:20:33] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+[03/Jun/2019 14:20:33] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+[03/Jun/2019 14:20:33] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+[03/Jun/2019 14:20:33] "GET /en/admin/jsi18n/ HTTP/1.1" 200 3217
+[03/Jun/2019 14:20:35] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[03/Jun/2019 14:20:35] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[03/Jun/2019 14:20:35] "GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+[03/Jun/2019 14:20:35] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+[03/Jun/2019 14:20:37] "GET /static/jet/css/icons/fonts/jet-icons.ttf?415d6s HTTP/1.1" 200 6240
+[03/Jun/2019 14:21:08] "GET /en/admin/cms/staticplaceholder/edit-plugin/1/?cms_path=/?edit HTTP/1.1" 200 5767
+[03/Jun/2019 14:21:09] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[03/Jun/2019 14:21:09] "GET /en/admin/jsi18n/ HTTP/1.1" 200 3217
+[03/Jun/2019 14:24:35] "GET /en/media HTTP/1.1" 301 0
+[03/Jun/2019 14:24:36] "GET /en/media/ HTTP/1.1" 200 30231
+[03/Jun/2019 14:24:36] "GET /static/css/style.css HTTP/1.1" 304 0
+[03/Jun/2019 14:24:36] "GET /static/img/logo.png HTTP/1.1" 200 9123
+[03/Jun/2019 14:24:37] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:24:37] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+[03/Jun/2019 14:24:42] "GET /en/media/?structure HTTP/1.1" 200 32461
+[03/Jun/2019 14:25:11] "GET /?edit HTTP/1.1" 200 31278
+[03/Jun/2019 14:25:12] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:25:12] "GET /static/css/style.css HTTP/1.1" 304 0
+[03/Jun/2019 14:25:12] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:25:15] "GET /?edit&structure HTTP/1.1" 200 31305
+Performing system checks...
+
+JSONField implementation is: <class 'django.db.models.fields.TextField'>
+June 03, 2019 - 13:23:15
+Django version 1.11.18, using settings 'venturelift_cms.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+/mnt/otb/venturelift/venv/lib/python2.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+System check identified some issues:
+
+WARNINGS:
+venturelift_profiles.InvestorProfile.target_sectors: (fields.W340) null has no effect on ManyToManyField.
+venturelift_profiles.SupporterProfile.interest_sectors: (fields.W340) null has no effect on ManyToManyField.
+
+System check identified 2 issues (0 silenced).
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 84, in rendered_content
+    content = template.render(context, self._request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 515, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: 'block' tag with name 'title' appears more than once
+[03/Jun/2019 14:25:35] "GET / HTTP/1.1" 500 151870
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 84, in rendered_content
+    content = template.render(context, self._request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 515, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: 'block' tag with name 'title' appears more than once
+[03/Jun/2019 14:25:41] "GET / HTTP/1.1" 500 151742
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 84, in rendered_content
+    content = template.render(context, self._request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 515, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: 'block' tag with name 'title' appears more than once
+[03/Jun/2019 14:31:51] "GET / HTTP/1.1" 500 151877
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 84, in rendered_content
+    content = template.render(context, self._request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: base_root.html
+[03/Jun/2019 14:38:38] "GET / HTTP/1.1" 500 150353
+[03/Jun/2019 14:40:33] "GET / HTTP/1.1" 200 26770
+[03/Jun/2019 14:40:34] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:44:46] "GET /profile/accounts/login/ HTTP/1.1" 200 5624
+[03/Jun/2019 14:44:51] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[03/Jun/2019 14:44:52] "GET /profile/profile/ HTTP/1.1" 200 38769
+[03/Jun/2019 14:44:52] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:44:52] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 14:44:53] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[03/Jun/2019 14:44:53] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 14:44:53] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 14:44:53] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[03/Jun/2019 14:44:53] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 14:44:53] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 14:44:53] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[03/Jun/2019 14:44:58] "GET /profile/business/list/ HTTP/1.1" 200 15696
+[03/Jun/2019 14:44:58] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 14:44:59] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:45:00] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[03/Jun/2019 14:45:00] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 14:45:00] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 14:45:00] "GET /profile/business/profile/1/ HTTP/1.1" 200 34532
+[03/Jun/2019 14:45:01] "GET /static/img/verified.png HTTP/1.1" 304 0
+[03/Jun/2019 14:45:01] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 14:45:01] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 14:45:01] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[03/Jun/2019 14:45:01] "GET /static/img/funder.jpg HTTP/1.1" 304 0
+[03/Jun/2019 14:45:01] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 14:45:01] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[03/Jun/2019 14:45:01] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:45:01] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[03/Jun/2019 14:45:02] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 14:45:02] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 14:45:53] "GET /profile/profile/ HTTP/1.1" 200 38769
+[03/Jun/2019 14:45:54] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 14:45:54] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 14:45:54] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 14:45:54] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 14:45:55] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[03/Jun/2019 14:45:55] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[03/Jun/2019 14:45:55] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 14:45:55] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 14:45:55] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[03/Jun/2019 15:05:02] "GET /profile/profile/ HTTP/1.1" 200 38769
+[03/Jun/2019 15:05:03] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 15:05:03] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 15:05:04] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 15:05:04] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 15:05:04] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[03/Jun/2019 15:05:04] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[03/Jun/2019 15:05:04] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 15:05:04] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 15:05:05] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[03/Jun/2019 15:18:01] "GET / HTTP/1.1" 200 31279
+[03/Jun/2019 15:18:01] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 15:18:01] "GET /static/css/style.css HTTP/1.1" 304 0
+[03/Jun/2019 15:18:03] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 15:18:06] "GET /?structure HTTP/1.1" 200 31306
+[03/Jun/2019 15:22:50] "GET / HTTP/1.1" 200 10978
+[03/Jun/2019 15:22:50] "GET /static/css/style.css HTTP/1.1" 200 29814
+[03/Jun/2019 15:22:50] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[03/Jun/2019 15:22:51] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 15:22:51] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[03/Jun/2019 15:22:51] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[03/Jun/2019 15:22:51] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[03/Jun/2019 15:22:51] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[03/Jun/2019 15:22:51] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[03/Jun/2019 15:22:51] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[03/Jun/2019 15:22:51] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[03/Jun/2019 15:22:51] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[03/Jun/2019 15:22:51] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[03/Jun/2019 15:22:51] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[03/Jun/2019 15:22:51] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[03/Jun/2019 15:22:51] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[03/Jun/2019 15:22:51] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[03/Jun/2019 15:22:51] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[03/Jun/2019 15:22:52] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 15:22:52] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[03/Jun/2019 15:22:52] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+[03/Jun/2019 15:22:52] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[03/Jun/2019 15:23:19] "GET /static/css/style.css HTTP/1.1" 304 0
+[03/Jun/2019 15:23:19] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 200 542194
+[03/Jun/2019 15:24:21] "GET /registration/ HTTP/1.1" 200 11603
+[03/Jun/2019 15:24:22] "GET /static/css/style.css HTTP/1.1" 304 0
+[03/Jun/2019 15:24:22] "GET /static/img/logo3.png HTTP/1.1" 200 8136
+[03/Jun/2019 15:24:23] "GET /static/img/icon-2.svg HTTP/1.1" 200 3317
+[03/Jun/2019 15:24:23] "GET /static/img/icon-1.svg HTTP/1.1" 200 2550
+[03/Jun/2019 15:24:23] "GET /static/img/icon-4.svg HTTP/1.1" 200 1447
+[03/Jun/2019 15:24:23] "GET /static/img/icon-3.svg HTTP/1.1" 200 2404
+[03/Jun/2019 15:24:24] "GET /static/img/icon-5.svg HTTP/1.1" 200 1366
+[03/Jun/2019 15:24:33] "POST /registration/ HTTP/1.1" 302 0
+[03/Jun/2019 15:24:33] "GET /profile/accounts/register/complete/ HTTP/1.1" 200 8611
+Not Found: /Ik55YXdhcmFHbWFpbCI:1hXm0s:b7x6HaxefDWXTRjRuBz3_YAhVTA
+[03/Jun/2019 15:25:34] "GET /Ik55YXdhcmFHbWFpbCI:1hXm0s:b7x6HaxefDWXTRjRuBz3_YAhVTA HTTP/1.1" 404 3038
+Not Found: /Ik55YXdhcmFHbWFpbCI:1hXm0s:b7x6HaxefDWXTRjRuBz3_YAhVTA
+[03/Jun/2019 15:26:25] "GET /Ik55YXdhcmFHbWFpbCI:1hXm0s:b7x6HaxefDWXTRjRuBz3_YAhVTA HTTP/1.1" 404 3038
+[03/Jun/2019 15:27:09] "GET /en/admin/cms/staticplaceholder/edit-plugin/1/?cms_path=/?edit HTTP/1.1" 200 5767
+[03/Jun/2019 15:27:09] "GET /en/jet/jsi18n/ HTTP/1.1" 200 3217
+[03/Jun/2019 15:27:09] "GET /en/admin/jsi18n/ HTTP/1.1" 200 3217
+[03/Jun/2019 15:28:21] "GET / HTTP/1.1" 200 31279
+[03/Jun/2019 15:28:21] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 15:28:21] "GET /static/css/style.css HTTP/1.1" 304 0
+[03/Jun/2019 15:28:23] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 15:28:26] "GET /?structure HTTP/1.1" 200 31306
+Not Found: /Ik55YXdhcmFHbWFpbCI:1hXm0s:b7x6HaxefDWXTRjRuBz3_YAhVTA
+[03/Jun/2019 15:28:40] "GET /Ik55YXdhcmFHbWFpbCI:1hXm0s:b7x6HaxefDWXTRjRuBz3_YAhVTA HTTP/1.1" 404 3038
+[03/Jun/2019 15:31:54] "GET / HTTP/1.1" 200 10978
+Not Found: /favicon.ico
+[03/Jun/2019 15:31:54] "GET /favicon.ico HTTP/1.1" 404 2909
+[03/Jun/2019 16:03:22] "GET / HTTP/1.1" 200 10978
+Invalid HTTP_HOST header: 'www.baidu.com:443'. You may need to add u'www.baidu.com' to ALLOWED_HOSTS.
+[03/Jun/2019 16:06:23] "CONNECT / HTTP/1.1" 400 67693
+Invalid HTTP_HOST header: 'www.baidu.com'. You may need to add u'www.baidu.com' to ALLOWED_HOSTS.
+[03/Jun/2019 16:06:23] "GET / HTTP/1.1" 400 67244
+Invalid HTTP_HOST header: '123.125.114.144'. You may need to add u'123.125.114.144' to ALLOWED_HOSTS.
+[03/Jun/2019 16:06:25] "HEAD / HTTP/1.1" 400 67955
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/python/lib/python2.7/wsgiref/handlers.py", line 86, in run
+    self.finish_response()
+  File "/mnt/otb/venturelift/python/lib/python2.7/wsgiref/handlers.py", line 128, in finish_response
+    self.write(data)
+  File "/mnt/otb/venturelift/python/lib/python2.7/wsgiref/handlers.py", line 217, in write
+    self._write(data)
+  File "/mnt/otb/venturelift/python/lib/python2.7/socket.py", line 328, in write
+    self.flush()
+  File "/mnt/otb/venturelift/python/lib/python2.7/socket.py", line 307, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 104] Connection reset by peer
+[03/Jun/2019 16:06:25] "HEAD / HTTP/1.1" 500 59
+[2019-06-03 16:06:25,537] - Broken pipe from ('127.0.0.1', 36481)
+
+[03/Jun/2019 16:51:25] "GET / HTTP/1.1" 200 10978
+[03/Jun/2019 16:51:25] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 16:57:53] "GET / HTTP/1.1" 200 10978
+[03/Jun/2019 22:11:05] "GET / HTTP/1.1" 200 26770
+[03/Jun/2019 22:11:05] "GET /static/cms/js/dist/3.5.3/bundle.toolbar.min.js HTTP/1.1" 200 445140
+[03/Jun/2019 22:11:05] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 22:11:06] "GET / HTTP/1.1" 200 26770
+[03/Jun/2019 22:11:06] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 22:11:06] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[03/Jun/2019 22:11:07] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[03/Jun/2019 22:11:07] "GET /favicon.ico HTTP/1.1" 404 2909
+[03/Jun/2019 22:11:10] "GET /profile/accounts/login/ HTTP/1.1" 200 5624
+[03/Jun/2019 22:11:16] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[03/Jun/2019 22:11:17] "GET /profile/profile/ HTTP/1.1" 200 38769
+[03/Jun/2019 22:11:17] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 22:11:17] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 22:11:17] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 22:11:18] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 22:11:18] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[03/Jun/2019 22:11:18] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[03/Jun/2019 22:11:18] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 22:11:18] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 22:11:18] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[03/Jun/2019 22:52:54] "GET / HTTP/1.1" 200 26770
+[03/Jun/2019 22:52:54] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 22:52:54] "GET / HTTP/1.1" 200 26770
+[03/Jun/2019 22:52:55] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 22:52:56] "GET /profile/accounts/login/ HTTP/1.1" 200 5624
+[03/Jun/2019 22:53:01] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[03/Jun/2019 22:53:01] "GET /profile/profile/ HTTP/1.1" 200 38769
+[03/Jun/2019 22:53:02] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 22:53:02] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 22:53:02] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 22:53:02] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 22:53:02] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[03/Jun/2019 22:53:02] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 22:53:02] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[03/Jun/2019 22:53:03] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 22:53:03] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[03/Jun/2019 22:53:45] "GET /profile/investor/list/ HTTP/1.1" 200 17588
+[03/Jun/2019 22:53:45] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 22:53:45] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[03/Jun/2019 22:53:45] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 22:53:45] "GET /media/pic_folder/index_lGdLbDy.jpeg HTTP/1.1" 200 47047
+[03/Jun/2019 22:53:45] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[03/Jun/2019 22:53:47] "GET /profile/investor/profile/2/ HTTP/1.1" 200 30820
+[03/Jun/2019 22:53:47] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[03/Jun/2019 22:53:47] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[03/Jun/2019 22:53:47] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[03/Jun/2019 22:53:47] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[03/Jun/2019 22:53:48] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[03/Jun/2019 22:53:48] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[03/Jun/2019 22:53:48] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[03/Jun/2019 22:53:48] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[03/Jun/2019 22:53:48] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:06:36] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 00:06:37] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:06:37] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 00:06:37] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:06:39] "GET /profile/accounts/login/ HTTP/1.1" 200 5624
+[04/Jun/2019 00:06:44] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[04/Jun/2019 00:06:44] "GET /profile/profile/ HTTP/1.1" 200 38769
+[04/Jun/2019 00:06:45] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:06:45] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:06:45] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:06:45] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:06:45] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:06:45] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:06:45] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:06:46] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:06:46] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 00:06:58] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 200 23377
+[04/Jun/2019 00:06:58] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:06:58] "GET /static/img/icon-user.png HTTP/1.1" 200 157440
+[04/Jun/2019 00:07:07] "POST /profile/investor-create/step-1/1/ HTTP/1.1" 302 0
+[04/Jun/2019 00:07:07] "GET /profile/investor-create/step-2/1/ HTTP/1.1" 200 31131
+[04/Jun/2019 00:07:08] "GET /static/cms/js/dist/3.5.3/bundle.admin.base.min.js HTTP/1.1" 200 191750
+[04/Jun/2019 00:07:08] "GET /static/djangocms_text_ckeditor/css/cms.ckeditor.css HTTP/1.1" 200 2758
+[04/Jun/2019 00:07:08] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:07:08] "GET /static/djangocms_text_ckeditor/js/dist/bundle-45a646fecc.cms.ckeditor.min.js HTTP/1.1" 200 709594
+[04/Jun/2019 00:07:10] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:07:10] "GET /static/djangocms_text_ckeditor/ckeditor/config.js?t=H8DA HTTP/1.1" 200 332
+[04/Jun/2019 00:07:11] "GET /static/djangocms_text_ckeditor/ckeditor/skins/moono-lisa/editor.css?t=H8DA HTTP/1.1" 200 46901
+[04/Jun/2019 00:07:11] "GET /static/djangocms_text_ckeditor/ckeditor/lang/en.js?t=H8DA HTTP/1.1" 200 17820
+[04/Jun/2019 00:07:11] "GET /static/djangocms_text_ckeditor/ckeditor/styles.js?t=H8DA HTTP/1.1" 200 5546
+[04/Jun/2019 00:07:12] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css HTTP/1.1" 200 381
+[04/Jun/2019 00:07:12] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/scayt/dialogs/dialog.css HTTP/1.1" 200 419
+[04/Jun/2019 00:07:12] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css HTTP/1.1" 200 1306
+[04/Jun/2019 00:07:12] "GET /static/djangocms_text_ckeditor/ckeditor/plugins/copyformatting/styles/copyformatting.css HTTP/1.1" 200 1493
+[04/Jun/2019 00:07:12] "GET /static/djangocms_text_ckeditor/ckeditor/skins/moono-lisa/icons.png?t=dee99e2 HTTP/1.1" 200 12421
+[04/Jun/2019 00:07:12] "GET /static/djangocms_text_ckeditor/ckeditor/contents.css?t=H8DA HTTP/1.1" 200 2955
+[04/Jun/2019 00:07:19] "POST /profile/investor-create/step-2/1/ HTTP/1.1" 302 0
+[04/Jun/2019 00:07:19] "GET /profile/investor/list/ HTTP/1.1" 200 17588
+[04/Jun/2019 00:07:20] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:07:20] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:07:20] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:07:20] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 00:07:20] "GET /media/pic_folder/index_lGdLbDy.jpeg HTTP/1.1" 200 47047
+[04/Jun/2019 00:07:24] "GET /profile/profile/ HTTP/1.1" 200 38769
+[04/Jun/2019 00:07:24] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:07:24] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:07:24] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:07:24] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:07:24] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:07:25] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:07:25] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:07:25] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:07:25] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 00:07:49] "GET /profile/business/list/ HTTP/1.1" 200 15696
+[04/Jun/2019 00:07:49] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:07:50] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:07:50] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:07:50] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:07:50] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 00:07:51] "GET /profile/business/profile/1/ HTTP/1.1" 200 34532
+[04/Jun/2019 00:07:51] "GET /static/img/verified.png HTTP/1.1" 304 0
+[04/Jun/2019 00:07:51] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:07:52] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:07:52] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:07:52] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:07:52] "GET /static/img/funder.jpg HTTP/1.1" 304 0
+[04/Jun/2019 00:07:52] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 00:07:52] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:07:52] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:07:52] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:07:52] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:08:30] "GET /profile/supporter/list/ HTTP/1.1" 200 16676
+[04/Jun/2019 00:08:31] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:08:31] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:08:31] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:08:33] "GET /profile/supporter/profile/2/ HTTP/1.1" 200 53384
+[04/Jun/2019 00:08:34] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:08:34] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:08:34] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:08:34] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:08:34] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:08:34] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:08:34] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:08:34] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 00:08:34] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:08:55] "GET /profile/profile/ HTTP/1.1" 200 38769
+[04/Jun/2019 00:08:56] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:08:56] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:08:56] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:08:56] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:08:56] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:08:56] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:08:56] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:08:56] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:08:57] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
