@@ -39,16 +39,6 @@
                     <img src="{% static 'img/logo3.png' %}" alt="VentureLift Africa">
                 </a>
                 <div class="vl_top_top navbar-full">
-                    <!--
-                    <div class="top_search">
-                        <div class="input-group">
-                            <input type="text" class="search_field form-control" placeholder="Search for...">
-                            <span class="input-group-btn">
-                            <button class="search_button btn btn-default" type="button"><ion-icon name="search"></ion-icon></button>
-                            </span>
-                        </div>
-                    </div>
-                    -->
                     <ul class="vl_top_nav in_line">
                         <li><a href="{% url 'profile_summary' %}">
                                 <ion-icon name="home"></ion-icon> My Profile
@@ -73,47 +63,11 @@
                             </a></li>
 
                         <li class="user_nav_item pull_right">
-                            <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id=""
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <figure class="user_icon_nav">
-                                        {% if context.supporter %}
-                                        {% if context.supporter.thumbnail_image %}
-                                        <img src="{{ context.supporter.thumbnail_image.url }}">
-                                        {% else %}
-                                        <img src="{% static 'img/blue-user-icon.svg' %}">
-                                        {% endif %}
-                                        {% elif context.investor %}
-                                        {% if context.investor.thumbnail_image %}
-                                        <img src="{{ context.investor.thumbnail_image.url }}">
-                                        {% else %}
-                                        <img src="{% static 'img/blue-user-icon.svg' %}">
-                                        {% endif %}
-                                        {% elif context.business %}
-                                        {% if context.business.thumbnail_image %}
-                                        <img src="{{ context.business.thumbnail_image.url }}">
-                                        {% else %}
-                                        <img src="{% static 'img/no-img.png' %}">
-                                        {% endif %}
-                                        {% endif %}
 
-                                    </figure>
-                                </button>
-                                <ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
-                                    <li><a href="{% url 'profile_summary' %}">My Profile</a></li>
-                                    <div class="divider"></div>
-                                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                                </ul>
-                            </div>
                         </li>
                         <li class="pull_right"><a href="#nogo">
                                 <ion-icon name="notifications-outline"></ion-icon>
                             </a></li>
-                        <!--
-                        <li class="pull_right">
-                            <a href="#nogo"><ion-icon name="search"></ion-icon></a>
-                        </li> 
-                        -->
                     </ul>
                 </div>
             </div>
@@ -123,106 +77,14 @@
         </div>
     </nav>
 
-    <!--
-    <nav id="navbar_out" class="navbar navbar-default navbar-fixed-top">
-            <div id="navbarX" class="nav_nav_second navbar-collapse collapse nav-down">
-                <ul id="navbar2" class="navbarX2 nav navbar-nav">
-                    <li><a href="{% url 'profile_summary' %}">Home</a></li>
-                    <li><a href="{% url 'supporter_list' %}">Supporters</a></li>
-                    <li><a href="{% url 'business_list' %}">Businesses</a></li>
-                    <li><a href="{% url 'logout' %}">LOGOUT</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    -->
-
     <div class="content_container">
 
         <div class="full_A with-side-filter">
             <div class="columns_A flex row clearfix">
-                <div class="col_B_out col_B_out_1 col-md-3 clearfix">
-
-                    <div class="col_B_in col_B_in_1">
-                        <div class="mini_profile">
-                            <figure class="mini_avi">
-                                {% if context.business and context.business.thumbnail_image %}
-                                <img src="{{ context.business.thumbnail_image.url }}">
-                                {% elif context.investor and context.investor.thumbnail_image %}
-                                <img src="{{ context.investor.thumbnail_image.url }}">
-                                {% elif context.supporter and context.supporter.thumbnail_image %}
-                                <img src="{{ context.supporter.thumbnail_image.url }}">
-                                {% else %}
-                                <img src="{% static 'img/no-img.jpg' %}">
-                                {% endif %}
-                            </figure>
-                            <div class="mini_content_A text-center">
-                                {% if context.business %}
-                                <h4>{{ context.business.name }}</h4>
-                                <p> Business </p>
-                                {% elif context.investor %}
-                                <h4>{{ context.investor.fullname }}</h4>
-                                <p>Funder</p>
-                                {% elif context.supporter %}
-                                <h4>{{ context.supporter.fullname }}</h4>
-                                <p>Partner</p>
-                                {% else %}
-                                <h4>Venture Lift</h4>
-                                <p>Africa</p>
-                                {% endif %}
-                            </div>
-                            <div class="mini_list">
-                                <ul class="buttons_yo">
-                                    <li><a class="btn btn-sm btn-primary" href="#nogo">View Profile</a></li>
-                                    <li><a class="btn btn-sm btn-primary" href="#nogo">Edit Profile</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col_A_in col_A_in_1">
-                        {% if context.business %}
-                        {% include 'profile/profile/business.html'%}
-                        {% elif context.supporter %}
-                        {% include 'profile/profile/supporter.html'%}
-                        {% elif context.investor %}
-                        {% include 'profile/profile/investor.html'%}
-                        {% endif %}
-                        <ul class="actions_A">
-                            {% if context.supporter %}
-                            {% url 'update_supporter_step1' context.supporter.pk as my_profile %}
-                            {% if my_profile == request.path %}
-                            {% else %}
-                            <li><a href="{% url 'update_supporter_step1' context.supporter.pk %}">Edit my profile</a>
-                            </li>
-                            {% endif %}
-                            {% endif %}
-                            {% if context.investor %}
-                            {% url 'update_investor_step1' context.investor.pk as my_profile %}
-                            {% if my_profile == request.path %}
-                            {% else %}
-                            <li><a href="{% url 'update_investor_step1' context.investor.pk %}">Edit my profile</a></li>
-                            </li>
-                            {% endif %}
-
-                            {% endif %}
-
-                            <li><a href="{% url 'my_business' %}">Add a Business</a></li>
-                            <li><a href="{% url 'new_blog_post' %}">New Blog Post</a></li>
-                        </ul>
-                    </div>
-
-
-                </div>
-                <div class="col_A_out col_A_out_2 col-md-7 clearfix">
+                <div class="col_A_out col_A_out_2 col-md-10 clearfix">
                     {% block content_1 %}{% endblock %}
                 </div>
-                <div class="col_A_out col_A_out_3 col-md-2 clearfix">
-                    <div class="col_A_in col_A_in_co_filter">
-                        {% block content_2 %}{% endblock %}
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

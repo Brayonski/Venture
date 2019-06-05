@@ -6,11 +6,50 @@
     <div class="onboarding_A">
         <div class="row clearfix">
             <div class="col-md-8 col-md-offset-2 clearfix">
-                <h3>Eligibility screening</h3>
+                <h3>Company Basic Information</h3>
                 <div>
                     <form method='post' enctype="multipart/form-data">
                         {% csrf_token %}
-                        {{form|crispy }}
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.thumbnail_image|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.name|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                                <div class="form-group col-md-6 mb-0">
+                                    {{ form.sector|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-6 mb-0">
+                                    {{ form.size|as_crispy_field }}
+                                </div>
+                        </div>
+                        <div class="form-row">
+                                <div class="form-group col-md-6 mb-0">
+                                        {{ form.address|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-6 mb-0">
+                                    {{ form.company_website|as_crispy_field }}
+                                </div>
+                        </div>
+                        <div class="form-row">
+                                <div class="form-group col-md-4 mb-0">
+                                    {{ form.year_of_company_registration|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-4 mb-0">
+                                    {{ form.full_time_employee_count|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-4 mb-0">
+                                        {{ form.company_primary_email|as_crispy_field }}
+                                </div>
+                        </div>
+                        <div class="form-row">
+                                <div class="form-group col-md-12 mb-0">
+                                    {{ form.value_proposition_statement|as_crispy_field }}
+                                </div>
+                        </div>
                         <button class='btn btn-success'>Save and continue</button>
                     </form>
                 </div>
@@ -19,9 +58,4 @@
     </div>
 </div>
 
-{% endblock %}
-{% block content_2 %}
-<div class="company_filter">
-    <h4>Sidebar</h4>
-</div>
 {% endblock %}

@@ -2,14 +2,25 @@ from venturelift_profiles.models import *
 from django.forms import ModelForm
 from django import forms
 from django_select2.forms import Select2MultipleWidget, Select2Widget
-
+from django_countries.widgets import CountrySelectWidget
 
 class CreateBusinessForm(ModelForm):
     class Meta:
         model = Business
         exclude = ['verified', 'verified_by', 'creator']
-
-
+        widgets = {'address': CountrySelectWidget()}
+        labels = {
+            "thumbnail_image": "Company Logo",
+            "name": "Company Name",
+            "sector": "Industry",
+            "size": "Company Size",
+            "company_primary_email": "Company Primary Email Address",
+            "company_website": "Company Website",
+            "year_of_company_registration": "Year of Company Registration",
+            "full_time_employee_count": "Number of full time employees",
+            "address": "Country",
+            "value_proposition_statement": "Value Proposition Statement",
+        }
 class CreateBlogForm(ModelForm):
     class Meta:
         model = Post
@@ -34,6 +45,12 @@ class MarketDescriptionForm(ModelForm):
         model = MarketDescription
         exclude = ['company_name']
 
+        labels = {
+            "product_offering": "Product/Service offered",
+            "market_segment": "Market Segment",
+            "needs_fulfilled_by_product": "Needs fulfilled by Product/Service",
+            "market_size": "Market Size",
+        }
 
 class BusinessModelForm(ModelForm):
     class Meta:
@@ -46,6 +63,10 @@ class BusinessTeamForm(ModelForm):
         model = BusinessTeam
         exclude = ['company_name']
 
+        labels = {
+            "board_of_advisors": "Board of advisors information",
+            "board_of_directors": "Board of directors information",
+        }
 
 class BusinessFinancialForm(ModelForm):
     class Meta:
@@ -63,6 +84,12 @@ class BusinessGoalsForm(ModelForm):
     class Meta:
         model = BusinessGoals
         exclude = ['company_name']
+
+    primary_services_interested_in = forms.ModelMultipleChoiceField(queryset=VlaServices.objects.all(),
+                                                                    widget=Select2MultipleWidget,required=False)
+
+    secondary_services_interested_in = forms.ModelMultipleChoiceField(queryset=VlaServices.objects.all(),
+                                                                    widget=Select2MultipleWidget,required=False)
 
 
 COMPANY_SIZE = (

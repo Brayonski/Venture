@@ -30,3 +30,4 @@ django-activity-stream
 django-multiselectfield
 django-jet
 django_select2
+django-countries==5.3.2

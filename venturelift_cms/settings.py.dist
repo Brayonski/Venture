@@ -152,6 +152,7 @@ INSTALLED_APPS = (
     'social_django',
     'actstream',
     'django_select2',
+    'django_countries',
     
     'venturelift_cms',
     'venturelift_media',

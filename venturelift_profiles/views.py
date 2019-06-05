@@ -496,7 +496,7 @@ class UpdateBusinessView(LoginRequiredMixin, UpdateView):
             return redirect(reverse('update_business_step7', kwargs={'pk': self.kwargs['pk']}))
         if current_url == 'update_business_step7':
             form.save()
-            return redirect(reverse('my_business'))
+            return redirect(reverse('profile_summary'))
 
     def get_context_data(self, **kwargs):
         context = super(UpdateBusinessView, self).get_context_data(**kwargs)
@@ -513,17 +513,6 @@ class UpdateBusinessView(LoginRequiredMixin, UpdateView):
             context["step5"] = True
         if current_url == 'update_business_step6':
             context["step6"] = True
-        return context
-
-
-class MyBusinessView(LoginRequiredMixin, ListView):
-    template_name = 'profile/business/my_business.html'
-    queryset = Business.objects.all()
-
-    def get_context_data(self, **kwargs):
-        context = super(MyBusinessView, self).get_context_data(**kwargs)
-        context['object_list'] = Business.objects.filter(
-            creator=self.request.user)
         return context
 
 

@@ -6,38 +6,182 @@
     <div class="onboarding_A">
         <div class="row clearfix">
             <div class="col-md-8 col-md-offset-2 clearfix">
-                {% if step1 %}
-                <h3>Stage 1: Eligibility screening</h3>
-                {% elif step2 %}
-                <h3>Stage 2: Describe your product and Market</h3>
-                {% elif step3 %}
-                <h3>Stage 3: Business Model</h3>
-                {% elif step4 %}
-                <h3>Stage 3: Your team</h3>
-                {% elif step5 %}
-                <h3>Stage 5: Business Finance</h3>
-                {% elif step6 %}
-                <h3>Stage 6: Investor Information</h3>
-                {% else %}
-                <h3>Stage 7: Goals/challenges</h3>
-                {% endif %}
-                <div>
-                    <form method='post'>
-                        {% csrf_token %}
-                        {{form|crispy }}
-                        <button class='btn btn-success'>Go to next step</button>
-                    </form>
+                <form method='post'>
+                    {% csrf_token %}
+                    {% if step1 %}
+                    <h3>Company Basic Information</h3>
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.thumbnail_image|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.name|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.sector|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.size|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                    {{ form.address|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.company_website|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-4 mb-0">
+                                {{ form.year_of_company_registration|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                                {{ form.full_time_employee_count|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                                    {{ form.company_primary_email|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.value_proposition_statement|as_crispy_field }}
+                            </div>
+                    </div>
+                    {% elif step2 %}
+                    <h3>Describe your product and Market</h3>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.product_offering|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.market_segment|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.needs_fulfilled_by_product|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.market_size|as_crispy_field }}
+                            </div>
+                    </div>
+                    {% elif step3 %}
+                    <h3>Business Model</h3>
+                    <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.business_model|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                    {{ form.competitors|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.competitive_advantage|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                    {{ form.intellectual_property_info|as_crispy_field }}
+                            </div>
+                    </div>
+                    {% elif step4 %}
+                    <h3>Your team</h3>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.founders_info|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.team_roles_and_structure|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.board_of_advisors|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.board_of_directors|as_crispy_field }}
+                            </div>
+                    </div>
+                    {% elif step5 %}
+                    <h3>Business Finance</h3>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.last_year_revenue|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.last_year_profit|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.growth_margin|as_crispy_field }}
+                            </div>
+                    </div>
+                    {% elif step6 %}
+                    <h3>Investor Information</h3>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.funding_source|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.personal_funds_invested|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.external_funds_invested|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.capital_to_raise|as_crispy_field }}
+                            </div>
+                    </div>
+                    {% else %}
+                    <h3>Goals/challenges</h3>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.three_year_targeted_revenue|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.constraints_to_growth|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.primary_services_interested_in|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.secondary_services_interested_in|as_crispy_field }}
+                            </div>
+                    </div>
+                    {% endif %}
+                    
+                    <button class='btn btn-success'>Go to next step</button>
+                </form>
                     <br />
-                    <a href="{% url 'my_business' %}"><button class='btn btn-success'>Continue later</button></a>
-                </div>
+                    <a href="{% url 'profile_summary' %}"><button class='btn btn-warning'>Continue later</button></a>
 
             </div>
         </div>
     </div>
-</div>
-{% endblock %}
-{% block content_2 %}
-<div class="company_filter">
-    <h4>Sidebar</h4>
 </div>
 {% endblock %}

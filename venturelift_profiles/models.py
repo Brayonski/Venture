@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from djangocms_text_ckeditor import fields
 from django.core.validators import MinLengthValidator
 from multiselectfield import MultiSelectField
-
+from django_countries.fields import CountryField
 # Create your models here.
 
 BUSINESS_SIZE = (
@@ -186,9 +186,8 @@ class Business(models.Model):
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
     company_primary_email = models.EmailField()
-    company_secondary_email = models.EmailField(null=True, blank=True)
     company_website = models.URLField(max_length=200, null=True, blank=True)
-    address = models.CharField(max_length=200)
+    address = CountryField()
     year_of_company_registration = models.IntegerField(choices=YEAR_CHOICES)
     value_proposition_statement = models.TextField(null=True, blank=True)
     full_time_employee_count = models.IntegerField()
@@ -235,15 +234,10 @@ class BusinessModel(models.Model):
 
 class BusinessTeam(models.Model):
     company_name = models.ForeignKey(Business)
-    founders_info = models.FileField(
-        upload_to='founders_info/', null=True, blank=True)
-    team_roles_and_structure = models.FileField(
-        upload_to='team_info/', null=True, blank=True)
-    number_of_staff = models.IntegerField(null=True, blank=True)
-    board_of_advisors = models.FileField(
-        upload_to='board_advisors/', null=True, blank=True)
-    board_of_directors = models.FileField(
-        upload_to='board_directors/', null=True, blank=True)
+    founders_info = models.TextField(null=True, blank=True)
+    team_roles_and_structure = models.TextField(null=True, blank=True)
+    board_of_advisors = models.TextField(null=True, blank=True)
+    board_of_directors = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Business Team'
@@ -273,8 +267,7 @@ class BusinessInvestment(models.Model):
         max_length=200, choices=FUNDING_SOURCES, null=True, blank=True)
     personal_funds_invested = models.IntegerField(null=True, blank=True)
     external_funds_invested = models.IntegerField(null=True, blank=True)
-    current_debt = models.BooleanField(default=False)
-    capital_to_raise = models.TextField(null=True, blank=True)
+    capital_to_raise = models.IntegerField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Business Investment'
