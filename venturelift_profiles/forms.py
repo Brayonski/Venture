@@ -122,8 +122,6 @@ class BusinessFilters(forms.Form):
 
 
 class SupporterFilters(forms.Form):
-    profession = forms.ChoiceField(
-        widget=Select2Widget, label='Resource offered', choices=PROFESSIONAL_SUPPORT, required=False)
     size = forms.ChoiceField(
         widget=Select2Widget, label='Company Stage interested in', choices=INTEREST_STARTUPS, required=False)
     countries = forms.MultipleChoiceField(widget=Select2MultipleWidget,
@@ -154,43 +152,20 @@ class ChooseProfileForm(forms.Form):
 
 
 class SupporterCreateForm(forms.ModelForm):
-    subscribe = forms.TypedChoiceField(
-        coerce=lambda x: x == 'True',
-        choices=((False, 'No'), (True, 'Yes')), widget=forms.RadioSelect, label="Would you like us to add you to our email newsletter?"
-    )
     first_name = forms.CharField(max_length=250, label="First Name")
     last_name = forms.CharField(max_length=250, label="Last Name")
 
     class Meta:
         model = Supporter
         exclude = ['user', 'verified_by', 'verified']
-        fields = [
-            'first_name',
-            'last_name',
-            'thumbnail_image',
-            'about',
-            'phone_number',
-            'company',
-            'company_website',
-            'company_registration_year',
-            'company_operations',
-            'role',
-            'physical_address',
-            'postal_address',
-            'year_operation',
-            'facebook_profile',
-            'linkedin_profile',
-            'twitter_profile',
-            'instagram_profile',
-            'subscribe'
-        ]
+        widgets = {'company_operations': CountrySelectWidget()}
+
         labels = {
             "phone_number": "Phone Number",
             "company": "Company Name",
             "role": "My role at the organization?",
             "company_operations": "Where are the company's main operations based?",
             "company_registration_year": "Year of company registration",
-            "year_operation": "Year company commenced operations",
             "interests": "Interests",
             "thumbnail_image": "Profile Image",
             "about": "About Me"
@@ -201,54 +176,25 @@ class SupporterProfileCreateForm(forms.ModelForm):
 
     class Meta:
         model = SupporterProfile
-        fields = [
-            'supporter_interest',
-            'professional_support',
-            'interest_startups',
-            'interest_sectors',
-            'interest_countries',
-            'trading_partners'
-        ]
+        exclude = ['supporter_profile']
         labels = {
             "supporter_interest": "How do you classify your interest?",
-            "professional_support": "Please specify if you selected, 'professional support', above",
             "interest_startups": "Are you interested in SMEs or Startups?",
             "interest_sectors": "Which sectors are you interested in?",
             "interest_countries": "Target countries? ",
             "trading_partners": "Do you have specific requirements for trading partners?"
         }
-
+    interest_sectors = forms.ModelMultipleChoiceField(queryset=BusinessCategory.objects.all(), required=False, widget=Select2MultipleWidget)
+    interest_countries = forms.MultipleChoiceField(required=False, widget=Select2MultipleWidget, choices=INTEREST_COUNTRIES)
+    trading_partners = forms.MultipleChoiceField(required=False, widget=Select2MultipleWidget, choices=TRADING_PARTNERS)
 
 class InvestorCreateForm(forms.ModelForm):
-    subscribe = forms.TypedChoiceField(
-        coerce=lambda x: x == 'True',
-        choices=((False, 'No'), (True, 'Yes')), widget=forms.RadioSelect, label="Would you like us to add you to our email newsletter?"
-    )
     first_name = forms.CharField(max_length=250, label="First Name")
     last_name = forms.CharField(max_length=250, label="Last Name")
 
     class Meta:
         model = Investor
         exclude = ['user', 'verified_by', 'verified']
-        fields = [
-            'first_name',
-            'last_name',
-            'thumbnail_image',
-            'about',
-            'phone_number',
-            'company',
-            'role',
-            'company_website',
-            'company_registration_year',
-            'year_operation',
-            'company_location',
-            'physical_address',
-            'facebook_profile',
-            'linkedin_profile',
-            'twitter_profile',
-            'instagram_profile',
-            'subscribe'
-        ]
         labels = {
             "about": "Briefly describe your self?",
             "phone_number": "Phone Number",
@@ -262,30 +208,9 @@ class InvestorCreateForm(forms.ModelForm):
 
 
 class InvestorProfileCreateForm(forms.ModelForm):
-    impact_investor = forms.TypedChoiceField(choices=IMPACT_INVESTOR, widget=forms.RadioSelect, label="Do you classify yourself as an impact investor?"
-                                             )
-
-    gender_lens_investor = forms.TypedChoiceField(
-        choices=IMPACT_INVESTOR, widget=forms.RadioSelect, label="Do you Consider your firm a 'Gender-Lens' Investor?"
-    )
-
     class Meta:
         model = InvestorProfile
-        fields = [
-            'company_classification',
-            'investor_forms',
-            'elevator_pitch',
-            'target_countries',
-            'target_sectors',
-            'managed_funds',
-            'assets_under_management',
-            'investor_portfolio',
-            'exits_executed',
-            'impact_investor',
-            'impact_metrics',
-            'impact_measurement',
-            'gender_lens_investor',
-        ]
+        exclude = ['investor_profile']
         labels = {
             'company_classification': "How would you classify your firm?",
             'investor_forms': "What forms of investment do you make?",
@@ -301,3 +226,12 @@ class InvestorProfileCreateForm(forms.ModelForm):
             'impact_metrics': "Which are your key impact metrics?",
             'gender_lens_investor': "Do you Consider your firm a 'Gender-Lens' Investor?"
         }
+    investor_forms = forms.MultipleChoiceField(widget=Select2MultipleWidget, choices=INVESTOR_FORMS)
+    target_countries = forms.MultipleChoiceField(widget=Select2MultipleWidget, choices=INTEREST_COUNTRIES)
+    target_sectors = forms.ModelMultipleChoiceField(queryset=BusinessCategory.objects.all(), widget=Select2MultipleWidget)
+    impact_investor = forms.ChoiceField(choices=IMPACT_INVESTOR, widget=Select2Widget, label="Do you classify yourself as an impact investor?"
+                                             )
+
+    gender_lens_investor = forms.ChoiceField(
+        choices=IMPACT_INVESTOR, widget=Select2Widget, label="Do you Consider your firm a 'Gender-Lens' Investor?"
+    )

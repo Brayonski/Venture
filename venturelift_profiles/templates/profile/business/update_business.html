@@ -6,7 +6,7 @@
     <div class="onboarding_A">
         <div class="row clearfix">
             <div class="col-md-8 col-md-offset-2 clearfix">
-                <form method='post'>
+                <form method='post' enctype="multipart/form-data">
                     {% csrf_token %}
                     {% if step1 %}
                     <h3>Company Basic Information</h3>

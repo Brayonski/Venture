@@ -32,17 +32,6 @@ COMPANY_CLASSIFICATION = (
     ('challenge funds', 'Challenge Fund'),
     ('commercial bank', 'Commercial Bank'),
     ('microfinance', 'Microfinance'),
-    ('other', 'Other')
-)
-
-PROFESSIONAL_SUPPORT = (
-    ('business accelerator', 'Business Accelerator'),
-    ('business incubator', 'Business Incubator'),
-    ('mentor', 'Mentor'),
-    ('transaction advisor', 'Transaction Advisor'),
-    ('accounting and finance', 'Accounting And Finance'),
-    ('legal', 'Legal'),
-    ('technology', 'Technology')
 )
 
 INTEREST_STARTUPS = (
@@ -66,7 +55,6 @@ INVESTOR_FORMS = (
     ('mezzanine', 'Mezzanine'),
     ('grants', 'Grants'),
     ('crowdfunding platform', 'Crowdfunding Platform'),
-    ('other', 'Other')
 )
 
 INTEREST_COUNTRIES = (
@@ -90,14 +78,12 @@ INTEREST_COUNTRIES = (
     ('other northern africa', 'Other Nothern Africa'),
     ('other francophone africa', 'Other Francophone africa'),
     ('other southern africa', 'Other Southern Africa'),
-    ('other', 'Other'),
 )
 
 TRADING_PARTNERS = (
     ('fair trade', 'Fair Trade'),
     ('haccp', 'HACCP'),
     ('ISO 9001', 'ISO 9001'),
-    ('other', 'Other'),
 )
 
 MANAGED_FUNDS = (
@@ -300,26 +286,14 @@ class Supporter(models.Model):
         upload_to='pic_folder/', null=True, blank=True)
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number", null=True)
-    about = models.CharField(
-        max_length=250, help_text="Briefly describe your self?", null=True)
+    about = models.TextField(help_text="Briefly describe your self", null=True)
     company = models.CharField(max_length=250, unique=True, null=True)
     role = models.CharField(max_length=250, null=True)
-    company_operations = models.CharField(max_length=250, null=True)
-    physical_address = models.CharField(max_length=250, null=True)
-    postal_address = models.CharField(max_length=250, null=True)
+    company_operations = CountryField(null=True)
     company_website = models.URLField(
         max_length=250, blank=True, null=True)
     company_registration_year = models.IntegerField(
         choices=YEAR_CHOICES, default=2010)
-    year_operation = models.IntegerField(choices=YEAR_CHOICES, default=2010)
-    facebook_profile = models.URLField(
-        max_length=200, null=True, blank=True, help_text="https://www.facebook.com/my user name")
-    linkedin_profile = models.URLField(
-        max_length=200, null=True, blank=True, help_text="https://www.linkedin.com/in/my user name")
-    twitter_profile = models.URLField(
-        max_length=200, null=True, blank=True, help_text="https://twitter.com/my user name")
-    instagram_profile = models.URLField(
-        max_length=200, null=True, blank=True, help_text="https://www.instagram.com/my user nam ")
     verified = models.BooleanField(default=False)
     verified_by = models.ForeignKey(
         User, related_name='supporter_verifier', null=True, blank=True)
@@ -336,9 +310,6 @@ class SupporterProfile(models.Model):
         Supporter, related_name='supporter_profile')
     supporter_interest = models.CharField(
         max_length=200, choices=SUPPORTER_INTEREST)
-
-    professional_support = models.CharField(
-        max_length=50, choices=PROFESSIONAL_SUPPORT, null=True, blank=True)
 
     interest_startups = models.CharField(
         max_length=50, choices=INTEREST_STARTUPS, null=True, blank=True)
@@ -361,25 +332,19 @@ class SupporterProfile(models.Model):
 
 class Investor(models.Model):
     user = models.ForeignKey(User, related_name='investor_creator')
-    about = models.CharField(
-        max_length=250, help_text="Briefly describe your self?", null=True)
+    about = models.TextField(null=True)
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number")
     company = models.CharField(max_length=250)
     role = models.CharField(max_length=250)
-    company_location = models.CharField(max_length=250)
+    company_location = CountryField()
     physical_address = models.CharField(max_length=250)
     company_website = models.URLField(
         max_length=250, blank=True, null=True)
     company_registration_year = models.IntegerField(
         choices=YEAR_CHOICES)
-    year_operation = models.IntegerField(choices=YEAR_CHOICES)
-    facebook_profile = models.URLField(max_length=200, null=True, blank=True)
-    linkedin_profile = models.URLField(max_length=200, null=True, blank=True)
-    twitter_profile = models.URLField(max_length=200, null=True, blank=True)
-    instagram_profile = models.URLField(max_length=200, null=True, blank=True)
     verified = models.BooleanField(default=False)
     verified_by = models.ForeignKey(
         User, related_name='investor_verifier', null=True, blank=True)
@@ -406,8 +371,7 @@ class InvestorProfile(models.Model):
     target_countries = MultiSelectField(
         max_length=250, choices=INTEREST_COUNTRIES, help_text="Which are your target countries?", null=True, blank=True)
 
-    elevator_pitch = fields.HTMLField(
-        null=True, blank=True, help_text="What's your investment thesis in brief?")
+    elevator_pitch = models.TextField(help_text="What's your investment thesis in brief?", null=True)
 
     managed_funds = models.CharField(
         max_length=100, null=True, blank=True, choices=MANAGED_FUNDS, help_text="How Many different funds have you managed to date?")
@@ -427,8 +391,7 @@ class InvestorProfile(models.Model):
     impact_measurement = models.CharField(
         max_length=250, null=True, blank=True, choices=IMPACT_MEASUREMENT, help_text="Which impact measurement standard do you follow?")
 
-    impact_metrics = fields.HTMLField(
-        max_length=250, null=True, blank=True, help_text="Which are your key impact metrics")
+    impact_metrics = models.TextField(help_text="Which are your key impact metrics", null=True)
 
     gender_lens_investor = models.CharField(
         max_length=250, null=True, blank=True, choices=IMPACT_INVESTOR, help_text="Do you Consider your firm a 'Gender-Lens' Investor?"
