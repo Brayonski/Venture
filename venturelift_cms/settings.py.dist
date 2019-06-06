@@ -121,7 +121,7 @@ MIDDLEWARE = (
 )
 
 INSTALLED_APPS = (
-    'jet',
+    'suit',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
