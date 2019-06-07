@@ -24,21 +24,17 @@ class CreateBusinessForm(ModelForm):
 class CreateBlogForm(ModelForm):
     class Meta:
         model = Post
-        exclude = ['date', 'likes', 'supporter_author', 'investor_author']
+        exclude = ['date', 'likes', 'supporter_author', 'investor_author', "company"]
+
+        labels = {
+            "file_name": "PDF Document to share",
+            "title": "Subject",
+            "body": "Description",
+        }
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
         super(CreateBlogForm, self).__init__(*args, **kwargs)
-        '''
-        modelchoicefields = [field for field_name, field in self.fields.iteritems() if
-                             isinstance(field, forms.ModelChoiceField)]
-
-        for field in modelchoicefields:
-            field.empty_label = None
-        '''
-        if self.user.supporter_creator.exists() or self.user.investor_creator.exists():
-            self.fields.pop("company")
-
 
 class MarketDescriptionForm(ModelForm):
     class Meta:
