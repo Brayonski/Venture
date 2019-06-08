@@ -20152,3 +20152,989 @@ Not Found: /favicon.ico
 [04/Jun/2019 00:08:56] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
 [04/Jun/2019 00:08:56] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
 [04/Jun/2019 00:08:57] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+Performing system checks...
+
+JSONField implementation is: <class 'django.db.models.fields.TextField'>
+June 03, 2019 - 14:25:21
+Django version 1.11.18, using settings 'venturelift_cms.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+/mnt/otb/venturelift/venv/lib/python2.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+System check identified some issues:
+
+WARNINGS:
+venturelift_profiles.InvestorProfile.target_sectors: (fields.W340) null has no effect on ManyToManyField.
+venturelift_profiles.SupporterProfile.interest_sectors: (fields.W340) null has no effect on ManyToManyField.
+
+System check identified 2 issues (0 silenced).
+[04/Jun/2019 00:28:30] "GET /profile/profile/ HTTP/1.1" 200 39357
+[04/Jun/2019 00:28:30] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:28:30] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:28:30] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:28:31] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 00:28:31] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:28:31] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:28:31] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:28:31] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:28:31] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:28:31] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 00:29:03] "GET /profile/investor/list/ HTTP/1.1" 200 17588
+[04/Jun/2019 00:29:04] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:29:04] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:29:04] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:29:04] "GET /media/pic_folder/index_lGdLbDy.jpeg HTTP/1.1" 200 47047
+[04/Jun/2019 00:29:04] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 00:29:06] "GET /profile/investor/profile/2/ HTTP/1.1" 200 30820
+[04/Jun/2019 00:29:06] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:29:06] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:29:06] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:29:06] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:29:06] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:29:07] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:29:07] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:29:07] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:29:07] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 00:29:26] "GET /profile/profile/ HTTP/1.1" 200 39357
+[04/Jun/2019 00:29:27] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:29:27] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:29:27] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:29:27] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:29:27] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 00:29:27] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:29:27] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:29:27] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:29:27] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:29:27] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 00:30:25] "GET /profile/investor/profile/2/ HTTP/1.1" 200 30820
+[04/Jun/2019 00:30:25] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:30:25] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:30:25] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:30:25] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:30:25] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:30:25] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:30:25] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:30:25] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:30:26] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 00:30:33] "GET /profile/business/list/ HTTP/1.1" 200 15696
+[04/Jun/2019 00:30:33] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:30:33] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:30:33] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:30:34] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:30:34] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 00:30:37] "GET /profile/business/profile/3/ HTTP/1.1" 200 32008
+[04/Jun/2019 00:30:37] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:30:37] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:30:37] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:30:37] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:30:37] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:30:38] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:30:38] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:30:38] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:30:56] "GET /profile/profile/ HTTP/1.1" 200 39357
+[04/Jun/2019 00:30:56] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:30:56] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:30:56] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:30:57] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:30:57] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:30:57] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 00:30:57] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:30:57] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:30:57] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:30:57] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 00:31:05] "GET /profile/business/profile/1/ HTTP/1.1" 200 34532
+[04/Jun/2019 00:31:05] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:31:05] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:31:05] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:31:06] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 00:31:06] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:31:06] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:31:06] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:31:06] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:31:06] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:31:13] "GET /profile/profile/ HTTP/1.1" 200 39357
+[04/Jun/2019 00:31:13] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:31:13] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:31:13] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:31:14] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:31:14] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:31:14] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 00:31:14] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:31:14] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:31:14] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:31:14] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 00:32:25] "GET /profile/profile/ HTTP/1.1" 200 39357
+[04/Jun/2019 00:32:25] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 00:32:25] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 00:32:25] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:32:25] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 00:32:25] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 00:32:25] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 00:32:25] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 00:32:25] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 00:32:26] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 00:32:26] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 00:34:22] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 00:34:22] "GET /static/css/style.css HTTP/1.1" 200 29814
+[04/Jun/2019 00:34:22] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:34:22] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 00:34:23] "GET /static/css/style.css HTTP/1.1" 200 29814
+[04/Jun/2019 00:34:23] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 00:34:38] "GET /registration/ HTTP/1.1" 200 7582
+[04/Jun/2019 00:34:42] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 00:34:42] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Invalid HTTP_HOST header: 'ip-172-31-24-121.us-west-2.compute.internal'. You may need to add u'ip-172-31-24-121.us-west-2.compute.internal' to ALLOWED_HOSTS.
+[04/Jun/2019 01:03:30] "GET / HTTP/1.1" 400 67532
+[04/Jun/2019 02:17:16] "GET / HTTP/1.1" 200 10978
+Not Found: /manager/html
+[04/Jun/2019 03:52:43] "GET /manager/html HTTP/1.1" 404 2912
+[04/Jun/2019 11:57:03] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 11:57:03] "GET /static/cms/js/dist/3.5.3/bundle.toolbar.min.js HTTP/1.1" 200 445140
+[04/Jun/2019 11:57:04] "GET /static/cms/css/3.5.3/cms.base.css HTTP/1.1" 200 66722
+[04/Jun/2019 11:57:04] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 11:57:04] "GET /static/css/style.css HTTP/1.1" 200 29814
+[04/Jun/2019 11:57:04] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[04/Jun/2019 11:57:04] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[04/Jun/2019 11:57:04] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[04/Jun/2019 11:57:05] "GET /static/cms/fonts/3.5.3/django-cms-iconfont.woff2 HTTP/1.1" 200 5272
+[04/Jun/2019 11:57:05] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[04/Jun/2019 11:57:05] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[04/Jun/2019 11:57:05] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[04/Jun/2019 11:57:05] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[04/Jun/2019 11:57:05] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 11:57:05] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[04/Jun/2019 11:57:05] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[04/Jun/2019 11:57:05] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[04/Jun/2019 11:57:05] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[04/Jun/2019 11:57:05] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[04/Jun/2019 11:57:05] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[04/Jun/2019 11:57:05] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[04/Jun/2019 11:57:05] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[04/Jun/2019 11:57:05] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+Not Found: /favicon.ico
+[04/Jun/2019 11:57:06] "GET /favicon.ico HTTP/1.1" 404 2909
+[04/Jun/2019 11:57:12] "GET /profile/accounts/login/ HTTP/1.1" 200 5624
+[04/Jun/2019 11:57:13] "GET /static/css/style.css HTTP/1.1" 200 29814
+[04/Jun/2019 11:57:14] "GET /static/img/signup-bg.jpg HTTP/1.1" 200 123428
+[04/Jun/2019 11:57:19] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[04/Jun/2019 11:57:19] "GET /profile/profile/ HTTP/1.1" 200 39357
+[04/Jun/2019 11:57:20] "GET /static/img/funder.jpg HTTP/1.1" 200 4823
+[04/Jun/2019 11:57:20] "GET /static/img/verified.png HTTP/1.1" 200 19069
+[04/Jun/2019 11:57:20] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 11:57:20] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 11:57:20] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[04/Jun/2019 11:57:20] "GET /static/img/blue-user-icon.svg HTTP/1.1" 200 3656
+[04/Jun/2019 11:57:21] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 11:57:21] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 11:57:21] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 11:57:21] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 11:57:21] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 11:57:21] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 11:57:21] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 11:57:22] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+Not Found: /favicon.ico
+[04/Jun/2019 11:57:22] "GET /favicon.ico HTTP/1.1" 404 2909
+Performing system checks...
+
+JSONField implementation is: <class 'django.db.models.fields.TextField'>
+June 04, 2019 - 00:27:57
+Django version 1.11.18, using settings 'venturelift_cms.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+/mnt/otb/venturelift/venv/lib/python2.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+System check identified some issues:
+
+WARNINGS:
+venturelift_profiles.InvestorProfile.target_sectors: (fields.W340) null has no effect on ManyToManyField.
+venturelift_profiles.SupporterProfile.interest_sectors: (fields.W340) null has no effect on ManyToManyField.
+
+System check identified 2 issues (0 silenced).
+[04/Jun/2019 12:21:47] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 12:21:47] "GET /static/css/style.css HTTP/1.1" 304 0
+[04/Jun/2019 12:21:47] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 12:21:48] "GET /static/img/home_icon_1.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:48] "GET /static/img/home_icon_2.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:48] "GET /static/img/home_icon_3.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:48] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 12:21:48] "GET /static/img/sector_icon_1.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:48] "GET /static/img/sector_icon_2.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:48] "GET /static/img/sector_icon_3.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:48] "GET /static/img/sector_icon_4.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:48] "GET /static/img/sector_icon_5.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:49] "GET /static/img/sector_icon_6.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:49] "GET /static/img/sector_icon_7.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:49] "GET /static/img/home_section_3.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:49] "GET /static/img/sector_icon_8.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:49] "GET /static/img/sector_icon_9.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:49] "GET /static/img/sector_icon_10.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:49] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[04/Jun/2019 12:21:50] "GET /favicon.ico HTTP/1.1" 404 2909
+[04/Jun/2019 12:21:50] "GET /profile/accounts/login/ HTTP/1.1" 200 5624
+[04/Jun/2019 12:21:55] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[04/Jun/2019 12:21:56] "GET /profile/profile/ HTTP/1.1" 200 39357
+[04/Jun/2019 12:21:56] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 12:21:57] "GET /static/img/funder.jpg HTTP/1.1" 304 0
+[04/Jun/2019 12:21:57] "GET /static/img/verified.png HTTP/1.1" 304 0
+[04/Jun/2019 12:21:57] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 12:21:57] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 12:21:57] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 12:21:58] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 12:21:58] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 12:21:58] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 12:21:58] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 12:21:58] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 12:21:58] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 12:21:58] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 12:22:08] "GET /profile/investor/list/ HTTP/1.1" 200 17588
+[04/Jun/2019 12:22:08] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 12:22:08] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 12:22:10] "GET /profile/investor/profile/2/ HTTP/1.1" 200 30941
+[04/Jun/2019 12:22:11] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 12:22:12] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 12:22:12] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 12:22:13] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 12:22:13] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 12:22:14] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 12:22:14] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 12:22:14] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 12:22:15] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 12:22:15] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 12:22:17] "GET /profile/profile/ HTTP/1.1" 200 39357
+[04/Jun/2019 12:22:17] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 12:22:18] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 12:22:18] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 12:22:18] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 12:22:19] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 12:22:19] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 12:22:19] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 12:22:20] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 12:22:20] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 12:22:20] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 12:24:38] "GET /profile/profile/ HTTP/1.1" 200 39357
+[04/Jun/2019 12:24:38] "GET /static/img/blue-user-icon.svg HTTP/1.1" 304 0
+[04/Jun/2019 12:24:38] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 12:24:38] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 12:24:38] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 12:24:39] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 12:24:39] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 12:24:39] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 12:24:39] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 12:24:39] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 12:24:39] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 12:24:39] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 12:25:05] "GET /profile/business/list/ HTTP/1.1" 200 15696
+[04/Jun/2019 12:25:06] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 12:25:06] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 12:25:06] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 12:25:06] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 12:25:06] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 12:25:08] "GET /profile/supporter/list/ HTTP/1.1" 200 16676
+[04/Jun/2019 12:25:09] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 12:25:09] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 12:25:09] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 12:25:45] "GET /profile/supporter/list/ HTTP/1.1" 200 16676
+[04/Jun/2019 12:25:45] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 12:25:45] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 12:25:45] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 12:25:50] "GET /profile/business/list/ HTTP/1.1" 200 15696
+[04/Jun/2019 12:25:50] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 12:25:50] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 12:25:50] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 12:25:51] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 12:25:51] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 12:25:51] "GET /profile/profile/ HTTP/1.1" 200 39357
+[04/Jun/2019 12:25:52] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 12:25:52] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 12:25:52] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 12:25:52] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 12:25:52] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 12:25:53] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 12:25:53] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 12:25:53] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 12:25:53] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 12:25:53] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 12:26:13] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 200 23359
+[04/Jun/2019 12:26:13] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 12:26:13] "GET /static/img/progress.png HTTP/1.1" 304 0
+[04/Jun/2019 12:26:23] "GET /profile/profile/ HTTP/1.1" 200 39357
+[04/Jun/2019 12:26:23] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 12:26:24] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 12:26:24] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 12:26:24] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 12:26:25] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 12:26:25] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 12:26:25] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 12:26:25] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 12:26:25] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 12:26:25] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 13:26:55] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 13:26:55] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 13:26:56] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 13:26:56] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 13:28:40] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 200 23359
+[04/Jun/2019 13:28:41] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 13:28:41] "GET /static/img/no-img.jpg HTTP/1.1" 304 0
+[04/Jun/2019 13:29:24] "GET /profile/profile/ HTTP/1.1" 200 39357
+[04/Jun/2019 13:29:24] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 13:29:24] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 13:29:24] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 13:29:24] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 13:29:24] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 13:29:25] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 13:29:25] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 13:29:25] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 13:29:25] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 13:29:25] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 15:06:24] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 15:06:25] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 15:06:54] "GET /static/css/style.css HTTP/1.1" 304 0
+[04/Jun/2019 15:06:55] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[04/Jun/2019 15:06:56] "GET /favicon.ico HTTP/1.1" 404 2909
+[04/Jun/2019 15:45:33] "GET /profile/accounts/login/ HTTP/1.1" 200 5624
+[04/Jun/2019 15:45:39] "POST /profile/accounts/login/ HTTP/1.1" 200 5800
+[04/Jun/2019 15:45:46] "POST /profile/accounts/login/ HTTP/1.1" 200 5800
+Performing system checks...
+
+JSONField implementation is: <class 'django.db.models.fields.TextField'>
+June 04, 2019 - 12:21:36
+Django version 1.11.18, using settings 'venturelift_cms.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+[<Business: BrandAfrica>, <Business: Illuminum>, <Business: Lori>]
+/mnt/otb/venturelift/venv/lib/python2.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+System check identified some issues:
+
+WARNINGS:
+venturelift_profiles.InvestorProfile.target_sectors: (fields.W340) null has no effect on ManyToManyField.
+venturelift_profiles.SupporterProfile.interest_sectors: (fields.W340) null has no effect on ManyToManyField.
+
+System check identified 2 issues (0 silenced).
+Performing system checks...
+
+JSONField implementation is: <class 'django.db.models.fields.TextField'>
+June 04, 2019 - 17:02:18
+Django version 1.11.18, using settings 'venturelift_cms.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+/mnt/otb/venturelift/venv/lib/python2.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+System check identified some issues:
+
+WARNINGS:
+venturelift_profiles.InvestorProfile.target_sectors: (fields.W340) null has no effect on ManyToManyField.
+venturelift_profiles.SupporterProfile.interest_sectors: (fields.W340) null has no effect on ManyToManyField.
+
+System check identified 2 issues (0 silenced).
+[04/Jun/2019 18:00:27] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 18:00:28] "GET /static/css/style.css HTTP/1.1" 304 0
+[04/Jun/2019 18:00:28] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:00:28] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 18:00:28] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:00:30] "GET /profile/accounts/login/ HTTP/1.1" 200 5624
+[04/Jun/2019 18:00:38] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[04/Jun/2019 18:00:39] "GET /profile/profile/ HTTP/1.1" 200 39339
+[04/Jun/2019 18:00:39] "GET /static/img/funder.jpg HTTP/1.1" 304 0
+[04/Jun/2019 18:00:39] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:00:39] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 18:00:40] "GET /static/img/verified.png HTTP/1.1" 304 0
+[04/Jun/2019 18:00:40] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 18:00:40] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 18:00:40] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 18:00:40] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 18:00:40] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 18:00:40] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 18:00:40] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 18:00:40] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 18:00:42] "GET /profile/investor/list/ HTTP/1.1" 200 17588
+[04/Jun/2019 18:00:42] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:00:42] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 18:00:42] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 18:00:42] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 18:00:42] "GET /media/pic_folder/index_lGdLbDy.jpeg HTTP/1.1" 200 47047
+[04/Jun/2019 18:00:44] "GET /profile/investor/profile/2/ HTTP/1.1" 200 30941
+[04/Jun/2019 18:00:45] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:00:45] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 18:00:45] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 18:00:45] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 18:00:45] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 18:00:45] "GET /static/img/no-img.png HTTP/1.1" 304 0
+[04/Jun/2019 18:00:45] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 18:00:45] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 18:00:45] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 18:00:45] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 18:00:45] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 18:00:55] "GET /profile/supporter/list/ HTTP/1.1" 200 16605
+[04/Jun/2019 18:00:56] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 18:00:56] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:00:56] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 18:00:58] "GET /profile/supporter/profile/2/ HTTP/1.1" 200 30322
+[04/Jun/2019 18:00:58] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 18:00:58] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 18:00:59] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:00:59] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 18:00:59] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 18:00:59] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 18:00:59] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 18:00:59] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 18:00:59] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+Performing system checks...
+
+JSONField implementation is: <class 'django.db.models.fields.TextField'>
+June 04, 2019 - 18:00:23
+Django version 1.11.18, using settings 'venturelift_cms.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+/mnt/otb/venturelift/venv/lib/python2.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+System check identified some issues:
+
+WARNINGS:
+venturelift_profiles.InvestorProfile.target_sectors: (fields.W340) null has no effect on ManyToManyField.
+venturelift_profiles.SupporterProfile.interest_sectors: (fields.W340) null has no effect on ManyToManyField.
+
+System check identified 2 issues (0 silenced).
+[04/Jun/2019 18:07:28] "GET /profile/supporter/profile/2/ HTTP/1.1" 200 30561
+[04/Jun/2019 18:07:29] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:07:29] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 18:07:29] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 18:07:29] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 18:07:29] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 18:07:29] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 18:07:29] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 18:07:30] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 18:07:30] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+Internal Server Error: /profile/supporter-create/step-1/2/
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/contrib/auth/mixins.py", line 56, in dispatch
+    return super(LoginRequiredMixin, self).dispatch(request, *args, **kwargs)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/views/generic/edit.py", line 236, in get
+    return super(BaseUpdateView, self).get(request, *args, **kwargs)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/views/generic/edit.py", line 174, in get
+    return self.render_to_response(self.get_context_data())
+  File "/mnt/otb/venturelift/venturelift/venturelift_profiles/views.py", line 390, in get_context_data
+    user=self.request.user)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/db/models/query.py", line 380, in get
+    self.model._meta.object_name
+DoesNotExist: Supporter matching query does not exist.
+[04/Jun/2019 18:07:46] "GET /profile/supporter-create/step-1/2/ HTTP/1.1" 500 105181
+[04/Jun/2019 18:07:59] "GET /profile/supporter/profile/2/ HTTP/1.1" 200 30561
+[04/Jun/2019 18:07:59] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:07:59] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 18:07:59] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 18:08:00] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 18:08:00] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 18:08:00] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 18:08:00] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 18:08:01] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 18:08:01] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 18:08:19] "GET /profile/profile/ HTTP/1.1" 200 39339
+[04/Jun/2019 18:08:19] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:08:19] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 18:08:19] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 18:08:20] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 18:08:20] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 18:08:20] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 18:08:20] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 18:08:20] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 18:08:20] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 18:08:20] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+Internal Server Error: /profile/investor-create/step-1/1/
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 84, in rendered_content
+    content = template.render(context, self._request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 177, in render
+    return compiled_parent._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/classytags/core.py", line 153, in render
+    return self.render_tag(context, **kwargs)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/sekizai/templatetags/sekizai_tags.py", line 93, in render_tag
+    rendered_contents = nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 322, in render
+    return nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: profile/profile/investor.html
+[04/Jun/2019 18:08:23] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 500 227667
+[04/Jun/2019 18:10:53] "GET / HTTP/1.1" 200 26770
+[04/Jun/2019 18:10:54] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:10:56] "GET /profile/accounts/login/ HTTP/1.1" 200 5624
+[04/Jun/2019 18:11:00] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[04/Jun/2019 18:11:01] "GET /profile/profile/ HTTP/1.1" 200 39339
+[04/Jun/2019 18:11:01] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:11:01] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 18:11:01] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 18:11:02] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 18:11:02] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 18:11:02] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 18:11:02] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 18:11:02] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 18:11:03] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 18:11:03] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 18:11:10] "GET /profile/business/list/ HTTP/1.1" 200 15696
+[04/Jun/2019 18:11:11] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 18:11:11] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:11:11] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 18:11:12] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 18:11:12] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 18:11:13] "GET /profile/business/profile/1/ HTTP/1.1" 200 34532
+[04/Jun/2019 18:11:14] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:11:14] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 18:11:14] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 18:11:14] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 18:11:14] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 18:11:14] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 18:11:14] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 18:11:14] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 18:11:14] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 18:11:16] "GET /profile/supporter/list/ HTTP/1.1" 200 16605
+[04/Jun/2019 18:11:17] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:11:17] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 18:11:17] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 18:11:19] "GET /profile/supporter/profile/2/ HTTP/1.1" 200 30561
+[04/Jun/2019 18:11:20] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 18:11:20] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:11:20] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 18:11:20] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 18:11:20] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 18:11:20] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 18:11:20] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 18:11:20] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 18:11:21] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 18:11:22] "GET /profile/investor/list/ HTTP/1.1" 200 17588
+[04/Jun/2019 18:11:23] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:11:23] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 18:11:23] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 18:11:23] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 18:11:23] "GET /media/pic_folder/index_lGdLbDy.jpeg HTTP/1.1" 200 47047
+[04/Jun/2019 18:11:25] "GET /profile/investor/profile/2/ HTTP/1.1" 200 30941
+[04/Jun/2019 18:11:26] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:11:26] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 18:11:26] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 18:11:26] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 18:11:26] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 18:11:26] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 18:11:26] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 18:11:26] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 18:11:26] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+[04/Jun/2019 18:11:26] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 18:11:46] "GET /profile/profile/ HTTP/1.1" 200 39339
+[04/Jun/2019 18:11:46] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:11:46] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 18:11:46] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 18:11:47] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 18:11:47] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[04/Jun/2019 18:11:47] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[04/Jun/2019 18:11:47] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 18:11:47] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[04/Jun/2019 18:11:47] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[04/Jun/2019 18:11:47] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+Internal Server Error: /profile/investor-create/step-1/1/
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 84, in rendered_content
+    content = template.render(context, self._request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 177, in render
+    return compiled_parent._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/classytags/core.py", line 153, in render
+    return self.render_tag(context, **kwargs)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/sekizai/templatetags/sekizai_tags.py", line 93, in render_tag
+    rendered_contents = nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 322, in render
+    return nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: profile/profile/investor.html
+[04/Jun/2019 18:11:49] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 500 227667
+[04/Jun/2019 18:11:52] "GET /profile/profile/ HTTP/1.1" 200 39339
+[04/Jun/2019 18:11:52] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:12:01] "GET /profile/business/list/ HTTP/1.1" 200 15696
+[04/Jun/2019 18:12:01] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[04/Jun/2019 18:12:01] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 18:12:01] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[04/Jun/2019 18:12:02] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[04/Jun/2019 18:12:02] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[04/Jun/2019 18:12:03] "GET /profile/profile/ HTTP/1.1" 200 39339
+[04/Jun/2019 18:12:04] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Internal Server Error: /profile/investor-create/step-1/1/
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 84, in rendered_content
+    content = template.render(context, self._request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 177, in render
+    return compiled_parent._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/classytags/core.py", line 153, in render
+    return self.render_tag(context, **kwargs)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/sekizai/templatetags/sekizai_tags.py", line 93, in render_tag
+    rendered_contents = nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 322, in render
+    return nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: profile/profile/investor.html
+[04/Jun/2019 18:12:35] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 500 227667
+Invalid HTTP_HOST header: 'econstruction.otbafrica.com'. You may need to add u'econstruction.otbafrica.com' to ALLOWED_HOSTS.
+[04/Jun/2019 19:03:28] "GET / HTTP/1.1" 400 67325
+[04/Jun/2019 20:31:10] "GET / HTTP/1.1" 200 10978
+[04/Jun/2019 20:31:11] "GET /static/css/style.css HTTP/1.1" 200 29814
+[04/Jun/2019 20:31:11] "GET /static/img/home_icon_1.png HTTP/1.1" 304 0
+[04/Jun/2019 20:31:11] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 20:31:11] "GET /static/img/home_icon_2.png HTTP/1.1" 304 0
+[04/Jun/2019 20:31:11] "GET /static/img/sector_icon_1.png HTTP/1.1" 304 0
+[04/Jun/2019 20:31:11] "GET /static/img/home_icon_3.png HTTP/1.1" 304 0
+[04/Jun/2019 20:31:12] "GET /static/img/sector_icon_2.png HTTP/1.1" 304 0
+[04/Jun/2019 20:31:12] "GET /static/img/sector_icon_3.png HTTP/1.1" 304 0
+[04/Jun/2019 20:31:12] "GET /static/img/sector_icon_4.png HTTP/1.1" 304 0
+[04/Jun/2019 20:31:12] "GET /static/img/sector_icon_5.png HTTP/1.1" 304 0
+[04/Jun/2019 20:31:12] "GET /static/img/sector_icon_7.png HTTP/1.1" 304 0
+[04/Jun/2019 20:31:12] "GET /static/img/sector_icon_6.png HTTP/1.1" 304 0
+[04/Jun/2019 20:31:13] "GET /static/img/home_banner.jpg HTTP/1.1" 304 0
+[04/Jun/2019 20:31:13] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[04/Jun/2019 20:31:13] "GET /static/img/sector_icon_8.png HTTP/1.1" 304 0
+[04/Jun/2019 20:31:13] "GET /static/img/sector_icon_9.png HTTP/1.1" 304 0
+[04/Jun/2019 20:31:13] "GET /static/img/sector_icon_10.png HTTP/1.1" 304 0
+[04/Jun/2019 20:31:13] "GET /static/img/home_section_3.png HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[04/Jun/2019 20:31:14] "GET /favicon.ico HTTP/1.1" 404 2909
+Invalid HTTP_HOST header: 'ip-172-31-24-121.us-west-2.compute.internal'. You may need to add u'ip-172-31-24-121.us-west-2.compute.internal' to ALLOWED_HOSTS.
+[05/Jun/2019 03:40:51] "GET / HTTP/1.1" 400 67532
+[05/Jun/2019 14:15:28] "GET / HTTP/1.1" 200 10978
+Not Found: /favicon.ico
+[05/Jun/2019 14:15:28] "GET /favicon.ico HTTP/1.1" 404 2909
+Invalid HTTP_HOST header: 'ip-172-31-24-121.us-west-2.compute.internal'. You may need to add u'ip-172-31-24-121.us-west-2.compute.internal' to ALLOWED_HOSTS.
+[05/Jun/2019 17:37:40] "GET / HTTP/1.1" 400 67573
+Invalid HTTP_HOST header: 'ip-172-31-24-121.us-west-2.compute.internal'. You may need to add u'ip-172-31-24-121.us-west-2.compute.internal' to ALLOWED_HOSTS.
+[05/Jun/2019 21:45:19] "GET / HTTP/1.1" 400 67531
+[05/Jun/2019 22:50:19] "GET / HTTP/1.1" 200 26770
+[05/Jun/2019 22:50:20] "GET /static/css/style.css HTTP/1.1" 304 0
+[05/Jun/2019 22:50:20] "GET /static/img/home_icon_1.png HTTP/1.1" 304 0
+[05/Jun/2019 22:50:20] "GET / HTTP/1.1" 200 26770
+[05/Jun/2019 22:50:20] "GET /static/img/home_icon_3.png HTTP/1.1" 304 0
+[05/Jun/2019 22:50:20] "GET /static/img/home_icon_2.png HTTP/1.1" 304 0
+[05/Jun/2019 22:50:20] "GET /static/img/sector_icon_1.png HTTP/1.1" 304 0
+[05/Jun/2019 22:50:20] "GET /static/img/sector_icon_2.png HTTP/1.1" 304 0
+[05/Jun/2019 22:50:20] "GET /static/img/sector_icon_3.png HTTP/1.1" 304 0
+[05/Jun/2019 22:50:20] "GET /static/img/sector_icon_4.png HTTP/1.1" 304 0
+[05/Jun/2019 22:50:21] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[05/Jun/2019 22:50:21] "GET /static/img/sector_icon_5.png HTTP/1.1" 304 0
+[05/Jun/2019 22:50:21] "GET /static/img/sector_icon_6.png HTTP/1.1" 304 0
+[05/Jun/2019 22:50:21] "GET /static/img/sector_icon_7.png HTTP/1.1" 304 0
+[05/Jun/2019 22:50:21] "GET /static/img/sector_icon_8.png HTTP/1.1" 304 0
+[05/Jun/2019 22:50:21] "GET /static/img/home_banner.jpg HTTP/1.1" 304 0
+[05/Jun/2019 22:50:21] "GET /static/img/sector_icon_9.png HTTP/1.1" 304 0
+[05/Jun/2019 22:50:21] "GET /static/img/sector_icon_10.png HTTP/1.1" 304 0
+[05/Jun/2019 22:50:21] "GET /static/img/home_section_3.png HTTP/1.1" 304 0
+[05/Jun/2019 22:50:21] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[05/Jun/2019 22:50:21] "GET /favicon.ico HTTP/1.1" 404 2909
+[05/Jun/2019 22:50:53] "GET /registration/ HTTP/1.1" 200 7582
+[06/Jun/2019 02:47:47] "GET / HTTP/1.1" 200 10978
+[06/Jun/2019 10:41:10] "GET / HTTP/1.1" 200 10978
+Not Found: /index.action
+[06/Jun/2019 10:41:11] "GET /index.action HTTP/1.1" 404 2912
+[06/Jun/2019 12:25:22] "GET / HTTP/1.1" 200 10978
+[06/Jun/2019 12:25:23] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121205
+[06/Jun/2019 12:25:23] "GET /static/css/style.css HTTP/1.1" 200 29814
+[06/Jun/2019 12:25:23] "GET /static/img/logo2.png HTTP/1.1" 200 8412
+[06/Jun/2019 12:25:23] "GET /static/img/home_icon_1.png HTTP/1.1" 200 13882
+[06/Jun/2019 12:25:24] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[06/Jun/2019 12:25:24] "GET /static/img/home_icon_2.png HTTP/1.1" 200 12493
+[06/Jun/2019 12:25:24] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[06/Jun/2019 12:25:24] "GET /static/img/home_banner.jpg HTTP/1.1" 200 127182
+[06/Jun/2019 12:25:24] "GET /static/img/home_icon_3.png HTTP/1.1" 200 11504
+[06/Jun/2019 12:25:25] "GET /static/img/sector_icon_1.png HTTP/1.1" 200 4270
+[06/Jun/2019 12:25:25] "GET /static/img/sector_icon_2.png HTTP/1.1" 200 4331
+[06/Jun/2019 12:25:25] "GET /static/img/sector_icon_3.png HTTP/1.1" 200 3679
+[06/Jun/2019 12:25:25] "GET /static/img/sector_icon_4.png HTTP/1.1" 200 4257
+[06/Jun/2019 12:25:25] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[06/Jun/2019 12:25:25] "GET /static/img/sector_icon_5.png HTTP/1.1" 200 2799
+[06/Jun/2019 12:25:25] "GET /static/img/sector_icon_6.png HTTP/1.1" 200 3387
+[06/Jun/2019 12:25:25] "GET /static/img/sector_icon_7.png HTTP/1.1" 200 3746
+[06/Jun/2019 12:25:25] "GET /static/img/sector_icon_9.png HTTP/1.1" 200 3668
+[06/Jun/2019 12:25:25] "GET /static/img/sector_icon_8.png HTTP/1.1" 200 4002
+[06/Jun/2019 12:25:26] "GET /static/img/sector_icon_10.png HTTP/1.1" 200 3612
+[06/Jun/2019 12:25:26] "GET /static/img/home_section_3.png HTTP/1.1" 200 51914
+Not Found: /favicon.ico
+[06/Jun/2019 12:25:30] "GET /favicon.ico HTTP/1.1" 404 2909
+[06/Jun/2019 17:38:55] "GET / HTTP/1.1" 200 26770
+[06/Jun/2019 17:38:55] "GET /static/css/style.css HTTP/1.1" 304 0
+[06/Jun/2019 17:38:55] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[06/Jun/2019 17:38:55] "GET / HTTP/1.1" 200 26770
+[06/Jun/2019 17:38:56] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Not Found: /favicon.ico
+[06/Jun/2019 17:38:56] "GET /favicon.ico HTTP/1.1" 404 2909
+[06/Jun/2019 17:39:10] "GET /profile/accounts/login/ HTTP/1.1" 200 5624
+[06/Jun/2019 17:39:16] "POST /profile/accounts/login/ HTTP/1.1" 302 0
+[06/Jun/2019 17:39:16] "GET /profile/profile/ HTTP/1.1" 200 39339
+[06/Jun/2019 17:39:17] "GET /static/img/funder.jpg HTTP/1.1" 304 0
+[06/Jun/2019 17:39:17] "GET /static/img/blue-user-icon.svg HTTP/1.1" 304 0
+[06/Jun/2019 17:39:17] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[06/Jun/2019 17:39:17] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+[06/Jun/2019 17:39:17] "GET /static/img/verified.png HTTP/1.1" 200 19069
+[06/Jun/2019 17:39:17] "GET /media/pic_folder/index_Ft94JXK.jpeg HTTP/1.1" 200 14219
+[06/Jun/2019 17:39:17] "GET /media/pic_folder/index_UJ6IyJv.png HTTP/1.1" 200 3244
+[06/Jun/2019 17:39:17] "GET /media/pic_folder/index_mx374RM.png HTTP/1.1" 200 5603
+[06/Jun/2019 17:39:17] "GET /media/pic_folder/index.png HTTP/1.1" 200 3759
+[06/Jun/2019 17:39:17] "GET /media/pic_folder/index_xwiiAe5.jpeg HTTP/1.1" 200 2580
+[06/Jun/2019 17:39:17] "GET /media/pic_folder/index_mafcbtB.jpeg HTTP/1.1" 200 6076
+[06/Jun/2019 17:39:18] "GET /media/pic_folder/index.jpeg HTTP/1.1" 200 2749
+[06/Jun/2019 17:39:18] "GET /media/pic_folder/index_JsGAm1o.jpeg HTTP/1.1" 200 23746
+[06/Jun/2019 17:39:18] "GET /media/pic_folder/index_iceKO9B.jpeg HTTP/1.1" 200 71970
+Internal Server Error: /profile/investor-create/step-1/1/
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/response.py", line 84, in rendered_content
+    content = template.render(context, self._request)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 177, in render
+    return compiled_parent._render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/classytags/core.py", line 153, in render
+    return self.render_tag(context, **kwargs)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/sekizai/templatetags/sekizai_tags.py", line 93, in render_tag
+    rendered_contents = nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 322, in render
+    return nodelist.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: profile/profile/investor.html
+[06/Jun/2019 17:39:32] "GET /profile/investor-create/step-1/1/ HTTP/1.1" 500 227663
+[06/Jun/2019 17:39:35] "GET /profile/profile/ HTTP/1.1" 200 39339
+[06/Jun/2019 17:39:36] "GET /static/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1832
+Performing system checks...
+
+JSONField implementation is: <class 'django.db.models.fields.TextField'>
+June 04, 2019 - 18:07:22
+Django version 1.11.18, using settings 'venturelift_cms.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+/mnt/otb/venturelift/venv/lib/python2.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+Unhandled exception in thread started by <function wrapper at 0x7fa5df6c5f50>
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/utils/autoreload.py", line 228, in wrapper
+    fn(*args, **kwargs)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 116, in inner_run
+    autoreload.raise_last_exception()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/utils/autoreload.py", line 251, in raise_last_exception
+    six.reraise(*_exception)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/utils/autoreload.py", line 228, in wrapper
+    fn(*args, **kwargs)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/apps/registry.py", line 108, in populate
+    app_config.import_models()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/apps/config.py", line 202, in import_models
+    self.models_module = import_module(models_module_name)
+  File "/mnt/otb/venturelift/python/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/mnt/otb/venturelift/venturelift/venturelift_profiles/models.py", line 10, in <module>
+    from django_countries.fields import CountryField
+ImportError: No module named django_countries.fields
+Unhandled exception in thread started by <function wrapper at 0x7faa1698f410>
+Traceback (most recent call last):
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/utils/autoreload.py", line 228, in wrapper
+    fn(*args, **kwargs)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 116, in inner_run
+    autoreload.raise_last_exception()
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/utils/autoreload.py", line 251, in raise_last_exception
+    six.reraise(*_exception)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/utils/autoreload.py", line 228, in wrapper
+    fn(*args, **kwargs)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/apps/registry.py", line 85, in populate
+    app_config = AppConfig.create(entry)
+  File "/mnt/otb/venturelift/venv/lib/python2.7/site-packages/django/apps/config.py", line 94, in create
+    module = import_module(entry)
+  File "/mnt/otb/venturelift/python/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named suit
