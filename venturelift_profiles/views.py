@@ -419,7 +419,7 @@ class CreateBlogPostView(LoginRequiredMixin, CreateView):
         self.object = form.save(commit=False)
         if self.request.user.business_creator.exists():
             self.object.company = Business.objects.get(
-                user=self.request.user)
+                creator=self.request.user)
         if self.request.user.supporter_creator.exists():
             self.object.supporter_author = Supporter.objects.get(
                 user=self.request.user)
