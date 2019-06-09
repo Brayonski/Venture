@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^sitemap\.xml$', sitemap,
         {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^profile/', include('venturelift_profiles.urls')),
+    url(r'^crowdfunding/', include('crowdfunding.urls')),
     url(r'^registration/', RegistrationView.as_view(), name='registration_in'),
     url(r'^newsletter/', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription),))),
     url(r'^$', TemplateView.as_view(template_name="landing.html")),
@@ -36,6 +37,7 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
+    url(r'^jet/', include('jet.urls', 'jet')), # Django JET URLS
     url(r'^admin/', include(admin.site.urls)),  # NOQA
     #url(r'^', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription),))),
     url(r'^media/', include('cms.urls')),

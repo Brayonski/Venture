@@ -1,0 +1,171 @@
+{% extends 'profile/base3.html' %}
+{% load cms_tags staticfiles %}
+{% block extrahead %}
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+{% endblock %}
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block content %}
+
+<div class="full_A">
+  <div class="container">
+        <div class="columns_A flex row clearfix">
+
+          <div class="col_A_out col_A_out_1 col-md-3 clearfix">
+            <div class="col_A_in col_A_in_1">
+
+                <div class="card-body progress-card text-center">
+
+                </div>
+
+              <div class="card card-body">
+
+              </div>
+
+              <div class="profile_list_side">
+
+              </div>
+
+              <div class="profile_list_side">
+
+
+              </div>
+
+            </div>
+          </div>
+          <div class="col_A_out col_A_out_2 col-md-6 clearfix">
+            <div class="col_A_in col_A_in_2">
+              <div class="onboarding_A">
+                <div class="row clearfix">
+                  <div class="col-md-12 clearfix">
+
+                    <div class="tab-content">
+                      <div id="profile" class="tab-pane fade in active">
+                        <div class="col-md-12 clearfix">
+                          <div class="profile_data">
+
+                              <div class="track_record_2">
+                                <div class="row clearfix">
+                                  <div class="no_padd col-md-12 clearfix">
+                                    <div class="single_card_wrapper">
+                                      <div class="card_C card" style="">
+                                        <div class="card-body">
+                                          <h4 align="center"><b>Create Crowdfunding Campaign</b></h4>
+                                             <form method='post'>
+                                                     {% csrf_token %}
+
+                                                 <div class="form-group">
+                                                    <label for="campaign_name">Campaign Name: </label>
+                                                    <input id="campaign_name" type="text" name="campaign_name" class="form-control" required>
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                    <label for="company_name">Company Name: </label>
+                                                    <input id="company_name" type="text" name="company_name" class="form-control" required>
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                    <label for="company_email">Company Email: </label>
+                                                    <input id="company_email" type="email" name="company_email" class="form-control" required>
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                        <label for="sectors">Sector: </label>
+                                                        <select id="sectors" class="form-control" name="sector" required>
+                                                            <option value="">Select a campaign sector</option>
+                                                            {% for campaign_sector in campaign_sectors %}
+                                                                <option value="{{campaign_sector.id}}">{{campaign_sector.name}}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                    <label for="short_description">Short Description: </label>
+                                                    <textarea id="short_description" name="short_description" class="form-control" rows="2" required>
+                                                    </textarea>
+                                                 </div>
+
+                                                  <div class="form-group">
+                                                    <label for="long_description">Long Description: </label>
+                                                    <textarea id="long_description" name="long_description" class="form-control" rows="10">
+                                                    </textarea>
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                    <label for="target_amount">Target Amount: </label>
+                                                    <input id="target_amount" type="number" name="target_amount" class="form-control">
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                    <label for="campaign_image">Campaign Thumbnail/Image: </label>
+                                                    <input id="campaign_image" type="file" name="campaign_image" class="form-control">
+                                                 </div>
+
+                                                 <!--<div class="form-group">-->
+                                                    <!--<div class='input-group date' id='datetimepicker1'>-->
+                                                        <!--<input type='text' class="form-control" />-->
+                                                        <!--<span class="input-group-addon">-->
+                                                            <!--<span class="glyphicon glyphicon-calendar"></span>-->
+                                                        <!--</span>-->
+                                                    <!--</div>-->
+                                                 <!--</div>-->
+                                                 <!--{% block jquery %}-->
+                                                    <!--<script type="text/javascript">-->
+                                                        <!--$(function () {-->
+                                                            <!--$('#datetimepicker1').datetimepicker();-->
+                                                        <!--});-->
+                                                    <!--</script>-->
+                                                 <!--{% endblock %}-->
+
+
+                                                 <div class="form-group">
+                                                    <label for="duration">Duration: (in months) </label>
+                                                    <input id="duration" type="number" name="duration" class="form-control">
+                                                 </div>
+                                                <div class="form-group" align="center">
+                                                    <button class='btn btn-success' type="submit">Create</button>
+                                                </div>
+                                             </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col_A_out col_A_out_3 col-md-3 clearfix">
+              <div class="col_A_in col_A_in_3">
+
+                  <div class="profile_list_side">
+                      <div class="profile_list_side">
+
+                      </div>
+
+                      <div class="profile_list_side">
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
+
