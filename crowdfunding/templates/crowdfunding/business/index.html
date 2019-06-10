@@ -24,7 +24,7 @@
                 <div class="company_filter pull-right">
                     <form method='post' class=''>
                         {% csrf_token %}
-                        <input class='form-control' name='company-name' placeholder='Find a campaign' />
+                        <input class="form-control" name='company-name' placeholder='Find a campaign' />
                     </form>
                 </div>
             </div>
@@ -39,17 +39,23 @@
 
                     <div class="box_box_in">
                         <figure class="box_avi">
-                            <div class="box_B box_obj.id">
+                            <div class="box_B box_campaign.id">
                                 {% if campaign.campaign_image %}
-                                <img src="{{ campaign.campaign_image.url }}">
+                                <img src="{{ campaign.campaign_image.url }}" width="100%" height="150px">
                                 {% else %}
                                 <img src="{% static 'img/no-img.jpg' %}">
                                 {% endif %}
                             </div>
                         </figure>
                         <figure class="box_details">
+                            <div>
+                                <b>{{campaign.campaign_name}}</b>
+                            </div>
+                            <div>
+                                {{campaign.short_description|truncatewords:5}}
+                            </div>
                             <div class="box_social">
-                                <a href="{% url 'crowdfunding:business_campaign_view' obj.id %}"><button
+                                <a href="{% url 'crowdfunding:business_campaign_view' campaign.id %}"><button
                                         class="btn-actioned btn btn-sm btn-default">View</button></a>
                             </div>
                         </figure>
@@ -70,8 +76,12 @@
 {% block content_2 %}
 <div class="company_filter">
     <h4>Filter Campaigns</h4>
-     <form method='post'>
+     <form method='post' action="{% url 'crowdfunding:filter_campaign' %}">
              {% csrf_token %}
+            <div class="form-group">
+                <label for="campaign_name">Campaign Name: </label>
+                <input type="text" name="campaign_name" id="campaign_name" class="form-control"/>
+            </div>
             <div class="form-group">
                 <label for="sectors">Sector: </label>
                 <select id="sectors" class="form-control" name="sector">

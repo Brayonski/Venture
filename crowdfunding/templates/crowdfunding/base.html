@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/menu-dropdown.css' %}" rel="stylesheet">
     {{ form.media.css }}
     {% render_block "css" %}
 </head>
@@ -50,9 +51,15 @@
                                 <ion-icon name="people"></ion-icon> Partners
                             </a></li>
 
-                        <li><a href="{% url 'investor_list' %}">
-                                <ion-icon name="briefcase"></ion-icon> Funders
-                            </a></li>
+                          <li>
+                            <div class="dropdown">
+                              <button class="dropbtn"><ion-icon name="briefcase"></ion-icon> Funders</button>
+                              <div class="dropdown-content">
+                                  <a href="{% url 'investor_list' %}">Funders List</a>
+                                  <a href="{% url 'crowdfunding:index' %}">Crowdfunding</a>
+                              </div>
+                            </div>
+                          </li>
 
                         <li><a href="">
                                 <ion-icon name="paper-plane"></ion-icon> Knowledge Center

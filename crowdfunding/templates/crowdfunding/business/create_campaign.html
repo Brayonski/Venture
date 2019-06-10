@@ -1,13 +1,6 @@
 {% extends 'profile/base3.html' %}
 {% load cms_tags staticfiles %}
-{% block extrahead %}
-    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-{% endblock %}
+{% load crispy_forms_tags %}
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 {% block content %}
 
@@ -55,77 +48,46 @@
                                       <div class="card_C card" style="">
                                         <div class="card-body">
                                           <h4 align="center"><b>Create Crowdfunding Campaign</b></h4>
-                                             <form method='post'>
+                                             <form method='post' enctype="multipart/form-data">
                                                      {% csrf_token %}
 
                                                  <div class="form-group">
-                                                    <label for="campaign_name">Campaign Name: </label>
-                                                    <input id="campaign_name" type="text" name="campaign_name" class="form-control" required>
+                                                     {{ form.campaign_image|as_crispy_field }}
                                                  </div>
 
                                                  <div class="form-group">
-                                                    <label for="company_name">Company Name: </label>
-                                                    <input id="company_name" type="text" name="company_name" class="form-control" required>
+                                                     {{ form.campaign_name|as_crispy_field }}
                                                  </div>
 
                                                  <div class="form-group">
-                                                    <label for="company_email">Company Email: </label>
-                                                    <input id="company_email" type="email" name="company_email" class="form-control" required>
+                                                     {{ form.company_name|as_crispy_field }}
                                                  </div>
 
                                                  <div class="form-group">
-                                                        <label for="sectors">Sector: </label>
-                                                        <select id="sectors" class="form-control" name="sector" required>
-                                                            <option value="">Select a campaign sector</option>
-                                                            {% for campaign_sector in campaign_sectors %}
-                                                                <option value="{{campaign_sector.id}}">{{campaign_sector.name}}</option>
-                                                            {% endfor %}
-                                                        </select>
+                                                 {{ form.company_email|as_crispy_field }}
                                                  </div>
 
                                                  <div class="form-group">
-                                                    <label for="short_description">Short Description: </label>
-                                                    <textarea id="short_description" name="short_description" class="form-control" rows="2" required>
-                                                    </textarea>
+                                                       {{ form.sector|as_crispy_field }}
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                    {{ form.short_description|as_crispy_field }}
                                                  </div>
 
                                                   <div class="form-group">
-                                                    <label for="long_description">Long Description: </label>
-                                                    <textarea id="long_description" name="long_description" class="form-control" rows="10">
-                                                    </textarea>
+                                                      {{ form.long_description|as_crispy_field }}
                                                  </div>
 
                                                  <div class="form-group">
-                                                    <label for="target_amount">Target Amount: </label>
-                                                    <input id="target_amount" type="number" name="target_amount" class="form-control">
+                                                     {{ form.target_amount|as_crispy_field }}
                                                  </div>
 
                                                  <div class="form-group">
-                                                    <label for="campaign_image">Campaign Thumbnail/Image: </label>
-                                                    <input id="campaign_image" type="file" name="campaign_image" class="form-control">
+                                                    <label for="duration"> Campaign Closing Date: </label>
+                                                    <input id="duration" type="date" name="duration" class="form-control" required>
                                                  </div>
 
-                                                 <!--<div class="form-group">-->
-                                                    <!--<div class='input-group date' id='datetimepicker1'>-->
-                                                        <!--<input type='text' class="form-control" />-->
-                                                        <!--<span class="input-group-addon">-->
-                                                            <!--<span class="glyphicon glyphicon-calendar"></span>-->
-                                                        <!--</span>-->
-                                                    <!--</div>-->
-                                                 <!--</div>-->
-                                                 <!--{% block jquery %}-->
-                                                    <!--<script type="text/javascript">-->
-                                                        <!--$(function () {-->
-                                                            <!--$('#datetimepicker1').datetimepicker();-->
-                                                        <!--});-->
-                                                    <!--</script>-->
-                                                 <!--{% endblock %}-->
-
-
-                                                 <div class="form-group">
-                                                    <label for="duration">Duration: (in months) </label>
-                                                    <input id="duration" type="number" name="duration" class="form-control">
-                                                 </div>
                                                 <div class="form-group" align="center">
                                                     <button class='btn btn-success' type="submit">Create</button>
                                                 </div>

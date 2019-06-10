@@ -1,0 +1,195 @@
+{% extends 'profile/base3.html' %}
+{% load cms_tags staticfiles %}
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block content %}
+
+<div class="full_A">
+    <div class="container">
+        <div class="profile_top full_widthX">
+          <div class="profile_top_in">
+            <div class="padless-leftX col-md-6 col-sm-6 col-xs-6">
+              <div class="ptin_A ptin_1A">
+                <figure class="maxi_avi2">
+                    {% if campaign_data.campaign_image %}
+                    <img src="{{ campaign_data.campaign_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/no-img.png' %}">
+                    {% endif %}
+                </figure>
+                <div class="ptin_1A1">
+                  <div class="Xuser_label_wrap Xtop">
+                    <ul class="Xuser_label Xfunder_label Xtop">
+                      <li class="Xuser_label_company2 Xtop">
+                          <h4><ion-icon name="briefcase"></ion-icon>  {{ campaign_data.campaign_name }}</h4>
+                      </li>
+                      <li class="Xuser_label_company Xtop">
+                        {{ campaign_data.company_name }}
+                      </li>
+                      <li class="Xuser_label_company Xtop">
+                        {{ campaign_data.company_email }}
+                      </li>
+                      <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Sector: {{campaign_data.sector}}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+    </div>
+  <div class="container">
+        <div class="columns_A flex row clearfix">
+
+          <div class="col_A_out col_A_out_1 col-md-3 clearfix">
+            <div class="col_A_in col_A_in_1">
+
+                <div class="card-body progress-card text-center">
+
+                </div>
+
+              <div class="card card-body">
+
+              </div>
+
+              <div class="profile_list_side">
+
+              </div>
+
+              <div class="profile_list_side">
+
+
+              </div>
+
+            </div>
+          </div>
+          <div class="col_A_out col_A_out_2 col-md-6 clearfix">
+            <div class="col_A_in col_A_in_2">
+              <div class="onboarding_A">
+                <div class="row clearfix">
+                  <div class="col-md-12 clearfix">
+
+                    <div class="tab-content">
+                      <div id="profile" class="tab-pane fade in active">
+                        <div class="col-md-12 clearfix">
+                          <div class="profile_data">
+
+                              <div class="track_record_2">
+                                <div class="row clearfix">
+                                  <div class="no_padd col-md-12 clearfix">
+                                    <div class="single_card_wrapper">
+                                      <div class="card_C card" style="">
+                                        <div class="card-body">
+                                          <h4 align="center"><b>Campaign {{campaign_data.campaign_name}}</b></h4>
+
+                                              <div class="row clearfix">
+                                                  <div class="no_padd col-md-12 clearfix">
+                                                    <h3>Campaign Details</h3>
+                                                    <div class="single_card_wrapper">
+                                                      <div class="card_C card" style="">
+                                                        <div class="card-body">
+                                                          <div class="">
+                                                              <h5>Short Description</h5>
+                                                                <p class="card-text dark-text">
+                                                                  {% if campaign_data.short_description %}
+                                                                    {{campaign_data.short_description}}
+                                                                  {% else %}
+                                                                    No short description statement provided
+                                                                  {% endif %}
+                                                                </p>
+
+                                                               <h5>Long Description</h5>
+                                                                <p class="card-text dark-text">
+                                                                  {% if campaign_data.long_description %}
+                                                                    {{campaign_data.long_description}}
+                                                                  {% else %}
+                                                                    No long description statement provided
+                                                                  {% endif %}
+                                                                </p>
+                                                          </div>
+
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                              </div>
+
+                                            <div class="row clearfix">
+                                              <div class="no_padd col-md-12 clearfix">
+                                                <div class="single_card_wrapper">
+                                                  <div class="card_C card" style="">
+                                                    <div class="card-body">
+                                                      <div class="pull-left">
+
+                                                        <h5 class="card-title">
+                                                          Target Amount
+                                                        </h5>
+                                                        <p class="card-text">
+                                                          {{campaign_data.target_amount}}
+                                                        </p>
+
+                                                        <h5 class="card-title">
+                                                          Funds Received
+                                                        </h5>
+                                                        <p class="card-text">
+                                                          {{campaign_data.total_funds_received}}
+                                                        </p>
+                                                      </div>
+                                                      <div class="pull-right">
+
+                                                        <h5 class="card-title">
+                                                          Campaign Status
+                                                        </h5>
+                                                        <p class="card-text">{{campaign_data.campaign_status}}</p>
+
+                                                        <h5 class="card-title">
+                                                          Approval Status
+                                                        </h5>
+                                                        <p class="card-text">{{campaign_data.approval_status}} </p>
+
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col_A_out col_A_out_3 col-md-3 clearfix">
+              <div class="col_A_in col_A_in_3">
+
+                  <div class="profile_list_side">
+                      <div class="profile_list_side">
+
+                      </div>
+
+                      <div class="profile_list_side">
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
+

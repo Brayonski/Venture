@@ -16,6 +16,12 @@ FEE_TYPE = (
     ('Flat', 'Flat'),
 )
 
+APPROVAL_STATUS = (
+    ('APPROVE', 'APPROVE'),
+    ('REJECT', 'REJECT'),
+    ('PENDING', 'PENDING'),
+)
+
 class CampaignSector(models.Model):
     name = models.CharField(max_length=255)
     added_by = models.ForeignKey(User)
@@ -49,7 +55,7 @@ class Campaign(models.Model):
     company_name = models.CharField(max_length=255)
     company_email = models.EmailField()
     sector = models.ForeignKey(CampaignSector)
-    duration = models.DateTimeField('campaign closing date')
+    duration = models.DateField('campaign closing date')
     target_amount = models.DecimalField(max_digits=19, decimal_places=2, validators=[MinValueValidator(10)])
     total_funds_received = models.DecimalField(max_digits=19, decimal_places=2, null=True)
     campaign_status = models.CharField(max_length=100)
@@ -58,7 +64,12 @@ class Campaign(models.Model):
     short_description = models.TextField()
     long_description = models.TextField(null=True, blank=True)
     funds_disbursement_status = models.CharField(max_length=100)
-
+    approval_status = models.CharField(max_length=100, choices=APPROVAL_STATUS, default="PENDING", null=True, blank=True)
+    approved = models.BooleanField(default=False)
+    approved_by = models.ForeignKey(User, related_name='campaign_approver', null=True, blank=True)
+    rejected = models.BooleanField(default=False)
+    rejected_by = models.ForeignKey(User, related_name='campaign_rejector', null=True, blank=True)
+    comments = models.TextField(null=True, blank=True)
     class Meta:
         verbose_name_plural = 'Campaigns'
 
@@ -68,41 +79,6 @@ class Campaign(models.Model):
     def clean(self):
         if self.target_amount < 10:
             raise ValidationError(_('Only amounts equal to 10 or greater are accepted.'))
-
-
-class CampaignApproval(models.Model):
-    campaign = models.ForeignKey(Campaign)
-    approved = models.BooleanField(default=False)
-    approved_by = models.ForeignKey(User, related_name='campaign_approver', null=True, blank=True)
-    rejected = models.BooleanField(default=False)
-    rejected_by = models.ForeignKey(User, related_name='campaign_rejector', null=True, blank=True)
-    status = models.CharField(max_length=100)
-
-    class Meta:
-        verbose_name_plural = 'Campaign Approvals'
-
-    def __str__(self):
-        return self.campaign.campaign_name
-
-    def campaign_nam(self):
-        return self.campaign.campaign_name
-
-    campaign_nam.short_description = 'Campaign Name'
-
-    def campaign_sector(self):
-        return self.campaign.sector.name
-
-    campaign_sector.short_description = 'Sector'
-
-    def campaign_creation_date(self):
-        return self.campaign.created_at
-
-    campaign_creation_date.short_description = 'Creation Date'
-
-    def target_am(self):
-        return self.campaign.target_amount
-
-    target_am.short_description = 'Target Amount'
 
 
 class CampaignPayment(models.Model):
