@@ -11,7 +11,7 @@ class CreateCampaignForm(ModelForm):
         labels = {
             "campaign_name": "Campaign Name",
             "company_name": "Company Name",
-            "company_email": "Company Email",
+            "company_email": "Company Email (will be used to disburse the collected campaign funds)",
             "sector": "Campaign Sector",
             "duration": "Campaign Closing Date",
             "target_amount": "Target Amount",

@@ -8,6 +8,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
+from django.utils import timezone
+from datetime import date
 
 # Create your models here.
 
@@ -20,6 +22,11 @@ APPROVAL_STATUS = (
     ('APPROVE', 'APPROVE'),
     ('REJECT', 'REJECT'),
     ('PENDING', 'PENDING'),
+)
+
+DISBURSEMENT_TYPE = (
+    ('DISBURSE', 'DISBURSE'),
+    ('REFUND', 'REFUND'),
 )
 
 class CampaignSector(models.Model):
@@ -83,6 +90,7 @@ class Campaign(models.Model):
 
 class CampaignPayment(models.Model):
     campaign = models.ForeignKey(Campaign)
+    created_at = models.DateTimeField('donation date',default=timezone.now())
     donator = models.ForeignKey(User, related_name='campaign_donator')
     amount = models.DecimalField(max_digits=19, decimal_places=2)
     payment_method = models.CharField(max_length=100)
@@ -100,11 +108,15 @@ class CampaignPayment(models.Model):
 
 class CampaignDisbursement(models.Model):
     campaign = models.ForeignKey(Campaign)
+    created_at = models.DateTimeField('donation date', default=timezone.now())
     amount = models.DecimalField(max_digits=19, decimal_places=2)
-    disbursement_type = models.CharField(max_length=100)
-    disbursement_method = models.CharField(max_length=100)
+    disbursement_type = models.CharField(max_length=100, choices=DISBURSEMENT_TYPE, null=True, blank=True)
+    disbursement_method = models.CharField(max_length=100, null=True, blank=True)
     disbursement_status = models.CharField(max_length=100)
     recipient = models.ForeignKey(User, related_name='disbursement_recipient')
+    recipient_email = models.CharField(max_length=255, null=True, blank=True)
+    approval_status = models.CharField(max_length=100, choices=APPROVAL_STATUS, default="PENDING", null=True,
+                                       blank=True)
     approved = models.BooleanField(default=False)
     approved_by = models.ForeignKey(User, related_name='disbursement_approver', null=True, blank=True)
     rejected = models.BooleanField(default=False)
