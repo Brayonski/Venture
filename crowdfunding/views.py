@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.template import loader
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 
-from crowdfunding.forms import CreateCampaignForm
+from crowdfunding.forms import *
 from .models import Campaign, CampaignSector
 from venturelift_profiles.models import Business
 from django.contrib.auth.decorators import login_required
@@ -55,12 +55,23 @@ def business_campaign_view(request, campaign_id):
 
 @login_required
 def filter_campaign_view(request):
-    campaign_data = Campaign.objects.filter(campaign_name__contains=request.POST['campaign_name'])
+    if request.user.is_authenticated() and not (request.user.business_creator.exists()) and not (
+            request.user.supporter_creator.exists()) and not (request.user.investor_creator.exists()):
+        return redirect(reverse('profile_create'))
+
+    template = loader.get_template('crowdfunding/investor/index.html')
+    campaign_data = Campaign.objects.filter(campaign_name__contains=request.POST['campaign_name'],campaign_status='APPROVED')
+
+    if request.user.is_authenticated() and request.user.business_creator.exists():
+        template = loader.get_template('crowdfunding/business/index.html')
+        campaign_data = Campaign.objects.filter(campaign_name__contains=request.POST['campaign_name'],campaign_owner=request.user)
     if empty(request.POST['sector']):
         sector_data = CampaignSector.objects.filter(id=request.POST['sector'])
-        campaign_data = Campaign.objects.filter(Q(sector=sector_data) | Q(campaign_name__contains=request.POST['campaign_name']))
+        if request.user.is_authenticated() and request.user.business_creator.exists():
+            campaign_data = Campaign.objects.filter(Q(sector=sector_data) | Q(campaign_name__contains=request.POST['campaign_name'])).filter(campaign_owner=request.user)
+        else:
+            campaign_data = Campaign.objects.filter(Q(sector=sector_data) | Q(campaign_name__contains=request.POST['campaign_name'])).filter(campaign_status='APPROVED')
     campaign_sectors = CampaignSector.objects.all()
-    template = loader.get_template('crowdfunding/business/index.html')
 
     context = {
         'campaign_list': campaign_data,
@@ -105,3 +116,15 @@ class CreateCampaignView(LoginRequiredMixin, CreateView):
     def form_invalid(self, form):
         errors = form.errors
         raise errors
+
+
+@login_required
+def create_donation(request, campaign_id):
+    campaign_data = Campaign.objects.get(id=campaign_id)
+    template = loader.get_template('crowdfunding/investor/create_payment.html')
+
+    context = {
+        'campaign_data': campaign_data,
+    }
+    return HttpResponse(template.render(context, request))
+

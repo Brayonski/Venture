@@ -5,16 +5,6 @@
 
 
 <div class="col_A_in col_A_in_2">
-     <div class="topbar_2">
-        <div class="row clearfix">
-             <div class="col-md-12 clearfix">
-                <div class="company_filter pull-right">
-                     <a href="{% url 'crowdfunding:create_campaign' %}"><button
-                                        class="btn-actioned btn btn-sm btn-default">Create a Crowdfunding Campaign</button></a>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="topbar_2">
         <div class="row clearfix">
             <div class="col-md-6 clearfix">
@@ -55,8 +45,8 @@
                                 {{campaign.short_description|truncatewords:5}}
                             </div>
                             <div class="box_social">
-                                <a href="{% url 'crowdfunding:business_campaign_view' campaign.id %}"><button
-                                        class="btn-actioned btn btn-sm btn-default">View</button></a>
+                                <a href="{% url 'crowdfunding:create_donation' campaign.id %}"><button
+                                        class="btn-actioned btn btn-sm btn-default">Fund</button></a>
                             </div>
                         </figure>
                     </div>
@@ -64,7 +54,7 @@
                 {% endfor %}
                 {% else %}
                      <div>
-                        <p><b>No Campaigns Created</b></p>
+                        <p><b>No Available Published Campaigns </b></p>
                      </div>
                 {% endif %}
             </div>

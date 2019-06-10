@@ -21,3 +21,13 @@ class CreateCampaignForm(ModelForm):
         }
 
     sector = forms.ModelChoiceField(queryset=CampaignSector.objects.all(), required=True,label='Campaign Sector',widget=Select2Widget)
+
+
+class CreateCampaignPaymentForm(ModelForm):
+    class Meta:
+        model = CampaignPayment
+        exclude = ['campaign', 'donator', 'payment_status','payment_order_number','paid']
+        labels = {
+            "payment_method": "Payment Method",
+            "amount": "Amount to Donate",
+        }

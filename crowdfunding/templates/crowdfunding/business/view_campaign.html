@@ -154,6 +154,28 @@
                                               </div>
                                             </div>
 
+                                             <div class="row clearfix">
+                                                  <div class="no_padd col-md-12 clearfix">
+                                                    <h3>Campaign Comments From Venturelift</h3>
+                                                    <div class="single_card_wrapper">
+                                                      <div class="card_C card" style="">
+                                                        <div class="card-body">
+                                                          <div class="">
+                                                            <p class="card-text dark-text">
+                                                              {% if campaign_data.comments %}
+                                                                {{campaign_data.comments}}
+                                                              {% else %}
+                                                                No comments made on the campaign
+                                                              {% endif %}
+                                                            </p>
+                                                          </div>
+
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                             </div>
+
                                         </div>
                                       </div>
                                     </div>
