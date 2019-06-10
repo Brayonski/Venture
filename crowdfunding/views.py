@@ -17,6 +17,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.db.models import Q
+from crowdfunding.tasks import *
+from django.conf import settings
 
 # Create your views here.
 @login_required
@@ -104,12 +106,8 @@ class CreateCampaignView(LoginRequiredMixin, CreateView):
 
         #campaign_path = reverse('admin:campaign', args=(self.object.id,))
 
-        subject, from_email, to = 'Campaign Approval Request', 'tryventuretestmail@gmail.com', self.request.user.email
-        text_content = 'Campaign ' + self.object.campaign_name + ' has been created and is pending approval'
-        html_content = '<p>Campaign '+ self.object.campaign_name + ' has been created and is pending approval</p><p>Click <a href="http://127.0.0.1:8000/en/admin/crowdfunding/campaign/'+str(self.object.id)+'/change/" target="_blank">here</a> to action on it.</p>'
-        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-        msg.attach_alternative(html_content, "text/html")
-        msg.send()
+        subject, from_email, to = 'Campaign Approval Request', settings.ADMIN_EMAIL, self.request.user.email
+        send_approval_request_email_task.delay(self.object.campaign_name, self.object.id, subject, from_email, to)
 
         return redirect(reverse('crowdfunding:index'))
 

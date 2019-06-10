@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 from crowdfunding.models import *
+from crowdfunding.tasks import *
+from django.conf import settings
 from django.core.mail import send_mail, EmailMultiAlternatives
 
 # Register your models here.
@@ -44,25 +46,16 @@ class CampaignAdmin(admin.ModelAdmin):
                 obj.approved_by = request.user
                 obj.campaign_status = 'APPROVED'
                 obj.save()
-                subject, from_email, to = 'Campaign Approval Request', 'tryventuretestmail@gmail.com', obj.campaign_owner.email
-                text_content = 'Campaign ' + obj.campaign_name + ' has been approved'
-                html_content = '<p>Campaign ' + obj.campaign_name + ' has been approved</p><p>Click <a href="http://127.0.0.1:8000/crowdfunding/business/' + str(
-                    obj.id) + '/" target="_blank">here</a> to view it.</p>'
-                msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-                msg.attach_alternative(html_content, "text/html")
-                msg.send()
+                subject, from_email, to = 'Campaign Approval Request', settings.ADMIN_EMAIL, obj.campaign_owner.email
+                send_actioned_campaign_email_task.delay(obj.campaign_name, obj.id, subject, from_email, to, "approved")
             elif form.cleaned_data['approval_status'] == "REJECT":
                 obj.rejected = True
                 obj.rejected_by = request.user
                 obj.campaign_status = 'REJECTED'
                 obj.save()
-                subject, from_email, to = 'Campaign Approval Request', 'tryventuretestmail@gmail.com', obj.campaign_owner.email
-                text_content = 'Campaign ' + obj.campaign_name + ' has been rejected'
-                html_content = '<p>Campaign ' + obj.campaign_name + ' has been rejected</p><p>Click <a href="http://127.0.0.1:8000/crowdfunding/business/' + str(
-                    obj.id) + '/" target="_blank">here</a> to view its comments.</p>'
-                msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-                msg.attach_alternative(html_content, "text/html")
-                msg.send()
+                subject, from_email, to = 'Campaign Approval Request', settings.ADMIN_EMAIL, obj.campaign_owner.email
+                send_actioned_campaign_email_task.delay(obj.campaign_name, obj.id, subject, from_email, to, "rejected")
+
 
 
 admin.site.register(CampaignSector, CampaignSectorAdmin)

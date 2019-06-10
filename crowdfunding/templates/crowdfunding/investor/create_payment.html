@@ -110,6 +110,12 @@
                                                      <input id="amount" type="number" class="form-control" name="amount" min="1" required />
                                                  </div>
 
+                                                 <div class="form-group">
+                                                     <input type="hidden" value="{{campaign_data.id}}" name="campaign_id" required />
+                                                     <label for="comments"> Comments: </label>
+                                                      <textarea id="comments" name="comments" class="form-control" rows="2"></textarea>
+                                                 </div>
+
                                                 <div class="form-group" align="center">
                                                     <button class='btn btn-success' type="submit">Donate</button>
                                                 </div>
