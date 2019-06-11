@@ -2,4 +2,5 @@
 migrations
 settings.py
 media
-/django_select2
+django_select2
+celerybeat-schedule
