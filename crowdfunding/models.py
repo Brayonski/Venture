@@ -90,12 +90,12 @@ class Campaign(models.Model):
 
 class CampaignPayment(models.Model):
     campaign = models.ForeignKey(Campaign)
-    created_at = models.DateTimeField('donation date',default=timezone.now())
+    created_at = models.DateTimeField('donation date',null=True)
     donator = models.ForeignKey(User, related_name='campaign_donator')
     amount = models.DecimalField(max_digits=19, decimal_places=2)
     payment_method = models.CharField(max_length=100)
     payment_status = models.CharField(max_length=100)
-    payment_order_number = models.CharField(max_length=255)
+    payment_order_number = models.CharField(max_length=255,null=True,blank=True)
     paid = models.BooleanField(default=False)
     comments = models.TextField(null=True, blank=True)
 
@@ -108,7 +108,7 @@ class CampaignPayment(models.Model):
 
 class CampaignDisbursement(models.Model):
     campaign = models.ForeignKey(Campaign)
-    created_at = models.DateTimeField('donation date', default=timezone.now())
+    created_at = models.DateTimeField('donation date', null=True)
     amount = models.DecimalField(max_digits=19, decimal_places=2)
     disbursement_type = models.CharField(max_length=100, choices=DISBURSEMENT_TYPE, null=True, blank=True)
     disbursement_method = models.CharField(max_length=100, null=True, blank=True)
