@@ -2,3 +2,4 @@
 migrations
 settings.py
 media
+/django_select2
