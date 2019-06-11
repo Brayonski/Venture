@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63775d04-ee63-40b5-9b92-96f47de827ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/celerybeat-schedule" beforeDir="false" afterPath="$PROJECT_DIR$/celerybeat-schedule" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crowdfunding/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/crowdfunding/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venturelift_cms/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_cms/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venturelift_media/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venturelift_cms/templates/base_root.html" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_cms/templates/base_root.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venturelift_profiles/templates/profile/base3.html" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_profiles/templates/profile/base3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venturelift_profiles/templates/profile/base4.html" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_profiles/templates/profile/base4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venturelift_profiles/templates/profile/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_profiles/templates/profile/home.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,18 +16,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venturelift_profiles/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="10" column="84" selection-start-line="10" selection-start-column="84" selection-end-line="10" selection-end-column="84" />
-              <folding>
-                <element signature="e#0#72#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -108,11 +97,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+            <state>
+              <caret lean-forward="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/base3.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/base4.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1031">
+              <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -121,7 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>select2wi</find>
       <find>registrat</find>
       <find>UpdateBusinessView</find>
       <find>Email</find>
@@ -151,6 +157,7 @@
       <find>Timez</find>
       <find>timez</find>
       <find>TIME_ZONE</find>
+      <find>&lt;&lt;</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/venturelift_cms</dir>
@@ -179,8 +186,6 @@
         <option value="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/base2.html" />
         <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/base.html" />
         <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/base2.html" />
-        <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/base3.html" />
-        <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/base4.html" />
         <option value="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/business/index.html" />
         <option value="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/business/view_campaign.html" />
         <option value="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/view_campaign.html" />
@@ -199,6 +204,8 @@
         <option value="$PROJECT_DIR$/crowdfunding/views.py" />
         <option value="$PROJECT_DIR$/crowdfunding/tasks.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/base3.html" />
+        <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/base4.html" />
       </list>
     </option>
   </component>
@@ -225,6 +232,24 @@
               <item name="venturelift" type="b2602c69:ProjectViewProjectNode" />
               <item name="venturelift" type="462c0819:PsiDirectoryNode" />
               <item name="crowdfunding" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="venturelift" type="b2602c69:ProjectViewProjectNode" />
+              <item name="venturelift" type="462c0819:PsiDirectoryNode" />
+              <item name="venturelift_profiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="venturelift" type="b2602c69:ProjectViewProjectNode" />
+              <item name="venturelift" type="462c0819:PsiDirectoryNode" />
+              <item name="venturelift_profiles" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="venturelift" type="b2602c69:ProjectViewProjectNode" />
+              <item name="venturelift" type="462c0819:PsiDirectoryNode" />
+              <item name="venturelift_profiles" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -441,20 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/base3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="53" column="23" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/base4.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="62" column="25" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crowdfunding/templates/crowdfunding/base4.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -652,8 +663,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/base3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/base4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1031">
+          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
         </state>
       </provider>
     </entry>

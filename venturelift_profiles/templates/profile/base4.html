@@ -19,133 +19,119 @@
 </head>
 
 <body class="logged_in profile_templates">
+    {% cms_toolbar %}
+        <!-- Fixed navbar -->
+    <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
+      <div class="top_container container">
+        <div class="nav_nav_first navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarX" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
 
-
-
-    <!-- Fixed navbar -->
-    <nav id="navbar_out" class="navbar navbar-default navbar-fixed-top">
-        <div class="top_container container">
-
-
-
-            <div class="nav_nav_first navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarX"
-                    aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">
-                    <img src="{% static 'img/logo3.png' %}" alt="VentureLift Africa">
+          <a class="navbar-brand" href="{% url 'profile_summary' %}">
+            <img src="{% static 'img/logo2.png' %}" alt="VentureLift Africa">
+          </a>
+          <div class="vl_top_top navbar-full">
+            <ul class="vl_top_nav in_line">
+              <li>
+                <a href="{% url 'profile_summary' %}">
+                  <ion-icon name="home"></ion-icon> My Profile
                 </a>
-                <div class="vl_top_top navbar-full">
+              </li>
+              <li>
+                <a href="{% url 'business_list' %}">
+                <ion-icon name="briefcase"></ion-icon> Businesses
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'supporter_list' %}">
+                  <ion-icon name="people"></ion-icon> Partners
+                </a>
+              </li>
 
-                    <ul class="vl_top_nav in_line">
-                        <li><a href="{% url 'profile_summary' %}">
-                            <ion-icon name="home"></ion-icon> My Profile
-                        </a></li>
-                    <li><a href="{% url 'business_list' %}">
-                            <ion-icon name="briefcase"></ion-icon> Businesses
-                        </a></li>
-                    <li><a href="{% url 'supporter_list' %}">
-                            <ion-icon name="people"></ion-icon> Partners
-                        </a></li>
+              <li>
+                <a href="{% url 'investor_list' %}">
+                  <ion-icon name="briefcase"></ion-icon> Funders
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <ion-icon name="paper-plane"></ion-icon> Knowledge Center
+                </a>
+              </li>
 
-                     <li>
-                        <div class="dropdown">
-                          <button class="dropbtn"><ion-icon name="briefcase"></ion-icon> Funders</button>
-                          <div class="dropdown-content">
-                              <a href="{% url 'investor_list' %}">Funders List</a>
-                              <a href="{% url 'crowdfunding:index' %}">Crowdfunding</a>
-                          </div>
-                        </div>
-                    </li>
-
-                    <li><a href="">
-                            <ion-icon name="paper-plane"></ion-icon> Knowledge Center
-                        </a></li>
-
-                    <li><a href="{% url 'business_list' %}">
-                            <ion-icon name="paper-plane"></ion-icon> VLA Media
-                        </a></li>
-
-                    <li class="user_nav_item pull_right">
-
-                    </li>
-                    <li class="pull_right"><a href="#nogo">
-                            <ion-icon name="notifications-outline"></ion-icon>
-                        </a></li>
-
-                        <li class="user_nav_item pull_right">
-                            <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id=""
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <figure class="user_icon_nav">
-                                        {% if context.supporter %}
-                                        {% if context.supporter.thumbnail_image %}
-                                        <img src="{{ context.supporter.thumbnail_image.url }}">
-                                        {% else %}
-                                        <img src="{% static 'img/blue-user-icon.svg' %}">
-                                        {% endif %}
-                                        {% elif context.investor %}
-                                        {% if context.investor.thumbnail_image %}
-                                        <img src="{{ context.investor.thumbnail_image.url }}">
-                                        {% else %}
-                                        <img src="{% static 'img/blue-user-icon.svg' %}">
-                                        {% endif %}
-                                        {% elif context.business %}
-                                        {% if context.business.thumbnail_image %}
-                                        <img src="{{ context.business.thumbnail_image.url }}">
-                                        {% else %}
-                                        <img src="{% static 'img/no-img.jpg' %}">
-                                        {% endif %}
-                                        {% endif %}
-
-                                    </figure>
-                                </button>
-                                <ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
-                                    <li><a href="{% url 'profile_summary' %}">My Profile</a></li>
-                                    <div class="divider"></div>
-                                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="pull_right"><a href="#nogo">
-                                <ion-icon name="notifications-outline"></ion-icon>
-                            </a></li>
-
-                    </ul>
+              <li>
+                <a href="{% url 'business_list' %}">
+                <ion-icon name="paper-plane"></ion-icon> VLA Media
+                </a>
+              </li>
+              <li class="user_nav_item pull_right">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+                    <figure class="user_icon_nav">
+                      {% if context.supporter %}
+                      {% if context.supporter.thumbnail_image %}
+                      <img src="{{ context.supporter.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% endif %}
+                      {% elif context.investor %}
+                      {% if context.investor.thumbnail_image %}
+                      <img src="{{ context.investor.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% endif %}
+                      {% elif context.business %}
+                      {% if context.business.thumbnail_image %}
+                      <img src="{{ context.business.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/no-img.jpg' %}">
+                      {% endif %}
+                      {% endif %}
+                    </figure>
+                  </button>
+                  <ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+                    <li><a href="{% url 'profile_summary' %}">My Profile</a></li>
+                    <div class="divider"></div>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                  </ul>
                 </div>
-            </div>
-
-
-
+              </li>
+              <li class="pull_right"><a href="#nogo">
+                  <ion-icon name="notifications-outline"></ion-icon>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </nav>
 
+        <div class="content_container">
 
-    <div class="content_container">
-
-        <div class="full_A with-side-filter">
-            <div class="columns_A flex row clearfix">
-                <div class="col_A_out col_A_out_2 col-md-10 clearfix">
-                    {% block content_1 %}{% endblock %}
-                </div>
-                <div class="col_A_out col_A_out_3 col-md-2 clearfix">
-                    <div class="col_A_in col_A_in_co_filter">
-                        {% block content_2 %}{% endblock %}
-                        <div class="sidebar_actions">
-                        </div>    
+            <div class="full_A with-side-filter">
+                <div class="columns_A flex row clearfix">
+                    <div class="col_A_out col_A_out_2 col-md-10 clearfix">
+                        {% block content_1 %}{% endblock %}
+                    </div>
+                    <div class="col_A_out col_A_out_3 col-md-2 clearfix">
+                        <div class="col_A_in col_A_in_co_filter">
+                            {% block content_2 %}{% endblock %}
+                            <div class="sidebar_actions">
+                            </div>    
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="full_width footer">
-        {% static_placeholder 'footer' %}
-    </div>
+        <div class="full_width footer">
+            {% static_placeholder 'footer' %}
+        </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
