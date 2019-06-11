@@ -37,19 +37,56 @@
                             <li><a href="{% url 'registration_in' %}">Partner</a></li>
                             <li><a href="#nogo">Knowledge Center</a></li>
                             <li><a href="/en/media">VLA Media</a></li>
-                            <li><a href="{% url 'login' %}">Sign In</a></li>
-                            <li><a class="btn btn-md btn-primary" href="{% url 'registration_in' %}">Join VentureLift Africa</a></li>
+                            {% if user.is_authenticated %}
+                            <li class="user_nav_item pull_right">
+                                <div class="dropdown">
+                                  <button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="true">
+                                    <figure class="user_icon_nav">
+                                      {% if context.supporter %}
+                                      {% if context.supporter.thumbnail_image %}
+                                      <img src="{{ context.supporter.thumbnail_image.url }}">
+                                      {% else %}
+                                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                                      {% endif %}
+                                      {% elif context.investor %}
+                                      {% if context.investor.thumbnail_image %}
+                                      <img src="{{ context.investor.thumbnail_image.url }}">
+                                      {% else %}
+                                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                                      {% endif %}
+                                      {% elif context.business %}
+                                      {% if context.business.thumbnail_image %}
+                                      <img src="{{ context.business.thumbnail_image.url }}">
+                                      {% else %}
+                                      <img src="{% static 'img/no-img.jpg' %}">
+                                      {% endif %}
+                                      {% endif %}
+                                    </figure>
+                                  </button>
+                                  <ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+                                    <li><a href="{% url 'profile_summary' %}">My Profile</a></li>
+                                    <div class="divider"></div>
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                  </ul>
+                                </div>
+                              </li>
+                              <li class="pull_right">
+                              <a href="#nogo">
+                                <ion-icon name="notifications-outline"></ion-icon>
+                              </a>
+                             </li>
+                            {% else %}
+                              <li>
+                                <a href="{% url 'login' %}">Sign In</a>
+                              </li>
+                              <li>
+                                <a class="btn btn-md btn-primary" href="{% url 'registration_in' %}">Join VentureLift Africa</a>
+                              </li>
+                            {% endif %}
                         </ul>
                     </div>
-                </div>
-
-                <!--
-                <div id="navbarX" class="nav_nav_second navbar-collapse collapse nav-down">
-                    <ul id="navbar2" class="navbarX2 nav navbar-nav">
-                        {% show_menu 0 100 100 100 "menu.html" %}
-                    </ul>
-                </div>
-		-->            
+                </div>        
             </div>
         </nav>
 
@@ -61,7 +98,7 @@
             {% static_placeholder 'footer' %}
         </div>
         {% render_block "js" %}
-    </body>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -110,9 +147,8 @@
           }
           
           lastScrollTop = st;
-      }  
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+      } 
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -121,8 +157,6 @@
 
       gtag('config', 'UA-137967572-1');
     </script>
-
-
-    </script>
+</body>
 </html>
 
