@@ -31,7 +31,7 @@ def send_campaign_disbursement_email_task(campaign_name, campaign_id, subject, f
     return send_campaign_disbursement_email(campaign_name, campaign_id, subject, from_email, to, status)
 
 
-@periodic_task(run_every=(crontab(minute=0, hour=0)), name="task_close_due_campaigns", ignore_result=True)
+@periodic_task(run_every=(crontab(minute='*/15')), name="task_close_due_campaigns", ignore_result=True)
 def task_close_due_campaigns():
     print("Hi,im periodically running")
     due_campaigns = Campaign.objects.filter(duration__lte=date.today(),campaign_status='APPROVED')
