@@ -126,3 +126,22 @@ def create_donation(request, campaign_id):
     }
     return HttpResponse(template.render(context, request))
 
+
+@login_required
+def make_payment(request):
+    if request.user.is_authenticated() and not (request.user.business_creator.exists()) and not (
+            request.user.supporter_creator.exists()) and not (request.user.investor_creator.exists()):
+        return redirect(reverse('profile_create'))
+    campaign_selected = Campaign.objects.get(id=request.POST['campaign_id'])
+    payment = CampaignPayment(campaign=campaign_selected,created_at=timezone.now(),donator=request.user,amount=request.POST['amount'],payment_method=request.POST['payment_method'],payment_status='INITIATED',paid=False,comments=request.POST['comments'])
+    payment.save()
+    template = loader.get_template('crowdfunding/investor/index.html')
+    campaign_data = Campaign.objects.filter(campaign_status='APPROVED')
+    campaign_sectors = CampaignSector.objects.all()
+
+    context = {
+        'campaign_list': campaign_data,
+        'campaign_sectors': campaign_sectors,
+        'message': 'Payment Initiated For Campaign '+campaign_selected.campaign_name
+    }
+    return HttpResponse(template.render(context, request))

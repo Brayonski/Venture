@@ -3,8 +3,16 @@
 {% load crispy_forms_tags %}
 {% block content_1 %}
 
-
 <div class="col_A_in col_A_in_2">
+    {% if message %}
+    <div class="topbar_2">
+        <div class="row clearfix">
+            <div class="col-md-12 clearfix" align="center">
+                <p class="p_title"><strong>{{ message }}</strong></p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
     <div class="topbar_2">
         <div class="row clearfix">
             <div class="col-md-6 clearfix">
