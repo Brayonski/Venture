@@ -1,4 +1,4 @@
-from celery import *
+from celery import task
 from celery.utils.log import get_task_logger
 from celery.task.schedules import crontab
 from celery.decorators import periodic_task
