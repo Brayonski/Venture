@@ -46,14 +46,14 @@ class CampaignAdmin(admin.ModelAdmin):
                 obj.approved_by = request.user
                 obj.campaign_status = 'APPROVED'
                 obj.save()
-                subject, from_email, to = 'Campaign Approval Request', settings.ADMIN_EMAIL, obj.campaign_owner.email
+                subject, from_email, to = 'Campaign Approval Request', settings.EMAIL_HOST_USER, obj.campaign_owner.email
                 send_actioned_campaign_email_task.delay(obj.campaign_name, obj.id, subject, from_email, to, "approved")
             elif form.cleaned_data['approval_status'] == "REJECT":
                 obj.rejected = True
                 obj.rejected_by = request.user
                 obj.campaign_status = 'REJECTED'
                 obj.save()
-                subject, from_email, to = 'Campaign Approval Request', settings.ADMIN_EMAIL, obj.campaign_owner.email
+                subject, from_email, to = 'Campaign Approval Request', settings.EMAIL_HOST_USER, obj.campaign_owner.email
                 send_actioned_campaign_email_task.delay(obj.campaign_name, obj.id, subject, from_email, to, "rejected")
 
 
@@ -95,7 +95,7 @@ class CampaignDisbursementAdmin(admin.ModelAdmin):
                 obj.disbursement_status = 'REJECTED'
                 obj.campaign.funds_disbursement_status = 'REJECTED'
                 obj.save()
-                subject, from_email, to = 'Campaign Approval Request', settings.ADMIN_EMAIL, obj.campaign_owner.email
+                subject, from_email, to = 'Campaign Approval Request', settings.EMAIL_HOST_USER, obj.campaign_owner.email
                 send_actioned_campaign_email_task.delay(obj.campaign_name, obj.id, subject, from_email, to, "rejected")
 
 
