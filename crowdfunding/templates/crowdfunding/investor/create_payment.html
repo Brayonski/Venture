@@ -1,0 +1,160 @@
+{% extends 'profile/base3.html' %}
+{% load cms_tags staticfiles %}
+{% load crispy_forms_tags %}
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block content %}
+
+<div class="full_A">
+    <div class="container">
+        <div class="profile_top full_widthX">
+          <div class="profile_top_in">
+            <div class="padless-leftX col-md-6 col-sm-6 col-xs-6">
+              <div class="ptin_A ptin_1A">
+                <figure class="maxi_avi2">
+                    {% if campaign_data.campaign_image %}
+                    <img src="{{ campaign_data.campaign_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/no-img.png' %}">
+                    {% endif %}
+                </figure>
+                <div class="ptin_1A1">
+                  <div class="Xuser_label_wrap Xtop">
+                    <ul class="Xuser_label Xfunder_label Xtop">
+                      <li class="Xuser_label_company2 Xtop">
+                          <h4><ion-icon name="briefcase"></ion-icon>  {{ campaign_data.campaign_name }}</h4>
+                      </li>
+                      <li class="Xuser_label_company Xtop">
+                        {{ campaign_data.company_name }}
+                      </li>
+                      <li class="Xuser_label_company Xtop">
+                        {{ campaign_data.company_email }}
+                      </li>
+                      <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Sector: {{campaign_data.sector}}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+    </div>
+  <div class="container">
+        <div class="columns_A flex row clearfix">
+
+          <div class="col_A_out col_A_out_1 col-md-3 clearfix">
+            <div class="col_A_in col_A_in_1">
+
+                <div class="card-body progress-card text-center">
+
+                </div>
+
+              <div class="card card-body">
+
+              </div>
+
+              <div class="profile_list_side">
+
+              </div>
+
+              <div class="profile_list_side">
+
+
+              </div>
+
+            </div>
+          </div>
+          <div class="col_A_out col_A_out_2 col-md-6 clearfix">
+            <div class="col_A_in col_A_in_2">
+              <div class="onboarding_A">
+                <div class="row clearfix">
+                  <div class="col-md-12 clearfix">
+
+                    <div class="tab-content">
+                      <div id="profile" class="tab-pane fade in active">
+                        <div class="col-md-12 clearfix">
+                          <div class="profile_data">
+
+                              <div class="track_record_2">
+                                <div class="row clearfix">
+                                  <div class="no_padd col-md-12 clearfix">
+                                    <div class="single_card_wrapper">
+                                      <div class="card_C card" style="">
+                                        <div class="card-body">
+                                          <h4 align="center"><b>Donate</b></h4>
+                                             <form method="post" action="{% url 'crowdfunding:make_payment' %}">
+                                                     {% csrf_token %}
+
+                                                 <div class="form-group">
+                                                     <input type="hidden" value="{{campaign_data.id}}" name="campaign_id" required />
+                                                     <label for="campaign_short"> Campaign Short Description: </label>
+                                                      <textarea id="campaign_short" class="form-control" readonly>{{campaign_data.short_description}}</textarea>
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                     <label for="campaign_long"> Campaign Long Description: </label>
+                                                      <textarea id="campaign_long" class="form-control" readonly>{{campaign_data.long_description}}</textarea>
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                      <label for="payment_method"> Payment Method: </label>
+                                                     <select id="payment_method" name="payment_method" class="form-control" required>
+                                                         <option value="">Select a payment Method</option>
+                                                         <option value="paypal">Paypal</option>
+                                                         <option value="mpesa">Mpesa</option>
+                                                     </select>
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                      <label for="amount"> Amount: </label>
+                                                     <input id="amount" type="number" class="form-control" name="amount" min="1" required />
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                     <label for="comments"> Comments: </label>
+                                                      <textarea id="comments" name="comments" class="form-control" rows="2"></textarea>
+                                                 </div>
+
+                                                <div class="form-group" align="center">
+                                                    <button class='btn btn-success' type="submit">Donate</button>
+                                                </div>
+                                             </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col_A_out col_A_out_3 col-md-3 clearfix">
+              <div class="col_A_in col_A_in_3">
+
+                  <div class="profile_list_side">
+                      <div class="profile_list_side">
+
+                      </div>
+
+                      <div class="profile_list_side">
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
+

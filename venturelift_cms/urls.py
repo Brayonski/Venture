@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^sitemap\.xml$', sitemap,
         {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^profile/', include('venturelift_profiles.urls')),
+    url(r'^crowdfunding/', include('crowdfunding.urls')),
     url(r'^registration/', RegistrationView.as_view(), name='registration_in'),
     url(r'^newsletter/', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription),))),
     url(r'^$', TemplateView.as_view(template_name="landing.html")),

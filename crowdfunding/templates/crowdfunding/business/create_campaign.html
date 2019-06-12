@@ -1,0 +1,133 @@
+{% extends 'profile/base3.html' %}
+{% load cms_tags staticfiles %}
+{% load crispy_forms_tags %}
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block content %}
+
+<div class="full_A">
+  <div class="container">
+        <div class="columns_A flex row clearfix">
+
+          <div class="col_A_out col_A_out_1 col-md-3 clearfix">
+            <div class="col_A_in col_A_in_1">
+
+                <div class="card-body progress-card text-center">
+
+                </div>
+
+              <div class="card card-body">
+
+              </div>
+
+              <div class="profile_list_side">
+
+              </div>
+
+              <div class="profile_list_side">
+
+
+              </div>
+
+            </div>
+          </div>
+          <div class="col_A_out col_A_out_2 col-md-6 clearfix">
+            <div class="col_A_in col_A_in_2">
+              <div class="onboarding_A">
+                <div class="row clearfix">
+                  <div class="col-md-12 clearfix">
+
+                    <div class="tab-content">
+                      <div id="profile" class="tab-pane fade in active">
+                        <div class="col-md-12 clearfix">
+                          <div class="profile_data">
+
+                              <div class="track_record_2">
+                                <div class="row clearfix">
+                                  <div class="no_padd col-md-12 clearfix">
+                                    <div class="single_card_wrapper">
+                                      <div class="card_C card" style="">
+                                        <div class="card-body">
+                                          <h4 align="center"><b>Create Crowdfunding Campaign</b></h4>
+                                             <form method='post' enctype="multipart/form-data">
+                                                     {% csrf_token %}
+
+                                                 <div class="form-group">
+                                                     {{ form.campaign_image|as_crispy_field }}
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                     {{ form.campaign_name|as_crispy_field }}
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                     {{ form.company_name|as_crispy_field }}
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                 {{ form.company_email|as_crispy_field }}
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                       {{ form.sector|as_crispy_field }}
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                    {{ form.short_description|as_crispy_field }}
+                                                 </div>
+
+                                                  <div class="form-group">
+                                                      {{ form.long_description|as_crispy_field }}
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                     {{ form.target_amount|as_crispy_field }}
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                    <label for="duration"> Campaign Closing Date: </label>
+                                                    <input id="duration" type="date" name="duration" class="form-control" required>
+                                                 </div>
+
+                                                <div class="form-group" align="center">
+                                                    <button class='btn btn-success' type="submit">Create</button>
+                                                </div>
+                                             </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col_A_out col_A_out_3 col-md-3 clearfix">
+              <div class="col_A_in col_A_in_3">
+
+                  <div class="profile_list_side">
+                      <div class="profile_list_side">
+
+                      </div>
+
+                      <div class="profile_list_side">
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
+

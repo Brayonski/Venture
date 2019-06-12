@@ -3,3 +3,5 @@ migrations
 settings.py
 media
 /.idea
+celerybeat-schedule
+django_select2

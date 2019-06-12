@@ -7,9 +7,13 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'venturelift_cms.settings')
 
 from django.conf import settings
 
-app = Celery(broker=settings.CELERY_BROKER_URL)
+app = Celery('venturelift_cms')
 app.config_from_object('django.conf:settings')
 app.autodiscover_tasks(settings.INSTALLED_APPS)
 
 if __name__ == '__main__':
     app.start()
+
+@app.task(bind=True)
+def debug_task(self):
+    print('Request: {0!r}'.format(self.request))
