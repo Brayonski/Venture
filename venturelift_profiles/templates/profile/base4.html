@@ -53,9 +53,13 @@
               </li>
 
               <li>
-                <a href="{% url 'investor_list' %}">
-                  <ion-icon name="briefcase"></ion-icon> Funders
-                </a>
+                <div class="dropdown">
+                  <button class="dropbtn"><ion-icon name="briefcase"></ion-icon> Funders</button>
+                  <div class="dropdown-content">
+                      <a href="{% url 'investor_list' %}">Funders List</a>
+                      <a href="{% url 'crowdfunding:index' %}">Crowdfunding</a>
+                  </div>
+                </div>
               </li>
               <li>
                 <a href="">
