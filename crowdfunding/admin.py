@@ -69,7 +69,7 @@ class CampaignPaymentAdmin(admin.ModelAdmin):
 class CampaignDisbursementAdmin(admin.ModelAdmin):
     search_fields = ['campaign']
     list_display = ['created_at','campaign', 'amount', 'recipient', 'disbursement_type', 'disbursement_status']
-    readonly_fields = ["campaign", "created_at", "disbursement_status", "approved_by", "rejected_by"]
+    readonly_fields = ["campaign", "created_at", "campaign_target", "disbursement_status", "approved_by", "rejected_by"]
     exclude = ['approved', 'rejected']
 
     def has_add_permission(self, request, obj=None):

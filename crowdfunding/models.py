@@ -29,6 +29,11 @@ DISBURSEMENT_TYPE = (
     ('REFUND', 'REFUND'),
 )
 
+DISBURSEMENT_METHODS = (
+    ('MPESA', 'MPESA'),
+    ('PAYPAL', 'PAYPAL'),
+)
+
 class CampaignSector(models.Model):
     name = models.CharField(max_length=255)
     added_by = models.ForeignKey(User)
@@ -108,10 +113,11 @@ class CampaignPayment(models.Model):
 
 class CampaignDisbursement(models.Model):
     campaign = models.ForeignKey(Campaign)
+    campaign_target = models.DecimalField(max_digits=19, decimal_places=2,null=True)
     created_at = models.DateTimeField('donation date', null=True)
     amount = models.DecimalField(max_digits=19, decimal_places=2)
     disbursement_type = models.CharField(max_length=100, choices=DISBURSEMENT_TYPE, null=True, blank=True)
-    disbursement_method = models.CharField(max_length=100, null=True, blank=True)
+    disbursement_method = models.CharField(max_length=100, choices=DISBURSEMENT_METHODS, null=True, blank=True)
     disbursement_status = models.CharField(max_length=100)
     recipient = models.ForeignKey(User, related_name='disbursement_recipient')
     recipient_email = models.CharField(max_length=255, null=True, blank=True)
