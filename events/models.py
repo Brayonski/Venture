@@ -16,6 +16,7 @@ REGISTRATION = (
     ("YES", "YES"),
 )
 
+
 class EventCategory(models.Model):
     """Event Category"""
     title = models.CharField(max_length=50)
@@ -29,15 +30,18 @@ class EventCategory(models.Model):
         verbose_name = 'Event Category'
         verbose_name_plural = 'Event Categories'
 
+
 class Events(models.Model):
     category = models.ForeignKey(EventCategory, null=True)
     title = models.CharField(max_length=100)
     author = models.ForeignKey(User)
     description = fields.HTMLField()
-    date_of_event = models.DateTimeField()
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
     location = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
-    registration_required = models.CharField(max_length=100, choices=REGISTRATION)
+    registration_required = models.CharField(
+        max_length=100, choices=REGISTRATION)
     event_banner = models.FileField(
         upload_to='pic_folder/', null=True, blank=True, help_text="Event Banners")
 
@@ -47,4 +51,3 @@ class Events(models.Model):
     class Meta:
         verbose_name = 'Event Manager'
         verbose_name_plural = 'Events Manager'
-

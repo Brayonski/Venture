@@ -22,6 +22,8 @@ urlpatterns = [
         {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^profile/', include('venturelift_profiles.urls')),
     url(r'^crowdfunding/', include('crowdfunding.urls')),
+    url(r'^knowledge-center', include('knowledge_center.urls')),
+    url(r'^events', include('events.urls')),
     url(r'^registration/', RegistrationView.as_view(), name='registration_in'),
     url(r'^newsletter/', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription),))),
     url(r'^$', TemplateView.as_view(template_name="landing.html")),
@@ -30,7 +32,8 @@ urlpatterns = [
     url(r'^careers/', TemplateView.as_view(template_name="page_careers.html")),
     url(r'^contact-us/', TemplateView.as_view(template_name="page_contact_us.html")),
     url(r'^help/', TemplateView.as_view(template_name="page_help.html")),
-    url(r'^privacy-policy/', TemplateView.as_view(template_name="page_privary_policy.html")),
+    url(r'^privacy-policy/',
+        TemplateView.as_view(template_name="page_privary_policy.html")),
     url(r'^team/', TemplateView.as_view(template_name="page_team.html")),
     url(r'^terms-of-use/', TemplateView.as_view(template_name="page_terms_of_use.html")),
     url(r'^select2/', include('django_select2.urls')),
@@ -47,4 +50,4 @@ if settings.DEBUG:
     urlpatterns = [
         url(r'^media/(?P<path>.*)$', serve,
             {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
-        ] + staticfiles_urlpatterns() + urlpatterns
+    ] + staticfiles_urlpatterns() + urlpatterns
