@@ -49,8 +49,8 @@ class TextCenter(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Document/Article Manager'
-        verbose_name_plural = 'Documents / Articles Manager'
+        verbose_name = 'Document / Report Manager'
+        verbose_name_plural = 'Documents / Reports Manager'
 
 class AudioVisual(models.Model):
     title = models.CharField(max_length=100)
