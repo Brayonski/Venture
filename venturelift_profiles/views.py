@@ -415,14 +415,11 @@ class CreateBlogPostView(LoginRequiredMixin, CreateView):
         kwargs.update({'user': self.request.user})
         return kwargs
 
-    def get_initial(self):
-        queryset = Business.objects.filter(creator=self.request.user)
-        return {'company': queryset}
-
     def form_valid(self, form):
         self.object = form.save(commit=False)
-        if 'company' in form.cleaned_data:
-            self.object.company = form.cleaned_data['company']
+        if self.request.user.business_creator.exists():
+            self.object.company = Business.objects.get(
+                creator=self.request.user)
         if self.request.user.supporter_creator.exists():
             self.object.supporter_author = Supporter.objects.get(
                 user=self.request.user)

@@ -406,14 +406,14 @@ class InvestorProfile(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=250)
-    body = fields.HTMLField()
+    body = models.TextField()
     company = models.ForeignKey(Business, null=True, blank=True)
     supporter_author = models.ForeignKey(
         Supporter, null=True, blank=True, related_name='author_supporter')
     investor_author = models.ForeignKey(
         Investor, null=True, blank=True, related_name='author_investor')
-    post_image = models.ImageField(
-        upload_to='pic_folder/', null=True, blank=True, help_text="Upload an Image")
+    file_name = models.FileField(
+        upload_to='pic_folder/', null=True, blank=True, help_text="Upload an File")
     date = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, blank=True, related_name='likes')
 

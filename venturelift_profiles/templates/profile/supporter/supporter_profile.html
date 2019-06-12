@@ -345,16 +345,14 @@
                                           <div class="card">
                                               <div class="card-body">
                                                   <h4><a href="#nogo">{{post.title}}</a></h4>
-                                                  {% if post.author %}
-                                                  <p>Author: {{post.author}}</p>
-                                                  {% else %}
-                                                  <p>Company: {{post.company}}</p>
-                                                  {% endif %}
-  
                                                   <div class="card_summary">
-                                                      <p>{{post.body|safe|truncatechars:250}} <a href=''>Read more</a></p>
-                                                  </div>  
-                                              </div>    
+                                                      <p>Description: {{post.body}}
+                                                  </div> 
+                                                  <div class="card_summary">
+                                                      <embed src="{{ post.file_name.url }}" width="500" height="375" 
+                                                      type="application/pdf">
+                                                  </div>   
+                                              </div>     
                                               <div class="card_footer">
                                                   {% if request.user in post.likes.all %}
                                                   <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
