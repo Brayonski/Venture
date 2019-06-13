@@ -34,49 +34,49 @@
         <a class="navbar-brand" href="{% url 'profile_summary' %}">
           <img src="{% static 'img/logo2.png' %}" alt="VentureLift Africa">
         </a>
-        <div class="vl_top_top navbar-full">
+        <div class="vl_top_top navbar-right">
           <ul class="vl_top_nav in_line">
             <li>
               <a href="{% url 'profile_summary' %}">
-                <ion-icon name="home"></ion-icon> My Profile
+                My Profile
               </a>
             </li>
             <li>
               <a href="{% url 'business_list' %}">
-                <ion-icon name="briefcase"></ion-icon> Businesses
+                Businesses
               </a>
             </li>
             <li>
               <a href="{% url 'supporter_list' %}">
-                <ion-icon name="people"></ion-icon> Partners
+                Partners
               </a>
             </li>
 
             <li>
               <div class="dropdown">
                 <button class="dropbtn">
-                  <ion-icon name="briefcase"></ion-icon> Funders
+                  Funders
                 </button>
                 <div class="dropdown-content">
-                  <a href="{% url 'investor_list' %}">Funders List</a>
+                  <a href="{% url 'investor_list' %}"> Funders List</a>
                   <a href="{% url 'crowdfunding:index' %}">Crowdfunding</a>
                 </div>
               </div>
             </li>
             <li>
               <a href="{%url 'knowledge_center_home' %}">
-                <ion-icon name="paper-plane"></ion-icon> Knowledge Center
+                Knowledge Center
               </a>
             </li>
             <li>
               <a href="{%url 'events_home' %}">
-                <ion-icon name="paper-plane"></ion-icon> Events
+                Events
               </a>
             </li>
 
             <li>
               <a href="/en/media">
-                <ion-icon name="paper-plane"></ion-icon> VLA Media
+                VLA Media
               </a>
             </li>
             <li class="user_nav_item pull_right">

@@ -161,7 +161,7 @@ INSTALLED_APPS = (
     'multiselectfield',
     'knowledge_center',
     'events',
-    'crowdfunding.apps.CrowdfundingConfig'
+    'crowdfunding.apps.CrowdfundingConfig',
 )
 
 LANGUAGES = (

@@ -1,84 +1,88 @@
 {% extends 'profile/base3.html' %}
 
 {% load cms_tags staticfiles %}
-{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block title %} Knowledge Center| Subscriptions Videos {% endblock title %}
 {% block content %}
 <div class="full_A">
-  <div class="container">
-    	<div class="profile_top full_widthX">
-      	<div class="profile_top_in">
-      		KNOWLEDGE CENTER
-      	</div>
-    	</div>
-	    <div>
-	    	<ul class="nav nav-pills nav-justified">
-			    <li><a href="{% url 'knowledge_center_home' %}">Documents & Reports</a></li>
-			    <li class="active"><a href="{% url 'knowledge_center_video_home' %}">Videos</a></li>
-			  </ul>
+	<div class="container">
+		<div class="profile_top full_widthX">
+			<div class="profile_top_in">
+				KNOWLEDGE CENTER
 			</div>
-			<div class="tab-content">
-				<ul class="nav nav-pills">
-					{% url 'knowledge_center_video_home' as  knowledge_center_video_home %}
-					<li class="{% ifequal request.path knowledge_center_video_home %}active{% endifequal %}"><a
-							href="{% url 'knowledge_center_home' %}">All</a></li>
-					{% for type in video_type %}
-					{% if type.audiovisual_set.count >= 1 %}
-					{% url 'knowledge_center_video_content_filter' type.id as knowledge_center_video_content_filter %}
-					<li class="{% ifequal request.path knowledge_center_video_content_filter %}active{% endifequal %}">
-						<a href="{% url 'knowledge_center_video_content_filter' type.id %}">{{type.title}}</a>
-					</li>
-					{% endif %}
-					{% endfor %}
-				</ul>
-		  	<div id="home" class="tab-pane fade in active">
-			  	<div class="row clearfix">
-			      <div class="no_padd col-md-12 clearfix">
-							{% for obj in object_list %}
-			            <div class="single_card_wrapper">
-			              <div class="card_C card" style="">
-			                <div class="card-body">
-			                  <div class="pull-left"> 
-			                    	{{obj.path|safe}}
-			                  </div>
-			                  	<p class="card-text">{{ obj.title }}</p>
-			                  	<p class="card-text">
-			                  		{{ obj.description|safe|truncatewords:"70"|linebreaks }}
-			                    	<i class="fa fa-tags" aria-hidden="true"></i>
-			                    		{{obj.sub_category}}
-			                    	<i class="fa fa-money" aria-hidden="true"></i>
-			                    	  {{obj.payment_status}}
-			                    </p>		                  		
-			                  		<a class="text-primary" href="{% url 'knowledge_center_video_content' obj.id %}">read more</a>
-			                  </div>
-			              </div>
-			            </div>
-							{% endfor %}
+		</div>
+		<div>
+			<ul class="nav nav-pills nav-justified">
+				<li><a href="{% url 'knowledge_center_home' %}">Documents & Reports</a></li>
+				<li class="active"><a href="{% url 'knowledge_center_video_home' %}">Videos</a></li>
+			</ul>
+		</div>
+		<div class="tab-content">
+			<ul class="nav nav-pills">
+				{% url 'knowledge_center_video_home' as  knowledge_center_video_home %}
 
-							{% if is_paginated %}
-							  <ul class="pagination">
-							    {% if page_obj.has_previous %}
-							      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-							    {% else %}
-							      <li class="disabled"><span>&laquo;</span></li>
-							    {% endif %}
-							    {% for i in paginator.page_range %}
-							      {% if page_obj.number == i %}
-							        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-							      {% else %}
-							        <li><a href="?page={{ i }}">{{ i }}</a></li>
-							      {% endif %}
-							    {% endfor %}
-							    {% if page_obj.has_next %}
-							      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-							    {% else %}
-							      <li class="disabled"><span>&raquo;</span></li>
-							    {% endif %}
-							  </ul>
-							{% endif %}
+				{% if object_list %}
+				<li class="{% ifequal request.path knowledge_center_video_home %}active{% endifequal %}"><a
+						href="{% url 'knowledge_center_home' %}">All</a>
+				</li>
+				{% endif %}
+				{% for type in video_type %}
+				{% if type.audiovisual_set.count >= 1 %}
+				{% url 'knowledge_center_video_content_filter' type.id as knowledge_center_video_content_filter %}
+				<li class="{% ifequal request.path knowledge_center_video_content_filter %}active{% endifequal %}">
+					<a href="{% url 'knowledge_center_video_content_filter' type.id %}">{{type.title}}</a>
+				</li>
+				{% endif %}
+				{% endfor %}
+			</ul>
+			<div id="home" class="tab-pane fade in active">
+				<div class="row clearfix">
+					<div class="no_padd col-md-12 clearfix">
+						{% for obj in object_list %}
+						<div class="single_card_wrapper">
+							<div class="card_C card" style="">
+								<div class="card-body">
+									<div class="pull-left">
+										{{obj.path|safe}}
+									</div>
+									<p class="card-text">{{ obj.title }}</p>
+									<p class="card-text">
+										{{ obj.description|safe|truncatewords:"70"|linebreaks }}
+										<i class="fa fa-tags" aria-hidden="true"></i>
+										{{obj.sub_category}}
+										<i class="fa fa-money" aria-hidden="true"></i>
+										{{obj.payment_status}}
+									</p>
+									<a class="text-primary" href="{% url 'knowledge_center_video_content' obj.id %}">read more</a>
+								</div>
+							</div>
 						</div>
+						{% endfor %}
+
+						{% if is_paginated %}
+						<ul class="pagination">
+							{% if page_obj.has_previous %}
+							<li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+							{% else %}
+							<li class="disabled"><span>&laquo;</span></li>
+							{% endif %}
+							{% for i in paginator.page_range %}
+							{% if page_obj.number == i %}
+							<li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+							{% else %}
+							<li><a href="?page={{ i }}">{{ i }}</a></li>
+							{% endif %}
+							{% endfor %}
+							{% if page_obj.has_next %}
+							<li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+							{% else %}
+							<li class="disabled"><span>&raquo;</span></li>
+							{% endif %}
+						</ul>
+						{% endif %}
 					</div>
 				</div>
 			</div>
+		</div>
 	</div>
 </div>
 {% endblock %}

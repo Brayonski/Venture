@@ -20,174 +20,181 @@
 </head>
 
 <body class="logged_in profile_templates">
-    {% cms_toolbar %}
-        <!-- Fixed navbar -->
-    <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
-      <div class="top_container container">
-        <div class="nav_nav_first navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarX" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-          </button>
+  {% cms_toolbar %}
+  <!-- Fixed navbar -->
+  <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
+    <div class="top_container container">
+      <div class="nav_nav_first navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarX"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-          <a class="navbar-brand" href="{% url 'profile_summary' %}">
-            <img src="{% static 'img/logo2.png' %}" alt="VentureLift Africa">
-          </a>
-          <div class="vl_top_top navbar-full">
-            <ul class="vl_top_nav in_line">
-              <li>
-                <a href="{% url 'profile_summary' %}">
-                  <ion-icon name="home"></ion-icon> My Profile
-                </a>
-              </li>
-              <li>
-                <a href="{% url 'business_list' %}">
-                <ion-icon name="briefcase"></ion-icon> Businesses
-                </a>
-              </li>
-              <li>
-                <a href="{% url 'supporter_list' %}">
-                  <ion-icon name="people"></ion-icon> Partners
-                </a>
-              </li>
+        <a class="navbar-brand" href="{% url 'profile_summary' %}">
+          <img src="{% static 'img/logo2.png' %}" alt="VentureLift Africa">
+        </a>
+        <div class="vl_top_top navbar-right">
+          <ul class="vl_top_nav in_line">
+            <li>
+              <a href="{% url 'profile_summary' %}">
+                My Profile
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'business_list' %}">
+                Businesses
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'supporter_list' %}">
+                Partners
+              </a>
+            </li>
 
-               <li>
-                  <div class="dropdown">
-                    <button class="dropbtn"><ion-icon name="briefcase"></ion-icon> Funders</button>
-                    <div class="dropdown-content">
-                        <a href="{% url 'investor_list' %}">Funders List</a>
-                        <a href="{% url 'crowdfunding:index' %}">Crowdfunding</a>
-                    </div>
-                  </div>
-               </li>
-              <li>
-                <a href="">
-                  <ion-icon name="paper-plane"></ion-icon> Knowledge Center
-                </a>
-              </li>
-
-              <li>
-                <a href="/en/media">
-                <ion-icon name="paper-plane"></ion-icon> VLA Media
-                </a>
-              </li>
-              <li class="user_nav_item pull_right">
-                <div class="dropdown">
-                  <button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="true">
-                    <figure class="user_icon_nav">
-                      {% if context.supporter %}
-                      {% if context.supporter.thumbnail_image %}
-                      <img src="{{ context.supporter.thumbnail_image.url }}">
-                      {% else %}
-                      <img src="{% static 'img/blue-user-icon.svg' %}">
-                      {% endif %}
-                      {% elif context.investor %}
-                      {% if context.investor.thumbnail_image %}
-                      <img src="{{ context.investor.thumbnail_image.url }}">
-                      {% else %}
-                      <img src="{% static 'img/blue-user-icon.svg' %}">
-                      {% endif %}
-                      {% elif context.business %}
-                      {% if context.business.thumbnail_image %}
-                      <img src="{{ context.business.thumbnail_image.url }}">
-                      {% else %}
-                      <img src="{% static 'img/no-img.jpg' %}">
-                      {% endif %}
-                      {% endif %}
-                    </figure>
-                  </button>
-                  <ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
-                    <li><a href="{% url 'profile_summary' %}">My Profile</a></li>
-                    <div class="divider"></div>
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                  </ul>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">
+                  Funders
+                </button>
+                <div class="dropdown-content">
+                  <a href="{% url 'investor_list' %}">Funders List</a>
+                  <a href="{% url 'crowdfunding:index' %}">Crowdfunding</a>
                 </div>
-              </li>
-              <li class="pull_right"><a href="#nogo">
-                  <ion-icon name="notifications-outline"></ion-icon>
-                </a>
-              </li>
-            </ul>
-          </div>
+              </div>
+            </li>
+            <li>
+              <a href="">
+                Knowledge Center
+              </a>
+            </li>
+
+            <li>
+              <a href="/en/media">
+                VLA Media
+              </a>
+            </li>
+            <li class="user_nav_item pull_right">
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="true">
+                  <figure class="user_icon_nav">
+                    {% if context.supporter %}
+                    {% if context.supporter.thumbnail_image %}
+                    <img src="{{ context.supporter.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/blue-user-icon.svg' %}">
+                    {% endif %}
+                    {% elif context.investor %}
+                    {% if context.investor.thumbnail_image %}
+                    <img src="{{ context.investor.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/blue-user-icon.svg' %}">
+                    {% endif %}
+                    {% elif context.business %}
+                    {% if context.business.thumbnail_image %}
+                    <img src="{{ context.business.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/no-img.jpg' %}">
+                    {% endif %}
+                    {% endif %}
+                  </figure>
+                </button>
+                <ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+                  <li><a href="{% url 'profile_summary' %}">My Profile</a></li>
+                  <div class="divider"></div>
+                  <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="pull_right"><a href="#nogo">
+                <ion-icon name="notifications-outline"></ion-icon>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
 
   <div class="content_container">
     {% block content %}{% endblock %}
   </div>
 
-    <div class="full_width footer">
-        {% static_placeholder 'footer' %}
-    </div>
+  <div class="full_width footer">
+    {% static_placeholder 'footer' %}
+  </div>
 
-   {% render_block "js" %}
+  {% render_block "js" %}
 
-    <!-- Bootstrap core JavaScript
+  <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/moment.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/bootstrap-3.3.7.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/bootstrap-datetimepicker.min.js' %}"></script>
-    {% block javascript %}{% endblock %}
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
-    <!--<script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>-->
-    <!--<script src="{% static 'js/bootstrap.min.js' %}"></script>-->
-    <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/moment.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap-3.3.7.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap-datetimepicker.min.js' %}"></script>
+  {% block javascript %}{% endblock %}
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+  <!--<script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>-->
+  <!--<script src="{% static 'js/bootstrap.min.js' %}"></script>-->
+  <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
 
-    <script type="text/javascript">
-      // Hide Header on on scroll down
-      var didScroll;
-      var lastScrollTop = 0;
-      var delta = 5;
-      var navbarHeight = $('#navbar2').outerHeight();
+  <script type="text/javascript">
+    // Hide Header on on scroll down
+    var didScroll;
+    var lastScrollTop = 0;
+    var delta = 5;
+    var navbarHeight = $('#navbar2').outerHeight();
 
-      $(window).scroll(function(event){
-          didScroll = true;
-      });
+    $(window).scroll(function (event) {
+      didScroll = true;
+    });
 
-      setInterval(function() {
-          if (didScroll) {
-              hasScrolled();
-              didScroll = false;
-          }
-      }, 250);
-
-      function hasScrolled() {
-          var st = $(this).scrollTop();
-
-          // Make sure they scroll more than delta
-          if(Math.abs(lastScrollTop - st) <= delta)
-              return;
-
-          // If they scrolled down and are past the navbar, add class .nav-up.
-          // This is necessary so you never see what is "behind" the navbar.
-          if (st > lastScrollTop && st > navbarHeight){
-              // Scroll Down
-              $('#navbar2').removeClass('nav-down').addClass('nav-up');
-          } else {
-              // Scroll Up
-              if(st + $(window).height() < $(document).height()) {
-                  $('#navbar2').removeClass('nav-up').addClass('nav-down');
-              }
-          }
-
-          lastScrollTop = st;
+    setInterval(function () {
+      if (didScroll) {
+        hasScrolled();
+        didScroll = false;
       }
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    }, 250);
 
-      gtag('config', 'UA-137967572-1');
-    </script>
+    function hasScrolled() {
+      var st = $(this).scrollTop();
+
+      // Make sure they scroll more than delta
+      if (Math.abs(lastScrollTop - st) <= delta)
+        return;
+
+      // If they scrolled down and are past the navbar, add class .nav-up.
+      // This is necessary so you never see what is "behind" the navbar.
+      if (st > lastScrollTop && st > navbarHeight) {
+        // Scroll Down
+        $('#navbar2').removeClass('nav-down').addClass('nav-up');
+      } else {
+        // Scroll Up
+        if (st + $(window).height() < $(document).height()) {
+          $('#navbar2').removeClass('nav-up').addClass('nav-down');
+        }
+      }
+
+      lastScrollTop = st;
+    }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-137967572-1');
+  </script>
 </body>
+
 </html>
