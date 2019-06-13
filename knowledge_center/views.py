@@ -41,7 +41,7 @@ class TextMediaView(LoginRequiredMixin, DetailView):
 
 
 class TextFilterView(LoginRequiredMixin, ListView):
-    """Read a single Text Content"""
+    """List Text Content on Filter Category"""
     template_name = 'knowledge_index.html'
     paginate_by = 10
 
@@ -53,6 +53,22 @@ class TextFilterView(LoginRequiredMixin, ListView):
     def get_queryset(self, **kwargs):
         queryset = TextCenter.objects.filter(
             category__pk=self.kwargs.get("pk")).order_by('-date')
+        return queryset
+
+
+class VideoFilterView(LoginRequiredMixin, ListView):
+    """List Video Content on Filter Category"""
+    template_name = 'all_video_content.html'
+    paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super(VideoFilterView, self).get_context_data(**kwargs)
+        context['video_type'] = VideoCategory.objects.all()
+        return context
+
+    def get_queryset(self, **kwargs):
+        queryset = AudioVisual.objects.filter(
+            sub_category__pk=self.kwargs.get("pk")).order_by('-date')
         return queryset
 
 
@@ -76,3 +92,8 @@ class VideoContentView(LoginRequiredMixin, ListView):
     template_name = 'all_video_content.html'
     paginator_by = 10
     queryset = AudioVisual.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(VideoContentView, self).get_context_data(**kwargs)
+        context['video_type'] = VideoCategory.objects.all()
+        return context

@@ -40,6 +40,7 @@ class Events(models.Model):
     end_date = models.DateTimeField()
     location = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
+    registration_url = models.CharField(max_length=50, null=True, blank=True)
     registration_required = models.CharField(
         max_length=100, choices=REGISTRATION)
     event_banner = models.FileField(

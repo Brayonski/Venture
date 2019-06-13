@@ -17,6 +17,19 @@
 			  </ul>
 			</div>
 			<div class="tab-content">
+				<ul class="nav nav-pills">
+					{% url 'knowledge_center_video_home' as  knowledge_center_video_home %}
+					<li class="{% ifequal request.path knowledge_center_video_home %}active{% endifequal %}"><a
+							href="{% url 'knowledge_center_home' %}">All</a></li>
+					{% for type in video_type %}
+					{% if type.audiovisual_set.count >= 1 %}
+					{% url 'knowledge_center_video_content_filter' type.id as knowledge_center_video_content_filter %}
+					<li class="{% ifequal request.path knowledge_center_video_content_filter %}active{% endifequal %}">
+						<a href="{% url 'knowledge_center_video_content_filter' type.id %}">{{type.title}}</a>
+					</li>
+					{% endif %}
+					{% endfor %}
+				</ul>
 		  	<div id="home" class="tab-pane fade in active">
 			  	<div class="row clearfix">
 			      <div class="no_padd col-md-12 clearfix">

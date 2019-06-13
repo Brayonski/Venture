@@ -5,13 +5,80 @@
 {% block content %}
 <div class="full_A">
   <div class="container">
+
     <div class="profile_top full_widthX">
       <div class="profile_top_in">
         Events
       </div>
     </div>
-    <div>
+    <ul class="nav nav-pills">
+      {% url 'events_home' as  events_home %}
+      <li class="{% ifequal request.path events_home %}active{% endifequal %}"><a href="{% url 'events_home' %}">All</a>
+      </li>
+      {% for type in event_type %}
+      {% if type.events_set.count >= 1 %}
+      {% url 'event_view_content_filter' type.id as event_view_content_filter %}
+      <li class="{% ifequal request.path event_view_content_filter %}active{% endifequal %}">
+        <a href="{% url 'event_view_content_filter' type.id %}">{{type.title}}</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+    <div class="row clearfix">
+      <div class="no_padd col-md-12 clearfix">
+        {% for obj in object_list %}
+        <div class="single_card_wrapper">
+          <div class="card_C card" style="">
+            <div class="card-body">
+              <div class="">
+                <h1 class="card-text dark-text">
+                  {{ obj.title|upper }}
+                </h1>
+                <p class="card-text">
+                  {% if obj.banner %}
+                  <i class="fa fa-file-text" aria-hidden="true"></i>
+                  {% endif %}
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                  {{obj.category}}
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                  {{obj.start_date }} - {{obj.end_date }}
+                  <i class="fa fa-pin" aria-hidden="true"></i>
+                  {{obj.start_location }}
+                </p>
+                <p class="card-text">
+                  {{ obj.description|safe|truncatewords:"70"|linebreaks }}
+                  <a class="text-primary" href="{% url 'event_view_content' obj.id %}">read more</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% if is_paginated %}
+        <ul class="pagination">
+          {% if page_obj.has_previous %}
+          <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+          {% else %}
+          <li class="disabled"><span>&laquo;</span></li>
+          {% endif %}
+          {% for i in paginator.page_range %}
+          {% if page_obj.number == i %}
+          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+          {% else %}
+          <li><a href="?page={{ i }}">{{ i }}</a></li>
+          {% endif %}
+          {% endfor %}
+          {% if page_obj.has_next %}
+          <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+          {% else %}
+          <li class="disabled"><span>&raquo;</span></li>
+          {% endif %}
+        </ul>
+        {% endif %}
+      </div>
     </div>
   </div>
+</div>
 
-  {% endblock %}
+{% endblock %}
