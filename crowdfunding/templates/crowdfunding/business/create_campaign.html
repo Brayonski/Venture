@@ -1,4 +1,11 @@
-{% extends 'profile/base3.html' %}
+{% extends 'crowdfunding/base3.html' %}
+{% block javascript %}
+  <script>
+   $(document).ready(function(){
+        console.log("Jquery is loaded Ok");
+   });
+  </script>
+{% endblock %}
 {% load cms_tags staticfiles %}
 {% load crispy_forms_tags %}
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
