@@ -11,67 +11,46 @@
         Events
       </div>
     </div>
-    {% url 'events_home' as  events_home %}
-    <div>
-      <ul class="nav nav-pills nav-justified">
-        <li class="active"><a href="{% url 'events_home' %}">VLA
-            EVENTS</a></li>
-        <li class=""><a href="{% url 'network_events' %}">Network Events</a></li>
-      </ul>
-    </div>
-    <div class="tab-content">
-      <ul class="nav nav-pills">
-        {% if object_list %}
-        <li class="{% ifequal request.path events_home %}active{% endifequal %}"><a
-            href="{% url 'events_home' %}">All</a>
-        </li>
-        {% endif %}
-        {% for type in event_type %}
-        {% if type.events_set.count >= 1 %}
-        {% url 'event_view_content_filter' type.id as event_view_content_filter %}
-        <li class="{% ifequal request.path event_view_content_filter %}active{% endifequal %}">
-          <a href="{% url 'event_view_content_filter' type.id %}">{{type.title}}</a>
-        </li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-      <div class="row clearfix">
-        <div class="no_padd col-md-12 clearfix">
-          {% for obj in object_list %}
-          {% if obj.published %}
-          <div class="single_card_wrapper">
-            <div class="card_C card" style="">
-              <div class="card-body">
-                <div class="">
-                  <span class="card-text dark-text pull-left">
-                    {{ obj.title|upper }}
-                  </span>
-                  <span class="card-text dark-text pull-right">
-                    {% is_attendee obj as is_in_attendee_list %}
-                    {% if is_in_attendee_list == True %}
-                    <a class="btn btn-primary" href="{% url 'event_register' obj.id %}">Register</a>
-                    {% else %}
-                    <a class="btn btn-success" href="#">
-                      <ion-icon name="star"></ion-icon> Registered
-                    </a>
-                    {% endif %}
-                  </span>
-                  <p class="card-text">
-                    {% if obj.banner %}
-                    <i class="fa fa-file-text" aria-hidden="true"></i>
-                    {% endif %}
-                    <i class="fa fa-tags" aria-hidden="true"></i>
-                    {{obj.category}}
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                    {{obj.start_date }} - {{obj.end_date }}
-                    <i class="fa fa-pin" aria-hidden="true"></i>
-                    {{obj.location }}
-                  </p>
-                  <p class="card-text">
-                    {{ obj.description|safe|truncatewords:"70"|linebreaks }}
-                    <a class="text-primary" href="{% url 'event_view_content' obj.id %}">read more</a>
-                  </p>
-                </div>
+    <ul class="nav nav-pills">
+      {% if object_list %}
+      {% url 'events_home' as  events_home %}
+      <li class="{% ifequal request.path events_home %}active{% endifequal %}"><a href="{% url 'events_home' %}">All</a>
+      </li>
+      {% endif %}
+      {% for type in event_type %}
+      {% if type.events_set.count >= 1 %}
+      {% url 'event_view_content_filter' type.id as event_view_content_filter %}
+      <li class="{% ifequal request.path event_view_content_filter %}active{% endifequal %}">
+        <a href="{% url 'event_view_content_filter' type.id %}">{{type.title}}</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+    <div class="row clearfix">
+      <div class="no_padd col-md-12 clearfix">
+        {% for obj in object_list %}
+        <div class="single_card_wrapper">
+          <div class="card_C card" style="">
+            <div class="card-body">
+              <div class="">
+                <h1 class="card-text dark-text">
+                  {{ obj.title|upper }}
+                </h1>
+                <p class="card-text">
+                  {% if obj.banner %}
+                  <i class="fa fa-file-text" aria-hidden="true"></i>
+                  {% endif %}
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                  {{obj.category}}
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                  {{obj.start_date }} - {{obj.end_date }}
+                  <i class="fa fa-pin" aria-hidden="true"></i>
+                  {{obj.start_location }}
+                </p>
+                <p class="card-text">
+                  {{ obj.description|safe|truncatewords:"70"|linebreaks }}
+                  <a class="text-primary" href="{% url 'event_view_content' obj.id %}">read more</a>
+                </p>
               </div>
             </div>
           </div>
