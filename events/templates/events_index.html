@@ -12,9 +12,11 @@
       </div>
     </div>
     <ul class="nav nav-pills">
+      {% if object_list %}
       {% url 'events_home' as  events_home %}
       <li class="{% ifequal request.path events_home %}active{% endifequal %}"><a href="{% url 'events_home' %}">All</a>
       </li>
+      {% endif %}
       {% for type in event_type %}
       {% if type.events_set.count >= 1 %}
       {% url 'event_view_content_filter' type.id as event_view_content_filter %}
