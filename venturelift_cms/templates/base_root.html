@@ -35,7 +35,7 @@
                             <li><a href="{% url 'registration_in' %}">Business</a></li>
                             <li><a href="{% url 'registration_in' %}">Funder</a></li>
                             <li><a href="{% url 'registration_in' %}">Partner</a></li>
-                            <li><a href="#nogo">Knowledge Center</a></li>
+                            <li><a href="{%url 'knowledge_center_home' %}">Knowledge Center</a></li>
                             <li><a href="/en/media">VLA Media</a></li>
                             {% if user.is_authenticated %}
                             <li class="user_nav_item pull_right">

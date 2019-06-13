@@ -5,3 +5,5 @@ media
 /.idea
 celerybeat-schedule
 django_select2
+nohup.out
+sqlite3.db
