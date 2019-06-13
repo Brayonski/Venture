@@ -1,11 +1,4 @@
 {% extends 'crowdfunding/base3.html' %}
-{% block javascript %}
-  <script>
-   $(document).ready(function(){
-        console.log("Jquery is loaded Ok");
-   });
-  </script>
-{% endblock %}
 {% load cms_tags staticfiles %}
 {% load crispy_forms_tags %}
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
@@ -79,7 +72,9 @@
                                                  </div>
 
                                                  <div class="form-group">
-                                                    {{ form.short_description|as_crispy_field }}
+                                                     <label for="short_description"> Short Description* </label>
+                                                     <textarea class="form-control" name="short_description" id="short_description" rows="2" required></textarea>
+                                                      <span class="help-block word-count pull-right" id="summary_count"></span>
                                                  </div>
 
                                                   <div class="form-group">
@@ -87,12 +82,14 @@
                                                  </div>
 
                                                  <div class="form-group">
-                                                     {{ form.target_amount|as_crispy_field }}
+                                                      <label for="target_amount"> Target Amount* </label>
+                                                    <input id="target_amount" type="number" name="target_amount" class="form-control" min=1 required oninput="validity.valid||(value='');">
                                                  </div>
 
                                                  <div class="form-group">
-                                                    <label for="duration"> Campaign Closing Date: </label>
-                                                    <input id="duration" type="date" name="duration" class="form-control" required>
+                                                     {{ form.duration|as_crispy_field }}
+                                                    <!--<label for="duration"> Campaign Closing Date: </label>-->
+                                                    <!--<input id="duration" type="date" name="duration" class="form-control" required>-->
                                                  </div>
 
                                                 <div class="form-group" align="center">
@@ -136,5 +133,38 @@
       </div>
   </div>
 </div>
+{% endblock %}
+{% block javascript %}
+  <script>
+   $(document).ready(function(){
+        var maxDescLength = 30;
+        document.getElementById("summary_count").innerHTML="30 words remaining";
+        $(function () {
+            $('#datetimepicker12').datetimepicker({
+                inline: true,
+                sideBySide: true,
+                format: 'MM/DD/YYYY',
+                minDate: new Date,
+            });
+        });
+        $('#short_description').on('keyup', function () {
+            var count = document.getElementById('short_description').value.split(' ').length;
+            var remCount = maxDescLength - count;
+            if(remCount <= 0){
+                document.getElementById('summary_count').style.color = 'orange';
+                document.getElementById("summary_count").innerHTML="Maximum Length Reached";
+            }else{
+                document.getElementById('summary_count').style.color = 'grey';
+                document.getElementById("summary_count").innerHTML=remCount+" words remaining";
+            }
+        });
+        $('#short_description').keypress(function(key) {
+        if(document.getElementById('short_description').value.split(' ').length > maxDescLength) return false;
+        });
+        $('#short_description').bind("paste",function(e) {
+             e.preventDefault();
+        });
+   });
+  </script>
 {% endblock %}
 

@@ -8,6 +8,7 @@ class CreateCampaignForm(ModelForm):
     class Meta:
         model = Campaign
         exclude = ['created_at', 'total_funds_received', 'campaign_status','campaign_owner','funds_disbursement_status']
+        widgets = {'duration': forms.DateInput(attrs={'id': 'datetimepicker12'})}
         labels = {
             "campaign_name": "Campaign Name",
             "company_name": "Company Name",
