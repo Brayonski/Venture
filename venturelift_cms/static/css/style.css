@@ -285,6 +285,24 @@ ul.navbarX2 li {
     background-size: cover;
     color: #FFF;
 }
+.home_banner2.full_width {
+    padding: 220px 0px;
+    background: #283891 url(../img/home_banner2.jpg) top center fixed;
+    /* background-size: cover; */
+    color: #FFF;
+}
+.home_banner.home_banner2.full_width .home_banner_cap {
+    background: #283891;
+    padding: 20px;
+}
+.in_page.page_banner_A.full_width {
+    padding: 120px 0px;
+    min-height: 460px;
+    text-align: center;
+}
+.in_page.page_banner_A.full_width h4 {
+    font-weight: 300;
+}
 figure.hs3_icon img {
     padding: 10px 70px;
 }
@@ -629,6 +647,10 @@ li.copright {
 }
 .home_section_2.full_width {
     padding: 100px 0px;
+}
+.home_section_2.home_section_2About.full_width {
+    background: #283891;
+    color: #FFF;
 }
 
 
@@ -1041,8 +1063,13 @@ ul.user_nav_item_drop li {
 }
 
 ul.user_nav_item_drop.dropdown-menu.pull-right {
-    background: #283891;
+    /* background: #283891; */
+    padding: 20px;
 }
+ul.user_nav_item_drop.dropdown-menu li a {
+    padding: 8px 0px;
+}
+
 
 ul.vl_top_nav {
     width: 100%;
@@ -1057,7 +1084,10 @@ ul.user_nav_item_drop.dropdown-menu.pull-right .divider {
     height: 1px;
     margin: 4px 0;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.16);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.dropdown-menu {
+    border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 .col_A_out {

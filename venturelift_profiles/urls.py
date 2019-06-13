@@ -11,7 +11,6 @@ urlpatterns = [
     url(r'^supporter/list/$', views.SupporterView.as_view(), name='supporter_list'),
     url(r'^business/list/$', views.BusinessView.as_view(), name='business_list'),
     url(r'^investor/list/$', views.InvestorView.as_view(), name='investor_list'),
-
     url(r'^supporter/follow/(?P<pk>\d+)/$',
         views.SupporterView.as_view(), name='supporter_follow'),
     url(r'^supporter/unfollow/(?P<pk>\d+)/$',
@@ -73,6 +72,6 @@ urlpatterns = [
         views.InvestorUpdateProfileView.as_view(), name='update_investor_step1'),
     url(r'^investor-create/step-2/(?P<pk>\d+)/$',
         views.InvestorUpdateProfileView.as_view(), name='update_investor_step2'),
-    #url(r'^account_activation/$',
+    # url(r'^account_activation/$',
     #    views.VerificationAccountWaiting.as_view(), name='account_verification_waiting'),
 ]

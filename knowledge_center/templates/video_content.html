@@ -1,0 +1,35 @@
+{% extends 'profile/base3.html' %}
+
+{% load cms_tags staticfiles %}
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block content %}
+<div class="container single_post_container">
+		<div class="actions pull-left" >
+			<a href="{% url 'knowledge_center_video_home' %}" class="btn btn-primary">Back</a>
+		</div>
+		<div class="full_width h_C">
+			<div class="container h_C_container">
+    		<h2 class="h_title_A">VIDEOS</h2>
+    	</div>
+    	<div class="row clearfix">
+	      <div class="col-md-9 clearfix">
+	        <div class="in_style_A">
+	          <p>{{ content.title }}</p>
+	        </div>
+	      </div>
+	      <div class="col-md-12 clearfix">
+	        <div class="in_style_A">
+	          <div class="embed-responsive embed-responsive-16by9">
+	            {{content.path|safe}}
+	          </div>
+	        </div>
+	        <div class="card card-body">
+	        	<p class="card-text">
+	        		{{ content.description }}
+	        	</p>
+	        </div>
+	      </div>
+      </div>
+    </div>
+</div>
+{% endblock %}
