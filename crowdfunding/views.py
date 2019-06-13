@@ -133,7 +133,7 @@ def make_payment(request):
             request.user.supporter_creator.exists()) and not (request.user.investor_creator.exists()):
         return redirect(reverse('profile_create'))
     campaign_selected = Campaign.objects.get(id=request.POST['campaign_id'])
-    payment = CampaignPayment(campaign=campaign_selected,created_at=timezone.now(),donator=request.user,amount=request.POST['amount'],payment_method=request.POST['payment_method'],payment_status='INITIATED',paid=False,comments=request.POST['comments'])
+    payment = CampaignPayment(campaign=campaign_selected,created_at=timezone.now(),donator=request.user,amount=request.POST['amount'],payment_method=request.POST['payment_method'],payment_status='INITIATED',paid=False,comments=request.POST['comments'],allow_visibility=request.POST['allow_visibility'])
     payment.save()
     template = loader.get_template('crowdfunding/investor/index.html')
     campaign_data = Campaign.objects.filter(campaign_status='APPROVED')

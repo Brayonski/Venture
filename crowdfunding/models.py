@@ -103,6 +103,7 @@ class CampaignPayment(models.Model):
     payment_order_number = models.CharField(max_length=255,null=True,blank=True)
     paid = models.BooleanField(default=False)
     comments = models.TextField(null=True, blank=True)
+    allow_visibility = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = 'Campaign Payments'

@@ -30,3 +30,7 @@
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {color: #337ab7;}
+
+.word-count{
+    color: grey;
+}
