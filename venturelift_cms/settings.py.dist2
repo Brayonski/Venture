@@ -160,6 +160,7 @@ INSTALLED_APPS = (
     'venturelift_profiles',
     'multiselectfield',
     'knowledge_center',
+    'events',
     'crowdfunding.apps.CrowdfundingConfig'
 )
 
