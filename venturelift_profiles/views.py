@@ -14,6 +14,7 @@ from django.db.models import Q
 from venturelift_profiles.forms import *
 from django.core.urlresolvers import reverse
 from django.views.generic.edit import CreateView, UpdateView, FormMixin
+from venturelift_profiles.tasks import *
 
 
 class SummaryView(LoginRequiredMixin, TemplateView):
@@ -225,6 +226,12 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
         current_url = resolve(self.request.path_info).url_name
         if 'pk' in self.kwargs:
             if current_url == 'business_follow':
+                business_details = Business.objects.get(
+                    id=self.kwargs['pk'])
+                connections = BusinessConnectRequest(business=business_details, created_at=timezone.now(), investor=self.request.user)
+                connections.save()
+                subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, self.request.user.email
+                send_business_connect_request_email_task.delay(business_details.name, self.request.user.username, subject, from_email, to)
                 follow(self.request.user, Business.objects.get(
                     id=self.kwargs['pk']))
             if current_url == 'business_unfollow':
@@ -533,6 +540,7 @@ class BusinessProfileView(DetailView):
         context['supporter_following'] = following(
             self.request.user, Supporter)[:3]
         context['business_following'] = following(self.request.user, Business)[:3]
+        context['following'] = following(self.request.user)
         return context
 
 

@@ -338,7 +338,11 @@
                                     <h3>Contact Information</h3>
                                     <p>Connect me with this company</p>
                                   </div>
-                                  <a href="#connect" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Connect</a>
+                                     {% if following %}
+                                        <a href="{% url 'business_unfollow' business.id %}" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Disconnect</a>
+                                     {% else %}
+                                        <a href="{% url 'business_follow' business.id %}" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Connect</a>
+                                     {% endif %}
                                 </div>                
                             </div>
 
