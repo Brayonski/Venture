@@ -76,7 +76,7 @@ class AudioVisual(models.Model):
     author = models.ForeignKey(User, related_name="videouser_manager")
     category = models.CharField(max_length=100, choices=AUDIOVISUALCHOICES)
     sub_category = models.ForeignKey(
-        VideoCategory, null=True, help_text='Type of AUDIO VISUAL')
+        VideoCategory, null=True, help_text='Type of Video')
     payment_status = models.CharField(
         max_length=100, choices=PAYMENTSTATUS, default="free", help_text="Payment Required", verbose_name='Payment Required?')
     description = fields.HTMLField(default="")
