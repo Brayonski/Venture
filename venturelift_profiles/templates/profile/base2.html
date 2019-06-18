@@ -52,7 +52,7 @@
 
             <li>
                 <div class="dropdown">
-                  <button class="dropbtn"><ion-icon name="briefcase"></ion-icon> Funders</button>
+                  <button class="dropbtn">Funders</button>
                   <div class="dropdown-content">
                       <a href="{% url 'investor_list' %}">Investor</a>
                       <a href="{% url 'crowdfunding:index' %}">Crowdfunder</a>
@@ -61,9 +61,16 @@
                 </div>
             </li>
 
-            <li><a href="{%url 'knowledge_center_home' %}">
+            <li>
+              <a href="{%url 'knowledge_center_home' %}">
                 Knowledge Center
-              </a></li>
+              </a>
+            </li>
+            <li>
+              <a href="{%url 'events_home' %}">
+                Events
+              </a>
+            </li>
 
             <li><a href="{% url 'business_list' %}">
                 VLA Media
