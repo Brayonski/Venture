@@ -137,6 +137,7 @@ FUNDING_SOURCES = (
     ('personal loans', 'personal loans'),
 )
 
+
 YEAR_CHOICES = []
 for r in range(1960, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((r, r))
@@ -424,3 +425,14 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class BusinessConnectRequest(models.Model):
+    business = models.ForeignKey(Business, related_name='business_to_follow')
+    created_at = models.DateTimeField('request date',null=True)
+    investor = models.ForeignKey(User, related_name='follow_requester')
+
+    class Meta:
+        verbose_name_plural = 'Business Connect Request'
+
+    def __str__(self):
+        return self.business

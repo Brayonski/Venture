@@ -34,6 +34,16 @@ DISBURSEMENT_METHODS = (
     ('PAYPAL', 'PAYPAL'),
 )
 
+REWARD_STATUSES =  (
+    ('PENDING', 'PENDING'),
+    ('DELIVERED', 'DELIVERED'),
+)
+
+CAMPAIGN_REWARD_TYPES =  (
+    ('REWARD BASED', 'REWARD BASED'),
+    ('NON-REWARD BASED', 'NON-REWARD BASED'),
+)
+
 class CampaignSector(models.Model):
     name = models.CharField(max_length=255)
     added_by = models.ForeignKey(User)
@@ -75,6 +85,9 @@ class Campaign(models.Model):
     campaign_image = models.ImageField(upload_to='pic_folder/', null=True, blank=True, help_text="Upload a Campaign Image")
     short_description = models.TextField()
     long_description = models.TextField(null=True, blank=True)
+    campaign_type = models.CharField(max_length=100, choices=CAMPAIGN_REWARD_TYPES, null=True, blank=True)
+    campaign_reward_threshold = models.DecimalField(max_digits=19, decimal_places=2, null=True)
+    campaign_reward_details = models.TextField(null=True)
     funds_disbursement_status = models.CharField(max_length=100)
     approval_status = models.CharField(max_length=100, choices=APPROVAL_STATUS, default="PENDING", null=True, blank=True)
     approved = models.BooleanField(default=False)
@@ -103,6 +116,7 @@ class CampaignPayment(models.Model):
     payment_order_number = models.CharField(max_length=255,null=True,blank=True)
     paid = models.BooleanField(default=False)
     comments = models.TextField(null=True, blank=True)
+    allow_visibility = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = 'Campaign Payments'
@@ -114,7 +128,8 @@ class CampaignPayment(models.Model):
 class CampaignDisbursement(models.Model):
     campaign = models.ForeignKey(Campaign)
     campaign_target = models.DecimalField(max_digits=19, decimal_places=2,null=True)
-    created_at = models.DateTimeField('donation date', null=True)
+    created_at = models.DateTimeField('disbursement request date', null=True)
+    campaign_duration = models.DateField('campaign closing date',default=timezone.now())
     amount = models.DecimalField(max_digits=19, decimal_places=2)
     disbursement_type = models.CharField(max_length=100, choices=DISBURSEMENT_TYPE, null=True, blank=True)
     disbursement_method = models.CharField(max_length=100, choices=DISBURSEMENT_METHODS, null=True, blank=True)
@@ -132,6 +147,22 @@ class CampaignDisbursement(models.Model):
 
     class Meta:
         verbose_name_plural = 'Campaign Disbursements'
+
+    def __str__(self):
+        return self.campaign.campaign_name
+
+
+class CampaignReward(models.Model):
+    campaign = models.ForeignKey(Campaign)
+    payment = models.ForeignKey(CampaignPayment)
+    created_at = models.DateTimeField('reward notification date',null=True)
+    rewarded_user = models.ForeignKey(User, related_name='rewarded_donator')
+    reward = models.TextField()
+    reward_status = models.CharField(max_length=100, choices=REWARD_STATUSES, null=True, blank=True)
+    comments = models.TextField(null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = 'Campaign Rewards'
 
     def __str__(self):
         return self.campaign.campaign_name

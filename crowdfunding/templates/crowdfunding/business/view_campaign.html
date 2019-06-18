@@ -176,6 +176,40 @@
                                                   </div>
                                              </div>
 
+                                            <div class="row clearfix">
+                                              <div class="no_padd col-md-12 clearfix">
+                                                  <h3>Campaign Rewards</h3>
+                                                <div class="single_card_wrapper">
+                                                  <div class="card_C card" style="">
+                                                    <div class="card-body">
+                                                        {% if campaign_data.campaign_type == "REWARD BASED" %}
+                                                             <div class="pull-left">
+
+                                                                <h5 class="card-title">
+                                                                  Reward Threshold
+                                                                </h5>
+                                                                <p class="card-text">
+                                                                  {{campaign_data.campaign_reward_threshold}}
+                                                                </p>
+
+                                                                <h5 class="card-title">
+                                                                  Reward Details
+                                                                </h5>
+                                                                <p class="card-text">
+                                                                  {{campaign_data.campaign_reward_details}}
+                                                                </p>
+                                                             </div>
+                                                         {% else %}
+                                                                <p class="card-text dark-text">
+                                                                No rewards configured for campaign
+                                                                </p>
+                                                        {% endif %}
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+
                                         </div>
                                       </div>
                                     </div>

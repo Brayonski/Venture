@@ -1,7 +1,7 @@
 {% extends 'profile/base3.html' %}
 
 {% load cms_tags staticfiles %}
-{% block title %} Knowledge Center| Subscriptions Videos {% endblock title %}
+{% block title %} Knowledge Center| Documents Center {% endblock title %}
 {% block content %}
 <div class="full_A">
 	<div class="container">
@@ -12,28 +12,28 @@
 		</div>
 		<div>
 			<ul class="nav nav-pills nav-justified">
-				<li><a href="{% url 'knowledge_center_home' %}">Documents & Reports</a></li>
-				<li class="active"><a href="{% url 'knowledge_center_video_home' %}">Videos</a></li>
+				<li class="active"><a href="#">Documents & Reports</a></li>
+				<li><a href="{% url 'knowledge_center_video_home' %}">Videos</a></li>
 			</ul>
 		</div>
 		<div class="tab-content">
-			<ul class="nav nav-pills">
-				{% url 'knowledge_center_video_home' as  knowledge_center_video_home %}
 
+			<ul class="nav nav-pills">
 				{% if object_list %}
-				<li class="{% ifequal request.path knowledge_center_video_home %}active{% endifequal %}"><a
-						href="{% url 'knowledge_center_video_home' %}">All</a>
-				</li>
+				{% url 'knowledge_center_home' as  knowledge_center_home %}
+				<li class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}"><a
+						href="{% url 'knowledge_center_home' %}">All</a></li>
 				{% endif %}
-				{% for type in video_type %}
-				{% if type.audiovisual_set.count >= 1 %}
-				{% url 'knowledge_center_video_content_filter' type.id as knowledge_center_video_content_filter %}
-				<li class="{% ifequal request.path knowledge_center_video_content_filter %}active{% endifequal %}">
-					<a href="{% url 'knowledge_center_video_content_filter' type.id %}">{{type.title}}</a>
+				{% for type in document_type %}
+				{% if type.textcenter_set.count >= 1 %}
+				{% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
+				<li class="{% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}">
+					<a href="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}</a>
 				</li>
 				{% endif %}
 				{% endfor %}
 			</ul>
+
 			<div id="home" class="tab-pane fade in active">
 				<div class="row clearfix">
 					<div class="no_padd col-md-12 clearfix">
@@ -41,18 +41,26 @@
 						<div class="single_card_wrapper">
 							<div class="card_C card" style="">
 								<div class="card-body">
-									<div class="pull-left">
-										{{obj.path|safe}}
+									<div class="">
+										<h1 class="card-text dark-text">
+											{{ obj.title }}
+										</h1>
+										<p class="card-text">
+											{% if obj.file_upload %}
+											<i class="fa fa-file-text" aria-hidden="true"></i>
+											{% endif %}
+											<i class="fa fa-tags" aria-hidden="true"></i>
+											{{obj.category}}
+											<i class="fa fa-money" aria-hidden="true"></i>
+											{{obj.payment_status}}
+											<i class="fa fa-calendar" aria-hidden="true"></i>
+											{{obj.date }}
+										</p>
+										<p class="card-text">
+											{{ obj.description|safe|truncatewords:"70"|linebreaks }}
+											<a class="text-primary" href="{% url 'knowledge_center_read_content' obj.id %}">read more</a>
+										</p>
 									</div>
-									<p class="card-text">{{ obj.title }}</p>
-									<p class="card-text">
-										{{ obj.description|safe|truncatewords:"70"|linebreaks }}
-										<i class="fa fa-tags" aria-hidden="true"></i>
-										{{obj.sub_category}}
-										<i class="fa fa-money" aria-hidden="true"></i>
-										{{obj.payment_status}}
-									</p>
-									<a class="text-primary" href="{% url 'knowledge_center_video_content' obj.id %}">read more</a>
 								</div>
 							</div>
 						</div>
@@ -79,6 +87,7 @@
 							{% endif %}
 						</ul>
 						{% endif %}
+
 					</div>
 				</div>
 			</div>

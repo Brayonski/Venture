@@ -69,7 +69,7 @@ class CampaignPaymentAdmin(admin.ModelAdmin):
 class CampaignDisbursementAdmin(admin.ModelAdmin):
     search_fields = ['campaign']
     list_display = ['created_at','campaign', 'amount', 'recipient', 'disbursement_type', 'disbursement_status']
-    readonly_fields = ["campaign", "created_at", "campaign_target", "disbursement_status", "approved_by", "rejected_by"]
+    readonly_fields = ["campaign", "created_at", "campaign_target", "disbursement_status", "approved_by", "rejected_by", "campaign_duration"]
     exclude = ['approved', 'rejected']
 
     def has_add_permission(self, request, obj=None):
@@ -98,9 +98,19 @@ class CampaignDisbursementAdmin(admin.ModelAdmin):
                 subject, from_email, to = 'Campaign Approval Request', settings.EMAIL_HOST_USER, obj.campaign_owner.email
                 send_actioned_campaign_email_task.delay(obj.campaign_name, obj.id, subject, from_email, to, "rejected")
 
+class CampaignRewardAdmin(admin.ModelAdmin):
+    search_fields = ['campaign']
+    list_display = ['created_at','campaign', 'rewarded_user', 'reward', 'reward_status']
+    readonly_fields = ["campaign", "rewarded_user", "reward", "created_at"]
+    exclude = ['payment']
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
 
 admin.site.register(CampaignSector, CampaignSectorAdmin)
 admin.site.register(CampaignConfiguration, CampaignConfigurationAdmin)
 admin.site.register(Campaign, CampaignAdmin)
 admin.site.register(CampaignPayment, CampaignPaymentAdmin)
 admin.site.register(CampaignDisbursement, CampaignDisbursementAdmin)
+admin.site.register(CampaignReward, CampaignRewardAdmin)

@@ -13,63 +13,89 @@ from django.core.urlresolvers import reverse
 from django.views.generic.edit import CreateView, UpdateView, FormMixin
 from django.core.paginator import Paginator
 
+
 class HomeView(LoginRequiredMixin, ListView):
     """List all media items"""
-    template_name = 'kwnowledge_index.html'
+    template_name = 'knowledge_index.html'
     paginate_by = 10
-    queryset = TextCenter.objects.all().order_by('-date')
+    queryset = TextCenter.objects.filter(published=True).order_by('-date')
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
-        context['document_type'] = DocumentCategory.objects.all()
+        context['document_type'] = DocumentCategory.objects.filter(
+            published=True)
         return context
 
-class TextMediaView(LoginRequiredMixin, DetailView):
-	  """Read a single Text Content"""
-	  model = TextCenter
-	  template_name = 'read_content.html'
 
-	  def get_context_data(self, **kwargs):
-	    """ Returns the Text Media selected"""
-	    context = super(TextMediaView, self).get_context_data(**kwargs)
-	    context['recommended'] = TextCenter.objects.filter(category__pk=1).order_by('date')[:6]
-	    context['content'] = TextCenter.objects.get(pk=self.kwargs.get("pk"))
-	    return context
+class TextMediaView(LoginRequiredMixin, DetailView):
+    """Read a single Text Content"""
+    model = TextCenter
+    template_name = 'read_content.html'
+
+    def get_context_data(self, **kwargs):
+        """ Returns the Text Media selected"""
+        context = super(TextMediaView, self).get_context_data(**kwargs)
+        context['recommended'] = TextCenter.objects.filter(
+            category__pk=1).order_by('date')[:6]
+        context['content'] = TextCenter.objects.get(pk=self.kwargs.get("pk"))
+        return context
+
 
 class TextFilterView(LoginRequiredMixin, ListView):
-	  """Read a single Text Content"""
-	  template_name = 'kwnowledge_index.html'
-	  paginate_by = 10
-	  
+    """List Text Content on Filter Category"""
+    template_name = 'knowledge_index.html'
+    paginate_by = 10
 
-	  def get_context_data(self, **kwargs):
-	  	context = super(TextFilterView, self).get_context_data(**kwargs)
-	  	context['document_type'] = DocumentCategory.objects.all()
-	  	return context
+    def get_context_data(self, **kwargs):
+        context = super(TextFilterView, self).get_context_data(**kwargs)
+        context['document_type'] = DocumentCategory.objects.filter(
+            published=True)
+        return context
 
-	  def get_queryset(self, **kwargs):
-	  	queryset = TextCenter.objects.filter(category__pk=self.kwargs.get("pk")).order_by('-date')
-	  	return queryset
+    def get_queryset(self, **kwargs):
+        queryset = TextCenter.objects.filter(
+            category__pk=self.kwargs.get("pk"), published=True).order_by('-date')
+        return queryset
+
+
+class VideoFilterView(LoginRequiredMixin, ListView):
+    """List Video Content on Filter Category"""
+    template_name = 'all_video_content.html'
+    paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super(VideoFilterView, self).get_context_data(**kwargs)
+        context['video_type'] = VideoCategory.objects.filter(published=True)
+        return context
+
+    def get_queryset(self, **kwargs):
+        queryset = AudioVisual.objects.filter(
+            sub_category__pk=self.kwargs.get("pk"), published=True).order_by('-date')
+        return queryset
+
 
 class SingleVideoContentView(LoginRequiredMixin, DetailView):
-	  """Read a single Text Content"""
-	  model = AudioVisual
-	  template_name = 'video_content.html'
+    """Read a single Text Content"""
+    model = AudioVisual
+    template_name = 'video_content.html'
 
-	  def get_context_data(self, **kwargs):
-	    """ Returns the Text Media selected"""
-	    context = super(SingleVideoContentView, self).get_context_data(**kwargs)
-	    context['recommended'] = AudioVisual.objects.filter(sub_category__pk=1).order_by('date')[:6]
-	    context['content'] = AudioVisual.objects.get(pk=self.kwargs.get("pk"))
-	    return context
+    def get_context_data(self, **kwargs):
+        """ Returns the Text Media selected"""
+        context = super(SingleVideoContentView,
+                        self).get_context_data(**kwargs)
+        context['recommended'] = AudioVisual.objects.filter(
+            sub_category__pk=1).order_by('date')[:6]
+        context['content'] = AudioVisual.objects.get(pk=self.kwargs.get("pk"))
+        return context
+
 
 class VideoContentView(LoginRequiredMixin, ListView):
     """Video Content"""
     template_name = 'all_video_content.html'
     paginator_by = 10
-    queryset = AudioVisual.objects.all()
-		
+    queryset = AudioVisual.objects.filter(published=True)
 
-    
-	
-		
+    def get_context_data(self, **kwargs):
+        context = super(VideoContentView, self).get_context_data(**kwargs)
+        context['video_type'] = VideoCategory.objects.filter(published=True)
+        return context

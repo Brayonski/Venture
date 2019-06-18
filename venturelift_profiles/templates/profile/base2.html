@@ -6,7 +6,8 @@
   <title>{% block title %}VentureLift Africa - Portal{% endblock title %}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -36,43 +37,51 @@
         <a class="navbar-brand" href="#">
           <img src="{% static 'img/logo3.png' %}" alt="VentureLift Africa">
         </a>
-        <div class="vl_top_top navbar-full">
+        <div class="vl_top_top navbar-right">
 
           <ul class="vl_top_nav in_line">
             <li><a href="{% url 'profile_summary' %}">
-              <ion-icon name="home"></ion-icon> My Profile
-          </a></li>
-      <li><a href="{% url 'business_list' %}">
-              <ion-icon name="briefcase"></ion-icon> Businesses
-          </a></li>
-      <li><a href="{% url 'supporter_list' %}">
-              <ion-icon name="people"></ion-icon> Partners
-          </a></li>
+                My Profile
+              </a></li>
+            <li><a href="{% url 'business_list' %}">
+                Businesses
+              </a></li>
+            <li><a href="{% url 'supporter_list' %}">
+                Partners
+              </a></li>
 
-       <li>
-            <div class="dropdown">
-              <button class="dropbtn"><ion-icon name="briefcase"></ion-icon> Funders</button>
-              <div class="dropdown-content">
-                  <a href="{% url 'investor_list' %}">Funders List</a>
-                  <a href="{% url 'crowdfunding:index' %}">Crowdfunding</a>
-              </div>
-            </div>
-       </li>
+            <li>
+                <div class="dropdown">
+                  <button class="dropbtn">Funders</button>
+                  <div class="dropdown-content">
+                      <a href="{% url 'investor_list' %}">Investor</a>
+                      <a href="{% url 'crowdfunding:index' %}">Crowdfunder</a>
+                      <a href="#">Lender</a>
+                  </div>
+                </div>
+            </li>
 
-      <li><a href="{%url 'knowledge_center_home' %}">
-              <ion-icon name="paper-plane"></ion-icon> Knowledge Center
-          </a></li>
+            <li>
+              <a href="{%url 'knowledge_center_home' %}">
+                Knowledge Center
+              </a>
+            </li>
+            <li>
+              <a href="{%url 'events_home' %}">
+                Events
+              </a>
+            </li>
 
-      <li><a href="{% url 'business_list' %}">
-              <ion-icon name="paper-plane"></ion-icon> VLA Media
-          </a></li>
+            <li><a href="{% url 'business_list' %}">
+                VLA Media
+              </a></li>
 
-      <li class="user_nav_item pull_right">
+            <li class="user_nav_item pull_right">
 
-      </li>
-      <li class="pull_right"><a href="#nogo">
-              <ion-icon name="notifications-outline"></ion-icon>
-          </a></li>
+            </li>
+            <li class="pull_right"><a href="#nogo">
+                <ion-icon name="notifications-outline"></ion-icon>
+              </a></li>
 
             <li class="user_nav_item pull_right">
               <div class="dropdown">
@@ -129,7 +138,10 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
 
     gtag('config', 'UA-137967572-1');
