@@ -39,38 +39,39 @@
             <ul class="vl_top_nav in_line">
               <li>
                 <a href="{% url 'profile_summary' %}">
-                  <ion-icon name="home"></ion-icon> My Profile
+                  My Profile
                 </a>
               </li>
               <li>
                 <a href="{% url 'business_list' %}">
-                <ion-icon name="briefcase"></ion-icon> Businesses
+                Businesses
                 </a>
               </li>
               <li>
                 <a href="{% url 'supporter_list' %}">
-                  <ion-icon name="people"></ion-icon> Partners
+                  Partners
                 </a>
               </li>
 
-               <li>
-                    <div class="dropdown">
-                      <button class="dropbtn"><ion-icon name="briefcase"></ion-icon> Funders</button>
-                      <div class="dropdown-content">
-                          <a href="{% url 'investor_list' %}">Funders List</a>
-                          <a href="{% url 'crowdfunding:index' %}">Crowdfunding</a>
-                      </div>
-                    </div>
-                </li>
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn">Funders</button>
+                  <div class="dropdown-content">
+                      <a href="{% url 'investor_list' %}">Investor</a>
+                      <a href="{% url 'crowdfunding:index' %}">Crowdfunder</a>
+                      <a href="#">Lender</a>
+                  </div>
+                </div>
+              </li>
               <li>
                 <a href="">
-                  <ion-icon name="paper-plane"></ion-icon> Knowledge Center
+                  Knowledge Center
                 </a>
               </li>
 
               <li>
                 <a href="/en/media">
-                <ion-icon name="paper-plane"></ion-icon> VLA Media
+                VLA Media
                 </a>
               </li>
               <li class="user_nav_item pull_right">

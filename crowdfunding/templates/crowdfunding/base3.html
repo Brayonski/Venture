@@ -55,13 +55,13 @@
             </li>
 
             <li>
-              <div class="dropdown">
-                <button class="dropbtn">
-                  Funders
-                </button>
-                <div class="dropdown-content">
-                  <a href="{% url 'investor_list' %}">Funders List</a>
-                  <a href="{% url 'crowdfunding:index' %}">Crowdfunding</a>
+                <div class="dropdown">
+                  <button class="dropbtn">Funders</button>
+                  <div class="dropdown-content">
+                      <a href="{% url 'investor_list' %}">Investor</a>
+                      <a href="{% url 'crowdfunding:index' %}">Crowdfunder</a>
+                      <a href="#">Lender</a>
+                  </div>
                 </div>
               </div>
             </li>
