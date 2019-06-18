@@ -18,11 +18,12 @@ class HomeView(LoginRequiredMixin, ListView):
     """List all media items"""
     template_name = 'knowledge_index.html'
     paginate_by = 10
-    queryset = TextCenter.objects.all().order_by('-date')
+    queryset = TextCenter.objects.filter(published=True).order_by('-date')
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
-        context['document_type'] = DocumentCategory.objects.all()
+        context['document_type'] = DocumentCategory.objects.filter(
+            published=True)
         return context
 
 
@@ -47,12 +48,13 @@ class TextFilterView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(TextFilterView, self).get_context_data(**kwargs)
-        context['document_type'] = DocumentCategory.objects.all()
+        context['document_type'] = DocumentCategory.objects.filter(
+            published=True)
         return context
 
     def get_queryset(self, **kwargs):
         queryset = TextCenter.objects.filter(
-            category__pk=self.kwargs.get("pk")).order_by('-date')
+            category__pk=self.kwargs.get("pk"), published=True).order_by('-date')
         return queryset
 
 
@@ -63,12 +65,12 @@ class VideoFilterView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(VideoFilterView, self).get_context_data(**kwargs)
-        context['video_type'] = VideoCategory.objects.all()
+        context['video_type'] = VideoCategory.objects.filter(published=True)
         return context
 
     def get_queryset(self, **kwargs):
         queryset = AudioVisual.objects.filter(
-            sub_category__pk=self.kwargs.get("pk")).order_by('-date')
+            sub_category__pk=self.kwargs.get("pk"), published=True).order_by('-date')
         return queryset
 
 
@@ -91,9 +93,9 @@ class VideoContentView(LoginRequiredMixin, ListView):
     """Video Content"""
     template_name = 'all_video_content.html'
     paginator_by = 10
-    queryset = AudioVisual.objects.all()
+    queryset = AudioVisual.objects.filter(published=True)
 
     def get_context_data(self, **kwargs):
         context = super(VideoContentView, self).get_context_data(**kwargs)
-        context['video_type'] = VideoCategory.objects.all()
+        context['video_type'] = VideoCategory.objects.filter(published=True)
         return context

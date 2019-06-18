@@ -1,7 +1,7 @@
 {% extends 'profile/base3.html' %}
 
-{% load cms_tags staticfiles event_filters %}
-{% block title %}Events{% endblock title %}
+{% load cms_tags staticfiles %}
+{% block title %}Events| Events{% endblock title %}
 {% block content %}
 <div class="full_A">
   <div class="container">
@@ -12,25 +12,26 @@
       </div>
     </div>
     {% url 'events_home' as  events_home %}
+    {% url 'network_events' as  network_events %}
     <div>
       <ul class="nav nav-pills nav-justified">
-        <li class="active"><a href="{% url 'events_home' %}">VLA
+        <li class="{% ifequal request.path events_home %}active{% endifequal %}"><a href="{% url 'events_home' %}">VLA
             EVENTS</a></li>
-        <li class=""><a href="{% url 'network_events' %}">Network Events</a></li>
+        <li class="active"><a href="{% url 'network_events' %}">Network Events</a></li>
       </ul>
     </div>
     <div class="tab-content">
       <ul class="nav nav-pills">
         {% if object_list %}
-        <li class="{% ifequal request.path events_home %}active{% endifequal %}"><a
-            href="{% url 'events_home' %}">All</a>
+        <li class="{% ifequal request.path network_events %}active{% endifequal %}"><a
+            href="{% url 'network_events' %}">All</a>
         </li>
         {% endif %}
         {% for type in event_type %}
-        {% if type.events_set.count >= 1 %}
-        {% url 'event_view_content_filter' type.id as event_view_content_filter %}
-        <li class="{% ifequal request.path event_view_content_filter %}active{% endifequal %}">
-          <a href="{% url 'event_view_content_filter' type.id %}">{{type.title}}</a>
+        {% if type.network_events.count >= 1 %}
+        {% url 'network_event_filter' type.id as network_event_filter %}
+        <li class="{% ifequal request.path network_event_filter %}active{% endifequal %}">
+          <a href="{% url 'network_event_filter' type.id %}">{{type.title}}</a>
         </li>
         {% endif %}
         {% endfor %}
@@ -47,13 +48,8 @@
                     {{ obj.title|upper }}
                   </span>
                   <span class="card-text dark-text pull-right">
-                    {% is_attendee obj as is_in_attendee_list %}
-                    {% if is_in_attendee_list == True %}
-                    <a class="btn btn-primary" href="{% url 'event_register' obj.id %}">Register</a>
-                    {% else %}
-                    <a class="btn btn-success" href="#">
-                      <ion-icon name="star"></ion-icon> Registered
-                    </a>
+                    {% if obj.registration_required == 'YES'%}
+                    <a class="btn btn-primary" href="{{ obj.registration_url }}" target="_blank">Register</a>
                     {% endif %}
                   </span>
                   <p class="card-text">
@@ -69,7 +65,7 @@
                   </p>
                   <p class="card-text">
                     {{ obj.description|safe|truncatewords:"70"|linebreaks }}
-                    <a class="text-primary" href="{% url 'event_view_content' obj.id %}">read more</a>
+                    <a class="text-primary" href="{% url 'network_event_view_content' obj.id %}">read more</a>
                   </p>
                 </div>
               </div>
@@ -77,6 +73,7 @@
           </div>
           {% endif %}
           {% endfor %}
+
 
           {% if is_paginated %}
           <ul class="pagination">

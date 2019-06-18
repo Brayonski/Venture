@@ -10,7 +10,8 @@ class TextCenterAdmin(admin.ModelAdmin):
     search_fields = ['title', 'category', 'author']
     list_filter = ['title', 'date', 'category', 'author', 'payment_status']
     readonly_fields = ["author"]
-    list_display = ['title', 'category', 'date', 'author', 'payment_status']
+    list_display = ['title', 'category', 'date',
+                    'author', 'payment_status', 'published']
 
     def save_model(self, request, obj, form, change):
         if getattr(obj, 'author', None) is None:
@@ -22,7 +23,7 @@ class DocumentCategoryAdmin(admin.ModelAdmin):
     search_fields = ['title', 'author']
     list_filter = ['title', 'author']
     readonly_fields = ["author"]
-    list_display = ['title', 'author']
+    list_display = ['title', 'author', 'published']
 
     def save_model(self, request, obj, form, change):
         if getattr(obj, 'author', None) is None:
@@ -34,7 +35,7 @@ class VideoCategoryAdmin(admin.ModelAdmin):
     search_fields = ['title', 'author']
     list_filter = ['title', 'author']
     readonly_fields = ["author"]
-    list_display = ['title', 'author']
+    list_display = ['title', 'author', 'published']
 
     def save_model(self, request, obj, form, change):
         if getattr(obj, 'author', None) is None:
@@ -47,7 +48,7 @@ class AudioVisualAdmin(admin.ModelAdmin):
     list_filter = ['date', 'category', 'payment_status']
     readonly_fields = ["author"]
     list_display = ['title', 'date', 'category',
-                    'sub_category', 'payment_status']
+                    'sub_category', 'payment_status', 'published']
 
     def save_model(self, request, obj, form, change):
         if getattr(obj, 'author', None) is None:

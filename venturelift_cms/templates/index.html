@@ -20,11 +20,14 @@
             <div class="h_A_row_1B col-md-4">
               <div class="h_A_row_1B_in">
                 <h1 class="style_A">
-                {% if object_list %}
-                  <a class="a_A" href="{% url 'venturelift_media:media_story' object_list.0.pk %}">{{object_list.0.title}}</a>
-                {% endif %}
+                  {% if object_list %}
+                  <a class="a_A"
+                    href="{% url 'venturelift_media:media_story' object_list.0.pk %}">{{object_list.0.title}}</a>
+                  {% endif %}
                 </h1>
-                <h5 class="meta_A">{{object_list.0.category}} <!--<span>{{object_list.0.date|timesince}} AGO</span>--></h5>
+                <h5 class="meta_A">{{object_list.0.category}}
+                  <!--<span>{{object_list.0.date|timesince}} AGO</span>-->
+                </h5>
                 <ul class="h_A_row_1A_list">
                   {% for obj in object_list %}
                   {% if forloop.counter > 1 %}
@@ -98,9 +101,9 @@
       <div class="col-md-4 clearfix">
         <div class="in_style_A">
           {{obj.path|safe}}
-            <!--<img src="{% static 'img/podcast.jpg' %}">-->
-            <h3 class="style_C">{{obj.title}}</h3>
-            <h5 class="meta_A">{{obj.category}}</h5>
+          <!--<img src="{% static 'img/podcast.jpg' %}">-->
+          <h3 class="style_C">{{obj.title}}</h3>
+          <h5 class="meta_A">{{obj.category}}</h5>
           </a>
         </div>
       </div>
