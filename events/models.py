@@ -22,6 +22,7 @@ class EventCategory(models.Model):
     title = models.CharField(max_length=50)
     author = models.ForeignKey(User, related_name="event_category_author")
     date = models.DateTimeField(auto_now_add=True)
+    published = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
@@ -34,6 +35,7 @@ class EventCategory(models.Model):
 class Events(models.Model):
     category = models.ForeignKey(EventCategory, null=True)
     title = models.CharField(max_length=100)
+    published = models.BooleanField(default=False)
     author = models.ForeignKey(User)
     description = fields.HTMLField()
     start_date = models.DateTimeField()
@@ -58,6 +60,7 @@ class NetworkEvents(models.Model):
     category = models.ForeignKey(
         EventCategory, null=True, related_name="network_events")
     title = models.CharField(max_length=100)
+    published = models.BooleanField(default=False)
     organization_name = models.CharField(max_length=100)
     author = models.ForeignKey(User)
     description = fields.HTMLField()

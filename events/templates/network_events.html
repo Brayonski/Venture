@@ -39,6 +39,7 @@
       <div class="row clearfix">
         <div class="no_padd col-md-12 clearfix">
           {% for obj in object_list %}
+          {% if obj.published %}
           <div class="single_card_wrapper">
             <div class="card_C card" style="">
               <div class="card-body">
@@ -70,7 +71,9 @@
               </div>
             </div>
           </div>
+          {% endif %}
           {% endfor %}
+
 
           {% if is_paginated %}
           <ul class="pagination">

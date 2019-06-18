@@ -22,7 +22,7 @@
 
 				{% if object_list %}
 				<li class="{% ifequal request.path knowledge_center_video_home %}active{% endifequal %}"><a
-						href="{% url 'knowledge_center_home' %}">All</a>
+						href="{% url 'knowledge_center_video_home' %}">All</a>
 				</li>
 				{% endif %}
 				{% for type in video_type %}

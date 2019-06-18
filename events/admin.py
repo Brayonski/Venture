@@ -9,7 +9,7 @@ class EventCategoryAdmin(admin.ModelAdmin):
     search_fields = ['title', 'author']
     list_filter = ['title', 'author']
     readonly_fields = ["author"]
-    list_display = ['title', 'author']
+    list_display = ['title', 'author', 'published']
 
     def save_model(self, request, obj, form, change):
         if getattr(obj, 'author', None) is None:
@@ -32,7 +32,7 @@ class EventsAdmin(admin.ModelAdmin):
     search_fields = ['title', 'category', 'author']
     list_filter = ['title', 'start_date', 'category', 'author']
     readonly_fields = ["author"]
-    list_display = ['title', 'category', 'start_date', 'end_date', 'author']
+    list_display = ['title', 'category', 'start_date', 'end_date', 'author', 'published']
 
     def save_model(self, request, obj, form, change):
         if getattr(obj, 'author', None) is None:
@@ -45,7 +45,7 @@ class NetworkEventsAdmin(admin.ModelAdmin):
     list_filter = ['title', 'start_date', 'category', 'organization_name']
     readonly_fields = ["author"]
     list_display = ['title', 'category',
-                    'start_date', 'end_date', 'organization_name']
+                    'start_date', 'end_date', 'organization_name', 'published']
 
     def save_model(self, request, obj, form, change):
         if getattr(obj, 'author', None) is None:

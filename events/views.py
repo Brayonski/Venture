@@ -18,11 +18,11 @@ class HomeView(LoginRequiredMixin, ListView):
     """List all events items"""
     template_name = 'events_index.html'
     paginate_by = 10
-    queryset = Events.objects.all().order_by('-date')
+    queryset = Events.objects.filter(published=True).order_by('-date')
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
-        context['event_type'] = EventCategory.objects.all()
+        context['event_type'] = EventCategory.objects.filter(published=True)
         if 'event' in self.kwargs:
             events = Events.objects.get(pk=self.kwargs['event'])
             Attendees.objects.create(event=events, attendee=self.request.user)
@@ -35,11 +35,11 @@ class NetworkEventsView(LoginRequiredMixin, ListView):
     """List all network events items"""
     template_name = 'network_events.html'
     paginate_by = 10
-    queryset = NetworkEvents.objects.all().order_by('-date')
+    queryset = NetworkEvents.objects.filter(published=True).order_by('-date')
 
     def get_context_data(self, **kwargs):
         context = super(NetworkEventsView, self).get_context_data(**kwargs)
-        context['event_type'] = EventCategory.objects.all()
+        context['event_type'] = EventCategory.objects.filter(published=True)
         return context
 
 
@@ -74,7 +74,7 @@ class EventFilterView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(EventFilterView, self).get_context_data(**kwargs)
-        context['event_type'] = EventCategory.objects.all()
+        context['event_type'] = EventCategory.objects.filter(published=True)
         return context
 
     def get_queryset(self, **kwargs):
@@ -91,7 +91,7 @@ class NetworkEventFilterView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super(NetworkEventFilterView,
                         self).get_context_data(**kwargs)
-        context['event_type'] = EventCategory.objects.all()
+        context['event_type'] = EventCategory.objects.filter(published=True)
         return context
 
     def get_queryset(self, **kwargs):

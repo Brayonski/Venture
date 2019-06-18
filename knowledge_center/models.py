@@ -27,6 +27,7 @@ class DocumentCategory(models.Model):
     title = models.CharField(max_length=50)
     author = models.ForeignKey(User, related_name="document_category_user")
     date = models.DateTimeField(auto_now_add=True)
+    published = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
@@ -41,6 +42,7 @@ class VideoCategory(models.Model):
     title = models.CharField(max_length=50)
     author = models.ForeignKey(User, related_name="video_category_user")
     date = models.DateTimeField(auto_now_add=True)
+    published = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
@@ -53,6 +55,7 @@ class VideoCategory(models.Model):
 class TextCenter(models.Model):
     category = models.ForeignKey(DocumentCategory, null=True)
     title = models.CharField(max_length=100)
+    published = models.BooleanField(default=False)
     author = models.ForeignKey(User)
     description = fields.HTMLField()
     date = models.DateTimeField(auto_now_add=True)
@@ -75,6 +78,7 @@ class AudioVisual(models.Model):
     path = models.TextField()
     author = models.ForeignKey(User, related_name="videouser_manager")
     category = models.CharField(max_length=100, choices=AUDIOVISUALCHOICES)
+    published = models.BooleanField(default=False)
     sub_category = models.ForeignKey(
         VideoCategory, null=True, help_text='Type of Video')
     payment_status = models.CharField(
