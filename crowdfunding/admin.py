@@ -101,16 +101,11 @@ class CampaignDisbursementAdmin(admin.ModelAdmin):
 class CampaignRewardAdmin(admin.ModelAdmin):
     search_fields = ['campaign']
     list_display = ['created_at','campaign', 'rewarded_user', 'reward', 'reward_status']
-    readonly_fields = ["campaign", "payment", "rewarded_user", "reward", "created_at"]
+    readonly_fields = ["campaign", "rewarded_user", "reward", "created_at"]
+    exclude = ['payment']
 
     def has_add_permission(self, request, obj=None):
         return False
-
-    def save_model(self, request, obj, form, change):
-        if getattr(obj, 'reward_status') == "PENDING":
-            if form.cleaned_data['reward_status'] == "DELIVERED":
-                obj.reward_status = "DELIVERED"
-                obj.save()
 
 
 admin.site.register(CampaignSector, CampaignSectorAdmin)
