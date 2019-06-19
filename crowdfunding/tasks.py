@@ -54,7 +54,7 @@ def task_close_due_campaigns():
             disbursement.save()
             send_campaign_disbursement_email_task.delay(campaign.campaign_name, campaign.id, subject, from_email, to, "disbursements")
         else:
-            disbursement = CampaignDisbursement(campaign=campaign, created_at=timezone.now(), amount=campaign.total_funds_received,
+            disbursement = CampaignDisbursement(campaign=campaign, campaign_target=campaign.target_amount, created_at=timezone.now(), amount=campaign.total_funds_received,
                                                 disbursement_type='REFUND', disbursement_status='PENDING',
                                                 recipient=campaign.campaign_owner,
                                                 recipient_email=campaign.company_email, approval_status='PENDING', approved=False, rejected=False,

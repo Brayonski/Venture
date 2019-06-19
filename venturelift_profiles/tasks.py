@@ -15,3 +15,10 @@ def send_business_connect_request_email_task(business, investor, subject, from_e
     """sends an email when feedback form is filled successfully"""
     logger.info("Sent business connect request email")
     return send_business_connect_request_email(business, investor, subject, from_email, to)
+
+
+@task(name="send_investor_approved_connect_email_task")
+def send_investor_approved_connect_email_task(business, investor, subject, from_email, to):
+    """sends an email when feedback form is filled successfully"""
+    logger.info("Sent approved business connect email to investor")
+    return send_investor_approved_connect_email(business, investor, subject, from_email, to)
