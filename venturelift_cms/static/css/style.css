@@ -647,6 +647,11 @@ li.copright {
 }
 .home_section_2.full_width {
     padding: 100px 0px;
+    background: #9c9e85;
+    color: #FFF;
+}
+.page_banner_A.page_banner_Ab.full_width {
+    padding-bottom: 0px;
 }
 .home_section_2.home_section_2About.full_width {
     background: #283891;
@@ -1062,11 +1067,11 @@ ul.user_nav_item_drop li {
     width: 100%;
 }
 
-ul.user_nav_item_drop.dropdown-menu.pull-right {
+ul.user_nav_item_drop.dropdown-menu.pull-right, .dropdown-content {
     /* background: #283891; */
     padding: 20px;
 }
-ul.user_nav_item_drop.dropdown-menu li a {
+ul.user_nav_item_drop.dropdown-menu li a, .dropdown-content li a {
     padding: 8px 0px;
 }
 

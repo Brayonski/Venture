@@ -70,10 +70,6 @@ class TextCenter(models.Model):
     class Meta:
         verbose_name = 'Document / Report Manager'
         verbose_name_plural = 'Documents / Reports Manager'
-<<<<<<< HEAD
-=======
-
->>>>>>> 0de48b886d3ae408779703caf648b4f740663ba7
 
 class AudioVisual(models.Model):
     title = models.CharField(max_length=100)
