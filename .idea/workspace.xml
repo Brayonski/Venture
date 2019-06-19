@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="63775d04-ee63-40b5-9b92-96f47de827ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/celerybeat-schedule" beforeDir="false" afterPath="$PROJECT_DIR$/celerybeat-schedule" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/celerybeat.pid" beforeDir="false" />
-    </list>
+    <list default="true" id="63775d04-ee63-40b5-9b92-96f47de827ab" name="Default Changelist" comment="" />
+    <ignored path="celerybeat-schedule" />
+    <ignored path="celerybeat.pid" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venturelift_profiles/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="173" column="125" selection-start-line="173" selection-start-column="125" selection-end-line="173" selection-end-column="125" />
+            <state relative-caret-position="439">
+              <caret line="174" column="94" selection-start-line="174" selection-start-column="94" selection-end-line="174" selection-end-column="94" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -232,7 +231,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/Sasalog/myfirstodoo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/celerybeat.pid" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -660,8 +660,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venturelift_profiles/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="173" column="125" selection-start-line="173" selection-start-column="125" selection-end-line="173" selection-end-column="125" />
+        <state relative-caret-position="439">
+          <caret line="174" column="94" selection-start-line="174" selection-start-column="94" selection-end-line="174" selection-end-column="94" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
