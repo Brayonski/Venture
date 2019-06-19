@@ -171,7 +171,7 @@ class BusinessConnectRequestAdmin(admin.ModelAdmin):
                 obj.rejected = True
                 obj.rejected_by = request.user
                 obj.save()
-                subject, from_email, to = 'Business Connection Approval Notification', settings.EMAIL_HOST_USER, request.user.email
+                subject, from_email, to = 'Business Connection Approval Notification', settings.EMAIL_HOST_USER, obj.investor.email
                 send_investor_approved_connect_email_task.delay(obj.business.name, obj.investor.username,
                                                                subject, from_email, to)
 
