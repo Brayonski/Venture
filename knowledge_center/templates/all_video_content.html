@@ -11,9 +11,22 @@
 			</div>
 		</div>
 		<div>
-			<ul class="nav nav-pills nav-justified">
-				<li><a href="{% url 'knowledge_center_home' %}">Documents & Reports</a></li>
-				<li class="active"><a href="{% url 'knowledge_center_video_home' %}">Videos</a></li>
+			<ul class="nav nav-pills">
+				{% if object_list %}
+				{% url 'knowledge_center_home' as  knowledge_center_home %}
+				<li class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}"><a
+						href="{% url 'knowledge_center_home' %}">Reports</a></li>
+				{% endif %}
+				{% for document in document_type %}
+				{% if document.textcenter_set.count >= 1 %}
+				{% url 'knowledge_center_read_content_filter' document.id as knowledge_center_read_content_filter %}
+				<li class="{% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}">
+					<a href="{% url 'knowledge_center_read_content_filter' document.id %}">{{document.title}}</a>
+				</li>
+				{% endif %}
+				{% endfor %}
+
+				<li><a href="{% url 'knowledge_center_video_home' %}">Videos</a></li>
 			</ul>
 		</div>
 		<div class="tab-content">
