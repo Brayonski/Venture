@@ -10,7 +10,6 @@ from filer.fields.image import FilerImageField
 from newsletter_subscription.models import SubscriptionBase
 from django.conf import settings
 from venturelift_cms.tasks import send_notification
-from videomembership.models import Membership
 
 AUDIOVISUALCHOICES = (
     ("Podcast", "Podcast"),
@@ -89,8 +88,8 @@ class AudioVisual(models.Model):
     description = fields.HTMLField(default="")
     video_url = models.CharField(max_length=200, blank=True, null=True)
     thumbnail = models.ImageField(blank=True, null=True)
-    allowed_memberships = models.ManyToManyField(
-        Membership, blank=True, null=True)
+    #allowed_memberships = models.ManyToManyField(
+    #    Membership, blank=True, null=True)
     youtube_url = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
