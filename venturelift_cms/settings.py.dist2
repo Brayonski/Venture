@@ -160,12 +160,9 @@ INSTALLED_APPS = (
     'venturelift_profiles',
     'multiselectfield',
     'knowledge_center',
-<<<<<<< HEAD
-    'crowdfunding.apps.CrowdfundingConfig'
-=======
     'events',
     'crowdfunding.apps.CrowdfundingConfig',
->>>>>>> 0de48b886d3ae408779703caf648b4f740663ba7
+    'videomembership'
 )
 
 LANGUAGES = (
