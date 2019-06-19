@@ -23,6 +23,8 @@ class SummaryView(LoginRequiredMixin, TemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated() and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
+            track_login = TrackingUser(user_details=request.user, access_time=timezone.now(), action_name="register")
+            track_login.save()
             return redirect(reverse('profile_create'))
 
         return super(SummaryView, self).dispatch(request, *args, **kwargs)
@@ -36,6 +38,8 @@ class SummaryView(LoginRequiredMixin, TemplateView):
             Q(company__in=companies_following) | Q(supporter_author__in=supporters_following) | Q(investor_author__in=investors_following)).order_by('-date')[:5]
         context['object_list'] = posts
         context.update({'investor_following': investors_following, 'supporter_following':supporters_following, 'business_following': companies_following})
+        track_login = TrackingUser(user_details=self.request.user,access_time=timezone.now(),action_name="login")
+        track_login.save()
 
         if self.request.user.business_creator.exists():
             business = Business.objects.get(creator=self.request.user)
@@ -228,10 +232,16 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
             if current_url == 'business_follow':
                 business_details = Business.objects.get(
                     id=self.kwargs['pk'])
-                connections = BusinessConnectRequest(business=business_details, created_at=timezone.now(), investor=self.request.user)
-                connections.save()
-                subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, self.request.user.email
-                send_business_connect_request_email_task.delay(business_details.name, self.request.user.username, subject, from_email, to)
+                check_coneection = BusinessConnectRequest.objects.filter(business=business_details, investor=self.request.user, approval_status="PENDING").first()
+                if check_coneection:
+                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, self.request.user.email
+                    send_business_connect_request_email_task.delay(business_details.name, self.request.user.username,
+                                                                   subject, from_email, to)
+                else:
+                    connections = BusinessConnectRequest(business=business_details, created_at=timezone.now(), investor=self.request.user, approval_status="PENDING", approved=False, rejected=False)
+                    connections.save()
+                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, self.request.user.email
+                    send_business_connect_request_email_task.delay(business_details.name, self.request.user.username, subject, from_email, to)
                 follow(self.request.user, Business.objects.get(
                     id=self.kwargs['pk']))
             if current_url == 'business_unfollow':

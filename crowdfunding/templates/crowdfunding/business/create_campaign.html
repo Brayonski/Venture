@@ -92,6 +92,22 @@
                                                     <!--<input id="duration" type="date" name="duration" class="form-control" required>-->
                                                  </div>
 
+                                                 <div class="form-group">
+                                                     <select class="form-control" name="campaign_type" id="campaign_types" required>
+                                                         <option value="">Select campaign type</option>
+                                                         <option value="REWARD BASED">REWARD BASED</option>
+                                                         <option value="NON-REWARD BASED">NON-REWARD BASED</option>
+                                                     </select>
+                                                 </div>
+
+                                                 <div class="form-group" id="campaign_threshold">
+                                                       {{ form.campaign_reward_threshold|as_crispy_field }}
+                                                 </div>
+
+                                                 <div class="form-group" id="reward_dets">
+                                                       {{ form.campaign_reward_details|as_crispy_field }}
+                                                 </div>
+
                                                 <div class="form-group" align="center">
                                                     <button class='btn btn-success' type="submit">Create</button>
                                                 </div>
@@ -137,6 +153,8 @@
 {% block javascript %}
   <script>
    $(document).ready(function(){
+        $('#campaign_threshold').hide();
+        $('#reward_dets').hide();
         var maxDescLength = 30;
         document.getElementById("summary_count").innerHTML="30 words remaining";
         $(function () {
@@ -163,6 +181,17 @@
         });
         $('#short_description').bind("paste",function(e) {
              e.preventDefault();
+        });
+        $('#campaign_types').on("change",function(e) {
+            var selection = $(this).val();
+            if(selection == "REWARD BASED"){
+                $('#campaign_threshold').show();
+                $('#reward_dets').show();
+            }else{
+                $('#campaign_threshold').hide();
+                $('#reward_dets').hide();
+            }
+
         });
    });
   </script>

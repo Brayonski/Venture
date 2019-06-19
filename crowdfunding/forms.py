@@ -19,6 +19,9 @@ class CreateCampaignForm(ModelForm):
             "campaign_image": "Campaign Thumbnail / Image",
             "short_description": "Short Description",
             "long_description": "Long Description",
+            "campaign_type": "Campaign Type",
+            "campaign_reward_threshold": "Campaign Reward Threshold",
+            "campaign_reward_details": "Campaign Reward Details",
         }
 
     sector = forms.ModelChoiceField(queryset=CampaignSector.objects.all(), required=True,label='Campaign Sector',widget=Select2Widget)

@@ -135,6 +135,10 @@ def make_payment(request):
     campaign_selected = Campaign.objects.get(id=request.POST['campaign_id'])
     payment = CampaignPayment(campaign=campaign_selected,created_at=timezone.now(),donator=request.user,amount=request.POST['amount'],payment_method=request.POST['payment_method'],payment_status='INITIATED',paid=False,comments=request.POST['comments'],allow_visibility=request.POST['allow_visibility'])
     payment.save()
+    if campaign_selected.campaign_type == "REWARD BASED":
+        if request.POST['amount'] >= campaign_selected.campaign_reward_threshold:
+            create_reward = CampaignReward(campaign=campaign_selected,payment=payment,created_at=timezone.now(),rewarded_user=request.user,reward=campaign_selected.campaign_reward_details,reward_status="PENDING")
+            create_reward.save()
     template = loader.get_template('crowdfunding/investor/index.html')
     campaign_data = Campaign.objects.filter(campaign_status='APPROVED')
     campaign_sectors = CampaignSector.objects.all()

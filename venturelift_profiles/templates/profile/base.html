@@ -52,7 +52,16 @@
                   Partners
                 </a>
               </li>
-
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn">Funders</button>
+                  <div class="dropdown-content">
+                      <a href="{% url 'investor_list' %}">Investor</a>
+                      <a href="{% url 'crowdfunding:index' %}">Crowdfunder</a>
+                      <a href="#">Lender</a>
+                  </div>
+                </div>
+              </li>
               <li>
                 <div class="dropdown">
                   <button class="dropbtn">Funders</button>
