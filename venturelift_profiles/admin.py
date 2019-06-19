@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 from venturelift_profiles.models import *
+from venturelift_profiles.tasks import *
+from django.conf import settings
 
 
 class BusinessAdmin(admin.ModelAdmin):
@@ -150,6 +152,38 @@ class BusinessGoalsAdmin(admin.ModelAdmin):
         return obj.company_name.name
 
 
+class BusinessConnectRequestAdmin(admin.ModelAdmin):
+    search_fields = ['business__name']
+    list_display = ['investor','business', 'created_at', 'approval_status']
+    readonly_fields = ["investor", "business", "created_at"]
+    exclude = ['approved_by','rejected_by','approved','rejected']
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    def save_model(self, request, obj, form, change):
+        if getattr(obj, 'approved') is False and getattr(obj, 'rejected') is False:
+            if form.cleaned_data['approval_status'] == "APPROVE":
+                obj.approved = True
+                obj.approved_by = request.user
+                obj.save()
+            elif form.cleaned_data['approval_status'] == "REJECT":
+                obj.rejected = True
+                obj.rejected_by = request.user
+                obj.save()
+                subject, from_email, to = 'Business Connection Approval Notification', settings.EMAIL_HOST_USER, request.user.email
+                send_investor_approved_connect_email_task.delay(obj.business.name, obj.investor.username,
+                                                               subject, from_email, to)
+
+class TrackingUserAdmin(admin.ModelAdmin):
+    search_fields = ['user_details__email']
+    list_display = ['user_details','user_email','action_name', 'access_time']
+    list_display_links = None
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+
 admin.site.register(Business, BusinessAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Supporter, SupporterAdmin)
@@ -164,3 +198,5 @@ admin.site.register(BusinessInvestment, BusinessInvestmentAdmin)
 admin.site.register(BusinessGoals, BusinessGoalsAdmin)
 admin.site.register(Investor, InvestorAdmin)
 admin.site.register(InvestorProfile, InvestorProfileAdmin)
+admin.site.register(BusinessConnectRequest, BusinessConnectRequestAdmin)
+admin.site.register(TrackingUser, TrackingUserAdmin)

@@ -27,6 +27,7 @@ class CreateBlogForm(ModelForm):
         exclude = ['date', 'likes', 'supporter_author', 'investor_author', "company"]
 
         labels = {
+            "blog_type": "Blog Type",
             "file_name": "PDF Document to share",
             "title": "Subject",
             "body": "Description",

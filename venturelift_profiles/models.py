@@ -137,6 +137,18 @@ FUNDING_SOURCES = (
     ('personal loans', 'personal loans'),
 )
 
+BLOG_TYPES = (
+    ('Corporate', 'Corporate'),
+    ('Business Plans', 'Business Plans'),
+    ('Financial Reports', 'Financial Reports'),
+)
+
+APPROVAL_STATUS = (
+    ('APPROVE', 'APPROVE'),
+    ('REJECT', 'REJECT'),
+    ('PENDING', 'PENDING'),
+)
+
 
 YEAR_CHOICES = []
 for r in range(1960, (datetime.datetime.now().year+1)):
@@ -408,6 +420,7 @@ class InvestorProfile(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=250)
     body = models.TextField()
+    blog_type = models.CharField(max_length=100, choices=BLOG_TYPES, default="Corporate")
     company = models.ForeignKey(Business, null=True, blank=True)
     supporter_author = models.ForeignKey(
         Supporter, null=True, blank=True, related_name='author_supporter')
@@ -430,9 +443,30 @@ class BusinessConnectRequest(models.Model):
     business = models.ForeignKey(Business, related_name='business_to_follow')
     created_at = models.DateTimeField('request date',null=True)
     investor = models.ForeignKey(User, related_name='follow_requester')
+    approval_status = models.CharField(max_length=100, choices=APPROVAL_STATUS, default="PENDING", null=True,
+                                       blank=True)
+    approved = models.BooleanField(default=False)
+    approved_by = models.ForeignKey(User, related_name='connection_approver', null=True, blank=True)
+    rejected = models.BooleanField(default=False)
+    rejected_by = models.ForeignKey(User, related_name='conection_rejector', null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Business Connect Request'
 
     def __str__(self):
-        return self.business
+        return self.business.name
+
+
+class TrackingUser(models.Model):
+    user_details = models.ForeignKey(User, related_name='logged_in_user')
+    access_time = models.DateTimeField('system access date')
+    action_name = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name_plural = 'Tracking Logins'
+
+    def __str__(self):
+        return self.user_details.email
+
+    def user_email(self):
+        return self.user_details.email

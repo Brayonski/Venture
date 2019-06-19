@@ -32,7 +32,7 @@ class CampaignConfigurationAdmin(admin.ModelAdmin):
 class CampaignAdmin(admin.ModelAdmin):
     list_display = ('campaign_name', 'sector', 'campaign_owner','target_amount','total_funds_received','duration','campaign_status')
     list_filter = ['created_at','sector','campaign_owner']
-    search_fields = ['sector','campaign_owner']
+    search_fields = ['campaign_name']
     readonly_fields = ["campaign_status","created_at","total_funds_received","funds_disbursement_status","campaign_owner","approved_by","rejected_by"]
     exclude = ['approved','rejected']
 
@@ -58,7 +58,7 @@ class CampaignAdmin(admin.ModelAdmin):
 
 
 class CampaignPaymentAdmin(admin.ModelAdmin):
-    search_fields = ['campaign']
+    search_fields = ['campaign__campaign_name']
     list_display = ['created_at','campaign', 'donator','amount','payment_method', 'payment_status']
     list_display_links = None
 
@@ -67,7 +67,7 @@ class CampaignPaymentAdmin(admin.ModelAdmin):
 
 
 class CampaignDisbursementAdmin(admin.ModelAdmin):
-    search_fields = ['campaign']
+    search_fields = ['campaign__campaign_name']
     list_display = ['created_at','campaign', 'amount', 'recipient', 'disbursement_type', 'disbursement_status']
     readonly_fields = ["campaign", "created_at", "campaign_target", "disbursement_status", "approved_by", "rejected_by", "campaign_duration"]
     exclude = ['approved', 'rejected']
@@ -99,7 +99,7 @@ class CampaignDisbursementAdmin(admin.ModelAdmin):
                 send_actioned_campaign_email_task.delay(obj.campaign_name, obj.id, subject, from_email, to, "rejected")
 
 class CampaignRewardAdmin(admin.ModelAdmin):
-    search_fields = ['campaign']
+    search_fields = ['campaign__campaign_name']
     list_display = ['created_at','campaign', 'rewarded_user', 'reward', 'reward_status']
     readonly_fields = ["campaign", "rewarded_user", "reward", "created_at"]
     exclude = ['payment']
