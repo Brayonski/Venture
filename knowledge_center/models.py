@@ -10,6 +10,7 @@ from filer.fields.image import FilerImageField
 from newsletter_subscription.models import SubscriptionBase
 from django.conf import settings
 from venturelift_cms.tasks import send_notification
+from videomembership.models import Membership
 
 AUDIOVISUALCHOICES = (
     ("Podcast", "Podcast"),
@@ -39,6 +40,7 @@ class DocumentCategory(models.Model):
 
 class VideoCategory(models.Model):
     """Video Category"""
+    slug = models.SlugField(default="")
     title = models.CharField(max_length=50)
     author = models.ForeignKey(User, related_name="video_category_user")
     date = models.DateTimeField(auto_now_add=True)
@@ -74,6 +76,7 @@ class TextCenter(models.Model):
 
 class AudioVisual(models.Model):
     title = models.CharField(max_length=100)
+    slug = models.CharField(max_length=120)
     date = models.DateTimeField(auto_now_add=True)
     path = models.TextField()
     author = models.ForeignKey(User, related_name="videouser_manager")
@@ -84,6 +87,10 @@ class AudioVisual(models.Model):
     payment_status = models.CharField(
         max_length=100, choices=PAYMENTSTATUS, default="free", help_text="Payment Required", verbose_name='Payment Required?')
     description = fields.HTMLField(default="")
+    video_url = models.CharField(max_length=200)
+    thumbnail = models.ImageField()
+    allowed_memberships = models.ManyToManyField(Membership)
+    youtube_url = models.CharField(max_length=200)
 
     def __str__(self):
         return self.title

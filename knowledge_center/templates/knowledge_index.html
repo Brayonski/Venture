@@ -12,13 +12,6 @@
 		</div>
 		<div>
 			<ul class="nav nav-pills nav-justified">
-				<li class="active"><a href="#">Documents & Reports</a></li>
-				<li><a href="{% url 'knowledge_center_video_home' %}">Videos</a></li>
-			</ul>
-		</div>
-		<div class="tab-content">
-
-			<ul class="nav nav-pills">
 				{% if object_list %}
 				{% url 'knowledge_center_home' as  knowledge_center_home %}
 				<li class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}"><a
@@ -32,7 +25,11 @@
 				</li>
 				{% endif %}
 				{% endfor %}
+
+				<li><a href="{% url 'knowledge_center_video_home' %}">Videos</a></li>
 			</ul>
+		</div>
+		<div class="tab-content">
 
 			<div id="home" class="tab-pane fade in active">
 				<div class="row clearfix">
