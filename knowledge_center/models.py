@@ -76,7 +76,7 @@ class TextCenter(models.Model):
 
 class AudioVisual(models.Model):
     title = models.CharField(max_length=100)
-    slug = models.CharField(max_length=120)
+    slug = models.CharField(max_length=120, blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
     path = models.TextField()
     author = models.ForeignKey(User, related_name="videouser_manager")
@@ -87,10 +87,11 @@ class AudioVisual(models.Model):
     payment_status = models.CharField(
         max_length=100, choices=PAYMENTSTATUS, default="free", help_text="Payment Required", verbose_name='Payment Required?')
     description = fields.HTMLField(default="")
-    video_url = models.CharField(max_length=200)
-    thumbnail = models.ImageField()
-    allowed_memberships = models.ManyToManyField(Membership)
-    youtube_url = models.CharField(max_length=200)
+    video_url = models.CharField(max_length=200, blank=True, null=True)
+    thumbnail = models.ImageField(blank=True, null=True)
+    allowed_memberships = models.ManyToManyField(
+        Membership, blank=True, null=True)
+    youtube_url = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         return self.title

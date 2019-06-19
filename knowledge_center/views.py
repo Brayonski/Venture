@@ -66,6 +66,8 @@ class VideoFilterView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super(VideoFilterView, self).get_context_data(**kwargs)
         context['video_type'] = VideoCategory.objects.filter(published=True)
+        context['document_type'] = DocumentCategory.objects.filter(
+            published=True)
         return context
 
     def get_queryset(self, **kwargs):
