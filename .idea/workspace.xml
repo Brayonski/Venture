@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="63775d04-ee63-40b5-9b92-96f47de827ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/celerybeat.pid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venturelift_profiles/templates/django_registration/activation_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_profiles/templates/django_registration/activation_complete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venturelift_profiles/templates/django_registration/activation_email_body.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_profiles/templates/django_registration/activation_email_body.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venturelift_profiles/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_profiles/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venturelift_profiles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_profiles/views.py" afterDir="false" />
     </list>
     <ignored path="celerybeat-schedule" />
@@ -30,23 +29,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+            <state relative-caret-position="345">
+              <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/django_registration/activation_email_body.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="41" lean-forward="true" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -55,8 +45,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Donation date</find>
-      <find>&lt;&lt;&lt;</find>
       <find>campaign_target</find>
       <find>CreateBlogPostView</find>
       <find>new-blog-post</find>
@@ -85,12 +73,14 @@
       <find>activate</find>
       <find>registration</find>
       <find>success</find>
+      <find>login_override</find>
+      <find>audio</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/venturelift_cms</dir>
       <dir>$PROJECT_DIR$/crowdfunding</dir>
-      <dir>$PROJECT_DIR$</dir>
       <dir>$PROJECT_DIR$/venturelift_profiles</dir>
+      <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -99,7 +89,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/crowdfunding/emails.py" />
         <option value="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/index.html" />
         <option value="$PROJECT_DIR$/crowdfunding/urls.py" />
@@ -144,12 +133,13 @@
         <option value="$PROJECT_DIR$/venturelift_profiles/models.py" />
         <option value="$PROJECT_DIR$/crowdfunding/admin.py" />
         <option value="$PROJECT_DIR$/venturelift_profiles/admin.py" />
-        <option value="$PROJECT_DIR$/venturelift_cms/settings.py" />
         <option value="$PROJECT_DIR$/videomembership/models.py" />
         <option value="$PROJECT_DIR$/venturelift_cms/views.py" />
         <option value="$PROJECT_DIR$/venturelift_profiles/urls.py" />
-        <option value="$PROJECT_DIR$/venturelift_profiles/views.py" />
+        <option value="$PROJECT_DIR$/venturelift_cms/settings.py" />
+        <option value="$PROJECT_DIR$/venturelift_profiles/templates/django_registration/activation_complete.html" />
         <option value="$PROJECT_DIR$/venturelift_profiles/templates/django_registration/activation_email_body.txt" />
+        <option value="$PROJECT_DIR$/venturelift_profiles/views.py" />
       </list>
     </option>
   </component>
@@ -174,25 +164,17 @@
             <path>
               <item name="venturelift" type="b2602c69:ProjectViewProjectNode" />
               <item name="venturelift" type="462c0819:PsiDirectoryNode" />
-              <item name="crowdfunding" type="462c0819:PsiDirectoryNode" />
+              <item name="knowledge_center" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="venturelift" type="b2602c69:ProjectViewProjectNode" />
               <item name="venturelift" type="462c0819:PsiDirectoryNode" />
-              <item name="venturelift_profiles" type="462c0819:PsiDirectoryNode" />
+              <item name="venturelift_cms" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="venturelift" type="b2602c69:ProjectViewProjectNode" />
               <item name="venturelift" type="462c0819:PsiDirectoryNode" />
-              <item name="venturelift_profiles" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="venturelift" type="b2602c69:ProjectViewProjectNode" />
-              <item name="venturelift" type="462c0819:PsiDirectoryNode" />
-              <item name="venturelift_profiles" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="django_registration" type="462c0819:PsiDirectoryNode" />
+              <item name="videomembership" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -269,13 +251,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venturelift_cms/static/js/moment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2669">
-          <caret line="4601" column="5" selection-start-line="4601" selection-start-column="5" selection-end-line="4601" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venturelift_cms/static/js/bootstrap-3.3.7.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -589,16 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_cms/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="233" column="23" selection-start-line="233" selection-start-column="23" selection-end-line="233" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crowdfunding/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -618,9 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/django_registration/activation_complete.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/django_registration/registration_complete.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -635,16 +597,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venturelift_profiles/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -655,10 +607,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/django_registration/activation_email_body.txt">
+    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/django_registration/activation_complete.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="41" lean-forward="true" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/django_registration/activation_email_body.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venturelift_cms/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="163" column="42" selection-start-line="163" selection-start-column="42" selection-end-line="163" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/knowledge_center/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="90" column="22" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
