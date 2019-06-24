@@ -15,7 +15,15 @@ from venturelift_profiles.forms import *
 from django.core.urlresolvers import reverse
 from django.views.generic.edit import CreateView, UpdateView, FormMixin
 from venturelift_profiles.tasks import *
+from django_registration.backends.activation.views import ActivationView
 
+class ProfileActivationView(ActivationView):
+    def activate(self, *args, **kwargs):
+        username = self.validate_key(kwargs.get('activation_key'))
+        user = self.get_user(username)
+        user.is_active = True
+        user.save()
+        return user
 
 class SummaryView(LoginRequiredMixin, TemplateView):
     template_name = 'profile/home.html'
