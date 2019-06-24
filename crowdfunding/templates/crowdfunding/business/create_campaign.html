@@ -101,11 +101,15 @@
                                                  </div>
 
                                                  <div class="form-group" id="campaign_threshold">
-                                                       {{ form.campaign_reward_threshold|as_crispy_field }}
+                                                       <!--{{ form.campaign_reward_threshold|as_crispy_field }}-->
+                                                     <label for="target_amount"> Campaign Reward Threshold* </label>
+                                                     <input class="form-control" name="campaign_reward_threshold" type="number" novalidate>
                                                  </div>
 
                                                  <div class="form-group" id="reward_dets">
-                                                       {{ form.campaign_reward_details|as_crispy_field }}
+                                                       <!--{{ form.campaign_reward_details|as_crispy_field }}-->
+                                                     <label for="target_amount"> Campaign Reward Details </label>
+                                                     <textarea rows="2" name="campaign_reward_details" class="form-control" novalidate></textarea>
                                                  </div>
 
                                                 <div class="form-group" align="center">
