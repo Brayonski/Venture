@@ -531,7 +531,13 @@ class UpdateBusinessView(LoginRequiredMixin, UpdateView):
                 invest.save()
                 obj = BusinessInvestment.objects.filter(company_name=business).first()
         if current_url == 'update_business_step7':
-            obj = BusinessGoals.objects.get(company_name=business)
+            obj = ''
+            if BusinessGoals.objects.filter(company_name=business).exists():
+                obj = BusinessGoals.objects.filter(company_name=business).first()
+            else:
+                invest = BusinessGoals(company_name=business)
+                invest.save()
+                obj = BusinessGoals.objects.filter(company_name=business).first()
         return obj
 
     def form_valid(self, form):
