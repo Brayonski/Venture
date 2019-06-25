@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^profile/$', views.SummaryView.as_view(), name='profile_summary'),
     url(r'^supporter/list/$', views.SupporterView.as_view(), name='supporter_list'),
+    url(r'^supporter/list/filter/(?P<supporter_type>\w+)/$', views.SupporterFilterView.as_view(), name='supporter_filter'),
     url(r'^business/list/$', views.BusinessView.as_view(), name='business_list'),
     url(r'^business/list/startup/$', views.BusinessStartupView.as_view(), name='business_startup'),
     url(r'^business/list/smes/$', views.BusinessSMEView.as_view(), name='business_smes'),

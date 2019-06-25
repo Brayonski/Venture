@@ -161,7 +161,62 @@ class SupporterView(LoginRequiredMixin, ListView, FormMixin):
                 unfollow(self.request.user, Supporter.objects.get(
                     id=self.kwargs['pk']))
         context['following'] = following(self.request.user)
+
         return context
+
+class SupporterFilterView(LoginRequiredMixin, ListView, FormMixin):
+    template_name = 'profile/supporter/supporters_filter.html'
+    queryset = Supporter.objects.filter(verified=True)
+    form_class = SupporterFilters
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            if request.POST.get('supporter-name'):
+                fullname = request.POST.get('supporter-name').split(' ')
+                if len(fullname) >= 2:
+                    last_name = fullname[1]
+                else:
+                    last_name = request.POST.get('supporter-name')
+                first_name = fullname[0]
+
+                supporter = Supporter.objects.filter((Q(
+                    user__first_name__icontains=first_name) | Q(user__last_name__icontains=last_name)), verified=True)
+            else:
+                supporter = Supporter.objects.filter(verified=True)
+                if form.cleaned_data['profession']:
+                    supporter = supporter.filter(
+                        supporter_profile__professional_support=form.cleaned_data['profession'])
+                if form.cleaned_data['size']:
+                    supporter = supporter.filter(
+                        supporter_profile__interest_startups__in=form.cleaned_data['size'])
+                if form.cleaned_data['countries']:
+                    supporter = supporter.filter(
+                        supporter_profile__interest_countries__in=form.cleaned_data['countries']
+                    )
+            return render(request, self.template_name, {'object_list': supporter, 'form': form, 'following': following(self.request.user)})
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated() and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
+            return redirect(reverse('profile_create'))
+        return super(SupporterFilterView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(SupporterFilterView, self).get_context_data(*args, **kwargs)
+        current_url = resolve(self.request.path_info).url_name
+        if 'pk' in self.kwargs:
+            if current_url == 'supporter_follow':
+                follow(self.request.user, Supporter.objects.get(
+                    id=self.kwargs['pk']))
+            if current_url == 'supporter_unfollow':
+                unfollow(self.request.user, Supporter.objects.get(
+                    id=self.kwargs['pk']))
+        context['following'] = following(self.request.user)
+        supporterType = self.kwargs['supporter_type']
+        context['object_list'] = SupporterProfile.objects.filter(supporter_interest=supporterType)
+
+        return context
+
 
 
 class InvestorView(LoginRequiredMixin, ListView, FormMixin):
