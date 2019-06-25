@@ -39,12 +39,12 @@
             <figure class="box_details">
               <p class="box_title"><a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a></p>
               <div class="box_social">
-                {% if obj in following %}
-                <a href="{% url 'investor_unfollow' obj.id %}"><button
-                    class="btn-actioned btn btn-sm btn-default">Following</button></a>
-                {% else %}
-                <a href="{% url 'investor_follow' obj.id %}"><button class=" btn btn-sm btn-default">Follow</button></a>
-                {% endif %}
+                <!--{% if obj in following %}-->
+                <!--<a href="{% url 'investor_unfollow' obj.id %}"><button-->
+                    <!--class="btn-actioned btn btn-sm btn-default">Connected</button></a>-->
+                <!--{% else %}-->
+                <!--<a href="{% url 'investor_follow' obj.id %}"><button class=" btn btn-sm btn-default">Follow</button></a>-->
+                <!--{% endif %}-->
               </div>
             </figure>
           </div>
