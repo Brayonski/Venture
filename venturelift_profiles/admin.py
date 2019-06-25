@@ -183,6 +183,16 @@ class TrackingUserAdmin(admin.ModelAdmin):
     def has_add_permission(self, request, obj=None):
         return False
 
+class AllSystemUserAdmin(admin.ModelAdmin):
+    search_fields = ['email']
+    list_display = ['created_at','username', 'email','user_type']
+    list_display_links = None
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+
+
 
 admin.site.register(Business, BusinessAdmin)
 admin.site.register(Post, PostAdmin)
@@ -200,3 +210,4 @@ admin.site.register(Investor, InvestorAdmin)
 admin.site.register(InvestorProfile, InvestorProfileAdmin)
 admin.site.register(BusinessConnectRequest, BusinessConnectRequestAdmin)
 admin.site.register(TrackingUser, TrackingUserAdmin)
+admin.site.register(AllSystemUser, AllSystemUserAdmin)

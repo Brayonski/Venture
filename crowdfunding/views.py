@@ -7,7 +7,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 
 from crowdfunding.forms import *
 from .models import Campaign, CampaignSector
-from venturelift_profiles.models import Business
+from venturelift_profiles.models import Business,AllSystemUser
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView, ListView, FormView, DetailView
 from django.core.urlresolvers import resolve
@@ -259,6 +259,11 @@ def crowdfunder_make_payment(request):
     template = loader.get_template('crowdfunding/investor/crowdfunder_index.html')
     campaign_data = Campaign.objects.filter(campaign_status='APPROVED')
     campaign_sectors = CampaignSector.objects.all()
+
+    checkUser = AllSystemUser.objects.filter(email=request.POST['donator_email']).exists()
+    if checkUser is False:
+        createUser = AllSystemUser(created_at=timezone.now(),username=request.POST['donator_email'],email=request.POST['donator_email'],user_type='Crowdfunder')
+        createUser.save()
 
     context = {
         'campaign_list': campaign_data,
