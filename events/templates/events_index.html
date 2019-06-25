@@ -78,7 +78,7 @@
                   </figure>
                   <div class="event_content">
                     <h4 class="event_title">
-                      <a href="{% url 'event_view_content' obj.id %}">{{ obj.title|upper }}</a>
+                      <a href="{% url 'event_view_content' obj.id %}">{{ obj.title }}</a>
                     </h4>
                     <div class="event_action">
                       {% is_attendee obj as is_in_attendee_list %}

@@ -1813,6 +1813,7 @@ ul.event_titles {
 }
 ul.event_titles li {
     display: inline-block;
+    max-width: 60%;
 }
 li.e-title_2 {
     float: right;
@@ -1851,16 +1852,23 @@ form.url_changer {
 figure.event_image {
     min-height: 220px;
 }
+h4.event_title a {
+    color: #293991;
+}
+h4.event_title a:hover {
+    color: #a5a5a5;
+}
 h4.event_title {
     min-height: 40px;
-    color: #000 !important;
     font-size: 1.4em;
     font-weight: 600;
-    opacity: 1.0 !important;
 }
 .event_meta {
     margin-top: 10px;
     /* text-transform: uppercase; */
     font-size: .85em;
     color: #636363;
+}
+.single_event_content {
+    margin: 30px 0px;
 }

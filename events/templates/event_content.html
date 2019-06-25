@@ -5,32 +5,78 @@
 {% block content %}
 {% if content.published %}
 
-<div class="single_event full_A">
+<div class="single_event_in full_A">
+
+  <nav id="navbar_out_2" class="navbar navbar-default_media">
+      <div class="top_container container">    
+          <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
+              {% url 'events_home' as  events_home %}
+              <ul class="event_titles">
+                <li class="active e-title_1"><h1>{{ content.title }}</h1></li>
+                <li class="e-title_2">
+                  <form class="url_changer url_changer1">
+                    <select id="select" class="select">
+                      <option value="{% url 'events_home' %}">VLA Events</option>
+                      <option value="{% url 'network_events' %}">Network Events</option>
+                    </select>
+                  </form>  
+
+                  <form class="url_changer url_changer2">
+                    <select id="select2" class="select">
+                      
+                        <option class="{% ifequal request.path events_home %}active{% endifequal %}" value="{% url 'events_home' %}">All</option>
+                      
+                      {% for type in event_type %}
+                        {% if type.events_set.count >= 1 %}
+                        {% url 'event_view_content_filter' type.id as event_view_content_filter %}
+                        <option class="{% ifequal request.path event_view_content_filter %}active{% endifequal %}" value="{% url 'event_view_content_filter' type.id %}">{{type.title}}
+                        </option>
+                        {% endif %}
+                      {% endfor %}                                         
+                    </select>
+                  </form>                                   
+              </ul>
+          </div>
+      </div>
+  </nav>
+
   <div class="container single_post_container">
-    <span class="actions">
-      {% url 'event_view_content' content.id as  event_view_content %}
-      {% if request.path == event_view_content %}
-      {% is_attendee content as is_in_attendee_list %}
-      <a href="{% url 'events_home' %}" class="btn btn-primary">Back</a>
-      {% if is_in_attendee_list == True %}
-      <a class="btn btn-warning" href="{% url 'event_register' content.id %}">Register</a>
-      {% else %}
-      <a class="btn btn-success" href="#">
-        <ion-icon name="star"></ion-icon> Registered
-      </a>
-      {% endif %}
-      {% else %}
-      <a href="{% url 'network_events' %}" class="btn btn-primary">Back</a>
-      {% if content.registration_required == 'YES'%}
-      <a class="btn btn-warning" href="{{ obj.registration_url }}" target="_blank">Register</a>
-      {% endif %}
-      {% endif %}
-    </span>
 
     <div class="row clearfix">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="single_header">
-          <h1 class="style_D">{{ content.title|upper }}</h1>
+      <div class="single_event_main col-md-8 clearfix">
+          {% if content.event_banner %}
+            <div class="single_event_image">
+              <img src="{{ content.event_banner.url }}" width="" height="">
+            </div>  
+          {% endif %} 
+
+          <div class="single_event_content">
+            {{content.description}}              
+          </div>     
+      </div>
+      <div class="single_event_side col-md-4 clearfix">
+
+        <div class="single_event_actions">
+          {% url 'event_view_content' content.id as  event_view_content %}
+          {% if request.path == event_view_content %}
+          {% is_attendee content as is_in_attendee_list %}
+          <!--<a href="{% url 'events_home' %}" class="btn btn-primary">Back</a>-->
+          {% if is_in_attendee_list == True %}
+          <a class="btn btn-lg btn-primary" href="{% url 'event_register' content.id %}">Register</a>
+          {% else %}
+          <a class="btn btn-lg btn-success" href="#">
+            <ion-icon name="star"></ion-icon> Registered
+          </a>
+          {% endif %}
+          {% else %}
+          <!--<a href="{% url 'network_events' %}" class="btn btn-primary">Back</a>-->
+          {% if content.registration_required == 'YES'%}
+          <a class="btn btn-warning" href="{{ obj.registration_url }}" target="_blank">Register</a>
+          {% endif %}
+          {% endif %}
+        </div>
+
+        <div class="single_event_meta">
           <p class="meta">
             <span>
               <i class="fa fa-tags" aria-hidden="true"></i> {{ content.category}}
@@ -46,33 +92,21 @@
           </p>
         </div>
 
-        <div class="card">
-          <div class="card-body">
-            <div class="card_content">
-              <h2>Event Description</h2>
-              {{content.description}}
-            </div>
-            {% if content.event_banner %}
-            <div class="card_content">
-              <img src="{{ content.event_banner.url }}" width="750" height="500">
-            </div>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2 clearfix">
         <p class="card-text">Recommended Events</p>
         {% for event in recommended %}
         {% if event.id != event.id %}
         <h5>
           <a class="card-text" href="{% url 'event_view_content' read.id %}">
-            {{ event.title|upper }}
+            {{ event.title }}
           </a>
         </h5>
         {% endif %}
         {% endfor %}
-      </div>
+      </div>  
     </div>
+
+
+
   </div>
   {% else %}
   <div class="container single_post_container">
