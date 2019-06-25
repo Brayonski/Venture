@@ -227,56 +227,5 @@ def crowdfunder_make_payment(request):
         'campaign_sectors': campaign_sectors,
         'message': 'Payment Initiated For Campaign '+campaign_selected.campaign_name+'. Please Check Your Phone For The STK-Push'
     }
-    #send_mpesa_stk_task.delay(request.POST['donator_phoneno'],request.POST['amount'])
-    try:
-        get_mpesa_token(request.POST['donator_phoneno'],request.POST['amount'])
-    except:
-        print("There is an issue")
+    send_mpesa_stk_task.delay(request.POST['donator_phoneno'],request.POST['amount'])
     return HttpResponse(template.render(context, request))
-
-
-def get_mpesa_token(phone,amount):
-    myDate = datetime.now()
-    formatedDate = myDate.strftime("%Y%m%d%H%M%S")
-    template = loader.get_template('crowdfunding/investor/mpesa.html')
-    consumer_key = "G4fR8iS27KSOwAJ5eOtRq0MFdwDVbwau"
-    consumer_secret = "BrPh8l8ZbpCQAoUt"
-    api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
-
-    responseToken = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
-    responseTokenData = json.loads(responseToken.text)
-    accessToken = responseTokenData["access_token"]
-    shortCode = "174379"
-    passKey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"
-    passwordMpesa = shortCode+passKey+formatedDate
-    encodedBytes = base64.b64encode(passwordMpesa.encode("utf-8"))
-    encodedStr = str(encodedBytes).encode("utf-8")
-    checkoutResponse = ''
-
-    if accessToken is not None:
-        access_token = accessToken
-        api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
-        headers = {"Authorization": "Bearer %s" % access_token}
-        request = {
-            "BusinessShortCode": shortCode,
-            "Password": encodedStr,
-            "Timestamp": formatedDate,
-            "TransactionType": "CustomerPayBillOnline",
-            "Amount": amount,
-            "PartyA": phone,
-            "PartyB": shortCode,
-            "PhoneNumber": phone,
-            "CallBackURL": "http://http://52.37.84.193:8081/crowdfunding/mpesa_checkout_response",
-            "AccountReference": "ACCOUNT01",
-            "TransactionDesc": "VENTURELIFTDONATION"
-        }
-
-        response = requests.post(api_url, json=request, headers=headers)
-        checkoutResponse = json.dumps(response.text)
-
-    # context = {
-    #     'tokendata': checkoutResponse,
-    # }
-    # return HttpResponse(template.render(context, request))
-    return "STK SENT"
-
