@@ -385,8 +385,8 @@ class InvestorUpdateProfileView(LoginRequiredMixin, UpdateView):
             context["step1"] = True
         if current_url == 'update_investor_step2':
             context["step2"] = True
-        context['investor'] = Investor.objects.get(
-            user=self.request.user)
+        context['investor'] = Investor.objects.filter(
+            user=self.request.user).first()
         return context
 
 
