@@ -199,7 +199,6 @@ class InvestorCreateForm(forms.ModelForm):
             "role": "My role at the company?",
             "company_location": "Where are the company's main operations based?",
             "company_registration_year": "Year of company registration?",
-            "year_operation": "Year company commenced operations?",
             "thumbnail_image": "Profile Image"
         }
 
