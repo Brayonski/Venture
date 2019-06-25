@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63775d04-ee63-40b5-9b92-96f47de827ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/venturelift_profiles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_profiles/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venturelift_profiles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_profiles/models.py" afterDir="false" />
     </list>
     <ignored path="celerybeat-schedule" />
     <ignored path="celerybeat.pid" />
@@ -26,11 +26,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="338">
-              <caret line="290" column="70" selection-start-line="290" selection-start-column="70" selection-end-line="290" selection-end-column="70" />
+              <caret line="290" column="34" selection-start-line="290" selection-start-column="20" selection-end-line="290" selection-end-column="34" />
+              <folding>
+                <element signature="e#24#63#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/venturelift_profiles/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="360" column="18" selection-start-line="360" selection-start-column="18" selection-end-line="360" selection-end-column="18" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -54,7 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>/login</find>
       <find>Dear</find>
       <find>Registration</find>
       <find>registration/</find>
@@ -84,6 +95,7 @@
       <find>Investor(</find>
       <find>ye</find>
       <find>year_oper</find>
+      <find>Investor</find>
     </findStrings>
     <replaceStrings>
       <replace>http://52.37.84.193:8081</replace>
@@ -125,7 +137,6 @@
         <option value="$PROJECT_DIR$/venturelift_profiles/emails.py" />
         <option value="$PROJECT_DIR$/venturelift_profiles/tasks.py" />
         <option value="$PROJECT_DIR$/venturelift_cms/templates/base.html" />
-        <option value="$PROJECT_DIR$/venturelift_profiles/models.py" />
         <option value="$PROJECT_DIR$/crowdfunding/admin.py" />
         <option value="$PROJECT_DIR$/venturelift_profiles/admin.py" />
         <option value="$PROJECT_DIR$/videomembership/models.py" />
@@ -152,6 +163,7 @@
         <option value="$PROJECT_DIR$/crowdfunding/tasks.py" />
         <option value="$PROJECT_DIR$/venturelift_profiles/forms.py" />
         <option value="$PROJECT_DIR$/venturelift_profiles/views.py" />
+        <option value="$PROJECT_DIR$/venturelift_profiles/models.py" />
       </list>
     </option>
   </component>
@@ -629,10 +641,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/models.py">
+    <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="44" column="33" lean-forward="true" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="33" />
+        <state relative-caret-position="338">
+          <caret line="290" column="34" selection-start-line="290" selection-start-column="20" selection-end-line="290" selection-end-column="34" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
@@ -649,10 +661,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
+    <entry file="file://$PROJECT_DIR$/venturelift_profiles/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="290" column="70" selection-start-line="290" selection-start-column="70" selection-end-line="290" selection-end-column="70" />
+        <state relative-caret-position="429">
+          <caret line="360" column="18" selection-start-line="360" selection-start-column="18" selection-end-line="360" selection-end-column="18" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>

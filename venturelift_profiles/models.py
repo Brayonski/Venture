@@ -358,6 +358,8 @@ class Investor(models.Model):
         max_length=250, blank=True, null=True)
     company_registration_year = models.IntegerField(
         choices=YEAR_CHOICES)
+    year_operation = models.IntegerField(
+        choices=YEAR_CHOICES)
     verified = models.BooleanField(default=False)
     verified_by = models.ForeignKey(
         User, related_name='investor_verifier', null=True, blank=True)
