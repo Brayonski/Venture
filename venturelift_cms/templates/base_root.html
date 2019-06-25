@@ -12,6 +12,7 @@
   <!-- Bootstrap core CSS -->
   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/menu-dropdown.css' %}" rel="stylesheet">
   {% render_block "css" %}
 </head>
 
@@ -36,8 +37,26 @@
         <div class="vl_top_top navbar-right">
           <ul class="in_line">
             <li class="active"><a href="/">Home</a></li>
-            <li><a href="{% url 'registration_in' %}">Business</a></li>
-            <li><a href="{% url 'registration_in' %}">Funder</a></li>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Business</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'registration_in' %}">Startup</a>
+                    <a href="{% url 'registration_in' %}">SMEs</a>
+                </div>
+              </div>
+            </li>
+            <!--<li><a href="{% url 'registration_in' %}">Funder</a></li>-->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Funders</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'registration_in' %}">Investor</a>
+                    <a href="{% url 'crowdfunding:crowdfunderindex' %}" target="_blank">Crowdfunder</a>
+                    <a href="{% url 'registration_in' %}">Lender</a>
+                </div>
+              </div>
+            </li>
             <li><a href="{% url 'registration_in' %}">Partner</a></li>
             <li><a href="{%url 'knowledge_center_home' %}">Knowledge Center</a></li>
             <li><a href="/en/media">VLA Media</a></li>
