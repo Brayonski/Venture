@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63775d04-ee63-40b5-9b92-96f47de827ab" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/venturelift_profiles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_profiles/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venturelift_profiles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_profiles/views.py" afterDir="false" />
     </list>
     <ignored path="celerybeat-schedule" />
@@ -42,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
-              <caret line="294" column="82" selection-start-line="294" selection-start-column="82" selection-end-line="294" selection-end-column="82" />
+              <caret line="294" column="63" selection-start-line="294" selection-start-column="63" selection-end-line="294" selection-end-column="63" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -53,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venturelift_profiles/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="271" column="52" selection-start-line="271" selection-start-column="52" selection-end-line="271" selection-end-column="52" />
+            <state relative-caret-position="333">
+              <caret line="270" column="65" selection-start-line="270" selection-start-column="65" selection-end-line="270" selection-end-column="65" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -653,8 +654,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venturelift_profiles/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="271" column="52" selection-start-line="271" selection-start-column="52" selection-end-line="271" selection-end-column="52" />
+        <state relative-caret-position="333">
+          <caret line="270" column="65" selection-start-line="270" selection-start-column="65" selection-end-line="270" selection-end-column="65" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
@@ -664,7 +665,7 @@
     <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="294" column="82" selection-start-line="294" selection-start-column="82" selection-end-line="294" selection-end-column="82" />
+          <caret line="294" column="63" selection-start-line="294" selection-start-column="63" selection-end-line="294" selection-end-column="63" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>

@@ -292,7 +292,7 @@ class CreateBusinessView(LoginRequiredMixin, CreateView):
         BusinessModel.objects.create(company_name=business)
         BusinessTeam.objects.create(company_name=business)
         BusinessFinancial.objects.create(company_name=business)
-        BusinessInvestment.objects.create(company_name=business,current_debt=False)
+        BusinessInvestment.objects.create(company_name=business)
         BusinessGoals.objects.create(company_name=business)
 
         return redirect(reverse('update_business_step2', kwargs={'pk': business.id}))
