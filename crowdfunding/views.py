@@ -227,12 +227,15 @@ def crowdfunder_make_payment(request):
         'campaign_sectors': campaign_sectors,
         'message': 'Payment Initiated For Campaign '+campaign_selected.campaign_name+'. Please Check Your Phone For The STK-Push'
     }
-    send_mpesa_stk_task.delay(request.POST['donator_phoneno'],request.POST['amount'])
+    #send_mpesa_stk_task.delay(request.POST['donator_phoneno'],request.POST['amount'])
+    try:
+        get_mpesa_token(request.POST['donator_phoneno'],request.POST['amount'])
+    except:
+        print("There is an issue")
     return HttpResponse(template.render(context, request))
 
 
-@login_required
-def get_mpesa_token(request):
+def get_mpesa_token(phone,amount):
     myDate = datetime.now()
     formatedDate = myDate.strftime("%Y%m%d%H%M%S")
     template = loader.get_template('crowdfunding/investor/mpesa.html')
@@ -259,11 +262,11 @@ def get_mpesa_token(request):
             "Password": encodedStr,
             "Timestamp": formatedDate,
             "TransactionType": "CustomerPayBillOnline",
-            "Amount": "1",
-            "PartyA": "254711836370",
+            "Amount": amount,
+            "PartyA": phone,
             "PartyB": shortCode,
-            "PhoneNumber": "254711836370",
-            "CallBackURL": "http://517b2c12.ngrok.io/crowdfunding/mpesa_checkout_response",
+            "PhoneNumber": phone,
+            "CallBackURL": "http://http://52.37.84.193:8081/crowdfunding/mpesa_checkout_response",
             "AccountReference": "ACCOUNT01",
             "TransactionDesc": "VENTURELIFTDONATION"
         }
@@ -271,8 +274,9 @@ def get_mpesa_token(request):
         response = requests.post(api_url, json=request, headers=headers)
         checkoutResponse = json.dumps(response.text)
 
-    context = {
-        'tokendata': checkoutResponse,
-    }
-    return HttpResponse(template.render(context, request))
+    # context = {
+    #     'tokendata': checkoutResponse,
+    # }
+    # return HttpResponse(template.render(context, request))
+    return "STK SENT"
 
