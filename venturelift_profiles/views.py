@@ -279,8 +279,8 @@ class CreateBusinessView(LoginRequiredMixin, CreateView):
     form_class = CreateBusinessForm
 
     def form_valid(self, form):
-        businessCheck = Business.objects.filter(name=form.cleaned_data['name']).exist()
-        if businessCheck is False:
+        businessCheck = Business.objects.filter(name=form.cleaned_data['name']).first()
+        if businessCheck is None:
             self.object = form.save(commit=False)
             self.object.creator = self.request.user
             self.object.save()
