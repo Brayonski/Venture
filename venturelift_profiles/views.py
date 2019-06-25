@@ -515,17 +515,17 @@ class UpdateBusinessView(LoginRequiredMixin, UpdateView):
         if current_url == 'update_business_step1':
             obj = business
         if current_url == 'update_business_step2':
-            obj = MarketDescription.objects.filter(company_name=business)
+            obj = MarketDescription.objects.get(company_name=business)
         if current_url == 'update_business_step3':
-            obj = BusinessModel.objects.filter(company_name=business)
+            obj = BusinessModel.objects.get(company_name=business)
         if current_url == 'update_business_step4':
-            obj = BusinessTeam.objects.filter(company_name=business)
+            obj = BusinessTeam.objects.get(company_name=business)
         if current_url == 'update_business_step5':
             obj = BusinessFinancial.objects.filter(company_name=business)
         if current_url == 'update_business_step6':
-            obj = BusinessInvestment.objects.filter(company_name=business)
+            obj = BusinessInvestment.objects.get(company_name=business)
         if current_url == 'update_business_step7':
-            obj = BusinessGoals.objects.filter(company_name=business)
+            obj = BusinessGoals.objects.get(company_name=business)
         return obj
 
     def form_valid(self, form):
