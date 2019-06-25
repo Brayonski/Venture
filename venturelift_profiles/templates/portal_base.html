@@ -10,6 +10,7 @@
         <!-- Bootstrap core CSS -->
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <link href="{% static 'css/portal-base-dropdown.css' %}" rel="stylesheet">
         {% render_block "css" %}
     </head>
     <body class="auth_pages">
@@ -34,9 +35,37 @@
                 <div class="vl_top_top navbar-right">
                     <ul class="in_line">
                         <li><a href="/">Home</a></li>
-                        <li><a href="#nogo">Discover</a></li>
-                        <li><a href="#nogo">Fund</a></li>
-                        <li><a href="#nogo">Partner</a></li>
+                        <li>
+                          <div class="dropdown">
+                            <button class="dropbtn">Discover</button>
+                            <div class="dropdown-content">
+                                <a href="#nogo">Startup</a>
+                                <a href="#nogo">SMEs</a>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="dropdown">
+                            <button class="dropbtn">Fund</button>
+                            <div class="dropdown-content">
+                                <a href="#nogo">Investor</a>
+                                <a href="{% url 'crowdfunding:crowdfunderindex' %}" target="_blank">Crowdfunder</a>
+                                <a href="#nogo">Lender</a>
+                            </div>
+                          </div>
+                        </li>
+                         <li>
+                          <div class="dropdown">
+                            <button class="dropbtn">Partner</button>
+                            <div class="dropdown-content">
+                                <a href="#nogo">Professional Services</a>
+                                <a href="#nogo">Talent</a>
+                                <a href="#nogo">Technology</a>
+                                <a href="#nogo">Trade</a>
+                                <a href="#nogo">Supply Chain</a>
+                            </div>
+                          </div>
+                        </li>
                         <li><a href="#">Knowledge Center</a></li>
                         <li><a href="/en/media">VLA Media</a></li>
                         <li><a href="{% url 'login' %}">Sign In</a></li>

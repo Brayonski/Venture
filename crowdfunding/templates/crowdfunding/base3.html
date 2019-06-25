@@ -5,6 +5,7 @@
 <head>
   <title>{% block title %}VentureLift Africa - Portal{% endblock title %}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
 
   <link
@@ -21,6 +22,9 @@
 </head>
 
 <body class="logged_in profile_templates">
+<script
+    src="https://www.paypal.com/sdk/js?client-id=AQ9gy6moBnrMJawyqn5tNOs51Og4KkqPXswe7THeDbjx1eW0Sm77I-MTVzfymea2c0TWBD4Xv1ynWB9M">
+</script>
   {% cms_toolbar %}
   <!-- Fixed navbar -->
   <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
@@ -44,16 +48,27 @@
                 My Profile
               </a>
             </li>
-            <li>
-              <a href="{% url 'business_list' %}">
-                Businesses
-              </a>
-            </li>
-            <li>
-              <a href="{% url 'supporter_list' %}">
-                Partners
-              </a>
-            </li>
+           <li>
+              <div class="dropdown">
+                <button class="dropbtn">Businesses</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'business_list' %}">Startup</a>
+                    <a href="{% url 'business_list' %}">SMEs</a>
+                </div>
+              </div>
+           </li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Partner</button>
+              <div class="dropdown-content">
+                  <a href="{% url 'supporter_list' %}">Professional Services</a>
+                  <a href="{% url 'supporter_list' %}">Talent</a>
+                  <a href="{% url 'supporter_list' %}">Technology</a>
+                  <a href="{% url 'supporter_list' %}">Trade</a>
+                  <a href="{% url 'supporter_list' %}">Supply Chain</a>
+              </div>
+            </div>
+          </li>
 
             <li>
                 <div class="dropdown">

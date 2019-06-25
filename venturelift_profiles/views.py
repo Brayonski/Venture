@@ -57,6 +57,11 @@ class SummaryView(LoginRequiredMixin, TemplateView):
             r_businesses = Business.objects.filter(sector=business.sector).exclude(creator=self.request.user)[:3]
             context.update({'business': business, 'description': description, 'r_supporter': r_supporter,
                             'r_investor':r_investor, 'r_businesses':r_businesses})
+            checkUser = AllSystemUser.objects.filter(email=self.request.user.email).exists()
+            if checkUser is False:
+                createUser = AllSystemUser(created_at=timezone.now(), username=self.request.user.username,
+                                           email=self.request.user.email, user_type='Business')
+                createUser.save()
 
         if self.request.user.supporter_creator.exists():
             supporter = Supporter.objects.get(user=self.request.user)
@@ -66,6 +71,11 @@ class SummaryView(LoginRequiredMixin, TemplateView):
             context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct().exclude(supporter_profile=supporter)[:3]
             context['r_businesses'] = Business.objects.filter(sector__in=interests).distinct()[:3]
             context['r_investor'] = InvestorProfile.objects.filter(target_sectors__in=interests).distinct()[:3]
+            checkUser = AllSystemUser.objects.filter(email=self.request.user.email).exists()
+            if checkUser is False:
+                createUser = AllSystemUser(created_at=timezone.now(), username=self.request.user.username,
+                                           email=self.request.user.email, user_type='Partner')
+                createUser.save()
 
         if self.request.user.investor_creator.exists():
             investor = Investor.objects.get(user=self.request.user)
@@ -75,6 +85,11 @@ class SummaryView(LoginRequiredMixin, TemplateView):
             context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct()[:3]
             context['r_businesses'] = Business.objects.filter(sector__in=interests).distinct()[:3]
             context['r_investor'] = InvestorProfile.objects.filter(target_sectors__in=interests).distinct().exclude(investor_profile=investor)[:3]
+            checkUser = AllSystemUser.objects.filter(email=self.request.user.email).exists()
+            if checkUser is False:
+                createUser = AllSystemUser(created_at=timezone.now(), username=self.request.user.username,
+                                           email=self.request.user.email, user_type='Investor')
+                createUser.save()
 
         if 'pk' in kwargs:
             current_url = resolve(self.request.path_info).url_name
@@ -242,13 +257,13 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
                     id=self.kwargs['pk'])
                 check_coneection = BusinessConnectRequest.objects.filter(business=business_details, investor=self.request.user, approval_status="PENDING").first()
                 if check_coneection:
-                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, self.request.user.email
+                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
                     send_business_connect_request_email_task.delay(business_details.name, self.request.user.username,
                                                                    subject, from_email, to)
                 else:
                     connections = BusinessConnectRequest(business=business_details, created_at=timezone.now(), investor=self.request.user, approval_status="PENDING", approved=False, rejected=False)
                     connections.save()
-                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, self.request.user.email
+                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
                     send_business_connect_request_email_task.delay(business_details.name, self.request.user.username, subject, from_email, to)
                 follow(self.request.user, Business.objects.get(
                     id=self.kwargs['pk']))
@@ -267,6 +282,11 @@ class CreateBusinessView(LoginRequiredMixin, CreateView):
         self.object = form.save(commit=False)
         self.object.creator = self.request.user
         self.object.save()
+        checkUser = AllSystemUser.objects.filter(email=self.request.user.email).exists()
+        if checkUser is False:
+            createUser = AllSystemUser(created_at=timezone.now(), username=self.request.user.username,
+                                       email=self.request.user.email, user_type='Business')
+            createUser.save()
         business = Business.objects.get(name=form.cleaned_data['name'])
         MarketDescription.objects.create(company_name=business)
         BusinessModel.objects.create(company_name=business)
@@ -290,6 +310,11 @@ class CreateInvestorView(LoginRequiredMixin, CreateView):
         self.object.user.save()
         self.object.save()
         investor = Investor.objects.get(user=self.request.user)
+        checkUser = AllSystemUser.objects.filter(email=self.request.user.email).exists()
+        if checkUser is False:
+            createUser = AllSystemUser(created_at=timezone.now(), username=self.request.user.username,
+                                       email=self.request.user.email, user_type='Investor')
+            createUser.save()
         InvestorProfile.objects.create(investor_profile=investor)
         return redirect(reverse('update_investor_step2', kwargs={'pk': investor.id}))
 
@@ -365,6 +390,11 @@ class CreateSupporterView(LoginRequiredMixin, CreateView):
         self.object.user.first_name = form.cleaned_data['first_name']
         self.object.user.last_name = form.cleaned_data['last_name']
         self.object.save()
+        checkUser = AllSystemUser.objects.filter(email=self.request.user.email).exists()
+        if checkUser is False:
+            createUser = AllSystemUser(created_at=timezone.now(), username=self.request.user.username,
+                                       email=self.request.user.email, user_type='Partner')
+            createUser.save()
         supporter = Supporter.objects.get(user=self.request.user)
         SupporterProfile.objects.create(supporter_profile=supporter)
         return redirect(reverse('update_supporter_step2', kwargs={'pk': supporter.id}))

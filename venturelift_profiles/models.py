@@ -470,3 +470,18 @@ class TrackingUser(models.Model):
 
     def user_email(self):
         return self.user_details.email
+
+class AllSystemUser(models.Model):
+    created_at = models.DateTimeField('system access date', null=True)
+    username = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    user_type = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name_plural = 'All System Users'
+
+    def __str__(self):
+        return self.email
+
+    def user_email(self):
+        return self.email

@@ -4,7 +4,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="45">
+          <list size="49">
             <item index="0" class="java.lang.String" itemvalue="django-activity-stream" />
             <item index="1" class="java.lang.String" itemvalue="djangocms-style" />
             <item index="2" class="java.lang.String" itemvalue="psycopg2" />
@@ -50,6 +50,10 @@
             <item index="42" class="java.lang.String" itemvalue="pinax-likes" />
             <item index="43" class="java.lang.String" itemvalue="pytz" />
             <item index="44" class="java.lang.String" itemvalue="Pillow" />
+            <item index="45" class="java.lang.String" itemvalue="Babel" />
+            <item index="46" class="java.lang.String" itemvalue="docutils" />
+            <item index="47" class="java.lang.String" itemvalue="requests" />
+            <item index="48" class="java.lang.String" itemvalue="idna" />
           </list>
         </value>
       </option>

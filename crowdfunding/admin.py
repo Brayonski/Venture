@@ -95,8 +95,6 @@ class CampaignDisbursementAdmin(admin.ModelAdmin):
                 obj.disbursement_status = 'REJECTED'
                 obj.campaign.funds_disbursement_status = 'REJECTED'
                 obj.save()
-                subject, from_email, to = 'Campaign Approval Request', settings.EMAIL_HOST_USER, obj.campaign_owner.email
-                send_actioned_campaign_email_task.delay(obj.campaign_name, obj.id, subject, from_email, to, "rejected")
 
 class CampaignRewardAdmin(admin.ModelAdmin):
     search_fields = ['campaign__campaign_name']

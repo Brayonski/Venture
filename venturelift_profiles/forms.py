@@ -111,7 +111,7 @@ IMPACT_INVESTOR = (
 class BusinessFilters(forms.Form):
     service = forms.ModelChoiceField(queryset=VlaServices.objects.all(), required=False,
                                      label='Resources needed')
-    sector = forms.ModelChoiceField(queryset=BusinessCategory.objects.all(), required=False,
+    sector = forms.ModelChoiceField(queryset=BusinessCategory.objects.all().order_by('name'), required=False,
                                     label='Sector')
 
     size = forms.ChoiceField(label='Company Stage',
@@ -199,7 +199,6 @@ class InvestorCreateForm(forms.ModelForm):
             "role": "My role at the company?",
             "company_location": "Where are the company's main operations based?",
             "company_registration_year": "Year of company registration?",
-            "year_operation": "Year company commenced operations?",
             "thumbnail_image": "Profile Image"
         }
 
