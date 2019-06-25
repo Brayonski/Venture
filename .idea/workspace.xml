@@ -41,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="523" column="81" selection-start-line="523" selection-start-column="81" selection-end-line="523" selection-end-column="81" />
+            <state relative-caret-position="328">
+              <caret line="525" column="19" selection-start-line="525" selection-start-column="19" selection-end-line="525" selection-end-column="19" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -51,17 +51,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/business/create_business.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venturelift_profiles/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="205" column="6" selection-start-line="205" selection-start-column="6" selection-end-line="205" selection-end-column="6" />
+            <state relative-caret-position="214">
+              <caret line="264" column="16" selection-start-line="264" selection-start-column="6" selection-end-line="264" selection-end-column="16" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -82,7 +75,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>BusinessFilters</find>
       <find>BusinessCategory</find>
       <find>Suppl</find>
       <find>Professional Services</find>
@@ -112,6 +104,7 @@
       <find>UpdateBusinessView</find>
       <find>CreateBusinessView</find>
       <find>**</find>
+      <find>BusinessIn</find>
     </findStrings>
     <replaceStrings>
       <replace>http://52.37.84.193:8081</replace>
@@ -666,25 +659,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/business/create_business.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-18" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/venturelift_profiles/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="205" column="6" selection-start-line="205" selection-start-column="6" selection-end-line="205" selection-end-column="6" />
+        <state relative-caret-position="214">
+          <caret line="264" column="16" selection-start-line="264" selection-start-column="6" selection-end-line="264" selection-end-column="16" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/business/create_business.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="523" column="81" selection-start-line="523" selection-start-column="81" selection-end-line="523" selection-end-column="81" />
+        <state relative-caret-position="328">
+          <caret line="525" column="19" selection-start-line="525" selection-start-column="19" selection-end-line="525" selection-end-column="19" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
