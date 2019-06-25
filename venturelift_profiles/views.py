@@ -279,9 +279,11 @@ class CreateBusinessView(LoginRequiredMixin, CreateView):
     form_class = CreateBusinessForm
 
     def form_valid(self, form):
-        self.object = form.save(commit=False)
-        self.object.creator = self.request.user
-        self.object.save()
+        businessCheck = Business.objects.filter(name=form.cleaned_data['name']).exist()
+        if businessCheck is False:
+            self.object = form.save(commit=False)
+            self.object.creator = self.request.user
+            self.object.save()
         checkUser = AllSystemUser.objects.filter(email=self.request.user.email).exists()
         if checkUser is False:
             createUser = AllSystemUser(created_at=timezone.now(), username=self.request.user.username,
@@ -513,17 +515,17 @@ class UpdateBusinessView(LoginRequiredMixin, UpdateView):
         if current_url == 'update_business_step1':
             obj = business
         if current_url == 'update_business_step2':
-            obj = MarketDescription.objects.get(company_name=business)
+            obj = MarketDescription.objects.filter(company_name=business)
         if current_url == 'update_business_step3':
-            obj = BusinessModel.objects.get(company_name=business)
+            obj = BusinessModel.objects.filter(company_name=business)
         if current_url == 'update_business_step4':
-            obj = BusinessTeam.objects.get(company_name=business)
+            obj = BusinessTeam.objects.filter(company_name=business)
         if current_url == 'update_business_step5':
-            obj = BusinessFinancial.objects.get(company_name=business)
+            obj = BusinessFinancial.objects.filter(company_name=business)
         if current_url == 'update_business_step6':
-            obj = BusinessInvestment.objects.get(company_name=business)
+            obj = BusinessInvestment.objects.filter(company_name=business)
         if current_url == 'update_business_step7':
-            obj = BusinessGoals.objects.get(company_name=business)
+            obj = BusinessGoals.objects.filter(company_name=business)
         return obj
 
     def form_valid(self, form):
