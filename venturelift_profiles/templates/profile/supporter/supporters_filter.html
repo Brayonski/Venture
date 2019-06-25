@@ -29,7 +29,7 @@
                         <figure class="box_avi">
                             <!-- Square, 350 X 350 PX -->
                             {% if obj.supporter_profile.thumbnail_image %}
-                            <img src="{{ obj.thumbnail_image.url }}">
+                            <img src="{{ obj.supporter_profile.thumbnail_image.url }}">
                             {% else %}
                             <img src="{% static 'img/blue-user-icon.svg' %}">
                             {% endif %}
