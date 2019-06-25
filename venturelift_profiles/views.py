@@ -50,7 +50,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         track_login.save()
 
         if self.request.user.business_creator.exists():
-            business = Business.objects.get(creator=self.request.user)
+            business = Business.objects.filter(creator=self.request.user).first()
             description =  MarketDescription.objects.get(company_name=business)
             r_supporter = SupporterProfile.objects.filter(interest_sectors=business.sector)[:3]
             r_investor = InvestorProfile.objects.filter(target_sectors=business.sector)[:3]
@@ -64,7 +64,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
                 createUser.save()
 
         if self.request.user.supporter_creator.exists():
-            supporter = Supporter.objects.get(user=self.request.user)
+            supporter = Supporter.objects.filter(user=self.request.user).first()
             context['supporter'] = supporter
             context['profile'] = SupporterProfile.objects.get(supporter_profile=supporter)
             interests = context['profile'].interest_sectors.all()
@@ -78,7 +78,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
                 createUser.save()
 
         if self.request.user.investor_creator.exists():
-            investor = Investor.objects.get(user=self.request.user)
+            investor = Investor.objects.filter(user=self.request.user).first()
             context['investor'] = investor
             context['profile'] = InvestorProfile.objects.get(investor_profile=investor)
             interests = context['profile'].target_sectors.all()
@@ -287,7 +287,7 @@ class CreateBusinessView(LoginRequiredMixin, CreateView):
             createUser = AllSystemUser(created_at=timezone.now(), username=self.request.user.username,
                                        email=self.request.user.email, user_type='Business')
             createUser.save()
-        business = Business.objects.get(name=form.cleaned_data['name'])
+        business = Business.objects.filter(name=form.cleaned_data['name']).first()
         MarketDescription.objects.create(company_name=business)
         BusinessModel.objects.create(company_name=business)
         BusinessTeam.objects.create(company_name=business)
