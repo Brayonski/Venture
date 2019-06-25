@@ -41,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="282" column="32" selection-start-line="282" selection-start-column="32" selection-end-line="282" selection-end-column="32" />
+            <state relative-caret-position="373">
+              <caret line="315" column="73" selection-start-line="315" selection-start-column="73" selection-end-line="315" selection-end-column="73" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -676,8 +676,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="282" column="32" selection-start-line="282" selection-start-column="32" selection-end-line="282" selection-end-column="32" />
+        <state relative-caret-position="373">
+          <caret line="315" column="73" selection-start-line="315" selection-start-column="73" selection-end-line="315" selection-end-column="73" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>

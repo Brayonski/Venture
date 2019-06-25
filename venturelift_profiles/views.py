@@ -305,13 +305,15 @@ class CreateInvestorView(LoginRequiredMixin, CreateView):
     form_class = InvestorCreateForm
 
     def form_valid(self, form):
-        self.object = form.save(commit=False)
-        self.object.user = self.request.user
-        self.object.user.first_name = form.cleaned_data['first_name']
-        self.object.user.last_name = form.cleaned_data['last_name']
-        self.object.user.save()
-        self.object.save()
-        investor = Investor.objects.get(user=self.request.user)
+        investorCheck = Investor.objects.filter(user=self.request.user).first()
+        if investorCheck is None:
+            self.object = form.save(commit=False)
+            self.object.user = self.request.user
+            self.object.user.first_name = form.cleaned_data['first_name']
+            self.object.user.last_name = form.cleaned_data['last_name']
+            self.object.user.save()
+            self.object.save()
+        investor = Investor.objects.filter(user=self.request.user).first()
         checkUser = AllSystemUser.objects.filter(email=self.request.user.email).exists()
         if checkUser is False:
             createUser = AllSystemUser(created_at=timezone.now(), username=self.request.user.username,
