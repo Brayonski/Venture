@@ -181,7 +181,7 @@ class SupporterProfileCreateForm(forms.ModelForm):
             "interest_countries": "Target countries? ",
             "trading_partners": "Do you have specific requirements for trading partners?"
         }
-    interest_sectors = forms.ModelMultipleChoiceField(queryset=BusinessCategory.objects.all(), required=False, widget=Select2MultipleWidget)
+    interest_sectors = forms.ModelMultipleChoiceField(queryset=BusinessCategory.objects.all().order_by('name'), required=False, widget=Select2MultipleWidget)
     interest_countries = forms.MultipleChoiceField(required=False, widget=Select2MultipleWidget, choices=INTEREST_COUNTRIES)
     trading_partners = forms.MultipleChoiceField(required=False, widget=Select2MultipleWidget, choices=TRADING_PARTNERS)
 

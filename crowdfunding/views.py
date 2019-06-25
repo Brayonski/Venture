@@ -177,50 +177,6 @@ def get_online_checkout_response(request):
     return HttpResponse(response)
 
 
-@login_required
-def get_mpesa_token(request):
-    myDate = datetime.now()
-    formatedDate = myDate.strftime("%Y%m%d%H%M%S")
-    template = loader.get_template('crowdfunding/investor/mpesa.html')
-    consumer_key = "G4fR8iS27KSOwAJ5eOtRq0MFdwDVbwau"
-    consumer_secret = "BrPh8l8ZbpCQAoUt"
-    api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
-
-    responseToken = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
-    responseTokenData = json.loads(responseToken.text)
-    accessToken = responseTokenData["access_token"]
-    shortCode = "174379"
-    passKey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"
-    passwordMpesa = shortCode+passKey+formatedDate
-    encodedBytes = base64.b64encode(passwordMpesa.encode("utf-8"))
-    encodedStr = str(encodedBytes).encode("utf-8")
-    checkoutResponse = ''
-
-    if accessToken is not None:
-        access_token = accessToken
-        api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
-        headers = {"Authorization": "Bearer %s" % access_token}
-        request = {
-            "BusinessShortCode": shortCode,
-            "Password": encodedStr,
-            "Timestamp": formatedDate,
-            "TransactionType": "CustomerPayBillOnline",
-            "Amount": "10",
-            "PartyA": "254711836370",
-            "PartyB": shortCode,
-            "PhoneNumber": "254711836370",
-            "CallBackURL": "http://517b2c12.ngrok.io/crowdfunding/mpesa_checkout_response",
-            "AccountReference": "ACCOUNT01",
-            "TransactionDesc": "VENTURELIFTDONATION"
-        }
-
-        response = requests.post(api_url, json=request, headers=headers)
-        checkoutResponse = json.dumps(response.text)
-
-    context = {
-        'tokendata': checkoutResponse,
-    }
-    return HttpResponse(template.render(context, request))
 
 
 
@@ -243,8 +199,9 @@ def make_payment(request):
     context = {
         'campaign_list': campaign_data,
         'campaign_sectors': campaign_sectors,
-        'message': 'Payment Initiated For Campaign '+campaign_selected.campaign_name
+        'message': 'Payment Initiated For Campaign '+campaign_selected.campaign_name+'. Please Check Your Phone For The STK-Push'
     }
+    send_mpesa_stk_task.delay(request.POST['donator_phoneno'],request.POST['amount'])
     return HttpResponse(template.render(context, request))
 
 
@@ -268,6 +225,7 @@ def crowdfunder_make_payment(request):
     context = {
         'campaign_list': campaign_data,
         'campaign_sectors': campaign_sectors,
-        'message': 'Payment Initiated For Campaign '+campaign_selected.campaign_name
+        'message': 'Payment Initiated For Campaign '+campaign_selected.campaign_name+'. Please Check Your Phone For The STK-Push'
     }
+    send_mpesa_stk_task.delay(request.POST['donator_phoneno'],request.POST['amount'])
     return HttpResponse(template.render(context, request))
