@@ -51,7 +51,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
 
         if self.request.user.business_creator.exists():
             business = Business.objects.filter(creator=self.request.user).first()
-            description =  MarketDescription.objects.get(company_name=business)
+            description =  MarketDescription.objects.filter(company_name=business).first()
             r_supporter = SupporterProfile.objects.filter(interest_sectors=business.sector)[:3]
             r_investor = InvestorProfile.objects.filter(target_sectors=business.sector)[:3]
             r_businesses = Business.objects.filter(sector=business.sector).exclude(creator=self.request.user)[:3]
