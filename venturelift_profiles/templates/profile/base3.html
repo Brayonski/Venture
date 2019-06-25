@@ -232,6 +232,28 @@
 
     gtag('config', 'UA-137967572-1');
   </script>
+
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      jQuery(function($) {
+        $('#select').on('change', function() {
+          var url = $(this).val();
+          if (url) {
+            window.location = url;
+          }
+          return false;
+        });
+        $('#select2').on('change', function() {
+          var url = $(this).val();
+          if (url) {
+            window.location = url;
+          }
+          return false;
+        });        
+      });  
+    });  
+  </script>
+
 </body>
 
 </html>

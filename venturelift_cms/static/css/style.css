@@ -1804,3 +1804,63 @@ body.profile_templates nav#navbar_out_2 {
 html {
     background: #181818;
 }
+.single_event.full_A {
+    padding-top: 140px;
+}
+ul.event_titles {
+    list-style: none;
+    padding-left: 0px;
+}
+ul.event_titles li {
+    display: inline-block;
+}
+li.e-title_2 {
+    float: right;
+}
+ul.event_titles h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+select.select {
+    border: 2px solid rgba(255, 255, 255, 0.46);
+    /* background: rgba(77, 191, 234, 1.0); */
+    font-size: 1.4em;
+    font-weight: 300;
+    padding: 10px 20px;
+    background: transparent;
+}
+select.select option {
+    font-size: .8em;
+    padding: 12px 10px;
+    background: rgba(77, 191, 234, 1.0);
+}
+form.url_changer {
+    float: left;
+    margin-right: 20px;
+}
+.event_box {
+    padding: 20px;
+}
+.event_content {
+    padding: 15px;
+    background: white;
+}
+.event_box_in {
+    box-shadow: 0px 0px 18px 0px rgb(216, 216, 216);
+}
+figure.event_image {
+    min-height: 220px;
+}
+h4.event_title {
+    min-height: 40px;
+    color: #000 !important;
+    font-size: 1.4em;
+    font-weight: 600;
+    opacity: 1.0 !important;
+}
+.event_meta {
+    margin-top: 10px;
+    /* text-transform: uppercase; */
+    font-size: .85em;
+    color: #636363;
+}

@@ -5,7 +5,7 @@
 {% block content %}
 {% if content.published %}
 
-<div class="full_A">
+<div class="single_event full_A">
   <div class="container single_post_container">
     <span class="actions">
       {% url 'event_view_content' content.id as  event_view_content %}
@@ -48,13 +48,13 @@
 
         <div class="card">
           <div class="card-body">
-            <div class="card_summary">
+            <div class="card_content">
               <h2>Event Description</h2>
               {{content.description}}
             </div>
             {% if content.event_banner %}
-            <div class="card_summary">
-              <embed src="{{ content.event_banner.url }}" width="750" height="500">
+            <div class="card_content">
+              <img src="{{ content.event_banner.url }}" width="750" height="500">
             </div>
             {% endif %}
           </div>
