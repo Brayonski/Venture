@@ -22,6 +22,14 @@
 				{% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
 				<li class="{% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}">
 					<a href="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}</a>
+					<ul class="nav nav-pills">
+						{% for sub_cat in type.document_category.all %}
+						{% url 'knowledge_center_sub_content_filter' sub_cat.id as knowledge_center_sub_content_filter %}
+						<li class="{% ifequal request.path knowledge_center_sub_content_filter %}active{% endifequal %}">
+							<a href="{% url 'knowledge_center_sub_content_filter' sub_cat.id %}">{{ sub_cat.title }}</a>
+						</li>
+						{% endfor %}
+					</ul>
 				</li>
 				{% endif %}
 				{% endfor %}

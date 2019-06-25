@@ -9,6 +9,8 @@ urlpatterns = [
         views.TextMediaView.as_view(), name='knowledge_center_read_content'),
     url(r'^read-content/filter/(?P<pk>\d+)/$',
         views.TextFilterView.as_view(), name='knowledge_center_read_content_filter'),
+    url(r'^read-content/sub-filter/(?P<pk>\d+)/$',
+        views.SubCategoryTextFilterView.as_view(), name='knowledge_center_sub_content_filter'),
         
     url(r'^video-content/filter/(?P<pk>\d+)/$',
         views.VideoFilterView.as_view(), name='knowledge_center_video_content_filter'),

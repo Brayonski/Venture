@@ -58,6 +58,24 @@ class TextFilterView(LoginRequiredMixin, ListView):
         return queryset
 
 
+class SubCategoryTextFilterView(LoginRequiredMixin, ListView):
+    """List Text Content on Filter Sub Category"""
+    template_name = 'knowledge_index.html'
+    paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super(SubCategoryTextFilterView,
+                        self).get_context_data(**kwargs)
+        context['document_type'] = DocumentCategory.objects.filter(
+            published=True)
+        return context
+
+    def get_queryset(self, **kwargs):
+        queryset = TextCenter.objects.filter(
+            sub_category__pk=self.kwargs.get("pk"), published=True).order_by('-date')
+        return queryset
+
+
 class VideoFilterView(LoginRequiredMixin, ListView):
     """List Video Content on Filter Category"""
     template_name = 'all_video_content.html'
