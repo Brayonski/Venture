@@ -517,13 +517,37 @@ class UpdateBusinessView(LoginRequiredMixin, UpdateView):
         if current_url == 'update_business_step1':
             obj = business
         if current_url == 'update_business_step2':
-            obj = MarketDescription.objects.get(company_name=business)
+            obj = ''
+            if MarketDescription.objects.filter(company_name=business).exists():
+                obj = MarketDescription.objects.filter(company_name=business).first()
+            else:
+                md = MarketDescription(company_name=business)
+                md.save()
+                obj = MarketDescription.objects.filter(company_name=business).first()
         if current_url == 'update_business_step3':
-            obj = BusinessModel.objects.get(company_name=business)
+            obj = ''
+            if BusinessModel.objects.filter(company_name=business).exists():
+                obj = BusinessModel.objects.filter(company_name=business).first()
+            else:
+                md = BusinessModel(company_name=business)
+                md.save()
+                obj = BusinessModel.objects.filter(company_name=business).first()
         if current_url == 'update_business_step4':
-            obj = BusinessTeam.objects.get(company_name=business)
+            obj = ''
+            if BusinessTeam.objects.filter(company_name=business).exists():
+                obj = BusinessTeam.objects.filter(company_name=business).first()
+            else:
+                team = BusinessTeam(company_name=business)
+                team.save()
+                obj = BusinessTeam.objects.filter(company_name=business).first()
         if current_url == 'update_business_step5':
-            obj = BusinessFinancial.objects.filter(company_name=business).first()
+            obj = ''
+            if BusinessFinancial.objects.filter(company_name=business).exists():
+                obj = BusinessFinancial.objects.filter(company_name=business).first()
+            else:
+                finance = BusinessFinancial(company_name=business)
+                finance.save()
+                obj = BusinessFinancial.objects.filter(company_name=business).first()
         if current_url == 'update_business_step6':
             obj = ''
             if BusinessInvestment.objects.filter(company_name=business).exists():
@@ -537,8 +561,8 @@ class UpdateBusinessView(LoginRequiredMixin, UpdateView):
             if BusinessGoals.objects.filter(company_name=business).exists():
                 obj = BusinessGoals.objects.filter(company_name=business).first()
             else:
-                invest = BusinessGoals(company_name=business)
-                invest.save()
+                goal = BusinessGoals(company_name=business)
+                goal.save()
                 obj = BusinessGoals.objects.filter(company_name=business).first()
         return obj
 
