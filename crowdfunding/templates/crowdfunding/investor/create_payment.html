@@ -1,4 +1,4 @@
-{% extends 'profile/base3.html' %}
+{% extends 'crowdfunding/base3.html' %}
 {% load cms_tags staticfiles %}
 {% load crispy_forms_tags %}
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
@@ -105,6 +105,11 @@
                                                      </select>
                                                  </div>
 
+                                                  <div class="form-group" id="donator_phoneno_mpesa">
+                                                     <label for="donator_phoneno"> Mpesa Phone No* </label>
+                                                     <input id="donator_phoneno" class="form-control" name="donator_phoneno" type="text" placeholder="Enter with country code eg 254789098765" novalidate>
+                                                 </div>
+
                                                  <div class="form-group">
                                                       <label for="amount"> Amount: </label>
                                                      <input id="amount" type="number" class="form-control" name="amount" min="1" required />
@@ -163,4 +168,19 @@
   </div>
 </div>
 {% endblock %}
+{% block javascript %}
+  <script>
+   $(document).ready(function(){
+        $('#donator_phoneno_mpesa').hide();
+        $('#payment_method').on("change",function(e) {
+            var selection = $(this).val();
+            if(selection == "mpesa"){
+                $('#donator_phoneno_mpesa').show();
+            }else{
+                $('#donator_phoneno_mpesa').hide();
+            }
 
+        });
+   });
+  </script>
+{% endblock %}

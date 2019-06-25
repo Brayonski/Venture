@@ -230,7 +230,7 @@ def make_payment(request):
             request.user.supporter_creator.exists()) and not (request.user.investor_creator.exists()):
         return redirect(reverse('profile_create'))
     campaign_selected = Campaign.objects.get(id=request.POST['campaign_id'])
-    payment = CampaignPayment(campaign=campaign_selected,created_at=timezone.now(),donator=request.user,donator_email=request.user.email,amount=request.POST['amount'],payment_method=request.POST['payment_method'],payment_status='INITIATED',paid=False,comments=request.POST['comments'],allow_visibility=request.POST['allow_visibility'])
+    payment = CampaignPayment(campaign=campaign_selected,created_at=timezone.now(),donator=request.user,donator_email=request.user.email,donator_phoneno=request.POST['donator_phoneno'],amount=request.POST['amount'],payment_method=request.POST['payment_method'],payment_status='INITIATED',paid=False,comments=request.POST['comments'],allow_visibility=request.POST['allow_visibility'])
     payment.save()
     if campaign_selected.campaign_type == "REWARD BASED":
         if request.POST['amount'] >= campaign_selected.campaign_reward_threshold:
@@ -250,7 +250,7 @@ def make_payment(request):
 
 def crowdfunder_make_payment(request):
     campaign_selected = Campaign.objects.get(id=request.POST['campaign_id'])
-    payment = CampaignPayment(campaign=campaign_selected,created_at=timezone.now(),donator_email=request.POST['donator_email'],amount=request.POST['amount'],payment_method=request.POST['payment_method'],payment_status='INITIATED',paid=False,comments=request.POST['comments'],allow_visibility=request.POST['allow_visibility'])
+    payment = CampaignPayment(campaign=campaign_selected,created_at=timezone.now(),donator_email=request.POST['donator_email'],donator_phoneno=request.POST['donator_phoneno'],amount=request.POST['amount'],payment_method=request.POST['payment_method'],payment_status='INITIATED',paid=False,comments=request.POST['comments'],allow_visibility=request.POST['allow_visibility'])
     payment.save()
     if campaign_selected.campaign_type == "REWARD BASED":
         if request.POST['amount'] >= campaign_selected.campaign_reward_threshold:
