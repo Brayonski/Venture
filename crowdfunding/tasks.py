@@ -35,7 +35,7 @@ def send_campaign_disbursement_email_task(campaign_name, campaign_id, subject, f
 
 
 @task(name="send_mpesa_stk_task")
-def send_mpesa_stk_task(phone):
+def send_mpesa_stk_task(phone,amount):
     logger.info("send mpesa stk task")
     myDate = datetime.now()
     formatedDate = myDate.strftime("%Y%m%d%H%M%S")
@@ -62,7 +62,7 @@ def send_mpesa_stk_task(phone):
             "Password": encodedStr,
             "Timestamp": formatedDate,
             "TransactionType": "CustomerPayBillOnline",
-            "Amount": "10",
+            "Amount": str(amount),
             "PartyA": phone,
             "PartyB": shortCode,
             "PhoneNumber": phone,
