@@ -353,7 +353,13 @@ class InvestorUpdateProfileView(LoginRequiredMixin, UpdateView):
         if current_url == 'update_investor_step1':
             obj = investor
         if current_url == 'update_investor_step2':
-            obj = InvestorProfile.objects.get(investor_profile=investor)
+            obj = ''
+            if InvestorProfile.objects.filter(investor_profile=investor).exists():
+                obj = InvestorProfile.objects.filter(investor_profile=investor).first()
+            else:
+                md = InvestorProfile(investor_profile=investor)
+                md.save()
+                obj = InvestorProfile.objects.filter(investor_profile=investor).first()
         return obj
 
     def form_valid(self, form):
