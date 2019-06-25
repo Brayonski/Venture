@@ -3,26 +3,46 @@
 {% load cms_tags staticfiles event_filters %}
 {% block title %}Events{% endblock title %}
 {% block content %}
-<div class="full_A">
+<div class="event_wrapper full_A">
 
   <nav id="navbar_out_2" class="navbar navbar-default_media">
       <div class="top_container container">    
           <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
-              <h1>Events</h1>
+              {% url 'events_home' as  events_home %}
+              <ul class="event_titles">
+                <li class="active e-title_1"><h1>Events</h1></li>
+                <li class="e-title_2">
+                  <form class="url_changer url_changer1">
+                    <select id="select" class="select">
+                      <option value="{% url 'events_home' %}">VLA Events</option>
+                      <option value="{% url 'network_events' %}">Network Events</option>
+                    </select>
+                  </form>  
+
+                  <form class="url_changer url_changer2">
+                    <select id="select2" class="select">
+                      {% if object_list %}
+                        <option class="{% ifequal request.path events_home %}active{% endifequal %}" value="{% url 'events_home' %}">All</option>
+                      {% endif %}   
+
+                      {% for type in event_type %}
+                        {% if type.events_set.count >= 1 %}
+                        {% url 'event_view_content_filter' type.id as event_view_content_filter %}
+                        <option class="{% ifequal request.path event_view_content_filter %}active{% endifequal %}" value="{% url 'event_view_content_filter' type.id %}">{{type.title}}
+                        </option>
+                        {% endif %}
+                      {% endfor %}                                         
+                    </select>
+                  </form>                                   
+              </ul>
           </div>
       </div>
   </nav>
 
   <div class="container">
-    {% url 'events_home' as  events_home %}
-    <div>
-      <ul class="nav nav-pills nav-justified">
-        <li class="active"><a href="{% url 'events_home' %}">VLA
-            EVENTS</a></li>
-        <li class=""><a href="{% url 'network_events' %}">Network Events</a></li>
-      </ul>
-    </div>
     <div class="tab-content">
+
+      <!--
       <ul class="nav nav-pills">
         {% if object_list %}
         <li class="{% ifequal request.path events_home %}active{% endifequal %}"><a
@@ -38,46 +58,47 @@
         {% endif %}
         {% endfor %}
       </ul>
+      -->
+
       <div class="row clearfix">
-        <div class="no_padd col-md-12 clearfix">
+        
           {% for obj in object_list %}
           {% if obj.published %}
-          <div class="single_card_wrapper">
-            <div class="card_C card" style="">
-              <div class="card-body">
-                <div class="">
-                  <span class="card-text dark-text pull-left">
-                    {{ obj.title|upper }}
-                  </span>
-                  <span class="card-text dark-text pull-right">
-                    {% is_attendee obj as is_in_attendee_list %}
-                    {% if is_in_attendee_list == True %}
-                    <a class="btn btn-primary" href="{% url 'event_register' obj.id %}">Register</a>
-                    {% else %}
-                    <a class="btn btn-success" href="#">
-                      <ion-icon name="star"></ion-icon> Registered
+            <div class="no_padd col-md-4 clearfix">
+              <div class="event_box">
+                <div class="event_box_in">
+                  <figure class="event_image">
+                    <a href="{% url 'event_view_content' obj.id %}">
+                      {% if obj.event_banner %}
+                        <img src="{{ obj.event_banner.url }}" width="" height="">
+                      {% else %}
+                        <img src="{% static 'img/home_section_3.png' %}" width="" height="">
+                      {% endif %}                    
                     </a>
-                    {% endif %}
-                  </span>
-                  <p class="card-text">
-                    {% if obj.banner %}
-                    <i class="fa fa-file-text" aria-hidden="true"></i>
-                    {% endif %}
-                    <i class="fa fa-tags" aria-hidden="true"></i>
-                    {{obj.category}}
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                    {{obj.start_date }} - {{obj.end_date }}
-                    <i class="fa fa-pin" aria-hidden="true"></i>
-                    {{obj.location }}
-                  </p>
-                  <p class="card-text">
-                    {{ obj.description|safe|truncatewords:"70"|linebreaks }}
-                    <a class="text-primary" href="{% url 'event_view_content' obj.id %}">read more</a>
-                  </p>
+                  </figure>
+                  <div class="event_content">
+                    <h4 class="event_title">
+                      <a href="{% url 'event_view_content' obj.id %}">{{ obj.title|upper }}</a>
+                    </h4>
+                    <div class="event_action">
+                      {% is_attendee obj as is_in_attendee_list %}
+                      {% if is_in_attendee_list == True %}
+                      <a class="btn btn-primary" href="{% url 'event_register' obj.id %}">Register</a>
+                      {% else %}
+                      <a class="btn btn-success" href="#">
+                        <ion-icon name="star"></ion-icon> Registered
+                      </a>
+                      {% endif %}
+                      <div class="event_meta">
+                        {{obj.category}}
+                        {{obj.start_date }} - {{obj.end_date }}
+                        {{obj.location }}                      
+                      </div>
+                    </div>                  
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           {% endif %}
           {% endfor %}
 

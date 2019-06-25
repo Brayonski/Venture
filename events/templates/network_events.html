@@ -53,9 +53,13 @@
                     {% endif %}
                   </span>
                   <p class="card-text">
-                    {% if obj.banner %}
-                    <i class="fa fa-file-text" aria-hidden="true"></i>
+                    
+                    {% if obj.event_banner %}
+                      <img src="{{ obj.event_banner.url }}" width="750" height="500">
+                    {% else %}
+                      <img src="{% static 'img/home_section_3.png' %}" width="750" height="500">
                     {% endif %}
+
                     <i class="fa fa-tags" aria-hidden="true"></i>
                     {{obj.category}}
                     <i class="fa fa-calendar" aria-hidden="true"></i>
