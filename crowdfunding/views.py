@@ -141,7 +141,7 @@ class CreateCampaignView(LoginRequiredMixin, CreateView):
 
         #campaign_path = reverse('admin:campaign', args=(self.object.id,))
 
-        subject, from_email, to = 'Campaign Approval Request', settings.EMAIL_HOST_USER, self.object.campaign_owner.email
+        subject, from_email, to = 'Campaign Approval Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
         send_approval_request_email_task.delay(self.object.campaign_name, self.object.id, subject, from_email, to)
 
         return redirect(reverse('crowdfunding:index'))

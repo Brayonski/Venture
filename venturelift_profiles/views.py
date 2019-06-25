@@ -257,13 +257,13 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
                     id=self.kwargs['pk'])
                 check_coneection = BusinessConnectRequest.objects.filter(business=business_details, investor=self.request.user, approval_status="PENDING").first()
                 if check_coneection:
-                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, self.request.user.email
+                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
                     send_business_connect_request_email_task.delay(business_details.name, self.request.user.username,
                                                                    subject, from_email, to)
                 else:
                     connections = BusinessConnectRequest(business=business_details, created_at=timezone.now(), investor=self.request.user, approval_status="PENDING", approved=False, rejected=False)
                     connections.save()
-                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, self.request.user.email
+                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
                     send_business_connect_request_email_task.delay(business_details.name, self.request.user.username, subject, from_email, to)
                 follow(self.request.user, Business.objects.get(
                     id=self.kwargs['pk']))

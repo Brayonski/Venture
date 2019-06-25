@@ -38,7 +38,7 @@ def task_close_due_campaigns():
     for campaign in due_campaigns:
         campaign.campaign_status = "CLOSED"
         campaign.save()
-        subject, from_email, to = 'Closed Campaign Disbursement Request', settings.EMAIL_HOST_USER, campaign.campaign_owner.email
+        subject, from_email, to = 'Closed Campaign Disbursement Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
         if campaign.total_funds_received >= campaign.target_amount:
             fees = CampaignConfiguration.objects.get(name='Configurations')
             funds = campaign.total_funds_received
