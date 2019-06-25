@@ -269,6 +269,7 @@ class BusinessInvestment(models.Model):
     personal_funds_invested = models.IntegerField(null=True, blank=True)
     external_funds_invested = models.IntegerField(null=True, blank=True)
     capital_to_raise = models.IntegerField(null=True, blank=True)
+    current_debt = models.BooleanField(default=False,null=True, blank=True)
 
     class Meta:
         verbose_name = 'Business Investment'
