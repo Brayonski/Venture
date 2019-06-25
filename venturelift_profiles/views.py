@@ -288,6 +288,7 @@ class CreateInvestorView(LoginRequiredMixin, CreateView):
         self.object.user.first_name = form.cleaned_data['first_name']
         self.object.user.last_name = form.cleaned_data['last_name']
         self.object.user.save()
+        self.object.year_operation = form.cleaned_data['year_operation']
         self.object.save()
         investor = Investor.objects.get(user=self.request.user)
         InvestorProfile.objects.create(investor_profile=investor)
