@@ -273,6 +273,115 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
         context['following'] = following(self.request.user)
         return context
 
+class BusinessStartupView(LoginRequiredMixin, ListView, FormMixin):
+    template_name = 'profile/business/business.html'
+    queryset = Business.objects.filter(verified=True).filter(size='Startup')
+    form_class = BusinessFilters
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
+            return redirect(reverse('profile_create'))
+        return super(BusinessStartupView, self).dispatch(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            if request.POST.get('company-name'):
+                business = Business.objects.filter(
+                    name__icontains=request.POST.get('company-name'), verified=True)
+            else:
+                business = Business.objects.filter(verified=True)
+                if form.cleaned_data['sector']:
+                    business = business.filter(
+                        sector=form.cleaned_data['sector'])
+                if form.cleaned_data['size']:
+                    business = business.filter(size=form.cleaned_data['size'])
+                if form.cleaned_data['service']:
+                    business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
+                                               Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
+            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user)})
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(BusinessStartupView, self).get_context_data(*args, **kwargs)
+        current_url = resolve(self.request.path_info).url_name
+        if 'pk' in self.kwargs:
+            if current_url == 'business_follow':
+                business_details = Business.objects.get(
+                    id=self.kwargs['pk'])
+                check_coneection = BusinessConnectRequest.objects.filter(business=business_details, investor=self.request.user, approval_status="PENDING").first()
+                if check_coneection:
+                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    send_business_connect_request_email_task.delay(business_details.name, self.request.user.username,
+                                                                   subject, from_email, to)
+                else:
+                    connections = BusinessConnectRequest(business=business_details, created_at=timezone.now(), investor=self.request.user, approval_status="PENDING", approved=False, rejected=False)
+                    connections.save()
+                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    send_business_connect_request_email_task.delay(business_details.name, self.request.user.username, subject, from_email, to)
+                follow(self.request.user, Business.objects.get(
+                    id=self.kwargs['pk']))
+            if current_url == 'business_unfollow':
+                unfollow(self.request.user, Business.objects.get(
+                    id=self.kwargs['pk']))
+        context['following'] = following(self.request.user)
+        return context
+
+
+class BusinessSMEView(LoginRequiredMixin, ListView, FormMixin):
+    template_name = 'profile/business/business.html'
+    queryset = Business.objects.filter(verified=True).filter(size='SME')
+    form_class = BusinessFilters
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
+            return redirect(reverse('profile_create'))
+        return super(BusinessSMEView, self).dispatch(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            if request.POST.get('company-name'):
+                business = Business.objects.filter(
+                    name__icontains=request.POST.get('company-name'), verified=True)
+            else:
+                business = Business.objects.filter(verified=True)
+                if form.cleaned_data['sector']:
+                    business = business.filter(
+                        sector=form.cleaned_data['sector'])
+                if form.cleaned_data['size']:
+                    business = business.filter(size=form.cleaned_data['size'])
+                if form.cleaned_data['service']:
+                    business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
+                                               Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
+            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user)})
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(BusinessSMEView, self).get_context_data(*args, **kwargs)
+        current_url = resolve(self.request.path_info).url_name
+        if 'pk' in self.kwargs:
+            if current_url == 'business_follow':
+                business_details = Business.objects.get(
+                    id=self.kwargs['pk'])
+                check_coneection = BusinessConnectRequest.objects.filter(business=business_details, investor=self.request.user, approval_status="PENDING").first()
+                if check_coneection:
+                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    send_business_connect_request_email_task.delay(business_details.name, self.request.user.username,
+                                                                   subject, from_email, to)
+                else:
+                    connections = BusinessConnectRequest(business=business_details, created_at=timezone.now(), investor=self.request.user, approval_status="PENDING", approved=False, rejected=False)
+                    connections.save()
+                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    send_business_connect_request_email_task.delay(business_details.name, self.request.user.username, subject, from_email, to)
+                follow(self.request.user, Business.objects.get(
+                    id=self.kwargs['pk']))
+            if current_url == 'business_unfollow':
+                unfollow(self.request.user, Business.objects.get(
+                    id=self.kwargs['pk']))
+        context['following'] = following(self.request.user)
+        return context
+
+
+
 
 class CreateBusinessView(LoginRequiredMixin, CreateView):
     template_name = 'profile/business/create_business.html'

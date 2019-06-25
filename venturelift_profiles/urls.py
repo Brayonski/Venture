@@ -20,6 +20,8 @@ urlpatterns = [
     url(r'^profile/$', views.SummaryView.as_view(), name='profile_summary'),
     url(r'^supporter/list/$', views.SupporterView.as_view(), name='supporter_list'),
     url(r'^business/list/$', views.BusinessView.as_view(), name='business_list'),
+    url(r'^business/list/startup/$', views.BusinessStartupView.as_view(), name='business_startup'),
+    url(r'^business/list/smes/$', views.BusinessSMEView.as_view(), name='business_smes'),
     url(r'^investor/list/$', views.InvestorView.as_view(), name='investor_list'),
     url(r'^supporter/follow/(?P<pk>\d+)/$',
         views.SupporterView.as_view(), name='supporter_follow'),
