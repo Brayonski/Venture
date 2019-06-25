@@ -43,26 +43,37 @@
                 </a>
               </li>
               <li>
-                <a href="{% url 'business_list' %}">
-                Businesses
-                </a>
+                  <div class="dropdown">
+                    <button class="dropbtn">Businesses</button>
+                    <div class="dropdown-content">
+                        <a href="{% url 'business_list' %}">Startup</a>
+                        <a href="{% url 'business_list' %}">SMEs</a>
+                    </div>
+                  </div>
               </li>
-              <li>
-                <a href="{% url 'supporter_list' %}">
-                  Partners
-                </a>
-              </li>
+                <li>
+                  <div class="dropdown">
+                    <button class="dropbtn">Partner</button>
+                    <div class="dropdown-content">
+                        <a href="{% url 'supporter_list' %}">Trade</a>
+                        <a href="{% url 'supporter_list' %}">Supply Chain</a>
+                        <a href="{% url 'supporter_list' %}">Technology</a>
+                        <a href="{% url 'supporter_list' %}">Talent</a>
+                        <a href="{% url 'supporter_list' %}">Professional Services</a>
+                    </div>
+                  </div>
+                </li>
 
                <li>
                     <div class="dropdown">
                       <button class="dropbtn">Funders</button>
                       <div class="dropdown-content">
-                          <a href="{% url 'investor_list' %}">Investor</a>
+                          <a href="#">Investor</a>
                           <a href="{% url 'crowdfunding:index' %}">Crowdfunder</a>
                           <a href="#">Lender</a>
                       </div>
                     </div>
-                </li>
+               </li>
               <li>
               <a href="{%url 'knowledge_center_home' %}">
                 Knowledge Center

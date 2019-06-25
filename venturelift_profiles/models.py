@@ -16,11 +16,11 @@ BUSINESS_SIZE = (
 )
 
 SUPPORTER_INTEREST = (
-    ('Supply chain (i.e. I am looking for suppliers from Africa)', 'Supply chain(i.e. I am looking for suppliers from Africa)'),
-    ('Trade partner: I want to trade with African companies', 'Trade partner: I want to trade with African companies'),
-    ('Technology provider', 'Technology Provider'),
-    ('Talent provider', 'Talent Provider'),
-    ('Professional support', 'Professional Support'),
+    ('Professional Services', 'Professional Services'),
+    ('Talent', 'Talent'),
+    ('Technology', 'Technology'),
+    ('Trade', 'Trade'),
+    ('Supply Chain', 'Supply Chain'),
 )
 
 COMPANY_CLASSIFICATION = (
@@ -40,14 +40,16 @@ INTEREST_STARTUPS = (
 )
 
 INTEREST_SECTORS = (
-    ('retail', 'Retail'),
-    ('fmcg', 'FMCG'),
-    ('technology', 'Technology'),
-    ('manufacturing', 'Manufacturing'),
-    ('agriculture', 'Agriculture'),
-    ('hospitality', 'Hospitality and Tourism'),
-    ('real estate', 'Real Estate and Infastructure'),
-    ('transport', 'Transport')
+    ('AGRIBUSINESS', 'AGRIBUSINESS'),
+    ('CREATIVE', 'CREATIVE'),
+    ('EDUCATION', 'EDUCATION'),
+    ('FINANCIAL SERVICES', 'FINANCIAL SERVICES'),
+    ('FMCG - RETAIL', 'FMCG - RETAIL'),
+    ('HEALTH', 'HEALTH'),
+    ('HOUSING & REAL ESTATE', 'HOUSING & REAL ESTATE'),
+    ('RENEWABLE ENERGY', 'RENEWABLE ENERGY'),
+    ('TECHNOLOGY', 'TECHNOLOGY'),
+    ('WATER and SANITATION', 'WATER and SANITATION')
 )
 INVESTOR_FORMS = (
     ('equity', 'Equity'),
@@ -470,3 +472,18 @@ class TrackingUser(models.Model):
 
     def user_email(self):
         return self.user_details.email
+
+class AllSystemUser(models.Model):
+    created_at = models.DateTimeField('system access date', null=True)
+    username = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    user_type = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name_plural = 'All System Users'
+
+    def __str__(self):
+        return self.email
+
+    def user_email(self):
+        return self.email

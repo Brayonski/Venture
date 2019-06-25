@@ -111,7 +111,7 @@ IMPACT_INVESTOR = (
 class BusinessFilters(forms.Form):
     service = forms.ModelChoiceField(queryset=VlaServices.objects.all(), required=False,
                                      label='Resources needed')
-    sector = forms.ModelChoiceField(queryset=BusinessCategory.objects.all(), required=False,
+    sector = forms.ModelChoiceField(queryset=BusinessCategory.objects.all().order_by('name'), required=False,
                                     label='Sector')
 
     size = forms.ChoiceField(label='Company Stage',
@@ -181,7 +181,7 @@ class SupporterProfileCreateForm(forms.ModelForm):
             "interest_countries": "Target countries? ",
             "trading_partners": "Do you have specific requirements for trading partners?"
         }
-    interest_sectors = forms.ModelMultipleChoiceField(queryset=BusinessCategory.objects.all(), required=False, widget=Select2MultipleWidget)
+    interest_sectors = forms.ModelMultipleChoiceField(queryset=BusinessCategory.objects.all().order_by('name'), required=False, widget=Select2MultipleWidget)
     interest_countries = forms.MultipleChoiceField(required=False, widget=Select2MultipleWidget, choices=INTEREST_COUNTRIES)
     trading_partners = forms.MultipleChoiceField(required=False, widget=Select2MultipleWidget, choices=TRADING_PARTNERS)
 
@@ -199,7 +199,6 @@ class InvestorCreateForm(forms.ModelForm):
             "role": "My role at the company?",
             "company_location": "Where are the company's main operations based?",
             "company_registration_year": "Year of company registration?",
-            "year_operation": "Year company commenced operations?",
             "thumbnail_image": "Profile Image"
         }
 

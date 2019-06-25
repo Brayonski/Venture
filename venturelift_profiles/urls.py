@@ -2,8 +2,18 @@ from __future__ import absolute_import, print_function, unicode_literals
 from django.conf.urls import include, url
 from django.contrib.auth import views as auth_views
 from venturelift_profiles import views
+from django.views.generic import TemplateView
 
 urlpatterns = [
+    url(r'^accounts/activate/complete/$',
+        TemplateView.as_view(
+            template_name='django_registration/activation_complete.html'
+        ),
+        name='django_registration_activation_complete'),
+    # override the django_registration activation view
+    url(r'^accounts/activate/(?P<activation_key>[-:\w]+)/$',
+        views.ProfileActivationView.as_view(),
+        name='django_registration_activate'),
     url(r'^accounts/', include('django_registration.backends.activation.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^logout/$', auth_views.logout, name='logout'),

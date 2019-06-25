@@ -5,6 +5,8 @@
 <head>
   <title>{% block title %}VentureLift Africa - Portal{% endblock title %}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
 
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -20,6 +22,9 @@
 </head>
 
 <body class="logged_in profile_templates">
+<script
+    src="https://www.paypal.com/sdk/js?client-id=AQ9gy6moBnrMJawyqn5tNOs51Og4KkqPXswe7THeDbjx1eW0Sm77I-MTVzfymea2c0TWBD4Xv1ynWB9M">
+</script>
   {% cms_toolbar %}
   <!-- Fixed navbar -->
   <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
@@ -43,16 +48,27 @@
                 My Profile
               </a>
             </li>
-            <li>
-              <a href="{% url 'business_list' %}">
-                Businesses
-              </a>
-            </li>
-            <li>
-              <a href="{% url 'supporter_list' %}">
-                Partners
-              </a>
-            </li>
+           <li>
+              <div class="dropdown">
+                <button class="dropbtn">Businesses</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'business_list' %}">Startup</a>
+                    <a href="{% url 'business_list' %}">SMEs</a>
+                </div>
+              </div>
+           </li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Partner</button>
+              <div class="dropdown-content">
+                    <a href="{% url 'supporter_list' %}">Trade</a>
+                    <a href="{% url 'supporter_list' %}">Supply Chain</a>
+                    <a href="{% url 'supporter_list' %}">Technology</a>
+                    <a href="{% url 'supporter_list' %}">Talent</a>
+                    <a href="{% url 'supporter_list' %}">Professional Services</a>
+              </div>
+            </div>
+          </li>
 
             <li>
                 <div class="dropdown">
@@ -127,8 +143,34 @@
     {% block content %}{% endblock %}
   </div>
 
-  <div class="full_width footer">
-    {% static_placeholder 'footer' %}
+  <div class="full_width primary_footer">
+      <div class="full_width footer foot2">
+          <div class="container clearfix">
+              <ul class="in_style_A_list_A in_style_B1">
+                  <li><a href="/about-us">About us</a></li>
+                  <li><a href="/careers">Careers</a></li>
+                  <li><a href="/contact-us">Contact us</a></li>
+                  <li><a href="/team">Team</a></li>
+                  <li><a href="/advertise">Advertise</a></li>
+                  <li><a href="/terms-of-use">Terms of Use</a></li>
+                  <li><a href="/help">Help</a></li>
+              </ul>      
+              <ul class="in_style_A_list_A in_style_B3">
+                  <li>
+                    <ul class="social_icons social_bottom">
+                      <li><a class="li" href="https://ke.linkedin.com/company/venturelift-africa"><ion-icon name="logo-linkedin" role="img" class="hydrated" aria-label="logo linkedin"></ion-icon></a></li>
+                      <li><a class="tw" href="https://twitter.com/vliftafrica"><ion-icon name="logo-twitter" role="img" class="hydrated" aria-label="logo twitter"></ion-icon></a></li>
+                      <li><a class="fb" href="https://facebook.com/vlafrica"><ion-icon name="logo-facebook" role="img" class="hydrated" aria-label="logo facebook"></ion-icon></a></li>
+                      <li><a class="ig" href="https://www.instagram.com/vlafrica/"><ion-icon name="logo-instagram" role="img" class="hydrated" aria-label="logo instagram"></ion-icon></a></li>
+                    </ul>
+                  </li>
+              </ul>
+              <ul class="in_style_A_list_A in_style_B2">
+                  <li class="copright">© 2017&mdash;2019 VentureLift Africa. All Rights Reserved</li>
+              </ul>                              
+          </div>
+      </div>        
+      {# static_placeholder 'footer' #}
   </div>
 
   {% render_block "js" %}
