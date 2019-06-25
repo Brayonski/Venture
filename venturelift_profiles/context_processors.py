@@ -15,8 +15,8 @@ def account_type(request):
                 supporter_profile_id=context['supporter'].id)
         if request.user.investor_creator.exists():
             context['investor'] = Investor.objects.filter(user=request.user).first()
-            context['investor_profile'] = InvestorProfile.objects.get(
-                investor_profile_id=context['investor'].id)
+            context['investor_profile'] = InvestorProfile.objects.filter(
+                investor_profile_id=context['investor'].id).first()
         return {"context": context}
     return context
 
