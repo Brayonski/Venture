@@ -3,7 +3,7 @@ from celery.utils.log import get_task_logger
 from celery.task.schedules import crontab
 from celery.decorators import periodic_task
 from django.utils import timezone
-from datetime import date,datetime
+from datetime import date
 from crowdfunding.models import *
 from django.conf import settings
 import requests
@@ -11,6 +11,7 @@ from requests.auth import HTTPBasicAuth
 import json
 import base64
 from crowdfunding.emails import *
+from datetime import datetime
 
 logger = get_task_logger(__name__)
 
