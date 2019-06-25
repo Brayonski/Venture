@@ -101,6 +101,22 @@
                                                      <input id="donator_email" type="email" class="form-control" name="donator_email" required />
                                                  </div>
 
+                                                  <div class="form-group">
+                                                      <label for="amount"> Amount: </label>
+                                                     <input id="amount" type="number" class="form-control" name="amount" min="1" required />
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                     <label for="comments"> Comments: </label>
+                                                      <textarea id="comments" name="comments" class="form-control" rows="2"></textarea>
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                     <label> Allow payment information to be visible by Campaign Owner: </label>
+                                                      <input type="radio" name="allow_visibility" value="1" checked> Yes<br>
+                                                      <input type="radio" name="allow_visibility" value="0"> No<br>
+                                                 </div>
+
                                                  <div class="form-group">
                                                       <label for="payment_method"> Payment Method: </label>
                                                      <select id="payment_method" name="payment_method" class="form-control" required>
@@ -115,23 +131,11 @@
                                                      <input id="donator_phoneno" class="form-control" name="donator_phoneno" type="text" placeholder="Enter with country code eg 254789098765" novalidate>
                                                  </div>
 
-                                                 <div class="form-group">
-                                                      <label for="amount"> Amount: </label>
-                                                     <input id="amount" type="number" class="form-control" name="amount" min="1" required />
+                                                 <div id="donate-paypal">
+                                                     <div id="paypal-button-container"></div>
                                                  </div>
 
-                                                 <div class="form-group">
-                                                     <label for="comments"> Comments: </label>
-                                                      <textarea id="comments" name="comments" class="form-control" rows="2"></textarea>
-                                                 </div>
-
-                                                  <div class="form-group">
-                                                     <label> Allow payment information to be visible by Campaign Owner: </label>
-                                                      <input type="radio" name="allow_visibility" value="1" checked> Yes<br>
-                                                      <input type="radio" name="allow_visibility" value="0"> No<br>
-                                                 </div>
-
-                                                <div class="form-group" align="center">
+                                                <div class="form-group" align="center" id="donate-mpesa">
                                                     <button class='btn btn-success' type="submit">Donate</button>
                                                 </div>
                                              </form>
@@ -176,13 +180,45 @@
 {% block javascript %}
   <script>
    $(document).ready(function(){
-        $('#donator_phoneno_mpesa').hide();
+         $('#donator_phoneno_mpesa').hide();
+         $('#donate-mpesa').show();
+         $('#donate-paypal').hide();
+         paypal.Buttons({
+            createOrder: function(data, actions) {
+                  return actions.order.create({
+                    purchase_units: [{
+                      amount: {
+                        value: '0.01'
+                      }
+                    }]
+                  });
+            },
+            onApprove: function(data, actions) {
+              return actions.order.capture().then(function(details) {
+                alert('Transaction completed by ' + details.payer.name.given_name);
+                // Call your server to save the transaction
+                return fetch('/paypal-transaction-complete', {
+                  method: 'post',
+                  headers: {
+                    'content-type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    orderID: data.orderID
+                  })
+                });
+              });
+            }
+         }).render('#paypal-button-container');
         $('#payment_method').on("change",function(e) {
             var selection = $(this).val();
             if(selection == "mpesa"){
                 $('#donator_phoneno_mpesa').show();
+                $('#donate-mpesa').show();
+                $('#donate-paypal').hide();
             }else{
                 $('#donator_phoneno_mpesa').hide();
+                $('#donate-mpesa').hide();
+                $('#donate-paypal').show();
             }
 
         });
