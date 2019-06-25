@@ -521,7 +521,7 @@ class UpdateBusinessView(LoginRequiredMixin, UpdateView):
         if current_url == 'update_business_step4':
             obj = BusinessTeam.objects.get(company_name=business)
         if current_url == 'update_business_step5':
-            obj = BusinessFinancial.objects.filter(company_name=business)
+            obj = BusinessFinancial.objects.filter(company_name=business).first()
         if current_url == 'update_business_step6':
             obj = BusinessInvestment.objects.get(company_name=business)
         if current_url == 'update_business_step7':
