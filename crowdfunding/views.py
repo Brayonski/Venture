@@ -225,7 +225,7 @@ def crowdfunder_make_payment(request):
     context = {
         'campaign_list': campaign_data,
         'campaign_sectors': campaign_sectors,
-        'message': 'Payment Initiated For Campaign '+campaign_selected.campaign_name+'. Please Check Your Phone For The STK-Push'+request.POST['donator_phoneno']+' '+request.POST['amount']
+        'message': 'Payment Initiated For Campaign '+campaign_selected.campaign_name+'. Please Check Your Phone For The STK-Push'
     }
     send_mpesa_stk_task.delay(request.POST['donator_phoneno'],request.POST['amount'])
     return HttpResponse(template.render(context, request))
