@@ -12,11 +12,33 @@ from django.db.models import Q
 from django.core.urlresolvers import reverse
 from django.views.generic.edit import CreateView, UpdateView, FormMixin
 from django.core.paginator import Paginator
+from itertools import chain
+
+
+class IndexView(LoginRequiredMixin, ListView):
+    """List All media Items"""
+    template_name = "knowledge_index.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView,
+                        self).get_context_data(**kwargs)
+        context['document_type'] = DocumentCategory.objects.filter(
+            published=True)
+        context['text_center'] = TextCenter.objects.filter(
+            published=True).order_by('-date')[:5]
+        context['videos'] = AudioVisual.objects.filter(
+            published=True).order_by('-date')[:5]
+        return context
+
+    def get_queryset(self, **kwargs):
+        queryset = TextCenter.objects.filter(
+            sub_category__pk=self.kwargs.get("pk"), published=True).order_by('-date')
+        return queryset
 
 
 class HomeView(LoginRequiredMixin, ListView):
     """List all media items"""
-    template_name = 'knowledge_index.html'
+    template_name = 'knowledge_text_index.html'
     paginate_by = 10
     queryset = TextCenter.objects.filter(published=True).order_by('-date')
 
@@ -43,7 +65,7 @@ class TextMediaView(LoginRequiredMixin, DetailView):
 
 class TextFilterView(LoginRequiredMixin, ListView):
     """List Text Content on Filter Category"""
-    template_name = 'knowledge_index.html'
+    template_name = 'knowledge_text_index.html'
     paginate_by = 10
 
     def get_context_data(self, **kwargs):
@@ -60,7 +82,7 @@ class TextFilterView(LoginRequiredMixin, ListView):
 
 class SubCategoryTextFilterView(LoginRequiredMixin, ListView):
     """List Text Content on Filter Sub Category"""
-    template_name = 'knowledge_index.html'
+    template_name = 'knowledge_text_index.html'
     paginate_by = 10
 
     def get_context_data(self, **kwargs):

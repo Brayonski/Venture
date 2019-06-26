@@ -12,6 +12,8 @@
 		</div>
 		<div>
 			<ul class="nav nav-pills">
+				<li class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}"><a
+						href="{% url 'knowledge_center_home' %}">All</a></li>
 				{% if object_list %}
 				{% url 'knowledge_center_home' as  knowledge_center_home %}
 				<li class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}"><a
