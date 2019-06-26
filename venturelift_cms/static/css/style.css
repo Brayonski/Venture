@@ -894,7 +894,10 @@ li.copright {
 .about_page.page_banner_A {
     padding-bottom: 0px;
 }
-
+.page_wrapper_b.in_page.page_banner_A.full_width h4 {
+    font-weight: 600;
+    color: #000;
+}
 .full_width.h_A {
     padding-top: 0px;
 }
@@ -1054,6 +1057,9 @@ html {
 
 body.auth_pages .full_width.footer {
     display: none;
+}
+.full_A.with-side-filter .col_A_out {
+    padding-top: 100px;
 }
 
 figure.list_A ul li {
