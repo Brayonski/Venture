@@ -7,6 +7,7 @@
 
   <nav id="navbar_out_2" class="navbar navbar-default_media">
       <div class="top_container container">    
+
           <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
               {% url 'events_home' as  events_home %}
               <ul class="event_titles">
@@ -36,6 +37,7 @@
                   </form>                                   
               </ul>
           </div>
+          
       </div>
   </nav>
 
@@ -83,10 +85,10 @@
                     <div class="event_action">
                       {% is_attendee obj as is_in_attendee_list %}
                       {% if is_in_attendee_list == True %}
-                      <a class="btn btn-primary" href="{% url 'event_register' obj.id %}">Register</a>
+                      <a class="btn btn-primary" href="{% url 'event_register' obj.id %}"><ion-icon name="add"></ion-icon>  Register</a>
                       {% else %}
                       <a class="btn btn-success" href="#">
-                        <ion-icon name="star"></ion-icon> Registered
+                        <ion-icon name="checkmark"></ion-icon> Registered
                       </a>
                       {% endif %}
                       <div class="event_meta">

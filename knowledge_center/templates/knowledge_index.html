@@ -3,13 +3,51 @@
 {% load cms_tags staticfiles %}
 {% block title %} Knowledge Center| Documents Center {% endblock title %}
 {% block content %}
-<div class="full_A">
-	<div class="container">
-		<div class="profile_top full_widthX">
-			<div class="profile_top_in">
-				KNOWLEDGE CENTER
-			</div>
+<div class="event_wrapper full_A">
+
+  	<nav id="navbar_out_2" class="navbar navbar-default_media">
+      	<div class="top_container container"> 
+
+          <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
+              {% url 'events_home' as  events_home %}
+              <ul class="event_titles">
+                <li class="active e-title_1"><h1>Knowledge Center</h1></li>
+                <li class="e-title_2">
+                	<!--
+                  <form class="url_changer url_changer1">
+                    <select id="select" class="select">
+                      <option value="{% url 'events_home' %}">VLA Events</option>
+                      <option value="{% url 'network_events' %}">Network Events</option>
+                    </select>
+                  </form>  	
+					-->
+
+                  <form class="url_changer url_changer2">
+                    <select id="select2" class="select">
+
+						{% if object_list %}
+						{% url 'knowledge_center_home' as  knowledge_center_home %}
+						<option class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}" value="{% url 'knowledge_center_home' %}">All</option>
+						{% endif %}
+						{% for type in document_type %}
+						{% if type.textcenter_set.count >= 1 %}
+						{% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
+						<option class="{% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}" value="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
+						</option>
+						{% endif %}
+						{% endfor %}
+
+						<option value="{% url 'knowledge_center_video_home' %}">Videos</option>                                        
+                    </select>
+                  </form>                                   
+              </ul>
+          </div>
+          
+        </div>
+    </nav>    
+
 		</div>
+		<!--
 		<div>
 			<ul class="nav nav-pills">
 				{% if object_list %}
@@ -29,62 +67,66 @@
 				<li><a href="{% url 'knowledge_center_video_home' %}">Videos</a></li>
 			</ul>
 		</div>
+		-->
+		
 		<div class="tab-content">
 
 			<div id="home" class="tab-pane fade in active">
-				<div class="row clearfix">
-					<div class="no_padd col-md-12 clearfix">
-						{% for obj in object_list %}
-						<div class="single_card_wrapper">
-							<div class="card_C card" style="">
-								<div class="card-body">
-									<div class="">
-										<h1 class="card-text dark-text">
-											{{ obj.title }}
-										</h1>
-										<p class="card-text">
-											{% if obj.file_upload %}
-											<i class="fa fa-file-text" aria-hidden="true"></i>
-											{% endif %}
-											<i class="fa fa-tags" aria-hidden="true"></i>
-											{{obj.category}}
-											<i class="fa fa-money" aria-hidden="true"></i>
-											{{obj.payment_status}}
-											<i class="fa fa-calendar" aria-hidden="true"></i>
-											{{obj.date }}
-										</p>
-										<p class="card-text">
-											{{ obj.description|safe|truncatewords:"70"|linebreaks }}
-											<a class="text-primary" href="{% url 'knowledge_center_read_content' obj.id %}">read more</a>
-										</p>
+				<div class="container">
+					<div class="row clearfix">
+						<div class="no_padd col-md-12 clearfix">
+							{% for obj in object_list %}
+							<div class="single_card_wrapper">
+								<div class="card_C card" style="">
+									<div class="card-body">
+										<div class="">
+											<h1 class="card-text dark-text">
+												{{ obj.title }}
+											</h1>
+											<p class="card-text">
+												{% if obj.file_upload %}
+												<i class="fa fa-file-text" aria-hidden="true"></i>
+												{% endif %}
+												<i class="fa fa-tags" aria-hidden="true"></i>
+												{{obj.category}}
+												<i class="fa fa-money" aria-hidden="true"></i>
+												{{obj.payment_status}}
+												<i class="fa fa-calendar" aria-hidden="true"></i>
+												{{obj.date }}
+											</p>
+											<p class="card-text">
+												{{ obj.description|safe|truncatewords:"70"|linebreaks }}
+												<a class="text-primary" href="{% url 'knowledge_center_read_content' obj.id %}">read more</a>
+											</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						{% endfor %}
-
-						{% if is_paginated %}
-						<ul class="pagination">
-							{% if page_obj.has_previous %}
-							<li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-							{% else %}
-							<li class="disabled"><span>&laquo;</span></li>
-							{% endif %}
-							{% for i in paginator.page_range %}
-							{% if page_obj.number == i %}
-							<li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-							{% else %}
-							<li><a href="?page={{ i }}">{{ i }}</a></li>
-							{% endif %}
 							{% endfor %}
-							{% if page_obj.has_next %}
-							<li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-							{% else %}
-							<li class="disabled"><span>&raquo;</span></li>
-							{% endif %}
-						</ul>
-						{% endif %}
 
+							{% if is_paginated %}
+							<ul class="pagination">
+								{% if page_obj.has_previous %}
+								<li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+								{% else %}
+								<li class="disabled"><span>&laquo;</span></li>
+								{% endif %}
+								{% for i in paginator.page_range %}
+								{% if page_obj.number == i %}
+								<li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+								{% else %}
+								<li><a href="?page={{ i }}">{{ i }}</a></li>
+								{% endif %}
+								{% endfor %}
+								{% if page_obj.has_next %}
+								<li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+								{% else %}
+								<li class="disabled"><span>&raquo;</span></li>
+								{% endif %}
+							</ul>
+							{% endif %}
+
+						</div>
 					</div>
 				</div>
 			</div>
