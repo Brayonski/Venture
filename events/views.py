@@ -52,6 +52,8 @@ class SingleEventView(LoginRequiredMixin, DetailView):
         """Returns the Event selected"""
         context = super(SingleEventView,
                         self).get_context_data(**kwargs)
+        
+        context['event_type'] = EventCategory.objects.filter(published=True)
 
         current_url = resolve(self.request.path_info).url_name
         if current_url == 'network_event_view_content':
