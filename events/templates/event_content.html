@@ -62,10 +62,10 @@
           {% is_attendee content as is_in_attendee_list %}
           <!--<a href="{% url 'events_home' %}" class="btn btn-primary">Back</a>-->
           {% if is_in_attendee_list == True %}
-          <a class="btn btn-lg btn-primary" href="{% url 'event_register' content.id %}">Register</a>
+          <a class="btn btn-lg btn-primary btn-block" href="{% url 'event_register' content.id %}"><ion-icon name="add"></ion-icon> Register</a>
           {% else %}
-          <a class="btn btn-lg btn-success" href="#">
-            <ion-icon name="star"></ion-icon> Registered
+          <a class="btn btn-lg btn-success btn-block" href="#">
+            <ion-icon name="checkmark"></ion-icon> Registered
           </a>
           {% endif %}
           {% else %}

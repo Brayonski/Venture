@@ -4,12 +4,64 @@
 {% block title %} Knowledge Center| Subscriptions Videos {% endblock title %}
 {% block content %}
 <div class="full_A">
+
+  	<nav id="navbar_out_2" class="navbar navbar-default_media">
+      	<div class="top_container container"> 
+
+          <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
+              {% url 'events_home' as  events_home %}
+              <ul class="event_titles">
+                <li class="active e-title_1"><h1>Knowledge Center</h1></li>
+                <li class="e-title_2">
+
+                	
+                  <form class="url_changer url_changer1">
+                    <select id="select" class="select">
+
+						{% if object_list %}
+						{% url 'knowledge_center_home' as  knowledge_center_home %}
+						<option class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}" value="{% url 'knowledge_center_home' %}">All</option>
+						{% endif %}
+						{% for type in document_type %}
+						{% if type.textcenter_set.count >= 1 %}
+						{% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
+						<option class="{% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}" value="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
+						</option>
+						{% endif %}
+						{% endfor %}
+
+						<option value="{% url 'knowledge_center_video_home' %}">Videos</option>                                        
+                    </select>
+                  </form>  	
+					
+
+                  <form class="url_changer url_changer2">
+                    <select id="select2" class="select">
+
+						{% url 'knowledge_center_video_home' as  knowledge_center_video_home %}
+
+						{% if object_list %}
+						<option class="{% ifequal request.path knowledge_center_video_home %}active{% endifequal %}" value="{% url 'knowledge_center_video_home' %}">All
+						</option>
+						{% endif %}
+						{% for type in video_type %}
+						{% if type.audiovisual_set.count >= 1 %}
+						{% url 'knowledge_center_video_content_filter' type.id as knowledge_center_video_content_filter %}
+						<option class="{% ifequal request.path knowledge_center_video_content_filter %}active{% endifequal %}" value="{% url 'knowledge_center_video_content_filter' type.id %}">{{type.title}}
+						</option>
+						{% endif %}
+						{% endfor %}
+                                        
+                    </select>
+                  </form>                                   
+              </ul>
+          </div>
+          
+        </div>
+    </nav>
+
 	<div class="container">
-		<div class="profile_top full_widthX">
-			<div class="profile_top_in">
-				KNOWLEDGE CENTER
-			</div>
-		</div>
+		<!--
 		<div>
 			<ul class="nav nav-pills">
 				<li class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}"><a
@@ -31,7 +83,9 @@
 				<li><a href="{% url 'knowledge_center_video_home' %}">Videos</a></li>
 			</ul>
 		</div>
+		-->
 		<div class="tab-content">
+			<!--
 			<ul class="nav nav-pills">
 				{% url 'knowledge_center_video_home' as  knowledge_center_video_home %}
 
@@ -49,28 +103,30 @@
 				{% endif %}
 				{% endfor %}
 			</ul>
+			-->
 			<div id="home" class="tab-pane fade in active">
-				<div class="row clearfix">
-					<div class="no_padd col-md-12 clearfix">
+				<div class="row clearfix">					
 						{% for obj in object_list %}
-						<div class="single_card_wrapper">
-							<div class="card_C card" style="">
-								<div class="card-body">
-									<div class="pull-left">
-										{{obj.path|safe}}
+							<div class="no_padd col-md-6 clearfix">
+								<div class="single_card_wrapper">
+									<div class="card_C card" style="">
+										<div class="card-body">
+											<div class="pull-left">
+												{{obj.path|safe}}
+											</div>
+											<p class="card-text">{{ obj.title }}</p>
+											<p class="card-text">
+												{{ obj.description|safe|truncatewords:"70"|linebreaks }}
+												<i class="fa fa-tags" aria-hidden="true"></i>
+												{{obj.sub_category}}
+												<i class="fa fa-money" aria-hidden="true"></i>
+												{{obj.payment_status}}
+											</p>
+											<a class="text-primary" href="{% url 'knowledge_center_video_content' obj.id %}">read more</a>
+										</div>
 									</div>
-									<p class="card-text">{{ obj.title }}</p>
-									<p class="card-text">
-										{{ obj.description|safe|truncatewords:"70"|linebreaks }}
-										<i class="fa fa-tags" aria-hidden="true"></i>
-										{{obj.sub_category}}
-										<i class="fa fa-money" aria-hidden="true"></i>
-										{{obj.payment_status}}
-									</p>
-									<a class="text-primary" href="{% url 'knowledge_center_video_content' obj.id %}">read more</a>
 								</div>
 							</div>
-						</div>
 						{% endfor %}
 
 						{% if is_paginated %}
