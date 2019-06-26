@@ -888,7 +888,12 @@ li.copright {
     background: #283891;
     color: #FFF;
 }
-
+.about_page.page_banner_A .home_section_2.page_banner_Ab {
+    background: #e1e4d2;
+}
+.about_page.page_banner_A {
+    padding-bottom: 0px;
+}
 
 .full_width.h_A {
     padding-top: 0px;
