@@ -9,14 +9,17 @@
                     {% csrf_token %}
                     <h3>Basic Information</h3>
                     <div class="form-row">
-                        <div class="form-group col-md-4 mb-0">
+                        <div class="form-group col-md-3 mb-0">
                             {{ form.thumbnail_image|as_crispy_field }}
                         </div>
-                        <div class="form-group col-md-4 mb-0">
+                        <div class="form-group col-md-3 mb-0">
                           {{ form.phone_number|as_crispy_field }}
                         </div>
-                        <div class="form-group col-md-4 mb-0">
+                        <div class="form-group col-md-3 mb-0">
                           {{ form.first_name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3 mb-0">
+                            {{ form.last_name|as_crispy_field }}
                         </div>
                     </div>
                     <div class="form-row">
@@ -25,11 +28,11 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6 mb-0">
-                            {{ form.last_name|as_crispy_field }}
-                        </div>
                             <div class="form-group col-md-6 mb-0">
                                 {{ form.company|as_crispy_field }}
+                            </div>
+                        <div class="form-group col-md-6 mb-0">
+                                    {{ form.company_website|as_crispy_field }}
                             </div>
                     </div>
                     <div class="form-row">
@@ -47,11 +50,6 @@
                       <div class="form-group col-md-6 mb-0">
                           {{ form.physical_address|as_crispy_field }}
                         </div>
-                    </div>
-                    <div class="form-row">
-                            <div class="form-group col-md-12 mb-0">
-                                    {{ form.company_website|as_crispy_field }}
-                            </div>
                     </div>
 
                     <button class='btn btn-success'>Go to next step</button>

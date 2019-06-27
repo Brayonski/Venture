@@ -376,7 +376,7 @@ class InvestorProfile(models.Model):
         Investor, related_name='investor_profile')
 
     company_classification = models.CharField(
-        max_length=50, choices=COMPANY_CLASSIFICATION, null=True, blank=True, help_text="How would you classify your firm?")
+        max_length=50, choices=COMPANY_CLASSIFICATION, null=True, blank=True)
 
     investor_forms = MultiSelectField(
         max_length=250, choices=INVESTOR_FORMS, null=True, blank=True, help_text="What forms of investment do you make?")
@@ -409,7 +409,7 @@ class InvestorProfile(models.Model):
     impact_metrics = models.TextField(help_text="Which are your key impact metrics", null=True)
 
     gender_lens_investor = models.CharField(
-        max_length=250, null=True, blank=True, choices=IMPACT_INVESTOR, help_text="Do you Consider your firm a 'Gender-Lens' Investor?"
+        max_length=250, null=True, blank=True, choices=IMPACT_INVESTOR, help_text="Do you Consider your firm a 'Gender-Lens' Investor?",default='yes'
     )
 
     class Meta:

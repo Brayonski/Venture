@@ -58,20 +58,20 @@
                     {% elif step2 %}
                     <h3>Profile Detail</h3>
                     <div class="form-row">
-                        <div class="form-group col-md-6 mb-0">
+                        <div class="form-group col-md-12 mb-0">
                             {{ form.company_classification|as_crispy_field }}
-                        </div>
-                        <div class="form-group col-md-6 mb-0">
-                            {{ form.investor_forms|as_crispy_field }}
                         </div>
                     </div>
                     <div class="form-row">
-                      <div class="form-group col-md-6 mb-0">
+                      <div class="form-group col-md-4 mb-0">
                         {{ form.target_sectors|as_crispy_field }}
                       </div>
-                      <div class="form-group col-md-6 mb-0">
+                      <div class="form-group col-md-4 mb-0">
                           {{ form.target_countries|as_crispy_field }}
                       </div>
+                     <div class="form-group col-md-4 mb-0">
+                        {{ form.investor_forms|as_crispy_field }}
+                    </div>
                     </div>
                     <div class="form-row">
                             <div class="form-group col-md-12 mb-0">
@@ -106,19 +106,10 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-6 mb-0">
-                              {{ form.impact_investor|as_crispy_field }}
-                            </div>
-                            <div class="form-group col-md-6 mb-0">
+                            <div class="form-group col-md-12 mb-0">
                                 {{ form.impact_metrics|as_crispy_field }}
                               </div>
                           </div>
-
-                          <div class="form-row">
-                              <div class="form-group col-md-12 mb-0">
-                                {{ form.gender_lens_investor|as_crispy_field }}
-                              </div>
-                            </div>
                    
                     {% endif %}
                     

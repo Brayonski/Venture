@@ -10,12 +10,12 @@ class CreateBusinessForm(ModelForm):
         exclude = ['verified', 'verified_by', 'creator']
         widgets = {'address': CountrySelectWidget()}
         labels = {
-            "thumbnail_image": "Company Logo",
-            "name": "Company Name",
+            "thumbnail_image": "Company logo",
+            "name": "Company name",
             "sector": "Industry",
-            "size": "Company Size",
-            "company_primary_email": "Company Primary Email Address",
-            "company_website": "Company Website",
+            "size": "Company size",
+            "company_primary_email": "Company primary email address",
+            "company_website": "Company website",
             "year_of_company_registration": "Year of Company Registration",
             "full_time_employee_count": "Number of full time employees",
             "address": "Country",
@@ -188,18 +188,19 @@ class SupporterProfileCreateForm(forms.ModelForm):
 class InvestorCreateForm(forms.ModelForm):
     first_name = forms.CharField(max_length=250, label="First Name")
     last_name = forms.CharField(max_length=250, label="Last Name")
+    company_website = forms.URLField(initial='http://')
 
     class Meta:
         model = Investor
         exclude = ['user', 'verified_by', 'verified']
         labels = {
-            "about": "Briefly describe your self?",
-            "phone_number": "Phone Number",
-            "company": "Company Name",
-            "role": "My role at the company?",
+            "about": "Briefly describe your company?",
+            "phone_number": "Phone number",
+            "company": "Company name",
+            "role": "My title at the company?",
             "company_location": "Where are the company's main operations based?",
             "company_registration_year": "Year of company registration?",
-            "thumbnail_image": "Profile Image"
+            "thumbnail_image": "Profile image"
         }
 
 
@@ -210,24 +211,23 @@ class InvestorProfileCreateForm(forms.ModelForm):
         labels = {
             'company_classification': "How would you classify your firm?",
             'investor_forms': "What forms of investment do you make?",
-            'elevator_pitch': "What's your investment thesis in brief(Elevator Pitch)?",
+            'elevator_pitch': "What is your investment thesis in brief(Elevator Pitch)?",
             'target_countries': "Which are your target countries?",
-            'target_sectors': "Target Sectors",
+            'target_sectors': "Target sectors",
             'managed_funds': "How Many different funds have you managed to date?",
-            'assets_under_management': "What's the value of your Assets under Management(AUM)?",
+            'assets_under_management': "What is the value of your Assets under Management(AUM)?",
             'investor_portfolio': "How many active portfolio investments do you currently hold?",
             'exits_executed': "How many exits have you executed to date?",
-            'impact_investor': "Do you classify yourself as an impact investor?",
+            'impact_investor': "Do you classify your company as an impact investor?",
             'impact_measurement': "Which impact measurement standard do you follow?",
-            'impact_metrics': "Which are your key impact metrics?",
-            'gender_lens_investor': "Do you Consider your firm a 'Gender-Lens' Investor?"
+            'impact_metrics': "What are your key impact metrics?",
         }
     investor_forms = forms.MultipleChoiceField(widget=Select2MultipleWidget, choices=INVESTOR_FORMS)
     target_countries = forms.MultipleChoiceField(widget=Select2MultipleWidget, choices=INTEREST_COUNTRIES)
     target_sectors = forms.ModelMultipleChoiceField(queryset=BusinessCategory.objects.all(), widget=Select2MultipleWidget)
-    impact_investor = forms.ChoiceField(choices=IMPACT_INVESTOR, widget=Select2Widget, label="Do you classify yourself as an impact investor?"
+    impact_investor = forms.ChoiceField(choices=IMPACT_INVESTOR, widget=Select2Widget, label="Do you classify your company as an impact investor?"
                                              )
 
-    gender_lens_investor = forms.ChoiceField(
-        choices=IMPACT_INVESTOR, widget=Select2Widget, label="Do you Consider your firm a 'Gender-Lens' Investor?"
-    )
+    # gender_lens_investor = forms.ChoiceField(
+    #     choices=IMPACT_INVESTOR, widget=Select2Widget, label="Do you Consider your firm a 'Gender-Lens' Investor?"
+    # )
