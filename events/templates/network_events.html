@@ -49,15 +49,15 @@
                   </span>
                   <span class="card-text dark-text pull-right">
                     {% if obj.registration_required == 'YES'%}
-                    <a class="btn btn-primary" href="{{ obj.registration_url }}" target="_blank">Register</a>
+                    <a class="btn btn-primary" href="{{ obj.registration_url }}" target="_blank"><ion-icon name="add"></ion-icon> Register</a>
                     {% endif %}
                   </span>
                   <p class="card-text">
                     
                     {% if obj.event_banner %}
-                      <img src="{{ obj.event_banner.url }}" width="750" height="500">
+                      <img src="{{ obj.event_banner.url }}" width="" height="">
                     {% else %}
-                      <img src="{% static 'img/home_section_3.png' %}" width="750" height="500">
+                      <img src="{% static 'img/home_section_3.png' %}" width="" height=">
                     {% endif %}
 
                     <i class="fa fa-tags" aria-hidden="true"></i>

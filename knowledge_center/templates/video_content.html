@@ -3,7 +3,51 @@
 {% load cms_tags staticfiles %}
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 {% block content %}
-<div class="container single_post_container">
+
+<div class="full_A">
+
+  	<nav id="navbar_out_2" class="navbar navbar-default_media">
+      	<div class="top_container container"> 
+
+          <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
+              {% url 'events_home' as  events_home %}
+              <ul class="event_titles">
+                <li class="active e-title_1"><h1>Knowledge Center</h1></li>
+                <li class="e-title_2">
+                	<!--
+                  <form class="url_changer url_changer1">
+                    <select id="select" class="select">
+                      <option value="{% url 'events_home' %}">VLA Events</option>
+                      <option value="{% url 'network_events' %}">Network Events</option>
+                    </select>
+                  </form>  	
+					-->
+
+                  <form class="url_changer url_changer2">
+                    <select id="select2" class="select">
+
+						{% if object_list %}
+						{% url 'knowledge_center_home' as  knowledge_center_home %}
+						<option class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}" value="{% url 'knowledge_center_home' %}">All</option>
+						{% endif %}
+						{% for type in document_type %}
+						{% if type.textcenter_set.count >= 1 %}
+						{% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
+						<option class="{% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}" value="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
+						</option>
+						{% endif %}
+						{% endfor %}
+
+						<option value="{% url 'knowledge_center_video_home' %}">Videos</option>                                        
+                    </select>
+                  </form>                                   
+              </ul>
+          </div>
+          
+        </div>
+    </nav> 
+
+	<div class="container single_post_container">
 		<div class="actions pull-left" >
 			<a href="{% url 'knowledge_center_video_home' %}" class="btn btn-primary">Back</a>
 		</div>
@@ -31,5 +75,6 @@
 	      </div>
       </div>
     </div>
+    
 </div>
 {% endblock %}

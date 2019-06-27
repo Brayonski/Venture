@@ -37,6 +37,23 @@ class DocumentCategory(models.Model):
         verbose_name_plural = 'Document Categories'
 
 
+class SubDocumentCategory(models.Model):
+    """Document Sub-Category"""
+    title = models.CharField(max_length=50)
+    category = models.ForeignKey(
+        DocumentCategory, related_name="document_category")
+    author = models.ForeignKey(User, related_name="document_sub_category_user")
+    date = models.DateTimeField(auto_now_add=True)
+    published = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Document Sub Category'
+        verbose_name_plural = 'Document Sub Categories'
+
+
 class VideoCategory(models.Model):
     """Video Category"""
     title = models.CharField(max_length=50)
@@ -54,13 +71,14 @@ class VideoCategory(models.Model):
 
 class TextCenter(models.Model):
     category = models.ForeignKey(DocumentCategory, null=True)
+    sub_category = models.ForeignKey(SubDocumentCategory)
     title = models.CharField(max_length=100)
     published = models.BooleanField(default=False)
     author = models.ForeignKey(User)
     description = fields.HTMLField()
     date = models.DateTimeField(auto_now_add=True)
     payment_status = models.CharField(
-        max_length=100, choices=PAYMENTSTATUS, default="", help_text="Payment Required", verbose_name='Payment Required?')
+        max_length=100, choices=PAYMENTSTATUS, help_text="Payment Required", verbose_name='Payment Required?')
     file_upload = models.FileField(
         upload_to='pic_folder/', null=True, blank=True, help_text="Upload an File")
 
