@@ -80,7 +80,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         if self.request.user.investor_creator.exists():
             investor = Investor.objects.filter(user=self.request.user).first()
             context['investor'] = investor
-            context['profile'] = InvestorProfile.objects.get(investor_profile=investor)
+            context['profile'] = InvestorProfile.objects.filter(investor_profile=investor).first()
             interests = context['profile'].target_sectors.all()
             context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct()[:3]
             context['r_businesses'] = Business.objects.filter(sector__in=interests).distinct()[:3]
