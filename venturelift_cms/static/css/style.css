@@ -1837,10 +1837,6 @@ ul.tab_B.nav.nav-tabs {
     width: 70%;
     float: left;
 }
-.onboarding_A {
-    padding-bottom: 60px;
-    padding-top: 0px;
-}
 ul.tab_B.nav>li>a {
     position: relative;
     display: block;
