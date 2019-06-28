@@ -150,7 +150,7 @@ ul.top_top_right {
     float: right;
     text-align: right;
     font-size: 1.2em;
-    margin-top: 40px;
+    margin-top: 0px;
 }
 li.top_top_linkedin {
     font-size: 2em;
@@ -158,7 +158,9 @@ li.top_top_linkedin {
 figure.box_aviY {
     float: left;
     max-width: 60px;
-    margin-right: 10px;
+    margin-right: 0px;
+    width: 30%;
+    position: relative;
 }
 figure.box_aviY a {
     border: 1px solid rgba(0, 0, 0, 0.07);
@@ -178,7 +180,8 @@ figure.box_aviY img {
 }
 
 figure.box_detailsY {
-    float: left;
+    float: right;
+    width: 68%;
 }
 p.box_titleY {
     margin-bottom: 0px;
@@ -200,8 +203,9 @@ p.box_titleY {
     float: left;
 }
 p.box_titleY {
-    margin: 0px;
+    margin: 10px 0px 0px 0px;
     display: flex;
+    font-weight: 700;
 }
 p.box_titleY a {
     display: table-caption;
@@ -1375,10 +1379,10 @@ ul.user_nav_item_drop.dropdown-menu.pull-right .divider {
     padding-bottom: 30px;
 }
 .card-body.progress-card {
-    border-bottom: 1px solid #28f29b;
+    border-bottom: 0px solid #28f29b;
     border-radius: 0px;
-    margin-bottom: 50px;
-    padding: 20px;
+    margin-bottom: 0px;
+    padding: 5px 15px;
     color: #27ef9e;
 }
 .card-body.progress-card img {
@@ -1851,7 +1855,11 @@ p.card-text.dark-text {
     color: #000;
 }
 div#profile h3 {
-    text-align: center;
+    /* text-align: center; */
+    padding: 8px;
+    margin: 0px;
+    font-size: 1.0em;
+    background: rgba(41, 179, 230, 0.0);
 }
 .top_center_nav {
     background: rgba(18, 30, 99, 0.05);
@@ -1861,7 +1869,12 @@ div#profile h3 {
 a.button_A {
     width: 180px;
 }
-
+.box_mbili .card {
+    min-height: 220px;
+}
+.mid_sectionA {
+    margin-bottom: 10px;
+}
 
 
 .user_label_icon {
