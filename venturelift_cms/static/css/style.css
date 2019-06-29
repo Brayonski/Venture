@@ -137,7 +137,8 @@ ul.in_line li {
 }
 
 .vl_top_top ul li a:hover {
-    color: #4aaded;
+    color: #4aaded !important;
+    background: transparent;
 }
 
 .vl_top_top ul li.active a {
@@ -259,7 +260,7 @@ ul.navbarX2 li {
 }
 
 .navbar-default {
-    background: #283891 url(../img/signup-bg.jpg) bottom center no-repeat;
+    background: #283891 url(../img/signup-bg2.jpg) bottom center no-repeat;
     border-bottom: 0px;
     box-shadow: 0px 0px 8px 0px rgba(40, 56, 145, 0.20);
     padding: 10px 0px;
@@ -273,7 +274,7 @@ ul.navbarX2 li {
 }
 
 .navbar-default_media {
-    background: #283891 url(../img/signup-bg.jpg) bottom center no-repeat;
+    background: #283891 url(../img/signup-bg2.jpg) bottom center no-repeat;
     border-bottom: 0px;
     box-shadow: 0px 0px 8px 0px rgba(40, 56, 145, 0.20);
     padding: 10px 0px;
@@ -283,6 +284,10 @@ body.media_index {
 }
 nav#navbar_out_2 a {
     color: #FFFF;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: transparent;
 }
 body.media_index nav#navbar_out_2 {
     padding: 100px 0px 10px 0px;
@@ -296,12 +301,13 @@ nav#navbar_out_2 a:active {
     color: rgb(0, 0, 0);
 }
 .navbar-default2 .vl_top_top ul li a:hover {
-    color: rgb(0, 156, 255);
+    color: rgb(0, 156, 255) !important;
+    background: transparent;
 }
 .home_banner.full_width {
     padding: 220px 0px;
     background: #283891 url(../img/home_banner.jpg) top center fixed;
-    /* background-size: cover; */
+    background-size: cover;
     color: #FFF;
 }
 .home_section_3.full_width {
@@ -329,14 +335,18 @@ nav#navbar_out_2 a:active {
     text-align: left;
 }
 .hs2_more {
-    max-width: 300px;
+    max-width: 270px;
     margin: 0 auto;
     position: relative;
 }
 .single_event_meta {
     margin: 30px 0px;
 }
-
+.hs2_content {
+    font-size: 1.1em;
+    line-height: 1.6em;
+    font-weight: 300;
+}
 
 
 .at-section__title {
@@ -632,7 +642,24 @@ a.a_A {
 a.a_A:hover {
     color: #4aaded;
 }
-
+blockquote {
+    border-left: 5px solid #1eafe4;
+}
+.page_boxA {
+    background: #e1e4d2;
+    padding: 20px;
+    margin: 40px 0px;
+}
+.page_content_A .h3, .page_content_A h3 {
+    color: #000;
+    font-weight: 300;
+}
+.page_content_A h4 {
+    margin: 40px 0px 20px;
+}
+small#hint_id_password2 {
+    display: none;
+}
 .style_A {
     font-weight: 900;
     margin-bottom: 20px;
@@ -648,7 +675,10 @@ a.a_A:hover {
 .style_D {
     font-weight: 800;
     margin-bottom: 20px;
-    font-size: 3.8em;
+    font-size: 3.3em;
+}
+.single_post_container p.meta {
+    text-align: center;
 }
 
 figure.single_banner {
@@ -1050,7 +1080,7 @@ body.auth_pages a.navbar-brand {
 }
 
 body.auth_pages {
-    background: #040439 url('../img/signup-bg.jpg') center center no-repeat;
+    background: #040439 url('../img/signup-bg2.jpg') center center no-repeat;
     background-size: cover;
     color: #FFF;
     padding-top: 0px;
@@ -1709,6 +1739,8 @@ ul.Xuser_label.Xfunder_label.Xtop {
 }
 .ptin_A.ptin_1A h4 {
     padding-top: 30px;
+    font-size: 1.8em;
+    font-weight: 200;
 }
 .padless-left {
     padding-left: 0px;
@@ -1860,6 +1892,7 @@ div#profile h3 {
     margin: 0px;
     font-size: 1.0em;
     background: rgba(41, 179, 230, 0.0);
+    font-weight: 700;
 }
 .top_center_nav {
     background: rgba(18, 30, 99, 0.05);
