@@ -144,15 +144,14 @@
                                                     <div class="card-body">
                                                          <form method="post" action="{% url 'crowdfunding:crowdfunder_make_payment' %}">
                                                                  {% csrf_token %}
-
+                                                             <input type="hidden" value="{{campaign_data.id}}" name="campaign_id" required />
+                                                             <input type="hidden" value="{{campaign_data.minimum_donation}}" name="campaign_minimum_amount" id="campaign_minimum_amount" />
                                                              <div class="form-group">
-                                                                  <input type="hidden" value="{{campaign_data.id}}" name="campaign_id" required />
                                                                   <label for="donator_email"> Email: </label>
                                                                  <input id="donator_email" type="email" class="form-control" name="donator_email" required />
                                                              </div>
 
                                                               <div class="form-group">
-                                                                   <input type="hidden" value="{{campaign_data.minimum_donation}}" name="campaign_minimum_amount" id="campaign_minimum_amount" />
                                                                   <label for="amount">Crowdfunding Amount: </label>
                                                                  <input id="amount" type="number" class="form-control" name="amount" min="1" required />
                                                                   <span style="color:red" id="amount_check">All funding is in USD</span>
@@ -280,16 +279,18 @@
 
         });
 
-         $('#amount').on("keyup",function(e) {
+        $('#amount').on("keyup",function() {
             console.log("Hey");
             var amountselection = $(this).val();
             var minamount = $('#campaign_minimum_amount').val();
             if(amountselection < minamount){
-                $('#amount_check').innerHtml = "Please Enter an amount greater than "+ minamount;
+                document.getElementById("amount_check").innerHtml = "Please Enter an amount greater than "+ minamount;
+                console.log(amountselection);
+                console.log(minamount);
             }else{
-                $('#amount_check').innerHtml = "All funding is in USD";
+                 document.getElementById("amount_check").innerHtml = "All funding is in USD";
+                console.log("Its okay");
             }
-
         });
    });
   </script>
