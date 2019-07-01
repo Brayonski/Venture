@@ -2130,3 +2130,64 @@ h4.event_title {
 .single_event_content {
     margin: 30px 0px;
 }
+a.list_title {
+    font-weight: 700;
+    color: #000;
+}
+
+
+
+.s_e_1.s_e_in a.list-group-item.active {
+    /* background: transparent; */
+    color: #25b1e5;
+    border: 1px solid #25b1e5;
+    background: rgba(37, 177, 229, 0.05);
+}
+td.e1 {
+    text-transform: uppercase;
+    font-size: .8em;
+    color: #a7a7a7;
+    font-weight: 600;
+    padding-top: 20px !important;
+    display: block;
+}
+td.e2 a h2 {
+    color: #000;
+}
+td.e2 h2 {
+    padding: 0px;
+    margin: 0px;
+    font-size: 1.7em;
+    font-weight: 300;
+    margin-bottom: 4px;
+}
+td.e2 a:hover h2 {
+  color: blue;
+}
+td.e2 {
+    padding-top: 20px !important;
+}
+td.e3 a {
+    min-width: 120px;
+}
+li.active.e-title_1 {
+    margin-right: 30px;
+}
+li.e-title_2X a {
+    padding: 10px 10px;
+}
+.single_event_button_wrap {
+    margin-top: 25px;
+}
+.side_events {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 10px;
+}
+div#navbarX {
+    padding: 0px;
+}
+
+td.e3 {
+    padding-top: 20px !important;
+}

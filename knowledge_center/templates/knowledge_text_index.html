@@ -3,14 +3,94 @@
 {% load cms_tags staticfiles %}
 {% block title %} Knowledge Center| Documents Center {% endblock title %}
 {% block content %}
-<div class="full_A">
-  <div class="container">
-    <div class="profile_top full_widthX">
-      <div class="profile_top_in">
-        KNOWLEDGE CENTER
+
+
+<div class="event_wrapper full_A">
+
+    <nav id="navbar_out_2" class="navbar navbar-default_media">
+        <div class="top_container container">
+
+          <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
+            {% url 'events_home' as  events_home %}
+            <ul class="event_titles">
+                <li class="active e-title_1"><h1>Knowledge Center</h1></li>
+
+        {% if object_list %}
+        {% url 'knowledge_center_home' as  knowledge_center_home %}
+        <li class="e-title_2X {% ifequal request.path knowledge_center_home %}active{% endifequal %}"><h4><a href="{% url 'knowledge_center_home' %}">All</a></h4></li>
+
+        {% endif %}
+        {% for type in document_type %}
+        {% if type.textcenter_set.count >= 1 %}
+        {% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
+
+        <li class="e-title_2X {% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}">
+          <h4><a href="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
+          </a></h4>
+        </li>
+
+        {% endif %}
+        {% endfor %}
+
+        <li class="e-title_2X">
+          <h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
+        </li>
+
+      </ul>
+          </div>
+
+        </div>
+    </nav>
+
+  <div class="tab_content">
+
+    <div id="home" class="kn_part_1">
+      <div class="container clearfix">
+        <!--<h2 class="h_title_A">REPORTS</h2>-->
+        <div class="row clearfix">
+
+          <!-- docs -->
+          {% for obj in object_list %}
+          <div class="col-md-3 clearfix single_card_wrapper">
+            <div class="card_C card" style="padding-bottom: 30px;">
+              <div class="card-body">
+                <div class="">
+                  <h3 class="card-text dark-text">
+                    <a href="{% url 'knowledge_center_read_content' obj.id %}">{{ obj.title }}</a>
+                  </h3>
+                  <p class="card-text" style="padding-top: 10px;">
+                    {% if obj.file_upload %}
+                    <i class="fa fa-file-text" aria-hidden="true"></i>
+                    {% endif %}
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                    {{obj.category}}
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                    {{obj.payment_status}}
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    {{obj.date }}
+                  </p>
+                  <p class="card-text" style="padding-top: 30px;">
+                    {# obj.description|safe|truncatewords:"70"|linebreaks #}
+                    <!--<a class="text-primary" style="" href="{% url 'knowledge_center_read_content' obj.id %}">READ MORE</a>-->
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          
+        </div>
       </div>
-    </div>
-    <div>
+    </div>  
+
+  </div>
+
+</div>
+
+
+<div class="full_A">
+
+      <!--
       <ul class="nav nav-pills">
         {% if object_list %}
         {% url 'knowledge_center_home' as  knowledge_center_home %}
@@ -45,12 +125,16 @@
 
         <li><a href="{% url 'knowledge_center_video_home' %}">Videos</a></li>
       </ul>
+      -->
+
     </div>
     <div class="tab-content">
 
       <div id="home" class="tab-pane fade in active">
         <div class="row clearfix">
           <div class="no_padd col-md-12 clearfix">
+
+            <!--
             {% for obj in object_list %}
             <div class="single_card_wrapper">
               <div class="card_C card" style="">
@@ -79,7 +163,8 @@
               </div>
             </div>
             {% endfor %}
-
+            -->
+            
             <!-- videos -->
             {% for video in videos %}
 
