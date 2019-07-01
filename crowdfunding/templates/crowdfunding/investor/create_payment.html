@@ -79,58 +79,118 @@
                                       <div class="card_C card" style="">
                                         <div class="card-body">
                                           <h4 align="center"><b>Donate</b></h4>
-                                             <form method="post" action="{% url 'crowdfunding:make_payment' %}">
-                                                     {% csrf_token %}
+                                             <div class="row clearfix">
+                                                  <div class="no_padd col-md-12 clearfix">
+                                                    <h3>Campaign Details</h3>
+                                                    <div class="single_card_wrapper">
+                                                      <div class="card_C card" style="">
+                                                        <div class="card-body">
+                                                          <div class="">
+                                                              <h5><b>Campaign Title</b></h5>
+                                                                <p class="card-text dark-text">
+                                                                  {% if campaign_data.short_description %}
+                                                                    {{campaign_data.short_description}}
+                                                                  {% else %}
+                                                                    No campaign title statement provided
+                                                                  {% endif %}
+                                                                </p>
 
-                                                 <div class="form-group">
-                                                     <input type="hidden" value="{{campaign_data.id}}" name="campaign_id" required />
-                                                     <label for="campaign_short"> Campaign Short Description: </label>
-                                                      <textarea id="campaign_short" class="form-control" readonly>{{campaign_data.short_description}}</textarea>
-                                                 </div>
+                                                               <h5><b>Campaign Objective</b></h5>
+                                                                <p class="card-text dark-text">
+                                                                  {% if campaign_data.long_description %}
+                                                                    {{campaign_data.long_description}}
+                                                                  {% else %}
+                                                                    No campaign objective statement provided
+                                                                  {% endif %}
+                                                                </p>
 
-                                                 <div class="form-group">
-                                                     <label for="campaign_long"> Campaign Long Description: </label>
-                                                      <textarea id="campaign_long" class="form-control" readonly>{{campaign_data.long_description}}</textarea>
-                                                 </div>
+                                                               <h5><b>Target Amount</b></h5>
+                                                                <p class="card-text dark-text">
+                                                                  {% if campaign_data.target_amount %}
+                                                                    USD {{campaign_data.target_amount}}
+                                                                  {% else %}
+                                                                    No target_amount provided
+                                                                  {% endif %}
+                                                                </p>
 
-                                                 <div class="form-group">
-                                                     <label for="amount"> Amount: </label>
-                                                     <input id="amount" type="number" class="form-control" name="amount" min="1" required />
-                                                 </div>
+                                                              <h5><b>Minimum Amount</b></h5>
+                                                                <p class="card-text dark-text">
+                                                                  {% if campaign_data.minimum_donation %}
+                                                                    USD {{campaign_data.minimum_donation}}
+                                                                  {% else %}
+                                                                    No minimum donation amount defined
+                                                                  {% endif %}
+                                                                </p>
 
-                                                 <div class="form-group">
-                                                     <label for="comments"> Comments: </label>
-                                                      <textarea id="comments" name="comments" class="form-control" rows="2"></textarea>
-                                                 </div>
+                                                               <h5><b>Campaign Closing Date</b></h5>
+                                                                <p class="card-text dark-text">
+                                                                  {% if campaign_data.duration %}
+                                                                    USD {{campaign_data.duration}}
+                                                                  {% else %}
+                                                                    No campaign  closing date details provided
+                                                                  {% endif %}
+                                                                </p>
+                                                          </div>
 
-                                                 <div class="form-group">
-                                                     <label> Allow payment information to be visible by Campaign Owner: </label>
-                                                      <input type="radio" name="allow_visibility" value="1" checked> Yes<br>
-                                                      <input type="radio" name="allow_visibility" value="0"> No<br>
-                                                 </div>
-
-                                                 <div class="form-group">
-                                                      <label for="payment_method"> Payment Method: </label>
-                                                     <select id="payment_method" name="payment_method" class="form-control" required>
-                                                         <option value="">Select a payment Method</option>
-                                                         <option value="paypal">Paypal</option>
-                                                         <option value="mpesa">Mpesa</option>
-                                                     </select>
-                                                 </div>
-
-                                                   <div class="form-group" id="donator_phoneno_mpesa">
-                                                     <label for="donator_phoneno"> Mpesa Phone No* </label>
-                                                     <input id="donator_phoneno" class="form-control" name="donator_phoneno" type="text" placeholder="Enter with country code eg 254789098765" novalidate>
-                                                   </div>
-
-                                                     <div id="donate-paypal">
-                                                         <div id="paypal-button-container"></div>
-                                                     </div>
-
-                                                    <div class="form-group" align="center" id="donate-mpesa">
-                                                        <button class='btn btn-success' type="submit">Donate</button>
+                                                        </div>
+                                                      </div>
                                                     </div>
-                                             </form>
+                                                  </div>
+                                              </div>
+
+                                            <div class="row clearfix">
+                                              <div class="no_padd col-md-12 clearfix">
+                                                <div class="single_card_wrapper">
+                                                  <div class="card_C card" style="">
+                                                    <div class="card-body">
+                                                         <form method="post" action="{% url 'crowdfunding:make_payment' %}">
+                                                                 {% csrf_token %}
+                                                             <input type="hidden" value="{{campaign_data.id}}" name="campaign_id" required />
+                                                             <input type="hidden" value="{{campaign_data.minimum_donation}}" name="campaign_minimum_amount" id="campaign_minimum_amount" />
+                                                              <div class="form-group">
+                                                                  <label for="amount">Crowdfunding Amount: </label>
+                                                                 <input id="amount" type="number" class="form-control" name="amount" min="1" required />
+                                                                  <span style="color:red" id="amount_check">All funding is in USD</span>
+                                                             </div>
+
+                                                             <div class="form-group">
+                                                                 <label for="comments"> Comments: </label>
+                                                                  <textarea id="comments" name="comments" class="form-control" rows="2"></textarea>
+                                                             </div>
+
+                                                             <div class="form-group">
+                                                                 <label> Allow payment information to be visible by Campaign Owner: </label>
+                                                                  <input type="radio" name="allow_visibility" value="1" checked> Yes<br>
+                                                                  <input type="radio" name="allow_visibility" value="0"> No<br>
+                                                             </div>
+
+                                                             <div class="form-group">
+                                                                  <label for="payment_method"> Payment Method: </label>
+                                                                 <select id="payment_method" name="payment_method" class="form-control" required>
+                                                                     <option value="">Select a payment Method</option>
+                                                                     <option value="paypal">Paypal</option>
+                                                                     <option value="mpesa">Mpesa</option>
+                                                                 </select>
+                                                             </div>
+
+                                                               <div class="form-group" id="donator_phoneno_mpesa">
+                                                                 <label for="donator_phoneno"> Mpesa Phone No* </label>
+                                                                 <input id="donator_phoneno" class="form-control" name="donator_phoneno" type="text" placeholder="Enter with country code eg 254789098765" novalidate>
+                                                               </div>
+
+                                                                 <div id="donate-paypal">
+                                                                     <div id="paypal-button-container"></div>
+                                                                 </div>
+
+                                                                <div class="form-group" align="center" id="donate-mpesa">
+                                                                    <button class='btn btn-success' type="submit">Donate</button>
+                                                                </div>
+                                                         </form>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
                                         </div>
                                       </div>
                                     </div>
@@ -201,6 +261,22 @@
                 $('#donator_phoneno_mpesa').hide();
                 $('#donate-mpesa').hide();
                 $('#donate-paypal').show();
+            }
+
+        });
+
+
+         $('#amount').on("keyup",function() {
+            console.log("Hey");
+            var amountselection = $(this).val();
+            var minamount = $('#campaign_minimum_amount').val();
+            if(amountselection < minamount){
+                document.getElementById("amount_check").innerHtml = "Please Enter an amount greater than "+ minamount;
+                console.log(amountselection);
+                console.log(minamount);
+            }else{
+                 document.getElementById("amount_check").innerHtml = "All funding is in USD";
+                console.log("Its okay");
             }
 
         });

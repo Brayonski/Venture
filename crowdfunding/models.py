@@ -95,6 +95,7 @@ class Campaign(models.Model):
     rejected = models.BooleanField(default=False)
     rejected_by = models.ForeignKey(User, related_name='campaign_rejector', null=True, blank=True)
     comments = models.TextField(null=True, blank=True)
+    minimum_donation = models.DecimalField(max_digits=19,decimal_places=2,default=1)
     class Meta:
         verbose_name_plural = 'Campaigns'
 
