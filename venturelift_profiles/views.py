@@ -538,7 +538,20 @@ class InvestorUpdateProfileView(LoginRequiredMixin, UpdateView):
             return redirect(reverse('update_investor_step2',
                                     kwargs={'pk': self.kwargs['pk']}))
         if current_url == 'update_investor_step2':
-            form.save()
+            self.object = form.save(commit=False)
+            if form.cleaned_data['funder_type'] == "Investor":
+                self.object.funder_type = form.cleaned_data['funder_type']
+                self.object.investment_type = self.request.POST['funder_investor_type']
+                self.object.investment_product = self.request.POST['funder_investor_product']
+            elif form.cleaned_data['funder_type'] == "Crowdfunder":
+                self.object.funder_type = form.cleaned_data['funder_type']
+                self.object.investment_type = self.request.POST['funder_crowdfunder_type']
+                self.object.investment_product = "Donation"
+            else:
+                self.object.funder_type = form.cleaned_data['funder_type']
+                self.object.investment_type = "Lender"
+                self.object.investment_product = self.request.POST['funder_lender_product']
+            self.object.save()
             return redirect(reverse('investor_list'))
 
     def get_context_data(self, **kwargs):

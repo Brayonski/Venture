@@ -131,7 +131,7 @@ class CampaignDisbursement(models.Model):
     campaign = models.ForeignKey(Campaign)
     campaign_target = models.DecimalField(max_digits=19, decimal_places=2,null=True)
     created_at = models.DateTimeField('disbursement request date', null=True)
-    campaign_duration = models.DateField('campaign closing date',default=timezone.now())
+    campaign_duration = models.DateField('campaign closing date',null=True)
     amount = models.DecimalField(max_digits=19, decimal_places=2)
     disbursement_type = models.CharField(max_length=100, choices=DISBURSEMENT_TYPE, null=True, blank=True)
     disbursement_method = models.CharField(max_length=100, choices=DISBURSEMENT_METHODS, null=True, blank=True)

@@ -151,6 +151,35 @@ APPROVAL_STATUS = (
     ('PENDING', 'PENDING'),
 )
 
+FUNDER_TYPES = (
+    ('Investor', 'Investor'),
+    ('Crowdfunder', 'Crowdfunder'),
+    ('Lender', 'Lender'),
+)
+
+INVESTOR_TYPES = (
+    ('Angel', 'Angel'),
+    ('Venture Capital', 'Venture Capital'),
+    ('Private Equity', 'Private Equity'),
+    ('Impact', 'Impact'),
+)
+
+INVESTOR_PRODUCTS = (
+    ('Equity', 'Equity'),
+    ('Quasi Equity', 'Quasi Equity'),
+    ('Other', 'Other'),
+)
+
+CROWDFUNDER_TYPES = (
+    ('Donator', 'Donator'),
+)
+
+LENDER_PRODUCTS = (
+    ('Subordinated', 'Subordinated'),
+    ('Mezzanine', 'Mezzanine'),
+    ('Senior', 'Senior'),
+)
+
 
 YEAR_CHOICES = []
 for r in range(1960, (datetime.datetime.now().year+1)):
@@ -375,8 +404,11 @@ class InvestorProfile(models.Model):
     investor_profile = models.ForeignKey(
         Investor, related_name='investor_profile')
 
-    company_classification = models.CharField(
-        max_length=50, choices=COMPANY_CLASSIFICATION, null=True, blank=True)
+    funder_type = models.CharField(max_length=255,null=True,choices=FUNDER_TYPES)
+    investment_type = models.CharField(max_length=255,null=True,blank=True)
+    investment_product = models.CharField(max_length=255,null=True,blank=True)
+    # company_classification = models.CharField(
+    #     max_length=50, choices=COMPANY_CLASSIFICATION, null=True, blank=True)
 
     investor_forms = MultiSelectField(
         max_length=250, choices=INVESTOR_FORMS, null=True, blank=True, help_text="What forms of investment do you make?")
@@ -408,9 +440,9 @@ class InvestorProfile(models.Model):
 
     impact_metrics = models.TextField(help_text="Which are your key impact metrics", null=True)
 
-    gender_lens_investor = models.CharField(
-        max_length=250, null=True, blank=True, choices=IMPACT_INVESTOR, help_text="Do you Consider your firm a 'Gender-Lens' Investor?",default='yes'
-    )
+    # gender_lens_investor = models.CharField(
+    #     max_length=250, null=True, blank=True, choices=IMPACT_INVESTOR, help_text="Do you Consider your firm a 'Gender-Lens' Investor?",default='yes'
+    # )
 
     class Meta:
         verbose_name = 'Investor Profile'

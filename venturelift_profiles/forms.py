@@ -209,7 +209,6 @@ class InvestorProfileCreateForm(forms.ModelForm):
         model = InvestorProfile
         exclude = ['investor_profile']
         labels = {
-            'company_classification': "How would you classify your firm?",
             'investor_forms': "What forms of investment do you make?",
             'elevator_pitch': "What is your investment thesis in brief(Elevator Pitch)?",
             'target_countries': "Which are your target countries?",
