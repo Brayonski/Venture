@@ -73,7 +73,7 @@
           </div>
 
           <div class="profile_list_side">
-            <h4>Following</h4>
+            <h4>Connected</h4>
             {% if business_following %}
             <p class="profile_list_side_title">Businesses</p>
             {% endif %}
@@ -96,7 +96,7 @@
                   <div class="box_socialY">
                     {% if obj in business_following %}
                     <a href="{% url 'business_unfollow' obj.id %}">
-                      <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                      <button class="btn-actioned btn btn-sm btn-default">Disconnect</button>
                     </a>
                     {% endif %}
                   </div>
@@ -127,7 +127,7 @@
                   <div class="box_socialY">
                     {% if obj in supporter_following %}
                     <a href="{% url 'supporter_unfollow' obj.id %}">
-                      <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                      <button class="btn-actioned btn btn-sm btn-default">Discoonect</button>
                     </a>
                     {% endif %}
                   </div>
@@ -158,7 +158,7 @@
                   <div class="box_socialY">
                     {% if obj in investor_following %}
                     <a href="{% url 'investor_unfollow' obj.id %}">
-                      <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                      <button class="btn-actioned btn btn-sm btn-default">Disconnect</button>
                     </a>
                     {% endif %}
                   </div>
@@ -480,7 +480,7 @@
                     <div class="box_socialY">
                       {% if obj in supporter_following %}
                       <a href="{% url 'supporter_unfollow' obj.id %}">
-                        <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                        <button class="btn-actioned btn btn-sm btn-default">Diconnect</button>
                       </a>
                       {% endif %}
                     </div>
@@ -512,7 +512,7 @@
                     <div class="box_socialY">
                       {% if obj in investor_following %}
                       <a href="{% url 'investor_unfollow' obj.id %}">
-                        <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                        <button class="btn-actioned btn btn-sm btn-default">Disconnect</button>
                       </a>
                       {% endif %}
                     </div>
@@ -610,7 +610,7 @@
   
   
             <div class="profile_list_side">
-              <h4>Following</h4>
+              <h4>Connected</h4>
                      
               {% if business_following %}
               <p class="profile_list_side_title">Businesses</p>
@@ -634,7 +634,7 @@
                     <div class="box_socialY">
                       {% if obj in business_following %}
                       <a href="{% url 'business_unfollow' obj.id %}">
-                        <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                        <button class="btn-actioned btn btn-sm btn-default">Disconnect</button>
                       </a>
                       {% endif %}
                     </div>
@@ -666,7 +666,7 @@
                     <div class="box_socialY">
                       {% if obj in supporter_following %}
                       <a href="{% url 'supporter_unfollow' obj.id %}">
-                        <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                        <button class="btn-actioned btn btn-sm btn-default">Disconnect</button>
                       </a>
                       {% endif %}
                     </div>

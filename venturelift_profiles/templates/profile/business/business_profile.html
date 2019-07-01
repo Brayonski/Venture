@@ -147,7 +147,7 @@
                         <div class="box_socialY">
                           {% if obj in business_following %}
                           <a href="{% url 'business_unfollow' obj.id %}">
-                            <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                            <button class="btn-actioned btn btn-sm btn-default">Disconnect</button>
                           </a>
                           {% endif %}
                         </div>
@@ -179,7 +179,7 @@
                         <div class="box_socialY">
                           {% if obj in supporter_following %}
                           <a href="{% url 'supporter_unfollow' obj.id %}">
-                            <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                            <button class="btn-actioned btn btn-sm btn-default">Disconnect</button>
                           </a>
                           {% endif %}
                         </div>
@@ -211,7 +211,7 @@
                         <div class="box_socialY">
                           {% if obj in investor_following %}
                           <a href="{% url 'investor_unfollow' obj.id %}">
-                            <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                            <button class="btn-actioned btn btn-sm btn-default">Disconnect</button>
                           </a>
                           {% endif %}
                         </div>

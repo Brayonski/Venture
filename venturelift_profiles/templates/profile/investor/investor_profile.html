@@ -83,7 +83,7 @@
           </div>
 
           <div class="profile_list_side">
-            <h4>Following</h4>
+            <h4>Connected</h4>
                    
             {% if business_following %}
             <p class="profile_list_side_title">Businesses</p>
@@ -107,7 +107,7 @@
                   <div class="box_socialY">
                     {% if obj in business_following %}
                     <a href="{% url 'business_unfollow' obj.id %}">
-                      <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                      <button class="btn-actioned btn btn-sm btn-default">Disconnect</button>
                     </a>
                     {% endif %}
                   </div>
@@ -139,7 +139,7 @@
                   <div class="box_socialY">
                     {% if obj in supporter_following %}
                     <a href="{% url 'supporter_unfollow' obj.id %}">
-                      <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                      <button class="btn-actioned btn btn-sm btn-default">Disconnect</button>
                     </a>
                     {% endif %}
                   </div>
@@ -171,7 +171,7 @@
                   <div class="box_socialY">
                     {% if obj in investor_following %}
                     <a href="{% url 'investor_unfollow' obj.id %}">
-                      <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                      <button class="btn-actioned btn btn-sm btn-default">Disconnect</button>
                     </a>
                     {% endif %}
                   </div>
@@ -336,7 +336,11 @@
                                     <h3>Contact Information</h3>
                                     <p>Connect me with this Funder</p>
                                   </div>
-                                  <a href="#connect" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Connect</a>
+                                  {% if following %}
+                                    <a href="{% url 'investor_unfollow' investor.id %}" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Disconnect</a>
+                                  {% else %}
+                                    <a href="{% url 'investor_follow' investor.id %}" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Connect</a>
+                                  {% endif %}
                                 </div>                
                             </div>
 
