@@ -3,7 +3,12 @@
 
 {% block content %}
 
-
+<style type="text/css">
+body.auth_pages {
+    background: #040439 url('/static/img/signup-bg3.jpg') center center no-repeat !important;
+    background-size: cover;
+}	
+</style>
 
 <div class="full_width newsletter_A">
   <div class="container newsletter_A_container">
@@ -12,12 +17,12 @@
 
       		<div class="col-md-4 col-md-offset-4">
 	          <div class="full_w_form form_control">
-	          	<h4 class="style_4 text-center">Login</h4>
+	          	<h4 class="style_4 text-center">Sign in</h4>
 				<form method='post'>
 				    {% csrf_token %}
 				    <div class="form-group col-md-6 mb-0">
 				        {{ form|crispy }}
-				        <button type='submit' class='submit_A btn btn-primary'>Login</button>
+				        <button type='submit' class='submit_A btn btn-primary'>Sign in</button>
 				    </div>
 				</form>
 	          </div>

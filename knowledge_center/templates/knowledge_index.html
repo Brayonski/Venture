@@ -82,64 +82,65 @@
 			</ul>
 		</div>
 		-->
+		<div class="tab_content">
 
-		<div class="tab-content">
+			<div id="home" class="">
+				<div class="container clearfix">
+					<div class="row clearfix">
+						
+							{% for obj in text_center %}
+							<div class="col-md-6 clearfix single_card_wrapper">
+								<div class="card_C card" style="">
+									<div class="card-body">
+										<div class="">
+											<h1 class="card-text dark-text">
+												{{ obj.title }}
+											</h1>
+											<p class="card-text">
+												{% if obj.file_upload %}
+												<i class="fa fa-file-text" aria-hidden="true"></i>
+												{% endif %}
+												<i class="fa fa-tags" aria-hidden="true"></i>
+												{{obj.category}}
+												<i class="fa fa-money" aria-hidden="true"></i>
+												{{obj.payment_status}}
+												<i class="fa fa-calendar" aria-hidden="true"></i>
+												{{obj.date }}
+											</p>
+											<p class="card-text">
+												{{ obj.description|safe|truncatewords:"70"|linebreaks }}
+												<a class="text-primary" href="{% url 'knowledge_center_read_content' obj.id %}">read more</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+							<!---See more Reports -->
 
-			<div id="home" class="tab-pane fade in active">
-				<div class="row clearfix">
-					<div class="no_padd col-md-12 clearfix">
-						{% for obj in text_center %}
-						<div class="single_card_wrapper">
-							<div class="card_C card" style="">
-								<div class="card-body">
-									<div class="">
-										<h1 class="card-text dark-text">
-											{{ obj.title }}
-										</h1>
+							<!-- videos -->
+							{% for video in videos %}
+							<div class="col-md-6 clearfix single_card_wrapper">
+								<div class="card_C card" style="">
+									<div class="card-body">
+										<div class="pull-left">
+											{{video.path|safe}}
+										</div>
+										<p class="card-text">{{ video.title }}</p>
 										<p class="card-text">
-											{% if obj.file_upload %}
-											<i class="fa fa-file-text" aria-hidden="true"></i>
-											{% endif %}
+											{{ video.description|safe|truncatewords:"70"|linebreaks }}
 											<i class="fa fa-tags" aria-hidden="true"></i>
-											{{obj.category}}
+											{{video.sub_category}}
 											<i class="fa fa-money" aria-hidden="true"></i>
-											{{obj.payment_status}}
-											<i class="fa fa-calendar" aria-hidden="true"></i>
-											{{obj.date }}
+											{{video.payment_status}}
 										</p>
-										<p class="card-text">
-											{{ obj.description|safe|truncatewords:"70"|linebreaks }}
-											<a class="text-primary" href="{% url 'knowledge_center_read_content' obj.id %}">read more</a>
-										</p>
+										<a class="text-primary" href="{% url 'knowledge_center_video_content' video.id %}">read more</a>
 									</div>
 								</div>
 							</div>
-						</div>
-						{% endfor %}
-						<!---See more Reports -->
-
-						<!-- videos -->
-						{% for video in videos %}
-						<div class="single_card_wrapper">
-							<div class="card_C card" style="">
-								<div class="card-body">
-									<div class="pull-left">
-										{{video.path|safe}}
-									</div>
-									<p class="card-text">{{ video.title }}</p>
-									<p class="card-text">
-										{{ video.description|safe|truncatewords:"70"|linebreaks }}
-										<i class="fa fa-tags" aria-hidden="true"></i>
-										{{video.sub_category}}
-										<i class="fa fa-money" aria-hidden="true"></i>
-										{{video.payment_status}}
-									</p>
-									<a class="text-primary" href="{% url 'knowledge_center_video_content' video.id %}">read more</a>
-								</div>
-							</div>
-						</div>
+						
+							{% endfor %}
 					</div>
-					{% endfor %}
 				</div>
 			</div>
 		</div>
