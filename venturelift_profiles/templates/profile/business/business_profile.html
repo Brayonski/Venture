@@ -22,8 +22,11 @@
                 <div class="Xuser_label_wrap Xtop">
                   <ul class="Xuser_label Xfunder_label Xtop">
                     <li class="Xuser_label_company2 Xtop">
-                        <h4><ion-icon name="briefcase"></ion-icon>  {{ business.name }}</h4>                    
+                        <h4>  {{ business.name }}</h4>
                     </li>
+                  <li class="Xuser_label_company Xtop">
+                     {{ business.creator.first_name|add:" "|add:business.creator.last_name }}
+                  </li>
                     <li class="Xuser_label_company Xtop">
                       {% if business.verified %}
                       {% else %}

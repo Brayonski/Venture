@@ -22,7 +22,7 @@
               <div class="Xuser_label_wrap Xtop">
                 <ul class="Xuser_label Xfunder_label Xtop">
                   <li class="Xuser_label_company2 Xtop">
-                      <h4><ion-icon name="briefcase"></ion-icon>  {{ investor.company }}</h4>                    
+                      <h4>  {{ investor.company }}</h4>
                   </li>
                   <li class="Xuser_label_company Xtop">
                     {{ investor.fullname }}-
@@ -30,7 +30,11 @@
                     {% else %}
                     {% endif %}                    
                   </li>
-                  <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Funder - {{investor_profile.company_classification}}</li>                  
+                  {% if investor_profile.company_classification %}
+                   <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Funder - {{investor_profile.company_classification}}</li>
+                  {% else %}
+                    <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Funder - {{investor_profile.funder_type}}</li>
+                  {% endif %}
                 </ul>
               </div>            
             </div>                      
