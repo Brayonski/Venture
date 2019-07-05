@@ -25,10 +25,9 @@ from requests.auth import HTTPBasicAuth
 import json
 from datetime import datetime
 import base64
-import paypalrestsdk
-from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
+import decimal
 
 # Create your views here.
 @login_required
@@ -243,7 +242,7 @@ def verify_paypal_payment_funder(request):
                               payment_method=data['paymentMethod'], payment_status='PAID', payment_order_number=data['orderID'], payment_payer_id=data['payerID'], paid=True,
                               comments=data['comments'], allow_visibility=data['allowVisibility'])
     payment.save()
-    totalReceived = campaign_selected.total_funds_received + float(data['amount'])
+    totalReceived = campaign_selected.total_funds_received + decimal.Decimal(data['amount'])
     campaign_selected.total_funds_received = totalReceived
     campaign_selected.save()
     if campaign_selected.campaign_type == "REWARD BASED":
