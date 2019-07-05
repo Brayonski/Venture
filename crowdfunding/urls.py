@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^crowdfunder/filter_campaign/$', views.crowdfunder_filter_campaign_view, name='crowdfunder_filter_campaign'),
     url(r'^crowdfunder/create_donation/(?P<campaign_id>[0-9]+)/$', views.crowdfunder_create_donation, name='crowdfunder_create_donation'),
     url(r'^crowdfunder/make_payment/$', views.crowdfunder_make_payment, name='crowdfunder_make_payment'),
+    url(r'^crowdfunder/paypal-transaction-complete/$', views.verify_paypal_payment_funder, name='verify_paypal_payment_funder'),
 ]

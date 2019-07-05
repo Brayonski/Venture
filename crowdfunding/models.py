@@ -117,6 +117,7 @@ class CampaignPayment(models.Model):
     payment_method = models.CharField(max_length=100)
     payment_status = models.CharField(max_length=100)
     payment_order_number = models.CharField(max_length=255,null=True,blank=True)
+    payment_payer_id = models.CharField(max_length=255,null=True,blank=True)
     paid = models.BooleanField(default=False)
     comments = models.TextField(null=True, blank=True)
     allow_visibility = models.BooleanField(default=False)
