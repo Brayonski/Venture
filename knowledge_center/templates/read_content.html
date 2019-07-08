@@ -24,13 +24,12 @@
 						</span>
 					</p>
 				</div>
-
 				<div class="card">
 					<div class="card-body">
 						<div class="card_summary">
 							<p>Description: {{content.description}}</p>
 						</div>
-						{% content.file_upload %}
+						{% if content.file_upload %}
 						<div class="card_summary">
 							<embed src="{{ content.file_upload.url }}" width="750" height="500" type="application/pdf">
 						</div>

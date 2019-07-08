@@ -72,7 +72,7 @@ class VideoCategory(models.Model):
 class TextCenter(models.Model):
     category = models.ForeignKey(DocumentCategory, null=True)
     sub_category = models.ForeignKey(SubDocumentCategory, null=True)
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=250)
     published = models.BooleanField(default=False)
     author = models.CharField(
         max_length=250, help_text="Content Owner", blank=True, null=True)
