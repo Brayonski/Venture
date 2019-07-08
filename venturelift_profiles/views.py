@@ -80,7 +80,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
         if self.request.user.investor_creator.exists():
             investor = Investor.objects.filter(user=self.request.user).first()
             context['investor'] = investor
-            context['profile'] = InvestorProfile.objects.get(investor_profile=investor)
+            context['profile'] = InvestorProfile.objects.filter(investor_profile=investor).first()
             interests = context['profile'].target_sectors.all()
             context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct()[:3]
             context['r_businesses'] = Business.objects.filter(sector__in=interests).distinct()[:3]
@@ -155,6 +155,23 @@ class SupporterView(LoginRequiredMixin, ListView, FormMixin):
         current_url = resolve(self.request.path_info).url_name
         if 'pk' in self.kwargs:
             if current_url == 'supporter_follow':
+                supporter_details = Investor.objects.get(
+                    id=self.kwargs['pk'])
+                check_coneection = InvestorConnectRequest.objects.filter(supporter=supporter_details,
+                                                                         requestor=self.request.user,
+                                                                         approval_status="PENDING").first()
+                if check_coneection:
+                    subject, from_email, to = 'Supporter Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    send_business_connect_request_email_task.delay(supporter_details.company, self.request.user.username,
+                                                                   subject, from_email, to)
+                else:
+                    connections = InvestorConnectRequest(supporter=supporter_details, created_at=timezone.now(),
+                                                         requestor=self.request.user, approval_status="PENDING",
+                                                         approved=False, rejected=False)
+                    connections.save()
+                    subject, from_email, to = 'Supporter Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    send_business_connect_request_email_task.delay(supporter_details.company, self.request.user.username,
+                                                                   subject, from_email, to)
                 follow(self.request.user, Supporter.objects.get(
                     id=self.kwargs['pk']))
             if current_url == 'supporter_unfollow':
@@ -266,6 +283,23 @@ class InvestorView(LoginRequiredMixin, ListView, FormMixin):
         current_url = resolve(self.request.path_info).url_name
         if 'pk' in self.kwargs:
             if current_url == 'investor_follow':
+                investor_details = Investor.objects.get(
+                    id=self.kwargs['pk'])
+                check_coneection = InvestorConnectRequest.objects.filter(investor=investor_details,
+                                                                         requestor=self.request.user,
+                                                                         approval_status="PENDING").first()
+                if check_coneection:
+                    subject, from_email, to = 'Investor Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    send_business_connect_request_email_task.delay(investor_details.company, self.request.user.username,
+                                                                   subject, from_email, to)
+                else:
+                    connections = InvestorConnectRequest(investor=investor_details, created_at=timezone.now(),
+                                                         requestor=self.request.user, approval_status="PENDING",
+                                                         approved=False, rejected=False)
+                    connections.save()
+                    subject, from_email, to = 'Investor Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    send_business_connect_request_email_task.delay(investor_details.company, self.request.user.username,
+                                                                   subject, from_email, to)
                 follow(self.request.user, Investor.objects.get(
                     id=self.kwargs['pk']))
             if current_url == 'investor_unfollow':
@@ -538,7 +572,20 @@ class InvestorUpdateProfileView(LoginRequiredMixin, UpdateView):
             return redirect(reverse('update_investor_step2',
                                     kwargs={'pk': self.kwargs['pk']}))
         if current_url == 'update_investor_step2':
-            form.save()
+            self.object = form.save(commit=False)
+            if form.cleaned_data['funder_type'] == "Investor":
+                self.object.funder_type = form.cleaned_data['funder_type']
+                self.object.investment_type = self.request.POST['funder_investor_type']
+                self.object.investment_product = self.request.POST['funder_investor_product']
+            elif form.cleaned_data['funder_type'] == "Crowdfunder":
+                self.object.funder_type = form.cleaned_data['funder_type']
+                self.object.investment_type = self.request.POST['funder_crowdfunder_type']
+                self.object.investment_product = "Donation"
+            else:
+                self.object.funder_type = form.cleaned_data['funder_type']
+                self.object.investment_type = "Lender"
+                self.object.investment_product = self.request.POST['funder_lender_product']
+            self.object.save()
             return redirect(reverse('investor_list'))
 
     def get_context_data(self, **kwargs):

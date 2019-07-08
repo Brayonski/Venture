@@ -95,6 +95,7 @@ class Campaign(models.Model):
     rejected = models.BooleanField(default=False)
     rejected_by = models.ForeignKey(User, related_name='campaign_rejector', null=True, blank=True)
     comments = models.TextField(null=True, blank=True)
+    minimum_donation = models.DecimalField(max_digits=19,decimal_places=2,default=1)
     class Meta:
         verbose_name_plural = 'Campaigns'
 
@@ -116,6 +117,7 @@ class CampaignPayment(models.Model):
     payment_method = models.CharField(max_length=100)
     payment_status = models.CharField(max_length=100)
     payment_order_number = models.CharField(max_length=255,null=True,blank=True)
+    payment_payer_id = models.CharField(max_length=255,null=True,blank=True)
     paid = models.BooleanField(default=False)
     comments = models.TextField(null=True, blank=True)
     allow_visibility = models.BooleanField(default=False)
@@ -131,7 +133,7 @@ class CampaignDisbursement(models.Model):
     campaign = models.ForeignKey(Campaign)
     campaign_target = models.DecimalField(max_digits=19, decimal_places=2,null=True)
     created_at = models.DateTimeField('disbursement request date', null=True)
-    campaign_duration = models.DateField('campaign closing date',default=timezone.now())
+    campaign_duration = models.DateField('campaign closing date',null=True)
     amount = models.DecimalField(max_digits=19, decimal_places=2)
     disbursement_type = models.CharField(max_length=100, choices=DISBURSEMENT_TYPE, null=True, blank=True)
     disbursement_method = models.CharField(max_length=100, choices=DISBURSEMENT_METHODS, null=True, blank=True)

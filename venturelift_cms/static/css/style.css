@@ -137,7 +137,8 @@ ul.in_line li {
 }
 
 .vl_top_top ul li a:hover {
-    color: #4aaded;
+    color: #4aaded !important;
+    background: transparent;
 }
 
 .vl_top_top ul li.active a {
@@ -150,7 +151,7 @@ ul.top_top_right {
     float: right;
     text-align: right;
     font-size: 1.2em;
-    margin-top: 40px;
+    margin-top: 0px;
 }
 li.top_top_linkedin {
     font-size: 2em;
@@ -158,7 +159,9 @@ li.top_top_linkedin {
 figure.box_aviY {
     float: left;
     max-width: 60px;
-    margin-right: 10px;
+    margin-right: 0px;
+    width: 30%;
+    position: relative;
 }
 figure.box_aviY a {
     border: 1px solid rgba(0, 0, 0, 0.07);
@@ -178,7 +181,8 @@ figure.box_aviY img {
 }
 
 figure.box_detailsY {
-    float: left;
+    float: right;
+    width: 68%;
 }
 p.box_titleY {
     margin-bottom: 0px;
@@ -200,8 +204,9 @@ p.box_titleY {
     float: left;
 }
 p.box_titleY {
-    margin: 0px;
+    margin: 10px 0px 0px 0px;
     display: flex;
+    font-weight: 700;
 }
 p.box_titleY a {
     display: table-caption;
@@ -255,7 +260,7 @@ ul.navbarX2 li {
 }
 
 .navbar-default {
-    background: #283891 url(../img/signup-bg.jpg) bottom center no-repeat;
+    background: #283891 url(../img/signup-bg2.jpg) bottom center no-repeat;
     border-bottom: 0px;
     box-shadow: 0px 0px 8px 0px rgba(40, 56, 145, 0.20);
     padding: 10px 0px;
@@ -269,7 +274,7 @@ ul.navbarX2 li {
 }
 
 .navbar-default_media {
-    background: #283891 url(../img/signup-bg.jpg) bottom center no-repeat;
+    background: #283891 url(../img/signup-bg2.jpg) bottom center no-repeat;
     border-bottom: 0px;
     box-shadow: 0px 0px 8px 0px rgba(40, 56, 145, 0.20);
     padding: 10px 0px;
@@ -279,6 +284,10 @@ body.media_index {
 }
 nav#navbar_out_2 a {
     color: #FFFF;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: transparent;
 }
 body.media_index nav#navbar_out_2 {
     padding: 100px 0px 10px 0px;
@@ -292,12 +301,13 @@ nav#navbar_out_2 a:active {
     color: rgb(0, 0, 0);
 }
 .navbar-default2 .vl_top_top ul li a:hover {
-    color: rgb(0, 156, 255);
+    color: rgb(0, 156, 255) !important;
+    background: transparent;
 }
 .home_banner.full_width {
     padding: 220px 0px;
     background: #283891 url(../img/home_banner.jpg) top center fixed;
-    /* background-size: cover; */
+    background-size: cover;
     color: #FFF;
 }
 .home_section_3.full_width {
@@ -325,14 +335,18 @@ nav#navbar_out_2 a:active {
     text-align: left;
 }
 .hs2_more {
-    max-width: 300px;
+    max-width: 270px;
     margin: 0 auto;
     position: relative;
 }
 .single_event_meta {
     margin: 30px 0px;
 }
-
+.hs2_content {
+    font-size: 1.1em;
+    line-height: 1.6em;
+    font-weight: 300;
+}
 
 
 .at-section__title {
@@ -628,7 +642,24 @@ a.a_A {
 a.a_A:hover {
     color: #4aaded;
 }
-
+blockquote {
+    border-left: 5px solid #1eafe4;
+}
+.page_boxA {
+    background: #e1e4d2;
+    padding: 20px;
+    margin: 40px 0px;
+}
+.page_content_A .h3, .page_content_A h3 {
+    color: #000;
+    font-weight: 300;
+}
+.page_content_A h4 {
+    margin: 40px 0px 20px;
+}
+small#hint_id_password2 {
+    display: none;
+}
 .style_A {
     font-weight: 900;
     margin-bottom: 20px;
@@ -644,7 +675,10 @@ a.a_A:hover {
 .style_D {
     font-weight: 800;
     margin-bottom: 20px;
-    font-size: 3.8em;
+    font-size: 3.3em;
+}
+.single_post_container p.meta {
+    text-align: center;
 }
 
 figure.single_banner {
@@ -1046,7 +1080,7 @@ body.auth_pages a.navbar-brand {
 }
 
 body.auth_pages {
-    background: #040439 url('../img/signup-bg.jpg') center center no-repeat;
+    background: #040439 url('../img/signup-bg2.jpg') center center no-repeat;
     background-size: cover;
     color: #FFF;
     padding-top: 0px;
@@ -1375,10 +1409,10 @@ ul.user_nav_item_drop.dropdown-menu.pull-right .divider {
     padding-bottom: 30px;
 }
 .card-body.progress-card {
-    border-bottom: 1px solid #28f29b;
+    border-bottom: 0px solid #28f29b;
     border-radius: 0px;
-    margin-bottom: 50px;
-    padding: 20px;
+    margin-bottom: 0px;
+    padding: 5px 15px;
     color: #27ef9e;
 }
 .card-body.progress-card img {
@@ -1705,6 +1739,8 @@ ul.Xuser_label.Xfunder_label.Xtop {
 }
 .ptin_A.ptin_1A h4 {
     padding-top: 30px;
+    font-size: 1.8em;
+    font-weight: 200;
 }
 .padless-left {
     padding-left: 0px;
@@ -1837,10 +1873,6 @@ ul.tab_B.nav.nav-tabs {
     width: 70%;
     float: left;
 }
-.onboarding_A {
-    padding-bottom: 60px;
-    padding-top: 0px;
-}
 ul.tab_B.nav>li>a {
     position: relative;
     display: block;
@@ -1855,7 +1887,12 @@ p.card-text.dark-text {
     color: #000;
 }
 div#profile h3 {
-    text-align: center;
+    /* text-align: center; */
+    padding: 8px;
+    margin: 0px;
+    font-size: 1.0em;
+    background: rgba(41, 179, 230, 0.0);
+    font-weight: 700;
 }
 .top_center_nav {
     background: rgba(18, 30, 99, 0.05);
@@ -1865,7 +1902,12 @@ div#profile h3 {
 a.button_A {
     width: 180px;
 }
-
+.box_mbili .card {
+    min-height: 220px;
+}
+.mid_sectionA {
+    margin-bottom: 10px;
+}
 
 
 .user_label_icon {
@@ -2087,4 +2129,65 @@ h4.event_title {
 }
 .single_event_content {
     margin: 30px 0px;
+}
+a.list_title {
+    font-weight: 700;
+    color: #000;
+}
+
+
+
+.s_e_1.s_e_in a.list-group-item.active {
+    /* background: transparent; */
+    color: #25b1e5;
+    border: 1px solid #25b1e5;
+    background: rgba(37, 177, 229, 0.05);
+}
+td.e1 {
+    text-transform: uppercase;
+    font-size: .8em;
+    color: #a7a7a7;
+    font-weight: 600;
+    padding-top: 20px !important;
+    display: block;
+}
+td.e2 a h2 {
+    color: #000;
+}
+td.e2 h2 {
+    padding: 0px;
+    margin: 0px;
+    font-size: 1.7em;
+    font-weight: 300;
+    margin-bottom: 4px;
+}
+td.e2 a:hover h2 {
+  color: blue;
+}
+td.e2 {
+    padding-top: 20px !important;
+}
+td.e3 a {
+    min-width: 120px;
+}
+li.active.e-title_1 {
+    margin-right: 30px;
+}
+li.e-title_2X a {
+    padding: 10px 10px;
+}
+.single_event_button_wrap {
+    margin-top: 25px;
+}
+.side_events {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 10px;
+}
+div#navbarX {
+    padding: 0px;
+}
+
+td.e3 {
+    padding-top: 20px !important;
 }

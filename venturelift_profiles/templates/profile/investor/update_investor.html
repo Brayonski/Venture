@@ -1,4 +1,4 @@
-{% extends 'profile/base.html' %}
+{% extends 'profile/base5.html' %}
 {% load crispy_forms_tags %}
 
 {% block content_1 %}
@@ -6,19 +6,36 @@
     <div class="onboarding_A">
         <div class="row clearfix">
             <div class="col-md-8 col-md-offset-2 clearfix">
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
                 <form method='post' enctype="multipart/form-data">
                     {% csrf_token %}
                     {% if step1 %}
                     <h3>Basic Information</h3>
                     <div class="form-row">
-                        <div class="form-group col-md-4 mb-0">
+                        <div class="form-group col-md-3 mb-0">
                             {{ form.thumbnail_image|as_crispy_field }}
                         </div>
-                        <div class="form-group col-md-4 mb-0">
+                        <div class="form-group col-md-3 mb-0">
                           {{ form.phone_number|as_crispy_field }}
                         </div>
-                        <div class="form-group col-md-4 mb-0">
+                        <div class="form-group col-md-3 mb-0">
                           {{ form.first_name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3 mb-0">
+                            {{ form.last_name|as_crispy_field }}
                         </div>
                     </div>
                     <div class="form-row">
@@ -27,11 +44,11 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6 mb-0">
-                            {{ form.last_name|as_crispy_field }}
-                        </div>
                             <div class="form-group col-md-6 mb-0">
                                 {{ form.company|as_crispy_field }}
+                            </div>
+                             <div class="form-group col-md-6 mb-0">
+                                    {{ form.company_website|as_crispy_field }}
                             </div>
                     </div>
                     <div class="form-row">
@@ -50,28 +67,70 @@
                           {{ form.physical_address|as_crispy_field }}
                         </div>
                     </div>
-                    <div class="form-row">
-                            <div class="form-group col-md-12 mb-0">
-                                    {{ form.company_website|as_crispy_field }}
-                            </div>
-                    </div>
                     {% elif step2 %}
                     <h3>Profile Detail</h3>
                     <div class="form-row">
-                        <div class="form-group col-md-6 mb-0">
-                            {{ form.company_classification|as_crispy_field }}
-                        </div>
-                        <div class="form-group col-md-6 mb-0">
-                            {{ form.investor_forms|as_crispy_field }}
-                        </div>
+                         <div class="form-group col-md-12 mb-0">
+                              <label for="funder_type"> Funder Type: </label>
+                             <select id="funder_type" name="funder_type" class="form-control" required>
+                                 <option value="">Select your funding type</option>
+                                 <option value="Investor">Investor</option>
+                                 <option value="Crowdfunder">Crowdfunder</option>
+                                 <option value="Lender">Lender</option>
+                             </select>
+                         </div>
+                    </div>
+                    <div class="form-row" id="funder_investor">
+                         <div class="form-group col-md-6 mb-0">
+                              <label for="funder_investor_type"> Investor Type: </label>
+                             <select id="funder_investor_type" name="funder_investor_type" class="form-control">
+                                 <option value="">Select your investment type</option>
+                                 <option value="Angel">Angel</option>
+                                 <option value="Venture Capital">Venture Capital</option>
+                                 <option value="Private Equity">Private Equity</option>
+                                 <option value="Impact">Impact</option>
+                             </select>
+                         </div>
+                         <div class="form-group col-md-6 mb-0">
+                              <label for="funder_investor_product"> Primary Investment Product: </label>
+                             <select id="funder_investor_product" name="funder_investor_product" class="form-control">
+                                 <option value="">Select your investment product</option>
+                                 <option value="Equity">Equity</option>
+                                 <option value="Quasi Equity">Quasi Equity</option>
+                                 <option value="Other">Other</option>
+                             </select>
+                         </div>
+                    </div>
+                    <div class="form-row" id="funder_crowdfunder">
+                         <div class="form-group col-md-12 mb-0">
+                              <label for="funder_crowdfunder_type"> Crowdfunder Type: </label>
+                             <select id="funder_crowdfunder_type" name="funder_crowdfunder_type" class="form-control">
+                                 <option value="">Select your crowdfunding type</option>
+                                 <option value="Donator">Donator</option>
+                             </select>
+                         </div>
+                    </div>
+                     <div class="form-row" id="funder_lender">
+                         <div class="form-group col-md-12 mb-0">
+                              <label for="funder_lender_product"> Primary Investment Product: </label>
+                             <select id="funder_lender_product" name="funder_lender_product" class="form-control">
+                                 <option value="">Select your investment product</option>
+                                 <option value="Subordinated">Subordinated</option>
+                                 <option value="Mezzanine">Mezzanine</option>
+                                 <option value="Senior">Senior</option>
+                             </select>
+                         </div>
                     </div>
                     <div class="form-row">
-                      <div class="form-group col-md-6 mb-0">
+                      <div class="form-group col-md-4 mb-0">
                         {{ form.target_sectors|as_crispy_field }}
                       </div>
-                      <div class="form-group col-md-6 mb-0">
+                      <div class="form-group col-md-4 mb-0">
                           {{ form.target_countries|as_crispy_field }}
                       </div>
+                     <div class="form-group col-md-4 mb-0">
+                        {{ form.investor_forms|as_crispy_field }}
+                    </div>
                     </div>
                     <div class="form-row">
                             <div class="form-group col-md-12 mb-0">
@@ -106,19 +165,10 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-6 mb-0">
-                              {{ form.impact_investor|as_crispy_field }}
-                            </div>
-                            <div class="form-group col-md-6 mb-0">
+                            <div class="form-group col-md-12 mb-0">
                                 {{ form.impact_metrics|as_crispy_field }}
                               </div>
                           </div>
-
-                          <div class="form-row">
-                              <div class="form-group col-md-12 mb-0">
-                                {{ form.gender_lens_investor|as_crispy_field }}
-                              </div>
-                            </div>
                    
                     {% endif %}
                     
@@ -131,4 +181,49 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block javascript %}
+  <script>
+   $(document).ready(function(){
+        var selection = $('#funder_type').val();
+        if(selection == "Investor"){
+             $('#funder_investor').show();
+             $('#funder_crowdfunder').hide();
+             $('#funder_lender').hide();
+        }else if(selection == "Crowdfunder"){
+             $('#funder_investor').hide();
+             $('#funder_crowdfunder').show();
+             $('#funder_lender').hide();
+        }else if(selection == "Lender"){
+             $('#funder_investor').hide();
+             $('#funder_crowdfunder').hide();
+             $('#funder_lender').show();
+        }else{
+             $('#funder_investor').hide();
+             $('#funder_crowdfunder').hide();
+             $('#funder_lender').hide();
+        }
+        $('#funder_type').on("change",function(e) {
+            var selection = $(this).val();
+            if(selection == "Investor"){
+                 $('#funder_investor').show();
+                 $('#funder_crowdfunder').hide();
+                 $('#funder_lender').hide();
+            }else if(selection == "Crowdfunder"){
+                 $('#funder_investor').hide();
+                 $('#funder_crowdfunder').show();
+                 $('#funder_lender').hide();
+            }else if(selection == "Lender"){
+                 $('#funder_investor').hide();
+                 $('#funder_crowdfunder').hide();
+                 $('#funder_lender').show();
+            }else{
+                 $('#funder_investor').hide();
+                 $('#funder_crowdfunder').hide();
+                 $('#funder_lender').hide();
+            }
+
+        });
+   });
+  </script>
 {% endblock %}

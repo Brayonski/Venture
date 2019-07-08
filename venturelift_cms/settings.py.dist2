@@ -162,7 +162,8 @@ INSTALLED_APPS = (
     'knowledge_center',
     'events',
     'crowdfunding.apps.CrowdfundingConfig',
-    'videomembership'
+    'videomembership',
+    'paypalrestsdk'
 )
 
 LANGUAGES = (

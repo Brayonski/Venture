@@ -22,10 +22,12 @@
                 <div class="Xuser_label_wrap Xtop">
                   <ul class="Xuser_label Xfunder_label Xtop">
                     <li class="Xuser_label_company2 Xtop">
-                        <h4><ion-icon name="briefcase"></ion-icon>  {{ business.name }}</h4>                    
+                        <h4>  {{ business.name }}</h4>
                     </li>
+                  <li class="Xuser_label_company Xtop">
+                     {{ business.creator.first_name|add:" "|add:business.creator.last_name }}
+                  </li>
                     <li class="Xuser_label_company Xtop">
-                      {{ business.name }}-
                       {% if business.verified %}
                       {% else %}
                       {% endif %}                    
@@ -41,8 +43,18 @@
           <div class="ptin_A ptin_1B">
             <ul class="top_top_right">
               <li class="top_top_website">
-                <ion-icon name="globe"></ion-icon> <a href="{{ business.company_website }}" target="_blank">{{ investor.company_website }}</a>
-              </li>             
+              </li> 
+              <li>
+                <div class="card-body progress-card text-center">
+                    {% if business.verified %}
+                    <p>Verified</p>
+                    <img src="{% static 'img/verified.png' %}">
+                    {% else %}
+                    <p>Verification in progress</p>
+                    <img src="{% static 'img/progress.png' %}">
+                    {% endif %}
+                </div>                
+              </li>            
             </ul>
             
           </div>          
@@ -57,16 +69,6 @@
       <div class="col_A_out col_A_out_1 col-md-3 clearfix">
         <div class="col_A_in col_A_in_1">
 
-            <div class="card-body progress-card text-center">
-                {% if business.verified %}
-                <p>Verified</p>
-                <img src="{% static 'img/verified.png' %}">
-                {% else %}
-                <p>Verification in progress</p>
-                <img src="{% static 'img/progress.png' %}">
-                {% endif %}
-            </div>
-
           <div class="card card-body">
             
           </div>
@@ -77,7 +79,51 @@
 
 
           <div class="profile_list_side">
-              <h4>Following</h4>
+              
+              <h4>Recommended Funders</h4>
+              {% for funder in r_investor %}
+              <div class="box_boxY">
+                <div class="box_box_inY">
+                  <figure class="box_aviY">
+                    <a href="#">
+                      {% if funder.thumbnail_image %}
+                      <img src="{{ funder.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/funder.jpg' %}">
+                      {% endif %}
+                    </a>  
+                  </figure>
+                  <figure class="box_detailsY">
+                    <p class="box_titleY">
+                        <a href="{% url 'investor_profile' funder.investor_profile.pk %}">{{funder.investor_profile.user.username}}</a>
+                    </p>
+                  </figure>
+                </div>
+              </div>
+              {% endfor %}
+
+              <h4>Recommended Partners</h4>
+              {% for partner in r_supporter %}
+              <div class="box_boxY">
+                <div class="box_box_inY">
+                  <figure class="box_aviY">
+                    <a href="#">
+                      {% if partner.thumbnail_image %}
+                      <img src="{{ partner.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% endif %}
+                    </a>  
+                  </figure>
+                  <figure class="box_detailsY">
+                    <p class="box_titleY">
+                        <a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a>
+                    </p>
+                  </figure>
+                </div>
+              </div>
+              {% endfor %}
+
               <div class="profile_list_side">
                   {% if business_following %}
                   <p class="profile_list_side_title">Businesses</p>
@@ -101,7 +147,7 @@
                         <div class="box_socialY">
                           {% if obj in business_following %}
                           <a href="{% url 'business_unfollow' obj.id %}">
-                            <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                            <button class="btn-actioned btn btn-sm btn-default">Disconnect</button>
                           </a>
                           {% endif %}
                         </div>
@@ -133,7 +179,7 @@
                         <div class="box_socialY">
                           {% if obj in supporter_following %}
                           <a href="{% url 'supporter_unfollow' obj.id %}">
-                            <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                            <button class="btn-actioned btn btn-sm btn-default">Disconnect</button>
                           </a>
                           {% endif %}
                         </div>
@@ -165,7 +211,7 @@
                         <div class="box_socialY">
                           {% if obj in investor_following %}
                           <a href="{% url 'investor_unfollow' obj.id %}">
-                            <button class="btn-actioned btn btn-sm btn-default">Unfollow</button>
+                            <button class="btn-actioned btn btn-sm btn-default">Disconnect</button>
                           </a>
                           {% endif %}
                         </div>
@@ -185,7 +231,7 @@
       </div>
       <div class="col_A_out col_A_out_2 col-md-6 clearfix">
         <div class="col_A_in col_A_in_2">
-          <div class="onboarding_A">
+          <div class="profile_view_A">
             <div class="row clearfix">
               <div class="col-md-12 clearfix">
 
@@ -196,9 +242,10 @@
 
                           <div class="track_record_2">
                               <h3>Country: {{business.address.name}}</h3>
-  
-                              <div class="row clearfix">
-                                <div class="no_padd col-md-12 clearfix">
+                              <h4 class="text-center"><a href="{{ business.company_website }}" target="_blank">{{ investor.company_website }}</a></h4>
+
+                              <div class="mid_sectionA row clearfix">
+                                <div class="no_paddX col-md-12 clearfix">
                                   <h3>Value Proposition</h3>
                                   <div class="single_card_wrapper">
                                     <div class="card_C card" style="">
@@ -219,12 +266,12 @@
                                 </div>                                                      
                               </div>
 
-                              <div class="row clearfix">
-                                  <div class="no_padd col-md-12 clearfix">
+                              <div class="mid_sectionA row clearfix">
+                                  <div class="box_mbili no_paddX col-md-6 clearfix">
                                     <div class="single_card_wrapper">
                                       <div class="card_C card" style="">
                                         <div class="card-body">
-                                          <div class="pull-left">
+                                          <div class="pull-leftX">
     
                                             <h5 class="card-title">
                                               Employee count
@@ -240,7 +287,15 @@
                                               {{business.size}}
                                             </p>
                                           </div>
-                                          <div class="pull-right">
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>      
+                                  <div class="box_mbili no_paddX col-md-6 clearfix">
+                                    <div class="single_card_wrapper">
+                                      <div class="card_C card" style="">
+                                        <div class="card-body">                                          
+                                          <div class="pull-rightX">
     
                                             <h5 class="card-title">
                                               Sector
@@ -265,8 +320,8 @@
                                 </div>
     
 
-                                <div class="row clearfix">
-                                    <div class="no_padd col-md-12 clearfix">
+                                <div class="mid_sectionA row clearfix">
+                                    <div class="no_paddX col-md-12 clearfix">
                                       <h3>Product/Service Offering</h3>
                                       <div class="single_card_wrapper">
                                         <div class="card_C card" style="">
@@ -287,8 +342,8 @@
                                     </div>                                                      
                                   </div>
       
-                                  <div class="row clearfix">
-                                    <div class="no_padd col-md-12 clearfix">
+                                  <div class="mid_sectionA row clearfix">
+                                    <div class="no_paddX col-md-12 clearfix">
                                       <h3>Needs fulfilled by Product/service</h3>
                                       <div class="single_card_wrapper">
                                         <div class="card_C card" style="">
@@ -309,8 +364,8 @@
                                     </div>                                                      
                                   </div>
 
-                                  <div class="row clearfix">
-                                      <div class="no_padd col-md-12 clearfix">
+                                  <div class="mid_sectionA row clearfix">
+                                      <div class="no_paddX col-md-12 clearfix">
                                         <h3>Market Segment information</h3>
                                         <div class="single_card_wrapper">
                                           <div class="card_C card" style="">
@@ -332,62 +387,64 @@
                                     </div>
 
 
-                            <div class="top_center_nav text-center">
-                                <div class="top_banner_ctaY">
-                                  <div class="contact_infoY">
-                                    <h3>Contact Information</h3>
-                                    <p>Connect me with this company</p>
-                                  </div>
-                                     {% if following %}
-                                        <a href="{% url 'business_unfollow' business.id %}" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Disconnect</a>
-                                     {% else %}
-                                        <a href="{% url 'business_follow' business.id %}" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Connect</a>
-                                     {% endif %}
-                                </div>                
-                            </div>
-
-
-                            <div class="row clearfix updates_B">
-                                <div class="no_padd col-md-12 clearfix">
-                                  <h3 class="h3_A">Updates</h3>
-                                  <div class="col_A_in col_A_in_2">
-
-                                    {% if post %}
-                                      {% for post in post %}
-
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h4><a href="#nogo">{{post.title}}</a></h4>
-                                                <div class="card_summary">
-                                                    <p>Description: {{post.body}}
-                                                </div> 
-                                                <div class="card_summary">
-                                                    <embed src="{{ post.file_name.url }}" width="500" height="375" 
-                                                    type="application/pdf">
-                                                </div>   
-                                            </div>     
-                                            <div class="card_footer">
-                                                {% if request.user in post.likes.all %}
-                                                <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
-                                                    ({{post.likes.count}} likes)</a>
-                                                {% else %}
-                                                <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
-                                                    ({{post.likes.count}} likes)</a>
-                                                {% endif %}
-                                            </div>          
-                                        </div>
-
-                                      {% endfor %}
-                                    {% else %}
-
-                                      <div class="no_post_hero">
-                                        <h3>This user has not posted any update yet.</h3>
+                                <div class="mid_sectionA top_center_nav text-center">
+                                    <div class="top_banner_ctaY">
+                                      <div class="contact_infoY">
+                                        <h3>Contact Information</h3>
+                                        <p>Connect me with this company</p>
                                       </div>
+                                         {% if following %}
+                                            <a href="{% url 'business_unfollow' business.id %}" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Disconnect</a>
+                                         {% else %}
+                                            <a href="{% url 'business_follow' business.id %}" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Connect</a>
+                                         {% endif %}
+                                    </div>                
+                                </div>
 
-                                    {% endif %}                   
-                                  </div>
-                                </div>    
-                            </div>
+
+                                <div class="mid_sectionA row clearfix updates_B">
+                                    <div class="no_paddX col-md-12 clearfix">
+                                      <h3 class="h3_A">Updates</h3>
+                                      <div class="col_A_in col_A_in_2">
+
+                                        {% if post %}
+                                          {% for post in post %}
+
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h4><a href="#nogo">{{post.title}}</a></h4>
+                                                    <div class="card_summary">
+                                                        <p>Description: {{post.body}}
+                                                    </div> 
+
+                                                    <div class="card_summary">
+                                                        <embed src="{{ post.file_name.url }}" width="500" height="375" 
+                                                        type="application/pdf">
+                                                    </div>
+                                                     
+                                                </div>     
+                                                <div class="card_footer">
+                                                    {% if request.user in post.likes.all %}
+                                                    <a href="{% url 'dislike_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Unlike
+                                                        ({{post.likes.count}} likes)</a>
+                                                    {% else %}
+                                                    <a href="{% url 'like_post' post.id %}"><i class='glyphicon glyphicon-heart'></i> Like
+                                                        ({{post.likes.count}} likes)</a>
+                                                    {% endif %}
+                                                </div>          
+                                            </div>
+
+                                          {% endfor %}
+                                        {% else %}
+
+                                          <div class="no_post_hero">
+                                            <h3>This user has not posted any update yet.</h3>
+                                          </div>
+
+                                        {% endif %}                   
+                                      </div>
+                                    </div>    
+                                </div>
 
                           </div>
 
@@ -409,71 +466,29 @@
   
               <div class="profile_list_side">
                   <div class="profile_list_side">
-                      <h4>Recommended Businesses</h4>
-                      {% for business in r_businesses %}
-                      <div class="box_boxY">
-                        <div class="box_box_inY">
-                          <figure class="box_aviY">
-                            <a href="#">
-                              {% if business.thumbnail_image %}
-                              <img src="{{ business.thumbnail_image.url }}">
-                              {% else %}
-                              <img src="{% static 'img/no-img.png' %}">
-                              {% endif %}
-                            </a>  
-                          </figure>
-                          <figure class="box_detailsY">
-                            <p class="box_titleY">
-                              <a href="{% url 'business_profile' business.pk %}">{{business.name}}</a>
-                            </p>
-                          </figure>
-                        </div>
+
+                    <h4>Recommended Businesses</h4>
+                    {% for business in r_businesses %}
+                    <div class="box_boxY">
+                      <div class="box_box_inY">
+                        <figure class="box_aviY">
+                          <a href="#">
+                            {% if business.thumbnail_image %}
+                            <img src="{{ business.thumbnail_image.url }}">
+                            {% else %}
+                            <img src="{% static 'img/no-img.png' %}">
+                            {% endif %}
+                          </a>  
+                        </figure>
+                        <figure class="box_detailsY">
+                          <p class="box_titleY">
+                            <a href="{% url 'business_profile' business.pk %}">{{business.name}}</a>
+                          </p>
+                        </figure>
                       </div>
-                      {% endfor %}
-    
-                <h4>Recommended Funders</h4>
-                {% for funder in r_investor %}
-                <div class="box_boxY">
-                  <div class="box_box_inY">
-                    <figure class="box_aviY">
-                      <a href="#">
-                        {% if funder.thumbnail_image %}
-                        <img src="{{ funder.thumbnail_image.url }}">
-                        {% else %}
-                        <img src="{% static 'img/funder.jpg' %}">
-                        {% endif %}
-                      </a>  
-                    </figure>
-                    <figure class="box_detailsY">
-                      <p class="box_titleY">
-                          <a href="{% url 'investor_profile' funder.investor_profile.pk %}">{{funder.investor_profile.user.username}}</a>
-                      </p>
-                    </figure>
-                  </div>
-                </div>
-                {% endfor %}
-    
-                <h4>Recommended Partners</h4>
-                {% for partner in r_supporter %}
-                <div class="box_boxY">
-                  <div class="box_box_inY">
-                    <figure class="box_aviY">
-                      <a href="#">
-                        {% if partner.thumbnail_image %}
-                        <img src="{{ partner.thumbnail_image.url }}">
-                        {% else %}
-                        <img src="{% static 'img/blue-user-icon.svg' %}">
-                        {% endif %}
-                      </a>  
-                    </figure>
-                    <figure class="box_detailsY">
-                      <p class="box_titleY">
-                          <a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a>
-                      </p>
-                    </figure>
-                  </div>
-                </div>
-                {% endfor %}
+                    </div>
+                    {% endfor %}
+
               </div>                        
           </div>
         </div>

@@ -175,6 +175,56 @@ class BusinessConnectRequestAdmin(admin.ModelAdmin):
                 send_investor_approved_connect_email_task.delay(obj.business.name, obj.investor.username,
                                                                subject, from_email, to)
 
+
+class InvestorConnectRequestAdmin(admin.ModelAdmin):
+    search_fields = ['investor__company']
+    list_display = ['investor','requestor', 'created_at', 'approval_status']
+    readonly_fields = ["investor", "requestor", "created_at"]
+    exclude = ['approved_by','rejected_by','approved','rejected']
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    def save_model(self, request, obj, form, change):
+        if getattr(obj, 'approved') is False and getattr(obj, 'rejected') is False:
+            if form.cleaned_data['approval_status'] == "APPROVE":
+                obj.approved = True
+                obj.approved_by = request.user
+                obj.save()
+            elif form.cleaned_data['approval_status'] == "REJECT":
+                obj.rejected = True
+                obj.rejected_by = request.user
+                obj.save()
+                subject, from_email, to = 'Investor Connection Approval Notification', settings.EMAIL_HOST_USER, obj.requestor.email
+                send_investor_approved_connect_email_task.delay(obj.investor.company, obj.requestor.username,
+                                                               subject, from_email, to)
+
+
+class SupporterConnectRequestAdmin(admin.ModelAdmin):
+    search_fields = ['supporter__company']
+    list_display = ['supporter','requestor', 'created_at', 'approval_status']
+    readonly_fields = ["supporter", "requestor", "created_at"]
+    exclude = ['approved_by','rejected_by','approved','rejected']
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    def save_model(self, request, obj, form, change):
+        if getattr(obj, 'approved') is False and getattr(obj, 'rejected') is False:
+            if form.cleaned_data['approval_status'] == "APPROVE":
+                obj.approved = True
+                obj.approved_by = request.user
+                obj.save()
+            elif form.cleaned_data['approval_status'] == "REJECT":
+                obj.rejected = True
+                obj.rejected_by = request.user
+                obj.save()
+                subject, from_email, to = 'Partner Connection Approval Notification', settings.EMAIL_HOST_USER, obj.requestor.email
+                send_investor_approved_connect_email_task.delay(obj.supporter.company, obj.requestor.username,
+                                                               subject, from_email, to)
+
+
+
 class TrackingUserAdmin(admin.ModelAdmin):
     search_fields = ['user_details__email']
     list_display = ['user_details','user_email','action_name', 'access_time']
@@ -209,5 +259,7 @@ admin.site.register(BusinessGoals, BusinessGoalsAdmin)
 admin.site.register(Investor, InvestorAdmin)
 admin.site.register(InvestorProfile, InvestorProfileAdmin)
 admin.site.register(BusinessConnectRequest, BusinessConnectRequestAdmin)
+admin.site.register(InvestorConnectRequest, InvestorConnectRequestAdmin)
+admin.site.register(SupporterConnectRequest, SupporterConnectRequestAdmin)
 admin.site.register(TrackingUser, TrackingUserAdmin)
 admin.site.register(AllSystemUser, AllSystemUserAdmin)

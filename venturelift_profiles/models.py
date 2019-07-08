@@ -60,26 +60,22 @@ INVESTOR_FORMS = (
 )
 
 INTEREST_COUNTRIES = (
-    ('rwanda', 'Rwanda'),
-    ('uganda', 'Uganda'),
-    ('tanzania', 'Tanzania'),
-    ('kenya', 'Kenya'),
-    ('ghana', 'Ghana'),
-    ('nigeria', 'Nigeria'),
-    ('ivory coast', 'Ivory Coast'),
-    ('senegal', 'Senegal'),
-    ('botswana', 'Bootswana'),
-    ('nambia', 'Nambia'),
-    ('zambia', 'Zambia'),
-    ('south africa', 'South Africa'),
-    ('egypt', 'Egypt'),
+    ('Egypt', 'Egypt'),
+    ('South Africa', 'South Africa'),
+    ('Morocco', 'Morocco'),
+    ('Ethiopia', 'Ethiopia'),
+    ('Kenya', 'Kenya'),
+    ('Rwanda', 'Rwanda'),
+    ('Tanzania', 'Tanzania'),
+    ('Nigeria', 'Nigeria'),
+    ('Ghana', 'Ghana'),
+    ('Ivory Coast', 'Ivory Coast'),
+    ('Algeria', 'Algeria'),
+    ('Botswana', 'Botswana'),
+    ('Zambia', 'Zambia'),
     ('tunisia', 'Tunisia'),
-    ('morocco', 'Morocco'),
-    ('other eastern africa ', 'Other Eastern Africa'),
-    ('other western africa', 'Other Western Africa'),
-    ('other northern africa', 'Other Nothern Africa'),
-    ('other francophone africa', 'Other Francophone africa'),
-    ('other southern africa', 'Other Southern Africa'),
+    ('Cote D` Ivore', 'Cote D` Ivore'),
+    ('Other', 'Other'),
 )
 
 TRADING_PARTNERS = (
@@ -149,6 +145,35 @@ APPROVAL_STATUS = (
     ('APPROVE', 'APPROVE'),
     ('REJECT', 'REJECT'),
     ('PENDING', 'PENDING'),
+)
+
+FUNDER_TYPES = (
+    ('Investor', 'Investor'),
+    ('Crowdfunder', 'Crowdfunder'),
+    ('Lender', 'Lender'),
+)
+
+INVESTOR_TYPES = (
+    ('Angel', 'Angel'),
+    ('Venture Capital', 'Venture Capital'),
+    ('Private Equity', 'Private Equity'),
+    ('Impact', 'Impact'),
+)
+
+INVESTOR_PRODUCTS = (
+    ('Equity', 'Equity'),
+    ('Quasi Equity', 'Quasi Equity'),
+    ('Other', 'Other'),
+)
+
+CROWDFUNDER_TYPES = (
+    ('Donator', 'Donator'),
+)
+
+LENDER_PRODUCTS = (
+    ('Subordinated', 'Subordinated'),
+    ('Mezzanine', 'Mezzanine'),
+    ('Senior', 'Senior'),
 )
 
 
@@ -375,8 +400,11 @@ class InvestorProfile(models.Model):
     investor_profile = models.ForeignKey(
         Investor, related_name='investor_profile')
 
-    company_classification = models.CharField(
-        max_length=50, choices=COMPANY_CLASSIFICATION, null=True, blank=True, help_text="How would you classify your firm?")
+    funder_type = models.CharField(max_length=255,null=True,choices=FUNDER_TYPES)
+    investment_type = models.CharField(max_length=255,null=True,blank=True)
+    investment_product = models.CharField(max_length=255,null=True,blank=True)
+    # company_classification = models.CharField(
+    #     max_length=50, choices=COMPANY_CLASSIFICATION, null=True, blank=True)
 
     investor_forms = MultiSelectField(
         max_length=250, choices=INVESTOR_FORMS, null=True, blank=True, help_text="What forms of investment do you make?")
@@ -408,9 +436,9 @@ class InvestorProfile(models.Model):
 
     impact_metrics = models.TextField(help_text="Which are your key impact metrics", null=True)
 
-    gender_lens_investor = models.CharField(
-        max_length=250, null=True, blank=True, choices=IMPACT_INVESTOR, help_text="Do you Consider your firm a 'Gender-Lens' Investor?"
-    )
+    # gender_lens_investor = models.CharField(
+    #     max_length=250, null=True, blank=True, choices=IMPACT_INVESTOR, help_text="Do you Consider your firm a 'Gender-Lens' Investor?",default='yes'
+    # )
 
     class Meta:
         verbose_name = 'Investor Profile'
@@ -458,6 +486,41 @@ class BusinessConnectRequest(models.Model):
     def __str__(self):
         return self.business.name
 
+class InvestorConnectRequest(models.Model):
+    investor = models.ForeignKey(Investor, related_name='investor_to_follow')
+    created_at = models.DateTimeField('request date',null=True)
+    requestor = models.ForeignKey(User, related_name='investor_follow_requester')
+    approval_status = models.CharField(max_length=100, choices=APPROVAL_STATUS, default="PENDING", null=True,
+                                       blank=True)
+    approved = models.BooleanField(default=False)
+    approved_by = models.ForeignKey(User, related_name='investor_connection_approver', null=True, blank=True)
+    rejected = models.BooleanField(default=False)
+    rejected_by = models.ForeignKey(User, related_name='investor_conection_rejector', null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = 'Investor Connect Request'
+
+    def __str__(self):
+        return self.investor.company
+
+
+
+class SupporterConnectRequest(models.Model):
+    supporter = models.ForeignKey(Supporter, related_name='supporter_to_follow')
+    created_at = models.DateTimeField('request date',null=True)
+    requestor = models.ForeignKey(User, related_name='supporter_follow_requester')
+    approval_status = models.CharField(max_length=100, choices=APPROVAL_STATUS, default="PENDING", null=True,
+                                       blank=True)
+    approved = models.BooleanField(default=False)
+    approved_by = models.ForeignKey(User, related_name='supporter_connection_approver', null=True, blank=True)
+    rejected = models.BooleanField(default=False)
+    rejected_by = models.ForeignKey(User, related_name='supporter_conection_rejector', null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = 'Supporter Connect Request'
+
+    def __str__(self):
+        return self.supporter.company
 
 class TrackingUser(models.Model):
     user_details = models.ForeignKey(User, related_name='logged_in_user')

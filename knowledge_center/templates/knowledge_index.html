@@ -6,144 +6,113 @@
 <div class="event_wrapper full_A">
 
   	<nav id="navbar_out_2" class="navbar navbar-default_media">
-      	<div class="top_container container"> 
+      	<div class="top_container container">
 
           <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
-              {% url 'events_home' as  events_home %}
-              <ul class="event_titles">
+            {% url 'events_home' as  events_home %}
+            <ul class="event_titles">
                 <li class="active e-title_1"><h1>Knowledge Center</h1></li>
-                <li class="e-title_2">
-                	<!--
-                  <form class="url_changer url_changer1">
-                    <select id="select" class="select">
-                      <option value="{% url 'events_home' %}">VLA Events</option>
-                      <option value="{% url 'network_events' %}">Network Events</option>
-                    </select>
-                  </form>  	
-					-->
 
-                  <form class="url_changer url_changer2">
-                    <select id="select2" class="select">
-
-						{% if object_list %}
-						{% url 'knowledge_center_home' as  knowledge_center_home %}
-						<option class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}" value="{% url 'knowledge_center_home' %}">All</option>
-						{% endif %}
-						{% for type in document_type %}
-						{% if type.textcenter_set.count >= 1 %}
-						{% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
-						<option class="{% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}" value="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
-						</option>
-						{% endif %}
-						{% endfor %}
-
-						<option value="{% url 'knowledge_center_video_home' %}">Videos</option>                                        
-                    </select>
-                  </form>                                   
-              </ul>
-          </div>
-          
-        </div>
-    </nav>    
-
-		</div>
-		<!--
-		<div>
-			<ul class="nav nav-pills">
+				{% if object_list %}
 				{% url 'knowledge_center_home' as  knowledge_center_home %}
-				<li class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}"><a
-						href="{% url 'knowledge_center_home' %}">All</a></li>
+				<li class="e-title_2X {% ifequal request.path knowledge_center_home %}active{% endifequal %}"><h4><a href="{% url 'knowledge_center_home' %}">All</a></h4></li>
+
+				{% endif %}
 				{% for type in document_type %}
 				{% if type.textcenter_set.count >= 1 %}
 				{% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
-				<li class="dropdown">
-				<li>
-					<a class="dropdown-toggle" data-toggle="dropdown"
-						href="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
-						<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li class="{% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}"><a
-								href="{% url 'knowledge_center_read_content_filter' type.id %}">All</a></li>
-						{% for sub_cat in type.document_category.all %}
-						{% if sub_cat.published %}
-						{% url 'knowledge_center_sub_content_filter' sub_cat.id as knowledge_center_sub_content_filter %}
-						<li class="{% ifequal request.path knowledge_center_sub_content_filter %}active{% endifequal %}">
-							<a href="{% url 'knowledge_center_sub_content_filter' sub_cat.id %}">{{ sub_cat.title }}</a>
-						</li>
-						{% endif %}
-						{% endfor %}
-					</ul>
+
+				<li class="e-title_2X {% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}">
+					<h4><a href="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
+					</a></h4>
 				</li>
-				</li>
+
 				{% endif %}
 				{% endfor %}
 
-				<li><a href="{% url 'knowledge_center_video_home' %}">Videos</a></li>
+				<li class="e-title_2X">
+					<h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
+				</li>
+
 			</ul>
-		</div>
-		-->
-		
-		<div class="tab-content">
+          </div>
 
-			<div id="home" class="tab-pane fade in active">
+        </div>
+    </nav>
+
+	<div class="tab_content">
+
+		<div id="home" class="kn_part_1">
+			<div class="container clearfix">
+				<h2 class="h_title_A">REPORTS</h2>
 				<div class="row clearfix">
-					<div class="no_padd col-md-12 clearfix">
-						{% for obj in text_center %}
-						<div class="single_card_wrapper">
-							<div class="card_C card" style="">
-								<div class="card-body">
-									<div class="">
-										<h1 class="card-text dark-text">
-											{{ obj.title }}
-										</h1>
-										<p class="card-text">
-											{% if obj.file_upload %}
-											<i class="fa fa-file-text" aria-hidden="true"></i>
-											{% endif %}
-											<i class="fa fa-tags" aria-hidden="true"></i>
-											{{obj.category}}
-											<i class="fa fa-money" aria-hidden="true"></i>
-											{{obj.payment_status}}
-											<i class="fa fa-calendar" aria-hidden="true"></i>
-											{{obj.date }}
-										</p>
-										<p class="card-text">
-											{{ obj.description|safe|truncatewords:"70"|linebreaks }}
-											<a class="text-primary" href="{% url 'knowledge_center_read_content' obj.id %}">read more</a>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						{% endfor %}
-						<!---See more Reports -->
 
-						<!-- videos -->
-						{% for video in videos %}
-						<div class="single_card_wrapper">
-							<div class="card_C card" style="">
-								<div class="card-body">
-									<div class="pull-left">
-										{{video.path|safe}}
-									</div>
-									<p class="card-text">{{ video.title }}</p>
-									<p class="card-text">
-										{{ video.description|safe|truncatewords:"70"|linebreaks }}
+					<!-- docs -->
+					{% for obj in text_center %}
+					<div class="col-md-3 clearfix single_card_wrapper">
+						<div class="card_C card" style="padding-bottom: 30px;">
+							<div class="card-body">
+								<div class="">
+									<h3 class="card-text dark-text">
+										<a href="{% url 'knowledge_center_read_content' obj.id %}">{{ obj.title }}</a>
+									</h3>
+									<p class="card-text" style="padding-top: 10px;">
+										{% if obj.file_upload %}
+										<i class="fa fa-file-text" aria-hidden="true"></i>
+										{% endif %}
 										<i class="fa fa-tags" aria-hidden="true"></i>
-										{{video.sub_category}}
+										{{obj.category}}
 										<i class="fa fa-money" aria-hidden="true"></i>
-										{{video.payment_status}}
+										{{obj.payment_status}}
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+										{{obj.date }}
 									</p>
-									<a class="text-primary" href="{% url 'knowledge_center_video_content' video.id %}">read more</a>
+									<p class="card-text" style="padding-top: 30px;">
+										{# obj.description|safe|truncatewords:"70"|linebreaks #}
+										<a class="text-primary" style="" href="{% url 'knowledge_center_read_content' obj.id %}">READ MORE</a>
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
 					{% endfor %}
+					
+				</div>
+			</div>
+		</div>	
+
+		<div id="home2" class="full_width h_C kn_part_2">
+			<div class="container clearfix">
+				<h2 class="h_title_A">VIDEOS</h2>
+				<div class="row clearfix">
+
+					<!-- videos -->
+					{% for video in videos %}
+					<div class="col-md-6 clearfix single_card_wrapper">
+						<div class="card_C card" style="">
+							<div class="card-body">
+								<div class="pull-left">
+									{{video.path|safe}}
+								</div>
+								<p class="card-text">{{ video.title }}</p>
+								<p class="card-text">
+									{{ video.description|safe|truncatewords:"70"|linebreaks }}
+									<i class="fa fa-tags" aria-hidden="true"></i>
+									{{video.sub_category}}
+									<i class="fa fa-money" aria-hidden="true"></i>
+									{{video.payment_status}}
+								</p>
+								<a class="text-primary" href="{% url 'knowledge_center_video_content' video.id %}">read more</a>
+							</div>
+						</div>
+					</div>
+				
+					{% endfor %}
+
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+
 </div>
 {% endblock %}

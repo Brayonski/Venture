@@ -23,32 +23,34 @@
         <div class='col-md-12 clearfix'>
             <div class="row clearfix">
                 {% for obj in object_list %}
-                <div id="" class="col-md-2 box_box">
+                <a href="{% url 'business_profile' obj.pk %}">
+                    <div id="" class="col-md-2 box_box">
 
-                    <div class="box_box_in">
-                        <figure class="box_avi">
-                            <div class="box_B box_obj.id">
-                                {% if obj.thumbnail_image %}
-                                <img src="{{ obj.thumbnail_image.url }}">
-                                {% else %}
-                                <img src="{% static 'img/no-img.jpg' %}">
-                                {% endif %}
-                            </div>    
-                        </figure>
-                        <figure class="box_details">
-                            <p class="box_title"><a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a></p>
-                            <div class="box_social">
-                                <!--{% if obj in following %}-->
-                                <!--<a href="{% url 'business_unfollow' obj.id %}"><button-->
-                                        <!--class="btn-actioned btn btn-sm btn-default">Connected</button></a>-->
-                                <!--{% else %}-->
-                                <!--<a href="{% url 'business_follow' obj.id %}"><button-->
-                                        <!--class=" btn btn-sm btn-default">Connect</button></a>-->
-                                <!--{% endif %}-->
-                            </div>
-                        </figure>
+                        <div class="box_box_in">
+                            <figure class="box_avi">
+                                <div class="box_B box_obj.id">
+                                    {% if obj.thumbnail_image %}
+                                    <img src="{{ obj.thumbnail_image.url }}">
+                                    {% else %}
+                                    <img src="{% static 'img/no-img.jpg' %}">
+                                    {% endif %}
+                                </div>
+                            </figure>
+                            <figure class="box_details">
+                                <p class="box_title">{{obj.name}}</p>
+                                <div class="box_social">
+                                    <!--{% if obj in following %}-->
+                                    <!--<a href="{% url 'business_unfollow' obj.id %}"><button-->
+                                            <!--class="btn-actioned btn btn-sm btn-default">Connected</button></a>-->
+                                    <!--{% else %}-->
+                                    <!--<a href="{% url 'business_follow' obj.id %}"><button-->
+                                            <!--class=" btn btn-sm btn-default">Connect</button></a>-->
+                                    <!--{% endif %}-->
+                                </div>
+                            </figure>
+                        </div>
                     </div>
-                </div>
+                </a>
                 {% endfor %}
             </div>
         </div>

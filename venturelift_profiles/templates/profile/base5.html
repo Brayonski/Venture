@@ -42,49 +42,47 @@
                   My Profile
                 </a>
               </li>
-              <li>
-                  <div class="dropdown">
-                    <button class="dropbtn">Business</button>
-                    <div class="dropdown-content">
-                        <a href="{% url 'business_startup' %}">Startup</a>
-                        <a href="{% url 'business_smes' %}">SMEs</a>
-                    </div>
-                  </div>
-              </li>
-                <li>
-                  <div class="dropdown">
-                    <button class="dropbtn">Partner</button>
-                    <div class="dropdown-content">
-                        <a href="{% url 'supporter_filter' 'Trade' %}">Trade</a>
-                        <a href="{% url 'supporter_filter' 'Supply Chain' %}">Supply Chain</a>
-                        <a href="{% url 'supporter_filter' 'Technology' %}">Technology</a>
-                        <a href="{% url 'supporter_filter' 'Talent' %}">Talent</a>
-                        <a href="{% url 'supporter_filter' 'Professional Services' %}">Professional Services</a>
-                    </div>
-                  </div>
-                </li>
-
-               <li>
-                    <div class="dropdown">
-                      <button class="dropbtn">Funder</button>
-                      <div class="dropdown-content">
-                          <a href="#">Investor</a>
-                          <a href="{% url 'crowdfunding:index' %}">Crowdfunder</a>
-                          <a href="#">Lender</a>
-                      </div>
-                    </div>
-               </li>
-              <li>
-              <a href="{%url 'knowledge_center_home' %}">
-                Knowledge Center
-              </a>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Business</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'business_startup' %}">Startup</a>
+                    <a href="{% url 'business_smes' %}">SMEs</a>
+                </div>
+              </div>
             </li>
             <li>
-              <a href="{%url 'events_home' %}">
-                Events
-              </a>
+              <div class="dropdown">
+                <button class="dropbtn">Partner</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'supporter_filter' 'Trade' %}">Trade</a>
+                    <a href="{% url 'supporter_filter' 'Supply Chain' %}">Supply Chain</a>
+                    <a href="{% url 'supporter_filter' 'Technology' %}">Technology</a>
+                    <a href="{% url 'supporter_filter' 'Talent' %}">Talent</a>
+                    <a href="{% url 'supporter_filter' 'Professional Services' %}">Professional Services</a>
+                </div>
+              </div>
             </li>
-
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn">Funder</button>
+                  <div class="dropdown-content">
+                      <a href="{% url 'investor_list' %}">Investor</a>
+                      <a href="{% url 'crowdfunding:index' %}">Crowdfunder</a>
+                      <a href="#">Lender</a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="{%url 'knowledge_center_home' %}">
+                  Knowledge Center
+                </a>
+              </li>
+              <li>
+                <a href="{%url 'events_home' %}">
+                  Events
+                </a>
+              </li>
               <li>
                 <a href="/en/media">
                 VLA Media
@@ -136,10 +134,9 @@
 
         <div class="full_A with-side-filter">
             <div class="columns_A flex row clearfix">
-                <div class="col_A_out col_A_out_2 col-md-10 clearfix">
+                <div class="col_A_out col_A_out_2 col-md-12 clearfix">
                     {% block content_1 %}{% endblock %}
                 </div>
-
             </div>
         </div>
     </div>
@@ -157,6 +154,11 @@
         window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')
     </script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/moment.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-3.3.7.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-datetimepicker.min.js' %}"></script>
+    {% block javascript %}{% endblock %}
     <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>

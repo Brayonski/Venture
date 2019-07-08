@@ -25,7 +25,9 @@ from requests.auth import HTTPBasicAuth
 import json
 from datetime import datetime
 import base64
-
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+import decimal
 
 # Create your views here.
 @login_required
@@ -229,3 +231,38 @@ def crowdfunder_make_payment(request):
     }
     send_mpesa_stk_task.delay(request.POST['donator_phoneno'],request.POST['amount'])
     return HttpResponse(template.render(context, request))
+
+@csrf_exempt
+def verify_paypal_payment_funder(request):
+    data = json.loads(request.body)
+    campaign_selected = Campaign.objects.get(id=data['campaignID'])
+    payment = CampaignPayment(campaign=campaign_selected, created_at=timezone.now(),
+                              donator_email=data['donatorEmail'],
+                              donator_phoneno=data['donatorPhone'], amount=data['amount'],
+                              payment_method=data['paymentMethod'], payment_status='PAID', payment_order_number=data['orderID'], payment_payer_id=data['payerID'], paid=True,
+                              comments=data['comments'], allow_visibility=data['allowVisibility'])
+    payment.save()
+    totalReceived = campaign_selected.total_funds_received + decimal.Decimal(data['amount'])
+    campaign_selected.total_funds_received = totalReceived
+    campaign_selected.save()
+    if campaign_selected.campaign_type == "REWARD BASED":
+        if request.POST['amount'] >= campaign_selected.campaign_reward_threshold:
+            create_reward = CampaignReward(campaign=campaign_selected, payment=payment, created_at=timezone.now(),
+                                           rewarded_user_email=request.POST['donator_email'],
+                                           reward=campaign_selected.campaign_reward_details, reward_status="PENDING")
+            create_reward.save()
+
+    checkUser = AllSystemUser.objects.filter(email=data['donatorEmail']).exists()
+    if checkUser is False:
+        createUser = AllSystemUser(created_at=timezone.now(), username=data['donatorEmail'],
+                                   email=data['donatorEmail'], user_type='Crowdfunder')
+        createUser.save()
+
+    responseData = {
+        'message': 'Payment Received and Recorded'
+    }
+    return JsonResponse(responseData)
+
+
+
+
