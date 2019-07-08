@@ -99,7 +99,10 @@ class AudioVisual(models.Model):
     title = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
     path = models.TextField()
-    author = models.ForeignKey(User, related_name="videouser_manager")
+    author = models.CharField(
+        max_length=250, help_text="Content Owner", blank=True, null=True)
+    created_by = models.ForeignKey(
+        User, blank=True, null=True, related_name="videouser_manager")
     category = models.CharField(max_length=100, choices=AUDIOVISUALCHOICES)
     published = models.BooleanField(default=False)
     sub_category = models.ForeignKey(

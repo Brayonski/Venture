@@ -65,49 +65,8 @@
 	</nav>
 
 	<div class="container">
-		<!--
-		<div>
-			<ul class="nav nav-pills">
-				<li class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}"><a
-						href="{% url 'knowledge_center_home' %}">All</a></li>
-				{% if object_list %}
-				{% url 'knowledge_center_home' as  knowledge_center_home %}
-				<li class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}"><a
-						href="{% url 'knowledge_center_home' %}">Reports</a></li>
-				{% endif %}
-				{% for document in document_type %}
-				{% if document.textcenter_set.count >= 1 %}
-				{% url 'knowledge_center_read_content_filter' document.id as knowledge_center_read_content_filter %}
-				<li class="{% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}">
-					<a href="{% url 'knowledge_center_read_content_filter' document.id %}">{{document.title}}</a>
-				</li>
-				{% endif %}
-				{% endfor %}
-
-				<li><a href="{% url 'knowledge_center_video_home' %}">Videos</a></li>
-			</ul>
-		</div>
-		-->
+	
 		<div class="tab-content">
-			<!--
-			<ul class="nav nav-pills">
-				{% url 'knowledge_center_video_home' as  knowledge_center_video_home %}
-
-				{% if object_list %}
-				<li class="{% ifequal request.path knowledge_center_video_home %}active{% endifequal %}"><a
-						href="{% url 'knowledge_center_video_home' %}">All</a>
-				</li>
-				{% endif %}
-				{% for type in video_type %}
-				{% if type.audiovisual_set.count >= 1 %}
-				{% url 'knowledge_center_video_content_filter' type.id as knowledge_center_video_content_filter %}
-				<li class="{% ifequal request.path knowledge_center_video_content_filter %}active{% endifequal %}">
-					<a href="{% url 'knowledge_center_video_content_filter' type.id %}">{{type.title}}</a>
-				</li>
-				{% endif %}
-				{% endfor %}
-			</ul>
-			-->
 			<div id="home" class="tab-pane fade in active">
 				<div class="row clearfix">
 					{% for obj in object_list %}
@@ -120,7 +79,7 @@
 									</div>
 									<p class="card-text">{{ obj.title }}</p>
 									<p class="card-text">
-										{{ obj.description|safe|truncatewords:"70"|linebreaks }}
+										{{ obj.author }}
 										<i class="fa fa-tags" aria-hidden="true"></i>
 										{{obj.sub_category}}
 										<i class="fa fa-money" aria-hidden="true"></i>
