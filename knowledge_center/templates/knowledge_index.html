@@ -116,11 +116,11 @@
 								</div>
 								<p class="card-text">{{ video.title }}</p>
 								<p class="card-text">
-									{{ video.description|safe|truncatewords:"70"|linebreaks }}
+									{{ obj.author }}
 									<i class="fa fa-tags" aria-hidden="true"></i>
-									{{video.sub_category}}
+									{{ video.sub_category }}
 									<i class="fa fa-money" aria-hidden="true"></i>
-									{{video.payment_status}}
+									{{ video.payment_status }}
 								</p>
 								<a class="text-primary" href="{% url 'knowledge_center_video_content' video.id %}">read more</a>
 							</div>
