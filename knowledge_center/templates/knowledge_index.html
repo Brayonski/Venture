@@ -5,40 +5,44 @@
 {% block content %}
 <div class="event_wrapper full_A">
 
-  	<nav id="navbar_out_2" class="navbar navbar-default_media">
-      	<div class="top_container container">
+	<nav id="navbar_out_2" class="navbar navbar-default_media">
+		<div class="top_container container">
 
-          <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
-            {% url 'events_home' as  events_home %}
-            <ul class="event_titles">
-                <li class="active e-title_1"><h1>Knowledge Center</h1></li>
+			<div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
+				{% url 'events_home' as  events_home %}
+				<ul class="event_titles">
+					<li class="active e-title_1">
+						<h1>Knowledge Center</h1>
+					</li>
 
-				{% if object_list %}
-				{% url 'knowledge_center_home' as  knowledge_center_home %}
-				<li class="e-title_2X {% ifequal request.path knowledge_center_home %}active{% endifequal %}"><h4><a href="{% url 'knowledge_center_home' %}">All</a></h4></li>
+					{% if object_list %}
+					{% url 'knowledge_center_home' as  knowledge_center_home %}
+					<li class="e-title_2X {% ifequal request.path knowledge_center_home %}active{% endifequal %}">
+						<h4><a href="{% url 'knowledge_center_home' %}">All</a></h4>
+					</li>
 
-				{% endif %}
-				{% for type in document_type %}
-				{% if type.textcenter_set.count >= 1 %}
-				{% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
+					{% endif %}
+					{% for type in document_type %}
+					{% if type.textcenter_set.count >= 1 %}
+					{% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
 
-				<li class="e-title_2X {% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}">
-					<h4><a href="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
-					</a></h4>
-				</li>
+					<li class="e-title_2X {% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}">
+						<h4><a href="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
+							</a></h4>
+					</li>
 
-				{% endif %}
-				{% endfor %}
+					{% endif %}
+					{% endfor %}
 
-				<li class="e-title_2X">
-					<h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
-				</li>
+					<li class="e-title_2X">
+						<h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
+					</li>
 
-			</ul>
-          </div>
+				</ul>
+			</div>
 
-        </div>
-    </nav>
+		</div>
+	</nav>
 
 	<div class="tab_content">
 
@@ -54,8 +58,23 @@
 							<div class="card-body">
 								<div class="">
 									<h3 class="card-text dark-text">
+										{% if obj.external_url %}
+										<a target="__blank" href="{{ obj.external_url }}">{{ obj.title }}</a>
+										{% else %}
 										<a href="{% url 'knowledge_center_read_content' obj.id %}">{{ obj.title }}</a>
+										{% endif %}
 									</h3>
+									{% if obj.external_url %}
+									<p class="card-text" style="padding-top: 10px;">
+										{% if obj.author %}
+										<i class="fa fa-user" aria-hidden="true"></i>
+										{{ obj.author }}
+										{% endif %}
+									</p>
+									<p class="card-text" style="padding-top: 30px;">
+										<a class="text-primary" target="__blank" href="{{ obj.external_url }}">READ MORE</a>
+									</p>
+									{% else %}
 									<p class="card-text" style="padding-top: 10px;">
 										{% if obj.file_upload %}
 										<i class="fa fa-file-text" aria-hidden="true"></i>
@@ -68,18 +87,19 @@
 										{{obj.date }}
 									</p>
 									<p class="card-text" style="padding-top: 30px;">
-										{# obj.description|safe|truncatewords:"70"|linebreaks #}
-										<a class="text-primary" style="" href="{% url 'knowledge_center_read_content' obj.id %}">READ MORE</a>
+										<a class="text-primary" style="" href="{% url 'knowledge_center_read_content' obj.id %}">READ
+											MORE</a>
 									</p>
+									{% endif %}
 								</div>
 							</div>
 						</div>
 					</div>
 					{% endfor %}
-					
+
 				</div>
 			</div>
-		</div>	
+		</div>
 
 		<div id="home2" class="full_width h_C kn_part_2">
 			<div class="container clearfix">
@@ -106,7 +126,7 @@
 							</div>
 						</div>
 					</div>
-				
+
 					{% endfor %}
 
 				</div>

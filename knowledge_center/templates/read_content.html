@@ -4,52 +4,54 @@
 {% block title %} Knowledge Center| {{ content.title }} {% endblock title %}
 {% block content %}
 <div class="single_event_in full_A">
-<div class="container single_post_container">
-	<div class="actions pull-left">
-		<a href="{% url 'knowledge_center_home' %}" class="btn btn-primary">Back</a>
-	</div>
-	<div class="row clearfix">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="single_header">
-				<h1 class="style_D">{{ content.title }}</h1>
-				<p class="meta">
-					<span>
-						<i class="fa fa-tags" aria-hidden="true"></i> {{ content.category}}
-						<i class="fa fa-money" aria-hidden="true"></i>
-						{{content.payment_status}}
-					</span>
-					<span>
-						<i class="fa fa-user-circle-o" aria-hidden="true"></i>
-						{{ content.author.username }}
-					</span>
-				</p>
-			</div>
+	<div class="container single_post_container">
+		<div class="actions pull-left">
+			<a href="{% url 'knowledge_center_home' %}" class="btn btn-primary">Back</a>
+		</div>
+		<div class="row clearfix">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="single_header">
+					<h1 class="style_D">{{ content.title }}</h1>
+					<p class="meta">
+						<span>
+							<i class="fa fa-tags" aria-hidden="true"></i> {{ content.category}}
+							<i class="fa fa-money" aria-hidden="true"></i>
+							{{content.payment_status}}
+						</span>
+						<span>
+							<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+							{{ content.author.username }}
+						</span>
+					</p>
+				</div>
 
-			<div class="card">
-				<div class="card-body">
-					<div class="card_summary">
-						<p>Description: {{content.description}}</p>
-					</div>
-					<div class="card_summary">
-						<embed src="{{ content.file_upload.url }}" width="750" height="500" type="application/pdf">
+				<div class="card">
+					<div class="card-body">
+						<div class="card_summary">
+							<p>Description: {{content.description}}</p>
+						</div>
+						{% content.file_upload %}
+						<div class="card_summary">
+							<embed src="{{ content.file_upload.url }}" width="750" height="500" type="application/pdf">
+						</div>
+						{% endif %}
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-md-2 clearfix">
-			<p class="card-text">Recommended Read</p>
-			{% for read in recommended%}
-			{% if read.id != content.id %}
-			<h5>
-				<a class="card-text" href="{% url 'knowledge_center_read_content' read.id %}">
-					{{ read.title }}
-				</a>
-				{% endif %}
+			<div class="col-md-2 clearfix">
+				<p class="card-text">Recommended Read</p>
+				{% for read in recommended%}
+				{% if read.id != content.id %}
+				<h5>
+					<a class="card-text" href="{% url 'knowledge_center_read_content' read.id %}">
+						{{ read.title }}
+					</a>
+					{% endif %}
 
-			</h5>
-			{% endfor %}
+				</h5>
+				{% endfor %}
+			</div>
 		</div>
 	</div>
-</div>
 
-{% endblock %}
+	{% endblock %}

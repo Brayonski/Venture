@@ -71,16 +71,21 @@ class VideoCategory(models.Model):
 
 class TextCenter(models.Model):
     category = models.ForeignKey(DocumentCategory, null=True)
-    sub_category = models.ForeignKey(SubDocumentCategory,null=True)
+    sub_category = models.ForeignKey(SubDocumentCategory, null=True)
     title = models.CharField(max_length=100)
     published = models.BooleanField(default=False)
-    author = models.ForeignKey(User)
-    description = fields.HTMLField()
+    author = models.CharField(
+        max_length=250, help_text="Content Owner", blank=True, null=True)
+    created_by = models.ForeignKey(User)
+    description = fields.HTMLField(blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
     payment_status = models.CharField(
         max_length=100, choices=PAYMENTSTATUS, help_text="Payment Required", verbose_name='Payment Required?')
     file_upload = models.FileField(
         upload_to='pic_folder/', null=True, blank=True, help_text="Upload an File")
+    external_url = models.CharField(
+        max_length=100, help_text="external_url", null=True, blank=True
+    )
 
     def __str__(self):
         return self.title
@@ -88,6 +93,7 @@ class TextCenter(models.Model):
     class Meta:
         verbose_name = 'Document / Report Manager'
         verbose_name_plural = 'Documents / Reports Manager'
+
 
 class AudioVisual(models.Model):
     title = models.CharField(max_length=100)
