@@ -275,34 +275,32 @@ def crowdfunder_make_payment(request):
 
 @csrf_exempt
 def verify_paypal_payment_funder(request):
-    campaignId =  request.POST.get('campaignID')
-    #data = json.loads(request.body)
-    # campaign_selected = Campaign.objects.get(id=request.POST.get('campaignID'))
-    # payment = CampaignPayment(campaign=campaign_selected, created_at=timezone.now(),
-    #                           donator_email=request.POST.get('donatorEmail'),
-    #                           donator_phoneno=request.POST.get('donatorPhone'), amount=request.POST.get('amount'),
-    #                           payment_method=request.POST.get('paymentMethod'), payment_status='PAID', payment_order_number=request.POST.get('orderID'), payment_payer_id=request.POST.get('payerID'), paid=True,
-    #                           comments=request.POST.get('comments'), allow_visibility=request.POST.get('allowVisibility'))
-    # payment.save()
-    # totalReceived = campaign_selected.total_funds_received + decimal.Decimal(request.POST.get('amount'))
-    # campaign_selected.total_funds_received = totalReceived
-    # campaign_selected.save()
-    # if campaign_selected.campaign_type == "REWARD BASED":
-    #     if request.POST.get('amount') >= campaign_selected.campaign_reward_threshold:
-    #         create_reward = CampaignReward(campaign=campaign_selected, payment=payment, created_at=timezone.now(),
-    #                                        rewarded_user_email=request.POST.get('donator_email'),
-    #                                        reward=campaign_selected.campaign_reward_details, reward_status="PENDING")
-    #         create_reward.save()
-    #
-    # checkUser = AllSystemUser.objects.filter(email=request.POST.get('donatorEmail')).exists()
-    # if checkUser is False:
-    #     createUser = AllSystemUser(created_at=timezone.now(), username=request.POST.get('donatorEmail'),
-    #                                email=request.POST.get('donatorEmail'), user_type='Crowdfunder')
-    #     createUser.save()
+    data = json.loads(request.body)
+    campaign_selected = Campaign.objects.get(id=data['campaignID'])
+    payment = CampaignPayment(campaign=campaign_selected, created_at=timezone.now(),
+                              donator_email=data['donatorEmail'],
+                              donator_phoneno=data['donatorPhone'], amount=data['amount'],
+                              payment_method=data['paymentMethod'], payment_status='PAID', payment_order_number=data['orderID'], payment_payer_id=data['payerID'], paid=True,
+                              comments=data['comments'], allow_visibility=data['allowVisibility'])
+    payment.save()
+    totalReceived = campaign_selected.total_funds_received + decimal.Decimal(data['amount'])
+    campaign_selected.total_funds_received = totalReceived
+    campaign_selected.save()
+    if campaign_selected.campaign_type == "REWARD BASED":
+        if request.POST['amount'] >= campaign_selected.campaign_reward_threshold:
+            create_reward = CampaignReward(campaign=campaign_selected, payment=payment, created_at=timezone.now(),
+                                           rewarded_user_email=request.POST['donator_email'],
+                                           reward=campaign_selected.campaign_reward_details, reward_status="PENDING")
+            create_reward.save()
+
+    checkUser = AllSystemUser.objects.filter(email=data['donatorEmail']).exists()
+    if checkUser is False:
+        createUser = AllSystemUser(created_at=timezone.now(), username=data['donatorEmail'],
+                                   email=data['donatorEmail'], user_type='Crowdfunder')
+        createUser.save()
 
     responseData = {
-        'message': 'Payment Received and Recorded',
-        'campaignId' : campaignId
+        'message': 'Payment Received and Recorded'
     }
     return JsonResponse(responseData)
 
