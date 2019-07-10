@@ -76,7 +76,7 @@ class TextCenter(models.Model):
     published = models.BooleanField(default=False)
     author = models.CharField(
         max_length=250, help_text="Content Owner", blank=True, null=True)
-    created_by = models.ForeignKey(User)
+    created_by = models.ForeignKey(User,null=True)
     description = fields.HTMLField(blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
     payment_status = models.CharField(

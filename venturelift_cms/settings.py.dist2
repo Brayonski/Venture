@@ -30,7 +30,7 @@ SECRET_KEY = 'n5ay9hm_v*(^uepo6fkj=m#q1pf1e2p0!*90qg=gtq1)@p*7j6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','2ec1852e.ngrok.io','127.0.0.1','52.37.84.193']
 
 
 # Application definition
@@ -272,3 +272,9 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '<<secret>>'
 LOGIN_URL = '/profile/accounts/login/'
 LOGIN_REDIRECT_URL = '/profile/profile/'
 LOGOUT_REDIRECT_URL = LOGIN_URL
+
+#Mpesa Api Details
+CONSUMER_KEY = 'G4fR8iS27KSOwAJ5eOtRq0MFdwDVbwau'
+CONSUMER_SECRET = 'BrPh8l8ZbpCQAoUt'
+SHORTCODE = '174379'
+PASS_KEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
