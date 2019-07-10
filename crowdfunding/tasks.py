@@ -111,8 +111,8 @@ def send_mpesa_c2b_register_url_task():
         headers = {"Authorization": "Bearer %s" % accessToken}
         request = {"ShortCode": " ",
                    "ResponseType": " ",
-                   "ConfirmationURL": "http://2ec1852e.ngrok.io/crowdfunding/confirmation_url",
-                   "ValidationURL": "http://2ec1852e.ngrok.io/crowdfunding/validation_url"}
+                   "ConfirmationURL": "http://52.37.84.193:8081/crowdfunding/confirmation_url",
+                   "ValidationURL": "http://52.37.84.193:8081/crowdfunding/validation_url"}
 
         response = requests.post(api_URL, json=request, headers=headers)
         checkoutResponse = response.text
@@ -192,7 +192,7 @@ def send_mpesa_stk_task(phone,amount,accountName,paymentId):
                     "PartyA": phoneNumber,
                     "PartyB": shortCode,
                     "PhoneNumber": phoneNumber,
-                    "CallBackURL": "http://2ec1852e.ngrok.io/crowdfunding/mpesa_checkout_response",
+                    "CallBackURL": "http://52.37.84.193:8081/crowdfunding/mpesa_checkout_response",
                     "AccountReference": accountName,
                     "TransactionDesc": "VENTURELIFTDONATION"
                 }
