@@ -275,8 +275,6 @@ def crowdfunder_make_payment(request):
 
 @csrf_exempt
 def verify_paypal_payment_funder(request):
-    campaignId =  request.POST.get('campaignID')
-    #data = json.loads(request.body)
     campaign_selected = Campaign.objects.get(id=request.POST.get('campaignID'))
     payment = CampaignPayment(campaign=campaign_selected, created_at=timezone.now(),
                               donator_email=request.POST.get('donatorEmail'),
@@ -301,8 +299,7 @@ def verify_paypal_payment_funder(request):
         createUser.save()
 
     responseData = {
-        'message': 'Payment Received and Recorded',
-        'campaignId' : campaignId
+        'message': 'Payment Received and Recorded'
     }
     return JsonResponse(responseData)
 

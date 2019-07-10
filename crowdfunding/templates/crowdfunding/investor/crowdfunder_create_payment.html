@@ -263,7 +263,12 @@
                 // Call your server to save the transaction
                  console.log(details);
                  console.log(data);
-                 var formdata = {
+                var responsedata = fetch('/crowdfunding/crowdfunder/paypal-transaction-complete', {
+                  method: 'post',
+                  headers: {
+                    'content-type': 'multipart/form-data'
+                  },
+                  body: JSON.stringify({
                     orderID: data.orderID,
                     campaignID: document.getElementById("campaign_id").value,
                     donatorEmail: document.getElementById("donator_email").value,
@@ -273,21 +278,11 @@
                     payerID: data.payerID,
                     comments: document.getElementById("comments").value,
                     allowVisibility: $("input[name='allow_visibility']:checked").val(),
-                 };
-                 $.ajax({
-                    url: "http://127.0.0.1:8000/crowdfunding/crowdfunder/paypal-transaction-complete",
-                    type: "POST",
-                    data: formdata ,
-                    processData: false,
-                    contentType: 'multipart/form-data',
-                    success: function (response) {
-                        console.log('resp: ' , response);
-                         window.location.href = '/crowdfunding/crowdfunder/';
-                    },
-                    error: function (jqXHR, textStatus, errorMessage) {
-                        console.log("error:" , errorMessage);
-                    }
-                 });
+                  })
+                });
+                if(responsedata){
+                    window.location.href = '/crowdfunding/crowdfunder/';
+                }
               });
             }
          }).render('#paypal-button-container');
