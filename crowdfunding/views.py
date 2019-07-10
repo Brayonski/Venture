@@ -288,9 +288,9 @@ def verify_paypal_payment_funder(request):
     campaign_selected.total_funds_received = totalReceived
     campaign_selected.save()
     if campaign_selected.campaign_type == "REWARD BASED":
-        if request.POST['amount'] >= campaign_selected.campaign_reward_threshold:
+        if request.POST.get['amount'] >= campaign_selected.campaign_reward_threshold:
             create_reward = CampaignReward(campaign=campaign_selected, payment=payment, created_at=timezone.now(),
-                                           rewarded_user_email=request.POST['donator_email'],
+                                           rewarded_user_email=request.POST.get['donator_email'],
                                            reward=campaign_selected.campaign_reward_details, reward_status="PENDING")
             create_reward.save()
 
