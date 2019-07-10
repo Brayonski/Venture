@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63775d04-ee63-40b5-9b92-96f47de827ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/create_payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/create_payment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crowdfunding/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/crowdfunding/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crowdfunding/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/crowdfunding/tasks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/crowdfunder_create_payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/crowdfunder_create_payment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crowdfunding/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/crowdfunding/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crowdfunding/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/crowdfunding/views.py" afterDir="false" />
     </list>
     <ignored path="celerybeat-schedule" />
@@ -19,8 +22,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crowdfunding/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+            <state relative-caret-position="225">
+              <caret line="15" column="80" lean-forward="true" selection-start-line="15" selection-start-column="80" selection-end-line="15" selection-end-column="80" />
               <folding>
                 <element signature="e#0#72#0" expanded="true" />
               </folding>
@@ -29,10 +32,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venturelift_cms/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="417">
+              <caret line="279" column="9" selection-start-line="279" selection-end-line="279" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/crowdfunding/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="937">
-              <caret line="99" column="150" selection-start-line="99" selection-start-column="133" selection-end-line="99" selection-end-column="150" />
+            <state relative-caret-position="405">
+              <caret line="64" column="32" lean-forward="true" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -41,24 +56,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/crowdfunder_create_payment.html">
+        <entry file="file://$PROJECT_DIR$/crowdfunding/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="261" column="69" selection-start-line="261" selection-start-column="69" selection-end-line="261" selection-end-column="69" />
+            <state relative-caret-position="222">
+              <caret line="193" column="41" lean-forward="true" selection-start-line="193" selection-start-column="41" selection-end-line="193" selection-end-column="41" />
               <folding>
-                <element signature="n#style#0;n#span#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/create_payment.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="244" column="32" lean-forward="true" selection-start-line="244" selection-start-column="32" selection-end-line="244" selection-end-column="32" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#24#63#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -67,17 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crowdfunding/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/crowdfunding/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="81" column="24" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="24" />
+            <state relative-caret-position="249">
+              <caret line="191" column="42" selection-start-line="191" selection-start-column="42" selection-end-line="191" selection-end-column="42" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -96,24 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>company_classification</find>
-      <find>How would you classify your firm</find>
-      <find>gender_lens_investor</find>
-      <find>Funders</find>
-      <find>CreateInvestorView</find>
-      <find>INTEREST_COUNTRIES</find>
-      <find>BusinessFilters</find>
-      <find>resource</find>
-      <find>Businesses</find>
-      <find>icon-inner</find>
-      <find>briefcase</find>
-      <find>BusinessFil</find>
-      <find>Follow</find>
-      <find>update_investor_step1</find>
-      <find>follow</find>
-      <find>follow_requester</find>
-      <find>BusinessConnectRequest</find>
-      <find>BusinessConnectRequestAdmin</find>
       <find>InvestorV</find>
       <find>InvestorView</find>
       <find>unfollow</find>
@@ -126,6 +102,24 @@
       <find>word-count</find>
       <find>amount_check</find>
       <find>crowdfunder_make_payment</find>
+      <find>CELERY_BROKER_URL</find>
+      <find>send_mpesa_stk_task</find>
+      <find>from django.conf import settings</find>
+      <find>filte</find>
+      <find>filter</find>
+      <find>first</find>
+      <find>first(</find>
+      <find>JSONField</find>
+      <find>mpesa_checkout_response</find>
+      <find>paypal-transaction-complete</find>
+      <find>register_url</find>
+      <find>pk=</find>
+      <find>pk</find>
+      <find>accountName</find>
+      <find>get_online_checkout_response</find>
+      <find>ALLOWED_HOSTS</find>
+      <find>MpesaSTKPush</find>
+      <find>send_mpesa_c2b_notification_url_task</find>
     </findStrings>
     <replaceStrings>
       <replace>http://52.37.84.193:8081</replace>
@@ -135,8 +129,8 @@
     <dirStrings>
       <dir>$PROJECT_DIR$/venturelift_cms</dir>
       <dir>$PROJECT_DIR$/venturelift_profiles</dir>
-      <dir>$PROJECT_DIR$</dir>
       <dir>$PROJECT_DIR$/crowdfunding</dir>
+      <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -150,7 +144,6 @@
         <option value="$PROJECT_DIR$/venturelift_profiles/templates/portal_base.html" />
         <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/investor/investors.html" />
         <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/supporter/supporters.html" />
-        <option value="$PROJECT_DIR$/crowdfunding/tasks.py" />
         <option value="$PROJECT_DIR$/venturelift_profiles/context_processors.py" />
         <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/base.html" />
         <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/base2.html" />
@@ -187,15 +180,16 @@
         <option value="$PROJECT_DIR$/crowdfunding/forms.py" />
         <option value="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/business/create_campaign.html" />
         <option value="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/base6.html" />
-        <option value="$PROJECT_DIR$/venturelift_cms/settings.py" />
         <option value="$PROJECT_DIR$/venturelift_cms/settings.py.dist2" />
-        <option value="$PROJECT_DIR$/crowdfunding/urls.py" />
         <option value="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/crowdfunder_payment_response.html" />
         <option value="$PROJECT_DIR$/crowdfunding/paypalclient.py" />
+        <option value="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/create_payment.html" />
+        <option value="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/crowdfunder_create_payment.html" />
+        <option value="$PROJECT_DIR$/crowdfunding/urls.py" />
+        <option value="$PROJECT_DIR$/venturelift_cms/settings.py" />
         <option value="$PROJECT_DIR$/crowdfunding/models.py" />
         <option value="$PROJECT_DIR$/crowdfunding/views.py" />
-        <option value="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/crowdfunder_create_payment.html" />
-        <option value="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/create_payment.html" />
+        <option value="$PROJECT_DIR$/crowdfunding/tasks.py" />
       </list>
     </option>
   </component>
@@ -210,7 +204,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -247,12 +240,13 @@
             <path>
               <item name="venturelift" type="b2602c69:ProjectViewProjectNode" />
               <item name="venturelift" type="462c0819:PsiDirectoryNode" />
-              <item name="venturelift_cms" type="462c0819:PsiDirectoryNode" />
+              <item name="venturelift_profiles" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -301,7 +295,7 @@
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2305141" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24156992" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -312,7 +306,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3740857" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3970742" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -323,20 +317,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/base2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="62" column="108" selection-start-line="62" selection-start-column="108" selection-end-line="62" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/base4.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="58" column="63" lean-forward="true" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/supporter/supporters_filter.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -523,16 +503,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="169" column="78" selection-start-line="169" selection-start-column="78" selection-end-line="169" selection-end-column="78" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/crowdfunder_index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -629,16 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_cms/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="134" column="12" lean-forward="true" selection-start-line="134" selection-start-column="12" selection-end-line="134" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/mpesa.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -653,30 +613,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crowdfunding/paypalclient.py">
+    <entry file="file://$PROJECT_DIR$/crowdfunding/paypalclient.py" />
+    <entry file="file://$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/create_payment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        <state relative-caret-position="101">
+          <caret line="244" column="32" selection-start-line="244" selection-start-column="32" selection-end-line="244" selection-end-column="32" />
           <folding>
-            <element signature="e#0#71#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crowdfunding/tasks.py">
+    <entry file="file://$PROJECT_DIR$/venturelift_cms/celery.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="937">
-          <caret line="99" column="150" selection-start-line="99" selection-start-column="133" selection-end-line="99" selection-end-column="150" />
+        <state>
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crowdfunding/models.py">
+    <entry file="file://$PROJECT_DIR$/venturelift_cms/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="81" column="24" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="24" />
+        <state>
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/crowdfunder_create_payment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="265" column="95" selection-start-line="265" selection-start-column="95" selection-end-line="265" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="303" column="38" selection-start-line="303" selection-start-column="36" selection-end-line="303" selection-end-column="38" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
@@ -685,37 +661,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/crowdfunding/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+        <state relative-caret-position="225">
+          <caret line="15" column="80" lean-forward="true" selection-start-line="15" selection-start-column="80" selection-end-line="15" selection-end-column="80" />
           <folding>
             <element signature="e#0#72#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crowdfunding/views.py">
+    <entry file="file://$PROJECT_DIR$/venturelift_cms/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/crowdfunder_create_payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="261" column="69" selection-start-line="261" selection-start-column="69" selection-end-line="261" selection-end-column="69" />
+        <state relative-caret-position="417">
+          <caret line="279" column="9" selection-start-line="279" selection-end-line="279" selection-end-column="9" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crowdfunding/templates/crowdfunding/investor/create_payment.html">
+    <entry file="file://$PROJECT_DIR$/crowdfunding/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="244" column="32" lean-forward="true" selection-start-line="244" selection-start-column="32" selection-end-line="244" selection-end-column="32" />
+        <state relative-caret-position="222">
+          <caret line="193" column="41" lean-forward="true" selection-start-line="193" selection-start-column="41" selection-end-line="193" selection-end-column="41" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crowdfunding/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="191" column="42" selection-start-line="191" selection-start-column="42" selection-end-line="191" selection-end-column="42" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crowdfunding/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="64" column="32" lean-forward="true" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
