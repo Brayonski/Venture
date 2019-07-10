@@ -265,6 +265,9 @@
                  console.log(data);
                 var responsedata = fetch('/crowdfunding/crowdfunder/paypal-transaction-complete', {
                   method: 'post',
+                  headers: {
+                    'content-type': 'application/json'
+                  },
                   body: JSON.stringify({
                     orderID: data.orderID,
                     campaignID: document.getElementById("campaign_id").value,

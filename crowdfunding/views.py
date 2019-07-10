@@ -28,6 +28,7 @@ import base64
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import decimal
+from django.utils import six
 
 # Create your views here.
 @login_required
@@ -275,12 +276,23 @@ def crowdfunder_make_payment(request):
 
 @csrf_exempt
 def verify_paypal_payment_funder(request):
-    data = json.loads(request.body)
+    process_paypal_request(request)
+    responseData = {
+        'message': 'Payment Received and Recorded'
+    }
+    return JsonResponse(responseData)
+
+
+def process_paypal_request(request):
+    # do stuff here
+    request.MY_NEW_KEY = copy_body(request)
+    data = json.loads(request.MY_NEW_KEY)
     campaign_selected = Campaign.objects.get(id=data['campaignID'])
     payment = CampaignPayment(campaign=campaign_selected, created_at=timezone.now(),
                               donator_email=data['donatorEmail'],
                               donator_phoneno=data['donatorPhone'], amount=data['amount'],
-                              payment_method=data['paymentMethod'], payment_status='PAID', payment_order_number=data['orderID'], payment_payer_id=data['payerID'], paid=True,
+                              payment_method=data['paymentMethod'], payment_status='PAID',
+                              payment_order_number=data['orderID'], payment_payer_id=data['payerID'], paid=True,
                               comments=data['comments'], allow_visibility=data['allowVisibility'])
     payment.save()
     totalReceived = campaign_selected.total_funds_received + decimal.Decimal(data['amount'])
@@ -299,10 +311,13 @@ def verify_paypal_payment_funder(request):
                                    email=data['donatorEmail'], user_type='Crowdfunder')
         createUser.save()
 
-    responseData = {
-        'message': 'Payment Received and Recorded'
-    }
-    return JsonResponse(responseData)
+
+def copy_body(request):
+    data = getattr(request, '_body', request.body)
+    request._body = data
+    # why six? Because that's where django gets its exception
+    request._stream = six.BytesIO(data)
+    return data
 
 
 
