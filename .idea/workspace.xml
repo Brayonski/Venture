@@ -53,8 +53,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/crowdfunding/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="290" column="35" selection-start-line="290" selection-start-column="35" selection-end-line="290" selection-end-column="35" />
+            <state relative-caret-position="193">
+              <caret line="292" column="94" selection-start-line="292" selection-start-column="94" selection-end-line="292" selection-end-column="94" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -82,7 +82,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SupporterVie</find>
       <find>Reward</find>
       <find>reward</find>
       <find>summary_count</find>
@@ -112,6 +111,7 @@
       <find>request.body</find>
       <find>data['</find>
       <find>request.POST</find>
+      <find>request.POST.get['</find>
     </findStrings>
     <replaceStrings>
       <replace>http://52.37.84.193:8081</replace>
@@ -688,8 +688,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/crowdfunding/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="290" column="35" selection-start-line="290" selection-start-column="35" selection-end-line="290" selection-end-column="35" />
+        <state relative-caret-position="193">
+          <caret line="292" column="94" selection-start-line="292" selection-start-column="94" selection-end-line="292" selection-end-column="94" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
