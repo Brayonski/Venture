@@ -263,7 +263,7 @@
                 // Call your server to save the transaction
                  console.log(details);
                  console.log(data);
-                var responsedata = fetch('/crowdfunding/crowdfunder/paypal-transaction-complete', {
+                var responsedata = fetch('/crowdfunding/crowdfunder/paypal-transaction-complete/', {
                   method: 'post',
                   headers: {
                     'content-type': 'application/json'
@@ -281,8 +281,7 @@
                   })
                 });
                 if(responsedata){
-                    console.log(responsedata);
-                    //window.location.href = '/crowdfunding/crowdfunder/';
+                    window.location.href = '/crowdfunding/crowdfunder/';
                 }
               });
             }
