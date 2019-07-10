@@ -18,6 +18,20 @@
 </head>
 
 <body class="root_A">
+
+  <script type="text/javascript">
+    window.onload = function(){ document.getElementById("loading").style.display = "none" }
+  </script>
+  <style>
+    #loading {background:#FFF; width: 100%;height: 100%;top: 0px;left: 0px;position: fixed;display: block; z-index: 99}
+    #loading-image {position: absolute;top: 40%;left: 45%;z-index: 9999999999999999999} 
+  </style>
+  <!--
+  <div id="loading">
+    <img id="loading-image" src="{% static 'img/loader.gif' %}" alt="Loading..." />
+  </div> 
+  -->
+
   {% cms_toolbar %}
 
   <!-- Fixed navbar -->
@@ -138,7 +152,7 @@
                   <li><a href="/about-us">About us</a></li>
                   <li><a href="/team">Team</a></li>
                   <li><a href="/careers">Careers</a></li>
-                  <li><a href="/help">Help</a></li>
+                  <li><a href="/help">FAQ</a></li>
                   <li><a href="/advertise">Advertise</a></li>
                   <li><a href="/terms-of-use">Terms of Use</a></li>
                   <li><a href="/contact-us">Contact us</a></li>
@@ -226,6 +240,7 @@
 
     gtag('config', 'UA-137967572-1');
   </script>
+
 </body>
 
 </html>

@@ -12,11 +12,20 @@ MEMBERSHIP_CHOICES = (
 )
 
 
+class MembershipType(models.Model):
+    title = models.CharField(max_length=100)
+    number_of_videos = models.IntegerField()
+
+    def __str__(self):
+        return self.title
+
+
 class Membership(models.Model):
     slug = models.SlugField()
     membership_type = models.CharField(
         choices=MEMBERSHIP_CHOICES, default='Free', max_length=100)
     price = models.IntegerField(default=15)
+    type_membership = models.ForeignKey(MembershipType, default="")
     payment_plan = models.CharField(max_length=40)
 
     def __str__(self):

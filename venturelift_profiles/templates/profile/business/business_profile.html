@@ -6,11 +6,12 @@
 
 <div class="full_A">
 
-  <div class="container">
-    <div class="profile_top full_widthX">
-      <div class="profile_top_in">
-        <div class="padless-leftX col-md-6 col-sm-6 col-xs-6">
-          <div class="ptin_A ptin_1A">
+  <div class="prof_bz profile_banner_out">
+    <div class="container">
+      <div class="profile_top full_widthX">
+        <div class="profile_top_in">
+          <div class="padless-leftX col-md-6 col-sm-6 col-xs-6">
+            <div class="ptin_A ptin_1A">
               <figure class="maxi_avi2">
                   {% if business.thumbnail_image %}
                   <img src="{{ business.thumbnail_image.url }}">
@@ -22,46 +23,50 @@
                 <div class="Xuser_label_wrap Xtop">
                   <ul class="Xuser_label Xfunder_label Xtop">
                     <li class="Xuser_label_company2 Xtop">
-                        <h4>  {{ business.name }}</h4>
+                        <h4>{{ business.name }}</h4>
                     </li>
-                  <li class="Xuser_label_company Xtop">
-                     {{ business.creator.first_name|add:" "|add:business.creator.last_name }}
-                  </li>
+                    <li class="Xuser_label_company Xtop">
+                      By {{ business.creator.first_name|add:" "|add:business.creator.last_name }}  |  {{business.address.name}}
+                    </li>
+                    <!--
                     <li class="Xuser_label_company Xtop">
                       {% if business.verified %}
                       {% else %}
                       {% endif %}                    
                     </li>
-                    <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Sector: {{business.sector}}</li>                  
+                    -->
+                    <li class="Xuser_label_title Xtop">Sector: {{business.sector}}</li>
+                    <!--<li class="Xuser_label_title Xtop">Country: {{business.address.name}}</li>-->
                   </ul>
                 </div>            
               </div>                       
-          </div>
+            </div>
 
-        </div>
-        <div class="padless-rightX col-md-6 col-sm-6 col-xs-6">
-          <div class="ptin_A ptin_1B">
-            <ul class="top_top_right">
-              <li class="top_top_website">
-              </li> 
-              <li>
-                <div class="card-body progress-card text-center">
-                    {% if business.verified %}
-                    <p>Verified</p>
-                    <img src="{% static 'img/verified.png' %}">
-                    {% else %}
-                    <p>Verification in progress</p>
-                    <img src="{% static 'img/progress.png' %}">
-                    {% endif %}
-                </div>                
-              </li>            
-            </ul>
-            
-          </div>          
+          </div>
+          <div class="padless-rightX col-md-6 col-sm-6 col-xs-6">
+            <div class="ptin_A ptin_1B">
+              <ul class="top_top_right">
+                <li class="top_top_website">
+                </li> 
+                <li>
+                  <div class="card-body progress-card text-center">
+                      {% if business.verified %}
+                      <p>Verified</p>
+                      <img src="{% static 'img/verified.png' %}">
+                      {% else %}
+                      <p>Verification in progress</p>
+                      <img src="{% static 'img/progress.png' %}">
+                      {% endif %}
+                  </div>                
+                </li>            
+              </ul>
+              
+            </div>          
+          </div>
         </div>
       </div>
     </div>
-  </div>
+</div>
 
   <div class="container">
     <div class="columns_A flex row clearfix">
@@ -241,11 +246,11 @@
                       <div class="profile_data">
 
                           <div class="track_record_2">
-                              <h3>Country: {{business.address.name}}</h3>
+                              
                               <h4 class="text-center"><a href="{{ business.company_website }}" target="_blank">{{ investor.company_website }}</a></h4>
 
                               <div class="mid_sectionA row clearfix">
-                                <div class="no_paddX col-md-12 clearfix">
+                                <div class=" col-md-12 clearfix">
                                   <h3>Value Proposition</h3>
                                   <div class="single_card_wrapper">
                                     <div class="card_C card" style="">
@@ -266,8 +271,8 @@
                                 </div>                                                      
                               </div>
 
-                              <div class="mid_sectionA row clearfix">
-                                  <div class="box_mbili no_paddX col-md-6 clearfix">
+                              <div class="b_pili mid_sectionA row clearfix">
+                                  <div class="box_mbili  col-md-6 clearfix">
                                     <div class="single_card_wrapper">
                                       <div class="card_C card" style="">
                                         <div class="card-body">
@@ -291,7 +296,7 @@
                                       </div>
                                     </div>
                                   </div>      
-                                  <div class="box_mbili no_paddX col-md-6 clearfix">
+                                  <div class="box_mbili  col-md-6 clearfix">
                                     <div class="single_card_wrapper">
                                       <div class="card_C card" style="">
                                         <div class="card-body">                                          
@@ -321,7 +326,7 @@
     
 
                                 <div class="mid_sectionA row clearfix">
-                                    <div class="no_paddX col-md-12 clearfix">
+                                    <div class=" col-md-12 clearfix">
                                       <h3>Product/Service Offering</h3>
                                       <div class="single_card_wrapper">
                                         <div class="card_C card" style="">
@@ -343,7 +348,7 @@
                                   </div>
       
                                   <div class="mid_sectionA row clearfix">
-                                    <div class="no_paddX col-md-12 clearfix">
+                                    <div class=" col-md-12 clearfix">
                                       <h3>Needs fulfilled by Product/service</h3>
                                       <div class="single_card_wrapper">
                                         <div class="card_C card" style="">
@@ -365,7 +370,7 @@
                                   </div>
 
                                   <div class="mid_sectionA row clearfix">
-                                      <div class="no_paddX col-md-12 clearfix">
+                                      <div class=" col-md-12 clearfix">
                                         <h3>Market Segment information</h3>
                                         <div class="single_card_wrapper">
                                           <div class="card_C card" style="">
@@ -403,11 +408,11 @@
 
 
                                 <div class="mid_sectionA row clearfix updates_B">
-                                    <div class="no_paddX col-md-12 clearfix">
-                                      <h3 class="h3_A">Updates</h3>
+                                    <div class=" col-md-12 clearfix">
                                       <div class="col_A_in col_A_in_2">
 
                                         {% if post %}
+                                          <h3 class="h3_A">Updates</h3>
                                           {% for post in post %}
 
                                             <div class="card">
@@ -437,9 +442,11 @@
                                           {% endfor %}
                                         {% else %}
 
+                                          <!--
                                           <div class="no_post_hero">
                                             <h3>This user has not posted any update yet.</h3>
                                           </div>
+                                          -->
 
                                         {% endif %}                   
                                       </div>

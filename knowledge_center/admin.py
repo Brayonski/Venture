@@ -9,13 +9,13 @@ from .models import TextCenter, AudioVisual, DocumentCategory, VideoCategory, Su
 class TextCenterAdmin(admin.ModelAdmin):
     search_fields = ['title', 'category', 'author']
     list_filter = ['title', 'date', 'category', 'author', 'payment_status']
-    readonly_fields = ["author"]
+    readonly_fields = ["created_by"]
     list_display = ['title', 'category', 'date',
                     'author', 'payment_status', 'published']
 
     def save_model(self, request, obj, form, change):
-        if getattr(obj, 'author', None) is None:
-            obj.author = request.user
+        if getattr(obj, 'created_by', None) is None:
+            obj.created_by = request.user
         obj.save()
 
 
@@ -58,13 +58,13 @@ class VideoCategoryAdmin(admin.ModelAdmin):
 class AudioVisualAdmin(admin.ModelAdmin):
     search_fields = ['title', 'author', 'payment_status']
     list_filter = ['date', 'category', 'payment_status']
-    readonly_fields = ["author"]
+    readonly_fields = ["created_by"]
     list_display = ['title', 'date', 'category',
                     'sub_category', 'payment_status', 'published']
 
     def save_model(self, request, obj, form, change):
-        if getattr(obj, 'author', None) is None:
-            obj.author = request.user
+        if getattr(obj, 'created_by', None) is None:
+            obj.created_by = request.user
         obj.save()
 
 

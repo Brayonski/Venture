@@ -6,57 +6,63 @@
 
 <div class="full_A">
 
-  <div class="container">
-    <div class="profile_top full_widthX">
-      <div class="profile_top_in">
-        <div class="padless-leftX col-md-6 col-sm-6 col-xs-6">
-          <div class="ptin_A ptin_1A">
-            <figure class="maxi_avi2">
-                {% if investor.thumbnail_image %}
-                <img src="{{ investor.thumbnail_image.url }}">
-                {% else %}
-                <img src="{% static 'img/funder.jpg' %}">
-                {% endif %}
-            </figure>  
-            <div class="ptin_1A1">
-              <div class="Xuser_label_wrap Xtop">
-                <ul class="Xuser_label Xfunder_label Xtop">
-                  <li class="Xuser_label_company2 Xtop">
-                      <h4>  {{ investor.company }}</h4>
-                  </li>
-                  <li class="Xuser_label_company Xtop">
-                    {{ investor.fullname }}-
-                    {% if investor.verified %}
-                    {% else %}
-                    {% endif %}                    
-                  </li>
-                  {% if investor_profile.company_classification %}
-                   <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Funder - {{investor_profile.company_classification}}</li>
+  <div class="prof_funder profile_banner_out">
+    <div class="container">
+      <div class="profile_top full_widthX">
+        <div class="profile_top_in">
+          <div class="padless-leftX col-md-6 col-sm-6 col-xs-6">
+            <div class="ptin_A ptin_1A">
+              <figure class="maxi_avi2">
+                  {% if investor.thumbnail_image %}
+                  <img src="{{ investor.thumbnail_image.url }}">
                   {% else %}
-                    <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Funder - {{investor_profile.funder_type}}</li>
+                  <img src="{% static 'img/funder.jpg' %}">
                   {% endif %}
-                </ul>
-              </div>            
-            </div>                      
-          </div>
+              </figure>  
+              <div class="ptin_1A1">
+                <div class="Xuser_label_wrap Xtop">
+                  <ul class="Xuser_label Xfunder_label Xtop">
+                    <li class="Xuser_label_company2 Xtop">
+                        <h4>  {{ investor.company }}</h4>
+                    </li>
+                    <li class="Xuser_label_company Xtop">
+                      By {{ investor.fullname }} |  {{investor.company_location.name}}                  
+                    </li>
+                    {% if investor_profile.company_classification %}
+                     <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>{{investor_profile.company_classification}}</li>
+                    {% else %}
+                      <li class="Xuser_label_title Xtop">{{investor_profile.funder_type}}</li>
+                    {% endif %}
+                    <li class="top_top_website">
+                      <a href="{{ investor.company_website }}" target="_blank">Website</a>{% if investor.linkedin_profile is not empty %}
+                       | <a href="{{ investor.linkedin_profile }}" target="_blank">
+                        <ion-icon name="logo-linkedin"></ion-icon>
+                      </a>
+                    </li>
+                {% endif %}  
+                    </li>                    
+                  </ul>
+                </div>            
+              </div>                      
+            </div>
 
-        </div>
-        <div class="padless-rightX col-md-6 col-sm-6 col-xs-6">
-          <div class="ptin_A ptin_1B">
-            <ul class="top_top_right">
-              <li class="top_top_website">
-                <ion-icon name="globe"></ion-icon> <a href="{{ investor.company_website }}" target="_blank">{{ investor.company_website }}</a>
-              </li>
-              {% if investor.linkedin_profile is not empty %}
-                <li class="top_top_linkedin">
-                  <a href="{{ investor.linkedin_profile }}" target="_blank">
-                    <ion-icon name="logo-linkedin"></ion-icon>
-                  </a>
-                </li>
-              {% endif %}                
-            </ul>
-            
-          </div>          
+          </div>
+          <div class="padless-rightX col-md-6 col-sm-6 col-xs-6">
+            <div class="ptin_A ptin_1B">
+              <ul class="top_top_right">
+                <div class="card-body progress-card text-center">
+                  {% if investor.verified %}
+                    <p>Verified</p>
+                    <img src="{% static 'img/verified.png' %}">
+                  {% else %}
+                    <p>Verification in progress</p>
+                    <img src="{% static 'img/progress.png' %}">                      
+                  {% endif %}                 
+                </div>
+              </ul>
+              
+            </div>          
+          </div>
         </div>
       </div>
     </div>
@@ -68,22 +74,12 @@
       <div class="col_A_out col_A_out_1 col-md-3 clearfix">
         <div class="col_A_in col_A_in_1">
 
-            <div class="card-body progress-card text-center">
-              {% if investor.verified %}
-              <p>Verified</p>
-              <img src="{% static 'img/verified.png' %}">
-              {% else %}
-              <p>Verification in progress</p>
-              <img src="{% static 'img/progress.png' %}">
-              {% endif %}
-            </div>
-
           <div class="card card-body">
 
           </div>
 
           <div class="profile_list_side">
-            <h4>Connected</h4>
+            <h4>CONNECTIONS</h4>
                    
             {% if business_following %}
             <p class="profile_list_side_title">Businesses</p>
@@ -186,7 +182,7 @@
       </div>
       <div class="col_A_out col_A_out_2 col-md-6 clearfix">
         <div class="col_A_in col_A_in_2">
-          <div class="onboarding_A">
+          <div class="profile_view_A">
             <div class="row clearfix">
               <div class="col-md-12 clearfix">
 
@@ -196,10 +192,8 @@
                       <div class="profile_data">
 
                           <div class="track_record_2">
-                            <h3>{{investor.company_location.name}}</h3>
-
                             <div class="row clearfix">
-                              <div class="no_padd col-md-12 clearfix">
+                              <div class=" col-md-12 clearfix">
                                 <h3>Profession</h3>
                                 <div class="single_card_wrapper">
                                   <div class="card_C card" style="">
@@ -216,55 +210,64 @@
                               </div>                                                      
                             </div>
 
-                            <div class="row clearfix">
-                              <div class="no_padd col-md-12 clearfix">
-                                <div class="single_card_wrapper">
-                                  <div class="card_C card" style="">
-                                    <div class="card-body">
-                                      <div class="pull-left">
+                            <div class="b_pili mid_sectionA row clearfix">
+                                <div class="box_mbili X col-md-6 clearfix">
+                                  <div class="single_card_wrapper">
+                                    <div class="card_C card" style="">
+                                      <div class="card-body">
+                                        <div class="pull-leftX">
 
-                                        <h5 class="card-title">
-                                          Category
-                                        </h5>  
-                                        <p class="card-text">
-                                          {{investor_profile.company_classification}}
-                                        </p>
+                                          <h5 class="card-title">
+                                            Category
+                                          </h5>  
+                                          <p class="card-text">
+                                            {{investor_profile.company_classification}}
+                                          </p>
 
-                                        <h5 class="card-title">
-                                          Experience in Funding
-                                        </h5>  
-                                        <p class="card-text">
-                                          {{investor_profile.managed_funds}} Years
-                                        </p>
+                                          <h5 class="card-title">
+                                            Experience in Funding
+                                          </h5>  
+                                          <p class="card-text">
+                                            {{investor_profile.managed_funds}} Years
+                                          </p>
+
+                                        </div>
                                       </div>
-                                      <div class="pull-right">
-
-                                        <h5 class="card-title">
-                                          Sector of Interest
-                                        </h5>  
-                                        {% for obj in investor_profile.target_sectors.all %}
-                                        <p class="card-text">{{obj}}</p>
-                                        {% endfor %}
-
-                                        <h5 class="card-title">
-                                          Role at {{investor.company}}
-                                        </h5>  
-                                        <p class="card-text">{{investor.role}}</p>
-
-                                        <h5 class="card-title">
-                                          Region of interest
-                                        </h5>  
-                                        <p class="card-text">{{investor_profile.target_countries}}</p>                                        
-
-                                      </div>  
                                     </div>
-                                  </div>                                
-                                </div>
-                              </div>                                                      
-                            </div>
+                                  </div>
+                                </div>      
+                                <div class="box_mbili X col-md-6 clearfix">
+                                  <div class="single_card_wrapper">
+                                    <div class="card_C card" style="">
+                                      <div class="card-body">                                          
+                                        <div class="pull-rightX">
+  
+                                          <h5 class="card-title">
+                                            Sector of Interest
+                                          </h5>  
+                                          {% for obj in investor_profile.target_sectors.all %}
+                                          <p class="card-text">{{obj}}</p>
+                                          {% endfor %}
 
-                            <div class="row clearfix">
-                              <div class="no_padd col-md-12 clearfix">
+                                          <h5 class="card-title">
+                                            Role at {{investor.company}}
+                                          </h5>  
+                                          <p class="card-text">{{investor.role}}</p>
+
+                                          <h5 class="card-title">
+                                            Region of interest
+                                          </h5>  
+                                          <p class="card-text">{{investor_profile.target_countries}}</p>                                           
+  
+                                        </div>  
+                                      </div>
+                                    </div>                                
+                                  </div>
+                                </div>                                                      
+                              </div>
+
+                            <div class="mid_sectionA row clearfix">
+                              <div class="col-md-12 clearfix">
                                 <h3>What I hope to deliver and gain</h3>
                                 <div class="single_card_wrapper">
                                   <div class="card_C card" style="">
@@ -285,8 +288,8 @@
                               </div>                                                      
                             </div>
 
-                            <div class="row clearfix">
-                              <div class="no_padd col-md-12 clearfix">
+                            <div class="mid_sectionA row clearfix">
+                              <div class=" col-md-12 clearfix">
                                 <h3>Current value of assets under our management</h3>
                                 <div class="single_card_wrapper">
                                   <div class="card_C card" style="">
@@ -307,8 +310,8 @@
                               </div>                                                      
                             </div>
 
-                              <div class="row clearfix">
-                                <div class="no_padd col-md-12 clearfix">
+                              <div class="mid_sectionA row clearfix">
+                                <div class=" col-md-12 clearfix">
                                   <h3>Key impact metrics</h3>
                                   <div class="single_card_wrapper">
                                     <div class="card_C card" style="">
@@ -347,11 +350,12 @@
 
 
                             <div class="row clearfix updates_B">
-                                <div class="no_padd col-md-12 clearfix">
-                                  <h3 class="h3_A">Updates</h3>
+                                <div class=" col-md-12 clearfix">
+                                  
                                   <div class="col_A_in col_A_in_2">
 
                                     {% if post %}
+                                      <h3 class="h3_A">Updates</h3>
                                       {% for post in post %}
 
                                         <div class="card">

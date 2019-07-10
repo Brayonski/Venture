@@ -140,6 +140,10 @@ ul.in_line li {
     color: #4aaded !important;
     background: transparent;
 }
+.vl_top_top ul li a.btn.btn-md.btn-primary:hover {
+    background: #0090ec !important;
+    color: #FFF !important;
+}
 
 .vl_top_top ul li.active a {
     color: rgb(0, 156, 255);
@@ -1080,7 +1084,7 @@ body.auth_pages a.navbar-brand {
 }
 
 body.auth_pages {
-    background: #040439 url('../img/signup-bg2.jpg') center center no-repeat;
+    background: #040439 url('../img/signup-bg2.jpg') top center no-repeat;
     background-size: cover;
     color: #FFF;
     padding-top: 0px;
@@ -1394,19 +1398,29 @@ ul.user_nav_item_drop.dropdown-menu.pull-right .divider {
     box-shadow: 0px 10px 18px #e6e6e6;
     /* color: rgba(255, 255, 255, 0.51); */
 }
+
+.padless-leftX {
+    padding-left: 0px;
+}
+
+.prof_bz.profile_banner_out { background: #121e63; }
+.prof_funder.profile_banner_out { background: #7d0193; }
+.prof_partner.profile_banner_out { background: #019376; }
+
 .profile_top {
-    background: #121e63;
+    /* background: #121e63; */
     text-align: center;
-    box-shadow: 0px -8px 18px #e6e6e6;
+    /* box-shadow: 0px -8px 18px #e6e6e6; */
     color: rgba(255, 255, 255, 0.51);
     position: relative;
     float: left;
     width: 100%;
     clear: both;
     color: #FFF;
-    margin-top: 40px;
+    margin-top: 20px;
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
+    margin-top: 10px;
 }
 .card-body.progress-card {
     border-bottom: 0px solid #28f29b;
@@ -1414,11 +1428,15 @@ ul.user_nav_item_drop.dropdown-menu.pull-right .divider {
     margin-bottom: 0px;
     padding: 5px 15px;
     color: #27ef9e;
+    max-width: 130px;
+    margin-top: 20px;
 }
 .card-body.progress-card img {
     max-width: 70px;
 }
-
+.prof_partner.profile_banner_out .card-body.progress-card {
+    color: #FFF;
+}
 
 img.sidebar_avi_A {
     border-radius: 1000px;
@@ -1944,8 +1962,9 @@ ul.Xuser_label {
     padding-left: 0px;
 }
 ul.Xuser_label li {
-    display: inline-block;
+    /* display: inline-block; */
     vertical-align: top;
+    list-style: none;
 }
 li.Xuser_label_icon {
     font-size: 1.4em;
