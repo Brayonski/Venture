@@ -1,6 +1,13 @@
-h.
-tml.cms-toolbar-expanded nav#navbar_out {
+html.cms-toolbar-expanded nav#navbar_out {
     padding-top: 45px;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    /* font-weight: 500; */
+    line-height: 1.1;
+    color: inherit;
+    font-family: 'Nunito';
 }
 
 body {
@@ -2213,4 +2220,46 @@ div#navbarX {
 
 td.e3 {
     padding-top: 20px !important;
+}
+
+.paddX {
+    padding: 100px;
+}
+.full_A.crowdfunding_A {
+    background: #283891 url(../img/signup-bg2.jpg) center center fixed;
+    /* border-bottom: 0px; */
+    /* box-shadow: 0px 0px 8px 0px rgba(40, 56, 145, 0.20); */
+    /* padding: 10px 0px; */
+    background-size: cover;
+}
+.white_text { color: #FFF; }
+.full_A.crowdfunding_A .columns_A.flex {
+    padding-bottom: 50px;
+    padding: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.crB {
+    font-size: 1.2em;
+    margin: 20px 0px !important;
+    position: relative;
+}
+.crC ul li {
+    margin-bottom: 20px;
+}
+.crC ul {
+    padding-left: 20px;
+    /* font-style: italic; */
+    /* font-weight: unset; */
+    font-size: 1.1em;
+}
+.crC {
+    margin: 40px 0px;
+}
+.col_A_in_2 .card_D.card {
+    background: transparent;
+    box-shadow: none;
+}
+.col_A_in_2 .card_D.card h2 {
+    margin-bottom: 30px;
 }

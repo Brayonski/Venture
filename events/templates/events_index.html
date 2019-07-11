@@ -88,7 +88,7 @@
     <div class="page_with_2_sections_e row clearfix">
       <div class="col-md-3 clearfix s_e_sidebar">
         <div class="s_e_1 s_e_in">
-          <div class="list-group">
+          <div class="list_box list-group">
             <a href="{% url 'events_home' %}" class="list_title list-group-item">
               VLA Events
             </a>
@@ -103,6 +103,9 @@
               </a>
               {% endif %}
             {% endfor %}  
+          </div>
+
+          <div class="list_box list-group">
             <a href="{% url 'network_events' %}" class="list_title list-group-item">
               Network Events
             </a>
