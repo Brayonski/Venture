@@ -150,7 +150,7 @@ class CreateCampaignView(LoginRequiredMixin, CreateView):
 
     def form_invalid(self, form):
         errors = form.errors
-        raise errors
+        raise Exception(errors)
 
 
 @login_required
