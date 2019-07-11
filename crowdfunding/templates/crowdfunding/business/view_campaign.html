@@ -4,62 +4,175 @@
 {% block content %}
 
 <div class="full_A">
+
     <div class="container">
-        <div class="profile_top full_widthX">
-          <div class="profile_top_in">
-            <div class="padless-leftX col-md-6 col-sm-6 col-xs-6">
-              <div class="ptin_A ptin_1A">
-                <figure class="maxi_avi2">
-                    {% if campaign_data.campaign_image %}
-                    <img src="{{ campaign_data.campaign_image.url }}">
-                    {% else %}
-                    <img src="{% static 'img/no-img.png' %}">
-                    {% endif %}
-                </figure>
-                <div class="ptin_1A1">
-                  <div class="Xuser_label_wrap Xtop">
-                    <ul class="Xuser_label Xfunder_label Xtop">
-                      <li class="Xuser_label_company2 Xtop">
-                          <h4>  {{ campaign_data.campaign_name }}</h4>
-                      </li>
-                      <li class="Xuser_label_company Xtop">
-                        {{ campaign_data.company_name }}
-                      </li>
-                      <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Sector: {{campaign_data.sector}}</li>
-                    </ul>
+
+      <div class="camp_top">
+        {% if campaign_data.campaign_image %}
+        <img src="{{ campaign_data.campaign_image.url }}">
+        {% else %}
+        <img src="{% static 'img/no-img.png' %}">
+        {% endif %}
+      </div>
+
+      <div class="row clearfix">
+        <div class="col-md-8">
+            <div id="profile">
+
+              <div class="camp_title">
+                <h1 class="style_D">{{campaign_data.campaign_name}}</h1> 
+
+                {% if campaign_data.short_description %}
+                  <h3>Short Description</h3>
+                  <p>{{campaign_data.short_description}}</p>
+                {% else %}
+                {% endif %}
+
+              </div>
+
+              {% if campaign_data.long_description %}
+                <br><div class="camp_obj">
+                   <h3>Campaign Objective</h3>
+                    <p class="card-text dark-text">
+                        {{campaign_data.long_description}}
+                    </p>
+                </div>
+              {% else %}
+              {% endif %}
+
+              <div class="single_card_wrapper">
+                <div class="card_C card" style="">
+                  <div class="card-body">
+                    <div class="pull-left">
+
+                      <h5 class="card-title">
+                        Target Amount
+                      </h5>
+                      <p class="card-text">
+                        {{campaign_data.target_amount}}
+                      </p>
+
+                      <h5 class="card-title">
+                        Funds Received
+                      </h5>
+                      <p class="card-text">
+                        {{campaign_data.total_funds_received}}
+                      </p>
+                    </div>
+                    <div class="pull-right">
+
+                      <h5 class="card-title">
+                        Campaign Status
+                      </h5>
+                      <p class="card-text">{{campaign_data.campaign_status}}</p>
+
+                      <h5 class="card-title">
+                        Approval Status
+                      </h5>
+                      <p class="card-text">{{campaign_data.approval_status}} </p>
+
+                    </div>
                   </div>
                 </div>
               </div>
 
+              <h3>Campaign Comments From Venturelift</h3>
+              <div class="single_card_wrapper">
+                <div class="card_C card" style="">
+                  <div class="card-body">
+                    <div class="">
+                      <p class="card-text dark-text">
+                        {% if campaign_data.comments %}
+                          {{campaign_data.comments}}
+                        {% else %}
+                          No comments made on the campaign
+                        {% endif %}
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row clearfix">
+                <div class="no_padd col-md-12 clearfix">
+                    <h3>Campaign Rewards</h3>
+                  <div class="single_card_wrapper">
+                    <div class="card_C card" style="">
+                      <div class="card-body">
+                          {% if campaign_data.campaign_type == "REWARD BASED" %}
+                               <div class="pull-left">
+
+                                  <h5 class="card-title">
+                                    Reward Threshold
+                                  </h5>
+                                  <p class="card-text">
+                                    {{campaign_data.campaign_reward_threshold}}
+                                  </p>
+
+                                  <h5 class="card-title">
+                                    Reward Details
+                                  </h5>
+                                  <p class="card-text">
+                                    {{campaign_data.campaign_reward_details}}
+                                  </p>
+                               </div>
+                           {% else %}
+                                  <p class="card-text dark-text">
+                                  No rewards configured for campaign
+                                  </p>
+                          {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+        </div>
+
+        <div class="no_padd col-md-4 clearfix">
+            <h3>Campaign Rewards</h3>
+          <div class="single_card_wrapper">
+            <div class="card_C card" style="">
+              <div class="card-body">
+                  {% if campaign_data.campaign_type == "REWARD BASED" %}
+                       <div class="pull-left">
+
+                          <h5 class="card-title">
+                            Reward Threshold
+                          </h5>
+                          <p class="card-text">
+                            {{campaign_data.campaign_reward_threshold}}
+                          </p>
+
+                          <h5 class="card-title">
+                            Reward Details
+                          </h5>
+                          <p class="card-text">
+                            {{campaign_data.campaign_reward_details}}
+                          </p>
+                       </div>
+                   {% else %}
+                          <p class="card-text dark-text">
+                          No rewards configured for campaign
+                          </p>
+                  {% endif %}
+              </div>
             </div>
           </div>
         </div>
+
+      </div>
     </div>
+
+
+  <!--
   <div class="container">
         <div class="columns_A flex row clearfix">
 
-          <div class="col_A_out col_A_out_1 col-md-3 clearfix">
-            <div class="col_A_in col_A_in_1">
-
-                <div class="card-body progress-card text-center">
-
-                </div>
-
-              <div class="card card-body">
-
-              </div>
-
-              <div class="profile_list_side">
-
-              </div>
-
-              <div class="profile_list_side">
-
-
-              </div>
-
-            </div>
-          </div>
           <div class="col_A_out col_A_out_2 col-md-6 clearfix">
             <div class="col_A_in col_A_in_2">
               <div class="onboarding_A">
@@ -67,7 +180,7 @@
                   <div class="col-md-12 clearfix">
 
                     <div class="tab-content">
-                      <div id="profile" class="tab-pane fade in active">
+                      <div id="profileX" class="tab-pane fade in active">
                         <div class="col-md-12 clearfix">
                           <div class="profile_data">
 
@@ -243,6 +356,8 @@
           </div>
       </div>
   </div>
+  -->
+
 </div>
 {% endblock %}
 
