@@ -1,4 +1,5 @@
-html.cms-toolbar-expanded nav#navbar_out {
+h.
+tml.cms-toolbar-expanded nav#navbar_out {
     padding-top: 45px;
 }
 
@@ -1724,7 +1725,7 @@ figure.maxi_avi2 {
     overflow: hidden;
     max-width: 160px;
     /* margin: 0 auto; */
-    border: 3px solid rgba(0, 156, 255, 0.17);
+    border: 3px solid rgba(255, 255, 255, 0.17);
     float: left;
     margin-right: 20px;
 }
