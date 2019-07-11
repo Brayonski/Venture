@@ -41,7 +41,7 @@ REWARD_STATUSES =  (
 
 CAMPAIGN_REWARD_TYPES =  (
     ('REWARD BASED', 'REWARD BASED'),
-    ('NON-REWARD BASED', 'NON-REWARD BASED'),
+    ('DONATION BASED', 'DONATION BASED'),
 )
 
 class CampaignSector(models.Model):
