@@ -277,6 +277,9 @@ ul.navbarX2 li {
     padding: 10px 0px;
     color: #CCC;
 }
+html.cms-toolbar-expanded nav#navbar_out {
+    margin-top: 40px;
+}
 
 .navbar-default_media {
     background: #283891 url(../img/signup-bg2.jpg) bottom center no-repeat;

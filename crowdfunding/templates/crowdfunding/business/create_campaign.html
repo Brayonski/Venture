@@ -4,156 +4,121 @@
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 {% block content %}
 
-<div class="full_A">
+<div class="full_A crowdfunding_A">
   <div class="container">
-        <div class="columns_A flex row clearfix">
+      <div class="columns_A flex row clearfix">
 
-          <div class="col_A_out col_A_out_1 col-md-3 clearfix">
-            <div class="col_A_in col_A_in_1">
+        <div class="col_A_out col_A_out_2 col-md-8 col-md-offset-2 clearfix">
+          <div class="col_A_in col_A_in_2">
+            <div class="onboarding_A">
+              <div class="row clearfix">
+                <div class="col-md-12 clearfix">
 
-                <div class="card-body progress-card text-center">
+                  <div class="tab-content">
+                    <div id="profile" class="tab-pane fade in active">
+                      <div class="col-md-12 clearfix">
+                        <div class="profile_data">
 
-                </div>
+                            <div class="track_record_2">
+                              <div class="row clearfix">
+                                <div class="no_padd col-md-12 clearfix">
+                                  <div class="single_card_wrapper">
+                                    <div class="card_C card" style="">
+                                      <div class="card-body">
+                                        <h4 align="center"><b>Create Crowdfunding Campaign</b></h4>
+                                           <form method='post' enctype="multipart/form-data">
+                                                   {% csrf_token %}
 
-              <div class="card card-body">
+                                               <div class="form-group">
+                                                   {{ form.campaign_image|as_crispy_field }}
+                                               </div>
 
-              </div>
+                                               <div class="form-group">
+                                                   {{ form.campaign_name|as_crispy_field }}
+                                               </div>
 
-              <div class="profile_list_side">
+                                               <div class="form-group">
+                                                   {{ form.company_name|as_crispy_field }}
+                                               </div>
 
-              </div>
+                                               <div class="form-group">
+                                               {{ form.company_email|as_crispy_field }}
+                                               </div>
 
-              <div class="profile_list_side">
+                                               <div class="form-group">
+                                                     {{ form.sector|as_crispy_field }}
+                                               </div>
 
+                                               <div class="form-group">
+                                                   <label for="short_description"> Campaign Title* </label>
+                                                   <textarea class="form-control" name="short_description" id="short_description" rows="2" required></textarea>
+                                                    <span class="help-block word-count pull-right" id="summary_count"></span>
+                                               </div>
 
-              </div>
+                                                <div class="form-group">
+                                                    {{ form.long_description|as_crispy_field }}
+                                               </div>
 
-            </div>
-          </div>
-          <div class="col_A_out col_A_out_2 col-md-6 clearfix">
-            <div class="col_A_in col_A_in_2">
-              <div class="onboarding_A">
-                <div class="row clearfix">
-                  <div class="col-md-12 clearfix">
+                                               <div class="form-group">
+                                                    <label for="target_amount"> Target Amount* </label>
+                                                  <input id="target_amount" type="number" name="target_amount" class="form-control" min=1 required oninput="validity.valid||(value='');">
+                                               </div>
 
-                    <div class="tab-content">
-                      <div id="profile" class="tab-pane fade in active">
-                        <div class="col-md-12 clearfix">
-                          <div class="profile_data">
+                                               <div class="form-group">
+                                                    {{ form.minimum_donation|as_crispy_field }}
+                                               </div>
 
-                              <div class="track_record_2">
-                                <div class="row clearfix">
-                                  <div class="no_padd col-md-12 clearfix">
-                                    <div class="single_card_wrapper">
-                                      <div class="card_C card" style="">
-                                        <div class="card-body">
-                                          <h4 align="center"><b>Create Crowdfunding Campaign</b></h4>
-                                             <form method='post' enctype="multipart/form-data">
-                                                     {% csrf_token %}
+                                               <div class="form-group">
+                                                   {{ form.duration|as_crispy_field }}
+                                                  <!--<label for="duration"> Campaign Closing Date: </label>-->
+                                                  <!--<input id="duration" type="date" name="duration" class="form-control" required>-->
+                                               </div>
 
-                                                 <div class="form-group">
-                                                     {{ form.campaign_image|as_crispy_field }}
-                                                 </div>
+                                               <div class="form-group">
+                                                   <select class="form-control" name="campaign_type" id="campaign_types" required>
+                                                       <option value="">Select campaign type</option>
+                                                       <option value="REWARD BASED">Reward Based</option>
+                                                       <option value="DONATION BASED">Donation Based</option>
+                                                   </select>
+                                               </div>
 
-                                                 <div class="form-group">
-                                                     {{ form.campaign_name|as_crispy_field }}
-                                                 </div>
+                                               <div class="form-group" id="campaign_threshold">
+                                                     <!--{{ form.campaign_reward_threshold|as_crispy_field }}-->
+                                                   <label for="campaign_reward_threshold"> Campaign Reward Threshold* </label>
+                                                   <input id="campaign_reward_threshold" class="form-control" name="campaign_reward_threshold" type="number" novalidate>
+                                               </div>
 
-                                                 <div class="form-group">
-                                                     {{ form.company_name|as_crispy_field }}
-                                                 </div>
+                                               <div class="form-group" id="reward_dets">
+                                                     <!--{{ form.campaign_reward_details|as_crispy_field }}-->
+                                                   <label for="campaign_reward_details"> Campaign Reward Details </label>
+                                                   <textarea id="campaign_reward_details" rows="2" name="campaign_reward_details" class="form-control" novalidate></textarea>
+                                               </div>
 
-                                                 <div class="form-group">
-                                                 {{ form.company_email|as_crispy_field }}
-                                                 </div>
-
-                                                 <div class="form-group">
-                                                       {{ form.sector|as_crispy_field }}
-                                                 </div>
-
-                                                 <div class="form-group">
-                                                     <label for="short_description"> Campaign Title* </label>
-                                                     <textarea class="form-control" name="short_description" id="short_description" rows="2" required></textarea>
-                                                      <span class="help-block word-count pull-right" id="summary_count"></span>
-                                                 </div>
-
-                                                  <div class="form-group">
-                                                      {{ form.long_description|as_crispy_field }}
-                                                 </div>
-
-                                                 <div class="form-group">
-                                                      <label for="target_amount"> Target Amount* </label>
-                                                    <input id="target_amount" type="number" name="target_amount" class="form-control" min=1 required oninput="validity.valid||(value='');">
-                                                 </div>
-
-                                                 <div class="form-group">
-                                                      {{ form.minimum_donation|as_crispy_field }}
-                                                 </div>
-
-                                                 <div class="form-group">
-                                                     {{ form.duration|as_crispy_field }}
-                                                    <!--<label for="duration"> Campaign Closing Date: </label>-->
-                                                    <!--<input id="duration" type="date" name="duration" class="form-control" required>-->
-                                                 </div>
-
-                                                 <div class="form-group">
-                                                     <select class="form-control" name="campaign_type" id="campaign_types" required>
-                                                         <option value="">Select campaign type</option>
-                                                         <option value="REWARD BASED">Reward Based</option>
-                                                         <option value="DONATION BASED">Donation Based</option>
-                                                     </select>
-                                                 </div>
-
-                                                 <div class="form-group" id="campaign_threshold">
-                                                       <!--{{ form.campaign_reward_threshold|as_crispy_field }}-->
-                                                     <label for="campaign_reward_threshold"> Campaign Reward Threshold* </label>
-                                                     <input id="campaign_reward_threshold" class="form-control" name="campaign_reward_threshold" type="number" novalidate>
-                                                 </div>
-
-                                                 <div class="form-group" id="reward_dets">
-                                                       <!--{{ form.campaign_reward_details|as_crispy_field }}-->
-                                                     <label for="campaign_reward_details"> Campaign Reward Details </label>
-                                                     <textarea id="campaign_reward_details" rows="2" name="campaign_reward_details" class="form-control" novalidate></textarea>
-                                                 </div>
-
-                                                <div class="form-group" align="center">
-                                                    <button class='btn btn-success' type="submit">Create</button>
-                                                </div>
-                                             </form>
-                                        </div>
+                                              <div class="form-group" align="center">
+                                                  <button class='btn btn-success' type="submit">Create</button>
+                                              </div>
+                                           </form>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
+                            </div>
 
-                          </div>
                         </div>
                       </div>
-
                     </div>
 
-
-
                   </div>
+
+
+
                 </div>
               </div>
             </div>
           </div>
-          <div class="col_A_out col_A_out_3 col-md-3 clearfix">
-              <div class="col_A_in col_A_in_3">
+        </div>
 
-                  <div class="profile_list_side">
-                      <div class="profile_list_side">
-
-                      </div>
-
-                      <div class="profile_list_side">
-
-                      </div>
-                  </div>
-              </div>
-          </div>
       </div>
   </div>
 </div>
