@@ -41,129 +41,79 @@
               {% else %}
               {% endif %}
 
-              <div class="single_card_wrapper">
-                <div class="card_C card" style="">
-                  <div class="card-body">
-                    <div class="pull-left">
-
-                      <h5 class="card-title">
-                        Target Amount
-                      </h5>
-                      <p class="card-text">
-                        {{campaign_data.target_amount}}
-                      </p>
-
-                      <h5 class="card-title">
-                        Funds Received
-                      </h5>
-                      <p class="card-text">
-                        {{campaign_data.total_funds_received}}
-                      </p>
-                    </div>
-                    <div class="pull-right">
-
-                      <h5 class="card-title">
-                        Campaign Status
-                      </h5>
-                      <p class="card-text">{{campaign_data.campaign_status}}</p>
-
-                      <h5 class="card-title">
-                        Approval Status
-                      </h5>
-                      <p class="card-text">{{campaign_data.approval_status}} </p>
-
-                    </div>
-                  </div>
-                </div>
+              <div class="camp_obj">
+                 <h3>Target Amount</h3>
+                  <p class="card-text dark-text">
+                      {{campaign_data.target_amount}}
+                  </p>
               </div>
 
-              <h3>Campaign Comments From Venturelift</h3>
-              <div class="single_card_wrapper">
-                <div class="card_C card" style="">
-                  <div class="card-body">
-                    <div class="">
-                      <p class="card-text dark-text">
-                        {% if campaign_data.comments %}
-                          {{campaign_data.comments}}
-                        {% else %}
-                          No comments made on the campaign
-                        {% endif %}
-                      </p>
-                    </div>
+              <div class="camp_obj">
+                 <h3>Funds Received</h3>
+                  <p class="card-text dark-text">
+                      {{campaign_data.total_funds_received}}
+                  </p>
+              </div>
 
-                  </div>
-                </div>
+              <div class="camp_obj">
+                 <h3>Campaign Status</h3>
+                  <p class="card-text dark-text">
+                      {{campaign_data.campaign_status}}
+                  </p>
+              </div>
+
+              <div class="camp_obj">
+                 <h3>Approval Status</h3>
+                  <p class="card-text dark-text">
+                      {{campaign_data.approval_status}}
+                  </p>
               </div>
 
 
-              <div class="row clearfix">
-                <div class="no_padd col-md-12 clearfix">
-                    <h3>Campaign Rewards</h3>
-                  <div class="single_card_wrapper">
-                    <div class="card_C card" style="">
-                      <div class="card-body">
-                          {% if campaign_data.campaign_type == "REWARD BASED" %}
-                               <div class="pull-left">
-
-                                  <h5 class="card-title">
-                                    Reward Threshold
-                                  </h5>
-                                  <p class="card-text">
-                                    {{campaign_data.campaign_reward_threshold}}
-                                  </p>
-
-                                  <h5 class="card-title">
-                                    Reward Details
-                                  </h5>
-                                  <p class="card-text">
-                                    {{campaign_data.campaign_reward_details}}
-                                  </p>
-                               </div>
-                           {% else %}
-                                  <p class="card-text dark-text">
-                                  No rewards configured for campaign
-                                  </p>
-                          {% endif %}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div class="camp_obj">
+                 <h3>Campaign Comments From Venturelift</h3>
+                    <p class="card-text dark-text">
+                      {% if campaign_data.comments %}
+                        {{campaign_data.comments}}
+                      {% else %}
+                        No comments made on the campaign
+                      {% endif %}
+                    </p>
               </div>
-
 
             </div>
         </div>
 
         <div class="side_X col-md-4 clearfix">
             <h3>Campaign Rewards</h3>
-          <div class="single_card_wrapper">
-            <div class="card_C card" style="">
-              <div class="card-body">
-                  {% if campaign_data.campaign_type == "REWARD BASED" %}
-                       <div class="pull-left">
+            <div class="single_card_wrapper">
+              <div class="card_C card" style="">
+                <div class="card-body">
+                    {% if campaign_data.campaign_type == "REWARD BASED" %}
+                         <div class="pull-left">
 
-                          <h5 class="card-title">
-                            Reward Threshold
-                          </h5>
-                          <p class="card-text">
-                            {{campaign_data.campaign_reward_threshold}}
-                          </p>
+                            <h5 class="card-title">
+                              Reward Threshold
+                            </h5>
+                            <p class="card-text">
+                              {{campaign_data.campaign_reward_threshold}}
+                            </p>
 
-                          <h5 class="card-title">
-                            Reward Details
-                          </h5>
-                          <p class="card-text">
-                            {{campaign_data.campaign_reward_details}}
-                          </p>
-                       </div>
-                   {% else %}
-                          <p class="card-text dark-text">
-                          No rewards configured for campaign
-                          </p>
-                  {% endif %}
+                            <h5 class="card-title">
+                              Reward Details
+                            </h5>
+                            <p class="card-text">
+                              {{campaign_data.campaign_reward_details}}
+                            </p>
+                         </div>
+                     {% else %}
+                            <p class="card-text dark-text">
+                            No rewards configured for campaign
+                            </p>
+                    {% endif %}
+                </div>
               </div>
             </div>
-          </div>
         </div>
 
       </div>

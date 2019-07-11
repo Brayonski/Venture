@@ -285,7 +285,7 @@ ul.navbarX2 li {
     color: #CCC;
 }
 html.cms-toolbar-expanded nav#navbar_out {
-    margin-top: 40px;
+    /* margin-top: 40px; */
 }
 
 .navbar-default_media {
@@ -2262,4 +2262,25 @@ td.e3 {
 }
 .col_A_in_2 .card_D.card h2 {
     margin-bottom: 30px;
+}
+.info_template select.select {
+    font-size: unset;
+    padding: initial;
+    background: transparent;
+}
+.info_template select.select option {
+    background: #FFF;
+}
+.info_template .form-row {
+    width: 100%;
+    clear: both;
+    background: #FFF !important;
+    margin-bottom: 20px;
+    position: relative;
+    float: left;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+.info_template .form-row .form-group {
+    overflow: hidden;
 }
