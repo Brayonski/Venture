@@ -9,7 +9,9 @@
                 <form method='post' enctype="multipart/form-data">
                     {% csrf_token %}
                     {% if step1 %}
-                    <h3>Basic Information</h3>
+                    <h1 class="text-center">Partner Profile</h1>
+                    <h4 class="text-center">Step 1: Basic Information</h4>
+                    <br>
                     <div class="form-row">
                         <div class="form-group col-md-3 mb-0">
                             {{ form.thumbnail_image|as_crispy_field }}
@@ -53,7 +55,9 @@
                             </div>
                     </div>
                     {% elif step2 %}
-                    <h3>Profile Detail</h3>
+                    <h1 class="text-center">Investor Profile</h1>
+                    <h4 class="text-center">Step 2: Profile Details</h4>
+                    <br>
                     <div class="form-row">
                         <div class="form-group col-md-12 mb-0">
                             {{ form.supporter_interest|as_crispy_field }}
@@ -83,7 +87,8 @@
                     <button class='btn btn-success'>Go to next step</button>
                 </form>
                   <br/>
-                    <a href="{% url 'profile_summary' %}"><button class='btn btn-warning'>Continue later</button></a>
+                  <div class="text-center">
+                    <a href="{% url 'profile_summary' %}" class='btn btn-warning'>Continue later</a>
 
             </div>
         </div>

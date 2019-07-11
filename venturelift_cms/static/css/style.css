@@ -300,6 +300,9 @@ body.media_index {
 nav#navbar_out_2 a {
     color: #FFFF;
 }
+li.top_top_website a {
+    color: rgba(255, 255, 255, 0.69);
+}
 .nav>li>a:focus, .nav>li>a:hover {
     text-decoration: none;
     background-color: transparent;

@@ -851,12 +851,13 @@
   
                               <div class="row clearfix updates_B">
                                   <div class="no_padd col-md-12 clearfix">
-                                    <h3 class="h3_A">Updates
-                                        <span><a class="btn-primary btn" href="{% url 'new_blog_post' %}">+ New Update</a></span>
-                                    </h3>
+                                    
+                                        <div class="text-center"><a class="btn-primary btn" href="{% url 'new_blog_post' %}">+ New Update</a></div>
+                                    
                                     <div class="col_A_in col_A_in_2">
   
                                       {% if object_list %}
+                                      <h3 class="h3_A text-center">Updates</h3>
                                       {% for post in object_list %}
   
                                           <div class="card">
@@ -885,7 +886,7 @@
                                       {% else %}
   
                                         <div class="no_post_hero">
-                                          <h3>This user has not posted any update yet.</h3>
+                                          <h3>You have not posted any update yet</h3>
                                         </div>
   
                                       {% endif %}                   
@@ -1319,12 +1320,14 @@
   
                               <div class="row clearfix updates_B">
                                   <div class="no_padd col-md-12 clearfix">
-                                    <h3 class="h3_A">Updates
-                                        <span><a class="btn-primary btn" href="{% url 'new_blog_post' %}">+ New Update</a></span>
-                                    </h3>
+                                    
+                                    <div class="text-center">
+                                        <a class="btn-primary btn" href="{% url 'new_blog_post' %}">+ New Update</a>
+                                    </div>
                                     <div class="col_A_in col_A_in_2">
   
                                       {% if object_list %}
+                                      <h3 class="text-center h3_A">Updates</h3>
                                       {% for post in object_list %}
   
                                           <div class="card">
@@ -1353,7 +1356,7 @@
                                       {% else %}
   
                                         <div class="no_post_hero">
-                                          <h3>This user has not posted any update yet.</h3>
+                                          <h3>You have not posted any update yet</h3>
                                         </div>
   
                                       {% endif %}                   
