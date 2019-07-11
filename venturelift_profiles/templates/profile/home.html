@@ -7,46 +7,48 @@
 {% if business %}
 <div class="full_A">
 
-  <div class="container">
-    <div class="profile_top full_widthX">
-      <div class="profile_top_in">
-        <div class="padless-leftX col-md-6 col-sm-6 col-xs-6">
-          <div class="ptin_A ptin_1A">
-            <figure class="maxi_avi2">
-                {% if business.thumbnail_image %}
-                <img src="{{ business.thumbnail_image.url }}">
-                {% else %}
-                <img src="{% static 'img/no-img.png' %}">
-                {% endif %}
-            </figure>  
-            <div class="ptin_1A1">
-              <div class="Xuser_label_wrap Xtop">
-                <ul class="Xuser_label Xfunder_label Xtop">
-                  <li class="Xuser_label_company2 Xtop">
-                      <h4>  {{ business.name }}</h4>
-                  </li>
-                  <li class="Xuser_label_company Xtop">
-                    {{ business.name }}-
-                    {% if business.verified %}
-                    {% else %}
-                    {% endif %}                    
-                  </li>
-                  <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Sector: {{business.sector}}</li>                  
-                </ul>
-              </div>            
-            </div>                      
-          </div>
+  <div class="prof_bz profile_banner_out">
+    <div class="container">
+      <div class="profile_top full_widthX">
+        <div class="profile_top_in">
+          <div class="padless-leftX col-md-6 col-sm-6 col-xs-6">
+            <div class="ptin_A ptin_1A">
+              <figure class="maxi_avi2">
+                  {% if business.thumbnail_image %}
+                  <img src="{{ business.thumbnail_image.url }}">
+                  {% else %}
+                  <img src="{% static 'img/no-img.png' %}">
+                  {% endif %}
+              </figure>
+              <div class="ptin_1A1">
+                <div class="Xuser_label_wrap Xtop">
+                  <ul class="Xuser_label Xfunder_label Xtop">
+                    <li class="Xuser_label_company2 Xtop">
+                        <h4>  {{ business.name }}</h4>
+                    </li>
+                    <li class="Xuser_label_company Xtop">
+                      {{ business.name }}-
+                      {% if business.verified %}
+                      {% else %}
+                      {% endif %}
+                    </li>
+                    <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Sector: {{business.sector}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
 
-        </div>
-        <div class="padless-rightX col-md-6 col-sm-6 col-xs-6">
-          <div class="ptin_A ptin_1B">
-            <ul class="top_top_right">
-              <li class="top_top_website">
-                <ion-icon name="globe"></ion-icon> <a href="{{ business.company_website }}" target="_blank">{{ investor.company_website }}</a>
-              </li>             
-            </ul>
-            
-          </div>          
+          </div>
+          <div class="padless-rightX col-md-6 col-sm-6 col-xs-6">
+            <div class="ptin_A ptin_1B">
+              <ul class="top_top_right">
+                <li class="top_top_website">
+                  <ion-icon name="globe"></ion-icon> <a href="{{ business.company_website }}" target="_blank">{{ investor.company_website }}</a>
+                </li>
+              </ul>
+
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -535,57 +537,58 @@
 
 {% if supporter %}
 <div class="full_A">
+    <div class="prof_partner profile_banner_out">
+        <div class="container">
+          <div class="profile_top full_widthX">
+            <div class="profile_top_in">
+              <div class="padless-leftX col-md-6 col-sm-6 col-xs-6">
+                <div class="ptin_A ptin_1A">
+                  <figure class="maxi_avi2">
+                      {% if supporter.thumbnail_image %}
+                      <img src="{{ supporter.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% endif %}
+                  </figure>
+                  <div class="ptin_1A1">
+                    <div class="Xuser_label_wrap Xtop">
+                      <ul class="Xuser_label Xfunder_label Xtop">
+                        <li class="Xuser_label_company2 Xtop">
+                            <h4>  {{ supporter.user.first_name }} {{supporter.user.last_name}}</h4>
+                        </li>
+                        <!--<li class="Xuser_label_company Xtop">-->
+                          <!--{{ supporter.user.username }}- -->
+                          <!--{% if supporter.verified %}-->
+                          <!--{% else %}-->
+                          <!--{% endif %}                    -->
+                        <!--</li>-->
+                        <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Partner - {{profile.supporter_interest}}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-    <div class="container">
-      <div class="profile_top full_widthX">
-        <div class="profile_top_in">
-          <div class="padless-leftX col-md-6 col-sm-6 col-xs-6">
-            <div class="ptin_A ptin_1A">
-              <figure class="maxi_avi2">
-                  {% if supporter.thumbnail_image %}
-                  <img src="{{ supporter.thumbnail_image.url }}">
-                  {% else %}
-                  <img src="{% static 'img/blue-user-icon.svg' %}">
-                  {% endif %}
-              </figure>  
-              <div class="ptin_1A1">
-                <div class="Xuser_label_wrap Xtop">
-                  <ul class="Xuser_label Xfunder_label Xtop">
-                    <li class="Xuser_label_company2 Xtop">
-                        <h4>  {{ supporter.user.first_name }} {{supporter.user.last_name}}</h4>
+              </div>
+              <div class="padless-rightX col-md-6 col-sm-6 col-xs-6">
+                <div class="ptin_A ptin_1B">
+                  <ul class="top_top_right">
+                    <li class="top_top_website">
+                      <ion-icon name="globe"></ion-icon> <a href="{{ supporter.company_website }}" target="_blank">{{ investor.company_website }}</a>
                     </li>
-                    <!--<li class="Xuser_label_company Xtop">-->
-                      <!--{{ supporter.user.username }}- -->
-                      <!--{% if supporter.verified %}-->
-                      <!--{% else %}-->
-                      <!--{% endif %}                    -->
-                    <!--</li>-->
-                    <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Partner - {{profile.supporter_interest}}</li>                  
+                    {% if supporter.linkedin_profile is not empty %}
+                      <li class="top_top_linkedin">
+                        <a href="{{ supporter.linkedin_profile }}" target="_blank">
+                          <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                      </li>
+                    {% endif %}
                   </ul>
-                </div>            
-              </div>                      
+
+                </div>
+              </div>
             </div>
-  
-          </div>
-          <div class="padless-rightX col-md-6 col-sm-6 col-xs-6">
-            <div class="ptin_A ptin_1B">
-              <ul class="top_top_right">
-                <li class="top_top_website">
-                  <ion-icon name="globe"></ion-icon> <a href="{{ supporter.company_website }}" target="_blank">{{ investor.company_website }}</a>
-                </li>
-                {% if supporter.linkedin_profile is not empty %}
-                  <li class="top_top_linkedin">
-                    <a href="{{ supporter.linkedin_profile }}" target="_blank">
-                      <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                  </li>
-                {% endif %}                
-              </ul>
-              
-            </div>          
           </div>
         </div>
-      </div>
     </div>
   
     <div class="container">
@@ -999,7 +1002,7 @@
 
 {% if investor %}
 <div class="full_A">
-
+ <div class="prof_funder profile_banner_out">
     <div class="container">
       <div class="profile_top full_widthX">
         <div class="profile_top_in">
@@ -1051,6 +1054,7 @@
         </div>
       </div>
     </div>
+ </div>
   
     <div class="container">
       <div class="columns_A flex row clearfix">
