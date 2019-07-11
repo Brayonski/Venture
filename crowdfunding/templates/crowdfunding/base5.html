@@ -19,8 +19,117 @@
 </head>
 
 <body class="logged_in profile_templates">
+    
     {% cms_toolbar %}
-        <!-- Fixed navbar -->
+
+    <!-- Fixed navbar -->
+    <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
+      <div class="top_container container">
+
+        <div class="nav_nav_first navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarX"
+            aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'img/logo2.png' %}" alt="VentureLift Africa Media Centre">
+          </a>
+          <div class="vl_top_top navbar-right">
+            <ul class="in_line">
+              <li class="active"><a href="/">Home</a></li>
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn">Business</button>
+                  <div class="dropdown-content">
+                      <a href="{% url 'registration_in' %}">Startup</a>
+                      <a href="{% url 'registration_in' %}">SMEs</a>
+                  </div>
+                </div>
+              </li>
+              <!--<li><a href="{% url 'registration_in' %}">Funder</a></li>-->
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn">Funder</button>
+                  <div class="dropdown-content">
+                      <a href="{% url 'registration_in' %}">Investor</a>
+                      <a href="{% url 'crowdfunding:crowdfunderindex' %}" target="_blank">Crowdfunder</a>
+                      <a href="{% url 'registration_in' %}">Lender</a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn">Partner</button>
+                  <div class="dropdown-content">
+                      <a href="{% url 'registration_in' %}">Trade</a>
+                      <a href="{% url 'registration_in' %}">Supply Chain</a>
+                      <a href="{% url 'registration_in' %}">Technology</a>
+                      <a href="{% url 'registration_in' %}">Talent</a>
+                      <a href="{% url 'registration_in' %}">Professional Services</a>
+                  </div>
+                </div>
+              </li>
+              <li><a href="{%url 'knowledge_center_home' %}">Knowledge Center</a></li>
+              <li><a href="/en/media">VLA Media</a></li>
+              {% if user.is_authenticated %}
+              <li><a href="{%url 'events_home' %}">Events</a></li>
+              <li class="user_nav_item pull_right">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+                    <figure class="user_icon_nav">
+                      {% if context.supporter %}
+                      {% if context.supporter.thumbnail_image %}
+                      <img src="{{ context.supporter.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% endif %}
+                      {% elif context.investor %}
+                      {% if context.investor.thumbnail_image %}
+                      <img src="{{ context.investor.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% endif %}
+                      {% elif context.business %}
+                      {% if context.business.thumbnail_image %}
+                      <img src="{{ context.business.thumbnail_image.url }}">
+                      {% else %}
+                      <img src="{% static 'img/no-img.jpg' %}">
+                      {% endif %}
+                      {% endif %}
+                    </figure>
+                  </button>
+                  <ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+                    <li><a href="{% url 'profile_summary' %}">My Profile</a></li>
+                    <div class="divider"></div>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="pull_right">
+                <a href="#nogo">
+                  <ion-icon name="notifications-outline"></ion-icon>
+                </a>
+              </li>
+              {% else %}
+              <li>
+                <a href="{% url 'login' %}">Sign In</a>
+              </li>
+              <li>
+                <a class="btn btn-md btn-primary" href="{% url 'registration_in' %}">Join VentureLift Africa</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Fixed navbar 
     <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
       <div class="top_container container">
         <div class="nav_nav_first navbar-header">
@@ -46,6 +155,7 @@
         </div>
       </div>
     </nav>
+    -->
 
         <div class="content_container">
 
@@ -67,6 +177,36 @@
 
         <div class="full_width footer">
             {% static_placeholder 'footer' %}
+        </div>
+
+        <div class="full_width primary_footer">
+            <div class="full_width footer foot2">
+                <div class="container clearfix">
+                    <ul class="in_style_A_list_A in_style_B1">
+                        <li><a href="/about-us">About us</a></li>
+                        <li><a href="/team">Team</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/help">FAQ</a></li>
+                        <li><a href="/advertise">Advertise</a></li>
+                        <li><a href="/terms-of-use">Terms of Use</a></li>
+                        <li><a href="/contact-us">Contact us</a></li>
+                    </ul>      
+                    <ul class="in_style_A_list_A in_style_B3">
+                        <li>
+                          <ul class="social_icons social_bottom">
+                            <li><a class="li" href="https://ke.linkedin.com/company/venturelift-africa"><ion-icon name="logo-linkedin" role="img" class="hydrated" aria-label="logo linkedin"></ion-icon></a></li>
+                            <li><a class="tw" href="https://twitter.com/vliftafrica"><ion-icon name="logo-twitter" role="img" class="hydrated" aria-label="logo twitter"></ion-icon></a></li>
+                            <li><a class="fb" href="https://facebook.com/vlafrica"><ion-icon name="logo-facebook" role="img" class="hydrated" aria-label="logo facebook"></ion-icon></a></li>
+                            <li><a class="ig" href="https://www.instagram.com/vlafrica/"><ion-icon name="logo-instagram" role="img" class="hydrated" aria-label="logo instagram"></ion-icon></a></li>
+                          </ul>
+                        </li>
+                    </ul>
+                    <ul class="in_style_A_list_A in_style_B2">
+                        <li class="copright">© 2017&mdash;2019 VentureLift Africa. All Rights Reserved</li>
+                    </ul>                              
+                </div>
+            </div>        
+            {# static_placeholder 'footer' #}
         </div>
 
     <!-- Bootstrap core JavaScript
