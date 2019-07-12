@@ -2287,3 +2287,10 @@ td.e3 {
 .info_template .form-row .form-group {
     overflow: hidden;
 }
+
+figure.box_avi {
+    min-height: 160px;
+}
+body.profile_templates .card_C.card {
+    min-height: 280px;
+}
