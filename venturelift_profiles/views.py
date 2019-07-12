@@ -157,7 +157,7 @@ class SupporterView(LoginRequiredMixin, ListView, FormMixin):
             if current_url == 'supporter_follow':
                 supporter_details = Investor.objects.get(
                     id=self.kwargs['pk'])
-                check_coneection = InvestorConnectRequest.objects.filter(supporter=supporter_details,
+                check_coneection = SupporterConnectRequest.objects.filter(supporter=supporter_details,
                                                                          requestor=self.request.user,
                                                                          approval_status="PENDING").first()
                 if check_coneection:
@@ -165,7 +165,7 @@ class SupporterView(LoginRequiredMixin, ListView, FormMixin):
                     send_business_connect_request_email_task.delay(supporter_details.company, self.request.user.username,
                                                                    subject, from_email, to)
                 else:
-                    connections = InvestorConnectRequest(supporter=supporter_details, created_at=timezone.now(),
+                    connections = SupporterConnectRequest(supporter=supporter_details, created_at=timezone.now(),
                                                          requestor=self.request.user, approval_status="PENDING",
                                                          approved=False, rejected=False)
                     connections.save()
