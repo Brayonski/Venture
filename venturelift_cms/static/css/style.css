@@ -2334,3 +2334,6 @@ body.profile_templates .profile_base .card_C.card {
     padding: 10px 40px 30px;
     margin-bottom: 60px;
 }
+body.profile_templates .knowledge_wrapper .card_C.card {
+    padding: 10px;
+}
