@@ -48,6 +48,7 @@
     </nav> 
 
 	<div class="container single_post_container">
+		<!--
 		<div class="actions" >
 			<a href="{% url 'knowledge_center_video_home' %}" class="btn btn-primary">Back</a>
 		</div>
@@ -55,26 +56,25 @@
 			<div class="container h_C_container">
     		<h2 class="h_title_A">VIDEOS</h2>
     	</div>
+    	-->
     	<div class="row clearfix">
-	      <div class="col-md-9 clearfix">
-	        <div class="in_style_A">
-	          <p>{{ content.title }}</p>
-	        </div>
-	      </div>
-	      <div class="col-md-12 clearfix">
-	        <div class="in_style_A">
-	          <div class="embed-responsiveX embed-responsive-16by9X">
-	          	<div class="videoWrapper">
-	            	{{content.path|safe}}
-	            </div>	
-	          </div>
-	        </div>
-	        <div class="card card-body">
-	        	<p class="card-text">
-	        		{{ content.description }}
-	        	</p>
-	        </div>
-	      </div>
+	      	<div class="col-md-12 clearfix">
+		        <div class="in_style_A">
+		          <div class="embed-responsiveX embed-responsive-16by9X">
+		          	<div class="videoWrapper">
+		            	{{content.path|safe}}
+		            </div>	
+		          </div>
+		        </div>
+		    </div>
+	    	<div class="col-md-12 clearfix">
+		        <div class="in_style_Z">
+		          <h3>{{ content.title }}</h3><br>
+	  	        	<p class="card-text">
+		        		{{ content.description }}
+		        	</p>
+		        </div>	        
+	      	</div>
       </div>
     </div>
     
