@@ -2320,6 +2320,8 @@ body.profile_templates .profile_base .card_C.card {
 .camp_top {
     background: #efefef;
     text-align: center;
+    max-height: 580px;
+    overflow: hidden;
 }
 .single_campaign div#profile h3 {
     padding-left: 0px;
