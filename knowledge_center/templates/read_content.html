@@ -3,13 +3,13 @@
 {% load cms_tags staticfiles %}
 {% block title %} Knowledge Center| {{ content.title }} {% endblock title %}
 {% block content %}
-<div class="single_event_in full_A">
+<div class="single_knowledge full_A">
 	<div class="container single_post_container">
-		<div class="actions pull-left">
+		<div class="actions">
 			<a href="{% url 'knowledge_center_home' %}" class="btn btn-primary">Back</a>
 		</div>
 		<div class="row clearfix">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-8 col-md-offset-0">
 				<div class="single_header">
 					<h1 class="style_D">{{ content.title }}</h1>
 					<p class="meta">
@@ -37,7 +37,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-2 clearfix">
+			<div class="col-md-4 clearfix">
 				<p class="card-text">Recommended Read</p>
 				{% for read in recommended%}
 				{% if read.id != content.id %}

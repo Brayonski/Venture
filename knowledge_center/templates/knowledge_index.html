@@ -3,7 +3,7 @@
 {% load cms_tags staticfiles %}
 {% block title %} Knowledge Center| Documents Center {% endblock title %}
 {% block content %}
-<div class="event_wrapper full_A">
+<div class="knowledge_wrapper full_A">
 
 	<nav id="navbar_out_2" class="navbar navbar-default_media">
 		<div class="top_container container">
@@ -112,7 +112,9 @@
 						<div class="card_C card" style="">
 							<div class="card-body">
 								<div class="pull-left">
-									{{video.path|safe}}
+									<div class="videoWrapper">
+										{{video.path|safe}}
+									</div>
 								</div>
 								<p class="card-text">{{ video.author }}</p>
 								<p class="card-text">

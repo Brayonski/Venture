@@ -3,7 +3,7 @@
 {% load cms_tags staticfiles %}
 {% block title %} Knowledge Center| Subscriptions Videos {% endblock title %}
 {% block content %}
-<div class="full_A">
+<div class="knowledge_wrapper knowledge_video_archive full_A">
 
 	<nav id="navbar_out_2" class="navbar navbar-default_media">
 		<div class="top_container container">
@@ -75,7 +75,9 @@
 							<div class="card_C card" style="">
 								<div class="card-body">
 									<div class="pull-left">
-										{{obj.path|safe}}
+										<div class="videoWrapper">	
+											{{obj.path|safe}}
+										</div>	
 									</div>
 									<p class="card-text">{{ obj.title }}</p>
 									<p class="card-text">
