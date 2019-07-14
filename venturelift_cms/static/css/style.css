@@ -2320,14 +2320,14 @@ body.profile_templates .profile_base .card_C.card {
 .camp_top {
     background: #efefef;
     text-align: center;
-    max-height: 580px;
+    max-height: 500px;
     overflow: hidden;
 }
 .single_campaign div#profile h3 {
     padding-left: 0px;
 }
 .single_campaign_details_container {
-    margin-top: -100px;
+    margin-top: -70px;
     background: #FFF;
     position: relative;
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.16);
