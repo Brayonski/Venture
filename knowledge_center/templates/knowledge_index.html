@@ -15,6 +15,7 @@
 						<h1>Knowledge Center</h1>
 					</li>
 
+					<!--
 					{% if object_list %}
 					{% url 'knowledge_center_home' as  knowledge_center_home %}
 					<li class="e-title_2X {% ifequal request.path knowledge_center_home %}active{% endifequal %}">
@@ -33,10 +34,11 @@
 
 					{% endif %}
 					{% endfor %}
-
+				
 					<li class="e-title_2X">
 						<h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
 					</li>
+					-->
 
 				</ul>
 			</div>
@@ -44,96 +46,150 @@
 		</div>
 	</nav>
 
-	<div class="tab_content">
-
-		<div id="home" class="kn_part_1">
-			<div class="container clearfix">
+	<nav id="navbar_out_3" class="">
+		<div class="vide_containerX container">
+			<div class="tab_content">
 				<h2 class="h_title_A">REPORTS</h2>
-				<div class="row clearfix">
+				<div class="row clearfix event_row_global">
+				    <div class="col-md-3 clearfix s_e_sidebar">
+				        <div class="s_e_1 s_e_in">
+					        <div class="list_box list-group">
 
-					<!-- docs -->
-					{% for obj in text_center %}
-					<div class="col-md-3 clearfix single_card_wrapper">
-						<div class="card_C card" style="padding-bottom: 30px;">
-							<div class="card-body">
-								<div class="">
-									<h3 class="card-text dark-text">
-										{% if obj.external_url %}
-										<a target="__blank" href="{{ obj.external_url }}">{{ obj.title }}</a>
-										{% else %}
-										<a href="{% url 'knowledge_center_read_content' obj.id %}">{{ obj.title }}</a>
-										{% endif %}
-									</h3>
-									{% if obj.external_url %}
-									<p class="card-text" style="padding-top: 10px;">
-										{% if obj.author %}
-										<i class="fa fa-user" aria-hidden="true"></i>
-										{{ obj.author }}
-										{% endif %}
-									</p>
-									<p class="card-text" style="padding-top: 30px;">
-										<a class="text-primary" target="__blank" href="{{ obj.external_url }}">READ MORE</a>
-									</p>
-									{% else %}
-									<p class="card-text" style="padding-top: 10px;">
-										{% if obj.file_upload %}
-										<i class="fa fa-file-text" aria-hidden="true"></i>
-										{% endif %}
-										<i class="fa fa-tags" aria-hidden="true"></i>
-										{{obj.category}}
-										<i class="fa fa-money" aria-hidden="true"></i>
-										{{obj.payment_status}}
-										<i class="fa fa-calendar" aria-hidden="true"></i>
-										{{obj.date }}
-									</p>
-									<p class="card-text" style="padding-top: 30px;">
-										<a class="text-primary" style="" href="{% url 'knowledge_center_read_content' obj.id %}">READ
-											MORE</a>
-									</p>
-									{% endif %}
-								</div>
-							</div>
-						</div>
-					</div>
-					{% endfor %}
+								{% for type in document_type %}
+								{% if type.textcenter_set.count >= 1 %}
+								{% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
 
-				</div>
-			</div>
-		</div>
+								<a class="list-group-item  e-title_2X {% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}" href="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
+								</a>
 
-		<div id="home2" class="full_width h_C kn_part_2">
-			<div class="container clearfix">
-				<h2 class="h_title_A">VIDEOS</h2>
-				<div class="row clearfix">
+								{% endif %}
+								{% endfor %}
+								
+					        </div>        
+				        </div>
+		  			</div>
+		  			<div class="col-md-9 clearfix ev_e_main">
+						<div id="home" class="kn_part_1">
+							<div class="container clearfix">
+								<div class="row clearfix">
 
-					<!-- videos -->
-					{% for video in videos %}
-					<div class="col-md-6 clearfix single_card_wrapper">
-						<div class="card_C card" style="">
-							<div class="card-body">
-								<div class="">
-									<div class="videoWrapper">
-										{{video.path|safe}}
+									<!-- docs -->
+									{% for obj in text_center %}
+									<div class="col-md-3 clearfix single_card_wrapper">
+										<div class="card_C card" style="padding-bottom: 30px;">
+											<div class="card-body">
+												<div class="">
+													<h3 class="card-text dark-text">
+														{% if obj.external_url %}
+														<a target="__blank" href="{{ obj.external_url }}">{{ obj.title }}</a>
+														{% else %}
+														<a href="{% url 'knowledge_center_read_content' obj.id %}">{{ obj.title }}</a>
+														{% endif %}
+													</h3>
+													{% if obj.external_url %}
+													<p class="card-text" style="padding-top: 10px;">
+														{% if obj.author %}
+														<i class="fa fa-user" aria-hidden="true"></i>
+														{{ obj.author }}
+														{% endif %}
+													</p>
+													<p class="card-text" style="padding-top: 30px;">
+														<a class="text-primary" target="__blank" href="{{ obj.external_url }}">READ MORE</a>
+													</p>
+													{% else %}
+													<p class="card-text" style="padding-top: 10px;">
+														{% if obj.file_upload %}
+														<i class="fa fa-file-text" aria-hidden="true"></i>
+														{% endif %}
+														<i class="fa fa-tags" aria-hidden="true"></i>
+														{{obj.category}}
+														<i class="fa fa-money" aria-hidden="true"></i>
+														{{obj.payment_status}}
+														<i class="fa fa-calendar" aria-hidden="true"></i>
+														{{obj.date }}
+													</p>
+													<p class="card-text" style="padding-top: 30px;">
+														<a class="text-primary" style="" href="{% url 'knowledge_center_read_content' obj.id %}">READ
+															MORE</a>
+													</p>
+													{% endif %}
+												</div>
+											</div>
+										</div>
 									</div>
+									{% endfor %}
+
 								</div>
-								<p class="card-text">{{ video.author }}</p>
-								<p class="card-text">
-									<i class="fa fa-tags" aria-hidden="true"></i>
-									{{ video.sub_category }}
-									<i class="fa fa-money" aria-hidden="true"></i>
-									{{ video.payment_status }}
-								</p>
-								<a class="text-primary" href="{% url 'knowledge_center_video_content' video.id %}">read more</a>
 							</div>
 						</div>
 					</div>
-
-					{% endfor %}
-
 				</div>
 			</div>
 		</div>
-	</div>
+		<div class="full_width h_C">
+			<div class="container">
+				<div class="row clearfix event_row_global">
+				    <!--
+				    <div class="col-md-3 clearfix s_e_sidebar">
+				        <div class="s_e_1 s_e_in">
+					        <div class="list_box list-group">
+					        	<a href="{% url 'knowledge_center_video_home' %}" class="list-group-item  {% ifequal request.path knowledge_center_home %}active{% endifequal %}">All Videos</a>
+								{% url 'knowledge_center_video_home' as  knowledge_center_video_home %}
 
+								{% if object_list %}
+								{% endif %}
+
+								{% for type in video_type %}
+								{% if type.audiovisual_set.count >= 1 %}
+								{% url 'knowledge_center_video_content_filter' type.id as knowledge_center_video_content_filter %}
+								<a class="list-group-item {% ifequal request.path knowledge_center_video_content_filter %}active{% endifequal %}"
+									href="{% url 'knowledge_center_video_content_filter' type.id %}">{{type.title}}
+								</a>
+								{% endif %}
+								{% endfor %}
+
+								
+					        </div>        
+				        </div>
+		  			</div>
+		  			-->
+		  			<div class="col-md-12 clearfix ev_e_main">			
+						<div id="home2" class="kn_part_2">
+							<div class="clearfix">
+								<h2 class="h_title_A">VIDEOS</h2>
+								<div class="row clearfix">
+
+									<!-- videos -->
+									{% for video in videos %}
+									<div class="col-md-6 clearfix single_card_wrapper">
+										<div class="card_C card" style="">
+											<div class="card-body">
+												<div class="">
+													<div class="videoWrapper">
+														{{video.path|safe}}
+													</div>
+												</div>
+												<p class="card-text">{{ video.author }}</p>
+												<p class="card-text">
+													<i class="fa fa-tags" aria-hidden="true"></i>
+													{{ video.sub_category }}
+													<i class="fa fa-money" aria-hidden="true"></i>
+													{{ video.payment_status }}
+												</p>
+												<a class="text-primary" href="{% url 'knowledge_center_video_content' video.id %}">read more</a>
+											</div>
+										</div>
+									</div>
+
+									{% endfor %}
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
 </div>
 {% endblock %}
