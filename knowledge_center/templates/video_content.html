@@ -11,17 +11,17 @@
 
           <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
               {% url 'events_home' as  events_home %}
-              <ul class="event_titles">
-                	  <li class="active e-title_1"><h1>{{ content.title }}</h1></li>
-		              <li class="e-title_2X">
-		                <h4><a class="" href="/knowledge-center/read-content/filter/2/">Opportunities</a></h4>
-		              </li>
-		              <li class="e-title_2X">
-		                <h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
-		              </li>              
-		              <li class="e-title_2X">
-		                <h4><a class="" href="/knowledge-center/read-content/filter/1/">Reports</a></h4>
-		              </li>                
+              <ul class="category_banner_titles event_titles">
+            	  <li class="active e-title_1"><h1>{{ content.title }}</h1></li>
+	              <li class="e-title_2X">
+	                <h4><a class="" href="/knowledge-center/read-content/filter/2/">Opportunities</a></h4>
+	              </li>
+	              <li class="e-title_2X">
+	                <h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
+	              </li>              
+	              <li class="e-title_2X">
+	                <h4><a class="" href="/knowledge-center/read-content/filter/1/">Reports</a></h4>
+	              </li>                
                 <!--
                 <li class="e-title_2">
                 	
