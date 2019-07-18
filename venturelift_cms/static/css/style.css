@@ -2274,7 +2274,9 @@ a.list_title {
     background: #0004d0;
     padding: 10px 10px;
 }
-
+.md_in_login.md_in_B0 a {
+    background: transparent;
+}
 .s_e_1.s_e_in a.list-group-item.active {
     /* background: transparent; */
     color: #25b1e5;
