@@ -2526,8 +2526,20 @@ body.portal_base.auth_pages button.navbar-toggle:hover span.icon-bar {
 
 
 
-
 /* RESPONSIVE */
+@media only screen and (max-width: 450px){
+	figure.hs3_icon img {
+	    padding: 5px 30px;
+	}
+	.hs3_content {
+	    margin-bottom: 10px;
+	}
+	.home_section_3.full_width {
+	    padding: 20px 0px;
+	}
+
+}
+
 @media (min-width: 768px) {
   .navbar-toggle {
       display: none;
@@ -2773,7 +2785,10 @@ body.portal_base.auth_pages button.navbar-toggle:hover span.icon-bar {
   .h3, h3 {
       font-size: 19px;
   }
-
+	.home_section_3 h4 {
+	    letter-spacing: 1px;
+	    font-size: 0.8em;
+	}
 
 
 
