@@ -4,14 +4,44 @@
 {% block title %} Knowledge Center| {{ content.title }} {% endblock title %}
 {% block content %}
 <div class="single_knowledge full_A">
+
+	<nav id="navbar_out_2" class="navbar navbar-default_media">
+		<div class="top_container container">
+
+
+			<div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
+				{% url 'events_home' as  events_home %}
+				<ul class="category_banner_titles event_titles">
+					<li class="e-title_1">
+						<h1>{{ content.title }}</h1>
+					</li>
+					<li class="e-title_2X">
+						<h4><a href="/knowledge-center/read-content/filter/2/">Opportunities</a></h4>
+					</li>
+					<li class="e-title_2X">
+						<h4><a class="" href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
+					</li>					
+					<li class="e-title_2X">
+						<h4><a href="/knowledge-center/read-content/filter/1/">Reports</a></h4>
+					</li>
+				</ul>
+				<p class="meta"><span>Category: </span> {{ content.category}} &nbsp;&nbsp;| &nbsp;&nbsp; <span>Membership: </span> {{content.payment_status}} &nbsp;&nbsp;| &nbsp;&nbsp; <span>Author: </span> {{ content.author }}</p>
+			</div>
+
+		</div>
+	</nav>
+
+
 	<div class="container single_post_container">
+		<!--
 		<div class="actions">
 			<a href="{% url 'knowledge_center_home' %}" class="btn btn-primary">Back</a>
 		</div>
+		-->
 		<div class="row clearfix">
-			<div class="col-md-8 col-md-offset-0">
+			<div class="col-md-9 col-md-offset-0">
 				<div class="single_header">
-					<h1 class="style_D">{{ content.title }}</h1>
+					<!--<h1 class="style_D">{{ content.title }}</h1>
 					<p class="meta">
 						<span>
 							<i class="fa fa-tags" aria-hidden="true"></i> {{ content.category}}
@@ -23,32 +53,45 @@
 							{{ content.author }}
 						</span>
 					</p>
+					-->
 				</div>
-				<div class="card">
-					<div class="card-body">
-						<div class="card_summary">
-							<p>Description: {{content.description}}</p>
+				<div class="cardY">
+					<div class="card-bodyY">
+						<div class="card_summaryY">
+							<h4><span>Description:</span></h4> 
+							<div class="k_description">{{content.description}}</div>
 						</div>
-						{% if content.file_upload %}
-						<div class="card_summary">
+						{% if content.file_upload %}</h4>
+						<div class="card_fileY">
 							<embed src="{{ content.file_upload.url }}" width="750" height="500" type="application/pdf">
 						</div>
 						{% endif %}
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4 clearfix">
-				<p class="card-text">Recommended Read</p>
-				{% for read in recommended%}
-				{% if read.id != content.id %}
-				<h5>
-					<a class="card-text" href="{% url 'knowledge_center_read_content' read.id %}">
-						{{ read.title }}
-					</a>
-					{% endif %}
+			<div class="col-md-3 clearfix">
 
-				</h5>
-				{% endfor %}
+
+			<div class="list-group">
+
+	            <a href="#nogo" class="list_title list-group-item">
+	              Recommended Read
+	            </a> 
+
+				{% for read in recommended%}
+					{% if read.id != content.id %}
+
+			            <a href="{% url 'knowledge_center_read_content' read.id %}" class="list_titleX list-group-item">
+			              {{ read.title }}
+			            </a>   
+
+		          	{% endif %}
+		        {% endfor %}
+
+          	</div>
+
+
+
 			</div>
 		</div>
 	</div>

@@ -12,16 +12,26 @@
           <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
               {% url 'events_home' as  events_home %}
               <ul class="event_titles">
-                <li class="active e-title_1"><h1>Knowledge Center</h1></li>
+                	  <li class="active e-title_1"><h1>{{ content.title }}</h1></li>
+		              <li class="e-title_2X">
+		                <h4><a class="" href="/knowledge-center/read-content/filter/2/">Opportunities</a></h4>
+		              </li>
+		              <li class="e-title_2X">
+		                <h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
+		              </li>              
+		              <li class="e-title_2X">
+		                <h4><a class="" href="/knowledge-center/read-content/filter/1/">Reports</a></h4>
+		              </li>                
+                <!--
                 <li class="e-title_2">
-                	<!--
-                  <form class="url_changer url_changer1">
-                    <select id="select" class="select">
-                      <option value="{% url 'events_home' %}">VLA Events</option>
-                      <option value="{% url 'network_events' %}">Network Events</option>
-                    </select>
-                  </form>  	
-					-->
+                	
+	                  <form class="url_changer url_changer1">
+	                    <select id="select" class="select">
+	                      <option value="{% url 'events_home' %}">VLA Events</option>
+	                      <option value="{% url 'network_events' %}">Network Events</option>
+	                    </select>
+	                  </form>  	
+					
 
                   <form class="url_changer url_changer2">
                     <select id="select2" class="select">
@@ -40,7 +50,9 @@
 
 						<option value="{% url 'knowledge_center_video_home' %}">Videos</option>                                        
                     </select>
-                  </form>                                   
+                  </form>
+                </li>
+                 -->                                   
               </ul>
           </div>
           
@@ -68,11 +80,11 @@
 		        </div>
 		    </div>
 	    	<div class="col-md-12 clearfix">
-		        <div class="in_style_Z">
-		          <h3>{{ content.title }}</h3><br>
-	  	        	<p class="card-text">
+		        <div class="in_style_Z single_video_meta">
+		          	<!--<h3 class="single_video_title">{{ content.title }}</h3><br>-->
+	  	        	<div class="single_video_content">
 		        		{{ content.description }}
-		        	</p>
+		        	</div>
 		        </div>	        
 	      	</div>
       </div>

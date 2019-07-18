@@ -36,11 +36,11 @@
                   -->
                   
               <li class="e-title_2X">
-                <h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
-              </li>
-              <li class="e-title_2X">
                 <h4><a class="" href="/knowledge-center/read-content/filter/2/">Opportunities</a></h4>
               </li>
+              <li class="e-title_2X">
+                <h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
+              </li>              
               <li class="e-title_2X">
                 <h4><a class="" href="/knowledge-center/read-content/filter/1/">Reports</a></h4>
               </li>
@@ -65,7 +65,7 @@
 
           <!-- docs -->
           {% for obj in object_list %}
-          <div class="col-md-3 clearfix single_card_wrapper">
+          <div class="col-md-4 clearfix single_card_wrapper">
             <div class="card_C card" style="padding-bottom: 30px;">
               <div class="card-body">
                 <div class="">

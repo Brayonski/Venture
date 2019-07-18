@@ -1000,7 +1000,12 @@ li.copright {
 }
 
 .full_width.h_C {
+    background: rgba(175, 175, 175, 0.28);
+}
+.in_style_Z.single_video_meta {
     background: #f3f3f3;
+    padding: 40px;
+    margin: 40px 0px;
 }
 
 .h_A_row_1A_in {
@@ -2359,9 +2364,11 @@ body.profile_templates .profile_base .card_C.card {
     font-size: 1.4em;
     min-height: 90px;
 }
+/*
 .single_knowledge.full_A {
     padding-top: 80px;
 }
+*/
 .camp_top {
     background: #efefef;
     text-align: center;
