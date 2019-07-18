@@ -2368,6 +2368,12 @@ body.profile_templates .profile_base .card_C.card {
     /* min-height: 90px; */
     line-height: 1.3em;
 }
+.knowledge_wrapper.full_A .h3 a, .knowledge_wrapper.full_A h3 a {
+    color: #7b7b7b;
+}
+.knowledge_wrapper.full_A .h3 a:hover, .knowledge_wrapper.full_A h3 a:hover {
+    color: #28b2e6;
+}
 .k_box_meta p.meta {
     color: #CCC;
     font-size: .7em;
