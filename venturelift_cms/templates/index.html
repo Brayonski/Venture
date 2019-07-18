@@ -90,6 +90,27 @@
   </div>
 </div>
 
+<div class="full_width h_D">
+  <div class="container h_D_container">
+    <h2 class="h_title_A">DIASPORA</h2>
+    <div class="row clearfix">
+      {% for obj in stories_bottom %}
+      <div class="col-md-4 clearfix">
+        <div class="in_style_A">
+          <a href="{% url 'venturelift_media:media_story' obj.pk %}">
+            <figure class="in_style_A_img">
+              <img src="{{obj.thumbnail_image.url}}">
+            </figure>
+            <h3 class="style_C">{{obj.title}}</h3>
+          </a>
+          <h5 class="meta_A">{{obj.category}}</h5>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 
 <div class="full_width h_B">
   <div class="container h_B_container">
@@ -117,7 +138,8 @@
       <div class="col-md-9 clearfix">
         <div class="in_style_A">
           <div class="embed-responsive embed-responsive-16by9">
-            {{vla_tv.0.path|safe}}
+            <!--{{vla_tv.0.path|safe}}-->
+            <img class="placeholder_image" src="{% static 'img/vlatv.png' %}">
           </div>
         </div>
       </div>
@@ -129,7 +151,7 @@
             <li>
               <div class="embed-responsive embed-responsive-16by9">
                 {{obj.path|safe}}
-                <h5 class="meta_A">{{obj.category}}</h5>
+                <!--<h5 class="meta_A">{{obj.category}}</h5>-->
               </div>
             </li>
             {% endfor %}

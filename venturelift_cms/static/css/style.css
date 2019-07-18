@@ -1016,13 +1016,13 @@ li.copright {
 }
 
 ul.home_vide_list li {
-    margin-bottom: 25px;
+    margin-bottom: 17px;
 }
 
 ul.home_vide_list {
     list-style: none;
     padding-left: 0px;
-    max-height: 515px;
+    max-height: 535px;
     overflow-y: auto;
 }
 
