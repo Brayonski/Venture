@@ -2153,6 +2153,7 @@ h4.h4_C {
 .full_width.footer.foot2 a {
     font-size: .9em;
     padding: 5px 5px;
+    text-transform: capitalize;
 }
 .full_width.footer.foot2 > div > ul {
     text-align: center;

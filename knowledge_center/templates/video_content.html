@@ -54,6 +54,11 @@
                 </li>
                  -->                                   
               </ul>
+				<p class="meta">
+					Author: </span>{{ content.author }} &nbsp;&nbsp;| &nbsp;&nbsp; <span>Category: </span> {{ content.sub_category }} &nbsp;&nbsp;| &nbsp;&nbsp; 
+					<span>Membership: </span> {{content.payment_status}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+					<span>Published: </span> {{content.date }}
+				</p>              
           </div>
           
         </div>
@@ -83,8 +88,8 @@
 		        <div class="in_style_Z single_video_meta">
 		          	<!--<h3 class="single_video_title">{{ content.title }}</h3><br>-->
 	  	        	<div class="single_video_content">
-		        		{{ content.description }}
-		        	</div>
+		        		<p>{{ content.description }}</p>
+		        	</div>							        	
 		        </div>	        
 	      	</div>
       </div>
