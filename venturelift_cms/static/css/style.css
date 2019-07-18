@@ -2785,10 +2785,11 @@ body.portal_base.auth_pages button.navbar-toggle:hover span.icon-bar {
   .h3, h3 {
       font-size: 19px;
   }
-	.home_section_3 h4 {
-	    letter-spacing: 1px;
-	    font-size: 0.8em;
-	}
+  .home_section_3 h4 {
+    letter-spacing: 1px;
+    font-size: 0.8em;
+    min-height: 28px;
+  }
 
 
 
