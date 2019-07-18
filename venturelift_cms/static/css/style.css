@@ -2588,8 +2588,21 @@ body.portal_base.auth_pages button.navbar-toggle:hover span.icon-bar {
   body.auth_pages .vl_top_top.navbar-right ul.in_line {
       background: #040439;
   }
+  figure.box_aviY {
+      margin-right: 10px;
+  }  
+  ul.in_line li:nth-child(odd) {
+      border-right: 1px solid rgba(0, 0, 0, 0.05);
+  }  
   ul.in_line li {
+    width: 50%;
+    float: left;
+  }
+  li.user_nav_item.pull_right, li.user_nav_item.pull_right li {
       width: 100%;
+      width: 100%;
+      border-right: 0px;
+      text-align: center;
   }
   ul.in_line li .dropdown {
       display: block;
@@ -2609,8 +2622,14 @@ body.portal_base.auth_pages button.navbar-toggle:hover span.icon-bar {
       margin-right: 0px !important;
   }
   .home_banner.full_width {
-      padding: 220px 0px;
+      padding: 100px 0px 40px;
+      background: #283891;
+      text-align: center;
   }
+  h1.home_banner_cap_header {
+      font-weight: 900;
+      margin-bottom: 20px;
+  }  
   .navbar-default2 {
       overflow: hidden;
   }
