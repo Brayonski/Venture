@@ -142,6 +142,25 @@
 													{{obj.path|safe}}
 												</div>	
 											</div>
+
+											<div class="k_box k_box_video">
+												<div class="k_box_meta">
+
+														<p class="meta">
+															<span>Title: </span>{{ obj.title }} &nbsp;&nbsp;| &nbsp;&nbsp; Author: </span>{{ obj.author }} &nbsp;&nbsp;| &nbsp;&nbsp; <span>Category: </span> {{ obj.sub_category }} &nbsp;&nbsp;| &nbsp;&nbsp; 
+															<span>Membership: </span> {{obj.payment_status}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+															<span>Published: </span> {{obj.date }}
+														</p>
+
+														<figure class="read_more">
+															<a class="text-primary" target="__blank" href="{% url 'knowledge_center_video_content' obj.id %}">Watch</a>
+														</figure>
+
+													
+												</div>
+											</div>
+
+											<!--
 											<p class="card-text">{{ obj.title }}</p>
 											<p class="card-text">
 												{{ obj.author }}
@@ -151,6 +170,7 @@
 												{{obj.payment_status}}
 											</p>
 											<a class="text-primary" href="{% url 'knowledge_center_video_content' obj.id %}">Watch</a>
+											-->
 										</div>
 									</div>
 								</div>

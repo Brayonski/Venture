@@ -90,45 +90,46 @@
 
 											<!-- docs -->
 											{% for obj in text_center %}
-											<div class="col-md-4 clearfix single_card_wrapper">
-												<div class="card_C card" style="padding-bottom: 10px;">
-													<div class="card-body">
-														<div class="">
-															<h3 class="card-text dark-text">
-																{% if obj.external_url %}
-																<a target="__blank" href="{{ obj.external_url }}">{{ obj.title }}</a>
-																{% else %}
-																<a href="{% url 'knowledge_center_read_content' obj.id %}">{{ obj.title }}</a>
+											<div class="col-md-4 clearfix">
+												<div class="k_box">
+													<h3 class="">
+														{% if obj.external_url %}
+														<a target="__blank" href="{{ obj.external_url }}">{{ obj.title }}</a>
+														{% else %}
+														<a href="{% url 'knowledge_center_read_content' obj.id %}">{{ obj.title }}</a>
+														{% endif %}
+													</h3>
+														
+													<div class="k_box_meta">
+														{% if obj.external_url %}
+														
+															<p class="meta">
+																{% if obj.author %} 
+																<span>Author: </span> {{ obj.author }}
 																{% endif %}
-															</h3>
-															{% if obj.external_url %}
-															<p class="card-text" style="padding-top: 10px;">
-																{% if obj.author %}
-																<i class="fa fa-user" aria-hidden="true"></i>
-																{{ obj.author }}
-																{% endif %}
-															</p>
-															<p class="card-text" style="padding-top: 10px;">
-																<a class="text-primary" target="__blank" href="{{ obj.external_url }}">READ MORE</a>
-															</p>
-															{% else %}
-															<p class="card-text" style="padding-top: 10px;">
+															</p>										
+															<figure class="read_more">
+																<a class="text-primary" target="__blank" href="{{ obj.external_url }}">Read More</a>
+															</figure>
+
+														{% else %}
+
+															
+															<p class="meta">
 																{% if obj.file_upload %}
-																<i class="fa fa-file-text" aria-hidden="true"></i>
+																	<span>Document</span> &nbsp;&nbsp;| &nbsp;&nbsp; 
 																{% endif %}
-																<i class="fa fa-tags" aria-hidden="true"></i>
-																{{obj.category}}
-																<i class="fa fa-money" aria-hidden="true"></i>
-																{{obj.payment_status}}
-																<i class="fa fa-calendar" aria-hidden="true"></i>
-																{{obj.date }}
+
+																<span>Category: </span> {{obj.category}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+																<span>Membership: </span> {{obj.payment_status}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+																<span>Published: </span> {{obj.date }}
 															</p>
-															<p class="card-text" style="padding-top: 10px;">
-																<a class="text-primary" style="" href="{% url 'knowledge_center_read_content' obj.id %}">READ
-																	MORE</a>
-															</p>
-															{% endif %}
-														</div>
+
+															<figure class="read_more">
+																<a class="text-primary" target="__blank" href="{% url 'knowledge_center_read_content' obj.id %}">Read More</a>
+															</figure>
+
+														{% endif %}
 													</div>
 												</div>
 											</div>
@@ -201,10 +202,10 @@
 								        </div>
 						  			</div>
 						  			-->
-						  			<div class="col-md-12 clearfix ev_e_main">
+						  			<div class="video_box_out_2 col-md-12 clearfix ev_e_main">
 										<!-- videos -->
 										{% for video in videos %}
-										<div class="col-md-4 clearfix single_card_wrapper">
+										<div class="video_box_out col-md-4 clearfix single_card_wrapper">
 											<div class="card_C card" style="">
 												<div class="card-body">
 													<div class="">
@@ -212,14 +213,25 @@
 															{{video.path|safe}}
 														</div>
 													</div>
-													<p class="card-text">{{ video.author }}</p>
-													<p class="card-text">
-														<i class="fa fa-tags" aria-hidden="true"></i>
-														{{ video.sub_category }}
-														<i class="fa fa-money" aria-hidden="true"></i>
-														{{ video.payment_status }}
-													</p>
-													<a class="text-primary" href="{% url 'knowledge_center_video_content' video.id %}">read more</a>
+
+
+
+													<div class="k_box k_box_video">
+														<div class="k_box_meta">
+
+																<p class="meta">
+																	<span>Title: </span>{{ video.author }} &nbsp;&nbsp;| &nbsp;&nbsp; <span>Category: </span> {{ video.sub_category }} &nbsp;&nbsp;| &nbsp;&nbsp; 
+																	<span>Membership: </span> {{video.payment_status}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+																	<span>Published: </span> {{video.date }}
+																</p>
+
+																<figure class="read_more">
+																	<a class="text-primary" target="__blank" href="{% url 'knowledge_center_video_content' video.id %}">Watch</a>
+																</figure>
+
+															
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -270,44 +282,45 @@
 											<!-- docs -->
 											{% for obj in text_center %}
 											<div class="col-md-4 clearfix single_card_wrapper">
-												<div class="card_C card" style="padding-bottom: 10px;">
-													<div class="card-body">
-														<div class="">
-															<h3 class="card-text dark-text">
-																{% if obj.external_url %}
-																<a target="__blank" href="{{ obj.external_url }}">{{ obj.title }}</a>
-																{% else %}
-																<a href="{% url 'knowledge_center_read_content' obj.id %}">{{ obj.title }}</a>
+												<div class="k_box">
+													<h3 class="">
+														{% if obj.external_url %}
+														<a target="__blank" href="{{ obj.external_url }}">{{ obj.title }}</a>
+														{% else %}
+														<a href="{% url 'knowledge_center_read_content' obj.id %}">{{ obj.title }}</a>
+														{% endif %}
+													</h3>
+														
+													<div class="k_box_meta">
+														{% if obj.external_url %}
+														
+															<p class="meta">
+																{% if obj.author %} 
+																<span>Author: </span> {{ obj.author }}
 																{% endif %}
-															</h3>
-															{% if obj.external_url %}
-															<p class="card-text" style="padding-top: 10px;">
-																{% if obj.author %}
-																<i class="fa fa-user" aria-hidden="true"></i>
-																{{ obj.author }}
-																{% endif %}
-															</p>
-															<p class="card-text" style="padding-top: 10px;">
-																<a class="text-primary" target="__blank" href="{{ obj.external_url }}">READ MORE</a>
-															</p>
-															{% else %}
-															<p class="card-text" style="padding-top: 10px;">
+															</p>										
+															<figure class="read_more">
+																<a class="text-primary" target="__blank" href="{{ obj.external_url }}">Read More</a>
+															</figure>
+
+														{% else %}
+
+															
+															<p class="meta">
 																{% if obj.file_upload %}
-																<i class="fa fa-file-text" aria-hidden="true"></i>
+																	<span>Document</span> &nbsp;&nbsp;| &nbsp;&nbsp; 
 																{% endif %}
-																<i class="fa fa-tags" aria-hidden="true"></i>
-																{{obj.category}}
-																<i class="fa fa-money" aria-hidden="true"></i>
-																{{obj.payment_status}}
-																<i class="fa fa-calendar" aria-hidden="true"></i>
-																{{obj.date }}
+
+																<span>Category: </span> {{obj.category}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+																<span>Membership: </span> {{obj.payment_status}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+																<span>Published: </span> {{obj.date }}
 															</p>
-															<p class="card-text" style="padding-top: 10px;">
-																<a class="text-primary" style="" href="{% url 'knowledge_center_read_content' obj.id %}">READ
-																	MORE</a>
-															</p>
-															{% endif %}
-														</div>
+
+															<figure class="read_more">
+																<a class="text-primary" target="__blank" href="{% url 'knowledge_center_read_content' obj.id %}">Read More</a>
+															</figure>
+
+														{% endif %}
 													</div>
 												</div>
 											</div>

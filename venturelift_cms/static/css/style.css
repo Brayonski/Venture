@@ -2362,13 +2362,40 @@ body.profile_templates .profile_base .card_C.card {
 }
 .knowledge_wrapper.full_A .h3, .knowledge_wrapper.full_A h3 {
     font-size: 1.4em;
-    min-height: 90px;
+    /* min-height: 90px; */
+}
+.k_box_meta p.meta {
+    font-size: .8em;
+}
+.k_box_meta figure.read_more {
+    margin: 20px 0px;
+}
+.k_box {
+    margin-bottom: 30px;
+    min-height: 150px;
+}
+.k_box.k_box_video {
+    min-height: unset;
+    padding-top: 10px;
+}
+.video_box_out {
+    padding: 0px;
+}
+.video_box_out_2 {
+    padding: 0px;
 }
 /*
 .single_knowledge.full_A {
     padding-top: 80px;
 }
 */
+.single_knowledge.full_A div#navbarX {
+    position: relative;
+    float: left;
+    display: contents !important;
+    width: 100%;
+    clear: both;
+}
 .camp_top {
     background: #efefef;
     text-align: center;

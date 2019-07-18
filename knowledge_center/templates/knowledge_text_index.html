@@ -66,6 +66,50 @@
           <!-- docs -->
           {% for obj in object_list %}
           <div class="col-md-4 clearfix single_card_wrapper">
+
+            <div class="k_box">
+              <h3 class="">
+                {% if obj.external_url %}
+                <a target="__blank" href="{{ obj.external_url }}">{{ obj.title }}</a>
+                {% else %}
+                <a href="{% url 'knowledge_center_read_content' obj.id %}">{{ obj.title }}</a>
+                {% endif %}
+              </h3>
+                
+              <div class="k_box_meta">
+                {% if obj.external_url %}
+                
+                  <p class="meta">
+                    {% if obj.author %} 
+                    <span>Author: </span> {{ obj.author }}
+                    {% endif %}
+                  </p>                    
+                  <figure class="read_more">
+                    <a class="text-primary" target="__blank" href="{{ obj.external_url }}">Read More</a>
+                  </figure>
+
+                {% else %}
+
+                  
+                  <p class="meta">
+                    {% if obj.file_upload %}
+                      <span>Document</span> &nbsp;&nbsp;| &nbsp;&nbsp; 
+                    {% endif %}
+
+                    <span>Category: </span> {{obj.category}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+                    <span>Membership: </span> {{obj.payment_status}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+                    <span>Published: </span> {{obj.date }}
+                  </p>
+
+                  <figure class="read_more">
+                    <a class="text-primary" target="__blank" href="{% url 'knowledge_center_read_content' obj.id %}">Read More</a>
+                  </figure>
+
+                {% endif %}
+              </div>
+            </div>
+
+            <!--
             <div class="card_C card" style="padding-bottom: 30px;">
               <div class="card-body">
                 <div class="">
@@ -85,11 +129,13 @@
                   </p>
                   <p class="card-text" style="padding-top: 30px;">
                     {# obj.description|safe|truncatewords:"70"|linebreaks #}
-                    <!--<a class="text-primary" style="" href="{% url 'knowledge_center_read_content' obj.id %}">READ MORE</a>-->
+                    <a class="text-primary" style="" href="{% url 'knowledge_center_read_content' obj.id %}">READ MORE</a>
                   </p>
                 </div>
               </div>
             </div>
+            -->
+
           </div>
           {% endfor %}
           
