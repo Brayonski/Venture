@@ -11,10 +11,43 @@
 
 			<div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
 				{% url 'events_home' as  events_home %}
-				<ul class="event_titles">
+				<ul class="category_banner_titles event_titles">
 					<li class="active e-title_1">
 						<h1>Knowledge Center</h1>
 					</li>
+
+					<!--
+					{% if object_list %}
+					{% url 'knowledge_center_home' as  knowledge_center_home %}
+					<li class="e-title_2X {% ifequal request.path knowledge_center_home %}active{% endifequal %}">
+						<h4><a href="{% url 'knowledge_center_home' %}">All</a></h4>
+					</li>
+
+					{% endif %}
+					{% for type in document_type %}
+					{% if type.textcenter_set.count >= 1 %}
+					{% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
+
+					<li class="e-title_2X {% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}">
+						<h4><a href="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
+							</a></h4>
+					</li>
+
+					{% endif %}
+					{% endfor %}
+					-->
+
+					<li class="e-title_2X">
+						<h4><a class="active" href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
+					</li>
+					<li class="e-title_2X">
+						<h4><a href="/knowledge-center/read-content/filter/2/">Opportunities</a></h4>
+					</li>
+					<li class="e-title_2X">
+						<h4><a href="/knowledge-center/read-content/filter/1/">Reports</a></h4>
+					</li>
+					
+
 					<!--
 					<li class="e-title_2">
 						<form class="url_changer url_changer1">
@@ -62,6 +95,7 @@
 						</form>
 					</li>
 					-->
+					
 				</ul>
 			</div>
 
@@ -70,10 +104,10 @@
 
 	<div class="container">
 		<div class="row clearfix event_row_global">
-		    <div class="col-md-3 clearfix s_e_sidebar">
+		    <div class="s_e_sidebar_single col-md-3 clearfix s_e_sidebar">
 		        <div class="s_e_1 s_e_in">
 			        <div class="list_box list-group">
-			        	<a href="{% url 'knowledge_center_video_home' %}" class="list-group-item  {% ifequal request.path knowledge_center_home %}active{% endifequal %}">All Videos</a>
+			        	<a href="{% url 'knowledge_center_video_home' %}" class="list_title list-group-item  {% ifequal request.path knowledge_center_home %}active{% endifequal %}">All Videos</a>
 						{% url 'knowledge_center_video_home' as  knowledge_center_video_home %}
 
 						{% if object_list %}
@@ -97,7 +131,7 @@
 					<div id="home" class="tab-pane fade in active">
 						<div class="row clearfix">
 							{% for obj in object_list %}
-							<div class="no_padd col-md-6 clearfix">
+							<div class="no_padd col-md-4 clearfix">
 								<div class="single_card_wrapper">
 									<div class="card_C card" style="">
 										<div class="card-body">
@@ -114,7 +148,7 @@
 												<i class="fa fa-money" aria-hidden="true"></i>
 												{{obj.payment_status}}
 											</p>
-											<a class="text-primary" href="{% url 'knowledge_center_video_content' obj.id %}">read more</a>
+											<a class="text-primary" href="{% url 'knowledge_center_video_content' obj.id %}">Watch</a>
 										</div>
 									</div>
 								</div>

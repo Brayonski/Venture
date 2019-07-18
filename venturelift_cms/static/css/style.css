@@ -313,7 +313,28 @@ body.media_index nav#navbar_out_2 {
 nav#navbar_out_2 a:hover,
 nav#navbar_out_2 a:active {
     color: #2db4e6;
-    background: transparent;
+    background: #0098d0;
+}
+ul.category_banner_titles li a:hover {
+    background: transparent !important;
+    color: #39b8e8 !important;
+}
+h2.h_title_A span a {
+    color: #FFF;
+    background: #36b7e7;    
+    padding: 12px 20px !important;
+    display: block;
+    border-radius: 1000px !important;
+}
+h2.h_title_A span a:hover {
+    color: #FFF;
+    background: #2b3b93;    
+}
+h2.h_title_A span {
+    float: right;
+    font-weight: 700;
+    font-size: .6em;
+    border-radius: 1000px !important;
 }
 .navbar-default2 .vl_top_top ul li a {
     color: rgb(0, 0, 0);
@@ -321,6 +342,30 @@ nav#navbar_out_2 a:active {
 .navbar-default2 .vl_top_top ul li a:hover {
     color: rgb(0, 156, 255) !important;
     background: transparent;
+}
+
+.full_width.h_D.clearfix {
+    clear: both;
+    background: rgba(170, 224, 245, 0.44);
+    padding-bottom: 0px;
+}
+.full_width.h_E.clearfix {
+    padding-bottom: 0px;
+}
+.s_e_sidebar_single {
+    padding-top: 10px;
+}
+li.e-title_2X {
+    float: right;
+}
+li.e-title_2X h4 a.active {
+    color: #28b2e6 !important;
+}
+.k_index h3.card-text {
+    margin-top: 0px;
+}
+.k_index .single_card_wrapper p {
+    padding-top: 0px;
 }
 .home_banner.full_width {
     padding: 220px 0px;
