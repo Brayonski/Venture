@@ -34,7 +34,7 @@ class TextMedia(models.Model):
     author = models.ForeignKey(User)
     body = fields.HTMLField()
     date = models.DateTimeField(auto_now_add=True)
-    thumbnail_image = FilerImageField(null=True)
+    thumbnail_image = models.FileField(upload_to='pic_folder/',null=True)
 
     def __str__(self):
         return self.title
