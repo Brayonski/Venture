@@ -3,6 +3,23 @@
 {% load cms_tags staticfiles event_filters %}
 {% block title %}Events{% endblock title %}
 {% block content %}
+<style>
+  .open-button {
+  background-color: #1ba4db;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+.open-button:hover {
+  opacity: 1;
+}
+</style>
 <div class="event_wrapper full_A">
 
   <nav id="navbar_out_2" class="navbar navbar-default_media">
@@ -252,6 +269,7 @@
       
     </div>
       -->
+    <button class="open-button">To upload events on venturelift, please contact the admin</button>
   </div>
 </div>
 

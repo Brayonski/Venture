@@ -586,7 +586,7 @@ class InvestorUpdateProfileView(LoginRequiredMixin, UpdateView):
                 self.object.investment_type = "Lender"
                 self.object.investment_product = self.request.POST['funder_lender_product']
             self.object.save()
-            return redirect(reverse('investor_list'))
+            return redirect(reverse('profile_summary'))
 
     def get_context_data(self, **kwargs):
         context = super(InvestorUpdateProfileView,
@@ -679,7 +679,7 @@ class SupporterUpdateProfileView(LoginRequiredMixin, UpdateView):
                                     kwargs={'pk': self.kwargs['pk']}))
         if current_url == 'update_supporter_step2':
             form.save()
-            return redirect(reverse('supporter_list'))
+            return redirect(reverse('profile_summary'))
 
 
 class CreateBlogPostView(LoginRequiredMixin, CreateView):
