@@ -5,6 +5,7 @@ from django_select2.forms import Select2MultipleWidget, Select2Widget
 from django_countries.widgets import CountrySelectWidget
 
 class CreateBusinessForm(ModelForm):
+    company_website = forms.URLField(initial='http://')
     class Meta:
         model = Business
         exclude = ['verified', 'verified_by', 'creator']
@@ -15,7 +16,6 @@ class CreateBusinessForm(ModelForm):
             "sector": "Industry",
             "size": "Company size",
             "company_primary_email": "Company primary email address",
-            "company_website": "Company website",
             "year_of_company_registration": "Year of Company Registration",
             "full_time_employee_count": "Number of full time employees",
             "address": "Country",
@@ -27,7 +27,7 @@ class CreateBlogForm(ModelForm):
         exclude = ['date', 'likes', 'supporter_author', 'investor_author', "company"]
 
         labels = {
-            "blog_type": "Blog Type",
+            "blog_type": "Document Type",
             "file_name": "PDF Document to share",
             "title": "Subject",
             "body": "Description",

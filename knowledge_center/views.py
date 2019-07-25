@@ -70,7 +70,7 @@ class TextFilterView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(TextFilterView, self).get_context_data(**kwargs)
-        context['document_type'] = DocumentCategory.objects.filter(
+        context['document_type'] = DocumentCategory.objects.filter(id=self.kwargs.get("pk"),
             published=True)
         return context
 
