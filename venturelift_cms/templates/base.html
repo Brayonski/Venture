@@ -40,14 +40,14 @@
             </div>
             <div class="vl_top_top navbar-right collapse navbar-collapse navbar-responsive-collapse" style="">
                   <ul class="in_line">
-                    <li class="active"><a href="/">VentureLift Home</a></li>
+                    <li class="active"><a href="/">Home</a></li>
                     <li><a href="{% url 'registration_in' %}">Business</a></li>
                     <li><a href="{% url 'registration_in' %}">Funder</a></li>
                     <li><a href="{% url 'registration_in' %}">Partner</a></li>
                     <li><a href="{%url 'knowledge_center_home' %}">Knowledge Center</a></li>
-                    <li><a href="/en/media">VLA Media</a></li>
                     {% if user.is_authenticated %}
                     <li><a href="{%url 'events_home' %}">Events</a></li>
+                    <li><a href="/en/media">VLA Media</a></li>
                     <li class="user_nav_item pull_right">
                       <div class="dropdown">
                         <button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown"
@@ -89,6 +89,8 @@
                     </li>
                     -->
                     {% else %}
+                    <li><a href="{%url 'events_home' %}">Events</a></li>
+                    <li><a href="/en/media">VLA Media</a></li>
                     <li>
                       <a href="{% url 'login' %}">Sign In</a>
                     </li>
