@@ -90,6 +90,9 @@
 
 											<!-- docs -->
 											{% for obj in text_center %}
+											{% if obj.category == 'Reports' %}
+												<span>Reports</span> &nbsp;&nbsp;| &nbsp;&nbsp;
+											{% endif %}
 											{{obj.category}}
 											<div class="col-md-4 clearfix">
 												<div class="k_box">
