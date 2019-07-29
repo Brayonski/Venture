@@ -57,8 +57,8 @@
               <div class="dropdown">
                 <button class="dropbtn">Business</button>
                 <div class="dropdown-content">
-                    <a href="{% url 'registration_in' %}">Startup</a>
-                    <a href="{% url 'registration_in' %}">SMEs</a>
+                    <a href="{% url 'business_startup' %}">Startup</a>
+                    <a href="{% url 'business_smes' %}">SMEs</a>
                 </div>
               </div>
             </li>
@@ -67,9 +67,9 @@
               <div class="dropdown">
                 <button class="dropbtn">Funder</button>
                 <div class="dropdown-content">
-                    <a href="{% url 'registration_in' %}">Investor</a>
+                    <a href="{% url 'investor_filter' 'Investor' %}">Investor</a>
                     <a href="{% url 'crowdfunding:crowdfunderindex' %}" target="_blank">Crowdfunding</a>
-                    <a href="{% url 'registration_in' %}">Lender</a>
+                    <a href="{% url 'investor_filter' 'Lender' %}">Lender</a>
                 </div>
               </div>
             </li>
@@ -77,11 +77,11 @@
               <div class="dropdown">
                 <button class="dropbtn">Partner</button>
                 <div class="dropdown-content">
-                    <a href="{% url 'registration_in' %}">Trade</a>
-                    <a href="{% url 'registration_in' %}">Supply Chain</a>
-                    <a href="{% url 'registration_in' %}">Technology</a>
-                    <a href="{% url 'registration_in' %}">Talent</a>
-                    <a href="{% url 'registration_in' %}">Professional Services</a>
+                        <a href="{% url 'supporter_filter' 'Trade' %}">Trade</a>
+                        <a href="{% url 'supporter_filter' 'Supply Chain' %}">Supply Chain</a>
+                        <a href="{% url 'supporter_filter' 'Technology' %}">Technology</a>
+                        <a href="{% url 'supporter_filter' 'Talent' %}">Talent</a>
+                        <a href="{% url 'supporter_filter' 'Professional Services' %}">Professional Services</a>
                 </div>
               </div>
             </li>
@@ -116,7 +116,7 @@
                   </figure>
                 </button>
                 <ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
-                  <li><a href="{% url 'profile_summary' %}">My Profile</a></li>
+                  <li><a href="{% url 'profile_summary' %}">Home</a></li>
                   <div class="divider"></div>
                   <li><a href="{% url 'logout' %}">Logout</a></li>
                 </ul>

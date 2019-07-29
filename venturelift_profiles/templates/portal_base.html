@@ -34,20 +34,20 @@
                     <li><a href="/">Home</a></li>
                     <li>
                       <div class="dropdown">
-                        <button class="dropbtn">Discover</button>
+                        <button class="dropbtn">Business</button>
                         <div class="dropdown-content">
-                            <a href="#nogo">Startup</a>
-                            <a href="#nogo">SMEs</a>
+                            <a href="{% url 'business_startup' %}">Startup</a>
+                            <a href="{% url 'business_smes' %}">SMEs</a>
                         </div>
                       </div>
                     </li>
                     <li>
                       <div class="dropdown">
-                        <button class="dropbtn">Fund</button>
+                        <button class="dropbtn">Funder</button>
                         <div class="dropdown-content">
-                            <a href="#nogo">Investor</a>
-                            <a href="{% url 'crowdfunding:crowdfunderindex' %}" target="_blank">Crowdfunder</a>
-                            <a href="#nogo">Lender</a>
+                            <a href="{% url 'investor_filter' 'Investor' %}">Investor</a>
+                            <a href="{% url 'crowdfunding:crowdfunderindex' %}" target="_blank">Crowdfunding</a>
+                            <a href="{% url 'investor_filter' 'Lender' %}">Lender</a>
                         </div>
                       </div>
                     </li>
@@ -55,15 +55,16 @@
                       <div class="dropdown">
                         <button class="dropbtn">Partner</button>
                         <div class="dropdown-content">
-                            <a href="#nogo">Trade</a>
-                            <a href="#nogo">Supply Chain</a>
-                            <a href="#nogo">Technology</a>
-                            <a href="#nogo">Talent</a>
-                            <a href="#nogo">Professional Services</a>
+                            <a href="{% url 'supporter_filter' 'Trade' %}">Trade</a>
+                            <a href="{% url 'supporter_filter' 'Supply Chain' %}">Supply Chain</a>
+                            <a href="{% url 'supporter_filter' 'Technology' %}">Technology</a>
+                            <a href="{% url 'supporter_filter' 'Talent' %}">Talent</a>
+                            <a href="{% url 'supporter_filter' 'Professional Services' %}">Professional Services</a>
                         </div>
                       </div>
                     </li>
                     <li><a href="#">Knowledge Center</a></li>
+                    <li><a href="{%url 'events_home' %}">Events</a></li>
                     <li><a href="/en/media">VLA Media</a></li>
                     <li><a href="{% url 'login' %}">Sign In</a></li>
                     <li><a class="btn btn-md btn-primary" href="{% url 'registration_in' %}">Join VentureLift Africa</a></li>

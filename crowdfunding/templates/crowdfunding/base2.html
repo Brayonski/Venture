@@ -40,7 +40,7 @@
 
           <ul class="vl_top_nav in_line">
             <li><a href="{% url 'profile_summary' %}">
-              My Profile
+              Home
           </a></li>
         <li>
               <div class="dropdown">
@@ -51,6 +51,16 @@
                 </div>
               </div>
         </li>
+       <li>
+            <div class="dropdown">
+              <button class="dropbtn">Funder</button>
+              <div class="dropdown-content">
+                   <a href="{% url 'investor_filter' 'Investor' %}">Investor</a>
+                   <a href="{% url 'crowdfunding:index' %}">Crowdfunding</a>
+                   <a href="{% url 'investor_filter' 'Lender' %}">Lender</a>
+              </div>
+            </div>
+       </li>
         <li>
           <div class="dropdown">
             <button class="dropbtn">Partner</button>
@@ -63,17 +73,6 @@
             </div>
           </div>
         </li>
-
-       <li>
-            <div class="dropdown">
-              <button class="dropbtn">Funder</button>
-              <div class="dropdown-content">
-                  <a href="{% url 'investor_list' %}">Investor</a>
-                  <a href="{% url 'crowdfunding:index' %}">Crowdfunding</a>
-                  <a href="#">Lender</a>
-              </div>
-            </div>
-       </li>
 
       <li>
               <a href="{%url 'knowledge_center_home' %}">
@@ -108,7 +107,7 @@
                   </figure>
                 </button>
                 <ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
-                  <li><a href="{% url 'profile_summary' %}">My Profile</a></li>
+                  <li><a href="{% url 'profile_summary' %}">Home</a></li>
                   <div class="divider"></div>
                   <li><a href="{% url 'logout' %}">Logout</a></li>
                 </ul>

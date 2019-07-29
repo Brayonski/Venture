@@ -5,7 +5,6 @@ from django_select2.forms import Select2MultipleWidget, Select2Widget
 from django_countries.widgets import CountrySelectWidget
 
 class CreateBusinessForm(ModelForm):
-    company_website = forms.URLField(initial='http://')
     class Meta:
         model = Business
         exclude = ['verified', 'verified_by', 'creator']
@@ -188,7 +187,6 @@ class SupporterProfileCreateForm(forms.ModelForm):
 class InvestorCreateForm(forms.ModelForm):
     first_name = forms.CharField(max_length=250, label="First Name")
     last_name = forms.CharField(max_length=250, label="Last Name")
-    company_website = forms.URLField(initial='http://')
 
     class Meta:
         model = Investor

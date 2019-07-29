@@ -58,9 +58,9 @@
               </div>
             </li>
             <li><a href="{%url 'knowledge_center_home' %}">Knowledge Center</a></li>
-            <li><a href="/en/media">VLA Media</a></li>
             {% if user.is_authenticated %}
             <li><a href="{%url 'events_home' %}">Events</a></li>
+            <li><a href="/en/media">VLA Media</a></li>
             <li class="user_nav_item pull_right">
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown"
@@ -88,7 +88,7 @@
                   </figure>
                 </button>
                 <ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
-                  <li><a href="{% url 'profile_summary' %}">My Profile</a></li>
+                  <li><a href="{% url 'profile_summary' %}">Home</a></li>
                   <div class="divider"></div>
                   <li><a href="{% url 'logout' %}">Logout</a></li>
                 </ul>
@@ -102,6 +102,7 @@
             </li>
             -->
             {% else %}
+            <li><a href="/en/media">VLA Media</a></li>
             <li>
               <a href="{% url 'login' %}">Sign In</a>
             </li>

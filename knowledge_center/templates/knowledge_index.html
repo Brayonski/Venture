@@ -90,6 +90,7 @@
 
 											<!-- docs -->
 											{% for obj in text_center %}
+											{% if obj.category == "Reports" %}
 											<div class="col-md-4 clearfix">
 												<div class="k_box">
 													<h3 class="">
@@ -133,6 +134,7 @@
 													</div>
 												</div>
 											</div>
+											{% endif %}
 											{% endfor %}
 
 										</div>
@@ -281,6 +283,7 @@
 
 											<!-- docs -->
 											{% for obj in text_center %}
+											{% if obj.category == "Opportunities" %}
 											<div class="col-md-4 clearfix single_card_wrapper">
 												<div class="k_box">
 													<h3 class="">
@@ -324,6 +327,7 @@
 													</div>
 												</div>
 											</div>
+											{% endif %}
 											{% endfor %}
 
 										</div>

@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^business/list/startup/$', views.BusinessStartupView.as_view(), name='business_startup'),
     url(r'^business/list/smes/$', views.BusinessSMEView.as_view(), name='business_smes'),
     url(r'^investor/list/$', views.InvestorView.as_view(), name='investor_list'),
+    url(r'^investor/list/filter/(?P<investor_type>[\w ]+)/$', views.InvestorFilterView.as_view(), name='investor_filter'),
     url(r'^supporter/follow/(?P<pk>\d+)/$',
         views.SupporterView.as_view(), name='supporter_follow'),
     url(r'^supporter/unfollow/(?P<pk>\d+)/$',

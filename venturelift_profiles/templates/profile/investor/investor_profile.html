@@ -218,17 +218,21 @@
                                         <div class="pull-leftX">
 
                                           <h5 class="card-title">
-                                            Category
+                                            Funder Type
                                           </h5>  
                                           <p class="card-text">
-                                            {{investor_profile.company_classification}}
+                                            {{investor_profile.funder_type}}
                                           </p>
 
                                           <h5 class="card-title">
                                             Experience in Funding
                                           </h5>  
                                           <p class="card-text">
-                                            {{investor_profile.managed_funds}} Years
+                                            {% if investor_profile.managed_funds > 0 %}
+                                              {{investor_profile.managed_funds}} Years
+                                            {% else %}
+                                              0 Years
+                                            {% endif %}
                                           </p>
 
                                         </div>
@@ -384,9 +388,9 @@
                                       {% endfor %}
                                     {% else %}
 
-                                      <div class="no_post_hero">
-                                        <h3>This user has not posted any update yet.</h3>
-                                      </div>
+                                      <!--<div class="no_post_hero">-->
+                                        <!--<h3>This user has not posted any update yet.</h3>-->
+                                      <!--</div>-->
 
                                     {% endif %}                   
                                   </div>

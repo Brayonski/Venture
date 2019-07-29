@@ -256,7 +256,7 @@ class Business(models.Model):
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
     company_primary_email = models.EmailField()
-    company_website = models.URLField(max_length=200, null=True, blank=True)
+    company_website = models.CharField(max_length=200, null=True, blank=True)
     address = CountryField()
     year_of_company_registration = models.IntegerField(choices=YEAR_CHOICES)
     value_proposition_statement = models.TextField(null=True, blank=True)
@@ -374,7 +374,7 @@ class Supporter(models.Model):
     company = models.CharField(max_length=250, unique=True, null=True)
     role = models.CharField(max_length=250, null=True)
     company_operations = CountryField(null=True)
-    company_website = models.URLField(
+    company_website = models.CharField(
         max_length=250, blank=True, null=True)
     company_registration_year = models.IntegerField(
         choices=YEAR_CHOICES, default=2010)
@@ -425,7 +425,7 @@ class Investor(models.Model):
     role = models.CharField(max_length=250)
     company_location = CountryField()
     physical_address = models.CharField(max_length=250)
-    company_website = models.URLField(
+    company_website = models.CharField(
         max_length=250, blank=True, null=True)
     company_registration_year = models.IntegerField(
         choices=YEAR_CHOICES)

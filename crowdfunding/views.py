@@ -35,6 +35,8 @@ def index(request):
     if request.user.is_authenticated() and not (request.user.business_creator.exists()) and not (
             request.user.supporter_creator.exists()) and not (request.user.investor_creator.exists()):
         return redirect(reverse('profile_create'))
+    if not (request.user.is_authenticated()):
+        return redirect(reverse('login'))
 
     campaign_list = Campaign.objects.filter(campaign_status='APPROVED')
     campaign_sectors = CampaignSector.objects.all()
@@ -81,6 +83,8 @@ def filter_campaign_view(request):
     if request.user.is_authenticated() and not (request.user.business_creator.exists()) and not (
             request.user.supporter_creator.exists()) and not (request.user.investor_creator.exists()):
         return redirect(reverse('profile_create'))
+    if not (request.user.is_authenticated()):
+        return redirect(reverse('login'))
 
     template = loader.get_template('crowdfunding/investor/index.html')
     campaign_data = Campaign.objects.filter(campaign_name__contains=request.POST['campaign_name'],campaign_status='APPROVED')
@@ -234,6 +238,9 @@ def make_payment(request):
     if request.user.is_authenticated() and not (request.user.business_creator.exists()) and not (
             request.user.supporter_creator.exists()) and not (request.user.investor_creator.exists()):
         return redirect(reverse('profile_create'))
+    if not (request.user.is_authenticated()):
+        return redirect(reverse('login'))
+
     campaign_selected = Campaign.objects.get(id=request.POST['campaign_id'])
     payment = CampaignPayment(campaign=campaign_selected,created_at=timezone.now(),donator=request.user,donator_email=request.user.email,donator_phoneno=request.POST['donator_phoneno'],amount=request.POST['amount'],payment_method=request.POST['payment_method'],payment_status='INITIATED',paid=False,comments=request.POST['comments'],allow_visibility=request.POST['allow_visibility'])
     payment.save()
