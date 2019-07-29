@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63775d04-ee63-40b5-9b92-96f47de827ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/venturelift_profiles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_profiles/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venturelift_profiles/templates/profile/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_profiles/templates/profile/home.html" afterDir="false" />
     </list>
     <ignored path="celerybeat-schedule" />
     <ignored path="celerybeat.pid" />
@@ -26,11 +26,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/business/create_business.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venturelift_profiles/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venturelift_profiles/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="573" column="58" selection-start-line="573" selection-start-column="45" selection-end-line="573" selection-end-column="58" />
+              <caret line="484" column="7" lean-forward="true" selection-start-line="484" selection-start-column="7" selection-end-line="484" selection-end-column="7" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -38,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/supporter/supporters_filter.html">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="30" column="55" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="55" />
+            <state relative-caret-position="156">
+              <caret line="356" column="34" selection-start-line="356" selection-start-column="38" selection-end-line="358" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -58,9 +79,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ventu</find>
-      <find>admin</find>
-      <find>filer</find>
       <find>connect</find>
       <find>investor-name</find>
       <find>FUNDER_TYPES</find>
@@ -86,8 +104,11 @@
       <find>Edit Ho</find>
       <find>Discover</find>
       <find>Venturelift Home</find>
-      <find>startup</find>
       <find>business.html</find>
+      <find>startup</find>
+      <find>thumbnail_image</find>
+      <find>Updates are new information you wish to share with our network of supporters and investors.</find>
+      <find>file_name</find>
     </findStrings>
     <replaceStrings>
       <replace>http://52.37.84.193:8081</replace>
@@ -103,6 +124,7 @@
       <dir>$PROJECT_DIR$/venturelift_profiles</dir>
       <dir>$PROJECT_DIR$/venturelift_cms</dir>
       <dir>$PROJECT_DIR$/venturelift_profiles/templates/profile</dir>
+      <dir>$PROJECT_DIR$/venturelift_profiles/templates</dir>
       <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
@@ -157,12 +179,12 @@
         <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/base3.html" />
         <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/base4.html" />
         <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/base5.html" />
-        <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/home.html" />
         <option value="$PROJECT_DIR$/venturelift_profiles/templates/portal_base.html" />
         <option value="$PROJECT_DIR$/knowledge_center/templates/knowledge_index.html" />
         <option value="$PROJECT_DIR$/venturelift_cms/templates/base_root.html" />
         <option value="$PROJECT_DIR$/venturelift_cms/templates/base.html" />
         <option value="$PROJECT_DIR$/venturelift_profiles/views.py" />
+        <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/home.html" />
       </list>
     </option>
   </component>
@@ -295,13 +317,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/knowledge_center/templates/video_content.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/knowledge_center/templates/all_video_content.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -448,26 +463,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="239" column="17" selection-start-line="239" selection-start-column="6" selection-end-line="239" selection-end-column="17" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="111" column="44" selection-start-line="111" selection-start-column="44" selection-end-line="111" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crowdfunding/templates/crowdfunding/business/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -579,13 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="321" column="58" selection-start-line="321" selection-start-column="58" selection-end-line="321" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/base5.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -642,6 +630,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="563" column="38" lean-forward="true" selection-start-line="563" selection-start-column="38" selection-end-line="563" selection-end-column="38" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/venturelift_profiles/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -652,13 +650,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_profiles/views.py">
+    <entry file="file://$PROJECT_DIR$/venturelift_profiles/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/business/create_business.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venturelift_profiles/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="573" column="58" selection-start-line="573" selection-start-column="45" selection-end-line="573" selection-end-column="58" />
+          <caret line="484" column="7" lean-forward="true" selection-start-line="484" selection-start-column="7" selection-end-line="484" selection-end-column="7" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venturelift_profiles/templates/profile/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="356" column="34" selection-start-line="356" selection-start-column="38" selection-end-line="358" selection-end-column="44" />
         </state>
       </provider>
     </entry>
