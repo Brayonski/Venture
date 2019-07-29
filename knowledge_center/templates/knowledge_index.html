@@ -90,10 +90,7 @@
 
 											<!-- docs -->
 											{% for obj in text_center %}
-											{% if obj.category.title == 'Reports' %}
-												<span>Reports</span> &nbsp;&nbsp;| &nbsp;&nbsp;
-											{% endif %}
-											{{obj.category}}
+											{% if obj.category.title == "Reports" %}
 											<div class="col-md-4 clearfix">
 												<div class="k_box">
 													<h3 class="">
@@ -137,6 +134,7 @@
 													</div>
 												</div>
 											</div>
+											{% endif %}
 											{% endfor %}
 
 										</div>
@@ -285,7 +283,7 @@
 
 											<!-- docs -->
 											{% for obj in text_center %}
-											{% if obj.category == "Opportunities" %}
+											{% if obj.category.title == "Opportunities" %}
 											<div class="col-md-4 clearfix single_card_wrapper">
 												<div class="k_box">
 													<h3 class="">
