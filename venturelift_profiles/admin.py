@@ -5,6 +5,7 @@ from django.contrib import admin
 from venturelift_profiles.models import *
 from venturelift_profiles.tasks import *
 from django.conf import settings
+from actstream.actions import follow, unfollow
 
 
 class BusinessAdmin(admin.ModelAdmin):
@@ -167,6 +168,7 @@ class BusinessConnectRequestAdmin(admin.ModelAdmin):
                 obj.approved = True
                 obj.approved_by = request.user
                 obj.save()
+                follow(obj.investor, obj.business)
             elif form.cleaned_data['approval_status'] == "REJECT":
                 obj.rejected = True
                 obj.rejected_by = request.user
@@ -191,6 +193,7 @@ class InvestorConnectRequestAdmin(admin.ModelAdmin):
                 obj.approved = True
                 obj.approved_by = request.user
                 obj.save()
+                follow(obj.requestor, obj.investor)
             elif form.cleaned_data['approval_status'] == "REJECT":
                 obj.rejected = True
                 obj.rejected_by = request.user
@@ -215,6 +218,7 @@ class SupporterConnectRequestAdmin(admin.ModelAdmin):
                 obj.approved = True
                 obj.approved_by = request.user
                 obj.save()
+                follow(obj.requestor, obj.supporter)
             elif form.cleaned_data['approval_status'] == "REJECT":
                 obj.rejected = True
                 obj.rejected_by = request.user
