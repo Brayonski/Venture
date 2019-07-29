@@ -90,7 +90,7 @@
 
 											<!-- docs -->
 											{% for obj in text_center %}
-											{% if obj.category == "Reports" %}
+											{{obj.category}}
 											<div class="col-md-4 clearfix">
 												<div class="k_box">
 													<h3 class="">
@@ -134,7 +134,6 @@
 													</div>
 												</div>
 											</div>
-											{% endif %}
 											{% endfor %}
 
 										</div>
