@@ -423,7 +423,7 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
                 if form.cleaned_data['service']:
                     business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
                                                Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
-            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user)})
+            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user), 'services' : VlaServices.objects.all(), 'sectors' : BusinessCategory.objects.all().order_by('name')})
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessView, self).get_context_data(*args, **kwargs)
@@ -480,7 +480,7 @@ class BusinessStartupView(LoginRequiredMixin, ListView, FormMixin):
                 if form.cleaned_data['service']:
                     business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
                                                Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
-            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user)})
+            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user), 'services' : VlaServices.objects.all(), 'sectors' : BusinessCategory.objects.all().order_by('name')})
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessStartupView, self).get_context_data(*args, **kwargs)
@@ -538,7 +538,7 @@ class BusinessSMEView(LoginRequiredMixin, ListView, FormMixin):
                 if form.cleaned_data['service']:
                     business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
                                                Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
-            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user)})
+            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user), 'services' : VlaServices.objects.all(), 'sectors' : BusinessCategory.objects.all().order_by('name')})
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessSMEView, self).get_context_data(*args, **kwargs)
