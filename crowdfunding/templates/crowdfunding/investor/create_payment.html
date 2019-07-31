@@ -107,7 +107,7 @@
                                                                <h5><b>Target Amount</b></h5>
                                                                 <p class="card-text dark-text">
                                                                   {% if campaign_data.target_amount %}
-                                                                    USD {{campaign_data.target_amount}}
+                                                                    USD {{target_amount}}
                                                                   {% else %}
                                                                     No target_amount provided
                                                                   {% endif %}
@@ -116,7 +116,7 @@
                                                               <h5><b>Minimum Amount</b></h5>
                                                                 <p class="card-text dark-text">
                                                                   {% if campaign_data.minimum_donation %}
-                                                                    USD {{campaign_data.minimum_donation}}
+                                                                    USD {{minimum_donation}}
                                                                   {% else %}
                                                                     No minimum donation amount defined
                                                                   {% endif %}
@@ -125,7 +125,7 @@
                                                                <h5><b>Campaign Closing Date</b></h5>
                                                                 <p class="card-text dark-text">
                                                                   {% if campaign_data.duration %}
-                                                                    USD {{campaign_data.duration}}
+                                                                    {{campaign_data.duration}}
                                                                   {% else %}
                                                                     No campaign  closing date details provided
                                                                   {% endif %}

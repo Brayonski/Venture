@@ -74,6 +74,10 @@ def business_campaign_view(request, campaign_id):
     context = {
         'campaign_data': campaign_data,
         'campaign_sectors': campaign_sectors,
+        'target_amount': "{0:,.2f}".format(campaign_data.target_amount),
+        'minimum_donation': "{0:,.2f}".format(campaign_data.minimum_donation),
+        'total_funds_received': "{0:,.2f}".format(campaign_data.total_funds_received),
+        'campaign_reward_threshold': "{0:,.2f}".format(campaign_data.campaign_reward_threshold),
     }
     return HttpResponse(template.render(context, request))
 
@@ -164,6 +168,8 @@ def create_donation(request, campaign_id):
 
     context = {
         'campaign_data': campaign_data,
+        'target_amount': "{0:,.2f}".format(campaign_data.target_amount),
+        'minimum_donation': "{0:,.2f}".format(campaign_data.minimum_donation),
     }
     return HttpResponse(template.render(context, request))
 
@@ -174,6 +180,8 @@ def crowdfunder_create_donation(request, campaign_id):
 
     context = {
         'campaign_data': campaign_data,
+        'target_amount': "{0:,.2f}".format(campaign_data.target_amount),
+        'minimum_donation': "{0:,.2f}".format(campaign_data.minimum_donation),
     }
     return HttpResponse(template.render(context, request))
 

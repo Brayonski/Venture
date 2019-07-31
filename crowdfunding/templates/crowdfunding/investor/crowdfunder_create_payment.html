@@ -69,13 +69,6 @@
                   </p>
               </div>
 
-              <div class="camp_obj">
-                 <h3>Approval Status</h3>
-                  <p class="card-text dark-text">
-                      {{campaign_data.approval_status}}
-                  </p>
-              </div>
-
 
               <div class="camp_obj">
                  <h3>Campaign Comments From Venturelift</h3>
@@ -91,7 +84,7 @@
                  <h3>Target Amount</h3>
                   <p class="card-text dark-text">
                     {% if campaign_data.target_amount %}
-                      USD {{campaign_data.target_amount}}
+                      USD {{target_amount}}
                     {% else %}
                       No target_amount provided
                     {% endif %}
@@ -101,7 +94,7 @@
                 <h3>Minimum Amount</h3>
                   <p class="card-text dark-text">
                     {% if campaign_data.minimum_donation %}
-                      USD {{campaign_data.minimum_donation}}
+                      USD {{minimum_donation}}
                     {% else %}
                       No minimum donation amount defined
                     {% endif %}
@@ -110,7 +103,7 @@
                  <h3>Campaign Closing Date</h3>
                   <p class="card-text dark-text">
                     {% if campaign_data.duration %}
-                      USD {{campaign_data.duration}}
+                      {{campaign_data.duration}}
                     {% else %}
                       No campaign  closing date details provided
                     {% endif %}
