@@ -28,6 +28,7 @@ class HomeView(ListView):
         context['other_articles'] = self.get_other_articles()
         context['stories_top'] = TextMedia.objects.all()[:3]
         context['stories_bottom'] = TextMedia.objects.all().order_by('date')[:3]
+        context['me_data'] = "This is me"
         return context
 
     def get_context_categories(self):
