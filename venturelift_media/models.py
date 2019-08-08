@@ -35,6 +35,7 @@ class TextMedia(models.Model):
     body = fields.HTMLField()
     date = models.DateTimeField(auto_now_add=True)
     thumbnail_image = models.FileField(upload_to='pic_folder/',null=True)
+    priority = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -52,6 +53,7 @@ class AudioVisual(models.Model):
     vla_tv = models.BooleanField(default=False, help_text='This media is property of VLA')
     category = models.CharField(max_length=100, choices=AUDIOVISUALCHOICES)
     sub_category = models.ForeignKey(Category, null=True)
+    priority = models.BooleanField(default=False)
     
     def __str__(self):
         return self.title
