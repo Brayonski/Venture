@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63775d04-ee63-40b5-9b92-96f47de827ab" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/venturelift_media/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_media/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venturelift_media/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_media/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venturelift_media/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_media/views.py" afterDir="false" />
     </list>
     <ignored path="celerybeat-schedule" />
@@ -29,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venturelift_media/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="40" column="62" selection-start-line="40" selection-start-column="62" selection-end-line="40" selection-end-column="62" />
+            <state relative-caret-position="870">
+              <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
               <folding>
                 <element signature="e#19#58#0" expanded="true" />
               </folding>
@@ -41,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venturelift_media/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+            <state relative-caret-position="638">
+              <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -50,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venturelift_media/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="18" column="14" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="14" />
+            <state relative-caret-position="290">
+              <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -59,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venturelift_cms/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="42" column="16" lean-forward="true" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+            <state relative-caret-position="420">
+              <caret line="95" column="30" lean-forward="true" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -76,7 +78,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Home</find>
       <find>profile_summary</find>
       <find>Investor</find>
       <find>InvestorView</find>
@@ -106,6 +107,7 @@
       <find>class=&quot;in_style_A&quot;</find>
       <find>style_B</find>
       <find>get_other_articles</find>
+      <find>stories_bottom</find>
     </findStrings>
     <replaceStrings>
       <replace>http://52.37.84.193:8081</replace>
@@ -140,7 +142,6 @@
         <option value="$PROJECT_DIR$/crowdfunding/templates/crowdfunding/base6.html" />
         <option value="$PROJECT_DIR$/venturelift_cms/templates/global-header.html" />
         <option value="$PROJECT_DIR$/venturelift_cms/templates/global-footer.html" />
-        <option value="$PROJECT_DIR$/venturelift_media/models.py" />
         <option value="$PROJECT_DIR$/venturelift_profiles/templates/profile/investor/update_investor.html" />
         <option value="$PROJECT_DIR$/venturelift_profiles/templates/blog/create_post.html" />
         <option value="$PROJECT_DIR$/knowledge_center/templates/video_content.html" />
@@ -182,6 +183,7 @@
         <option value="$PROJECT_DIR$/venturelift_cms/templates/index.html" />
         <option value="$PROJECT_DIR$/venturelift_cms/templates/base.html" />
         <option value="$PROJECT_DIR$/venturelift_media/admin.py" />
+        <option value="$PROJECT_DIR$/venturelift_media/models.py" />
         <option value="$PROJECT_DIR$/venturelift_media/views.py" />
       </list>
     </option>
@@ -631,31 +633,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_media/admin.py">
+    <entry file="file://$PROJECT_DIR$/venturelift_media/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+        <state relative-caret-position="290">
+          <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venturelift_media/models.py">
+    <entry file="file://$PROJECT_DIR$/venturelift_media/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="14" />
+        <state relative-caret-position="638">
+          <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venturelift_cms/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="42" column="16" lean-forward="true" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+        <state relative-caret-position="420">
+          <caret line="95" column="30" lean-forward="true" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venturelift_media/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="40" column="62" selection-start-line="40" selection-start-column="62" selection-end-line="40" selection-end-column="62" />
+        <state relative-caret-position="870">
+          <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
           <folding>
             <element signature="e#19#58#0" expanded="true" />
           </folding>

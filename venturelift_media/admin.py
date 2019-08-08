@@ -12,6 +12,8 @@ class TextMediaAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if getattr(obj, 'author', None) is None:
             obj.author = request.user
+        if getattr(obj, 'priority', None) is None:
+            obj.priority = False
         obj.save()
 
 class AudioVisualAdmin(admin.ModelAdmin):
@@ -23,6 +25,8 @@ class AudioVisualAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if getattr(obj, 'author', None) is None:
             obj.author = request.user
+        if getattr(obj, 'priority', None) is None:
+            obj.priority = False
         obj.save()
 
 class CategoryAdmin(admin.ModelAdmin):
