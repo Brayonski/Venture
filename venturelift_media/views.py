@@ -30,7 +30,6 @@ class HomeView(ListView):
         context['stories_top'] = TextMedia.objects.filter(category=1)[:3]
         if cat is not None:
             context['stories_top'] = TextMedia.objects.exclude(category=cat)[:3]
-        context['stories_top'] = TextMedia.objects.filter(category=1)[:3]
         context['stories_bottom'] = TextMedia.objects.all().order_by('date')[:3]
         return context
 
