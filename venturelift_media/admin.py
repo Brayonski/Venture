@@ -5,7 +5,6 @@ from django.contrib import admin
 from .models import TextMedia, AudioVisual, Category, Subscription, Newsletter
 
 class TextMediaAdmin(admin.ModelAdmin):
-    search_fields = ['title', 'category', 'author']
     list_filter = ['date', 'category', 'author']
     readonly_fields = ["author"]
     list_display = ['title', 'category', 'date']

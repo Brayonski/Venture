@@ -26,7 +26,7 @@ class HomeView(ListView):
         context["vla_tv"] = AudioVisual.objects.filter(
             category='Video', vla_tv=True).order_by('date')[:1]
         context['other_articles'] = self.get_other_articles()
-        context['stories_top'] = TextMedia.objects.all()[:3]
+        context['stories_top'] = TextMedia.objects.filter(category=1)[:3]
         context['stories_bottom'] = TextMedia.objects.all().order_by('date')[:3]
         return context
 
