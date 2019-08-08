@@ -946,7 +946,7 @@ class BusinessProfileView(DetailView):
             pk=self.kwargs.get("pk"))
         r_supporter = SupporterProfile.objects.filter(interest_sectors=business.sector)[:3]
         r_investor = InvestorProfile.objects.filter(target_sectors=business.sector)[:3]
-        r_businesses = Business.objects.filter(sector=business.sector,verified=True).exclude(creator=self.request.user)[:3]
+        r_businesses = Business.objects.filter(sector=business.sector,verified=True).exclude(creator=self.request.user).exclude(pk=self.kwargs.get("pk"))[:3]
         context.update({'r_supporter': r_supporter,
                         'r_investor':r_investor, 'r_businesses':r_businesses, 'business': business})
         context['post'] = Post.objects.filter(
