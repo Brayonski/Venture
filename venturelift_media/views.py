@@ -64,7 +64,7 @@ class HomeView(ListView):
         categories = Category.objects.exclude(title='Diaspora').exclude(title='Trade')
         articles = []
         for category in categories:
-            article = TextMedia.objects.filter(category=category).order_by('date')[:1]
+            article = TextMedia.objects.filter(category=category,priority=True).order_by('date')[:1]
             if  len(articles) >= 3:
                 break
             if len(article) > 0:
