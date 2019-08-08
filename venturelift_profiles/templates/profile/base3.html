@@ -6,7 +6,7 @@
   <title>{% block title %}VentureLift Africa - Portal{% endblock title %}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#283891">
-  
+
   <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
 
   <link
@@ -26,7 +26,8 @@
   <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
     <div class="top_container container">
       <div class="nav_nav_first navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse" aria-expanded="false">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse"
+          aria-expanded="false">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -36,7 +37,7 @@
           <img src="{% static 'img/logo2.png' %}" alt="VentureLift Africa">
         </a>
       </div>
-      
+
       <div class="vl_top_top navbar-right collapse navbar-collapse navbar-responsive-collapse">
         <ul class="vl_top_nav in_line">
           <li>
@@ -48,30 +49,30 @@
             <div class="dropdown">
               <button class="dropbtn">Business</button>
               <div class="dropdown-content">
-                 <a href="{% url 'business_startup' %}">Startup</a>
-                 <a href="{% url 'business_smes' %}">SMEs</a>
+                <a href="{% url 'business_startup' %}">Startup</a>
+                <a href="{% url 'business_smes' %}">SMEs</a>
               </div>
             </div>
           </li>
-         <li>
-              <div class="dropdown">
-                <button class="dropbtn">Funder</button>
-                <div class="dropdown-content">
-                   <a href="{% url 'investor_filter' 'Investor' %}">Investor</a>
-                   <a href="{% url 'crowdfunding:index' %}">Crowdfunding</a>
-                   <a href="{% url 'investor_filter' 'Lender' %}">Lender</a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Funder</button>
+              <div class="dropdown-content">
+                <a href="{% url 'investor_filter' 'Investor' %}">Investor</a>
+                <a href="{% url 'crowdfunding:index' %}">Crowdfunding</a>
+                <a href="{% url 'investor_filter' 'Lender' %}">Lender</a>
               </div>
-         </li>
+            </div>
+          </li>
           <li>
             <div class="dropdown">
               <button class="dropbtn">Partner</button>
               <div class="dropdown-content">
-                   <a href="{% url 'supporter_filter' 'Trade' %}">Trade</a>
-                  <a href="{% url 'supporter_filter' 'Supply Chain' %}">Supply Chain</a>
-                  <a href="{% url 'supporter_filter' 'Technology' %}">Technology</a>
-                  <a href="{% url 'supporter_filter' 'Talent' %}">Talent</a>
-                  <a href="{% url 'supporter_filter' 'Professional Services' %}">Professional Services</a>
+                <a href="{% url 'supporter_filter' 'Trade' %}">Trade</a>
+                <a href="{% url 'supporter_filter' 'Supply Chain' %}">Supply Chain</a>
+                <a href="{% url 'supporter_filter' 'Technology' %}">Technology</a>
+                <a href="{% url 'supporter_filter' 'Talent' %}">Talent</a>
+                <a href="{% url 'supporter_filter' 'Professional Services' %}">Professional Services</a>
               </div>
             </div>
           </li>
@@ -132,7 +133,7 @@
           -->
         </ul>
       </div>
-      
+
     </div>
   </nav>
 
@@ -141,32 +142,40 @@
   </div>
 
   <div class="full_width primary_footer">
-      <div class="full_width footer foot2">
-          <div class="container clearfix">
-              <ul class="in_style_A_list_A in_style_B1">
-                  <li><a href="/about-us">About us</a></li>
-                  <li><a href="/team">Team</a></li>
-                  <li><a href="/careers">Careers</a></li>
-                  <li><a href="/help">FAQ</a></li>
-                  <li><a href="/advertise">Advertise</a></li>
-                  <li><a href="/terms-of-use">Terms of Use</a></li>
-                  <li><a href="/contact-us">Contact us</a></li>  
-              <ul class="in_style_A_list_A in_style_B3">
-                  <li>
-                    <ul class="social_icons social_bottom">
-                      <li><a class="li" href="https://ke.linkedin.com/company/venturelift-africa"><ion-icon name="logo-linkedin" role="img" class="hydrated" aria-label="logo linkedin"></ion-icon></a></li>
-                      <li><a class="tw" href="https://twitter.com/vliftafrica"><ion-icon name="logo-twitter" role="img" class="hydrated" aria-label="logo twitter"></ion-icon></a></li>
-                      <li><a class="fb" href="https://facebook.com/vlafrica"><ion-icon name="logo-facebook" role="img" class="hydrated" aria-label="logo facebook"></ion-icon></a></li>
-                      <li><a class="ig" href="https://www.instagram.com/vlafrica/"><ion-icon name="logo-instagram" role="img" class="hydrated" aria-label="logo instagram"></ion-icon></a></li>
-                    </ul>
-                  </li>
+    <div class="full_width footer foot2">
+      <div class="container clearfix">
+        <ul class="in_style_A_list_A in_style_B1">
+          <li><a href="/about-us">About us</a></li>
+          <li><a href="/team">Team</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/help">FAQ</a></li>
+          <li><a href="/advertise">Advertise</a></li>
+          <li><a href="/terms-of-use">Terms of Use</a></li>
+          <li><a href="/contact-us">Contact us</a></li>
+          <ul class="in_style_A_list_A in_style_B3">
+            <li>
+              <ul class="social_icons social_bottom">
+                <li><a class="li" href="https://ke.linkedin.com/company/venturelift-africa">
+                    <ion-icon name="logo-linkedin" role="img" class="hydrated" aria-label="logo linkedin"></ion-icon>
+                  </a></li>
+                <li><a class="tw" href="https://twitter.com/vliftafrica">
+                    <ion-icon name="logo-twitter" role="img" class="hydrated" aria-label="logo twitter"></ion-icon>
+                  </a></li>
+                <li><a class="fb" href="https://facebook.com/vlafrica">
+                    <ion-icon name="logo-facebook" role="img" class="hydrated" aria-label="logo facebook"></ion-icon>
+                  </a></li>
+                <li><a class="ig" href="https://www.instagram.com/vlafrica/">
+                    <ion-icon name="logo-instagram" role="img" class="hydrated" aria-label="logo instagram"></ion-icon>
+                  </a></li>
               </ul>
-              <ul class="in_style_A_list_A in_style_B2">
-                  <li class="copright">© 2017&mdash;2019 VentureLift Africa. All Rights Reserved</li>
-              </ul>                              
-          </div>
-      </div>        
-      {# static_placeholder 'footer' #}
+            </li>
+          </ul>
+          <ul class="in_style_A_list_A in_style_B2">
+            <li class="copright">© 2017&mdash;2019 VentureLift Africa. All Rights Reserved</li>
+          </ul>
+      </div>
+    </div>
+    {# static_placeholder 'footer' #}
   </div>
 
   {% render_block "js" %}
@@ -236,24 +245,24 @@
   </script>
 
   <script type="text/javascript">
-    $( document ).ready(function() {
-      jQuery(function($) {
-        $('#select').on('change', function() {
+    $(document).ready(function () {
+      jQuery(function ($) {
+        $('#select').on('change', function () {
           var url = $(this).val();
           if (url) {
             window.location = url;
           }
           return false;
         });
-        $('#select2').on('change', function() {
+        $('#select2').on('change', function () {
           var url = $(this).val();
           if (url) {
             window.location = url;
           }
           return false;
-        });        
-      });  
-    });  
+        });
+      });
+    });
   </script>
 
 </body>

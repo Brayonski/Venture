@@ -247,14 +247,14 @@
                                         <div class="pull-rightX">
   
                                           <h5 class="card-title">
-                                            Sector of Interest
+                                            Sector of interest
                                           </h5>  
                                           {% for obj in investor_profile.target_sectors.all %}
                                           <p class="card-text">{{obj}}</p>
                                           {% endfor %}
 
                                           <h5 class="card-title">
-                                            Role at {{investor.company}}
+                                            Role at {{ investor.company|capitalize }}
                                           </h5>  
                                           <p class="card-text">{{investor.role}}</p>
 
@@ -340,7 +340,7 @@
                             <div class="top_center_nav text-center">
                                 <div class="top_banner_ctaY">
                                   <div class="contact_infoY">
-                                    <h3>Contact Information</h3>
+                                    <h3>Contact information</h3>
                                     <p>Connect me with this Funder</p>
                                   </div>
                                   {% if following %}
