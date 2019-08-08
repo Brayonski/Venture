@@ -5,20 +5,21 @@
 {% block content %}
 <style>
   .open-button {
-  background-color: #1ba4db;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-}
-.open-button:hover {
-  opacity: 1;
-}
+    background-color: #1ba4db;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+  }
+
+  .open-button:hover {
+    opacity: 1;
+  }
 </style>
 <div class="event_wrapper full_A">
 
@@ -31,7 +32,70 @@
           <li class="active e-title_1">
             <h1>Events</h1>
           </li>
+          <!--
+                <li class="e-title_2">
+                  <form class="url_changer url_changer1">
+                    <select id="select" class="select">
+                      <option value="{% url 'events_home' %}">VLA Events</option>
+                      <option value="{% url 'network_events' %}">Network Events</option>
+                    </select>
+                  </form>  
+
+                  <form class="url_changer url_changer2">
+                    <select id="select2" class="select">
+                      {% if object_list %}
+                        <option class="{% ifequal request.path events_home %}active{% endifequal %}" value="{% url 'events_home' %}">All</option>
+                      {% endif %}   
+
+                      {% for type in event_type %}
+                        {% if type.events_set.count >= 1 %}
+                        {% url 'event_view_content_filter' type.id as event_view_content_filter %}
+                        <option class="{% ifequal request.path event_view_content_filter %}active{% endifequal %}" value="{% url 'event_view_content_filter' type.id %}">{{type.title}}
+                        </option>
+                        {% endif %}
+                      {% endfor %}                                         
+                    </select>
+                  </form> 
+                </li>
+                -->
         </ul>
+
+        <!--
+              <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                      <li class="active"><a href="{% url 'events_home' %}"><h3>VLA Events</h3></a></li>
+                      <li class="active"><a href="{% url 'network_events' %}"><h3>Network Events</h3></a></li>
+                   </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="#">Link</a></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Action</a></li>
+                          <li><a href="#">Another action</a></li>
+                          <li><a href="#">Something else here</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li><a href="#">Separated link</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              -->
 
       </div>
 
@@ -39,10 +103,7 @@
   </nav>
 
   <div class="container">
-<<<<<<< HEAD
-=======
 
->>>>>>> 76b2856283de59a89d49a1e79da5d16d2bb02b05
     <div class="page_with_2_sections_e row clearfix">
       <div class="col-md-3 clearfix s_e_sidebar">
         <div class="s_e_1 s_e_in">
@@ -56,7 +117,6 @@
             {% endif %}
 
             {% for type in event_type %}
-<<<<<<< HEAD
             {% if type.events_set.count >= 1 %}
             {% url 'event_view_content_filter' type.id as event_view_content_filter %}
             <a class="list-group-item {% ifequal request.path event_view_content_filter %}active{% endifequal %}"
@@ -64,17 +124,9 @@
             </a>
             {% endif %}
             {% endfor %}
-=======
-              {% if type.events_set.count >= 1 %}
-              {% url 'event_view_content_filter' type.id as event_view_content_filter %}
-              <a class="list-group-item {% ifequal request.path event_view_content_filter %}active{% endifequal %}" href="{% url 'event_view_content_filter' type.id %}">{{type.title}}
-              </a>
-              {% endif %}
-            {% endfor %}  
           </div>
 
           <div class="list_box list-group">
->>>>>>> 76b2856283de59a89d49a1e79da5d16d2bb02b05
             <a href="{% url 'network_events' %}" class="list_title list-group-item">
               Member Events
             </a>
@@ -95,7 +147,9 @@
       </div>
       <div class="col-md-9 clearfix s_e_sidebar">
         <div class="s_e_2 s_e_in">
+
           <div class="s_e_table">
+
             <table class="table">
               <tbody>
                 {% for obj in object_list %}
@@ -127,63 +181,104 @@
                 {% endfor %}
               </tbody>
             </table>
+
           </div>
-          <div class="pagination pag_wrapper">
-            {% if is_paginated %}
-            <ul class="pagination">
-              {% if page_obj.has_previous %}
-              <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-              {% else %}
-              <li class="disabled"><span>&laquo;</span></li>
-              {% endif %}
-              {% for i in paginator.page_range %}
-              {% if page_obj.number == i %}
-              <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-              {% else %}
-              <li><a href="?page={{ i }}">{{ i }}</a></li>
-              {% endif %}
-              {% endfor %}
-              {% if page_obj.has_next %}
-              <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-              {% else %}
-              <li class="disabled"><span>&raquo;</span></li>
-              {% endif %}
-            </ul>
-            {% endif %}
-          </div>
-        </div>
+
+        </div class="pagination pag_wrapper">
+        {% if is_paginated %}
+        <ul class="pagination">
+          {% if page_obj.has_previous %}
+          <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+          {% else %}
+          <li class="disabled"><span>&laquo;</span></li>
+          {% endif %}
+          {% for i in paginator.page_range %}
+          {% if page_obj.number == i %}
+          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+          {% else %}
+          <li><a href="?page={{ i }}">{{ i }}</a></li>
+          {% endif %}
+          {% endfor %}
+          {% if page_obj.has_next %}
+          <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+          {% else %}
+          <li class="disabled"><span>&raquo;</span></li>
+          {% endif %}
+        </ul>
+        {% endif %}
       </div>
     </div>
-<<<<<<< HEAD
-=======
+
+
+    <!--
+    <div class="tab-content">
+
+      
+      <ul class="nav nav-pills">
+        {% if object_list %}
+        <li class="{% ifequal request.path events_home %}active{% endifequal %}"><a
+            href="{% url 'events_home' %}">All</a>
+        </li>
+        {% endif %}
+        {% for type in event_type %}
+        {% if type.events_set.count >= 1 %}
+        {% url 'event_view_content_filter' type.id as event_view_content_filter %}
+        <li class="{% ifequal request.path event_view_content_filter %}active{% endifequal %}">
+          <a href="{% url 'event_view_content_filter' type.id %}">{{type.title}}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+
+      <div class="row clearfix">
+          
+          {% for obj in object_list %}
+          {% if obj.published %}
+            <div class="no_padd col-md-4 clearfix">
+              <div class="event_box">
+                <div class="event_box_in">
+                  <figure class="event_image">
+                    <a href="{% url 'event_view_content' obj.id %}">
+                      {% if obj.event_banner %}
+                        <img src="{{ obj.event_banner.url }}" width="" height="">
+                      {% else %}
+                        <img src="{% static 'img/home_section_3.png' %}" width="" height="">
+                      {% endif %}                    
+                    </a>
+                  </figure>
+                  <div class="event_content">
+                    <h4 class="event_title">
+                      <a href="{% url 'event_view_content' obj.id %}">{{ obj.title }}</a>
+                    </h4>
+                    <div class="event_action">
+                      {% is_attendee obj as is_in_attendee_list %}
+                      {% if is_in_attendee_list == True %}
+                      <a class="btn btn-primary" href="{% url 'event_register' obj.id %}"><ion-icon name="add"></ion-icon>  Register</a>
+                      {% else %}
+                      <a class="btn btn-success" href="#">
+                        <ion-icon name="checkmark"></ion-icon> Registered
+                      </a>
+                      {% endif %}
+                      <div class="event_meta">
+                        {{obj.category}}
+                        {{obj.start_date }} - {{obj.end_date }}
+                        {{obj.location }}                      
+                      </div>
+                    </div>                  
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+          {% endfor %}
+          
+
+      </div>
+      
+    </div>
       -->
     <button class="open-button">To upload events on venturelift, please contact the admin</button>
->>>>>>> 76b2856283de59a89d49a1e79da5d16d2bb02b05
   </div>
 </div>
-<p id="network-events-notice"></p>
-{% endblock %}
 
-{% block javascript %}
-<script>
-  $(document).ready(function () {
-
-    var show_toast = show_random_toast(true);
-  });
-
-  function show_random_toast(pause_on_hover) {
-    let type = "success",
-      title = "Network Managed Events",
-      content = "To post your event. Please Contact admin@vla.com";
-
-    $.toast({
-      title: title,
-      subtitle: '+',
-      content: content,
-      type: type,
-      pause_on_hover: pause_on_hover,
-      delay: 5000
-    });
-  }
-</script>
 {% endblock %}
