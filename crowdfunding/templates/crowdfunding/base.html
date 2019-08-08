@@ -19,7 +19,7 @@
 </head>
 
 
-<body class="logged_in profile_templates">
+<body class="crowd_base logged_in profile_templates">
     {% cms_toolbar %}
         <!-- Fixed navbar -->
     <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
@@ -38,8 +38,8 @@
           <div class="vl_top_top navbar-right">
             <ul class="vl_top_nav in_line">
               <li>
-                <a href="{% url 'profile_summary' %}">
-                  My Profile
+                <a href="/">
+                  Home
                 </a>
               </li>
               <li>
@@ -51,7 +51,17 @@
                     </div>
                   </div>
               </li>
-                <li>
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn">Funder</button>
+                  <div class="dropdown-content">
+                      <a href="{% url 'investor_filter' 'Investor' %}">Investor</a>
+                      <a href="{% url 'crowdfunding:index' %}">Crowdfunding</a>
+                      <a href="{% url 'investor_filter' 'Lender' %}">Lender</a>
+                  </div>
+                </div>
+              </li>
+              <li>
                   <div class="dropdown">
                     <button class="dropbtn">Partner</button>
                     <div class="dropdown-content">
@@ -63,17 +73,6 @@
                     </div>
                   </div>
                 </li>
-
-               <li>
-                    <div class="dropdown">
-                      <button class="dropbtn">Funder</button>
-                      <div class="dropdown-content">
-                          <a href="#">Investor</a>
-                          <a href="{% url 'crowdfunding:index' %}">Crowdfunder</a>
-                          <a href="#">Lender</a>
-                      </div>
-                    </div>
-               </li>
               <li>
               <a href="{%url 'knowledge_center_home' %}">
                 Knowledge Center
@@ -123,10 +122,12 @@
                   </ul>
                 </div>
               </li>
+              <!--
               <li class="pull_right"><a href="#nogo">
                   <ion-icon name="notifications-outline"></ion-icon>
                 </a>
               </li>
+              -->
             </ul>
           </div>
         </div>
@@ -145,8 +146,40 @@
     </div>
 
     <div class="full_width footer">
-        {% static_placeholder 'footer' %}
+        {# static_placeholder 'footer' #}
     </div>
+
+
+        <div class="full_width primary_footer">
+            <div class="full_width footer foot2">
+                <div class="container clearfix">
+                    <ul class="in_style_A_list_A in_style_B1">
+                        <li><a href="/about-us">About us</a></li>
+                        <li><a href="/team">Team</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/help">FAQ</a></li>
+                        <li><a href="/advertise">Advertise</a></li>
+                        <li><a href="/terms-of-use">Terms of Use</a></li>
+                        <li><a href="/contact-us">Contact us</a></li>
+                    </ul>      
+                    <ul class="in_style_A_list_A in_style_B3">
+                        <li>
+                          <ul class="social_icons social_bottom">
+                            <li><a class="li" href="https://ke.linkedin.com/company/venturelift-africa"><ion-icon name="logo-linkedin" role="img" class="hydrated" aria-label="logo linkedin"></ion-icon></a></li>
+                            <li><a class="tw" href="https://twitter.com/vliftafrica"><ion-icon name="logo-twitter" role="img" class="hydrated" aria-label="logo twitter"></ion-icon></a></li>
+                            <li><a class="fb" href="https://facebook.com/vlafrica"><ion-icon name="logo-facebook" role="img" class="hydrated" aria-label="logo facebook"></ion-icon></a></li>
+                            <li><a class="ig" href="https://www.instagram.com/vlafrica/"><ion-icon name="logo-instagram" role="img" class="hydrated" aria-label="logo instagram"></ion-icon></a></li>
+                          </ul>
+                        </li>
+                    </ul>
+                    <ul class="in_style_A_list_A in_style_B2">
+                        <li class="copright">© 2017&mdash;2019 VentureLift Africa. All Rights Reserved</li>
+                    </ul>                              
+                </div>
+            </div>        
+            {# static_placeholder 'footer' #}
+        </div>
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

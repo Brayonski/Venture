@@ -15,7 +15,6 @@ class CreateBusinessForm(ModelForm):
             "sector": "Industry",
             "size": "Company size",
             "company_primary_email": "Company primary email address",
-            "company_website": "Company website",
             "year_of_company_registration": "Year of Company Registration",
             "full_time_employee_count": "Number of full time employees",
             "address": "Country",
@@ -27,7 +26,7 @@ class CreateBlogForm(ModelForm):
         exclude = ['date', 'likes', 'supporter_author', 'investor_author', "company"]
 
         labels = {
-            "blog_type": "Blog Type",
+            "blog_type": "Document Type",
             "file_name": "PDF Document to share",
             "title": "Subject",
             "body": "Description",
@@ -188,7 +187,6 @@ class SupporterProfileCreateForm(forms.ModelForm):
 class InvestorCreateForm(forms.ModelForm):
     first_name = forms.CharField(max_length=250, label="First Name")
     last_name = forms.CharField(max_length=250, label="Last Name")
-    company_website = forms.URLField(initial='http://')
 
     class Meta:
         model = Investor

@@ -3,11 +3,13 @@
 <html>
 
 <head>
-    <title>Media Center - VentureLift Africa {% block title %}VentureLift Africa - Media Center{% endblock title %}
+    <title>{% block title %} VentureLift Africa {% endblock title %}
     </title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#283891">
+    
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
-
+  
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -17,11 +19,7 @@
     {% render_block "css" %}
 </head>
 
-
-
-
-
-<body class="media_index">
+<body class="base_no_root media_index">
     {% cms_toolbar %}
 
 
@@ -30,75 +28,78 @@
         <div class="top_container container">
 
             <div class="nav_nav_first navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarX"
-                  aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">Toggle navigation</span>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse"
+                   aria-expanded="false" aria-controls="">
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                  <img src="{% static 'img/logo2.png' %}" alt="VentureLift Africa Media Centre">
+                <a class="navbar-brand" href="/">
+                  <img src="{% static 'img/logo.png' %}" alt="VentureLift Africa Media Centre">
                 </a>
-                <div class="vl_top_top navbar-right">
-                  <ul class="in_line">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a href="{% url 'registration_in' %}">Business</a></li>
-                    <li><a href="{% url 'registration_in' %}">Funder</a></li>
-                    <li><a href="{% url 'registration_in' %}">Partner</a></li>
-                    <li><a href="{%url 'knowledge_center_home' %}">Knowledge Center</a></li>
-                    <li><a href="/en/media">VLA Media</a></li>
-                    {% if user.is_authenticated %}
-                    <li><a href="{%url 'events_home' %}">Events</a></li>
-                    <li class="user_nav_item pull_right">
-                      <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="true">
-                          <figure class="user_icon_nav">
-                            {% if context.supporter %}
-                            {% if context.supporter.thumbnail_image %}
-                            <img src="{{ context.supporter.thumbnail_image.url }}">
-                            {% else %}
-                            <img src="{% static 'img/blue-user-icon.svg' %}">
-                            {% endif %}
-                            {% elif context.investor %}
-                            {% if context.investor.thumbnail_image %}
-                            <img src="{{ context.investor.thumbnail_image.url }}">
-                            {% else %}
-                            <img src="{% static 'img/blue-user-icon.svg' %}">
-                            {% endif %}
-                            {% elif context.business %}
-                            {% if context.business.thumbnail_image %}
-                            <img src="{{ context.business.thumbnail_image.url }}">
-                            {% else %}
-                            <img src="{% static 'img/no-img.jpg' %}">
-                            {% endif %}
-                            {% endif %}
-                          </figure>
-                        </button>
-                        <ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
-                          <li><a href="{% url 'profile_summary' %}">My Profile</a></li>
-                          <div class="divider"></div>
-                          <li><a href="{% url 'logout' %}">Logout</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="pull_right">
-                      <a href="#nogo">
-                        <ion-icon name="notifications-outline"></ion-icon>
-                      </a>
-                    </li>
-                    {% else %}
-                    <li>
-                      <a href="{% url 'login' %}">Sign In</a>
-                    </li>
-                    <li>
-                      <a class="btn btn-md btn-primary" href="{% url 'registration_in' %}">Join VentureLift Africa</a>
-                    </li>
-                    {% endif %}
-                  </ul>
-                </div>
             </div>
+            <!--<div class="vl_top_top navbar-right collapse navbar-collapse navbar-responsive-collapse" style="">-->
+                  <!--<ul class="in_line">-->
+                    <!--<li class="active"><a href="/">Home</a></li>-->
+                    <!--<li><a href="{% url 'registration_in' %}">Business</a></li>-->
+                    <!--<li><a href="{% url 'registration_in' %}">Funder</a></li>-->
+                    <!--<li><a href="{% url 'registration_in' %}">Partner</a></li>-->
+                    <!--<li><a href="{%url 'knowledge_center_home' %}">Knowledge Center</a></li>-->
+                    <!--{% if user.is_authenticated %}-->
+                    <!--<li><a href="{%url 'events_home' %}">Events</a></li>-->
+                    <!--<li><a href="/en/media">VLA Media</a></li>-->
+                    <!--<li class="user_nav_item pull_right">-->
+                      <!--<div class="dropdown">-->
+                        <!--<button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown"-->
+                          <!--aria-haspopup="true" aria-expanded="true">-->
+                          <!--<figure class="user_icon_nav">-->
+                            <!--{% if context.supporter %}-->
+                            <!--{% if context.supporter.thumbnail_image %}-->
+                            <!--<img src="{{ context.supporter.thumbnail_image.url }}">-->
+                            <!--{% else %}-->
+                            <!--<img src="{% static 'img/blue-user-icon.svg' %}">-->
+                            <!--{% endif %}-->
+                            <!--{% elif context.investor %}-->
+                            <!--{% if context.investor.thumbnail_image %}-->
+                            <!--<img src="{{ context.investor.thumbnail_image.url }}">-->
+                            <!--{% else %}-->
+                            <!--<img src="{% static 'img/blue-user-icon.svg' %}">-->
+                            <!--{% endif %}-->
+                            <!--{% elif context.business %}-->
+                            <!--{% if context.business.thumbnail_image %}-->
+                            <!--<img src="{{ context.business.thumbnail_image.url }}">-->
+                            <!--{% else %}-->
+                            <!--<img src="{% static 'img/no-img.jpg' %}">-->
+                            <!--{% endif %}-->
+                            <!--{% endif %}-->
+                          <!--</figure>-->
+                        <!--</button>-->
+                        <!--<ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">-->
+                          <!--<li><a href="{% url 'profile_summary' %}">My Profile</a></li>-->
+                          <!--<div class="divider"></div>-->
+                          <!--<li><a href="{% url 'logout' %}">Logout</a></li>-->
+                        <!--</ul>-->
+                      <!--</div>-->
+                    <!--</li>-->
+                    <!--&lt;!&ndash;-->
+                    <!--<li class="pull_right">-->
+                      <!--<a href="#nogo">-->
+                        <!--<ion-icon name="notifications-outline"></ion-icon>-->
+                      <!--</a>-->
+                    <!--</li>-->
+                    <!--&ndash;&gt;-->
+                    <!--{% else %}-->
+                    <!--<li><a href="{%url 'events_home' %}">Events</a></li>-->
+                    <!--<li><a href="/en/media">VLA Media</a></li>-->
+                    <!--<li>-->
+                      <!--<a href="{% url 'login' %}">Sign In</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                      <!--<a class="btn btn-md btn-primary" href="{% url 'registration_in' %}">Join VentureLift Africa</a>-->
+                    <!--</li>-->
+                    <!--{% endif %}-->
+                  <!--</ul>-->
+            <!--</div>-->
 
         </div>
     </nav>
@@ -127,7 +128,7 @@
                     <li><a href="/about-us">About us</a></li>
                     <li><a href="/team">Team</a></li>
                     <li><a href="/careers">Careers</a></li>
-                    <li><a href="/help">Help</a></li>
+                    <li><a href="/help">FAQ</a></li>
                     <li><a href="/advertise">Advertise</a></li>
                     <li><a href="/terms-of-use">Terms of Use</a></li>
                     <li><a href="/contact-us">Contact us</a></li>
@@ -209,16 +210,31 @@
         lastScrollTop = st;
     }
     */
+
 </script>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $(window).scroll(function() {    
+            var scroll = $(window).scrollTop();
 
-    gtag('config', 'UA-137967572-1');
-  </script>
+            if (scroll >= 100) {
+                $(".navbar-fixed-top").addClass("darkHeader");
+            } else {
+                $(".navbar-fixed-top").removeClass("darkHeader");
+            }
+        });
+    });
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-137967572-1');
+</script>
 
 </html>

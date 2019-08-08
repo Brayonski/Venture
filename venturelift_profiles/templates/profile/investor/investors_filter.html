@@ -16,7 +16,7 @@
         <div class="company_filter pull-right">
           <form method='post' class='' action="#">
             {% csrf_token %}
-            <input class='form-control' name='investor-name' placeholder='Search a Funder' />
+            <input class='form-control' name='investor-name' placeholder='Search a funder' />
           </form>
         </div>
       </div>
@@ -30,14 +30,14 @@
           <div class="box_box_in">
             <figure class="box_avi">
               <!-- Square, 350 X 350 PX -->
-              {% if obj.thumbnail_image %}
-              <img src="{{ obj.thumbnail_image.url }}">
+              {% if obj.investor_profile.thumbnail_image %}
+              <img src="{{ obj.investor_profile.thumbnail_image.url }}">
               {% else %}
               <img src="{% static 'img/blue-user-icon.svg' %}">
               {% endif %}
             </figure>
             <figure class="box_details">
-              <p class="box_title"><a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a></p>
+              <p class="box_title"><a href="{% url 'investor_profile' obj.pk %}">{{obj.investor_profile.fullname}}</a></p>
               <div class="box_social">
                 <!--{% if obj in following %}-->
                 <!--<a href="{% url 'investor_unfollow' obj.id %}"><button-->

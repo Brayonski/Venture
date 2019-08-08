@@ -3,8 +3,10 @@
 <html>
 
 <head>
-  <title>VentureLift Africa {% block title %} VentureLift Africa {% endblock title %}</title>
+  <title>{% block title %} VentureLift Africa {% endblock title %}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#283891">
+  
   <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
 
   <link
@@ -17,7 +19,21 @@
   {% render_block "css" %}
 </head>
 
-<body class="root_A">
+<body class="base_root root_A">
+
+  <script type="text/javascript">
+    window.onload = function(){ document.getElementById("loading").style.display = "none" }
+  </script>
+  <style>
+    #loading {background:#FFF; width: 100%;height: 100%;top: 0px;left: 0px;position: fixed;display: block; z-index: 99}
+    #loading-image {position: absolute;top: 40%;left: 45%;z-index: 9999999999999999999} 
+  </style>
+  <!--
+  <div id="loading">
+    <img id="loading-image" src="{% static 'img/loader.gif' %}" alt="Loading..." />
+  </div> 
+  -->
+
   {% cms_toolbar %}
 
   <!-- Fixed navbar -->
@@ -25,25 +41,24 @@
     <div class="top_container container">
 
       <div class="nav_nav_first navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarX"
-          aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse" aria-expanded="false">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
           <img src="{% static 'img/logo2.png' %}" alt="VentureLift Africa Media Centre">
         </a>
-        <div class="vl_top_top navbar-right">
+      </div>
+      <div class="vl_top_top navbar-right collapse navbar-collapse navbar-responsive-collapse">
           <ul class="in_line">
             <li class="active"><a href="/">Home</a></li>
             <li>
               <div class="dropdown">
                 <button class="dropbtn">Business</button>
                 <div class="dropdown-content">
-                    <a href="{% url 'registration_in' %}">Startup</a>
-                    <a href="{% url 'registration_in' %}">SMEs</a>
+                    <a href="{% url 'business_startup' %}">Startup</a>
+                    <a href="{% url 'business_smes' %}">SMEs</a>
                 </div>
               </div>
             </li>
@@ -52,9 +67,9 @@
               <div class="dropdown">
                 <button class="dropbtn">Funder</button>
                 <div class="dropdown-content">
-                    <a href="{% url 'registration_in' %}">Investor</a>
-                    <a href="{% url 'crowdfunding:crowdfunderindex' %}" target="_blank">Crowdfunder</a>
-                    <a href="{% url 'registration_in' %}">Lender</a>
+                    <a href="{% url 'investor_filter' 'Investor' %}">Investor</a>
+                    <a href="{% url 'crowdfunding:crowdfunderindex' %}" target="_blank">Crowdfunding</a>
+                    <a href="{% url 'investor_filter' 'Lender' %}">Lender</a>
                 </div>
               </div>
             </li>
@@ -62,18 +77,18 @@
               <div class="dropdown">
                 <button class="dropbtn">Partner</button>
                 <div class="dropdown-content">
-                    <a href="{% url 'registration_in' %}">Trade</a>
-                    <a href="{% url 'registration_in' %}">Supply Chain</a>
-                    <a href="{% url 'registration_in' %}">Technology</a>
-                    <a href="{% url 'registration_in' %}">Talent</a>
-                    <a href="{% url 'registration_in' %}">Professional Services</a>
+                        <a href="{% url 'supporter_filter' 'Trade' %}">Trade</a>
+                        <a href="{% url 'supporter_filter' 'Supply Chain' %}">Supply Chain</a>
+                        <a href="{% url 'supporter_filter' 'Technology' %}">Technology</a>
+                        <a href="{% url 'supporter_filter' 'Talent' %}">Talent</a>
+                        <a href="{% url 'supporter_filter' 'Professional Services' %}">Professional Services</a>
                 </div>
               </div>
             </li>
             <li><a href="{%url 'knowledge_center_home' %}">Knowledge Center</a></li>
-            <li><a href="/en/media">VLA Media</a></li>
             {% if user.is_authenticated %}
             <li><a href="{%url 'events_home' %}">Events</a></li>
+            <li><a href="/en/media">VLA Media</a></li>
             <li class="user_nav_item pull_right">
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown"
@@ -107,12 +122,16 @@
                 </ul>
               </div>
             </li>
+            <!--
             <li class="pull_right">
               <a href="#nogo">
                 <ion-icon name="notifications-outline"></ion-icon>
               </a>
             </li>
+            -->
             {% else %}
+            <li><a href="{%url 'events_home' %}">Events</a></li>
+            <li><a href="/en/media">VLA Media</a></li>
             <li>
               <a href="{% url 'login' %}">Sign In</a>
             </li>
@@ -121,7 +140,6 @@
             </li>
             {% endif %}
           </ul>
-        </div>
       </div>
     </div>
   </nav>
@@ -138,7 +156,7 @@
                   <li><a href="/about-us">About us</a></li>
                   <li><a href="/team">Team</a></li>
                   <li><a href="/careers">Careers</a></li>
-                  <li><a href="/help">Help</a></li>
+                  <li><a href="/help">FAQ</a></li>
                   <li><a href="/advertise">Advertise</a></li>
                   <li><a href="/terms-of-use">Terms of Use</a></li>
                   <li><a href="/contact-us">Contact us</a></li>
@@ -215,6 +233,7 @@
       lastScrollTop = st;
     }
   </script>
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -226,6 +245,7 @@
 
     gtag('config', 'UA-137967572-1');
   </script>
+
 </body>
 
 </html>

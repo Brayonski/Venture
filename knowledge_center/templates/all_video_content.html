@@ -3,17 +3,52 @@
 {% load cms_tags staticfiles %}
 {% block title %} Knowledge Center| Subscriptions Videos {% endblock title %}
 {% block content %}
-<div class="full_A">
+<div class="knowledge_wrapper knowledge_video_archive full_A">
 
 	<nav id="navbar_out_2" class="navbar navbar-default_media">
 		<div class="top_container container">
 
+
 			<div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
 				{% url 'events_home' as  events_home %}
-				<ul class="event_titles">
+				<ul class="category_banner_titles event_titles">
 					<li class="active e-title_1">
 						<h1>Knowledge Center</h1>
 					</li>
+
+					<!--
+					{% if object_list %}
+					{% url 'knowledge_center_home' as  knowledge_center_home %}
+					<li class="e-title_2X {% ifequal request.path knowledge_center_home %}active{% endifequal %}">
+						<h4><a href="{% url 'knowledge_center_home' %}">All</a></h4>
+					</li>
+
+					{% endif %}
+					{% for type in document_type %}
+					{% if type.textcenter_set.count >= 1 %}
+					{% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
+
+					<li class="e-title_2X {% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}">
+						<h4><a href="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
+							</a></h4>
+					</li>
+
+					{% endif %}
+					{% endfor %}
+					-->
+
+					<li class="e-title_2X">
+						<h4><a href="/knowledge-center/read-content/filter/2/">Opportunities</a></h4>
+					</li>
+					<li class="e-title_2X">
+						<h4><a class="active" href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
+					</li>					
+					<li class="e-title_2X">
+						<h4><a href="/knowledge-center/read-content/filter/1/">Reports</a></h4>
+					</li>
+					
+
+					<!--
 					<li class="e-title_2">
 						<form class="url_changer url_changer1">
 							<select id="select" class="select">
@@ -58,6 +93,9 @@
 
 							</select>
 						</form>
+					</li>
+					-->
+					
 				</ul>
 			</div>
 
@@ -65,54 +103,104 @@
 	</nav>
 
 	<div class="container">
-	
-		<div class="tab-content">
-			<div id="home" class="tab-pane fade in active">
-				<div class="row clearfix">
-					{% for obj in object_list %}
-					<div class="no_padd col-md-6 clearfix">
-						<div class="single_card_wrapper">
-							<div class="card_C card" style="">
-								<div class="card-body">
-									<div class="pull-left">
-										{{obj.path|safe}}
-									</div>
-									<p class="card-text">{{ obj.title }}</p>
-									<p class="card-text">
-										{{ obj.author }}
-										<i class="fa fa-tags" aria-hidden="true"></i>
-										{{obj.sub_category}}
-										<i class="fa fa-money" aria-hidden="true"></i>
-										{{obj.payment_status}}
-									</p>
-									<a class="text-primary" href="{% url 'knowledge_center_video_content' obj.id %}">read more</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					{% endfor %}
+		 <h2 class="h_title_A">VIDEOS</h2>
+		<div class="row clearfix event_row_global">
+		    <!--
+		    <div class="s_e_sidebar_single col-md-3 clearfix s_e_sidebar">
+		        <div class="s_e_1 s_e_in">
+			        <div class="list_box list-group">
+			        	<a href="{% url 'knowledge_center_video_home' %}" class="list_title list-group-item  {% ifequal request.path knowledge_center_home %}active{% endifequal %}">All Videos</a>
+						{% url 'knowledge_center_video_home' as  knowledge_center_video_home %}
 
-					{% if is_paginated %}
-					<ul class="pagination">
-						{% if page_obj.has_previous %}
-						<li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-						{% else %}
-						<li class="disabled"><span>&laquo;</span></li>
+						{% if object_list %}
 						{% endif %}
-						{% for i in paginator.page_range %}
-						{% if page_obj.number == i %}
-						<li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-						{% else %}
-						<li><a href="?page={{ i }}">{{ i }}</a></li>
+
+						{% for type in video_type %}
+						{% if type.audiovisual_set.count >= 1 %}
+						{% url 'knowledge_center_video_content_filter' type.id as knowledge_center_video_content_filter %}
+						<a class="list-group-item {% ifequal request.path knowledge_center_video_content_filter %}active{% endifequal %}"
+							href="{% url 'knowledge_center_video_content_filter' type.id %}">{{type.title}}
+						</a>
 						{% endif %}
 						{% endfor %}
-						{% if page_obj.has_next %}
-						<li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-						{% else %}
-						<li class="disabled"><span>&raquo;</span></li>
-						{% endif %}
-					</ul>
-					{% endif %}
+
+						
+			        </div>        
+		        </div>
+  			</div>
+  			-->
+  			<div class="col-md-12 clearfix ev_e_main">
+				<div class="tab-content">
+					<div id="home" class="tab-pane fade in active">
+						<div class="row clearfix">
+							{% for obj in object_list %}
+							<div class="no_padd col-md-4 clearfix">
+								<div class="single_card_wrapper">
+									<div class="card_C card" style="">
+										<div class="card-body">
+											<div class="">
+												<div class="videoWrapper">	
+													{{obj.path|safe}}
+												</div>	
+											</div>
+
+											<div class="k_box k_box_video">
+												<div class="k_box_meta">
+
+														<p class="meta">
+															Author: </span>{{ obj.author }} &nbsp;&nbsp;| &nbsp;&nbsp; <span>Category: </span> {{ obj.sub_category }} &nbsp;&nbsp;| &nbsp;&nbsp; 
+															<span>Membership: </span> {{obj.payment_status}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+															<span>Published: </span> {{obj.date }}
+														</p>
+
+														<figure class="read_more">
+															<a class="text-primary" target="__blank" href="{% url 'knowledge_center_video_content' obj.id %}">Watch</a>
+														</figure>
+
+													
+												</div>
+											</div>
+
+											<!--
+											<p class="card-text">{{ obj.title }}</p>
+											<p class="card-text">
+												{{ obj.author }}
+												<i class="fa fa-tags" aria-hidden="true"></i>
+												{{obj.sub_category}}
+												<i class="fa fa-money" aria-hidden="true"></i>
+												{{obj.payment_status}}
+											</p>
+											<a class="text-primary" href="{% url 'knowledge_center_video_content' obj.id %}">Watch</a>
+											-->
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+
+							{% if is_paginated %}
+							<ul class="pagination">
+								{% if page_obj.has_previous %}
+								<li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+								{% else %}
+								<li class="disabled"><span>&laquo;</span></li>
+								{% endif %}
+								{% for i in paginator.page_range %}
+								{% if page_obj.number == i %}
+								<li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+								{% else %}
+								<li><a href="?page={{ i }}">{{ i }}</a></li>
+								{% endif %}
+								{% endfor %}
+								{% if page_obj.has_next %}
+								<li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+								{% else %}
+								<li class="disabled"><span>&raquo;</span></li>
+								{% endif %}
+							</ul>
+							{% endif %}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

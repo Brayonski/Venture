@@ -11,17 +11,27 @@
 
           <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
               {% url 'events_home' as  events_home %}
-              <ul class="event_titles">
-                <li class="active e-title_1"><h1>Knowledge Center</h1></li>
+              <ul class="category_banner_titles event_titles">
+            	  <li class="active e-title_1"><h1>{{ content.title }}</h1></li>
+	              <li class="e-title_2X">
+	                <h4><a class="" href="/knowledge-center/read-content/filter/2/">Opportunities</a></h4>
+	              </li>
+	              <li class="e-title_2X">
+	                <h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
+	              </li>              
+	              <li class="e-title_2X">
+	                <h4><a class="" href="/knowledge-center/read-content/filter/1/">Reports</a></h4>
+	              </li>                
+                <!--
                 <li class="e-title_2">
-                	<!--
-                  <form class="url_changer url_changer1">
-                    <select id="select" class="select">
-                      <option value="{% url 'events_home' %}">VLA Events</option>
-                      <option value="{% url 'network_events' %}">Network Events</option>
-                    </select>
-                  </form>  	
-					-->
+                	
+	                  <form class="url_changer url_changer1">
+	                    <select id="select" class="select">
+	                      <option value="{% url 'events_home' %}">VLA Events</option>
+	                      <option value="{% url 'network_events' %}">Network Events</option>
+	                    </select>
+	                  </form>  	
+					
 
                   <form class="url_changer url_changer2">
                     <select id="select2" class="select">
@@ -40,39 +50,48 @@
 
 						<option value="{% url 'knowledge_center_video_home' %}">Videos</option>                                        
                     </select>
-                  </form>                                   
+                  </form>
+                </li>
+                 -->                                   
               </ul>
+				<p class="meta">
+					Author: </span>{{ content.author }} &nbsp;&nbsp;| &nbsp;&nbsp; <span>Category: </span> {{ content.sub_category }} &nbsp;&nbsp;| &nbsp;&nbsp; 
+					<span>Membership: </span> {{content.payment_status}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+					<span>Published: </span> {{content.date }}
+				</p>              
           </div>
           
         </div>
     </nav> 
 
 	<div class="container single_post_container">
-		<div class="actions pull-left" >
+		<!--
+		<div class="actions" >
 			<a href="{% url 'knowledge_center_video_home' %}" class="btn btn-primary">Back</a>
 		</div>
 		<div class="full_width h_C">
 			<div class="container h_C_container">
     		<h2 class="h_title_A">VIDEOS</h2>
     	</div>
+    	-->
     	<div class="row clearfix">
-	      <div class="col-md-9 clearfix">
-	        <div class="in_style_A">
-	          <p>{{ content.title }}</p>
-	        </div>
-	      </div>
-	      <div class="col-md-12 clearfix">
-	        <div class="in_style_A">
-	          <div class="embed-responsive embed-responsive-16by9">
-	            {{content.path|safe}}
-	          </div>
-	        </div>
-	        <div class="card card-body">
-	        	<p class="card-text">
-	        		{{ content.description }}
-	        	</p>
-	        </div>
-	      </div>
+	      	<div class="col-md-12 clearfix">
+		        <div class="in_style_A">
+		          <div class="embed-responsiveX embed-responsive-16by9X">
+		          	<div class="videoWrapper">
+		            	{{content.path|safe}}
+		            </div>	
+		          </div>
+		        </div>
+		    </div>
+	    	<div class="col-md-12 clearfix">
+		        <div class="in_style_Z single_video_meta">
+		          	<!--<h3 class="single_video_title">{{ content.title }}</h3><br>-->
+	  	        	<div class="single_video_content">
+		        		<p>{{ content.description }}</p>
+		        	</div>							        	
+		        </div>	        
+	      	</div>
       </div>
     </div>
     

@@ -34,6 +34,8 @@ class SummaryView(LoginRequiredMixin, TemplateView):
             track_login = TrackingUser(user_details=request.user, access_time=timezone.now(), action_name="register")
             track_login.save()
             return redirect(reverse('profile_create'))
+        if not (request.user.is_authenticated()):
+            return redirect(reverse('login'))
 
         return super(SummaryView, self).dispatch(request, *args, **kwargs)
 
@@ -54,7 +56,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
             description =  MarketDescription.objects.filter(company_name=business).first()
             r_supporter = SupporterProfile.objects.filter(interest_sectors=business.sector)[:3]
             r_investor = InvestorProfile.objects.filter(target_sectors=business.sector)[:3]
-            r_businesses = Business.objects.filter(sector=business.sector).exclude(creator=self.request.user)[:3]
+            r_businesses = Business.objects.filter(sector=business.sector,verified=True).exclude(creator=self.request.user)[:3]
             context.update({'business': business, 'description': description, 'r_supporter': r_supporter,
                             'r_investor':r_investor, 'r_businesses':r_businesses})
             checkUser = AllSystemUser.objects.filter(email=self.request.user.email).exists()
@@ -69,7 +71,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
             context['profile'] = SupporterProfile.objects.get(supporter_profile=supporter)
             interests = context['profile'].interest_sectors.all()
             context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct().exclude(supporter_profile=supporter)[:3]
-            context['r_businesses'] = Business.objects.filter(sector__in=interests).distinct()[:3]
+            context['r_businesses'] = Business.objects.filter(sector__in=interests,verified=True).distinct()[:3]
             context['r_investor'] = InvestorProfile.objects.filter(target_sectors__in=interests).distinct()[:3]
             checkUser = AllSystemUser.objects.filter(email=self.request.user.email).exists()
             if checkUser is False:
@@ -83,7 +85,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
             context['profile'] = InvestorProfile.objects.filter(investor_profile=investor).first()
             interests = context['profile'].target_sectors.all()
             context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct()[:3]
-            context['r_businesses'] = Business.objects.filter(sector__in=interests).distinct()[:3]
+            context['r_businesses'] = Business.objects.filter(sector__in=interests,verified=True).distinct()[:3]
             context['r_investor'] = InvestorProfile.objects.filter(target_sectors__in=interests).distinct().exclude(investor_profile=investor)[:3]
             checkUser = AllSystemUser.objects.filter(email=self.request.user.email).exists()
             if checkUser is False:
@@ -148,6 +150,8 @@ class SupporterView(LoginRequiredMixin, ListView, FormMixin):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated() and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
+        if not (request.user.is_authenticated()):
+            return redirect(reverse('login'))
         return super(SupporterView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, *args, **kwargs):
@@ -155,9 +159,9 @@ class SupporterView(LoginRequiredMixin, ListView, FormMixin):
         current_url = resolve(self.request.path_info).url_name
         if 'pk' in self.kwargs:
             if current_url == 'supporter_follow':
-                supporter_details = Investor.objects.get(
+                supporter_details = Supporter.objects.get(
                     id=self.kwargs['pk'])
-                check_coneection = InvestorConnectRequest.objects.filter(supporter=supporter_details,
+                check_coneection = SupporterConnectRequest.objects.filter(supporter=supporter_details,
                                                                          requestor=self.request.user,
                                                                          approval_status="PENDING").first()
                 if check_coneection:
@@ -165,15 +169,14 @@ class SupporterView(LoginRequiredMixin, ListView, FormMixin):
                     send_business_connect_request_email_task.delay(supporter_details.company, self.request.user.username,
                                                                    subject, from_email, to)
                 else:
-                    connections = InvestorConnectRequest(supporter=supporter_details, created_at=timezone.now(),
+                    connections = SupporterConnectRequest(supporter=supporter_details, created_at=timezone.now(),
                                                          requestor=self.request.user, approval_status="PENDING",
                                                          approved=False, rejected=False)
                     connections.save()
                     subject, from_email, to = 'Supporter Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
                     send_business_connect_request_email_task.delay(supporter_details.company, self.request.user.username,
                                                                    subject, from_email, to)
-                follow(self.request.user, Supporter.objects.get(
-                    id=self.kwargs['pk']))
+                #follow(self.request.user, Supporter.objects.get(id=self.kwargs['pk']))
             if current_url == 'supporter_unfollow':
                 unfollow(self.request.user, Supporter.objects.get(
                     id=self.kwargs['pk']))
@@ -216,6 +219,8 @@ class SupporterFilterView(LoginRequiredMixin, ListView, FormMixin):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated() and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
+        if not(request.user.is_authenticated()):
+            return redirect(reverse('login'))
         return super(SupporterFilterView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, *args, **kwargs):
@@ -223,8 +228,26 @@ class SupporterFilterView(LoginRequiredMixin, ListView, FormMixin):
         current_url = resolve(self.request.path_info).url_name
         if 'pk' in self.kwargs:
             if current_url == 'supporter_follow':
-                follow(self.request.user, Supporter.objects.get(
-                    id=self.kwargs['pk']))
+                supporter_details = Supporter.objects.get(
+                    id=self.kwargs['pk'])
+                check_coneection = SupporterConnectRequest.objects.filter(supporter=supporter_details,
+                                                                          requestor=self.request.user,
+                                                                          approval_status="PENDING").first()
+                if check_coneection:
+                    subject, from_email, to = 'Supporter Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    send_business_connect_request_email_task.delay(supporter_details.company,
+                                                                   self.request.user.username,
+                                                                   subject, from_email, to)
+                else:
+                    connections = SupporterConnectRequest(supporter=supporter_details, created_at=timezone.now(),
+                                                          requestor=self.request.user, approval_status="PENDING",
+                                                          approved=False, rejected=False)
+                    connections.save()
+                    subject, from_email, to = 'Supporter Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    send_business_connect_request_email_task.delay(supporter_details.company,
+                                                                   self.request.user.username,
+                                                                   subject, from_email, to)
+            #     follow(self.request.user, Supporter.objects.get(id=self.kwargs['pk']))
             if current_url == 'supporter_unfollow':
                 unfollow(self.request.user, Supporter.objects.get(
                     id=self.kwargs['pk']))
@@ -244,6 +267,8 @@ class InvestorView(LoginRequiredMixin, ListView, FormMixin):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
+        if not (request.user.is_authenticated()):
+            return redirect(reverse('login'))
         return super(InvestorView, self).dispatch(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
@@ -300,13 +325,89 @@ class InvestorView(LoginRequiredMixin, ListView, FormMixin):
                     subject, from_email, to = 'Investor Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
                     send_business_connect_request_email_task.delay(investor_details.company, self.request.user.username,
                                                                    subject, from_email, to)
-                follow(self.request.user, Investor.objects.get(
-                    id=self.kwargs['pk']))
+                #follow(self.request.user, Investor.objects.get(id=self.kwargs['pk']))
             if current_url == 'investor_unfollow':
                 unfollow(self.request.user, Investor.objects.get(
                     id=self.kwargs['pk']))
         context['following'] = following(self.request.user)
         return context
+
+
+class InvestorFilterView(LoginRequiredMixin, ListView, FormMixin):
+    template_name = 'profile/investor/investors_filter.html'
+    queryset = Investor.objects.filter(verified=True)
+    form_class = InvestorFilters
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
+            return redirect(reverse('profile_create'))
+        if not (request.user.is_authenticated()):
+            return redirect(reverse('login'))
+        return super(InvestorFilterView, self).dispatch(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            if request.POST.get('investor-name'):
+                fullname = request.POST.get('investor-name').split(' ')
+                if len(fullname) >= 2:
+                    last_name = fullname[1]
+                else:
+                    last_name = request.POST.get('investor-name')
+                first_name = fullname[0]
+
+                investor = Investor.objects.filter((Q(
+                    user__first_name__icontains=first_name) | Q(user__last_name__icontains=last_name)), verified=True)
+            else:
+                investors = Investor.objects.filter(verified=True)
+                if form.cleaned_data['invest_forms']:
+                    print(form.cleaned_data['invest_forms'])
+                    investor = investors.filter(
+                        investor_profile__investor_forms__icontains=form.cleaned_data['invest_forms'])
+                if form.cleaned_data['sectors']:
+                    investor = investors.filter(
+                        investor_profile__target_sectors__icontains=form.cleaned_data['sectors'])
+                if form.cleaned_data['countries']:
+                    investor = investors.filter(
+                        investor_profile__target_countries__in=form.cleaned_data['countries']
+                    )
+                if form.cleaned_data['exists']:
+                    investor = investors.filter(
+                        investor_profile__exits_executed=form.cleaned_data['exists']
+                    )
+        return render(request, self.template_name, {'object_list': investor, 'form': form, 'following': following(self.request.user)})
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(InvestorFilterView, self).get_context_data(*args, **kwargs)
+        current_url = resolve(self.request.path_info).url_name
+        if 'pk' in self.kwargs:
+            if current_url == 'investor_follow':
+                investor_details = Investor.objects.get(
+                    id=self.kwargs['pk'])
+                check_coneection = InvestorConnectRequest.objects.filter(investor=investor_details,
+                                                                         requestor=self.request.user,
+                                                                         approval_status="PENDING").first()
+                if check_coneection:
+                    subject, from_email, to = 'Investor Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    send_business_connect_request_email_task.delay(investor_details.company, self.request.user.username,
+                                                                   subject, from_email, to)
+                else:
+                    connections = InvestorConnectRequest(investor=investor_details, created_at=timezone.now(),
+                                                         requestor=self.request.user, approval_status="PENDING",
+                                                         approved=False, rejected=False)
+                    connections.save()
+                    subject, from_email, to = 'Investor Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    send_business_connect_request_email_task.delay(investor_details.company, self.request.user.username,
+                                                                   subject, from_email, to)
+                #follow(self.request.user, Investor.objects.get(id=self.kwargs['pk']))
+            if current_url == 'investor_unfollow':
+                unfollow(self.request.user, Investor.objects.get(
+                    id=self.kwargs['pk']))
+        context['following'] = following(self.request.user)
+        investorType = self.kwargs['investor_type']
+        context['object_list'] = InvestorProfile.objects.filter(funder_type=investorType)
+        return context
+
 
 
 class BusinessView(LoginRequiredMixin, ListView, FormMixin):
@@ -317,6 +418,8 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
+        if not (request.user.is_authenticated()):
+            return redirect(reverse('login'))
         return super(BusinessView, self).dispatch(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
@@ -335,7 +438,7 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
                 if form.cleaned_data['service']:
                     business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
                                                Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
-            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user)})
+            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user), 'services' : VlaServices.objects.all(), 'sectors' : BusinessCategory.objects.all().order_by('name')})
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessView, self).get_context_data(*args, **kwargs)
@@ -354,12 +457,13 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
                     connections.save()
                     subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
                     send_business_connect_request_email_task.delay(business_details.name, self.request.user.username, subject, from_email, to)
-                follow(self.request.user, Business.objects.get(
-                    id=self.kwargs['pk']))
+                #follow(self.request.user, Business.objects.get(id=self.kwargs['pk']))
             if current_url == 'business_unfollow':
                 unfollow(self.request.user, Business.objects.get(
                     id=self.kwargs['pk']))
         context['following'] = following(self.request.user)
+        context['services'] = VlaServices.objects.all()
+        context['sectors'] = BusinessCategory.objects.all().order_by('name')
         return context
 
 class BusinessStartupView(LoginRequiredMixin, ListView, FormMixin):
@@ -370,6 +474,8 @@ class BusinessStartupView(LoginRequiredMixin, ListView, FormMixin):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
+        if not (request.user.is_authenticated()):
+            return redirect(reverse('login'))
         return super(BusinessStartupView, self).dispatch(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
@@ -388,7 +494,7 @@ class BusinessStartupView(LoginRequiredMixin, ListView, FormMixin):
                 if form.cleaned_data['service']:
                     business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
                                                Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
-            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user)})
+            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user), 'services' : VlaServices.objects.all(), 'sectors' : BusinessCategory.objects.all().order_by('name')})
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessStartupView, self).get_context_data(*args, **kwargs)
@@ -407,12 +513,13 @@ class BusinessStartupView(LoginRequiredMixin, ListView, FormMixin):
                     connections.save()
                     subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
                     send_business_connect_request_email_task.delay(business_details.name, self.request.user.username, subject, from_email, to)
-                follow(self.request.user, Business.objects.get(
-                    id=self.kwargs['pk']))
+                #follow(self.request.user, Business.objects.get(id=self.kwargs['pk']))
             if current_url == 'business_unfollow':
                 unfollow(self.request.user, Business.objects.get(
                     id=self.kwargs['pk']))
         context['following'] = following(self.request.user)
+        context['services'] = VlaServices.objects.all()
+        context['sectors'] = BusinessCategory.objects.all().order_by('name')
         return context
 
 
@@ -424,6 +531,8 @@ class BusinessSMEView(LoginRequiredMixin, ListView, FormMixin):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated and not(request.user.business_creator.exists()) and not(request.user.supporter_creator.exists()) and not(request.user.investor_creator.exists()):
             return redirect(reverse('profile_create'))
+        if not (request.user.is_authenticated()):
+            return redirect(reverse('login'))
         return super(BusinessSMEView, self).dispatch(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
@@ -442,7 +551,7 @@ class BusinessSMEView(LoginRequiredMixin, ListView, FormMixin):
                 if form.cleaned_data['service']:
                     business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
                                                Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
-            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user)})
+            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user), 'services' : VlaServices.objects.all(), 'sectors' : BusinessCategory.objects.all().order_by('name')})
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessSMEView, self).get_context_data(*args, **kwargs)
@@ -461,12 +570,13 @@ class BusinessSMEView(LoginRequiredMixin, ListView, FormMixin):
                     connections.save()
                     subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
                     send_business_connect_request_email_task.delay(business_details.name, self.request.user.username, subject, from_email, to)
-                follow(self.request.user, Business.objects.get(
-                    id=self.kwargs['pk']))
+                #follow(self.request.user, Business.objects.get(id=self.kwargs['pk']))
             if current_url == 'business_unfollow':
                 unfollow(self.request.user, Business.objects.get(
                     id=self.kwargs['pk']))
         context['following'] = following(self.request.user)
+        context['services'] = VlaServices.objects.all()
+        context['sectors'] = BusinessCategory.objects.all().order_by('name')
         return context
 
 
@@ -586,7 +696,7 @@ class InvestorUpdateProfileView(LoginRequiredMixin, UpdateView):
                 self.object.investment_type = "Lender"
                 self.object.investment_product = self.request.POST['funder_lender_product']
             self.object.save()
-            return redirect(reverse('investor_list'))
+            return redirect(reverse('profile_summary'))
 
     def get_context_data(self, **kwargs):
         context = super(InvestorUpdateProfileView,
@@ -679,7 +789,7 @@ class SupporterUpdateProfileView(LoginRequiredMixin, UpdateView):
                                     kwargs={'pk': self.kwargs['pk']}))
         if current_url == 'update_supporter_step2':
             form.save()
-            return redirect(reverse('supporter_list'))
+            return redirect(reverse('profile_summary'))
 
 
 class CreateBlogPostView(LoginRequiredMixin, CreateView):
@@ -836,7 +946,7 @@ class BusinessProfileView(DetailView):
             pk=self.kwargs.get("pk"))
         r_supporter = SupporterProfile.objects.filter(interest_sectors=business.sector)[:3]
         r_investor = InvestorProfile.objects.filter(target_sectors=business.sector)[:3]
-        r_businesses = Business.objects.filter(sector=business.sector).exclude(creator=self.request.user)[:3]
+        r_businesses = Business.objects.filter(sector=business.sector,verified=True).exclude(creator=self.request.user)[:3]
         context.update({'r_supporter': r_supporter,
                         'r_investor':r_investor, 'r_businesses':r_businesses, 'business': business})
         context['post'] = Post.objects.filter(
@@ -864,7 +974,7 @@ class SupporterProfileView(DetailView):
             supporter_author=context['supporter'])[:5]
         interests = context['profile'].interest_sectors.all()
         context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct().exclude(supporter_profile=context['supporter'])[:3]
-        context['r_businesses'] = Business.objects.filter(sector__in=interests).distinct()[:3]
+        context['r_businesses'] = Business.objects.filter(sector__in=interests,verified=True).distinct()[:3]
         context['r_investor'] = InvestorProfile.objects.filter(target_sectors__in=interests).distinct()[:3]
 
         context['investor_following'] = following(self.request.user, Investor)
@@ -894,6 +1004,6 @@ class InvestorProfileView(DetailView):
 
         interests = context['investor_profile'].target_sectors.all()
         context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct()[:3]
-        context['r_businesses'] = Business.objects.filter(sector__in=interests).distinct()[:3]
+        context['r_businesses'] = Business.objects.filter(sector__in=interests,verified=True).distinct()[:3]
         context['r_investor'] = InvestorProfile.objects.filter(target_sectors__in=interests).distinct().exclude(investor_profile=context['investor'])[:3]
         return context

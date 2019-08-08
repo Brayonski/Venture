@@ -60,22 +60,66 @@ INVESTOR_FORMS = (
 )
 
 INTEREST_COUNTRIES = (
-    ('Egypt', 'Egypt'),
-    ('South Africa', 'South Africa'),
-    ('Morocco', 'Morocco'),
-    ('Ethiopia', 'Ethiopia'),
-    ('Kenya', 'Kenya'),
-    ('Rwanda', 'Rwanda'),
-    ('Tanzania', 'Tanzania'),
-    ('Nigeria', 'Nigeria'),
-    ('Ghana', 'Ghana'),
-    ('Ivory Coast', 'Ivory Coast'),
-    ('Algeria', 'Algeria'),
-    ('Botswana', 'Botswana'),
-    ('Zambia', 'Zambia'),
-    ('tunisia', 'Tunisia'),
-    ('Cote D` Ivore', 'Cote D` Ivore'),
-    ('Other', 'Other'),
+('Top 15 Investment Countries',
+    (
+        ('Egypt', 'Egypt'),
+        ('South Africa', 'South Africa'),
+        ('Morocco', 'Morocco'),
+        ('Ethiopia', 'Ethiopia'),
+        ('Kenya', 'Kenya'),
+        ('Rwanda', 'Rwanda'),
+        ('Tanzania', 'Tanzania'),
+        ('Nigeria', 'Nigeria'),
+        ('Ghana', 'Ghana'),
+        ('Ivory Coast', 'Ivory Coast'),
+        ('Algeria', 'Algeria'),
+        ('Botswana', 'Botswana'),
+        ('Zambia', 'Zambia'),
+        ('tunisia', 'Tunisia'),
+        ('Cote D` Ivore', 'Cote D` Ivore'),
+    )
+ ),
+    ('Others',
+      (
+        ('Angola', 'Angola'),
+        ('Benin', 'Benin'),
+        ('Burkina Faso', 'Burkina Faso'),
+        ('Burundi', 'Burundi'),
+        ('Cabo Verde', 'Cabo Verde'),
+        ('Cameroon', 'Cameroon'),
+        ('Central African Republic (CAR)', 'Central African Republic (CAR)'),
+        ('Chad', 'Chad'),
+        ('Comoros', 'Comoros'),
+        ('Djibouti', 'Djibouti'),
+        ('DRC Congo', 'DRC Congo'),
+        ('Equatorial Guinea', 'Equatorial Guinea'),
+        ('Eritrea', 'Eritrea'),
+        ('Gabon', 'Gabon'),
+        ('Gambia', 'Gambia'),
+        ('Guinea', 'Guinea'),
+        ('Lesotho', 'Lesotho'),
+        ('Liberia', 'Liberia'),
+        ('Libya', 'Libya'),
+        ('Madagascar', 'Madagascar'),
+        ('Malawi', 'Malawi'),
+        ('Mali', 'Mali'),
+        ('Mauritania', 'Mauritania'),
+        ('Mauritius', 'Mauritius'),
+        ('Mozambique', 'Mozambique'),
+        ('Namibia', 'Namibia'),
+        ('Niger', 'Niger'),
+        ('Sao Tome and Principe', 'Sao Tome and Principe'),
+        ('Senegal', 'Senegal'),
+        ('Seychelles', 'Seychelles'),
+        ('Sierra Leone', 'Sierra Leone'),
+        ('Somalia', 'Somalia'),
+        ('South Sudan', 'South Sudan'),
+        ('Sudan', 'Sudan'),
+        ('Togo', 'Togo'),
+        ('Uganda', 'Uganda'),
+        ('Zimbabwe', 'Zimbabwe'),
+      )
+   ),
 )
 
 TRADING_PARTNERS = (
@@ -212,7 +256,7 @@ class Business(models.Model):
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
     company_primary_email = models.EmailField()
-    company_website = models.URLField(max_length=200, null=True, blank=True)
+    company_website = models.CharField(max_length=200, null=True, blank=True)
     address = CountryField()
     year_of_company_registration = models.IntegerField(choices=YEAR_CHOICES)
     value_proposition_statement = models.TextField(null=True, blank=True)
@@ -330,7 +374,7 @@ class Supporter(models.Model):
     company = models.CharField(max_length=250, unique=True, null=True)
     role = models.CharField(max_length=250, null=True)
     company_operations = CountryField(null=True)
-    company_website = models.URLField(
+    company_website = models.CharField(
         max_length=250, blank=True, null=True)
     company_registration_year = models.IntegerField(
         choices=YEAR_CHOICES, default=2010)
@@ -381,7 +425,7 @@ class Investor(models.Model):
     role = models.CharField(max_length=250)
     company_location = CountryField()
     physical_address = models.CharField(max_length=250)
-    company_website = models.URLField(
+    company_website = models.CharField(
         max_length=250, blank=True, null=True)
     company_registration_year = models.IntegerField(
         choices=YEAR_CHOICES)

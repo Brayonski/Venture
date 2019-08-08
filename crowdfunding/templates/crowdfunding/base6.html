@@ -20,7 +20,7 @@
   {% render_block "css" %}
 </head>
 
-<body class="logged_in profile_templates">
+<body class="crowd_base6 logged_in profile_templates">
 <script
     src="https://www.paypal.com/sdk/js?client-id=AQ9gy6moBnrMJawyqn5tNOs51Og4KkqPXswe7THeDbjx1eW0Sm77I-MTVzfymea2c0TWBD4Xv1ynWB9M&currency=USD">
 </script>
@@ -29,27 +29,26 @@
   <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
     <div class="top_container container">
       <div class="nav_nav_first navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarX"
-          aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
         <a class="navbar-brand" href="{% url 'crowdfunding:crowdfunderindex' %}">
           <img src="{% static 'img/logo2.png' %}" alt="VentureLift Africa">
         </a>
-        <div class="vl_top_top navbar-right">
-          <ul class="vl_top_nav in_line">
-             <li>
-                <a href="{% url 'crowdfunding:crowdfunderindex' %}">
-                  Crowdfunder
-                </a>
-              </li>
-          </ul>
-        </div>
       </div>
+      <div class="vl_top_top navbar-right collapse navbar-collapse navbar-responsive-collapse">
+        <ul class="vl_top_nav in_line">
+           <li>
+              <a href="{% url 'crowdfunding:crowdfunderindex' %}">
+                Crowdfunding
+              </a>
+            </li>
+        </ul>
+      </div>
+      
     </div>
   </nav>
 

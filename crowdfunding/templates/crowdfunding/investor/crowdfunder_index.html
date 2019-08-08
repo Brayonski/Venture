@@ -33,7 +33,7 @@
             <div class="row clearfix" align="center">
                 {% if campaign_list %}
                 {% for campaign in campaign_list %}
-                <div id="" class="col-md-2 box_box">
+                <div id="" class="col-md-4 box_box">
 
                     <div class="box_box_in">
                         <figure class="box_avi">
@@ -55,8 +55,7 @@
                                 {{campaign.short_description|truncatewords:5}}
                             </div>
                             <div class="box_social">
-                                <a href="{% url 'crowdfunding:crowdfunder_create_donation' campaign.id %}"><button
-                                        class="btn-actioned btn btn-sm btn-default">Fund</button></a>
+                                <a href="{% url 'crowdfunding:crowdfunder_create_donation' campaign.id %}"><button class="btn-actioned btn btn-sm btn-default">Fund</button></a>
                             </div>
                         </figure>
                     </div>

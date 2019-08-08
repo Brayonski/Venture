@@ -1,13 +1,15 @@
 {% extends 'profile/base.html' %}
 {% load crispy_forms_tags %}
 {% block content_1 %}
-<div class="col_A_in col_A_in_2">
+<div class="info_template col_A_in col_A_in_2">
     <div class="onboarding_A">
         <div class="row clearfix">
             <div class="col-md-8 col-md-offset-2 clearfix">
                 <form method='post' enctype="multipart/form-data">
                     {% csrf_token %}
-                    <h3>Basic Information</h3>
+                    <h1 class="text-center">Funder Profile</h1>
+                    <h4 class="text-center">Step 1: Basic Information</h4>
+                    <br>
                     <div class="form-row">
                         <div class="form-group col-md-3 mb-0">
                             {{ form.thumbnail_image|as_crispy_field }}

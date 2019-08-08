@@ -5,38 +5,47 @@
 {% block content %}
 
 
-<div class="event_wrapper full_A">
+<div class="knowledge_wrapper knowledge_text_archive full_A">
 
     <nav id="navbar_out_2" class="navbar navbar-default_media">
-        <div class="top_container container">
+        <div class="top_container container">{{type.title}}
 
           <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
             {% url 'events_home' as  events_home %}
-            <ul class="event_titles">
+            <ul class="category_banner_titles event_titles">
                 <li class="active e-title_1"><h1>Knowledge Center</h1></li>
 
-        {% if object_list %}
-        {% url 'knowledge_center_home' as  knowledge_center_home %}
-        <li class="e-title_2X {% ifequal request.path knowledge_center_home %}active{% endifequal %}"><h4><a href="{% url 'knowledge_center_home' %}">All</a></h4></li>
+                  <!--
+                  {% if object_list %}
+                  {% url 'knowledge_center_home' as  knowledge_center_home %}
+                  <li class="e-title_2X {% ifequal request.path knowledge_center_home %}active{% endifequal %}"><h4><a href="{% url 'knowledge_center_home' %}">All</a></h4></li>
 
-        {% endif %}
-        {% for type in document_type %}
-        {% if type.textcenter_set.count >= 1 %}
-        {% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
+                  {% endif %}
 
-        <li class="e-title_2X {% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}">
-          <h4><a href="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
-          </a></h4>
-        </li>
+                  {% for type in document_type %}
+                  {% if type.textcenter_set.count >= 1 %}
+                  {% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
 
-        {% endif %}
-        {% endfor %}
+                  <li class="e-title_2X {% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}">
+                    <h4><a href="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
+                    </a></h4>
+                  </li>
+    
+                  {% endif %}
+                  {% endfor %}
+                  -->
+                  
+              <li class="e-title_2X">
+                <h4><a class="" href="/knowledge-center/read-content/filter/2/">Opportunities</a></h4>
+              </li>
+              <li class="e-title_2X">
+                <h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
+              </li>              
+              <li class="e-title_2X">
+                <h4><a class="" href="/knowledge-center/read-content/filter/1/">Reports</a></h4>
+              </li>
 
-        <li class="e-title_2X">
-          <h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
-        </li>
-
-      </ul>
+            </ul>
           </div>
 
         </div>
@@ -46,12 +55,61 @@
 
     <div id="home" class="kn_part_1">
       <div class="container clearfix">
-        <!--<h2 class="h_title_A">REPORTS</h2>-->
+
+        {% for type in document_type %}
+          <h2 class="h_title_A">{{type.title}}</h2>
+        {% endfor %}
+
+        
         <div class="row clearfix">
 
           <!-- docs -->
           {% for obj in object_list %}
-          <div class="col-md-3 clearfix single_card_wrapper">
+          <div class="col-md-4 clearfix single_card_wrapper">
+
+            <div class="k_box">
+              <h3 class="">
+                {% if obj.external_url %}
+                <a target="__blank" href="{{ obj.external_url }}">{{ obj.title }}</a>
+                {% else %}
+                <a href="{% url 'knowledge_center_read_content' obj.id %}">{{ obj.title }}</a>
+                {% endif %}
+              </h3>
+                
+              <div class="k_box_meta">
+                {% if obj.external_url %}
+                
+                  <p class="meta">
+                    {% if obj.author %} 
+                    <span>Author: </span> {{ obj.author }}
+                    {% endif %}
+                  </p>                    
+                  <figure class="read_more">
+                    <a class="text-primary" target="__blank" href="{{ obj.external_url }}">Read More</a>
+                  </figure>
+
+                {% else %}
+
+                  
+                  <p class="meta">
+                    {% if obj.file_upload %}
+                      <span>Document</span> &nbsp;&nbsp;| &nbsp;&nbsp; 
+                    {% endif %}
+
+                    <span>Category: </span> {{obj.category}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+                    <span>Membership: </span> {{obj.payment_status}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+                    <span>Published: </span> {{obj.date }}
+                  </p>
+
+                  <figure class="read_more">
+                    <a class="text-primary" target="__blank" href="{% url 'knowledge_center_read_content' obj.id %}">Read More</a>
+                  </figure>
+
+                {% endif %}
+              </div>
+            </div>
+
+            <!--
             <div class="card_C card" style="padding-bottom: 30px;">
               <div class="card-body">
                 <div class="">
@@ -71,11 +129,13 @@
                   </p>
                   <p class="card-text" style="padding-top: 30px;">
                     {# obj.description|safe|truncatewords:"70"|linebreaks #}
-                    <!--<a class="text-primary" style="" href="{% url 'knowledge_center_read_content' obj.id %}">READ MORE</a>-->
+                    <a class="text-primary" style="" href="{% url 'knowledge_center_read_content' obj.id %}">READ MORE</a>
                   </p>
                 </div>
               </div>
             </div>
+            -->
+
           </div>
           {% endfor %}
           

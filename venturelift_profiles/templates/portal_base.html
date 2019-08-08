@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>{% block title %}VentureLift Africa -  Portal{% endblock title %}</title>
+        <title>{% block title %}VentureLift Africa{% endblock title %}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
         
@@ -13,67 +13,64 @@
         <link href="{% static 'css/portal-base-dropdown.css' %}" rel="stylesheet">
         {% render_block "css" %}
     </head>
-    <body class="auth_pages">
+    <body class="portal_base auth_pages">
 
 
     <nav id="navbar_out" class="navbar navbar-default navbar-static-top">
         <div class="top_container container">
-            <div class="nav_nav_first navbar-header">
 
+            <div class="nav_nav_first navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse" aria-expanded="false">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
                 <a class="navbar-brand" href="/">
                     <img src="{% static 'img/logo3.png' %}" alt="VentureLift Africa Media Centre">
                 </a>
-
-                <!--
-                <div class="vl_top_top navbar-right">
-                    <ul class="in_line">
-                        <li><a class="space_button btn btn-md btn-primary" href="/en/media">MEDIA CENTRE &rarr;</a></li>
-                    </ul>
-                </div>
-                -->
-
-                <div class="vl_top_top navbar-right">
-                    <ul class="in_line">
-                        <li><a href="/">Home</a></li>
-                        <li>
-                          <div class="dropdown">
-                            <button class="dropbtn">Discover</button>
-                            <div class="dropdown-content">
-                                <a href="#nogo">Startup</a>
-                                <a href="#nogo">SMEs</a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="dropdown">
-                            <button class="dropbtn">Fund</button>
-                            <div class="dropdown-content">
-                                <a href="#nogo">Investor</a>
-                                <a href="{% url 'crowdfunding:crowdfunderindex' %}" target="_blank">Crowdfunder</a>
-                                <a href="#nogo">Lender</a>
-                            </div>
-                          </div>
-                        </li>
-                         <li>
-                          <div class="dropdown">
-                            <button class="dropbtn">Partner</button>
-                            <div class="dropdown-content">
-                                <a href="#nogo">Trade</a>
-                                <a href="#nogo">Supply Chain</a>
-                                <a href="#nogo">Technology</a>
-                                <a href="#nogo">Talent</a>
-                                <a href="#nogo">Professional Services</a>
-                            </div>
-                          </div>
-                        </li>
-                        <li><a href="#">Knowledge Center</a></li>
-                        <li><a href="/en/media">VLA Media</a></li>
-                        <li><a href="{% url 'login' %}">Sign In</a></li>
-                        <li><a class="btn btn-md btn-primary" href="{% url 'registration_in' %}">Join VentureLift Africa</a></li>
-                    </ul>
-                </div>
-
             </div>
+            <div class="vl_top_top navbar-right collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="in_line">
+                    <li><a href="/">Home</a></li>
+                    <li>
+                      <div class="dropdown">
+                        <button class="dropbtn">Business</button>
+                        <div class="dropdown-content">
+                            <a href="{% url 'business_startup' %}">Startup</a>
+                            <a href="{% url 'business_smes' %}">SMEs</a>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dropdown">
+                        <button class="dropbtn">Funder</button>
+                        <div class="dropdown-content">
+                            <a href="{% url 'investor_filter' 'Investor' %}">Investor</a>
+                            <a href="{% url 'crowdfunding:crowdfunderindex' %}" target="_blank">Crowdfunding</a>
+                            <a href="{% url 'investor_filter' 'Lender' %}">Lender</a>
+                        </div>
+                      </div>
+                    </li>
+                     <li>
+                      <div class="dropdown">
+                        <button class="dropbtn">Partner</button>
+                        <div class="dropdown-content">
+                            <a href="{% url 'supporter_filter' 'Trade' %}">Trade</a>
+                            <a href="{% url 'supporter_filter' 'Supply Chain' %}">Supply Chain</a>
+                            <a href="{% url 'supporter_filter' 'Technology' %}">Technology</a>
+                            <a href="{% url 'supporter_filter' 'Talent' %}">Talent</a>
+                            <a href="{% url 'supporter_filter' 'Professional Services' %}">Professional Services</a>
+                        </div>
+                      </div>
+                    </li>
+                    <li><a href="#">Knowledge Center</a></li>
+                    <li><a href="{%url 'events_home' %}">Events</a></li>
+                    <li><a href="/en/media">VLA Media</a></li>
+                    <li><a href="{% url 'login' %}">Sign In</a></li>
+                    <li><a class="btn btn-md btn-primary" href="{% url 'registration_in' %}">Join VentureLift Africa</a></li>
+                </ul>
+            </div>
+            
         </div>
     </nav>
 
@@ -86,6 +83,16 @@
         {% static_placeholder 'footer' %}
     </div>
 
+      <!-- Bootstrap core JavaScript
+        ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')
+      </script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+      
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
     <script>

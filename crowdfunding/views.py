@@ -35,6 +35,8 @@ def index(request):
     if request.user.is_authenticated() and not (request.user.business_creator.exists()) and not (
             request.user.supporter_creator.exists()) and not (request.user.investor_creator.exists()):
         return redirect(reverse('profile_create'))
+    if not (request.user.is_authenticated()):
+        return redirect(reverse('login'))
 
     campaign_list = Campaign.objects.filter(campaign_status='APPROVED')
     campaign_sectors = CampaignSector.objects.all()
@@ -72,6 +74,9 @@ def business_campaign_view(request, campaign_id):
     context = {
         'campaign_data': campaign_data,
         'campaign_sectors': campaign_sectors,
+        'target_amount': "{0:,.2f}".format(campaign_data.target_amount),
+        'minimum_donation': "{0:,.2f}".format(campaign_data.minimum_donation),
+        'total_funds_received': "{0:,.2f}".format(campaign_data.total_funds_received),
     }
     return HttpResponse(template.render(context, request))
 
@@ -81,6 +86,8 @@ def filter_campaign_view(request):
     if request.user.is_authenticated() and not (request.user.business_creator.exists()) and not (
             request.user.supporter_creator.exists()) and not (request.user.investor_creator.exists()):
         return redirect(reverse('profile_create'))
+    if not (request.user.is_authenticated()):
+        return redirect(reverse('login'))
 
     template = loader.get_template('crowdfunding/investor/index.html')
     campaign_data = Campaign.objects.filter(campaign_name__contains=request.POST['campaign_name'],campaign_status='APPROVED')
@@ -150,7 +157,7 @@ class CreateCampaignView(LoginRequiredMixin, CreateView):
 
     def form_invalid(self, form):
         errors = form.errors
-        raise errors
+        raise Exception(errors)
 
 
 @login_required
@@ -160,6 +167,9 @@ def create_donation(request, campaign_id):
 
     context = {
         'campaign_data': campaign_data,
+        'target_amount': "{0:,.2f}".format(campaign_data.target_amount),
+        'minimum_donation': "{0:,.2f}".format(campaign_data.minimum_donation),
+        'total_funds_received': "{0:,.2f}".format(campaign_data.total_funds_received),
     }
     return HttpResponse(template.render(context, request))
 
@@ -170,15 +180,65 @@ def crowdfunder_create_donation(request, campaign_id):
 
     context = {
         'campaign_data': campaign_data,
+        'target_amount': "{0:,.2f}".format(campaign_data.target_amount),
+        'minimum_donation': "{0:,.2f}".format(campaign_data.minimum_donation),
+        'total_funds_received': "{0:,.2f}".format(campaign_data.total_funds_received),
     }
     return HttpResponse(template.render(context, request))
 
-
+@csrf_exempt
 def get_online_checkout_response(request):
+    stkResponse = MpesaSTKResponse(name='STK Response',created_at=timezone.now(),response_json=request.body)
+    stkResponse.save()
+    data = json.loads(request.body)
+    dataResponse = data['Body']['stkCallback']
+    responseCode = dataResponse['ResultCode']
+    if responseCode == 0:
+        referenceCode = ''
+        amount = ''
+        phone = ''
+        shortCode = settings.SHORTCODE
+        checkoutId = dataResponse['CheckoutRequestID']
+        callbackMetaData = dataResponse['CallbackMetadata']['Item']
+        for item in callbackMetaData:
+            if item['Name'] == "Amount":
+                amount = str(item['Value'])
+            if item['Name'] == "MpesaReceiptNumber":
+                referenceCode = item['Value']
+            if item['Name'] == "PhoneNumber":
+                phone = item['Value']
+        checkCheckout = MpesaSTKPush.objects.filter(checkoutID=checkoutId).first()
+        if checkCheckout:
+            checkout = MpesaSTKPush.objects.get(checkoutID=checkoutId)
+            send_mpesa_c2b_notification_url_task.delay(checkout.name, referenceCode, amount, phone, shortCode)
+
     response = '{"success":"true","message":"Received"}'
     return HttpResponse(response)
 
 
+@csrf_exempt
+def confirmation_url(request):
+    data = json.loads(request.body)
+    accountName = data['BillRefNumber']
+    referenceCode = data['TransID']
+    amount = data['TransAmount']
+    phone = data['MSISDN']
+    shortCode = data['BusinessShortCode']
+    #send_mpesa_c2b_notification_url_task.delay(accountName,referenceCode,amount,phone,shortCode)
+    response = '{"success":"true","message":"Received"}'
+    return HttpResponse(response)
+
+
+@csrf_exempt
+def validation_url(request):
+    response = '{"success":"true","message":"Verified"}'
+    return HttpResponse(response)
+
+
+def register_url(request):
+    send_mpesa_c2b_register_url_task.delay()
+    response = '{"success":"true","message":"Verified"}'
+    return HttpResponse(response)
 
 
 
@@ -187,13 +247,12 @@ def make_payment(request):
     if request.user.is_authenticated() and not (request.user.business_creator.exists()) and not (
             request.user.supporter_creator.exists()) and not (request.user.investor_creator.exists()):
         return redirect(reverse('profile_create'))
+    if not (request.user.is_authenticated()):
+        return redirect(reverse('login'))
+
     campaign_selected = Campaign.objects.get(id=request.POST['campaign_id'])
     payment = CampaignPayment(campaign=campaign_selected,created_at=timezone.now(),donator=request.user,donator_email=request.user.email,donator_phoneno=request.POST['donator_phoneno'],amount=request.POST['amount'],payment_method=request.POST['payment_method'],payment_status='INITIATED',paid=False,comments=request.POST['comments'],allow_visibility=request.POST['allow_visibility'])
     payment.save()
-    if campaign_selected.campaign_type == "REWARD BASED":
-        if request.POST['amount'] >= campaign_selected.campaign_reward_threshold:
-            create_reward = CampaignReward(campaign=campaign_selected,payment=payment,created_at=timezone.now(),rewarded_user=request.user,rewarded_user_email=request.user.email,reward=campaign_selected.campaign_reward_details,reward_status="PENDING")
-            create_reward.save()
     template = loader.get_template('crowdfunding/investor/index.html')
     campaign_data = Campaign.objects.filter(campaign_status='APPROVED')
     campaign_sectors = CampaignSector.objects.all()
@@ -203,7 +262,8 @@ def make_payment(request):
         'campaign_sectors': campaign_sectors,
         'message': 'Payment Initiated For Campaign '+campaign_selected.campaign_name+'. Please Check Your Phone For The STK-Push'
     }
-    send_mpesa_stk_task.delay(request.POST['donator_phoneno'],request.POST['amount'])
+    accountName = request.user.username + str(payment.pk)
+    send_mpesa_stk_task.delay(request.POST['donator_phoneno'],request.POST['amount'],accountName.upper(),payment.pk)
     return HttpResponse(template.render(context, request))
 
 
@@ -211,10 +271,6 @@ def crowdfunder_make_payment(request):
     campaign_selected = Campaign.objects.get(id=request.POST['campaign_id'])
     payment = CampaignPayment(campaign=campaign_selected,created_at=timezone.now(),donator_email=request.POST['donator_email'],donator_phoneno=request.POST['donator_phoneno'],amount=request.POST['amount'],payment_method=request.POST['payment_method'],payment_status='INITIATED',paid=False,comments=request.POST['comments'],allow_visibility=request.POST['allow_visibility'])
     payment.save()
-    if campaign_selected.campaign_type == "REWARD BASED":
-        if request.POST['amount'] >= campaign_selected.campaign_reward_threshold:
-            create_reward = CampaignReward(campaign=campaign_selected,payment=payment,created_at=timezone.now(),rewarded_user_email=request.POST['donator_email'],reward=campaign_selected.campaign_reward_details,reward_status="PENDING")
-            create_reward.save()
     template = loader.get_template('crowdfunding/investor/crowdfunder_index.html')
     campaign_data = Campaign.objects.filter(campaign_status='APPROVED')
     campaign_sectors = CampaignSector.objects.all()
@@ -229,7 +285,8 @@ def crowdfunder_make_payment(request):
         'campaign_sectors': campaign_sectors,
         'message': 'Payment Initiated For Campaign '+campaign_selected.campaign_name+'. Please Check Your Phone For The STK-Push'
     }
-    send_mpesa_stk_task.delay(request.POST['donator_phoneno'],request.POST['amount'])
+    accountName = "ANNONYMUS" + str(payment.pk)
+    send_mpesa_stk_task.delay(request.POST['donator_phoneno'],request.POST['amount'],accountName.upper(),payment.pk)
     return HttpResponse(template.render(context, request))
 
 @csrf_exempt
@@ -246,9 +303,9 @@ def verify_paypal_payment_funder(request):
     campaign_selected.total_funds_received = totalReceived
     campaign_selected.save()
     if campaign_selected.campaign_type == "REWARD BASED":
-        if request.POST['amount'] >= campaign_selected.campaign_reward_threshold:
+        if data['amount'] >= campaign_selected.campaign_reward_threshold:
             create_reward = CampaignReward(campaign=campaign_selected, payment=payment, created_at=timezone.now(),
-                                           rewarded_user_email=request.POST['donator_email'],
+                                           rewarded_user_email=data['donatorEmail'],
                                            reward=campaign_selected.campaign_reward_details, reward_status="PENDING")
             create_reward.save()
 

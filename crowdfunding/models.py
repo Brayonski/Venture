@@ -41,7 +41,7 @@ REWARD_STATUSES =  (
 
 CAMPAIGN_REWARD_TYPES =  (
     ('REWARD BASED', 'REWARD BASED'),
-    ('NON-REWARD BASED', 'NON-REWARD BASED'),
+    ('DONATION BASED', 'DONATION BASED'),
 )
 
 class CampaignSector(models.Model):
@@ -171,3 +171,71 @@ class CampaignReward(models.Model):
 
     def __str__(self):
         return self.campaign.campaign_name
+
+
+class MpesaApiToken(models.Model):
+    token = models.TextField()
+    created_at = models.DateTimeField('token generate date',null=True)
+    status = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name_plural = 'Mpesa Api Token'
+
+    def __str__(self):
+        return self.token
+
+
+class MpesaSTKPush(models.Model):
+    name = models.CharField(max_length=255,unique=True)
+    payment = models.ForeignKey(CampaignPayment,null=True)
+    created_at = models.DateTimeField('reward notification date',null=True)
+    request_json = models.TextField()
+    response_json = models.TextField()
+    response_code = models.IntegerField()
+    checkoutID = models.TextField(null=True,blank=True)
+
+    class Meta:
+        verbose_name_plural = 'Mpesa STK Push'
+
+    def __str__(self):
+        return self.name
+
+class MpesaC2BRegister(models.Model):
+    name = models.CharField(max_length=255)
+    created_at = models.DateTimeField('c2b register date', null=True)
+    request_json = models.TextField()
+    response_json = models.TextField()
+    response_code = models.IntegerField()
+
+    class Meta:
+        verbose_name_plural = 'Mpesa C2B Registration'
+
+    def __str__(self):
+        return self.name
+
+class MpesaC2BNotification(models.Model):
+    payment = models.ForeignKey(CampaignPayment)
+    created_at = models.DateTimeField('c2b notification date', null=True)
+    account_name = models.CharField(max_length=255)
+    amount_received = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=255)
+    reference_code = models.CharField(max_length=255)
+    shortcode = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name_plural = 'Mpesa C2B Notification'
+
+    def __str__(self):
+        return self.reference_code
+
+
+class MpesaSTKResponse(models.Model):
+    name = models.CharField(max_length=255)
+    created_at = models.DateTimeField('stk response date', null=True)
+    response_json = models.TextField()
+
+    class Meta:
+        verbose_name_plural = 'Mpesa STK Response'
+
+    def __str__(self):
+        return self.name

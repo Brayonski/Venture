@@ -3,6 +3,23 @@
 {% load cms_tags staticfiles event_filters %}
 {% block title %}Events{% endblock title %}
 {% block content %}
+<style>
+  .open-button {
+  background-color: #1ba4db;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+.open-button:hover {
+  opacity: 1;
+}
+</style>
 <div class="event_wrapper full_A">
 
   <nav id="navbar_out_2" class="navbar navbar-default_media">
@@ -22,10 +39,14 @@
   </nav>
 
   <div class="container">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 76b2856283de59a89d49a1e79da5d16d2bb02b05
     <div class="page_with_2_sections_e row clearfix">
       <div class="col-md-3 clearfix s_e_sidebar">
         <div class="s_e_1 s_e_in">
-          <div class="list-group">
+          <div class="list_box list-group">
             <a href="{% url 'events_home' %}" class="list_title list-group-item">
               VLA Events
             </a>
@@ -35,6 +56,7 @@
             {% endif %}
 
             {% for type in event_type %}
+<<<<<<< HEAD
             {% if type.events_set.count >= 1 %}
             {% url 'event_view_content_filter' type.id as event_view_content_filter %}
             <a class="list-group-item {% ifequal request.path event_view_content_filter %}active{% endifequal %}"
@@ -42,8 +64,19 @@
             </a>
             {% endif %}
             {% endfor %}
+=======
+              {% if type.events_set.count >= 1 %}
+              {% url 'event_view_content_filter' type.id as event_view_content_filter %}
+              <a class="list-group-item {% ifequal request.path event_view_content_filter %}active{% endifequal %}" href="{% url 'event_view_content_filter' type.id %}">{{type.title}}
+              </a>
+              {% endif %}
+            {% endfor %}  
+          </div>
+
+          <div class="list_box list-group">
+>>>>>>> 76b2856283de59a89d49a1e79da5d16d2bb02b05
             <a href="{% url 'network_events' %}" class="list_title list-group-item">
-              Network Events
+              Member Events
             </a>
 
             {% if object_list %}
@@ -121,6 +154,11 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
+=======
+      -->
+    <button class="open-button">To upload events on venturelift, please contact the admin</button>
+>>>>>>> 76b2856283de59a89d49a1e79da5d16d2bb02b05
   </div>
 </div>
 <p id="network-events-notice"></p>
