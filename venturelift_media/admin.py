@@ -5,7 +5,6 @@ from django.contrib import admin
 from .models import TextMedia, AudioVisual, Category, Subscription, Newsletter
 
 class TextMediaAdmin(admin.ModelAdmin):
-    search_fields = ['title', 'category', 'author']
     list_filter = ['date', 'category', 'author']
     readonly_fields = ["author"]
     list_display = ['title', 'category', 'date']
@@ -13,6 +12,8 @@ class TextMediaAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if getattr(obj, 'author', None) is None:
             obj.author = request.user
+        if getattr(obj, 'priority', None) is None:
+            obj.priority = False
         obj.save()
 
 class AudioVisualAdmin(admin.ModelAdmin):
@@ -24,6 +25,8 @@ class AudioVisualAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if getattr(obj, 'author', None) is None:
             obj.author = request.user
+        if getattr(obj, 'priority', None) is None:
+            obj.priority = False
         obj.save()
 
 class CategoryAdmin(admin.ModelAdmin):
