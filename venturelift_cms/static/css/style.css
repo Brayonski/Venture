@@ -1046,6 +1046,9 @@ li.copright {
 .full_width.h_D.h_D1 {
     background: rgba(170, 224, 245, 0.44);
 }
+.full_width.h_D.h_D2 {
+    padding-bottom: 40px;
+}
 
 .full_width.h_A {
     padding-top: 0px;
