@@ -1699,6 +1699,18 @@ button.btn-actioned {
     opacity: .5;
 }
 
+.t-row {
+    padding-top: 60px;
+}
+.t-dark {
+    margin-top: 60px;
+    background: #f7f7f7;
+    padding: 60px 0px;
+}
+.vpage_no_bottom.vpage.page_wrapper_b.in_page.page_banner_A.full_width {
+    padding-bottom: 0px;
+}
+
 .btn-success {
     color: #fff;
     background-color: #0ebb0e;
@@ -2823,6 +2835,18 @@ body.portal_base.auth_pages button.navbar-toggle:hover span.icon-bar {
       font-weight: 800;
       font-size: 1.6em;
   }
+
+.t-row {
+    padding-top: 10px;
+}
+.t-dark {
+    margin-top: 10px;
+    padding: 10px 0px;
+}
+.vpage_no_bottom.vpage.page_wrapper_b.in_page.page_banner_A.full_width {
+    padding-bottom: 0px;
+}
+
 
 
 
