@@ -761,9 +761,9 @@ small#hint_id_password2 {
     margin-bottom: 20px;
 }
 .h_A_row_1B_in h1.style_A {
-    margin-top: 0px;
+    margin-top: 10px;
     margin-bottom: 0px;
-    font-size: 2.3em;
+    font-size: 2.1em;
 }
 .h_A_row_1B_in > h5.meta_A {
     margin-bottom: 20px;
@@ -1042,8 +1042,14 @@ li.copright {
     font-weight: 600;
     color: #000;
 }
+
+.full_width.h_D.h_D1 {
+    background: rgba(170, 224, 245, 0.44);
+}
+
 .full_width.h_A {
     padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .full_width.h_C {
@@ -1148,6 +1154,17 @@ ul.social_icons {
     padding-left: 0px;
 }
 
+ul.social_icons.social_side {
+    margin-bottom: 0px;
+}
+.in_style_A h4.style_E {
+    margin: 5px 0px;
+}
+
+.in_style_A ul.social_icons li {
+    display: inline-block;
+    margin: 10px 0px 0px;
+}
 ul.social_icons li {
     display: inline-block;
     margin: 20px 0px;
