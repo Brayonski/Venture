@@ -1,6 +1,6 @@
 {% extends 'profile/base3.html' %}
 {% load cms_tags staticfiles %}
-{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block title %}{{ supporter.user.first_name }} {{supporter.user.last_name}}{% endblock title %}
 {% block content %}
 
 
@@ -246,7 +246,7 @@
                                           <div class="pull-rightX">
     
                                             <h5 class="card-title">
-                                              Company Preference
+                                              Company preference
                                             </h5>  
                                             <p class="card-text">
                                               {{profile.supporter_interest}}
@@ -256,7 +256,7 @@
                                               Region of interest
                                             </h5>  
                                             <p class="card-text">
-                                              {{profile.interest_countries}}
+                                              {{ profile.interest_countries }}
                                             </p>
 
                                           </div>  
@@ -338,7 +338,7 @@
                                 <div class="top_banner_ctaY">
                                   <div class="contact_infoY">
                                     <h3>Contact information</h3>
-                                    <p>Connect me with this Partner</p>
+                                    <p>Connect me with this partner</p>
                                   </div>
                                    {% if following %}
                                   <a href="{% url 'supporter_unfollow' supporter.id %}" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Disconnect</a>

@@ -1,9 +1,16 @@
 {% extends 'profile/base3.html' %}
 
 {% load cms_tags staticfiles %}
-{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block title %}
+{% if business %}
+{{ business.name }}
+{% elif  supporter %}
+{{ supporter.user.first_name }} {{supporter.user.last_name}}
+{% elif investor %}
+{{ investor.user.first_name }} {{investor.user.last_name}}
+{% endif %}
+{% endblock title %}
 {% block content %}
-
 {% if business %}
 <div class="profile_base full_A">
 
@@ -71,7 +78,7 @@
         <div class="col_A_in col_A_in_1">
 
           <div class="card card-body">
-              <a href="{% url 'update_business_step1' business.pk %}"><button class="btn btn-success">Edit My Profile</button></a>
+              <a href="{% url 'update_business_step1' business.pk %}"><button class="btn btn-success">Edit my profile</button></a>
           </div>
 
           <div class="profile_list_side">
@@ -185,7 +192,7 @@
 
                         <div class="row clearfix">
                           <div class="no_padd col-md-12 clearfix">
-                            <h3>Value Proposition</h3>
+                            <h3>Value proposition</h3>
                             <div class="single_card_wrapper">
                               <div class="card_C card" style="">
                                 <div class="card-body">
@@ -221,7 +228,7 @@
                                     </p>
 
                                     <h5 class="card-title">
-                                      Company Size
+                                      Company size
                                     </h5>  
                                     <p class="card-text">
                                       {{business.size}}
@@ -252,7 +259,7 @@
 
                         <div class="row clearfix">
                           <div class="no_padd col-md-12 clearfix">
-                            <h3>Product/Service Offering</h3>
+                            <h3>Product or service offering</h3>
                             <div class="single_card_wrapper">
                               <div class="card_C card" style="">
                                 <div class="card-body">
@@ -273,7 +280,7 @@
 
                         <div class="row clearfix">
                           <div class="no_padd col-md-12 clearfix">
-                            <h3>Needs fulfilled by Product/service</h3>
+                            <h3>Needs fulfilled by product or service</h3>
                             <div class="single_card_wrapper">
                               <div class="card_C card" style="">
                                 <div class="card-body">
@@ -295,7 +302,7 @@
 
                         <div class="row clearfix">
                           <div class="no_padd col-md-12 clearfix">
-                            <h3>Market Segment information</h3>
+                            <h3>Market segment information</h3>
                             <div class="single_card_wrapper">
                               <div class="card_C card" style="">
                                 <div class="card-body">
@@ -321,7 +328,7 @@
                               <div class="text-center">
                                 <h3 class="h3_A">Documents</h3>
                                 <div class="cta_C">
-                                  <a class="btn-primary btn" href="{% url 'new_blog_post' %}">+ New Document</a>
+                                  <a class="btn-primary btn" href="{% url 'new_blog_post' %}">+ New document</a>
                                 </div>               
                               </div>              
                               <div class="col_A_in col_A_in_2">
@@ -1066,7 +1073,7 @@
 
   
             <div class="card card-body">
-                <a href="{% url 'update_investor_step1' investor.pk %}"><button class="btn btn-success">Edit My Profile</button></a>
+                <a href="{% url 'update_investor_step1' investor.pk %}"><button class="btn btn-success">Edit my profile</button></a>
             </div>
   
   
@@ -1219,7 +1226,7 @@
                                           </p>
   
                                           <h5 class="card-title">
-                                            Experience in Funding
+                                            Experience in funding
                                           </h5>  
                                           <p class="card-text">
                                             {{profile.managed_funds}} Years
@@ -1228,7 +1235,7 @@
                                         <div class="pull-right">
   
                                           <h5 class="card-title">
-                                            Sector of Interest
+                                            Sector of interest
                                           </h5>  
                                           {% for obj in profile.target_sectors.all %}
                                           <p class="card-text">{{obj}}</p>

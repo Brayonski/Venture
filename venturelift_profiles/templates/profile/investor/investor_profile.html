@@ -1,6 +1,6 @@
 {% extends 'profile/base3.html' %}
 {% load cms_tags staticfiles %}
-{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block title %}{{ investor.fullname }}{% endblock title %}
 {% block content %}
 
 
@@ -218,14 +218,14 @@
                                         <div class="pull-leftX">
 
                                           <h5 class="card-title">
-                                            Funder Type
+                                            Funder type
                                           </h5>  
                                           <p class="card-text">
                                             {{investor_profile.funder_type}}
                                           </p>
 
                                           <h5 class="card-title">
-                                            Experience in Funding
+                                            Experience in funding
                                           </h5>  
                                           <p class="card-text">
                                             {% if investor_profile.managed_funds > 0 %}
@@ -341,7 +341,7 @@
                                 <div class="top_banner_ctaY">
                                   <div class="contact_infoY">
                                     <h3>Contact information</h3>
-                                    <p>Connect me with this Funder</p>
+                                    <p>Connect me with this funder</p>
                                   </div>
                                   {% if following %}
                                     <a href="{% url 'investor_unfollow' investor.id %}" class="button_A btn btn-lg btn-primary"><ion-icon name="swap"></ion-icon> Disconnect</a>
