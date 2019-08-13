@@ -26,6 +26,7 @@ class HomeView(ListView):
         context["vla_tv"] = AudioVisual.objects.filter(
             category='Video', vla_tv=True).order_by('date')[:1]
         context['other_articles'] = self.get_other_articles()
+        context['more_articles'] = self.get_more_articles()
         cat = Category.objects.filter(title='Trade').first()
         context['stories_top'] = TextMedia.objects.all()[:3]
         if cat is not None:
@@ -57,6 +58,18 @@ class HomeView(ListView):
             article = TextMedia.objects.filter(category=category)[:1]
             if len(article) > 0:
                 articles.append(article[0])
+        return articles
+
+    def get_more_articles(self):
+        categories = Category.objects.exclude(title='Diaspora').exclude(title='Trade')
+        articles = []
+        for category in categories:
+            article = TextMedia.objects.filter(category=category,priority=True).order_by('date')[:1]
+            if  len(articles) >= 3:
+                break
+            if len(article) > 0:
+                articles.append(article[0])
+
         return articles
 
 class TextMediaView(DetailView):
