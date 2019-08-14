@@ -8,6 +8,7 @@ from djangocms_text_ckeditor import fields
 from django.core.validators import MinLengthValidator
 from multiselectfield import MultiSelectField
 from django_countries.fields import CountryField
+from django.utils import timezone
 # Create your models here.
 
 BUSINESS_SIZE = (
@@ -594,3 +595,19 @@ class AllSystemUser(models.Model):
 
     def user_email(self):
         return self.email
+
+
+class SurveyUser(models.Model):
+    user = models.ForeignKey(User)
+    from_time = models.DateTimeField('allow system access from date')
+    to_time = models.DateTimeField('allow system access to date')
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name_plural = 'Survey Users'
+
+    def __str__(self):
+        return self.user.email
+
+    def user_email(self):
+        return self.user.email
