@@ -33,7 +33,11 @@
               {% if obj.thumbnail_image %}
               <img src="{{ obj.thumbnail_image.url }}">
               {% else %}
+              {% if obj.gender == 'Male' || obj.gender == 'Other %}
               <img src="{% static 'img/blue-user-icon.svg' %}">
+              {% else %}
+              <img src="{% static 'img/no-img.jpg' %}">
+              {% endif %}
               {% endif %}
             </figure>
             <figure class="box_details">
