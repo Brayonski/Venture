@@ -24,6 +24,12 @@ SUPPORTER_INTEREST = (
     ('Supply Chain', 'Supply Chain'),
 )
 
+GENDER_TYPES = (
+    ('Male', 'Male'),
+    ('Female', 'Female'),
+    ('Other', 'Other'),
+)
+
 COMPANY_CLASSIFICATION = (
     ('crowdfunder', 'Crowdfunder'),
     ('angel investor', 'Angel Investor'),
@@ -251,6 +257,8 @@ class VlaServices(models.Model):
 
 class Business(models.Model):
     name = models.CharField(max_length=255)
+    gender = models.CharField(
+        max_length=200, choices=GENDER_TYPES)
     sector = models.ForeignKey(BusinessCategory)
     size = models.CharField(max_length=100, choices=BUSINESS_SIZE)
     creator = models.ForeignKey(User, related_name='business_creator')
@@ -369,6 +377,8 @@ class Supporter(models.Model):
     user = models.ForeignKey(User, related_name='supporter_creator')
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
+    gender = models.CharField(
+        max_length=200, choices=GENDER_TYPES)
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number", null=True)
     about = models.TextField(help_text="Briefly describe your self", null=True)
@@ -420,6 +430,8 @@ class Investor(models.Model):
     about = models.TextField(null=True)
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
+    gender = models.CharField(
+        max_length=200, choices=GENDER_TYPES)
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number")
     company = models.CharField(max_length=250)
