@@ -258,7 +258,7 @@ class VlaServices(models.Model):
 class Business(models.Model):
     name = models.CharField(max_length=255)
     gender = models.CharField(
-        max_length=200, choices=GENDER_TYPES)
+        max_length=200, choices=GENDER_TYPES, default='Other')
     sector = models.ForeignKey(BusinessCategory)
     size = models.CharField(max_length=100, choices=BUSINESS_SIZE)
     creator = models.ForeignKey(User, related_name='business_creator')
@@ -378,7 +378,7 @@ class Supporter(models.Model):
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
     gender = models.CharField(
-        max_length=200, choices=GENDER_TYPES)
+        max_length=200, choices=GENDER_TYPES, default='Other')
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number", null=True)
     about = models.TextField(help_text="Briefly describe your self", null=True)
@@ -431,7 +431,7 @@ class Investor(models.Model):
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
     gender = models.CharField(
-        max_length=200, choices=GENDER_TYPES)
+        max_length=200, choices=GENDER_TYPES, default='Other')
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number")
     company = models.CharField(max_length=250)
