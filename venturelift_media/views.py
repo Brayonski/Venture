@@ -42,22 +42,23 @@ class HomeView(ListView):
         category = path.rsplit('/', 1)[1]
         context = {}
         context['category'] = category   
-        current_url = resolve(self.request.path_info).url_name         
+        context['category1'] = 'Me'
+        current_url = resolve(self.request.path_info).url_name
         if current_url == 'media_videos':
             if category == 'startups':
-                context['visual'] = AudioVisual.objects.filter(category='Video', sub_category__title__icontains='enterpre').order_by('date')
+                context['visual'] = AudioVisual.objects.filter(category='Video', sub_category__title__icontains='entrepreneur').order_by('date')
             else:
                 context['visual'] = AudioVisual.objects.filter(category='Video',
                                                                sub_category__title__icontains=category).order_by('date')
         elif current_url == 'media_podcast':
             if category == 'startups':
                 context['audio'] = AudioVisual.objects.filter(category='Podcast',
-                                                              sub_category__title__icontains='enterpre').order_by('date')
+                                                              sub_category__title__icontains='entrepreneur').order_by('date')
             else:
                 context['audio'] = AudioVisual.objects.filter(category='Podcast', sub_category__title__icontains=category).order_by('date')
         else:
             if category == 'startups':
-                context['media'] = TextMedia.objects.filter(category__title__icontains='enterpre').order_by('date')
+                context['media'] = TextMedia.objects.filter(category__title__icontains='entrepreneur').order_by('date')
             else:
                 context['media'] = TextMedia.objects.filter(category__title__icontains=category).order_by('date')
         return context
