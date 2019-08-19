@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="63775d04-ee63-40b5-9b92-96f47de827ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/venturelift_cms/templates/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_cms/templates/categories.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venturelift_media/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/venturelift_media/views.py" afterDir="false" />
     </list>
     <ignored path="celerybeat-schedule" />
     <ignored path="celerybeat.pid" />
@@ -31,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/venturelift_cms/templates/categories.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -666,7 +665,7 @@
     <entry file="file://$PROJECT_DIR$/venturelift_cms/templates/categories.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
         </state>
       </provider>
     </entry>
