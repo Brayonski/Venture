@@ -26,7 +26,7 @@
                         <h4>{{ supporter.company }}</h4>
                     </li>
                     <li class="Xuser_label_company Xtop">
-                      {{ supporter.user.first_name }} {{supporter.user.last_name}}
+                      {{ supporter.user.first_name|title }} {{supporter.user.last_name|title}}
                     </li>                    
                     <li class="Xuser_label_title Xtop">{{profile.supporter_interest}}</li>                  
                   </ul>
@@ -97,7 +97,7 @@
                 </figure>
                 <figure class="box_detailsY">
                   <p class="box_titleY">
-                    <a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a>
+                    <a href="{% url 'business_profile' obj.pk %}">{{obj.name|title}}</a>
                   </p>
                   <div class="box_socialY">
                     {% if obj in business_following %}
@@ -129,7 +129,7 @@
                 </figure>
                 <figure class="box_detailsY">
                   <p class="box_titleY">
-                    <a href="{% url 'supporter_profile' obj.pk %}">{{obj.fullname}}</a>
+                    <a href="{% url 'supporter_profile' obj.pk %}">{{obj.fullname|title}}</a>
                   </p>
                   <div class="box_socialY">
                     {% if obj in supporter_following %}
@@ -161,7 +161,7 @@
                 </figure>
                 <figure class="box_detailsY">
                   <p class="box_titleY">
-                    <a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a>
+                    <a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname|title}}</a>
                   </p>
                   <div class="box_socialY">
                     {% if obj in investor_following %}
@@ -424,7 +424,7 @@
                 </figure>
                 <figure class="box_detailsY">
                   <p class="box_titleY">
-                    <a href="{% url 'business_profile' business.pk %}">{{business.name}}</a>
+                    <a href="{% url 'business_profile' business.pk %}">{{business.name|title}}</a>
                   </p>
                 </figure>
               </div>
@@ -446,7 +446,7 @@
           </figure>
           <figure class="box_detailsY">
             <p class="box_titleY">
-                <a href="{% url 'investor_profile' funder.investor_profile.pk %}">{{funder.investor_profile.user.username}}</a>
+                <a href="{% url 'investor_profile' funder.investor_profile.pk %}">{{funder.investor_profile.user.username|title}}</a>
             </p>
           </figure>
         </div>
@@ -468,7 +468,7 @@
           </figure>
           <figure class="box_detailsY">
             <p class="box_titleY">
-                <a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a>
+                <a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username|title}}</a>
             </p>
           </figure>
         </div>
