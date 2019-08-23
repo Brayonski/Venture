@@ -34,7 +34,7 @@
               {% endif %}
             </figure>
             <figure class="box_details">
-              <p class="box_title"><a href="{% url 'investor_profile' obj.pk %}">{{obj.investor_profile.fullname|title}}</a></p>
+              <p class="box_title"><a href="{% url 'investor_profile' obj.pk %}">{{obj.first_name|title}} {{obj.last_name|title}}</a></p>
               <div class="box_social">
                 <!--{% if obj in following %}-->
                 <!--<a href="{% url 'investor_unfollow' obj.id %}"><button-->
