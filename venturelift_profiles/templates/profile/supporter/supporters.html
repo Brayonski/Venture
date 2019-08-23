@@ -31,11 +31,15 @@
                             {% if obj.thumbnail_image %}
                             <img src="{{ obj.thumbnail_image.url }}">
                             {% else %}
+                            {% if obj.gender == 'Male' || obj.gender == 'Other %}
                             <img src="{% static 'img/blue-user-icon.svg' %}">
+                            {% else %}
+                            <img src="{% static 'img/no-img.jpg' %}">
+                            {% endif %}
                             {% endif %}
                         </figure>
                         <figure class="box_details">
-                            <p class="box_title"><a href="{% url 'supporter_profile' obj.pk %}">{{obj.user}}</a></p>
+                            <p class="box_title"><a href="{% url 'supporter_profile' obj.pk %}">{{obj.user|title}}</a></p>
                             <div class="box_social">
                                 <!--{% if obj in following %}-->
                                 <!--<a href="{% url 'supporter_unfollow' obj.id %}"><button-->

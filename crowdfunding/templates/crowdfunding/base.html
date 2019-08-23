@@ -98,7 +98,11 @@
                       {% if context.supporter.thumbnail_image %}
                       <img src="{{ context.supporter.thumbnail_image.url }}">
                       {% else %}
-                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                          {% if context.supporter.gender == 'Male' || context.supporter.gender == 'Other' %}
+                          <img src="{% static 'img/blue-user-icon.svg' %}">
+                          {% else %}
+                          <img src="{% static 'img/no-img.jpg' %}">
+                          {% endif %}
                       {% endif %}
                       {% elif context.investor %}
                       {% if context.investor.thumbnail_image %}

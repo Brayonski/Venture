@@ -12,6 +12,7 @@ class CreateBusinessForm(ModelForm):
         labels = {
             "thumbnail_image": "Company logo",
             "name": "Company name",
+            "gender": "Gender",
             "sector": "Industry",
             "size": "Company size",
             "company_primary_email": "Company primary email address",
@@ -158,6 +159,7 @@ class SupporterCreateForm(forms.ModelForm):
 
         labels = {
             "phone_number": "Phone Number",
+            "gender": "Gender",
             "company": "Company Name",
             "role": "My role at the organization?",
             "company_operations": "Where are the company's main operations based?",
@@ -193,6 +195,7 @@ class InvestorCreateForm(forms.ModelForm):
         exclude = ['user', 'verified_by', 'verified']
         labels = {
             "about": "Briefly describe your company?",
+            "gender": "Gender",
             "phone_number": "Phone number",
             "company": "Company name",
             "role": "My title at the company?",

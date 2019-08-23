@@ -25,7 +25,7 @@
                       <h4>{{ business.name }}</h4>
                     </li>
                     <li class="Xuser_label_company Xtop">
-                      {{ business.creator.first_name|add:" "|add:business.creator.last_name }} |
+                      {{ business.creator.first_name|title|add:" "|add:business.creator.last_name|title }} |
                       {{business.address.name}}
                     </li>
                     <!--
@@ -101,7 +101,7 @@
                 <figure class="box_detailsY">
                   <p class="box_titleY">
                     <a
-                      href="{% url 'investor_profile' funder.investor_profile.pk %}">{{funder.investor_profile.user.username}}</a>
+                      href="{% url 'investor_profile' funder.investor_profile.pk %}">{{funder.investor_profile.user.username|title}}</a>
                   </p>
                 </figure>
               </div>
@@ -124,7 +124,7 @@
                 <figure class="box_detailsY">
                   <p class="box_titleY">
                     <a
-                      href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a>
+                      href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username|title}}</a>
                   </p>
                 </figure>
               </div>
@@ -149,7 +149,7 @@
                   </figure>
                   <figure class="box_detailsY">
                     <p class="box_titleY">
-                      <a href="{% url 'business_profile' obj.pk %}">{{obj.name}}</a>
+                      <a href="{% url 'business_profile' obj.pk %}">{{obj.name|title}}</a>
                     </p>
                     <div class="box_socialY">
                       {% if obj in business_following %}
@@ -181,7 +181,7 @@
                   </figure>
                   <figure class="box_detailsY">
                     <p class="box_titleY">
-                      <a href="{% url 'supporter_profile' obj.pk %}">{{obj.fullname}}</a>
+                      <a href="{% url 'supporter_profile' obj.pk %}">{{obj.fullname|title}}</a>
                     </p>
                     <div class="box_socialY">
                       {% if obj in supporter_following %}
@@ -213,7 +213,7 @@
                   </figure>
                   <figure class="box_detailsY">
                     <p class="box_titleY">
-                      <a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname}}</a>
+                      <a href="{% url 'investor_profile' obj.pk %}">{{obj.fullname|title}}</a>
                     </p>
                     <div class="box_socialY">
                       {% if obj in investor_following %}
@@ -499,7 +499,7 @@
                   </figure>
                   <figure class="box_detailsY">
                     <p class="box_titleY">
-                      <a href="{% url 'business_profile' business.pk %}">{{business.name}}</a>
+                      <a href="{% url 'business_profile' business.pk %}">{{business.name|title}}</a>
                     </p>
                   </figure>
                 </div>

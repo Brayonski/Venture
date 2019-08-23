@@ -246,6 +246,11 @@ class AllSystemUserAdmin(admin.ModelAdmin):
         return False
 
 
+class SurveyUserAdmin(admin.ModelAdmin):
+    search_fields = ['user__email']
+    list_display = ['user','from_time','to_time']
+
+
 
 
 admin.site.register(Business, BusinessAdmin)
@@ -267,3 +272,4 @@ admin.site.register(InvestorConnectRequest, InvestorConnectRequestAdmin)
 admin.site.register(SupporterConnectRequest, SupporterConnectRequestAdmin)
 admin.site.register(TrackingUser, TrackingUserAdmin)
 admin.site.register(AllSystemUser, AllSystemUserAdmin)
+admin.site.register(SurveyUser, SurveyUserAdmin)

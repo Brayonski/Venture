@@ -8,6 +8,7 @@ from djangocms_text_ckeditor import fields
 from django.core.validators import MinLengthValidator
 from multiselectfield import MultiSelectField
 from django_countries.fields import CountryField
+from django.utils import timezone
 # Create your models here.
 
 BUSINESS_SIZE = (
@@ -21,6 +22,12 @@ SUPPORTER_INTEREST = (
     ('Technology', 'Technology'),
     ('Trade', 'Trade'),
     ('Supply Chain', 'Supply Chain'),
+)
+
+GENDER_TYPES = (
+    ('Male', 'Male'),
+    ('Female', 'Female'),
+    ('Other', 'Other'),
 )
 
 COMPANY_CLASSIFICATION = (
@@ -250,6 +257,8 @@ class VlaServices(models.Model):
 
 class Business(models.Model):
     name = models.CharField(max_length=255)
+    gender = models.CharField(
+        max_length=200, choices=GENDER_TYPES, default='Other')
     sector = models.ForeignKey(BusinessCategory)
     size = models.CharField(max_length=100, choices=BUSINESS_SIZE)
     creator = models.ForeignKey(User, related_name='business_creator')
@@ -368,6 +377,8 @@ class Supporter(models.Model):
     user = models.ForeignKey(User, related_name='supporter_creator')
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
+    gender = models.CharField(
+        max_length=200, choices=GENDER_TYPES, default='Other')
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number", null=True)
     about = models.TextField(help_text="Briefly describe your self", null=True)
@@ -419,6 +430,8 @@ class Investor(models.Model):
     about = models.TextField(null=True)
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
+    gender = models.CharField(
+        max_length=200, choices=GENDER_TYPES, default='Other')
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number")
     company = models.CharField(max_length=250)
@@ -594,3 +607,19 @@ class AllSystemUser(models.Model):
 
     def user_email(self):
         return self.email
+
+
+class SurveyUser(models.Model):
+    user = models.ForeignKey(User)
+    from_time = models.DateTimeField('allow system access from date')
+    to_time = models.DateTimeField('allow system access to date')
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name_plural = 'Survey Users'
+
+    def __str__(self):
+        return self.user.email
+
+    def user_email(self):
+        return self.user.email

@@ -30,7 +30,7 @@ SECRET_KEY = 'n5ay9hm_v*(^uepo6fkj=m#q1pf1e2p0!*90qg=gtq1)@p*7j6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','2ec1852e.ngrok.io','127.0.0.1','52.37.84.193']
+ALLOWED_HOSTS = ['localhost','2ec1852e.ngrok.io','127.0.0.1','52.37.84.193','vlatest.otbafrica.com ]
 
 
 # Application definition

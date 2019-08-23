@@ -5,6 +5,7 @@ from celery.decorators import periodic_task
 from django.utils import timezone
 from datetime import date
 from crowdfunding.models import *
+from venturelift_profiles.models import *
 from django.conf import settings
 import requests
 from requests.auth import HTTPBasicAuth
@@ -16,6 +17,7 @@ import uuid
 import decimal
 from django.utils.timezone import utc
 from time import sleep
+from django.utils.crypto import get_random_string
 
 logger = get_task_logger(__name__)
 
@@ -111,8 +113,8 @@ def send_mpesa_c2b_register_url_task():
         headers = {"Authorization": "Bearer %s" % accessToken}
         request = {"ShortCode": " ",
                    "ResponseType": " ",
-                   "ConfirmationURL": "http://52.37.84.193:8081/crowdfunding/confirmation_url",
-                   "ValidationURL": "http://52.37.84.193:8081/crowdfunding/validation_url"}
+                   "ConfirmationURL": "http://vlatest.otbafrica.com/crowdfunding/confirmation_url",
+                   "ValidationURL": "http://vlatest.otbafrica.com/crowdfunding/validation_url"}
 
         response = requests.post(api_URL, json=request, headers=headers)
         checkoutResponse = response.text
@@ -192,7 +194,7 @@ def send_mpesa_stk_task(phone,amount,accountName,paymentId):
                     "PartyA": phoneNumber,
                     "PartyB": shortCode,
                     "PhoneNumber": phoneNumber,
-                    "CallBackURL": "http://52.37.84.193:8081/crowdfunding/mpesa_checkout_response",
+                    "CallBackURL": "http://vlatest.otbafrica.com/crowdfunding/mpesa_checkout_response",
                     "AccountReference": accountName,
                     "TransactionDesc": "VENTURELIFTDONATION"
                 }
@@ -244,3 +246,18 @@ def task_close_due_campaigns():
             send_campaign_disbursement_email_task.delay(campaign.campaign_name, campaign.id, subject, from_email, to, "refunds")
 
     logger.info("Saved disbursement for closed campaigns")
+
+
+@periodic_task(run_every=(crontab(minute='*/5')), name="task_survey_users", ignore_result=True)
+def task_survey_users():
+    print("Hi,im survey user periodically running")
+    surveys = SurveyUser.objects.filter(active=True)
+    now = datetime.utcnow().replace(tzinfo=utc)
+    for survey in surveys:
+        if now >= survey.to_time:
+            unique_id = get_random_string(length=32)
+            survey.user.set_password(unique_id)
+            survey.user.save()
+            survey.active = False
+            survey.save()
+
