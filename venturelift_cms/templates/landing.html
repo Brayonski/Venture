@@ -1,4 +1,4 @@
-{% extends "base_root2.html" %}
+{% extends "base_root.html" %}
 {% load cms_tags staticfiles %}
 {% block title %} Venturelift Africa &mdash; Driving Greater Diaspora Engagement with Africa {% endblock title %}
 {% block content %}
@@ -12,7 +12,7 @@
 					<h1 class="home_banner_cap_header"><span>Driving Greater Diaspora Engagement with Africa</span></h1>
 					<h4 class="home_banner_cap_subheader">VentureLift Africa connects African early stage and growing companies to investors and partners who can help them grow and scale.</h4>
 					<div class="home_banner_cap_cta">
-						<a href="#">Become a member</a>
+						<a href="{% url 'registration_in' %}">Become a member</a>
 					</div>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 					</figure>
 					<h4>Discover</h4>
 					<div class="hs2_cta">
-						<a href="#">Join as Business</a>
+						<a href="{% url 'registration_in' %}">Join as Business</a>
 					</div>
 					<div class="hs2_more">
 						<p>Startup | SMEs</p>
@@ -49,7 +49,7 @@
 					</figure>
 					<h4>Fund</h4>
 					<div class="hs2_cta">
-						<a href="#">Join as Funder</a>
+						<a href="{% url 'registration_in' %}">Join as Funder</a>
 					</div>
 					<div class="hs2_more">
 						<p>Investor | Crowdfunder | Lender</p>
@@ -63,7 +63,7 @@
 					</figure>
 					<h4>Partner</h4>
 					<div class="hs2_cta">
-						<a href="#">Join as Partner</a>
+						<a href="{% url 'registration_in' %}">Join as Partner</a>
 					</div>
 					<div class="hs2_more">
 						<p>Trade | Supply Chain | Technology | Talent | Professional Services</p>
