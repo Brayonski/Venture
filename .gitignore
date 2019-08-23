@@ -1,5 +1,7 @@
 *.pyc
 migrations
+crowdfunding/migrations
+crowdfunding/*.pyc
 settings.py
 media
 /.idea
