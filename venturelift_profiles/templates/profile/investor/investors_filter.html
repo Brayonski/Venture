@@ -30,11 +30,15 @@
               {% if obj.investor_profile.thumbnail_image %}
               <img src="{{ obj.investor_profile.thumbnail_image.url }}">
               {% else %}
+              {% if obj.investor_profile.gender == 'Male' or obj.investor_profile.gender == 'Other' %}
               <img src="{% static 'img/blue-user-icon.svg' %}">
+              {% else %}
+              <img src="{% static 'img/no-img.jpg' %}">
+              {% endif %}
               {% endif %}
             </figure>
             <figure class="box_details">
-              <p class="box_title"><a href="{% url 'investor_profile' obj.pk %}">{{obj.first_name|title}} {{obj.last_name|title}}</a></p>
+              <p class="box_title"><a href="{% url 'investor_profile' obj.pk %}">{{obj.investor_profile.fullname|title}}</a></p>
               <div class="box_social">
                 <!--{% if obj in following %}-->
                 <!--<a href="{% url 'investor_unfollow' obj.id %}"><button-->
