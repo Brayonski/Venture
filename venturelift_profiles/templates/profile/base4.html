@@ -95,27 +95,35 @@
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="true">
-                  <figure class="user_icon_nav">
-                    {% if context.supporter %}
+                <figure class="user_icon_nav">
+                  {% if context.supporter %}
                     {% if context.supporter.thumbnail_image %}
-                    <img src="{{ context.supporter.thumbnail_image.url }}">
+                      <img src="{{ context.supporter.thumbnail_image.url }}">
                     {% else %}
-                    <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% if context.supporter.gender == 'Male' or context.supporter.gender == 'Other' %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% else %}
+                      <img src="{% static 'img/no-img.jpg' %}">
+                      {% endif %}
                     {% endif %}
-                    {% elif context.investor %}
+                  {% elif context.investor %}
                     {% if context.investor.thumbnail_image %}
-                    <img src="{{ context.investor.thumbnail_image.url }}">
+                      <img src="{{ context.investor.thumbnail_image.url }}">
                     {% else %}
-                    <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% if context.investor.gender == 'Male' or context.investor.gender == 'Other' %}
+                        <img src="{% static 'img/blue-user-icon.svg' %}">
+                        {% else %}
+                        <img src="{% static 'img/no-img.jpg' %}">
+                      {% endif %}
                     {% endif %}
-                    {% elif context.business %}
+                  {% elif context.business %}
                     {% if context.business.thumbnail_image %}
                     <img src="{{ context.business.thumbnail_image.url }}">
                     {% else %}
                     <img src="{% static 'img/no-img.jpg' %}">
                     {% endif %}
-                    {% endif %}
-                  </figure>
+                  {% endif %}
+                </figure>
                 </button>
                 <ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
                   <li><a href="{% url 'profile_summary' %}">My Profile</a></li>

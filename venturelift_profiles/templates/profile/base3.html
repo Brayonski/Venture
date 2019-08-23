@@ -98,23 +98,31 @@
                 aria-haspopup="true" aria-expanded="true">
                 <figure class="user_icon_nav">
                   {% if context.supporter %}
-                  {% if context.supporter.thumbnail_image %}
-                  <img src="{{ context.supporter.thumbnail_image.url }}">
-                  {% else %}
-                  <img src="{% static 'img/blue-user-icon.svg' %}">
-                  {% endif %}
+                    {% if context.supporter.thumbnail_image %}
+                      <img src="{{ context.supporter.thumbnail_image.url }}">
+                    {% else %}
+                      {% if context.supporter.gender == 'Male' or context.supporter.gender == 'Other' %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% else %}
+                      <img src="{% static 'img/no-img.jpg' %}">
+                      {% endif %}
+                    {% endif %}
                   {% elif context.investor %}
-                  {% if context.investor.thumbnail_image %}
-                  <img src="{{ context.investor.thumbnail_image.url }}">
-                  {% else %}
-                  <img src="{% static 'img/blue-user-icon.svg' %}">
-                  {% endif %}
+                    {% if context.investor.thumbnail_image %}
+                      <img src="{{ context.investor.thumbnail_image.url }}">
+                    {% else %}
+                      {% if context.investor.gender == 'Male' or context.investor.gender == 'Other' %}
+                        <img src="{% static 'img/blue-user-icon.svg' %}">
+                        {% else %}
+                        <img src="{% static 'img/no-img.jpg' %}">
+                      {% endif %}
+                    {% endif %}
                   {% elif context.business %}
-                  {% if context.business.thumbnail_image %}
-                  <img src="{{ context.business.thumbnail_image.url }}">
-                  {% else %}
-                  <img src="{% static 'img/no-img.jpg' %}">
-                  {% endif %}
+                    {% if context.business.thumbnail_image %}
+                    <img src="{{ context.business.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/no-img.jpg' %}">
+                    {% endif %}
                   {% endif %}
                 </figure>
               </button>
@@ -185,7 +193,7 @@
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')
+    window.jQuery or document.write('<script src="js/vendor/jquery.min.js"><\/script>')
   </script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
   <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
@@ -234,7 +242,7 @@
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer or [];
 
     function gtag() {
       dataLayer.push(arguments);
