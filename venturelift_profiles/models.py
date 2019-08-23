@@ -256,7 +256,7 @@ class VlaServices(models.Model):
 
 
 class Business(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, required=True)
     gender = models.CharField(
         max_length=200, choices=GENDER_TYPES, default='Other')
     sector = models.ForeignKey(BusinessCategory)
