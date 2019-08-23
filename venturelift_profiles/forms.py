@@ -149,8 +149,8 @@ class ChooseProfileForm(forms.Form):
 
 
 class SupporterCreateForm(forms.ModelForm):
-    first_name = forms.CharField(max_length=250, label="First Name",required=True)
-    last_name = forms.CharField(max_length=250, label="Last Name",required=True)
+    first_name = forms.CharField(max_length=250, label="First Name")
+    last_name = forms.CharField(max_length=250, label="Last Name")
 
     class Meta:
         model = Supporter
@@ -187,8 +187,8 @@ class SupporterProfileCreateForm(forms.ModelForm):
     trading_partners = forms.MultipleChoiceField(required=False, widget=Select2MultipleWidget, choices=TRADING_PARTNERS)
 
 class InvestorCreateForm(forms.ModelForm):
-    first_name = forms.CharField(max_length=250, label="First Name",required=True)
-    last_name = forms.CharField(max_length=250, label="Last Name",required=True)
+    first_name = forms.CharField(max_length=250, label="First Name")
+    last_name = forms.CharField(max_length=250, label="Last Name")
 
     class Meta:
         model = Investor
