@@ -747,6 +747,10 @@ blockquote {
     margin: 40px 0px;
     color: #FFF;
 }
+.page_boxA #amount_check {
+    color: #FFF !important;
+}
+
 .page_content_A .h3, .page_content_A h3 {
     color: #000;
     font-weight: 300;
