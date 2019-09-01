@@ -14,6 +14,7 @@ from newsletter_subscription.urls import newsletter_subscriptions_urlpatterns
 from venturelift_media.models import Subscription
 from django_registration.backends.activation.views import RegistrationView
 from django.views.generic import TemplateView
+from venturelift_cms import views
 
 admin.autodiscover()
 
@@ -36,6 +37,8 @@ urlpatterns = [
         TemplateView.as_view(template_name="page_privary_policy.html")),
     url(r'^team/', TemplateView.as_view(template_name="page_team.html")),
     url(r'^terms-of-use/', TemplateView.as_view(template_name="page_terms_of_use.html")),
+    url(r'^signup/', TemplateView.as_view(template_name="register.html")),
+    url(r'^make_user/$', views.make_user, name='make_user'),
     url(r'^select2/', include('django_select2.urls')),
 ]
 
