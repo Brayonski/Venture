@@ -186,33 +186,24 @@ class SupporterView(LoginRequiredMixin, ListView, FormMixin):
 
 class SupporterFilterView(LoginRequiredMixin, ListView, FormMixin):
     template_name = 'profile/supporter/supporters_filter.html'
-    queryset = Supporter.objects.filter(verified=True)
+    queryset = SupporterProfile.objects.filter(supporter_profile__verified=True)
     form_class = SupporterFilters
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
         if form.is_valid():
             if request.POST.get('supporter-name'):
-                fullname = request.POST.get('supporter-name').split(' ')
-                if len(fullname) >= 2:
-                    last_name = fullname[1]
-                else:
-                    last_name = request.POST.get('supporter-name')
-                first_name = fullname[0]
-
-                supporter = Supporter.objects.filter((Q(
-                    user__first_name__icontains=first_name) | Q(user__last_name__icontains=last_name)), verified=True)
+                supporter = SupporterProfile.objects.filter(
+                    supporter_profile__company__icontains=request.POST.get('supporter-name'),
+                    supporter_profile__verified=True)
             else:
-                supporter = Supporter.objects.filter(verified=True)
-                if form.cleaned_data['profession']:
-                    supporter = supporter.filter(
-                        supporter_profile__professional_support=form.cleaned_data['profession'])
+                supporter = SupporterProfile.objects.filter(supporter_profile__verified=True)
                 if form.cleaned_data['size']:
                     supporter = supporter.filter(
-                        supporter_profile__interest_startups__in=form.cleaned_data['size'])
+                        interest_startups=form.cleaned_data['size'])
                 if form.cleaned_data['countries']:
                     supporter = supporter.filter(
-                        supporter_profile__interest_countries__in=form.cleaned_data['countries']
+                        interest_countries=form.cleaned_data['countries']
                     )
             return render(request, self.template_name, {'object_list': supporter, 'form': form, 'following': following(self.request.user)})
 
@@ -253,7 +244,7 @@ class SupporterFilterView(LoginRequiredMixin, ListView, FormMixin):
                     id=self.kwargs['pk']))
         context['following'] = following(self.request.user)
         supporterType = self.kwargs['supporter_type']
-        context['object_list'] = SupporterProfile.objects.filter(supporter_interest=supporterType)
+        context['object_list'] = SupporterProfile.objects.filter(supporter_interest=supporterType,supporter_profile__verified=True)
 
         return context
 
@@ -334,7 +325,7 @@ class InvestorView(LoginRequiredMixin, ListView, FormMixin):
 
 class InvestorFilterView(LoginRequiredMixin, ListView, FormMixin):
     template_name = 'profile/investor/investors_filter.html'
-    queryset = Investor.objects.filter(verified=True)
+    queryset = InvestorProfile.objects.filter(investor_profile__verified=True)
     form_class = InvestorFilters
 
     def dispatch(self, request, *args, **kwargs):
@@ -346,37 +337,23 @@ class InvestorFilterView(LoginRequiredMixin, ListView, FormMixin):
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
-        investor = Investor.objects.filter(verified=True)
         if form.is_valid():
             if request.POST.get('investor-name'):
-                # fullname = request.POST.get('investor-name').split(' ')
-                # if len(fullname) >= 2:
-                #     last_name = fullname[1]
-                # else:
-                #     last_name = request.POST.get('investor-name')
-                # first_name = fullname[0]
-                #
-                # investor = Investor.objects.filter((Q(
-                #     user__first_name__icontains=first_name) | Q(user__last_name__icontains=last_name)), verified=True)
-                investor = Investor.objects.filter(
-                    company__icontains=request.POST.get('investor-name'), verified=True)
+                investor = InvestorProfile.objects.filter(
+                    investor_profile__company__icontains=request.POST.get('investor-name'), investor_profile__verified=True)
             else:
-                investor = Investor.objects.filter(verified=True)
+                investor = InvestorProfile.objects.filter(investor_profile__verified=True)
                 if form.cleaned_data['sectors']:
-                    lists = InvestorProfile.objects.filter(
-                        target_sectors__name=form.cleaned_data['sectors'])
-                    if lists is True:
-                        investor = lists.investor_profile
-
+                    investor = investor.filter(target_sectors__in=form.cleaned_data['sectors'])
                 if form.cleaned_data['countries']:
                     investor = investor.filter(
-                        investor_profile__target_countries__in=form.cleaned_data['countries']
+                        target_countries__in=form.cleaned_data['countries']
                     )
                 if form.cleaned_data['exists']:
                     investor = investor.filter(
-                        investor_profile__exits_executed=form.cleaned_data['exists']
+                        exits_executed=form.cleaned_data['exists']
                     )
-        return render(request, self.template_name, {'object_list': investor, 'form': form, 'following': following(self.request.user)})
+            return render(request, self.template_name, {'object_list': investor, 'form': form, 'following': following(self.request.user)})
 
     def get_context_data(self, *args, **kwargs):
         context = super(InvestorFilterView, self).get_context_data(*args, **kwargs)
@@ -406,7 +383,7 @@ class InvestorFilterView(LoginRequiredMixin, ListView, FormMixin):
                     id=self.kwargs['pk']))
         context['following'] = following(self.request.user)
         investorType = self.kwargs['investor_type']
-        context['object_list'] = InvestorProfile.objects.filter(funder_type=investorType)
+        context['object_list'] = InvestorProfile.objects.filter(funder_type=investorType,investor_profile__verified=True)
         return context
 
 
