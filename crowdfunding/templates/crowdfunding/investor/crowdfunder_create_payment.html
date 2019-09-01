@@ -7,7 +7,7 @@
 
 
 
-<div class="single_campaign full_A">
+<div class="single_campaign crowdfunder_create_payment full_A">
   <div id="profile">
 
       <div class="camp_top">
@@ -109,6 +109,7 @@
           <div class="page_boxA">
 
             <div class="card-body-for-contribution">
+                 <div class="alert_A alert alert-danger" role="alert"><strong>Warning! </strong>This is only for demo purposes</div>
                  <form method="post" action="{% url 'crowdfunding:crowdfunder_make_payment' %}">
                          {% csrf_token %}
                      <input type="hidden" value="{{campaign_data.id}}" name="campaign_id" id="campaign_id" required />

@@ -4,241 +4,174 @@
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 {% block content %}
 
-<div class="full_A">
-    <div class="container">
-        <div class="profile_top full_widthX">
-          <div class="profile_top_in">
-            <div class="padless-leftX col-md-6 col-sm-6 col-xs-6">
-              <div class="ptin_A ptin_1A">
-                <figure class="maxi_avi2">
-                    {% if campaign_data.campaign_image %}
-                    <img src="{{ campaign_data.campaign_image.url }}">
-                    {% else %}
-                    <img src="{% static 'img/no-img.png' %}">
-                    {% endif %}
-                </figure>
-                <div class="ptin_1A1">
-                  <div class="Xuser_label_wrap Xtop">
-                    <ul class="Xuser_label Xfunder_label Xtop">
-                      <li class="Xuser_label_company2 Xtop">
-                          <h4>  {{ campaign_data.campaign_name }}</h4>
-                      </li>
-                      <li class="Xuser_label_company Xtop">
-                        {{ campaign_data.company_name }}
-                      </li>
-                      <li class="Xuser_label_title Xtop"><ion-icon name="finger-print"></ion-icon>Sector: {{campaign_data.sector}}</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
 
+
+<div class="single_campaign crowdfunder_create_payment full_A">
+  <div id="profile">
+
+      <div class="camp_top">
+        {% if campaign_data.campaign_image %}
+        <img src="{{ campaign_data.campaign_image.url }}">
+        {% else %}
+        <img src="{% static 'img/no-img.png' %}">
+        {% endif %}
+      </div>
+
+    <div class="single_campaign_details_container container">
+
+      <div class="camp_title">
+        <h1 class="style_D">{{campaign_data.campaign_name}}</h1> 
+      </div>
+
+      <div class="row clearfix">
+        <div class="col-md-6">
+            
+          <div class="">
+              <h3>Donate</h3>
+              <h5><b>Campaign Details</b></h5>
+                <p class="card-text dark-text">
+                  {% if campaign_data.short_description %}
+                    {{campaign_data.short_description}}
+                  {% else %}
+                    No campaign title statement provided
+                  {% endif %}
+                </p>
+
+               <h5><b>Campaign Objective</b></h5>
+                <p class="card-text dark-text">
+                  {% if campaign_data.long_description %}
+                    {{campaign_data.long_description}}
+                  {% else %}
+                    No campaign objective statement provided
+                  {% endif %}
+                </p>
+
+               <h5><b>Target Amount</b></h5>
+                <p class="card-text dark-text">
+                  {% if campaign_data.target_amount %}
+                    USD {{target_amount}}
+                  {% else %}
+                    No target_amount provided
+                  {% endif %}
+                </p>
+
+              <h5><b>Minimum Amount</b></h5>
+                <p class="card-text dark-text">
+                  {% if campaign_data.minimum_donation %}
+                    USD {{minimum_donation}}
+                  {% else %}
+                    No minimum donation amount defined
+                  {% endif %}
+                </p>
+
+               <h5><b>Campaign Closing Date</b></h5>
+                <p class="card-text dark-text">
+                  {% if campaign_data.duration %}
+                    {{campaign_data.duration}}
+                  {% else %}
+                    No campaign  closing date details provided
+                  {% endif %}
+                </p>
+          </div>
+
+        </div>
+
+        <div class="side_X col-md-6 clearfix">
+          <div class="page_boxA">
+
+            <div class="card-body-for-contribution">
+                 <form method="post" action="{% url 'crowdfunding:make_payment' %}">
+                 {% csrf_token %}
+                     <input type="hidden" value="{{campaign_data.id}}" name="campaign_id" id="campaign_id" required />
+                     <input type="hidden" value="{{campaign_data.minimum_donation}}" name="campaign_minimum_amount" id="campaign_minimum_amount" />
+
+                     <div class="form-group">
+                         <label> Allow payment information to be visible by Campaign Owner: </label>
+                          <input type="radio" name="allow_visibility" value="1" checked> Yes<br>
+                          <input type="radio" name="allow_visibility" value="0"> No<br>
+                     </div>
+
+                     <div class="form-group">
+                          <label for="donator_email"> Email: </label>
+                         <input id="donator_email" type="email" class="form-control" name="donator_email" required />
+                     </div>
+
+                      <div class="form-group">
+                          <label for="amount">Crowdfunding Amount: </label>
+                         <input id="amount" type="number" class="form-control" name="amount" min="1" required />
+                          <span style="color:red" id="amount_check">All funding is in USD</span>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="comments"> Comments: </label>
+                          <textarea id="comments" name="comments" class="form-control" rows="2"></textarea>
+                     </div>
+
+                     <div class="form-group">
+                          <label for="payment_method"> Payment Method: </label>
+                         <select id="payment_method" name="payment_method" class="form-control" required>
+                             <option value="">Select a payment Method</option>
+                             <option value="paypal">Paypal</option>
+                             <option value="mpesa">Mpesa</option>
+                         </select>
+                     </div>
+
+                     <div class="form-group" id="donator_phoneno_mpesa">
+                         <label for="donator_phoneno"> Mpesa Phone No* </label>
+                         <input id="donator_phoneno" class="form-control" name="donator_phoneno" type="text" placeholder="Enter with country code eg 254789098765" novalidate>
+                     </div>
+
+                     <div id="donate-paypal">
+                         <div id="paypal-button-container"></div>
+                         <div align="center">
+                              <button class="buttonload">
+                                  <i class="fa fa-spinner fa-spin"></i>Loading
+                              </button>
+                         </div>
+                     </div>
+
+                    <div class="form-group" align="center" id="donate-mpesa">
+                        <button class='btn btn-success' type="submit">Donate</button>
+                    </div>
+                 </form>
             </div>
+
           </div>
         </div>
-    </div>
-  <div class="container">
-        <div class="columns_A flex row clearfix">
 
-          <div class="col_A_out col_A_out_1 col-md-3 clearfix">
-            <div class="col_A_in col_A_in_1">
-
-                <div class="card-body progress-card text-center">
-
-                </div>
-
-              <div class="card card-body">
-
-              </div>
-
-              <div class="profile_list_side">
-
-              </div>
-
-              <div class="profile_list_side">
-
-
-              </div>
-
-            </div>
-          </div>
-          <div class="col_A_out col_A_out_2 col-md-6 clearfix">
-            <div class="col_A_in col_A_in_2">
-              <div class="onboarding_A">
-                <div class="row clearfix">
-                  <div class="col-md-12 clearfix">
-
-                    <div class="tab-content">
-                      <div id="profile" class="tab-pane fade in active">
-                        <div class="col-md-12 clearfix">
-                          <div class="profile_data">
-
-                              <div class="track_record_2">
-                                <div class="row clearfix">
-                                  <div class="no_padd col-md-12 clearfix">
-                                    <div class="single_card_wrapper">
-                                      <div class="card_C card" style="">
-                                        <div class="card-body">
-                                          <h4 align="center"><b>Donate</b></h4>
-                                             <div class="row clearfix">
-                                                  <div class="no_padd col-md-12 clearfix">
-                                                    <h3>Campaign Details</h3>
-                                                    <div class="single_card_wrapper">
-                                                      <div class="card_C card" style="">
-                                                        <div class="card-body">
-                                                          <div class="">
-                                                              <h5><b>Campaign Title</b></h5>
-                                                                <p class="card-text dark-text">
-                                                                  {% if campaign_data.short_description %}
-                                                                    {{campaign_data.short_description}}
-                                                                  {% else %}
-                                                                    No campaign title statement provided
-                                                                  {% endif %}
-                                                                </p>
-
-                                                               <h5><b>Campaign Objective</b></h5>
-                                                                <p class="card-text dark-text">
-                                                                  {% if campaign_data.long_description %}
-                                                                    {{campaign_data.long_description}}
-                                                                  {% else %}
-                                                                    No campaign objective statement provided
-                                                                  {% endif %}
-                                                                </p>
-
-                                                               <h5><b>Target Amount</b></h5>
-                                                                <p class="card-text dark-text">
-                                                                  {% if campaign_data.target_amount %}
-                                                                    USD {{target_amount}}
-                                                                  {% else %}
-                                                                    No target_amount provided
-                                                                  {% endif %}
-                                                                </p>
-
-                                                              <h5><b>Minimum Amount</b></h5>
-                                                                <p class="card-text dark-text">
-                                                                  {% if campaign_data.minimum_donation %}
-                                                                    USD {{minimum_donation}}
-                                                                  {% else %}
-                                                                    No minimum donation amount defined
-                                                                  {% endif %}
-                                                                </p>
-
-                                                               <h5><b>Campaign Closing Date</b></h5>
-                                                                <p class="card-text dark-text">
-                                                                  {% if campaign_data.duration %}
-                                                                    {{campaign_data.duration}}
-                                                                  {% else %}
-                                                                    No campaign  closing date details provided
-                                                                  {% endif %}
-                                                                </p>
-                                                          </div>
-
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                              </div>
-
-                                            <div class="row clearfix">
-                                              <div class="no_padd col-md-12 clearfix">
-                                                <div class="single_card_wrapper">
-                                                  <div class="card_C card" style="">
-                                                    <div class="card-body">
-                                                         <form method="post" action="{% url 'crowdfunding:make_payment' %}">
-                                                         {% csrf_token %}
-                                                             <input type="hidden" value="{{campaign_data.id}}" name="campaign_id" id="campaign_id" required />
-                                                             <input type="hidden" value="{{campaign_data.minimum_donation}}" name="campaign_minimum_amount" id="campaign_minimum_amount" />
-
-                                                             <div class="form-group">
-                                                                 <label> Allow payment information to be visible by Campaign Owner: </label>
-                                                                  <input type="radio" name="allow_visibility" value="1" checked> Yes<br>
-                                                                  <input type="radio" name="allow_visibility" value="0"> No<br>
-                                                             </div>
-
-                                                             <div class="form-group">
-                                                                  <label for="donator_email"> Email: </label>
-                                                                 <input id="donator_email" type="email" class="form-control" name="donator_email" required />
-                                                             </div>
-
-                                                              <div class="form-group">
-                                                                  <label for="amount">Crowdfunding Amount: </label>
-                                                                 <input id="amount" type="number" class="form-control" name="amount" min="1" required />
-                                                                  <span style="color:red" id="amount_check">All funding is in USD</span>
-                                                             </div>
-
-                                                             <div class="form-group">
-                                                                 <label for="comments"> Comments: </label>
-                                                                  <textarea id="comments" name="comments" class="form-control" rows="2"></textarea>
-                                                             </div>
-
-                                                             <div class="form-group">
-                                                                  <label for="payment_method"> Payment Method: </label>
-                                                                 <select id="payment_method" name="payment_method" class="form-control" required>
-                                                                     <option value="">Select a payment Method</option>
-                                                                     <option value="paypal">Paypal</option>
-                                                                     <option value="mpesa">Mpesa</option>
-                                                                 </select>
-                                                             </div>
-
-                                                             <div class="form-group" id="donator_phoneno_mpesa">
-                                                                 <label for="donator_phoneno"> Mpesa Phone No* </label>
-                                                                 <input id="donator_phoneno" class="form-control" name="donator_phoneno" type="text" placeholder="Enter with country code eg 254789098765" novalidate>
-                                                             </div>
-
-                                                             <div id="donate-paypal">
-                                                                 <div id="paypal-button-container"></div>
-                                                                 <div align="center">
-                                                                      <button class="buttonload">
-                                                                          <i class="fa fa-spinner fa-spin"></i>Loading
-                                                                      </button>
-                                                                 </div>
-                                                             </div>
-
-                                                            <div class="form-group" align="center" id="donate-mpesa">
-                                                                <button class='btn btn-success' type="submit">Donate</button>
-                                                            </div>
-                                                         </form>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-
-
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col_A_out col_A_out_3 col-md-3 clearfix">
-              <div class="col_A_in col_A_in_3">
-
-                  <div class="profile_list_side">
-                      <div class="profile_list_side">
-
-                      </div>
-
-                      <div class="profile_list_side">
-
-                      </div>
-                  </div>
-              </div>
-          </div>
       </div>
+    </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}
 {% block javascript %}
    <script>
