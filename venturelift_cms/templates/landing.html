@@ -2,7 +2,24 @@
 {% load cms_tags staticfiles %}
 {% block title %} Venturelift Africa &mdash; Driving Greater Diaspora Engagement with Africa {% endblock title %}
 {% block content %}
+<style>
+  .open-button {
+    background-color: #1ba4db;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+  }
 
+  .open-button:hover {
+    opacity: 1;
+  }
+</style>
 
 <div class="home_banner full_width">
 	<div class="container">
@@ -163,7 +180,8 @@
 				</div>
 			</div>																	
 		</div>
-	</div>	
+		 <button class="open-button">This system is currently in beta stage.Please register to be updated once the system goes live</button>
+	</div>
 </div>
 
 
