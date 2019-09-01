@@ -82,8 +82,9 @@
                              <select id="funder_type" name="funder_type" class="form-control" required>
                                  <option value="">Select your funding type</option>
                                  <option value="Investor">Investor</option>
-                                 <option value="Crowdfunder">Crowdfunder</option>
                                  <option value="Lender">Lender</option>
+                                 <option value="Crowdfunder">Crowdfunder</option>
+                                 <option value="Grantor">Grantor</option>
                              </select>
                          </div>
                     </div>
@@ -117,7 +118,7 @@
                              </select>
                          </div>
                     </div>
-                     <div class="form-row" id="funder_lender">
+                    <div class="form-row" id="funder_lender">
                          <div class="form-group col-md-12 mb-0">
                               <label for="funder_lender_product"> Primary Investment Product: </label>
                              <select id="funder_lender_product" name="funder_lender_product" class="form-control">
@@ -128,16 +129,22 @@
                              </select>
                          </div>
                     </div>
+                    <div class="form-row" id="funder_grantor">
+                         <div class="form-group col-md-12 mb-0">
+                              <label for="funder_grantor_product"> Primary Investment Product: </label>
+                             <select id="funder_grantor_product" name="funder_grantor_product" class="form-control">
+                                 <option value="">Select your investment product</option>
+                                 <option value="Grants">Grants</option>
+                             </select>
+                         </div>
+                    </div>
                     <div class="form-row">
-                      <div class="form-group col-md-4 mb-0">
+                      <div class="form-group col-md-6 mb-0">
                         {{ form.target_sectors|as_crispy_field }}
                       </div>
-                      <div class="form-group col-md-4 mb-0">
+                      <div class="form-group col-md-6 mb-0">
                           {{ form.target_countries|as_crispy_field }}
                       </div>
-                     <div class="form-group col-md-4 mb-0">
-                        {{ form.investor_forms|as_crispy_field }}
-                    </div>
                     </div>
                     <div class="form-row">
                             <div class="form-group col-md-12 mb-0">
@@ -197,18 +204,27 @@
              $('#funder_investor').show();
              $('#funder_crowdfunder').hide();
              $('#funder_lender').hide();
+             $('#funder_grantor').hide();
         }else if(selection == "Crowdfunder"){
              $('#funder_investor').hide();
              $('#funder_crowdfunder').show();
              $('#funder_lender').hide();
+             $('#funder_grantor').hide();
         }else if(selection == "Lender"){
              $('#funder_investor').hide();
              $('#funder_crowdfunder').hide();
              $('#funder_lender').show();
+             $('#funder_grantor').hide();
+        }else if(selection == "Grantor"){
+             $('#funder_investor').hide();
+             $('#funder_crowdfunder').hide();
+             $('#funder_lender').hide();
+             $('#funder_grantor').show();
         }else{
              $('#funder_investor').hide();
              $('#funder_crowdfunder').hide();
              $('#funder_lender').hide();
+             $('#funder_grantor').hide();
         }
         $('#funder_type').on("change",function(e) {
             var selection = $(this).val();
@@ -216,18 +232,27 @@
                  $('#funder_investor').show();
                  $('#funder_crowdfunder').hide();
                  $('#funder_lender').hide();
+                  $('#funder_grantor').hide();
             }else if(selection == "Crowdfunder"){
                  $('#funder_investor').hide();
                  $('#funder_crowdfunder').show();
                  $('#funder_lender').hide();
+                  $('#funder_grantor').hide();
             }else if(selection == "Lender"){
                  $('#funder_investor').hide();
                  $('#funder_crowdfunder').hide();
                  $('#funder_lender').show();
+                  $('#funder_grantor').hide();
+            }else if(selection == "Grantor"){
+                 $('#funder_investor').hide();
+                 $('#funder_crowdfunder').hide();
+                 $('#funder_lender').hide();
+                  $('#funder_grantor').show();
             }else{
                  $('#funder_investor').hide();
                  $('#funder_crowdfunder').hide();
                  $('#funder_lender').hide();
+                 $('#funder_grantor').hide();
             }
 
         });

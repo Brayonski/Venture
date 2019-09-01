@@ -273,6 +273,7 @@ class InvestorView(LoginRequiredMixin, ListView, FormMixin):
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
+        investor = Investor.objects.filter(verified=True)
         if form.is_valid():
             if request.POST.get('investor-name'):
                 fullname = request.POST.get('investor-name').split(' ')
@@ -282,23 +283,21 @@ class InvestorView(LoginRequiredMixin, ListView, FormMixin):
                     last_name = request.POST.get('investor-name')
                 first_name = fullname[0]
 
-                investor = Investor.objects.filter((Q(
-                    user__first_name__icontains=first_name) | Q(user__last_name__icontains=last_name)), verified=True)
+                # investor = Investor.objects.filter((Q(
+                #     user__first_name__icontains=first_name) | Q(user__last_name__icontains=last_name)), verified=True)
+                investor = Investor.objects.filter(
+                    company__icontains=request.POST.get('investor-name'), verified=True)
             else:
-                investors = Investor.objects.filter(verified=True)
-                if form.cleaned_data['invest_forms']:
-                    print(form.cleaned_data['invest_forms'])
-                    investor = investors.filter(
-                        investor_profile__investor_forms__icontains=form.cleaned_data['invest_forms'])
+                investor = Investor.objects.filter(verified=True)
                 if form.cleaned_data['sectors']:
-                    investor = investors.filter(
+                    investor = investor.filter(
                         investor_profile__target_sectors__icontains=form.cleaned_data['sectors'])
                 if form.cleaned_data['countries']:
-                    investor = investors.filter(
+                    investor = investor.filter(
                         investor_profile__target_countries__in=form.cleaned_data['countries']
                     )
                 if form.cleaned_data['exists']:
-                    investor = investors.filter(
+                    investor = investor.filter(
                         investor_profile__exits_executed=form.cleaned_data['exists']
                     )
         return render(request, self.template_name, {'object_list': investor, 'form': form, 'following': following(self.request.user)})
@@ -347,32 +346,34 @@ class InvestorFilterView(LoginRequiredMixin, ListView, FormMixin):
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
+        investor = Investor.objects.filter(verified=True)
         if form.is_valid():
             if request.POST.get('investor-name'):
-                fullname = request.POST.get('investor-name').split(' ')
-                if len(fullname) >= 2:
-                    last_name = fullname[1]
-                else:
-                    last_name = request.POST.get('investor-name')
-                first_name = fullname[0]
-
-                investor = Investor.objects.filter((Q(
-                    user__first_name__icontains=first_name) | Q(user__last_name__icontains=last_name)), verified=True)
+                # fullname = request.POST.get('investor-name').split(' ')
+                # if len(fullname) >= 2:
+                #     last_name = fullname[1]
+                # else:
+                #     last_name = request.POST.get('investor-name')
+                # first_name = fullname[0]
+                #
+                # investor = Investor.objects.filter((Q(
+                #     user__first_name__icontains=first_name) | Q(user__last_name__icontains=last_name)), verified=True)
+                investor = Investor.objects.filter(
+                    company__icontains=request.POST.get('investor-name'), verified=True)
             else:
-                investors = Investor.objects.filter(verified=True)
-                if form.cleaned_data['invest_forms']:
-                    print(form.cleaned_data['invest_forms'])
-                    investor = investors.filter(
-                        investor_profile__investor_forms__icontains=form.cleaned_data['invest_forms'])
+                investor = Investor.objects.filter(verified=True)
                 if form.cleaned_data['sectors']:
-                    investor = investors.filter(
-                        investor_profile__target_sectors__icontains=form.cleaned_data['sectors'])
+                    lists = InvestorProfile.objects.filter(
+                        target_sectors__name=form.cleaned_data['sectors'])
+                    if lists is True:
+                        investor = lists.investor_profile
+
                 if form.cleaned_data['countries']:
-                    investor = investors.filter(
+                    investor = investor.filter(
                         investor_profile__target_countries__in=form.cleaned_data['countries']
                     )
                 if form.cleaned_data['exists']:
-                    investor = investors.filter(
+                    investor = investor.filter(
                         investor_profile__exits_executed=form.cleaned_data['exists']
                     )
         return render(request, self.template_name, {'object_list': investor, 'form': form, 'following': following(self.request.user)})
@@ -691,6 +692,10 @@ class InvestorUpdateProfileView(LoginRequiredMixin, UpdateView):
                 self.object.funder_type = form.cleaned_data['funder_type']
                 self.object.investment_type = self.request.POST['funder_crowdfunder_type']
                 self.object.investment_product = "Donation"
+            elif form.cleaned_data['funder_type'] == "Grantor":
+                self.object.funder_type = form.cleaned_data['funder_type']
+                self.object.investment_type = "Grantor"
+                self.object.investment_product = self.request.POST['funder_grantor_product']
             else:
                 self.object.funder_type = form.cleaned_data['funder_type']
                 self.object.investment_type = "Lender"

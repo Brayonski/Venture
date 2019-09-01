@@ -9,14 +9,6 @@
       <div class="col-md-6 clearfix">
         <p class="p_title">Funders</p>
       </div>
-      <div class="col-md-6 clearfix">
-        <div class="company_filter pull-right">
-          <form method='post' class='' action="#">
-            {% csrf_token %}
-            <input class='form-control' name='investor-name' placeholder='Search a funder' />
-          </form>
-        </div>
-      </div>
     </div>
   </div>
   <div class="row clearfix">
@@ -38,7 +30,7 @@
               {% endif %}
             </figure>
             <figure class="box_details">
-              <p class="box_title"><a href="{% url 'investor_profile' obj.pk %}">{{obj.investor_profile.fullname|title}}</a></p>
+              <p class="box_title"><a href="{% url 'investor_profile' obj.pk %}">{{obj.investor_profile.company|title}}<br>{{obj.investor_profile.fullname|title}}</a></p>
               <div class="box_social">
                 <!--{% if obj in following %}-->
                 <!--<a href="{% url 'investor_unfollow' obj.id %}"><button-->
@@ -65,6 +57,10 @@
     <form method='post'>
       <li>
         {% csrf_token %}
+        <div class="form-group">
+                <label for="name">Company Name: </label>
+                <input id="name" class='form-control' name='investor-name' />
+        </div>
         {{form|crispy }}
       </li>
       <li>

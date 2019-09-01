@@ -127,10 +127,9 @@ class SupporterFilters(forms.Form):
 
 
 class InvestorFilters(forms.Form):
-    invest_forms = forms.ChoiceField(
-        widget=Select2Widget, label='Funding Offered', choices=INVESTOR_FORMS, required=False)
-    sectors = forms.ChoiceField(
-        widget=Select2Widget, label='Sectors of Interest', choices=INTEREST_SECTORS, required=False)
+    # invest_forms = forms.ChoiceField(
+    #     widget=Select2Widget, label='Funding Offered', choices=INVESTOR_FORMS, required=False)
+    sectors = forms.ModelMultipleChoiceField(queryset=BusinessCategory.objects.all(), widget=Select2MultipleWidget,required=False)
     countries = forms.MultipleChoiceField(widget=Select2MultipleWidget,
                                           label='Countries of interest', required=False,
                                           choices=INTEREST_COUNTRIES)
@@ -210,7 +209,6 @@ class InvestorProfileCreateForm(forms.ModelForm):
         model = InvestorProfile
         exclude = ['investor_profile']
         labels = {
-            'investor_forms': "What forms of investment do you make?",
             'elevator_pitch': "What is your investment thesis in brief(Elevator Pitch)?",
             'target_countries': "Which are your target countries?",
             'target_sectors': "Target sectors",
@@ -222,7 +220,6 @@ class InvestorProfileCreateForm(forms.ModelForm):
             'impact_measurement': "Which impact measurement standard do you follow?",
             'impact_metrics': "What are your key impact metrics?",
         }
-    investor_forms = forms.MultipleChoiceField(widget=Select2MultipleWidget, choices=INVESTOR_FORMS)
     target_countries = forms.MultipleChoiceField(widget=Select2MultipleWidget, choices=INTEREST_COUNTRIES)
     target_sectors = forms.ModelMultipleChoiceField(queryset=BusinessCategory.objects.all(), widget=Select2MultipleWidget)
     impact_investor = forms.ChoiceField(choices=IMPACT_INVESTOR, widget=Select2Widget, label="Do you classify your company as an impact investor?"

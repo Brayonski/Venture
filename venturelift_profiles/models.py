@@ -202,6 +202,7 @@ FUNDER_TYPES = (
     ('Investor', 'Investor'),
     ('Crowdfunder', 'Crowdfunder'),
     ('Lender', 'Lender'),
+    ('Grantor', 'Grantor'),
 )
 
 INVESTOR_TYPES = (
@@ -271,6 +272,7 @@ class Business(models.Model):
     value_proposition_statement = models.TextField(null=True, blank=True)
     full_time_employee_count = models.IntegerField()
     verified = models.BooleanField(default=False)
+    sample_profile = models.BooleanField(default=False)
     verified_by = models.ForeignKey(
         User, related_name='business_verifier', null=True, blank=True)
 
@@ -390,6 +392,7 @@ class Supporter(models.Model):
     company_registration_year = models.IntegerField(
         choices=YEAR_CHOICES, default=2010)
     verified = models.BooleanField(default=False)
+    sample_profile = models.BooleanField(default=False)
     verified_by = models.ForeignKey(
         User, related_name='supporter_verifier', null=True, blank=True)
 
@@ -443,6 +446,7 @@ class Investor(models.Model):
     company_registration_year = models.IntegerField(
         choices=YEAR_CHOICES)
     verified = models.BooleanField(default=False)
+    sample_profile = models.BooleanField(default=False)
     verified_by = models.ForeignKey(
         User, related_name='investor_verifier', null=True, blank=True)
 
@@ -463,8 +467,8 @@ class InvestorProfile(models.Model):
     # company_classification = models.CharField(
     #     max_length=50, choices=COMPANY_CLASSIFICATION, null=True, blank=True)
 
-    investor_forms = MultiSelectField(
-        max_length=250, choices=INVESTOR_FORMS, null=True, blank=True, help_text="What forms of investment do you make?")
+    # investor_forms = MultiSelectField(
+    #     max_length=250, choices=INVESTOR_FORMS, null=True, blank=True, help_text="What forms of investment do you make?")
 
     target_sectors = models.ManyToManyField(BusinessCategory, help_text="Target Sectors", null=True, blank=True)
 
