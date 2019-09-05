@@ -300,21 +300,26 @@ class InvestorView(LoginRequiredMixin, ListView, FormMixin):
             if current_url == 'investor_follow':
                 investor_details = Investor.objects.get(
                     id=self.kwargs['pk'])
-                check_coneection = InvestorConnectRequest.objects.filter(investor=investor_details,
-                                                                         requestor=self.request.user,
-                                                                         approval_status="PENDING").first()
+                check_coneection = InvestorConnectRequest.objects.filter(
+                    investor=investor_details,
+                    requestor=self.request.user,
+                    approval_status="PENDING"
+                    ).first()
                 if check_coneection:
                     subject, from_email, to = 'Investor Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
-                    send_business_connect_request_email_task.delay(investor_details.company, self.request.user.username,
-                                                                   subject, from_email, to)
+                    send_business_connect_request_email_task.delay(
+                        investor_details.company, self.request.user.username,
+                        subject, from_email, to)
                 else:
                     connections = InvestorConnectRequest(investor=investor_details, created_at=timezone.now(),
-                                                         requestor=self.request.user, approval_status="PENDING",
-                                                         approved=False, rejected=False)
+                                    requestor=self.request.user, approval_status="PENDING",
+                                    approved=False, rejected=False)
                     connections.save()
                     subject, from_email, to = 'Investor Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
-                    send_business_connect_request_email_task.delay(investor_details.company, self.request.user.username,
-                                                                   subject, from_email, to)
+                    send_business_connect_request_email_task.delay(
+                        investor_details.company, self.request.user.username,
+                        subject, from_email, to
+                    )
                 #follow(self.request.user, Investor.objects.get(id=self.kwargs['pk']))
             if current_url == 'investor_unfollow':
                 unfollow(self.request.user, Investor.objects.get(
@@ -336,6 +341,7 @@ class InvestorFilterView(LoginRequiredMixin, ListView, FormMixin):
         return super(InvestorFilterView, self).dispatch(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
+        not_found = True
         form = self.get_form()
         if form.is_valid():
             if request.POST.get('investor-name'):
@@ -353,7 +359,13 @@ class InvestorFilterView(LoginRequiredMixin, ListView, FormMixin):
                     investor = investor.filter(
                         exits_executed=form.cleaned_data['exists']
                     )
-            return render(request, self.template_name, {'object_list': investor, 'form': form, 'following': following(self.request.user)})
+            
+            if investor:
+                not_found = False
+            else:
+                not_found = True
+
+            return render(request, self.template_name, {'object_list': investor, 'not_found': not_found ,'form': form, 'following': following(self.request.user)})
 
     def get_context_data(self, *args, **kwargs):
         context = super(InvestorFilterView, self).get_context_data(*args, **kwargs)
@@ -389,7 +401,7 @@ class InvestorFilterView(LoginRequiredMixin, ListView, FormMixin):
 
 
 class BusinessView(LoginRequiredMixin, ListView, FormMixin):
-    template_name = 'profile/business/business.html'
+    template_name = 'profile/business/businesses.html'
     queryset = Business.objects.filter(verified=True)
     form_class = BusinessFilters
 
@@ -401,6 +413,7 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
         return super(BusinessView, self).dispatch(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
+        not_found = True
         form = self.get_form()
         if form.is_valid():
             if request.POST.get('company-name'):
@@ -416,7 +429,13 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
                 if form.cleaned_data['service']:
                     business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
                                                Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
-            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user), 'services' : VlaServices.objects.all(), 'sectors' : BusinessCategory.objects.all().order_by('name')})
+        
+            if business:
+                not_found = False
+            else:
+                not_found = True
+
+            return render(request, self.template_name, {'object_list': business, 'not_found': not_found, 'form': form, 'following': following(self.request.user), 'services' : VlaServices.objects.all(), 'sectors' : BusinessCategory.objects.all().order_by('name')})
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessView, self).get_context_data(*args, **kwargs)
@@ -457,6 +476,7 @@ class BusinessStartupView(LoginRequiredMixin, ListView, FormMixin):
         return super(BusinessStartupView, self).dispatch(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
+        not_found = {}
         form = self.get_form()
         if form.is_valid():
             if request.POST.get('company-name'):
@@ -472,7 +492,13 @@ class BusinessStartupView(LoginRequiredMixin, ListView, FormMixin):
                 if form.cleaned_data['service']:
                     business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
                                                Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
-            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user), 'services' : VlaServices.objects.all(), 'sectors' : BusinessCategory.objects.all().order_by('name')})
+
+            if business:
+                not_found = False
+            else:
+                not_found = True
+
+            return render(request, self.template_name, {'object_list': business, 'not_found': not_found, 'form': form, 'following': following(self.request.user), 'services' : VlaServices.objects.all(), 'sectors' : BusinessCategory.objects.all().order_by('name')})
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessStartupView, self).get_context_data(*args, **kwargs)
@@ -529,7 +555,13 @@ class BusinessSMEView(LoginRequiredMixin, ListView, FormMixin):
                 if form.cleaned_data['service']:
                     business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
                                                Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
-            return render(request, self.template_name, {'object_list': business, 'form': form, 'following': following(self.request.user), 'services' : VlaServices.objects.all(), 'sectors' : BusinessCategory.objects.all().order_by('name')})
+            
+            if business:
+                not_found = False
+            else:
+                not_found = True
+
+            return render(request, self.template_name, {'object_list': business, 'not_found': not_found, 'form': form, 'following': following(self.request.user), 'services' : VlaServices.objects.all(), 'sectors' : BusinessCategory.objects.all().order_by('name')})
 
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessSMEView, self).get_context_data(*args, **kwargs)

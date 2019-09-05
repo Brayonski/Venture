@@ -1,99 +1,68 @@
 {% extends 'profile/base3.html' %}
 
 {% load cms_tags staticfiles %}
-{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block title %}{{ content.title }}{% endblock title %}
 {% block content %}
 
 <div class="event_wrapper full_A">
 
-  	<nav id="navbar_out_2" class="navbar navbar-default_media">
-      	<div class="top_container container"> 
+	<nav id="navbar_out_2" class="navbar navbar-default_media">
+		<div class="top_container container">
 
-          <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
-              {% url 'events_home' as  events_home %}
-              <ul class="category_banner_titles event_titles">
-            	  <li class="active e-title_1"><h1>{{ content.title }}</h1></li>
-	              <li class="e-title_2X">
-	                <h4><a class="" href="/knowledge-center/read-content/filter/2/">Opportunities</a></h4>
-	              </li>
-	              <li class="e-title_2X">
-	                <h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
-	              </li>              
-	              <li class="e-title_2X">
-	                <h4><a class="" href="/knowledge-center/read-content/filter/1/">Reports</a></h4>
-	              </li>                
-                <!--
-                <li class="e-title_2">
-                	
-	                  <form class="url_changer url_changer1">
-	                    <select id="select" class="select">
-	                      <option value="{% url 'events_home' %}">VLA Events</option>
-	                      <option value="{% url 'network_events' %}">Network Events</option>
-	                    </select>
-	                  </form>  	
-					
-
-                  <form class="url_changer url_changer2">
-                    <select id="select2" class="select">
-
-						{% if object_list %}
-						{% url 'knowledge_center_home' as  knowledge_center_home %}
-						<option class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}" value="{% url 'knowledge_center_home' %}">All</option>
-						{% endif %}
-						{% for type in document_type %}
-						{% if type.textcenter_set.count >= 1 %}
-						{% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
-						<option class="{% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}" value="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
-						</option>
-						{% endif %}
-						{% endfor %}
-
-						<option value="{% url 'knowledge_center_video_home' %}">Videos</option>                                        
-                    </select>
-                  </form>
-                </li>
-                 -->                                   
-              </ul>
+			<div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
+				{% url 'events_home' as  events_home %}
+				<ul class="category_banner_titles event_titles">
+					<li class="active e-title_1">
+						<h1>{{ content.title }}</h1>
+					</li>
+					<li class="e-title_2X">
+						<h4><a class="" href="/knowledge-center/read-content/filter/2/">Opportunities</a></h4>
+					</li>
+					<li class="e-title_2X">
+						<h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
+					</li>
+					<li class="e-title_2X">
+						<h4><a class="" href="/knowledge-center/read-content/filter/1/">Reports</a></h4>
+					</li>
+				</ul>
 				<p class="meta">
-					Author: </span>{{ content.author }} &nbsp;&nbsp;| &nbsp;&nbsp; <span>Category: </span> {{ content.sub_category }} &nbsp;&nbsp;| &nbsp;&nbsp; 
-					<span>Membership: </span> {{content.payment_status}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+					Author: </span>{{ content.author }} &nbsp;&nbsp;| &nbsp;&nbsp; <span>Category: </span>
+					{{ content.sub_category }} &nbsp;&nbsp;| &nbsp;&nbsp;
+					<span>Membership: </span> {{content.payment_status}} &nbsp;&nbsp;| &nbsp;&nbsp;
 					<span>Published: </span> {{content.date }}
-				</p>              
-          </div>
-          
-        </div>
-    </nav> 
+				</p>
+			</div>
+
+		</div>
+	</nav>
 
 	<div class="container single_post_container">
-		<!--
-		<div class="actions" >
-			<a href="{% url 'knowledge_center_video_home' %}" class="btn btn-primary">Back</a>
+		<div class="row clearfix">
+			<div class="col-md-12 clearfix">
+				<div class="in_style_A">
+					<div class="embed-responsiveX embed-responsive-16by9X">
+						<div class="videoWrapper">
+							{% if content.path %}
+							{{content.path|safe}}
+							{% else %}
+							<video height="600px" controls>
+								<source src="{{ content.video_file.url }}" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 clearfix">
+				<div class="in_style_Z single_video_meta">
+					<div class="single_video_content">
+						<p>{{ content.description }}</p>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="full_width h_C">
-			<div class="container h_C_container">
-    		<h2 class="h_title_A">VIDEOS</h2>
-    	</div>
-    	-->
-    	<div class="row clearfix">
-	      	<div class="col-md-12 clearfix">
-		        <div class="in_style_A">
-		          <div class="embed-responsiveX embed-responsive-16by9X">
-		          	<div class="videoWrapper">
-		            	{{content.path|safe}}
-		            </div>	
-		          </div>
-		        </div>
-		    </div>
-	    	<div class="col-md-12 clearfix">
-		        <div class="in_style_Z single_video_meta">
-		          	<!--<h3 class="single_video_title">{{ content.title }}</h3><br>-->
-	  	        	<div class="single_video_content">
-		        		<p>{{ content.description }}</p>
-		        	</div>							        	
-		        </div>	        
-	      	</div>
-      </div>
-    </div>
-    
+	</div>
+
 </div>
 {% endblock %}

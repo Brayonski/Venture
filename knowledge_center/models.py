@@ -10,6 +10,9 @@ from filer.fields.image import FilerImageField
 from newsletter_subscription.models import SubscriptionBase
 from django.conf import settings
 from venturelift_cms.tasks import send_notification
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
+
 
 AUDIOVISUALCHOICES = (
     ("Podcast", "Podcast"),
@@ -76,7 +79,7 @@ class TextCenter(models.Model):
     published = models.BooleanField(default=False)
     author = models.CharField(
         max_length=250, help_text="Content Owner", blank=True, null=True)
-    created_by = models.ForeignKey(User,null=True)
+    created_by = models.ForeignKey(User, null=True)
     description = fields.HTMLField(blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
     payment_status = models.CharField(
@@ -98,7 +101,16 @@ class TextCenter(models.Model):
 class AudioVisual(models.Model):
     title = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
-    path = models.TextField()
+    video_file = models.FileField(
+        upload_to='videos/', null=True, verbose_name="Upload Video", blank=True)
+    thumbnail_image = models.ImageField(
+        upload_to="pic_folder/", null=True, blank=True, help_text="Video Thumbnail Image")
+    image_thumbnail = ImageSpecField(source='thumbnail_image',
+                                     processors=[ResizeToFill(100, 85)],
+                                     format='JPEG',
+                                     options={'quality': 60})
+    path = models.TextField(
+        help_text="Embed Link for youtube or any link", blank=True, null=True)
     author = models.CharField(
         max_length=250, help_text="Content Owner", blank=True, null=True)
     created_by = models.ForeignKey(
