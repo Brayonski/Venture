@@ -512,7 +512,7 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     body = models.TextField()
     blog_type = models.CharField(max_length=100, choices=BLOG_TYPES, default="Corporate")
-    company = models.ForeignKey(Business, null=True, blank=True)
+    company = models.ForeignKey(Business, null=True, blank=True, related_name="author_company")
     supporter_author = models.ForeignKey(
         Supporter, null=True, blank=True, related_name='author_supporter')
     investor_author = models.ForeignKey(

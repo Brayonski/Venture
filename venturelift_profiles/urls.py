@@ -84,7 +84,7 @@ urlpatterns = [
         name='update_supporter_step1'),
     url(r'^supporter-create/step-2/(?P<pk>\d+)/$', views.SupporterUpdateProfileView.as_view(),
         name='update_supporter_step2'),
-    url(r'^new-blog-post/$', views.CreateBlogPostView.as_view(), name='new_blog_post'),
+    url(r'^new-document-upload/$', views.CreateBlogPostView.as_view(), name='new_blog_post'),
     url(r'^investor-create/$', views.CreateInvestorView.as_view(),
         name='investor_create'),
     url(r'^investor-create/step-1/(?P<pk>\d+)/$',

@@ -16,6 +16,7 @@ from django.core.urlresolvers import reverse
 from django.views.generic.edit import CreateView, UpdateView, FormMixin
 from venturelift_profiles.tasks import *
 from django_registration.backends.activation.views import ActivationView
+from django.contrib import messages
 
 class ProfileActivationView(ActivationView):
     def activate(self, *args, **kwargs):
@@ -100,6 +101,8 @@ class SummaryView(LoginRequiredMixin, TemplateView):
                 post.likes.add(self.request.user)
             if current_url == 'dislike_post':
                 post.likes.remove(self.request.user)
+        storage = messages.get_messages(self.request)
+        context['messages'] = storage
         return context
 
 
@@ -827,6 +830,8 @@ class CreateBlogPostView(LoginRequiredMixin, CreateView):
             self.object.investor_author = Investor.objects.get(
                 user=self.request.user)
         self.object.save()
+
+        messages.success(self.request, 'New Document Uploaded Successfully')
 
         return redirect(reverse('profile_summary'))
 
