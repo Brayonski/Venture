@@ -534,8 +534,8 @@ class BusinessConnectRequest(models.Model):
     business = models.ForeignKey(Business, related_name='business_to_follow')
     created_at = models.DateTimeField('request date',null=True)
     investor = models.ForeignKey(User, related_name='follow_requester')
-    approval_status = models.CharField(max_length=100, choices=APPROVAL_STATUS, default="PENDING", null=True,
-                                       blank=True)
+    approval_status = models.CharField(
+        max_length=100, choices=APPROVAL_STATUS, default="PENDING", null=True,blank=True)
     approved = models.BooleanField(default=False)
     approved_by = models.ForeignKey(User, related_name='connection_approver', null=True, blank=True)
     rejected = models.BooleanField(default=False)

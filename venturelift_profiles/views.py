@@ -404,7 +404,7 @@ class InvestorFilterView(LoginRequiredMixin, ListView, FormMixin):
 
 
 class BusinessView(LoginRequiredMixin, ListView, FormMixin):
-    template_name = 'profile/business/businesses.html'
+    template_name = 'profile/business/business.html'
     queryset = Business.objects.filter(verified=True)
     form_class = BusinessFilters
 
@@ -431,7 +431,7 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
                     business = business.filter(size=form.cleaned_data['size'])
                 if form.cleaned_data['service']:
                     business = business.filter(Q(business_goals__primary_services_interested_in=form.cleaned_data['service']) |
-                                               Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
+                                            Q(business_goals__secondary_services_interested_in=form.cleaned_data['service']))
         
             if business:
                 not_found = False
@@ -443,24 +443,34 @@ class BusinessView(LoginRequiredMixin, ListView, FormMixin):
     def get_context_data(self, *args, **kwargs):
         context = super(BusinessView, self).get_context_data(*args, **kwargs)
         current_url = resolve(self.request.path_info).url_name
+
         if 'pk' in self.kwargs:
             if current_url == 'business_follow':
                 business_details = Business.objects.get(
                     id=self.kwargs['pk'])
                 check_coneection = BusinessConnectRequest.objects.filter(business=business_details, investor=self.request.user, approval_status="PENDING").first()
                 if check_coneection:
-                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    subject, from_email = 'Business Connection Request', settings.EMAIL_HOST_USER
+                    # recipient_list
+                    to = [settings.ADMIN_EMAIL, str(self.request.user.email), str(business_details.company_primary_email)]  
+                    print(to)
                     send_business_connect_request_email_task.delay(business_details.name, self.request.user.username,
-                                                                   subject, from_email, to)
+                                                                    subject, from_email, to)
                 else:
                     connections = BusinessConnectRequest(business=business_details, created_at=timezone.now(), investor=self.request.user, approval_status="PENDING", approved=False, rejected=False)
                     connections.save()
-                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    subject, from_email = 'Business Connection Request', settings.EMAIL_HOST_USER
+                    # recipient_list
+                    to = [settings.ADMIN_EMAIL, str(self.request.user.email), str(business_details.company_primary_email)]
+                    print(to)
                     send_business_connect_request_email_task.delay(business_details.name, self.request.user.username, subject, from_email, to)
                 #follow(self.request.user, Business.objects.get(id=self.kwargs['pk']))
             if current_url == 'business_unfollow':
-                unfollow(self.request.user, Business.objects.get(
-                    id=self.kwargs['pk']))
+                unfollow(
+                    self.request.user,
+                    Business.objects.get(id=self.kwargs['pk'])
+                )
+                
         context['following'] = following(self.request.user)
         context['services'] = VlaServices.objects.all()
         context['sectors'] = BusinessCategory.objects.all().order_by('name')
@@ -512,18 +522,25 @@ class BusinessStartupView(LoginRequiredMixin, ListView, FormMixin):
                     id=self.kwargs['pk'])
                 check_coneection = BusinessConnectRequest.objects.filter(business=business_details, investor=self.request.user, approval_status="PENDING").first()
                 if check_coneection:
-                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    subject, from_email = 'Business Connection Request', settings.EMAIL_HOST_USER
+                    # recipient_list
+                    to = [settings.ADMIN_EMAIL, str(self.request.user.email), str(business_details.company_primary_email)]
+                    print(to)
                     send_business_connect_request_email_task.delay(business_details.name, self.request.user.username,
                                                                    subject, from_email, to)
                 else:
                     connections = BusinessConnectRequest(business=business_details, created_at=timezone.now(), investor=self.request.user, approval_status="PENDING", approved=False, rejected=False)
                     connections.save()
-                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    subject, from_email = 'Business Connection Request', settings.EMAIL_HOST_USER
+                    # recipient_list
+                    to = [settings.ADMIN_EMAIL, str(self.request.user.email), str(business_details.company_primary_email)]
+                    print(to)
                     send_business_connect_request_email_task.delay(business_details.name, self.request.user.username, subject, from_email, to)
                 #follow(self.request.user, Business.objects.get(id=self.kwargs['pk']))
             if current_url == 'business_unfollow':
                 unfollow(self.request.user, Business.objects.get(
                     id=self.kwargs['pk']))
+
         context['following'] = following(self.request.user)
         context['services'] = VlaServices.objects.all()
         context['sectors'] = BusinessCategory.objects.all().order_by('name')
@@ -575,13 +592,19 @@ class BusinessSMEView(LoginRequiredMixin, ListView, FormMixin):
                     id=self.kwargs['pk'])
                 check_coneection = BusinessConnectRequest.objects.filter(business=business_details, investor=self.request.user, approval_status="PENDING").first()
                 if check_coneection:
-                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    subject, from_email = 'Business Connection Request', settings.EMAIL_HOST_USER
+                    # recipient_list
+                    to = [settings.ADMIN_EMAIL, str(self.request.user.email), str(business_details.company_primary_email)]
+                    print(to)
                     send_business_connect_request_email_task.delay(business_details.name, self.request.user.username,
                                                                    subject, from_email, to)
                 else:
                     connections = BusinessConnectRequest(business=business_details, created_at=timezone.now(), investor=self.request.user, approval_status="PENDING", approved=False, rejected=False)
                     connections.save()
-                    subject, from_email, to = 'Business Connection Request', settings.EMAIL_HOST_USER, settings.ADMIN_EMAIL
+                    subject, from_email = 'Business Connection Request', settings.EMAIL_HOST_USER
+                    # recipient_list
+                    to = [settings.ADMIN_EMAIL, str(self.request.user.email), str(business_details.company_primary_email)]
+                    print(to)
                     send_business_connect_request_email_task.delay(business_details.name, self.request.user.username, subject, from_email, to)
                 #follow(self.request.user, Business.objects.get(id=self.kwargs['pk']))
             if current_url == 'business_unfollow':
