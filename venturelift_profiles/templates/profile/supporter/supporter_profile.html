@@ -366,7 +366,7 @@
                                           <button class="button_A btn btn-lg btn-primary">Connection Awaiting Approval</button>
                                         </a>
                                       {% else %}
-                                        <a href="{% url 'supporter_follow' business.id %}">
+                                        <a href="{% url 'supporter_follow' supporter.id %}">
                                           <button class="button_A btn btn-lg btn-primary">
                                             <ion-icon name="swap"></ion-icon>
                                             Connect
@@ -376,7 +376,7 @@
                                     {% endif %}
                                   {% endfor %}
                                 {% else %}
-                                  <a href="{% url 'supporter_follow' investor.id %}" class="button_A btn btn-lg btn-primary">
+                                  <a href="{% url 'supporter_follow' supporter.id %}" class="button_A btn btn-lg btn-primary">
                                     <ion-icon name="swap"></ion-icon>
                                     Connect</a>
                                 {% endif %}
@@ -410,13 +410,13 @@
                                           <a href="{% url 'dislike_post' post.id %}">
                                             <i class='glyphicon glyphicon-heart'></i>
                                             Unlike
-                                                                                                                                        ({{post.likes.count}}
+                                                                                                                                                                                    ({{post.likes.count}}
                                             likes)</a>
                                         {% else %}
                                           <a href="{% url 'like_post' post.id %}">
                                             <i class='glyphicon glyphicon-heart'></i>
                                             Like
-                                                                                                                                        ({{post.likes.count}}
+                                                                                                                                                                                    ({{post.likes.count}}
                                             likes)</a>
                                         {% endif %}
                                       </div>
