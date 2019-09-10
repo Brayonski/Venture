@@ -350,9 +350,9 @@
                                   <ion-icon name="swap"></ion-icon>
                                   Disconnect</a>
                               {% else %}
-                                {% if investor.investor_to_follow.count %}
-                                  {% for item in investor.investor_to_follow.all %}
-                                    {% if item.requestor == request.user and item.investor == investor %}
+                                {% if supporter.supporter_to_follow.count %}
+                                  {% for item in supporter.supporter_to_follow.all %}
+                                    {% if item.requestor == request.user and item.supporter == supporter %}
                                       {% if item.approval_status == 'APPROVE' %}
                                         <a href="#" title="Connection Approved!">
                                           <button class="button_A btn btn-lg btn-primary">Connection Approved!</button>
