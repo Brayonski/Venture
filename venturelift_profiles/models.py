@@ -512,7 +512,7 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     body = models.TextField()
     blog_type = models.CharField(max_length=100, choices=BLOG_TYPES, default="Corporate")
-    company = models.ForeignKey(Business, null=True, blank=True)
+    company = models.ForeignKey(Business, null=True, blank=True, related_name="author_company")
     supporter_author = models.ForeignKey(
         Supporter, null=True, blank=True, related_name='author_supporter')
     investor_author = models.ForeignKey(
@@ -534,8 +534,8 @@ class BusinessConnectRequest(models.Model):
     business = models.ForeignKey(Business, related_name='business_to_follow')
     created_at = models.DateTimeField('request date',null=True)
     investor = models.ForeignKey(User, related_name='follow_requester')
-    approval_status = models.CharField(max_length=100, choices=APPROVAL_STATUS, default="PENDING", null=True,
-                                       blank=True)
+    approval_status = models.CharField(
+        max_length=100, choices=APPROVAL_STATUS, default="PENDING", null=True,blank=True)
     approved = models.BooleanField(default=False)
     approved_by = models.ForeignKey(User, related_name='connection_approver', null=True, blank=True)
     rejected = models.BooleanField(default=False)
@@ -551,8 +551,7 @@ class InvestorConnectRequest(models.Model):
     investor = models.ForeignKey(Investor, related_name='investor_to_follow')
     created_at = models.DateTimeField('request date',null=True)
     requestor = models.ForeignKey(User, related_name='investor_follow_requester')
-    approval_status = models.CharField(max_length=100, choices=APPROVAL_STATUS, default="PENDING", null=True,
-                                       blank=True)
+    approval_status = models.CharField(max_length=100, choices=APPROVAL_STATUS, default="PENDING", null=True, blank=True)
     approved = models.BooleanField(default=False)
     approved_by = models.ForeignKey(User, related_name='investor_connection_approver', null=True, blank=True)
     rejected = models.BooleanField(default=False)
@@ -570,8 +569,7 @@ class SupporterConnectRequest(models.Model):
     supporter = models.ForeignKey(Supporter, related_name='supporter_to_follow')
     created_at = models.DateTimeField('request date',null=True)
     requestor = models.ForeignKey(User, related_name='supporter_follow_requester')
-    approval_status = models.CharField(max_length=100, choices=APPROVAL_STATUS, default="PENDING", null=True,
-                                       blank=True)
+    approval_status = models.CharField(max_length=100, choices=APPROVAL_STATUS, default="PENDING", null=True, blank=True)
     approved = models.BooleanField(default=False)
     approved_by = models.ForeignKey(User, related_name='supporter_connection_approver', null=True, blank=True)
     rejected = models.BooleanField(default=False)
