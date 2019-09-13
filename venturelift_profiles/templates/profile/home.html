@@ -1332,7 +1332,7 @@
                                       <div class="card-body">
                                         <div class=""> 
                                           <p class="card-text dark-text">
-                                            {% if investor.elevator_pitch %}
+                                            {% if profile.elevator_pitch %}
                                             {{profile.elevator_pitch}}
                                             {% else %}
                                             This information is not provided
@@ -1374,8 +1374,8 @@
                                       <div class="card-body">
                                         <div class=""> 
                                           <p class="card-text dark-text">
-                                            {% if investor.impact_metrics %}
-                                            {{investor.impact_metrics}}
+                                            {% if profile.impact_metrics %}
+                                            {{profile.impact_metrics}}
                                             {% else %}
                                             This information is not provided
                                             {% endif %}
