@@ -1029,7 +1029,7 @@ class SupporterProfileView(DetailView):
 
 
 class InvestorProfileView(DetailView):
-    model = Investor
+    model = InvestorProfile
     template_name = 'profile/investor/investor_profile.html'
 
     def get_context_data(self, **kwargs):
