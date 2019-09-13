@@ -63,7 +63,7 @@ INVESTOR_FORMS = (
     ('debt', 'Debt'),
     ('mezzanine', 'Mezzanine'),
     ('grants', 'Grants'),
-    ('crowdfunding platform', 'Crowdfunding Platform'),
+    ('crowdfunding platform', 'Crowdfunder Platform'),
 )
 
 INTEREST_COUNTRIES = (
