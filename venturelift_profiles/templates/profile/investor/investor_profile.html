@@ -287,8 +287,8 @@
                                   <div class="card-body">
                                     <div class="">
                                       <p class="card-text dark-text">
-                                        {% if investor.elevator_pitch %}
-                                          {{profile.elevator_pitch}}
+                                        {% if investor_profile.elevator_pitch %}
+                                          {{investor_profile.elevator_pitch}}
                                         {% else %}
                                           This information is not provided
                                         {% endif %}
@@ -309,8 +309,8 @@
                                   <div class="card-body">
                                     <div class="">
                                       <p class="card-text dark-text">
-                                        {% if investor.assets_under_management %}
-                                          {{investor.assets_under_management}}
+                                        {% if investor_profile.assets_under_management %}
+                                          {{investor_profile.assets_under_management}}
                                         {% else %}
                                           This information is not provided
                                         {% endif %}
@@ -331,8 +331,8 @@
                                   <div class="card-body">
                                     <div class="">
                                       <p class="card-text dark-text">
-                                        {% if investor.impact_metrics %}
-                                          {{investor.impact_metrics}}
+                                        {% if investor_profile.impact_metrics %}
+                                          {{investor_profile.impact_metrics}}
                                         {% else %}
                                           This information is not provided
                                         {% endif %}
