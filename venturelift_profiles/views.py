@@ -1035,10 +1035,9 @@ class InvestorProfileView(DetailView):
     def get_context_data(self, **kwargs):
         """Returns the Investor instance that the view displays"""
         context = super(InvestorProfileView, self).get_context_data(**kwargs)
-        context['investor'] = Investor.objects.get(
-            pk=self.kwargs.get("pk"))
         context['investor_profile'] = InvestorProfile.objects.get(
-            investor_profile=context['investor'])
+            pk=self.kwargs.get("pk"))
+        context['investor'] = context['investor_profile'].investor_profile
         context['post'] = Post.objects.filter(
             investor_author=context['investor'])[:5]
         context['investor_following'] = following(self.request.user, Investor)
