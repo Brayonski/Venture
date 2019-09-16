@@ -1004,16 +1004,15 @@ class BusinessProfileView(DetailView):
 
 
 class SupporterProfileView(DetailView):
-    model = Supporter
+    model = SupporterProfile
     template_name = 'profile/supporter/supporter_profile.html'
 
     def get_context_data(self, **kwargs):
         """Returns the Supporter instance that the view displays"""
         context = super(SupporterProfileView, self).get_context_data(**kwargs)
-        context['supporter'] = Supporter.objects.get(
-            pk=self.kwargs.get("pk"))
         context['profile'] = SupporterProfile.objects.get(
-            supporter_profile_id=context['supporter'].id)
+            pk=self.kwargs.get("pk"))
+        context['supporter'] = context['profile'].supporter_profile
         context['post'] = Post.objects.filter(
             supporter_author=context['supporter'])[:5]
         interests = context['profile'].interest_sectors.all()
