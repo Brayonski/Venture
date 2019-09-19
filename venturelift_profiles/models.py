@@ -142,13 +142,13 @@ MANAGED_FUNDS = (
 )
 
 AUM = (
-    ('<usd 1M', '<USD 1M'),
-    ('usd 1 - 10', 'USD 1M - USD 10M'),
-    ('usd 10 - 50', 'USD 10M - USD 50M'),
-    ('usd 50 - 100', 'USD 5M - USD 100M'),
-    ('usd 100 - 250', 'USD 100M - USD 250M'),
-    ('usd 250 - 500', 'USD 250M - USD 500M'),
-    ('usd 500 - 1b', 'USD 500M - USD 1B'),
+    ('<USD 1M', '<USD 1M'),
+    ('USD 1 - 10', 'USD 1M - USD 10M'),
+    ('USD 10 - 50', 'USD 10M - USD 50M'),
+    ('USD 50 - 100', 'USD 5M - USD 100M'),
+    ('USD 100 - 250', 'USD 100M - USD 250M'),
+    ('USD 250 - 500', 'USD 250M - USD 500M'),
+    ('USD 500 - 1b', 'USD 500M - USD 1B'),
     ('over 1b', 'OVER USD 1B')
 )
 
