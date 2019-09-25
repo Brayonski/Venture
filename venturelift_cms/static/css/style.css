@@ -1643,6 +1643,25 @@ p.p_title {
     font-weight: 600;
 }
 
+div#sampleProfile {
+    background-color: rgba(27, 164, 219, 0.79);
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    /* cursor: pointer; */
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+    text-align: center;
+    /* top: 0px; */
+    left: 20px;
+    /* height: 100px; */
+    z-index: 99999;
+    left: 41%;
+}
+
 ul.search_A li {
     /* display: inline-block; */
 }
