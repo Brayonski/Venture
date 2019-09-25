@@ -31,7 +31,9 @@
             </figure>
             <figure class="box_details">
               <p class="box_title"><a
-                  href="{% url 'investor_profile' obj.pk %}">{{obj.investor_profile.company|title}}<br>{{obj.investor_profile.fullname|title}}</a>
+                  href="{% url 'investor_profile' obj.pk %}">
+                  <span>{{obj.investor_profile.company|title}}</span>
+                  <br>{{obj.investor_profile.fullname|title}}</a>
               </p>
               <div class="box_social">
               </div>
