@@ -22,8 +22,8 @@
                 <!-- Square, 350 X 350 PX -->
                 {% if obj.investor_profile.thumbnail_image %}
                   <style type="text/css">
-                    #box_{{ obj.pk }}.box_avi { {
-                      background-image: url({{ obj.investor_profile.thumbnail_image.url }});
+                    #box_{{ obj.pk }}.box_avi {
+                      background:#f9f9f9  url({{ obj.investor_profile.thumbnail_image.url }}) center center;
                       background-size: cover;
                       width: 100%;
                       padding-top: 100%;
