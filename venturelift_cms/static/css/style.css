@@ -1941,6 +1941,12 @@ p.box_title span {
     font-weight: 300;
 }
 
+figure.box_avi {
+    min-height: 160px;
+    max-height: 160px;
+    overflow: hidden;
+}
+
 .maxi_list ul li {
     display: inline-block;
 }
