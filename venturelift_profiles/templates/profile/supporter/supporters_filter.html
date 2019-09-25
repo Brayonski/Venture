@@ -18,11 +18,11 @@
                 <div class="col-md-2 box_box">
                     <div class="box_box_in">
                         <a href="{% url 'supporter_profile' obj.pk %}"> 
-                            <figure class="box_avi">
+                            <figure id="box_{{ obj.pk }}" class="box_avi">
                                 <!-- Square, 350 X 350 PX -->
                                 {% if obj.supporter_profile.thumbnail_image %}
                                   <style type="text/css">
-                                    figure.box_avi {
+                                    #box_{{ obj.pk }}.box_avi {
                                       background-image: url({{ obj.supporter_profile.thumbnail_image.url }});
                                       background-size: cover;
                                       width: 100%;

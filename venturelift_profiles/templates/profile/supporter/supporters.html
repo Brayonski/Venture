@@ -18,11 +18,11 @@
                 {% for obj in object_list %}
                 <div class="col-md-2 col-sm-4 col-xs-4 box_box">
                     <div class="box_box_in">
-                        <figure class="box_avi">
+                        <figure id="box_{{ obj.pk }}" class="box_avi">
                             <!-- Square, 350 X 350 PX -->
                             {% if obj.thumbnail_image %}
                               <style type="text/css">
-                                figure.box_avi {
+                                #box_{{ obj.pk }}.box_avi {
                                   background-image: url({{ obj.thumbnail_image.url }});
                                   background-size: cover;
                                   width: 100%;
