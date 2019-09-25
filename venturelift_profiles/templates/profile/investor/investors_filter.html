@@ -21,15 +21,7 @@
               <figure class="box_avi">
                 <!-- Square, 350 X 350 PX -->
                 {% if obj.investor_profile.thumbnail_image %}
-                  <style type="text/css">
-                    figure.box_avi {
-                      background-image: url({{ obj.investor_profile.thumbnail_image.url }});
-                      background-size: cover;
-                      width: 100%;
-                      padding-top: 100%;
-                      height: 0;                         
-                    }  
-                  </style>                
+                <img src="{{ obj.investor_profile.thumbnail_image.url }}">
                 {% else %}
                 {% if obj.investor_profile.gender == 'Male' or obj.investor_profile.gender == 'Other' %}
                 <img src="{% static 'img/blue-user-icon.svg' %}">
