@@ -17,27 +17,28 @@
         {% for obj in object_list %}
         <div class="col-md-2 box_box">
           <div class="box_box_in">
-            <figure class="box_avi">
-              <!-- Square, 350 X 350 PX -->
-              {% if obj.investor_profile.thumbnail_image %}
-              <img src="{{ obj.investor_profile.thumbnail_image.url }}">
-              {% else %}
-              {% if obj.investor_profile.gender == 'Male' or obj.investor_profile.gender == 'Other' %}
-              <img src="{% static 'img/blue-user-icon.svg' %}">
-              {% else %}
-              <img src="{% static 'img/no-img.jpg' %}">
-              {% endif %}
-              {% endif %}
-            </figure>
-            <figure class="box_details">
-              <p class="box_title"><a
-                  href="{% url 'investor_profile' obj.pk %}">
-                  <span>{{obj.investor_profile.company|title}}</span>
-                  <br>{{obj.investor_profile.fullname|title}}</a>
-              </p>
-              <div class="box_social">
-              </div>
-            </figure>
+            <a href="{% url 'investor_profile' obj.pk %}">
+              <figure class="box_avi">
+                <!-- Square, 350 X 350 PX -->
+                {% if obj.investor_profile.thumbnail_image %}
+                <img src="{{ obj.investor_profile.thumbnail_image.url }}">
+                {% else %}
+                {% if obj.investor_profile.gender == 'Male' or obj.investor_profile.gender == 'Other' %}
+                <img src="{% static 'img/blue-user-icon.svg' %}">
+                {% else %}
+                <img src="{% static 'img/no-img.jpg' %}">
+                {% endif %}
+                {% endif %}
+              </figure>
+              <figure class="box_details">
+                <p class="box_title">
+                    <span>{{obj.investor_profile.company|title}}</span>
+                    <br>{{obj.investor_profile.fullname|title}}
+                </p>
+                <div class="box_social">
+                </div>
+              </figure>
+            </a>
           </div>
         </div>
         {% endfor %}

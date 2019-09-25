@@ -1936,6 +1936,10 @@ ul.Xuser_label.Xfunder_label.Xtop {
     padding-right: 0px;
 }
 
+p.box_title span {
+    font-size: 1.1em;
+    font-weight: 300;
+}
 
 .maxi_list ul li {
     display: inline-block;
