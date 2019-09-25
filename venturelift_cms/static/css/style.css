@@ -1639,7 +1639,8 @@ ul.actions_A {
 p.p_title {
     text-transform: uppercase;
     letter-spacing: 3px;
-    opacity: .3;
+    /* opacity: .3; */
+    font-weight: 600;
 }
 
 ul.search_A li {
