@@ -21,7 +21,15 @@
                         <figure class="box_avi">
                             <!-- Square, 350 X 350 PX -->
                             {% if obj.thumbnail_image %}
-                            <img src="{{ obj.thumbnail_image.url }}">
+                              <style type="text/css">
+                                figure.box_avi {
+                                  background-image: url({{ obj.thumbnail_image.url }});
+                                  background-size: 100%;
+                                  width: 100%;
+                                  padding-top: 100%;
+                                  height: 0;                         
+                                }  
+                              </style>                             
                             {% else %}
                             {% if obj.gender == 'Male' or obj.gender == 'Other' %}
                             <img src="{% static 'img/blue-user-icon.svg' %}">
