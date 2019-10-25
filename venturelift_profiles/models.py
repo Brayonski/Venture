@@ -43,7 +43,7 @@ COMPANY_CLASSIFICATION = (
 
 INTEREST_STARTUPS = (
     ('SME', 'SME: 5+ years from first revenue, at least $500,000 in revenue in the last two years of operations, 10 + full time team'),
-    ('Startup', 'Startup: 2+ years post-revenue, at least $100,000 in revenue in the last year of operations, 3+ full time team'),
+    ('Startup', 'Startup: 2+ years post-revenue in the last year of operations, 3+ full time team'),
 )
 
 INTEREST_SECTORS = (
@@ -136,9 +136,11 @@ TRADING_PARTNERS = (
 )
 
 MANAGED_FUNDS = (
-    ('1', '1'),
-    ('1-5', '1-5'),
-    ('5+', '5+')
+    ('Less than $500,000', 'Less than $500,000'),
+    ('$2million to $5 million', '$2million to $5 million'),
+    ('$5 million to $10 million', '$5 million to $10 million'),
+    ('$10 million to $20 million', '$10 million to $20 million'),
+    ('Over $20 million', 'Over $20 million')
 )
 
 AUM = (
@@ -478,7 +480,7 @@ class InvestorProfile(models.Model):
     elevator_pitch = models.TextField(help_text="What's your investment thesis in brief?", null=True)
 
     managed_funds = models.CharField(
-        max_length=100, null=True, blank=True, choices=MANAGED_FUNDS, help_text="How Many different funds have you managed to date?")
+        max_length=100, null=True, blank=True, choices=MANAGED_FUNDS, help_text="What is the average amount your firm invests per deal?")
 
     assets_under_management = models.CharField(
         max_length=250, null=True, blank=True, choices=AUM, help_text="What's the value of your Assets under Management (AUM)?")

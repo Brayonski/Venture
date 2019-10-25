@@ -180,8 +180,8 @@ class SupporterProfileCreateForm(forms.ModelForm):
             "trading_partners": "Do you have specific requirements for trading partners?"
         }
     interest_sectors = forms.ModelMultipleChoiceField(queryset=BusinessCategory.objects.all().order_by('name'), required=False, widget=Select2MultipleWidget)
-    interest_countries = forms.MultipleChoiceField(required=False, widget=Select2MultipleWidget, choices=INTEREST_COUNTRIES)
-    trading_partners = forms.MultipleChoiceField(required=False, widget=Select2MultipleWidget, choices=TRADING_PARTNERS)
+    interest_countries = forms.MultipleChoiceField(required=False, widget=Select2MultipleWidget, choices=INTEREST_COUNTRIES,label='Countries of interest')
+    trading_partners = forms.MultipleChoiceField(required=False, widget=Select2MultipleWidget, choices=TRADING_PARTNERS, label='Trade partner requirements')
 
 class InvestorCreateForm(forms.ModelForm):
     first_name = forms.CharField(max_length=250, label="First Name")
@@ -210,7 +210,7 @@ class InvestorProfileCreateForm(forms.ModelForm):
             'elevator_pitch': "What is your investment thesis in brief(Elevator Pitch)?",
             'target_countries': "Which are your target countries?",
             'target_sectors': "Target sectors",
-            'managed_funds': "How Many different funds have you managed to date?",
+            'managed_funds': "What is the average amount your firm invests per deal?",
             'assets_under_management': "What is the value of your Assets under Management(AUM)?",
             'investor_portfolio': "How many active portfolio investments do you currently hold?",
             'exits_executed': "How many exits have you executed to date?",
