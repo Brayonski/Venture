@@ -24,7 +24,7 @@
                   <div class="Xuser_label_wrap Xtop">
                     <ul class="Xuser_label Xfunder_label Xtop">
                       <li class="Xuser_label_company2 Xtop">
-                        <h4>{{ business.name }}</h4>
+                        <h5>{{ business.name|title }}</h5>
                       </li>
                       <li class="Xuser_label_company Xtop">
                         {{ business.creator.first_name|title|add:" "|add:business.creator.last_name|title }}
