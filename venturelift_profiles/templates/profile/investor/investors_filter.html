@@ -17,25 +17,36 @@
         {% for obj in object_list %}
         <div class="col-md-2 box_box">
           <div class="box_box_in">
-            <figure class="box_avi">
-              <!-- Square, 350 X 350 PX -->
-              {% if obj.investor_profile.thumbnail_image %}
-              <img src="{{ obj.investor_profile.thumbnail_image.url }}">
-              {% else %}
-              {% if obj.investor_profile.gender == 'Male' or obj.investor_profile.gender == 'Other' %}
-              <img src="{% static 'img/blue-user-icon.svg' %}">
-              {% else %}
-              <img src="{% static 'img/no-img.jpg' %}">
-              {% endif %}
-              {% endif %}
-            </figure>
-            <figure class="box_details">
-              <p class="box_title"><a
-                  href="{% url 'investor_profile' obj.pk %}">{{obj.investor_profile.company|title}}<br>{{obj.investor_profile.fullname|title}}</a>
-              </p>
-              <div class="box_social">
-              </div>
-            </figure>
+            <a href="{% url 'investor_profile' obj.pk %}">
+              <figure id="box_{{ obj.pk }}" class="box_avi">
+                <!-- Square, 350 X 350 PX -->
+                {% if obj.investor_profile.thumbnail_image %}
+                  <style type="text/css">
+                    #box_{{ obj.pk }}.box_avi {
+                      background:#f9f9f9  url({{ obj.investor_profile.thumbnail_image.url }}) center center;
+                      background-size: cover;
+                      width: 100%;
+                      padding-top: 100%;
+                      height: 0;                         
+                    }  
+                  </style>                
+                {% else %}
+                {% if obj.investor_profile.gender == 'Male' or obj.investor_profile.gender == 'Other' %}
+                <img src="{% static 'img/blue-user-icon.svg' %}">
+                {% else %}
+                <img src="{% static 'img/no-img.jpg' %}">
+                {% endif %}
+                {% endif %}
+              </figure>
+              <figure class="box_details">
+                <p class="box_title">
+                    <span>{{obj.investor_profile.company|title}}</span>
+                    <br>{{obj.investor_profile.fullname|title}}
+                </p>
+                <div class="box_social">
+                </div>
+              </figure>
+            </a>
           </div>
         </div>
         {% endfor %}
