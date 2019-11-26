@@ -29,10 +29,15 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12 mb-0">
+                            {{ form.funder_type|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row" id="funder_about">
+                        <div class="form-group col-md-12 mb-0">
                             {{ form.about|as_crispy_field }}
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" id="funder_company">
                             <div class="form-group col-md-6 mb-0">
                                 {{ form.company|as_crispy_field }}
                             </div>
@@ -40,7 +45,7 @@
                                     {{ form.company_website|as_crispy_field }}
                             </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" id="funder_companyreg">
                       <div class="form-group col-md-6 mb-0">
                         {{ form.company_registration_year|as_crispy_field }}
                       </div>
@@ -48,7 +53,7 @@
                           {{ form.company_location|as_crispy_field }}
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" id="funder_role">
                       <div class="form-group col-md-6 mb-0">
                         {{ form.role|as_crispy_field }}
                       </div>
@@ -64,4 +69,41 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block javascript %}
+  <script>
+   $(document).ready(function(){
+        var funderSelection = $('#id_funder_type').val();
+        console.log("Funder Type");
+        console.log(funderSelection);
+
+        if(funderSelection == "Crowdfunder"){
+             $('#funder_company').hide();
+             $('#funder_companyreg').hide();
+             $('#funder_about').hide();
+             $('#funder_role').hide();
+        }else{
+            $('#funder_company').show();
+             $('#funder_companyreg').show();
+             $('#funder_about').show();
+             $('#funder_role').show();
+        }
+
+        $('#id_funder_type').on("change",function(e) {
+            var funderSelection = $(this).val();
+            if(funderSelection == "Crowdfunder"){
+                 $('#funder_company').hide();
+                 $('#funder_companyreg').hide();
+                 $('#funder_about').hide();
+                 $('#funder_role').hide();
+            }else{
+                $('#funder_company').show();
+                 $('#funder_companyreg').show();
+                 $('#funder_about').show();
+                 $('#funder_role').show();
+            }
+        });
+   });
+  </script>
 {% endblock %}

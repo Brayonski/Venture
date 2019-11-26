@@ -201,6 +201,7 @@
         window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')
     </script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+     {% block javascript %}{% endblock %}
     <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>

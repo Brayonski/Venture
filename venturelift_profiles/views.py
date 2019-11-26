@@ -657,8 +657,12 @@ class CreateInvestorView(LoginRequiredMixin, CreateView):
             self.object.user = self.request.user
             self.object.user.first_name = form.cleaned_data['first_name']
             self.object.user.last_name = form.cleaned_data['last_name']
+            self.object.funder_type = form.cleaned_data['funder_type']
             self.object.user.save()
             self.object.save()
+        else:
+            investorCheck.funder_type = form.cleaned_data['funder_type']
+            investorCheck.save()
         investor = Investor.objects.filter(user=self.request.user).first()
         checkUser = AllSystemUser.objects.filter(email=self.request.user.email).exists()
         if checkUser is False:

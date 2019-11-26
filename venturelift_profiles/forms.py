@@ -107,6 +107,20 @@ IMPACT_INVESTOR = (
     ('maybe', 'Maybe')
 )
 
+FUNDER_TYPES = (
+    ('Investor', 'Investor'),
+    ('Crowdfunder', 'Crowdfunder'),
+    ('Lender', 'Lender'),
+    ('Grantor', 'Grantor'),
+)
+
+AVERAGE_PAYBACK = (
+    ('1 month', '1 month'),
+    ('2-3 months', '2-3 months'),
+    ('6-12 months', '6-12 months'),
+)
+
+
 
 class BusinessFilters(forms.Form):
     service = forms.ModelChoiceField(queryset=VlaServices.objects.all(), required=False,
@@ -186,11 +200,13 @@ class SupporterProfileCreateForm(forms.ModelForm):
 class InvestorCreateForm(forms.ModelForm):
     first_name = forms.CharField(max_length=250, label="First Name")
     last_name = forms.CharField(max_length=250, label="Last Name")
+    funder_type = forms.ChoiceField(choices=FUNDER_TYPES, label="Which type of funder are you?", required=True)
 
     class Meta:
         model = Investor
         exclude = ['user', 'verified_by', 'verified']
         labels = {
+            "funder_type": "Which type of funder are you?",
             "about": "Briefly describe your company?",
             "gender": "Gender",
             "phone_number": "Phone number",
@@ -206,22 +222,10 @@ class InvestorProfileCreateForm(forms.ModelForm):
     class Meta:
         model = InvestorProfile
         exclude = ['investor_profile']
-        labels = {
-            'elevator_pitch': "What is your investment thesis in brief(Elevator Pitch)?",
-            'target_countries': "Which are your target countries?",
-            'target_sectors': "Target sectors",
-            'managed_funds': "What is the average amount your firm invests per deal?",
-            'assets_under_management': "What is the value of your Assets under Management(AUM)?",
-            'investor_portfolio': "How many active portfolio investments do you currently hold?",
-            'exits_executed': "How many exits have you executed to date?",
-            'impact_investor': "Do you classify your company as an impact investor?",
-            'impact_measurement': "Which impact measurement standard do you follow?",
-            'impact_metrics': "What are your key impact metrics?",
-        }
-    target_countries = forms.MultipleChoiceField(widget=Select2MultipleWidget, choices=INTEREST_COUNTRIES)
-    target_sectors = forms.ModelMultipleChoiceField(queryset=BusinessCategory.objects.all(), widget=Select2MultipleWidget)
-    impact_investor = forms.ChoiceField(choices=IMPACT_INVESTOR, widget=Select2Widget, label="Do you classify your company as an impact investor?"
-                                             )
+    target_countries = forms.MultipleChoiceField(widget=Select2MultipleWidget, choices=INTEREST_COUNTRIES, required=False)
+    target_sectors = forms.ModelMultipleChoiceField(queryset=BusinessCategory.objects.all(), widget=Select2MultipleWidget,required=False)
+    impact_investor = forms.ChoiceField(choices=IMPACT_INVESTOR, widget=Select2Widget, label="Do you classify your company as an impact investor?", required=False)
+    average_payback = forms.ChoiceField(choices=AVERAGE_PAYBACK, label="What is the average payback period?", required=False)
 
     # gender_lens_investor = forms.ChoiceField(
     #     choices=IMPACT_INVESTOR, widget=Select2Widget, label="Do you Consider your firm a 'Gender-Lens' Investor?"

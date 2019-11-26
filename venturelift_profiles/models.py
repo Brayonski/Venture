@@ -207,6 +207,12 @@ FUNDER_TYPES = (
     ('Grantor', 'Grantor'),
 )
 
+AVERAGE_PAYBACK = (
+    ('1 month', '1 month'),
+    ('2-3 months', '2-3 months'),
+    ('6-12 months', '6-12 months'),
+)
+
 INVESTOR_TYPES = (
     ('Angel', 'Angel'),
     ('Venture Capital', 'Venture Capital'),
@@ -432,21 +438,22 @@ class SupporterProfile(models.Model):
 
 class Investor(models.Model):
     user = models.ForeignKey(User, related_name='investor_creator')
-    about = models.TextField(null=True)
+    funder_type = models.CharField(max_length=255, null=True, blank=True, choices=FUNDER_TYPES)
+    about = models.TextField(null=True, blank=True)
     thumbnail_image = models.ImageField(
         upload_to='pic_folder/', null=True, blank=True)
     gender = models.CharField(
         max_length=200, choices=GENDER_TYPES, default='Other')
     phone_number = models.CharField(max_length=20, validators=[
                                     MinLengthValidator(5)], help_text="My Phone Number")
-    company = models.CharField(max_length=250)
-    role = models.CharField(max_length=250)
-    company_location = CountryField()
-    physical_address = models.CharField(max_length=250)
+    company = models.CharField(max_length=250, null=True, blank=True)
+    role = models.CharField(max_length=250, null=True, blank=True)
+    company_location = CountryField(null=True, blank=True)
+    physical_address = models.CharField(max_length=250,null=True, blank=True)
     company_website = models.CharField(
         max_length=250, blank=True, null=True)
     company_registration_year = models.IntegerField(
-        choices=YEAR_CHOICES)
+        choices=YEAR_CHOICES,null=True, blank=True)
     verified = models.BooleanField(default=False)
     sample_profile = models.BooleanField(default=False)
     verified_by = models.ForeignKey(
@@ -472,15 +479,36 @@ class InvestorProfile(models.Model):
     # investor_forms = MultiSelectField(
     #     max_length=250, choices=INVESTOR_FORMS, null=True, blank=True, help_text="What forms of investment do you make?")
 
+    #crowdfunder questions
+    prior_donations = models.TextField(help_text="Have you ever contributed as a donation crowdfunder prior? If so, please describe", null=True, blank=True)
+    reason_for_support = models.TextField(help_text="Why do you want to support companies in Africa?", null=True,blank=True)
+
+    #lender questions
+    managed_funds = models.CharField(
+        max_length=100, null=True, blank=True, choices=MANAGED_FUNDS,
+        help_text="What is the average amount your firm loans per deal?")
+    loan_book = models.CharField(help_text="How large is your loan book?", null=True,blank=True,max_length=255)
+    active_loans = models.IntegerField(help_text="How many active loans do you hold?", null=True,blank=True)
+    average_payback = models.CharField(help_text="What is the average payback period?", null=True,blank=True, max_length=255,choices=AVERAGE_PAYBACK)
+    interest_rate = models.CharField(help_text="What is your interest rate per year?", null=True,blank=True, max_length=255)
+    collateral_list = models.TextField(
+        help_text="Do you require collateral to secure the loan? If so, what forms of collateral do you accept?",
+        null=True,blank=True)
+    loan_approval_process = models.TextField(help_text="Describe your loan approval process?", null=True,blank=True)
+    npl_percentage = models.TextField(help_text="What is the percentage of NPLs of your total loan book?", null=True,blank=True)
+
+    #grantors questions
+    rfp_list = models.TextField(help_text="What is your Request for Proposals?", null=True,blank=True)
+    grants_list = models.TextField(help_text="Have you issued any grants prior?", null=True,blank=True)
+    grant_amount = models.IntegerField(help_text="What is the amount of the grant you intend to offer?", null=True,blank=True)
+    target_recepients = models.TextField(help_text="What is the profile of your targeted recipients?", null=True,blank=True)
+
     target_sectors = models.ManyToManyField(BusinessCategory, help_text="Target Sectors", null=True, blank=True)
 
     target_countries = MultiSelectField(
         max_length=250, choices=INTEREST_COUNTRIES, help_text="Which are your target countries?", null=True, blank=True)
 
-    elevator_pitch = models.TextField(help_text="What's your investment thesis in brief?", null=True)
-
-    managed_funds = models.CharField(
-        max_length=100, null=True, blank=True, choices=MANAGED_FUNDS, help_text="What is the average amount your firm invests per deal?")
+    elevator_pitch = models.TextField(help_text="What's your investment thesis in brief?", null=True,blank=True)
 
     assets_under_management = models.CharField(
         max_length=250, null=True, blank=True, choices=AUM, help_text="What's the value of your Assets under Management (AUM)?")
@@ -497,7 +525,7 @@ class InvestorProfile(models.Model):
     impact_measurement = models.CharField(
         max_length=250, null=True, blank=True, choices=IMPACT_MEASUREMENT, help_text="Which impact measurement standard do you follow?")
 
-    impact_metrics = models.TextField(help_text="Which are your key impact metrics", null=True)
+    impact_metrics = models.TextField(help_text="Which are your key impact metrics", null=True,blank=True)
 
     # gender_lens_investor = models.CharField(
     #     max_length=250, null=True, blank=True, choices=IMPACT_INVESTOR, help_text="Do you Consider your firm a 'Gender-Lens' Investor?",default='yes'
