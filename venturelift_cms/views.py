@@ -17,3 +17,6 @@ def make_user(request):
         'message': 'Sign Up Successful',
     }
     return HttpResponse(template.render(context, request))
+
+def media_index(request):
+        return redirect('en/media')
