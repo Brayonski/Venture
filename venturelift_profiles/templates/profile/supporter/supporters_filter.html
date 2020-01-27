@@ -3,82 +3,148 @@
 {% load crispy_forms_tags %}
 {% block content_1 %}
 
-<div class="col_A_in col_A_in_2">
-    <div class="topbar_2">
-        <div class="row clearfix">
-            <div class="col-md-6 clearfix">
-                <p class="p_title">Partners</p>
-            </div>
-        </div>
-    </div>
-    <div class="row clearfix">
-        <div class='col-md-12 clearfix'>
-            <div class="row clearfix">
-                {% for obj in object_list %}
-                <div class="col-md-2 box_box">
-                    <div class="box_box_in">
-                        <a href="{% url 'supporter_profile' obj.pk %}"> 
-                            <figure id="box_{{ obj.pk }}" class="box_avi">
-                                <!-- Square, 350 X 350 PX -->
-                                {% if obj.supporter_profile.thumbnail_image %}
-                                  <style type="text/css">
-                                    #box_{{ obj.pk }}.box_avi {
-                                      background: #f9f9f9 url({{ obj.supporter_profile.thumbnail_image.url }}) center center;
-                                      background-size: cover;
-                                      width: 100%;
-                                      padding-top: 100%;
-                                      height: 0;                         
-                                    }  
-                                  </style>                                
-                                {% else %}
-                                {% if obj.supporter_profile.gender == 'Male' or obj.supporter_profile.gender == 'Other' %}
-                                <img src="{% static 'img/blue-user-icon.svg' %}">
-                                {% else %}
-                                <img src="{% static 'img/no-img.jpg' %}">
-                                {% endif %}
-                                {% endif %}
-                            </figure>
-                            <figure class="box_details">
-                                <p class="box_title">   
-                                    <span>{{obj.supporter_profile.company|title}}</span>
-                                    <br>{{obj.supporter_profile.fullname|title}}
-                                </p>
-                                <div class="box_social">
-                                    <!--{% if obj in following %}-->
-                                    <!--<a href="{% url 'supporter_unfollow' obj.id %}"><button-->
-                                            <!--class="btn-actioned btn btn-sm btn-default">Following</button></a>-->
-                                    <!--{% else %}-->
-                                    <!--<a href="{% url 'supporter_follow' obj.id %}"><button-->
-                                            <!--class=" btn btn-sm btn-default">Follow</button></a>-->
-                                    <!--{% endif %}-->
-                                </div>
-                            </figure>
-                        </a>
+ <!--partners-box area start-->
+    <div id="parterns-box-id" class="partners-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                   <div class="partners-box-title">
+                       <h2>Meet our Partners</h2>
+                    <!--  Filter Icon-->
+                       <div class="partners-filter">
+                           <p>
+                               <i class="fas fa-filter"></i> Filters
+                           </p>
+                       </div>
+                      <!--  Filter Icon End--> 
+                    <!--   Filter Dropdown-->
+                       <div id="filter-dropdown-item">
+                           <form method="post">
+						   {% csrf_token %}
+                               <div class="company-name">
+                                   <label for="">Company Name</label>
+                                   <input type="text" placeholder="Company Name" >
+                               </div>
+                               <div class="resources-select">
+                                    <label for="">Company Stage interested in</label>
+
+                               <select class="company-stage-select" name="files" id="files" style="width: 200px">                               
+                                    <option value="fiveyears">SME: 5+ years from first revenue, at least $500,000 in revenue in the last two years of operations, 10 + full time team</option>
+                                    <option value="twoyears">Startup: 2+ years post-revenue in the last year of operations, 3+ full time team</option>
+                                
+                                </select>
+                               </div>
+                               <div class="resources-select">
+                                   <label for="">Countries of interest</label>                                   
+                                    <select  style="width: 200px"  id="choosenactive" >    
+										<option value="">Country</option>
+                                        <option value="egypt">Egypt</option>
+                                        <option value="sa">South Africa</option>
+                                        <option value="morocco">Morocco</option>
+                                        <option value="ethiopia">Ethiopia</option>
+                                        <option value="kenya">Kenya</option>
+                                        <option value="rwanda">Rwanda</option>
+                                        <option value="tanzania">Tanzania</option>
+                                        <option value="nigeria">Nigeria</option>
+                                        <option value="Ghana">Ghana</option>
+                                        <option value="iv">Ivory Coast</option>
+                                        <option value="algeria">Algeria</option>
+                                
+                                    </select>
+                                    </div>
+                               <div class="filter-submit">
+                                   <input type="submit" value="Filter">
+                               </div>
+                               
+                           </form>
+                       </div>
+                       
+                       <!--   Filter Dropdown End-->
+                       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                   </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+						{% for obj in object_list %}
+                            <div class="single-partner-box">
+							{% if obj.supporter_profile.thumbnail_image %}
+                                <img src="{{obj.supporter_profile.thumbnail_image.url}}" alt="">
+								{% else %}
+								 <img src="{% static 'img/no-img.jpg' %}">
+								 {% endif %}
+                                <h4>{{obj.supporter_profile.company|title}}</h4>
+                                <p>{{obj.supporter_profile.fullname|title}}</p>
+                                
+                                <a href="{% url 'supporter_profile' obj.pk %}" class="single-partner-btn">View Profile</a>
+                            </div>
+							{% endfor %}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                </div> 
+			
+		
+			
+				
+				<!--  Sidebar area start-->
+                <div class="col-lg-4">
+                    <div class="profile-sidebar">
+            <!--   single sidebar start-->
+                        <div class="recommended-business custom-widgets">
+                            <h5 class="widget-title">Recommended Business</h5>
+							{% for business in r_businesses %}
+                            <div class="widget-elements">
+							{% if business.thumbnail_image %}
+                                <img src="{{ business.thumbnail_image.url }}" alt="">
+                                <p><a href="{% url 'business_profile' business.pk %}">{{business.name}}</a></p>
+							{% else %}
+							<img src="{% static 'img/no-img.png' %}" alt="">
+                                <p><a href="{% url 'business_profile' business.pk %}">{{business.name}}</a></p>
+							{% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+             <!--   single sidebar end-->
+             
+             <!--   single sidebar start-->  
+                        <div class="recommended-business custom-widgets">
+                            <h5 class="widget-title">Recommended Funders</h5>
+							{% for funder in r_investor %}
+                            <div class="widget-elements">
+							{% if funder.thumbnail_image %}
+                                <img src="{{ funder.thumbnail_image.url }}">
+                                <p>{{funder.investor_profile.user.username}}</p>
+								{% else %}
+								<img src="{% static 'img/funder.jpg' %}">
+                                <p>{{funder.investor_profile.user.username}}</p>
+								{% endif %}
+                            </div>
+                           {% endfor %}
+                        </div>
+             <!--   single sidebar end-->
+                        
+            <!--   single sidebar start-->         
+                        <div class="recommended-business custom-widgets">
+                            <h5 class="widget-title">Recommended Partners</h5>
+							{% for partner in r_supporter %}
+                            <div class="widget-elements">
+							{% if partner.thumbnail_image %}
+                                <img src="{{ partner.thumbnail_image.url }}">
+								<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+							{% else %}
+							<img src="{% static 'img/blue-user-icon.svg' %}">
+							<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+							{% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+             <!--   single sidebar end-->
+                    </div>
+                </div>  
+                <!--  Sidebar area end-->                 
             </div>
         </div>
     </div>
-</div>
-{% endblock %}
-{% block content_2 %}
-<div class="company_filter">
-    <h4>Filter Partners</h4>
-    <ul class="search_A search_A2">
-        <form method='post'>
-            <li>
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="name">Company Name: </label>
-                    <input id="name" class='form-control' name='supporter-name' />
-                </div>
-                {{form|crispy }}
-            </li>
-            <li>
-                <button class='btn btn-success'>Filter</button>
-            </li>
-        </form>
-    </ul>
-</div>
+				  
+                   
+           
+	
 {% endblock %}

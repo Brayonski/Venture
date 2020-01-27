@@ -1,0 +1,26 @@
+$(document).ready(function(){    
+     $(function(){
+        $('#menu').slicknav({
+            'prependTo':'nav',
+        });
+    });
+             
+        
+    $("#companyinterestcountry").click(function(){
+        $("#companyinterestdropdown").slideToggle();
+    });
+    
+    $(".partners-filter").click(function(){
+        $("#startup-filter-dropdown-item").slideToggle();
+    });
+
+    $( "#files2" ).selectmenu();
+    $('#choosenactive').chosen();
+    $('#sectorsactive').chosen();
+    $('#funderactive').chosen();
+  
+
+
+    
+    
+});

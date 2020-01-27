@@ -69,7 +69,6 @@ kombu==4.2.2.post1
 MarkupSafe==1.1.1
 moviepy==1.0.0
 mysql-connector-python==8.0.16
-mysqlclient==1.4.2.post1
 numpy==1.16.5
 oauthlib==3.0.0
 PasteDeploy==2.0.1
@@ -78,7 +77,6 @@ pilkit==2.0
 Pillow==5.4.0
 pinax-likes==3.0.1
 pinax-templates==2.0.2
-pkg-resources==0.0.0
 proglog==0.1.9
 protobuf==3.8.0
 psycopg2==2.7.6.1
@@ -98,7 +96,6 @@ six==1.12.0
 social-auth-app-django==3.1.0
 social-auth-core==3.0.0
 Tempita==0.5.2
-tg-bootstrap==0.4.0
 tgext.debugbar==0.5.0
 tornado==5.1.1
 towel==0.11.0
@@ -108,6 +105,5 @@ tzlocal==1.5.1
 Unidecode==1.0.23
 urllib3==1.24.1
 vine==1.2.0
-virtualenv==1.0
 webencodings==0.5.1
 WebOb==1.8.5

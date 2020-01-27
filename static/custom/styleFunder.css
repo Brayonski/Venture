@@ -1,0 +1,740 @@
+/*
+Project Name:
+Author:
+Font: Sofia Pro
+*/
+
+
+@font-face {
+    src: url('../fonts/Sofia pro/SofiaProBlack.ttf');
+    font-family: SofiaProBlack;
+}
+
+@font-face {
+    src: url('../fonts/Sofia pro/SofiaProBold.ttf');
+    font-family: SofiaProBold;
+}
+
+@font-face {
+    src: url('../fonts/Sofia pro/SofiaProExtraLight.ttf');
+    font-family: SofiaProExtraLight;
+}
+
+@font-face {
+    src: url('../fonts/Sofia pro/SofiaProLight.ttf');
+    font-family: SofiaProLight;
+}
+
+@font-face {
+    src: url('../fonts/Sofia pro/SofiaProMedium.ttf');
+    font-family: SofiaProMedium;
+}
+
+@font-face {
+    src: url('../fonts/Sofia pro/SofiaProRegular.ttf');
+    font-family: SofiaProRegular;
+}
+
+@font-face {
+    src: url('../fonts/Sofia pro/SofiaProSemiBold.ttf');
+    font-family: SofiaProSemiBold;
+}
+
+@font-face {
+    src: url('../fonts/Sofia pro/SofiaProUltraLight.ttf');
+    font-family: SofiaProUltraLight;
+}
+
+body{
+    font-family:'SofiaProBlack';
+    font-family:'SofiaProBold';
+    font-family:'SofiaProSemiBold';
+    font-family:'SofiaProMedium';
+    font-family:'SofiaProRegular';
+    font-family:'SofiaProLight';
+    font-family:'SofiaProExtraLight';
+    font-family:'SofiaProUltraLight';
+    
+}
+/*responsive menu*/
+.slicknav_menu{
+    display: none;
+}
+/*header style start*/
+
+/*Header top style start*/
+.header-top{
+    background:#EBECED;
+    padding: 35px 0px;
+}
+a.logo img {
+    width: 245px;
+    height: 45px;
+}
+.header-top nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.header-top nav ul li {
+    display: inline-block;
+    margin-left: 15px;
+    position: relative;
+}
+
+.header-top ul ul {
+    position: absolute;
+    width: 182px;
+    background: #fff;
+    margin-left: -25px;
+    border-radius: 3px;
+    padding: 5px;
+    box-shadow: 0 0 9px #ddd;
+    z-index: 999;
+    top: 100%;
+    display: none;
+}
+.header-top nav ul li:hover ul{
+    display: block;
+}
+.header-top nav ul ul li{
+    margin-top: 15px;
+	display:block;
+}
+.header-top nav ul ul li:first-child {
+    margin-left: 15px;
+}
+.header-top nav ul li:first-child {
+    margin-left: 0;
+}
+.header-top nav ul li a{
+    font-size: 16px;
+    font-family:'SofiaProRegular';
+    color: #1D2226;
+    transition: .5s
+}
+.header-top nav ul li a:hover{
+    text-decoration: none;
+    color: #009CFF;
+}
+li#profile-pic-sm {
+    margin-left: 83px;
+}
+.pp3 {
+    margin-left: 178px !important;
+}
+/*Header top style end*/
+
+/*Header profile style start*/
+.header-profile{
+    background: #fff;
+    padding-top:125px;
+    padding-bottom: 50px;
+    position: relative;
+    
+}
+.profile-details img {
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+.profile-details {    
+    position: absolute;
+    left: 0;
+    top: -14%;
+}
+.profile-details .profile-content {
+    float: left;
+    margin-left: -10px;
+}
+.profile-content a h5 {
+    color: #1D2226;
+    font-family: 'SofiaProSemiBold';
+    font-size: 24px;
+}
+
+.profile-content a h5 i {
+    width: 25px;
+    height: 25px;
+    background: #00D860;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 50%;
+    line-height: 1.9;
+    margin-left: 15px;
+    padding-left: 5px;
+    
+}
+.profile-content p {
+    color: #676767;
+    font-family: 'SofiaProSemiBold';
+    font-size: 16px;
+}
+a.profile-category {
+    color: #00BF4A;;
+    margin-top: -16px;
+    font-size: 24px;
+    font-family: 'SofiaProRegular';
+    display: block;
+}
+a.profile-logo img {
+    width: 260px;
+    height: 41px;
+    margin-top: -100px;
+}
+a.connect-btn {
+    display: block;
+    background: #009CFF;
+    width: 150px;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'SofiaProRegular';
+    float: right;
+    line-height: 2.2;
+}
+a.connect-btn:hover{
+    text-decoration: none;
+}
+a.connect-btn i {
+    padding-right: 8px;
+}
+.profile-content a:hover {
+    text-decoration: none;
+}
+/*Header profile style end*/
+
+/*header style end*/
+
+
+
+/*about-and-connect style start*/
+.about-and-connect{
+    padding: 160px 0 80px 0;
+    background: #EBECED;
+}
+.about-and-connect .about {
+    background: #fff;
+    padding: 18px 20px 20px 25px;
+    border-radius: 2px;
+}
+.about-and-connect .about, .about-and-connect .connect {
+    background: #fff;
+    padding: 18px 20px 20px 25px;
+    border-radius: 2px;
+}
+
+.about h6, .connect h6 {
+    font-size: 20px;
+    color: #009CFF;
+    font-family: 'SofiaProMedium';
+    margin-bottom: 25px;
+}
+
+.about p {
+    font-size: 18px;
+    color: #676767;
+    font-family: 'Nunito';
+    line-height: 1.7;    
+    
+}
+.company-title p {
+    font-family: SofiaProMedium;
+    font-size: 20px;
+	color:#1D2226;
+}
+
+p.company-meta {
+    color: #676767;
+    font-size: 18px;
+    font-family: SofiaProLight;
+    margin-top: -21px;
+}
+.company-title {
+    margin-top: 40px;
+}
+.company-details {
+    margin-top: -20px;
+}
+.about-and-connect .connect{
+    margin-top: 50px;
+}
+.single-connection img {
+    float: left;
+    width: 60px;
+    height: 60px;
+}
+
+.connection-detsils {
+    float: left;
+    margin-left: 10px;
+}
+
+a.connection-name {
+    font-size: 18px;
+    font-family: SofiaProRegular;
+    color: #1D2226;
+}
+
+a.connection-name:hover {
+    text-decoration: none;
+}
+
+.connection-detsils p {
+    color: #676767;
+    font-size: 17px;
+    font-family: SofiaProLight;
+}
+
+.single-connection {
+    margin-top: 23px;
+    overflow: hidden;
+}
+/*about-and-connect style end*/
+
+/*Filter Dropdown Area CSS Start*/
+
+.funder-company-name {
+    width: 15%;
+    float: left;
+}
+
+.funder-sectors {
+    width: 24%;
+    float: left;
+}
+
+.funder-company-interest {
+    float: left;
+    width: 24%;
+}
+
+.funder-exits-executed {
+    width: 24%;
+    float: left;
+}
+
+.filter-submit {
+    clear: both;
+}
+div#funder-filter-dropdown-item {
+    clear: both;
+    display: inline-block;
+    margin: 30px 0;
+}
+
+div#funder-filter-dropdown-item label {
+    display: block;
+    font-size: 11px;
+    font-family: SofiaProRegular;
+}
+.filter-submit input {
+    width: 250px;
+    margin: 28px auto 0 auto;
+    display: block;
+    overflow: hidden;
+    height: 45px;
+    background: #009CFE;
+    border: none;
+    color: #fff;
+    font-family: SofiaProRegular;
+    border-radius: 5px;
+}
+div#funder-filter-dropdown-item select option {
+    font-family: SofiaProRegular;
+    color: #000;
+    font-size: 16px;
+}
+
+.filter-submit {
+    overflow: hidden;
+}
+
+.funder-company-interest ul.chosen-choices {
+    border: none;
+}
+
+.funder-company-name input {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    height: 45px;
+    padding-left: 3px;
+    font-size: 11px;
+    font-family: 'SofiaProRegular';
+}
+
+.funder-sectors select {
+    width: 100%;
+}
+
+span#files-button {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    /* margin-left: 10px; */
+}
+
+.funder-sectors {
+    margin-left: 10px;
+}
+
+span.ui-selectmenu-text {
+    margin-top: 10px;
+    font-size: 12px;
+}
+ul.chosen-choices {
+    height: 45px;
+}
+
+li.search-field {
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+}
+
+li.search-field input {
+    margin-top: 10px !important;
+}
+
+
+input.chosen-search-input.default {
+    border: none;
+    /* margin-top: 18px; */
+}
+
+
+.funder-sectors .chosen-choices {
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+}
+
+input.chosen-search-input.default {
+    margin-top: 10px;
+}
+
+
+span.ui-selectmenu-icon.ui-icon.ui-icon-triangle-1-s {
+    margin-top: 10px;
+}
+.funder-exits-executed {
+    margin-left: 10px;
+}
+
+.funder-exits-executed select {
+    width: 100%;
+}
+
+.funder-company-interest {
+    margin-left: 10px;
+}
+
+.funder-company-interest select {
+    width: 100%;
+}
+.funder-company-interest {
+    margin-left: 33px;
+}
+
+.funder-exits-executed {
+    margin-left: 33px;
+}
+
+.funder-exits-executed select {
+    width: 100%;
+    background: #fff;
+}
+
+span#files2-button {
+    background: #fff;
+    border: none;
+    height: 45px;
+    border-radius: 5px;
+}
+
+
+/*Filter Dropdown Area CSS End*/
+
+
+/*partners-box(trade) style start*/
+div#parterns-box-id, #profile-sidebar-id,#header-area-id .header-top{
+    background: #F6F6FA;
+}
+.partners-box{
+    padding-top: 130px;
+}
+#profile-sidebar-id{
+    padding-top: 0px;
+}
+.partners-box-title h2 {
+    color: #009CFF;
+    font-family: 'SofiaProSemiBold';
+    font-weight: 600;
+    font-size: 30px;
+    float: left;
+    width: 50%;
+}
+
+.partners-filter {
+    float: right;
+    width: 16%;
+    cursor: pointer;
+}
+
+.partners-box-title p {
+    clear: both;
+    margin-top: 60px;
+    display: inline-block;
+    font-size: 18px;
+    font-family: 'nunito';
+    color: #1D2226;
+    /* font-weight: 100; */
+}
+
+.partners-filter p {
+    color: #676767;
+    font-family: 'SofiaProMedium';
+    font-weight: 100;
+    font-size: 20px;
+    border: 1px solid #bdb7b7;
+    padding: 5px 10px;
+    display: inline;
+    border-radius: 5px;
+}
+
+.partners-filter p i {
+    padding-right: 8px;
+}
+.partners-box-title {
+    margin-bottom: 60px;
+    margin-top: 10px;
+}
+
+.single-partner-box img {
+    width: 138px;
+    height: 138px;
+    border-radius: 50%;
+    
+}
+
+.single-partner-box {
+    text-align: center;
+    padding: 30px 19px;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.single-partner-box h4 {
+    color: #1D2226;
+    font-size: 23px;
+    font-family: 'SofiaProMedium';
+    margin-top: 22px;
+    font-weight: 500;
+}
+
+.single-partner-box p {
+    color: #676767;
+    font-size: 18px;
+    margin-top: -4px;
+    font-weight: 600;
+}
+
+a.single-partner-btn {
+    width: 180px;
+    text-align: center;
+    border: 1px solid #009BFF;
+    margin-top: 60px;
+    display: block;
+    color: #009CFF;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 60px auto 0 auto;
+    padding: 5px 0;
+    border-radius: 5px;
+	font-family: SofiaProRegular;
+}
+
+a.single-partner-btn:hover {
+    background: #009CFF;
+    color: #fff;
+	text-decoration: none;
+    border-color: transparent;
+}
+div#tech h4 {
+    margin-top: 0;
+    font-size: 19px;
+}
+
+/*partners-box(trade) style end*/
+
+
+/*Sidebar style start*/
+.profile-sidebar{
+    background: #fff;
+    padding: 25px;
+    padding-bottom: 270px;
+    border-radius: 2px;
+}
+
+h5.widget-title {
+    font-size: 22px;
+    font-family: SofiaProMedium;
+    color: #009CFF;
+}
+
+
+.widget-elements img {
+    float: left;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+}
+
+.custom-widgets{
+    margin-top: 30px;
+    border-bottom: 1px solid #E8E8E8;
+    padding-bottom: 20px;
+}
+.custom-widgets:first-child{
+    margin-top: 0;
+}
+.custom-widgets:last-child{
+    
+    border-bottom: none;
+}
+.widget-elements p {
+    float: left;
+    margin-left: 10px;
+    font-size: 18px;
+    font-family: 'SofiaProMedium';
+    line-height: 2.8;
+    
+}
+.widget-elements{
+    overflow: hidden;
+    margin-top: 20px;
+} 
+
+
+/*Sidebar style end*/
+
+
+
+/*Footer style start*/
+footer {
+    padding: 80px 0;
+}
+
+.footer-widget-one img {
+    width: 240px;
+    height: 45px;
+    margin-bottom: 30px;
+}
+
+.footer-widget-one p {
+    font-size: 18px;
+    font-family: Nunito;
+    font-weight: 300;
+}
+
+h5.footer-title {
+    font-size: 22px;
+    margin-bottom: 30px;
+    color: #1D2226;
+    font-family: SofiaProRegular;
+}
+
+.footer-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-nav ul li a {
+    font-size: 18px;
+    color: #676767;
+    font-family: 'SofiaProLight';
+}
+
+.footer-nav ul li {
+    margin-top: 10px;
+}
+
+.contact-info p {
+    
+    font-size: 20px;
+    color: #676767;
+    font-family: SofiaProLight;
+}
+
+.contact-info {
+    margin-top: 32px;
+}
+
+.contact-info p i {
+    padding-right: 10px;
+}
+/*Footer style end*/
+
+/*Footer bottom style start*/
+
+.footer-bottom{
+    padding:35px 0px;
+    background: #000000;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'SofiaProLight';
+}
+
+.social-links ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.social-links ul li {
+  display: inline-block;
+  margin-left: 15px;
+  width: 30px;
+  background: #676767;
+  height: 30px;
+  /*! color: #fff; */
+  text-align: center;
+  border-radius: 2px;
+}
+.social-links ul li:first-child {
+  margin-left: 0;
+}
+.social-links ul li a {
+  color: #fff;
+  font-size: 19px;
+  line-height: 1.8;
+}
+/*Footer bottom style end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,100 @@
+@media only screen and (max-width:1200px){
+    a.logo img {
+        width: 120px;
+        height: 36px;
+    }
+    .cover-hidden{
+        display: none;
+    }
+    
+
+}
+
+@media only screen and (max-width:992px){
+    .widget{
+        margin-top: 30px;
+    }
+    li#profile-pic-sm{
+        display: none;
+    }
+    .profile-details{
+        position: static;
+        width: 36%;
+        margin: 0 auto;
+    }
+
+    .profile-details img{
+        float: none;
+    }
+    .profile-details .profile-content{
+        float: none;
+    }
+    a.connect-btn{
+        float: none;
+        margin:50px auto 20px auto;
+    }
+    .header-profile{
+        padding-top: 50px;
+    }
+    .about-and-connect{
+        padding: 40px 0px;
+    }
+}
+@media only screen and (max-width:768px){
+    .slicknav_menu{
+        display: block;
+    }
+    
+    nav ul{
+        display: none;
+    }
+    
+    .header-top nav {
+      width: 200px;
+      text-align: center;
+    }
+    .header-top nav ul li {
+      display: block;
+    }
+    .logo {
+
+        width: 120px;
+        display: block;
+        margin: 25px auto;
+
+    }
+    .header-top nav {
+
+        width: 136px;
+        margin: 0 auto;
+
+    }
+    .slicknav_menu{
+        background: transparent;
+    }
+    .slicknav_menu li:last-child{
+        display: none;
+    }
+    .header-top nav ul li a:hover {;
+        color: #000;
+    }
+    .profile-details{
+        width: 100%;
+        margin-left: 100px;
+    }
+    a.connect-btn{
+        margin-left: 110px;
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width:390px){
+     .profile-details{
+        width: 100%;
+        margin-left: 50px;
+    }
+    a.connect-btn{
+        margin-left: 60px;
+       
+    }
+}

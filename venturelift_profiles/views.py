@@ -17,6 +17,10 @@ from django.views.generic.edit import CreateView, UpdateView, FormMixin
 from venturelift_profiles.tasks import *
 from django_registration.backends.activation.views import ActivationView
 from django.contrib import messages
+from django.core.mail import send_mail
+
+
+    
 
 class ProfileActivationView(ActivationView):
     def activate(self, *args, **kwargs):
@@ -65,6 +69,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
                 createUser = AllSystemUser(created_at=timezone.now(), username=self.request.user.username,
                                            email=self.request.user.email, user_type='Business')
                 createUser.save()
+		
 
         if self.request.user.supporter_creator.exists():
             supporter = Supporter.objects.filter(user=self.request.user).first()
@@ -95,6 +100,7 @@ class SummaryView(LoginRequiredMixin, TemplateView):
                 createUser = AllSystemUser(created_at=timezone.now(), username=self.request.user.username,
                                            email=self.request.user.email, user_type='Investor')
                 createUser.save()
+	
 
         if 'pk' in kwargs:
             current_url = resolve(self.request.path_info).url_name

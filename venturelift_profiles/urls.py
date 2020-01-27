@@ -3,7 +3,7 @@ from django.conf.urls import include, url
 from django.contrib.auth import views as auth_views
 from venturelift_profiles import views
 from django.views.generic import TemplateView
-
+from . import views
 
 urlpatterns = [
     url(r'^accounts/activate/complete/$',
