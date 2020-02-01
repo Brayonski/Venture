@@ -22,8 +22,10 @@
 	
     <!--main stylesheet-->
 
-    <link rel="stylesheet" href="{% static 'custom/stylecrowdfunder.css' %}">
+    <link rel="stylesheet" href="{% static 'custom/stylefunderpages.css' %}">
 	<link rel="stylesheet" href="{% static 'custom/styleFunder.css' %}">
+	
+	
 	
 
 	
@@ -210,7 +212,7 @@
       <!--  chosen js-->
       <script src="{% static 'js/jsCustom/chosen.jquery.js' %}"></script>
       <!--custom js-->
-      <script src="{% static 'js/jsCustom/activecrowdfunder.js' %}"></script>
+      <script src="{% static 'js/jsCustom/activefunderpages.js' %}"></script>
 	  
       
 	  
@@ -233,17 +235,13 @@
     });
     
     $(".partners-filter").click(function(){
-        $("#crowdfunder-filter-dropdown-item").slideToggle();
+        $("#funder-filter-dropdown-item").slideToggle();
     });
 
     $( "#files2" ).selectmenu();
     $('#choosenactive').chosen();
     $('#sectorsactive').chosen();
     $('#funderactive').chosen();
-  
-
-
-    
     
 });
   </script>

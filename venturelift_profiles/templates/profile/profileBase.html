@@ -22,8 +22,9 @@
 	
     <!--main stylesheet-->
 
-    <link rel="stylesheet" href="{% static 'custom/stylecrowdfunder.css' %}">
+    <link rel="stylesheet" href="{% static 'custom/stylePartner.css' %}">
 	<link rel="stylesheet" href="{% static 'custom/styleFunder.css' %}">
+	<link rel="stylesheet" href="{% static 'custom/styleBusiness.css' %}">
 	
 
 	
@@ -210,42 +211,14 @@
       <!--  chosen js-->
       <script src="{% static 'js/jsCustom/chosen.jquery.js' %}"></script>
       <!--custom js-->
-      <script src="{% static 'js/jsCustom/activecrowdfunder.js' %}"></script>
-	  
+      <script src="{% static 'js/jsCustom/activebusiness.js' %}"></script>
+	  <script src="{% static 'js/jsCustom/activefunder.js' %}"></script>
+	  <script src="{% static 'js/jsCustom/activepartner.js' %}"></script>
       
 	  
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script>
     window.jQuery or document.write('<script src="js/vendor/jquery.min.js"><\/script>')
-  </script>
-  
-  <script>
-  $(document).ready(function(){    
-     $(function(){
-        $('#menu').slicknav({
-            'prependTo':'nav',
-        });
-    });
-             
-        
-    $("#companyinterestcountry").click(function(){
-        $("#companyinterestdropdown").slideToggle();
-    });
-    
-    $(".partners-filter").click(function(){
-        $("#crowdfunder-filter-dropdown-item").slideToggle();
-    });
-
-    $( "#files2" ).selectmenu();
-    $('#choosenactive').chosen();
-    $('#sectorsactive').chosen();
-    $('#funderactive').chosen();
-  
-
-
-    
-    
-});
   </script>
  
   <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>

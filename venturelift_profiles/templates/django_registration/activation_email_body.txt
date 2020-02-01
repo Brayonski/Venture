@@ -2,7 +2,7 @@
 
 {% trans "Dear"  %} {{user}}
 {% trans "Welcome to ventureLift Africa. We are pleased to have you join our network. To activate your account click the link below:" %}
-http://127.0.0.1:8000/profile/accounts/activate/{{activation_key}}
+http://{{site}}/profile/accounts/activate/{{activation_key}}
 
 {% trans "This link will expire in" %}  {{expiration_days}} {% trans "DAYS" %}
 

@@ -1,4 +1,4 @@
-{% extends 'profile/base4.html' %}
+{% extends 'profile/funderFilterBase.html' %}
 {% load cms_tags staticfiles %}
 {% load crispy_forms_tags %}
 {% block content_1 %}
@@ -27,7 +27,7 @@
                                </div>
                                <div class="funder-sectors">
                                 <label for="">Sectors</label>
-                                <select style="width: 200px"  id="sectorsactive" >         
+                                <select  style="width: 200px"  id="sectorsactive">         
                                         <option value="agribusiness">agribusiness</option>
                                         <option value="fmg retail">fmcg-retail </option>
                                         <option value="technology">technology</option>
@@ -79,28 +79,30 @@
                        </div>
                        
                        <!--   Filter Dropdown End-->
-                       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                       <p>VLA provides capital providers (equity, debt and donation crowdfunding) with vetted investment opportunities and connections to qualified transaction advisors and consultants with local knowledge and track record in Africa.</p>
                    </div>
                     <div class="row">
+					{% for obj in object_list %}
                         <div class="col-lg-4">
-						{% for obj in object_list %}
+						
                             <div class="single-partner-box">
 							{% if obj.investor_profile.thumbnail_image %}
 							<img src="{{obj.investor_profile.thumbnail_image.url}}">
-				  {% else %}
-                {% if obj.investor_profile.gender == 'Male' or obj.investor_profile.gender == 'Other' %}
-                <img src="{% static 'img/blue-user-icon.svg' %}">
-                {% else %}
-                <img src="{% static 'img/no-img.jpg' %}">
-                {% endif %}
-                {% endif %}
-                                <h4>{{obj.investor_profile.company|title}}</h4>
-                                <p>{{obj.investor_profile.fullname|title}}</p>
+							{% else %}
+						{% if obj.investor_profile.gender == 'Male' or obj.investor_profile.gender == 'Other' %}
+						<img src="{% static 'img/blue-user-icon.svg' %}">
+						{% else %}
+						<img src="{% static 'img/no-img.jpg' %}">
+						{% endif %}
+						{% endif %}
+                        <h4>{{obj.investor_profile.company|title}}</h4>
+                        <p>{{obj.investor_profile.fullname|title}}</p>
                                 
                                 <a href="{% url 'investor_profile' obj.pk %}" class="single-partner-btn">View Profile</a>
                             </div>
-							{% endfor %}
+							
                         </div>
+						{% endfor %}
                     </div>
                 </div>
                 

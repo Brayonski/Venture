@@ -22,8 +22,8 @@
 	
     <!--main stylesheet-->
 
-    <link rel="stylesheet" href="{% static 'custom/stylecrowdfunder.css' %}">
-	<link rel="stylesheet" href="{% static 'custom/styleFunder.css' %}">
+    <link rel="stylesheet" href="{% static 'custom/stylepartnerpages.css' %}">
+	<link rel="stylesheet" href="{% static 'custom/stylePartner.css' %}">
 	
 
 	
@@ -192,6 +192,12 @@
         <p>&copy; 2019 VentureLift Africa. All Rights Reserved</p>
     </section>
     <!--Footer bottom area end-->
+    
+    <!--Footer bottom area start-->
+    <section class="footer-bottom">
+        <p>&copy; 2019 VentureLift Africa. All Rights Reserved</p>
+    </section>
+    <!--Footer bottom area end-->
 
      
 
@@ -210,7 +216,7 @@
       <!--  chosen js-->
       <script src="{% static 'js/jsCustom/chosen.jquery.js' %}"></script>
       <!--custom js-->
-      <script src="{% static 'js/jsCustom/activecrowdfunder.js' %}"></script>
+      <script src="{% static 'js/jsCustom/activepartnerpages.js' %}"></script>
 	  
       
 	  
@@ -218,7 +224,7 @@
   <script>
     window.jQuery or document.write('<script src="js/vendor/jquery.min.js"><\/script>')
   </script>
-  
+ 
   <script>
   $(document).ready(function(){    
      $(function(){
@@ -233,13 +239,10 @@
     });
     
     $(".partners-filter").click(function(){
-        $("#crowdfunder-filter-dropdown-item").slideToggle();
+        $("#filter-dropdown-item").slideToggle();
     });
-
-    $( "#files2" ).selectmenu();
+    $( "#files" ).selectmenu();
     $('#choosenactive').chosen();
-    $('#sectorsactive').chosen();
-    $('#funderactive').chosen();
   
 
 
@@ -247,7 +250,6 @@
     
 });
   </script>
- 
   <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
