@@ -10,7 +10,7 @@ def account_type(request):
                 creator=request.user)[0]
         if request.user.supporter_creator.exists():
             context['supporter'] = Supporter.objects.get(
-                user=request.user)
+                user=request.user).first()
             context['supporter_profile'] = SupporterProfile.objects.get(
                 supporter_profile_id=context['supporter'].id)
         if request.user.investor_creator.exists():
