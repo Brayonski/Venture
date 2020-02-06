@@ -9,10 +9,10 @@ def account_type(request):
             context['business'] = Business.objects.filter(
                 creator=request.user)[0]
         if request.user.supporter_creator.exists():
-            context['supporter'] = Supporter.objects.get(
+            context['supporter'] = Supporter.objects.filter(
                 user=request.user).first()
-            context['supporter_profile'] = SupporterProfile.objects.get(
-                supporter_profile_id=context['supporter'].id)
+            context['supporter_profile'] = SupporterProfile.objects.filter(
+                supporter_profile_id=context['supporter'].id).first()
         if request.user.investor_creator.exists():
             context['investor'] = Investor.objects.filter(user=request.user).first()
             context['investor_profile'] = InvestorProfile.objects.filter(
