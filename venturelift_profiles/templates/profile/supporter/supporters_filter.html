@@ -1,0 +1,156 @@
+{% extends 'profile/partnerFilterBase.html' %}
+{% load cms_tags staticfiles %}
+{% load crispy_forms_tags %}
+{% block content_1 %}
+
+ <!--partners-box area start-->
+    <div id="parterns-box-id" class="partners-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                   <div class="partners-box-title">
+                       <h2>Meet our Partners</h2>
+                    <!--  Filter Icon-->
+                       <div class="partners-filter">
+                           <p>
+                               <i class="fas fa-filter"></i> Filters
+                           </p>
+                       </div>
+                      <!--  Filter Icon End--> 
+					  
+                    <!--   Filter Dropdown-->
+                       <!--   Filter Dropdown-->
+                       <div id="filter-dropdown-item">
+                           <form method="post">
+						   {% csrf_token %}
+                               <div class="company-name">
+                                   <label>Company Name</label>
+                                   <input type="text" placeholder="Company Name" >
+                               </div>
+                               <div class="company-stage">
+                                    <label for="">Company Stage interested in</label>
+
+                               <select class="company-stage-select" name="files" id="files" style="width: 210px;">                               
+                                    <option value="fiveyears">SME: 5+ years from first revenue, at least $500,000 in revenue in the last two years of operations, 10 + full time team</option>
+                                    <option value="twoyears">Startup: 2+ years post-revenue in the last year of operations, 3+ full time team</option>
+                                
+                                </select>
+                               </div>
+                               <div class="company-interest">
+                                   <label>Countries of interest</label>                                   
+                                    <select style="width: 200px"  class="company-stage-select" name="files3" id="files3" >         
+                                        <option value="egypt">Egypt</option>
+                                        <option value="sa">South Africa</option>
+                                        <option value="morocco">Morocco</option>
+                                        <option value="ethiopia">Ethiopia</option>
+                                        <option value="kenya">Kenya</option>
+                                        <option value="rwanda">Rwanda</option>
+                                        <option value="tanzania">Tanzania</option>
+                                        <option value="nigeria">Nigeria</option>
+                                        <option value="Ghana">Ghana</option>
+                                        <option value="iv">Ivory Coast</option>
+                                        <option value="algeria">Algeria</option>
+                                
+                                    </select>
+                                    </div>
+                               <div class="filter-submit">
+                                   <input type="submit" value="Filter">
+                               </div>
+                               
+                           </form>
+                       </div>
+                       
+                       <!--   Filter Dropdown End-->
+                      
+                       <p>We aim to curate into Africa more Diaspora engagement beyond remittances and create a stronger economic bridge focusing on regional and international growth of businesses.</p>
+                   </div>
+				   
+				   
+                    <div class="row">
+					{% for obj in object_list %}
+                        <div class="col-lg-4">
+						
+                            <div class="single-partner-box">
+							{% if obj.supporter_profile.thumbnail_image %}
+                                <img src="{{obj.supporter_profile.thumbnail_image.url}}" alt="">
+								{% else %}
+								 <img src="{% static 'img/no-img.jpg' %}">
+								 {% endif %}
+                                <h4>{{obj.supporter_profile.company|title}}</h4>
+                                <p>{{obj.supporter_profile.fullname|title}}</p>
+                                
+                                <a href="{% url 'supporter_profile' obj.pk %}" class="single-partner-btn">View Profile</a>
+                            </div>
+							
+                        </div>
+						{% endfor %}
+                    </div>
+                </div> 
+			
+		
+			
+				
+				<!--  Sidebar area start-->
+                <div class="col-lg-4">
+                    <div class="profile-sidebar">
+            <!--   single sidebar start-->
+                        <div class="recommended-business custom-widgets">
+                            <h5 class="widget-title">Recommended Business</h5>
+							{% for business in r_businesses %}
+                            <div class="widget-elements">
+							{% if business.thumbnail_image %}
+                                <img src="{{ business.thumbnail_image.url }}" alt="">
+                                <p><a href="{% url 'business_profile' business.pk %}">{{business.name}}</a></p>
+							{% else %}
+							<img src="{% static 'img/no-img.png' %}" alt="">
+                                <p><a href="{% url 'business_profile' business.pk %}">{{business.name}}</a></p>
+							{% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+             <!--   single sidebar end-->
+             
+             <!--   single sidebar start-->  
+                        <div class="recommended-business custom-widgets">
+                            <h5 class="widget-title">Recommended Funders</h5>
+							{% for funder in r_investor %}
+                            <div class="widget-elements">
+							{% if funder.thumbnail_image %}
+                                <img src="{{ funder.thumbnail_image.url }}">
+                                <p>{{funder.investor_profile.user.username}}</p>
+								{% else %}
+								<img src="{% static 'img/funder.jpg' %}">
+                                <p>{{funder.investor_profile.user.username}}</p>
+								{% endif %}
+                            </div>
+                           {% endfor %}
+                        </div>
+             <!--   single sidebar end-->
+                        
+            <!--   single sidebar start-->         
+                        <div class="recommended-business custom-widgets">
+                            <h5 class="widget-title">Recommended Partners</h5>
+							{% for partner in r_supporter %}
+                            <div class="widget-elements">
+							{% if partner.thumbnail_image %}
+                                <img src="{{ partner.thumbnail_image.url }}">
+								<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+							{% else %}
+							<img src="{% static 'img/blue-user-icon.svg' %}">
+							<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+							{% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+             <!--   single sidebar end-->
+                    </div>
+                </div>  
+                <!--  Sidebar area end-->                 
+            </div>
+        </div>
+    </div>
+				  
+                   
+           
+	
+{% endblock %}

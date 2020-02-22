@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load cms_tags staticfiles %}
+
+{% block title %}{{ text_media.title }} &mdash; VentureLift Africa Media{% endblock title %}
+
+{% block content %}
+
+<div class="container single_post_container">
+	<div class="row clearfix">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="single_header">
+				<h1 class="style_D">{{ text_media.title }}</h1>
+				<p class="meta">Category: {{ text_media.category}}</p>
+			</div>
+				
+			<figure class="single_banner">
+				<img src="{{ text_media.thumbnail_image.url }}">
+			</figure>
+					
+			<div class="single_body">
+				{{ text_media.body}}
+			</div>	
+		</div>
+	</div>		
+</div>
+
+{% endblock %}

@@ -1,0 +1,131 @@
+{% extends 'base3.html' %}
+
+{% load cms_tags staticfiles %}
+{% block title %}Events {% endblock title %}
+{% block content %}
+<div class="event_wrapper full_A">
+
+  <nav id="navbar_out_2" class="navbar navbar-default_media">
+      <div class="top_container container">    
+
+          <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
+              {% url 'events_home' as  events_home %}
+              {% url 'network_events' as  network_events %}
+              <ul class="event_titles">
+                <li class="active e-title_1"><h1>Events</h1></li>                               
+              </ul>
+          </div>
+          
+      </div>
+  </nav>
+
+
+  <div class="container">
+
+
+    <div class="page_with_2_sections_e row clearfix">
+      <div class="col-md-3 clearfix s_e_sidebar">
+                <div class="s_e_1 s_e_in">
+          <div class="list_box list-group">
+            <a href="{% url 'events_home' %}" class="list_title list-group-item">
+              VLA Events
+            </a>
+            {% if object_list %}
+            <a class="list-group-item {% ifequal request.path events_home %}active{% endifequal %}"
+              href="{% url 'events_home' %}">All</a>
+            {% endif %}
+
+            {% for type in event_type %}
+            {% if type.events_set.count >= 1 %}
+            {% url 'event_view_content_filter' type.id as event_view_content_filter %}
+            <a class="list-group-item {% ifequal request.path event_view_content_filter %}active{% endifequal %}"
+              href="{% url 'event_view_content_filter' type.id %}">{{type.title}}
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+
+          <div class="list_box list-group">
+            <a href="{% url 'network_events' %}" class="list_title list-group-item">
+              Network Member Events
+            </a>
+
+            {% if object_list %}
+            <a class="list-group-item {% ifequal request.path network_events %}active{% endifequal %}"
+              href="{% url 'network_events' %}">All</a>
+            {% endif %}
+            {% for type in event_type %}
+            {% if type.network_events.count >= 1 %}
+            {% url 'network_event_filter' type.id as network_event_filter %}
+            <a class="list-group-item {% ifequal request.path network_event_filter %}active{% endifequal %}"
+              href="{% url 'network_event_filter' type.id %}">{{type.title}}</a>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9 clearfix s_e_sidebar">
+        <div class="s_e_2 s_e_in">
+
+          <div class="s_e_table">
+
+              <table class="table">
+                <tbody> 
+                  {% for obj in object_list %}
+                  {% if obj.published %}              
+                    <tr> 
+                      <td class="e1">
+                        <p style="max-width:100px;">{{obj.start_date }} &mdash; {{obj.end_date }}</p>
+                      </td> 
+                      <td class="e2">
+                        <a href="{% url 'event_view_content' obj.id %}">
+                         <h2 class="event_title">{{ obj.title }}</h2>
+                         <p>{{obj.category}} in {{obj.location }}</p>
+                        </a>
+                      </td> 
+                      <td class="e3">
+                        {% if obj.registration_required == 'YES'%}
+                        <a class="btn btn-primary" href="{{ obj.registration_url }}" target="_blank"><ion-icon name="add"></ion-icon> Register</a>
+                        {% endif %}
+                      </td> 
+                    </tr> 
+                  {% endif %}
+                  {% endfor %}                  
+                </tbody> 
+              </table>
+
+          </div>        
+
+        </div>
+
+        {% if is_paginated %}
+        <ul class="pagination pag_wrapper">
+          {% if page_obj.has_previous %}
+          <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+          {% else %}
+          <li class="disabled"><span>&laquo;</span></li>
+          {% endif %}
+          {% for i in paginator.page_range %}
+          {% if page_obj.number == i %}
+          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+          {% else %}
+          <li><a href="?page={{ i }}">{{ i }}</a></li>
+          {% endif %}
+          {% endfor %}
+          {% if page_obj.has_next %}
+          <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+          {% else %}
+          <li class="disabled"><span>&raquo;</span></li>
+          {% endif %}
+        </ul>
+        {% endif %}
+
+      </div>      
+    </div>
+
+
+  </div>
+  
+</div>
+
+{% endblock %}

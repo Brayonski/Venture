@@ -1,0 +1,256 @@
+{% extends 'crowdfunding/base3.html' %}
+{% load cms_tags staticfiles %}
+{% load crispy_forms_tags %}
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block content %}
+
+
+
+<div class="single_campaign crowdfunder_create_payment full_A">
+  <div id="profile">
+
+      <div class="camp_top">
+        {% if campaign_data.campaign_image %}
+        <img src="{{ campaign_data.campaign_image.url }}">
+        {% else %}
+        <img src="{% static 'img/no-img.png' %}">
+        {% endif %}
+      </div>
+
+    <div class="single_campaign_details_container container">
+
+      <div class="camp_title">
+        <h1 class="style_D">{{campaign_data.campaign_name}}</h1> 
+      </div>
+
+      <div class="row clearfix">
+        <div class="col-md-6">
+            
+          <div class="">
+              <h3>Donate</h3>
+              <h5><b>Campaign Details</b></h5>
+                <p class="card-text dark-text">
+                  {% if campaign_data.short_description %}
+                    {{campaign_data.short_description}}
+                  {% else %}
+                    No campaign title statement provided
+                  {% endif %}
+                </p>
+
+               <h5><b>Campaign Objective</b></h5>
+                <p class="card-text dark-text">
+                  {% if campaign_data.long_description %}
+                    {{campaign_data.long_description}}
+                  {% else %}
+                    No campaign objective statement provided
+                  {% endif %}
+                </p>
+
+               <h5><b>Target Amount</b></h5>
+                <p class="card-text dark-text">
+                  {% if campaign_data.target_amount %}
+                    USD {{target_amount}}
+                  {% else %}
+                    No target_amount provided
+                  {% endif %}
+                </p>
+
+              <h5><b>Minimum Amount</b></h5>
+                <p class="card-text dark-text">
+                  {% if campaign_data.minimum_donation %}
+                    USD {{minimum_donation}}
+                  {% else %}
+                    No minimum donation amount defined
+                  {% endif %}
+                </p>
+
+               <h5><b>Campaign Closing Date</b></h5>
+                <p class="card-text dark-text">
+                  {% if campaign_data.duration %}
+                    {{campaign_data.duration}}
+                  {% else %}
+                    No campaign  closing date details provided
+                  {% endif %}
+                </p>
+          </div>
+
+        </div>
+
+        <div class="side_X col-md-6 clearfix">
+          <div class="page_boxA">
+
+            <div class="card-body-for-contribution">
+                 <form method="post" action="{% url 'crowdfunding:make_payment' %}">
+                 {% csrf_token %}
+                     <input type="hidden" value="{{campaign_data.id}}" name="campaign_id" id="campaign_id" required />
+                     <input type="hidden" value="{{campaign_data.minimum_donation}}" name="campaign_minimum_amount" id="campaign_minimum_amount" />
+
+                     <div class="form-group">
+                         <label> Allow payment information to be visible by Campaign Owner: </label>
+                          <input type="radio" name="allow_visibility" value="1" checked> Yes<br>
+                          <input type="radio" name="allow_visibility" value="0"> No<br>
+                     </div>
+
+                     <div class="form-group">
+                          <label for="donator_email"> Email: </label>
+                         <input id="donator_email" type="email" class="form-control" name="donator_email" required />
+                     </div>
+
+                      <div class="form-group">
+                          <label for="amount">Amount: </label>
+                         <input id="amount" type="number" class="form-control" name="amount" min="1" required />
+                          <span style="color:red" id="amount_check">All funding is in USD</span>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="comments"> Comments: </label>
+                          <textarea id="comments" name="comments" class="form-control" rows="2"></textarea>
+                     </div>
+
+                     <div class="form-group">
+                          <label for="payment_method"> Payment Method: </label>
+                         <select id="payment_method" name="payment_method" class="form-control" required>
+                             <option value="">Select a payment Method</option>
+                             <option value="paypal">Paypal</option>
+                             <option value="mpesa">Mpesa</option>
+                         </select>
+                     </div>
+
+                     <div class="form-group" id="donator_phoneno_mpesa">
+                         <label for="donator_phoneno"> Mpesa Phone No* </label>
+                         <input id="donator_phoneno" class="form-control" name="donator_phoneno" type="text" placeholder="Enter with country code eg 254789098765" novalidate>
+                     </div>
+
+                     <div id="donate-paypal">
+                         <div id="paypal-button-container"></div>
+                         <div align="center">
+                              <button class="buttonload">
+                                  <i class="fa fa-spinner fa-spin"></i>Loading
+                              </button>
+                         </div>
+                     </div>
+
+                    <div class="form-group" align="center" id="donate-mpesa">
+                        <button class='btn btn-success' type="submit">Donate</button>
+                    </div>
+                 </form>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+{% block javascript %}
+   <script>
+   $(document).ready(function(){
+         $('#donator_phoneno_mpesa').hide();
+         $('#donate-mpesa').hide();
+         $('#donate-paypal').hide();
+         paypal.Buttons({
+            createOrder: function(data, actions) {
+                  var funds = parseFloat(Math.round(document.getElementById("amount").value * 100) / 100).toFixed(2).toString();
+                  console.log(funds);
+                  console.log(document.getElementById("campaign_id").value);
+                  return actions.order.create({
+                    purchase_units: [{
+                      amount: {
+                        value: funds
+                      }
+                    }]
+                  });
+            },
+            onApprove: function(data, actions) {
+              return actions.order.capture().then(function(details) {
+                //alert('Transaction completed by ' + details.payer.name.given_name);
+                // Call your server to save the transaction
+                 console.log(details);
+                 console.log(data);
+                var responsedata = fetch('/crowdfunding/crowdfunder/paypal-transaction-complete', {
+                  method: 'post',
+                  headers: {
+                    'content-type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    orderID: data.orderID,
+                    campaignID: document.getElementById("campaign_id").value,
+                    donatorEmail: document.getElementById("donator_email").value,
+                    donatorPhone: document.getElementById("donator_phoneno").value,
+                    amount: document.getElementById("amount").value,
+                    paymentMethod: document.getElementById("payment_method").value,
+                    payerID: data.payerID,
+                    comments: document.getElementById("comments").value,
+                    allowVisibility: $("input[name='allow_visibility']:checked").val(),
+                  })
+                });
+                if(responsedata){
+                    window.location.href = '/crowdfunding/';
+                }
+              });
+            }
+         }).render('#paypal-button-container');
+        $('#payment_method').on("change",function(e) {
+            var selection = $(this).val();
+             var amountselection = parseFloat(Math.round(document.getElementById("amount").value * 100) / 100).toFixed(2);
+            var minamount = $('#campaign_minimum_amount').val();
+            if(amountselection >= minamount){
+                if(selection == "mpesa"){
+                    $('#donator_phoneno_mpesa').show();
+                    $('#donate-mpesa').show();
+                    $('#donate-paypal').hide();
+                }else{
+                    $('#donator_phoneno_mpesa').hide();
+                    $('#donate-mpesa').hide();
+                    $('#donate-paypal').show();
+                }
+            }
+
+        });
+
+       $('#amount').on("keyup",function() {
+            var amountselection = parseFloat(Math.round(document.getElementById("amount").value * 100) / 100).toFixed(2);
+            var minamount = $('#campaign_minimum_amount').val();
+            if(amountselection < minamount){
+                $('#donator_phoneno_mpesa').hide();
+                $('#donate-mpesa').hide();
+                $('#donate-paypal').hide();
+                document.getElementById("amount_check").textContent = "Please Enter an amount greater than "+ minamount;
+            }else{
+                 document.getElementById("amount_check").textContent = "All funding is in USD";
+            }
+       });
+   });
+  </script>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'portal_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content_1 %}
+
+<div class="col_A_in col_A_in_2">
+    <form method='post'>
+        {% csrf_token %}
+        <div class="form-group col-md-6 mb-0">
+            {{ form|crispy }}
+            <button type='submit' class='btn btn-primary'>Create Post</button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}
+{% block content_2 %}
+<div class="company_filter">
+    <h4>Sidebar</h4>
+</div>
+{% endblock %}

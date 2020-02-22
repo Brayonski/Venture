@@ -1,0 +1,143 @@
+{% extends 'profile/businessFilterBase.html' %}
+{% load cms_tags staticfiles %}
+{% load crispy_forms_tags %}
+{% block content_1 %}
+
+
+ <!--partners-box area start-->
+    <div id="parterns-box-id" class="partners-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                   <div class="partners-box-title">
+                       <h2>Business</h2>
+                    <!--  Filter Icon-->
+                       <div class="partners-filter">
+                           <p>
+                               <i class="fas fa-filter"></i> Filters
+                           </p>
+                       </div>
+                      <!--  Filter Icon End--> 
+                    <!--   Filter Dropdown-->
+                       <div id="startup-filter-dropdown-item">
+                           <form method="post">
+						    {% csrf_token %}
+                               <div class="startup-name">
+                                   <label for="">Business Name:</label>
+                                   <input type="text" placeholder='Business name' name='company-name'>
+                               </div>
+                               
+                               <div class="resources-select">
+                                    <label for="">Resources needed:</label>
+
+                                   <select class="company-stage-select" name="files3" id="files3">                      <option value="">Trade</option>
+                                          <option value="">Supply Chain</option>
+                                          <option value="">Technology</option>
+                                          <option value="">Talent</option>
+                                          <option value="">Health</option>
+
+                                    </select>
+                               </div>
+                               
+                               <div class="startupsector">
+                                    <label for="">Sector:</label>
+
+                                   <select class="company-stage-select" name="files3" id="files3">                      <option value="">Agribusiness</option>
+                                          <option value="">agriculture</option>
+                                          <option value="">Creative</option>
+                                          <option value="">Education</option>
+                                          <option value="">Health</option>
+                                          <option value="">Technology</option>
+
+                                    </select>
+                               </div>
+                               <div class="startup-submit">
+                                   <input type="submit" value="Filter">
+                               </div>
+                               
+                           </form>
+                       </div>
+                       
+                       <!--   Filter Dropdown End-->
+                       <p>Our media platform offers investors and users news and information on Africa business and market trends.</p>
+                   </div>
+                    <div class="row">
+					{% for obj in object_list %}
+                        <div class="col-lg-4">
+                            <div class="single-partner-box">
+							{% if obj.thumbnail_image %}
+                                <img src="{{ obj.thumbnail_image.url }}" alt="image">
+								{% else %}
+                                    <img src="{% static 'img/no-img.jpg' %}">
+                                    {% endif %}
+                                <h4>{{obj.name|title}}</h4>
+                                
+                                <a href="{% url 'business_profile' obj.pk %}" class="single-partner-btn">View Profile</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div> 
+				
+				
+				<!--  Sidebar area start-->
+                <div class="col-lg-4">
+                    <div class="profile-sidebar">
+            <!--   single sidebar start-->
+                        <div class="recommended-business custom-widgets">
+                            <h5 class="widget-title">Recommended Business</h5>
+							{% for business in r_businesses %}
+                            <div class="widget-elements">
+							{% if business.thumbnail_image %}
+                                <img src="{{ business.thumbnail_image.url }}" alt="">
+                                <p><a href="{% url 'business_profile' business.pk %}">{{business.name}}</a></p>
+							{% else %}
+							<img src="{% static 'img/no-img.png' %}" alt="">
+                                <p><a href="{% url 'business_profile' business.pk %}">{{business.name}}</a></p>
+							{% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+             <!--   single sidebar end-->
+             
+             <!--   single sidebar start-->  
+                        <div class="recommended-business custom-widgets">
+                            <h5 class="widget-title">Recommended Funders</h5>
+							{% for funder in r_investor %}
+                            <div class="widget-elements">
+							{% if funder.thumbnail_image %}
+                                <img src="{{ funder.thumbnail_image.url }}">
+                                <p>{{funder.investor_profile.user.username}}</p>
+								{% else %}
+								<img src="{% static 'img/funder.jpg' %}">
+                                <p>{{funder.investor_profile.user.username}}</p>
+								{% endif %}
+                            </div>
+                           {% endfor %}
+                        </div>
+             <!--   single sidebar end-->
+                        
+            <!--   single sidebar start-->         
+                        <div class="recommended-business custom-widgets">
+                            <h5 class="widget-title">Recommended Partners</h5>
+							{% for partner in r_supporter %}
+                            <div class="widget-elements">
+							{% if partner.thumbnail_image %}
+                                <img src="{{ partner.thumbnail_image.url }}">
+								<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+							{% else %}
+							<img src="{% static 'img/blue-user-icon.svg' %}">
+							<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+							{% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+             <!--   single sidebar end-->
+                    </div>
+                </div>  
+                <!--  Sidebar area end-->                 
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

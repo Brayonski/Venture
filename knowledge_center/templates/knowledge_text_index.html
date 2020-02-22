@@ -1,0 +1,261 @@
+{% extends 'base3.html' %}
+
+{% load cms_tags staticfiles %}
+{% block title %} Knowledge Center| Documents Center {% endblock title %}
+{% block content %}
+
+
+<div class="knowledge_wrapper knowledge_text_archive full_A">
+
+    <nav id="navbar_out_2" class="navbar navbar-default_media">
+        <div class="top_container container">{{type.title}}
+
+          <div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
+            {% url 'events_home' as  events_home %}
+            <ul class="category_banner_titles event_titles">
+                <li class="active e-title_1"><h1>Knowledge Center</h1></li>
+
+                  <!--
+                  {% if object_list %}
+                  {% url 'knowledge_center_home' as  knowledge_center_home %}
+                  <li class="e-title_2X {% ifequal request.path knowledge_center_home %}active{% endifequal %}"><h4><a href="{% url 'knowledge_center_home' %}">All</a></h4></li>
+
+                  {% endif %}
+
+                  {% for type in document_type %}
+                  {% if type.textcenter_set.count >= 1 %}
+                  {% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
+
+                  <li class="e-title_2X {% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}">
+                    <h4><a href="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
+                    </a></h4>
+                  </li>
+    
+                  {% endif %}
+                  {% endfor %}
+                  -->
+                  
+              <li class="e-title_2X">
+                <h4><a class="" href="/knowledge-center/read-content/filter/2/">Opportunities</a></h4>
+              </li>
+              <li class="e-title_2X">
+                <h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
+              </li>              
+              <li class="e-title_2X">
+                <h4><a class="" href="/knowledge-center/read-content/filter/1/">Reports</a></h4>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+    </nav>
+
+  <div class="tab_content">
+
+    <div id="home" class="kn_part_1">
+      <div class="container clearfix">
+
+        {% for type in document_type %}
+          <h2 class="h_title_A">{{type.title}}</h2>
+        {% endfor %}
+
+        
+        <div class="row clearfix">
+
+          <!-- docs -->
+          {% for obj in object_list %}
+          <div class="col-md-4 clearfix single_card_wrapper">
+
+            <div class="k_box">
+              <h3 class="">
+                {% if obj.external_url %}
+                <a target="__blank" href="{{ obj.external_url }}">{{ obj.title }}</a>
+                {% else %}
+                <a href="{% url 'knowledge_center_read_content' obj.id %}">{{ obj.title }}</a>
+                {% endif %}
+              </h3>
+                
+              <div class="k_box_meta">
+                {% if obj.external_url %}
+                
+                  <p class="meta">
+                    {% if obj.author %} 
+                    <span>Author: </span> {{ obj.author }}
+                    {% endif %}
+                  </p>                    
+                  <figure class="read_more">
+                    <a class="text-primary" target="__blank" href="{{ obj.external_url }}">Read More</a>
+                  </figure>
+
+                {% else %}
+
+                  
+                  <p class="meta">
+                    {% if obj.file_upload %}
+                      <span>Document</span> &nbsp;&nbsp;| &nbsp;&nbsp; 
+                    {% endif %}
+
+                    <span>Category: </span> {{obj.category}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+                    <span>Membership: </span> {{obj.payment_status}} &nbsp;&nbsp;| &nbsp;&nbsp; 
+                    <span>Published: </span> {{obj.date }}
+                  </p>
+
+                  <figure class="read_more">
+                    <a class="text-primary" target="__blank" href="{% url 'knowledge_center_read_content' obj.id %}">Read More</a>
+                  </figure>
+
+                {% endif %}
+              </div>
+            </div>
+
+            <!--
+            <div class="card_C card" style="padding-bottom: 30px;">
+              <div class="card-body">
+                <div class="">
+                  <h3 class="card-text dark-text">
+                    <a href="{% url 'knowledge_center_read_content' obj.id %}">{{ obj.title }}</a>
+                  </h3>
+                  <p class="card-text" style="padding-top: 10px;">
+                    {% if obj.file_upload %}
+                    <i class="fa fa-file-text" aria-hidden="true"></i>
+                    {% endif %}
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                    {{obj.category}}
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                    {{obj.payment_status}}
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    {{obj.date }}
+                  </p>
+                  <p class="card-text" style="padding-top: 30px;">
+                    {# obj.description|safe|truncatewords:"70"|linebreaks #}
+                    <a class="text-primary" style="" href="{% url 'knowledge_center_read_content' obj.id %}">READ MORE</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            -->
+
+          </div>
+          {% endfor %}
+          
+        </div>
+      </div>
+    </div>  
+
+  </div>
+
+</div>
+
+
+<div class="full_A">
+
+      <!--
+      <ul class="nav nav-pills">
+        {% if object_list %}
+        {% url 'knowledge_center_home' as  knowledge_center_home %}
+
+        <li class="{% ifequal request.path knowledge_center_home %}active{% endifequal %}"><a
+            href="{% url 'knowledge_center_home' %}">All</a></li>
+        {% endif %}
+        {% for type in document_type %}
+        {% if type.textcenter_set.count >= 1 %}
+        {% url 'knowledge_center_read_content_filter' type.id as knowledge_center_read_content_filter %}
+        <li class="dropdown">
+        <li class="{% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}">
+          <a class="dropdown-toggle" data-toggle="dropdown"
+            href="{% url 'knowledge_center_read_content_filter' type.id %}">{{type.title}}
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="{% ifequal request.path knowledge_center_read_content_filter %}active{% endifequal %}"><a
+                href="{% url 'knowledge_center_read_content_filter' type.id %}">All</a></li>
+            {% for sub_cat in type.document_category.all %}
+            {% if sub_cat.published %}
+            {% url 'knowledge_center_sub_content_filter' sub_cat.id as knowledge_center_sub_content_filter %}
+            <li class="{% ifequal request.path knowledge_center_sub_content_filter %}active{% endifequal %}">
+              <a href="{% url 'knowledge_center_sub_content_filter' sub_cat.id %}">{{ sub_cat.title }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        <li><a href="{% url 'knowledge_center_video_home' %}">Videos</a></li>
+      </ul>
+      -->
+
+    </div>
+    <div class="tab-content">
+
+      <div id="home" class="tab-pane fade in active">
+        <div class="row clearfix">
+          <div class="no_padd col-md-12 clearfix">
+
+            <!--
+            {% for obj in object_list %}
+            <div class="single_card_wrapper">
+              <div class="card_C card" style="">
+                <div class="card-body">
+                  <div class="">
+                    <h1 class="card-text dark-text">
+                      {{ obj.title }}
+                    </h1>
+                    <p class="card-text">
+                      {% if obj.file_upload %}
+                      <i class="fa fa-file-text" aria-hidden="true"></i>
+                      {% endif %}
+                      <i class="fa fa-tags" aria-hidden="true"></i>
+                      {{obj.category}}
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                      {{obj.payment_status}}
+                      <i class="fa fa-calendar" aria-hidden="true"></i>
+                      {{obj.date }}
+                    </p>
+                    <p class="card-text">
+                      {{ obj.description|safe|truncatewords:"70"|linebreaks }}
+                      <a class="text-primary" href="{% url 'knowledge_center_read_content' obj.id %}">read more</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            -->
+            
+            <!-- videos -->
+            {% for video in videos %}
+
+            {% endfor %}
+
+            {% if is_paginated %}
+            <ul class="pagination">
+              {% if page_obj.has_previous %}
+              <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+              {% else %}
+              <li class="disabled"><span>&laquo;</span></li>
+              {% endif %}
+              {% for i in paginator.page_range %}
+              {% if page_obj.number == i %}
+              <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+              {% else %}
+              <li><a href="?page={{ i }}">{{ i }}</a></li>
+              {% endif %}
+              {% endfor %}
+              {% if page_obj.has_next %}
+              <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+              {% else %}
+              <li class="disabled"><span>&raquo;</span></li>
+              {% endif %}
+            </ul>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

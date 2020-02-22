@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load cms_tags staticfiles %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+
+<ul class="category_nav">
+  <li><a href="/media/{{category}}">Stories</a></li>
+  <li><a href="{% url 'venturelift_media:media_videos' category %}">Videos</a></li>
+  <li><a href="{% url 'venturelift_media:media_podcast' category %}">Podcasts</a></li>
+</ul>
+
+<div class="full_width h_D">
+  <div class="container h_D_container">
+
+    {% if media %}
+    <div class="row clearfix">
+      {% for obj in media %}
+      <div class="col-md-4 clearfix">
+        <div class="in_style_A">
+          <a href="{% url 'venturelift_media:media_story' obj.pk %}">
+            <figure class="in_style_A_img">
+              <img src="{{obj.thumbnail_image.url}}">
+            </figure>
+            <h3 class="style_C">{{obj.title}}</h3>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if visual %}
+    <div class="row clearfix">
+      {% for obj in visual %}
+      <div class="col-md-4 clearfix">
+        <div class="in_style_A">
+            <figure class="in_style_A_img">
+              {{obj.path|safe}}
+            </figure>
+            <h3 class="style_C">{{obj.title}}</h3>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if audio %}
+    <div class="row clearfix">
+      {% for obj in audio %}
+      <div class="col-md-4 clearfix">
+        <div class="in_style_A">
+            <figure class="in_style_A_img">
+              {{obj.path|safe}}
+            </figure>
+            <h3 class="style_C">{{obj.title}}</h3>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock content %}

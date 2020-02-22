@@ -1,0 +1,211 @@
+{% extends 'profile/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content_1 %}
+<div class="info_template col_A_in col_A_in_2">
+    <div class="onboarding_A">
+        <div class="row clearfix">
+            <div class="col-md-8 col-md-offset-2 clearfix">
+                <form method='post' enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% if step1 %}
+                    <h1 class="text-center">Company Profile</h1>
+                    <h4 class="text-center">Step 1: Basic Information</h4>
+                    <br>
+                    <div class="form-row">
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form.thumbnail_image|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form.name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form.gender|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.sector|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.size|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                    {{ form.address|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.company_website|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-4 mb-0">
+                                {{ form.year_of_company_registration|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                                {{ form.full_time_employee_count|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                                    {{ form.company_primary_email|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.value_proposition_statement|as_crispy_field }}
+                            </div>
+                    </div>
+
+                    {% elif step2 %}
+
+                    <h1 class="text-center">Company Profile</h1>
+                    <h4 class="text-center">Step 2: Your Product and Market</h4>
+                    <br>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.product_offering|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.market_segment|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.needs_fulfilled_by_product|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.market_size|as_crispy_field }}
+                            </div>
+                    </div>
+
+                    {% elif step3 %}
+                    <h1 class="text-center">Company Profile</h1>
+                    <h4 class="text-center">Step 3: Business Model</h4>
+                    <br>                    
+                    <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.business_model|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                    {{ form.competitors|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.competitive_advantage|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                    {{ form.intellectual_property_info|as_crispy_field }}
+                            </div>
+                    </div>
+                    {% elif step4 %}
+                    <h1 class="text-center">Company Profile</h1>
+                    <h4 class="text-center">Step 4: Your Team</h4>
+                    <br>                      
+                    
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.founders_info|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.team_roles_and_structure|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.board_of_advisors|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.board_of_directors|as_crispy_field }}
+                            </div>
+                    </div>
+                    {% elif step5 %}
+                    <h1 class="text-center">Company Profile</h1>
+                    <h4 class="text-center">Step 5: Business Finance</h4>
+                    <br>                    
+                    
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.last_year_revenue|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.last_year_profit|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.growth_margin|as_crispy_field }}
+                            </div>
+                    </div>
+                    {% elif step6 %}
+                    <h1 class="text-center">Company Profile</h1>
+                    <h4 class="text-center">Step 6: Investor Information</h4>
+                    <br>                      
+                    
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.funding_source|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.personal_funds_invested|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.external_funds_invested|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.capital_to_raise|as_crispy_field }}
+                            </div>
+                    </div>
+                    {% else %}
+                    <h1 class="text-center">Company Profile</h1>
+                    <h4 class="text-center">Step 7: Goals / Challenges</h4>
+                    <br>                     
+                    
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.three_year_targeted_revenue|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.constraints_to_growth|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.primary_services_interested_in|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.secondary_services_interested_in|as_crispy_field }}
+                            </div>
+                    </div>
+                    {% endif %}
+                    
+                    <button class='btn btn-success'>Next</button>
+                </form>
+                    <br />
+                    <div class="text-center"><a class="text-center" href="{% url 'profile_summary' %}">Continue later</a></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

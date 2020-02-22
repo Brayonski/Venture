@@ -1,0 +1,396 @@
+{% extends 'profile/base5.html' %}
+{% load crispy_forms_tags %}
+
+{% block content_1 %}
+<div class="info_template col_A_in col_A_in_2">
+    <div class="onboarding_A">
+        <div class="row clearfix">
+            <div class="col-md-8 col-md-offset-2 clearfix">
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <form method='post' enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% if step1 %}
+                    <h1 class="text-center">Investor Profile</h1>
+                    <h4 class="text-center">Step 1: Basic Information</h4>
+                    <br>
+                    <div class="form-row">
+                        <div class="form-group col-md-12 mb-0">
+                            {{ form.thumbnail_image|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3 mb-0">
+                          {{ form.phone_number|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3 mb-0">
+                          {{ form.first_name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3 mb-0">
+                            {{ form.last_name|as_crispy_field }}
+                        </div>
+                         <div class="form-group col-md-3 mb-0">
+                            {{ form.gender|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12 mb-0">
+                            {{ form.funder_type|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row" id="funder_about">
+                        <div class="form-group col-md-12 mb-0">
+                            {{ form.about|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row"  id="funder_company">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.company|as_crispy_field }}
+                            </div>
+                             <div class="form-group col-md-6 mb-0">
+                                    {{ form.company_website|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row" id="funder_companyreg">
+                      <div class="form-group col-md-6 mb-0">
+                        {{ form.company_registration_year|as_crispy_field }}
+                      </div>
+                      <div class="form-group col-md-6 mb-0">
+                          {{ form.company_location|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row"  id="funder_role">
+                      <div class="form-group col-md-6 mb-0">
+                        {{ form.role|as_crispy_field }}
+                      </div>
+                      <div class="form-group col-md-6 mb-0">
+                          {{ form.physical_address|as_crispy_field }}
+                        </div>
+                    </div>
+                    {% elif step2 %}
+                    <h1 class="text-center">Funder Profile</h1>
+                    <h4 class="text-center">Step 2: Profile Details</h4>
+                    <br>
+                    <div class="form-row">
+                         <div class="form-group col-md-12 mb-0">
+                              <label for="funder_type"> Funder Type: </label>
+                             <input type="text" id="funder_type" name="funder_type" class="form-control" value="{{investor.funder_type}}" readonly/>
+                         </div>
+                    </div>
+                    <div class="form-row" id="funder_investor">
+                         <div class="form-group col-md-6 mb-0">
+                              <label for="funder_investor_type"> Investor Type: </label>
+                             <select id="funder_investor_type" name="funder_investor_type" class="form-control">
+                                 <option value="">Select your investment type</option>
+                                 <option value="Angel">Angel</option>
+                                 <option value="Venture Capital">Venture Capital</option>
+                                 <option value="Private Equity">Private Equity</option>
+                                 <option value="Impact">Impact</option>
+                             </select>
+                         </div>
+                         <div class="form-group col-md-6 mb-0">
+                              <label for="funder_investor_product"> Primary Investment Product: </label>
+                             <select id="funder_investor_product" name="funder_investor_product" class="form-control">
+                                 <option value="">Select your investment product</option>
+                                 <option value="Equity">Equity</option>
+                                 <option value="Quasi Equity">Quasi Equity</option>
+                                 <option value="Other">Other</option>
+                             </select>
+                         </div>
+                    </div>
+                    <div class="form-row" id="funder_crowdfunder">
+                         <div class="form-group col-md-12 mb-0">
+                             <label for="funder_crowdfunder_type"> Crowdfunder Type: </label>
+                             <input type="text" id="funder_crowdfunder_type" name="funder_crowdfunder_type" class="form-control" value="Donor" readonly/>
+                         </div>
+                         <div class="form-group col-md-12 mb-0">
+                             {{ form.prior_donations|as_crispy_field }}
+                         </div>
+                         <div class="form-group col-md-12 mb-0">
+                             {{ form.reason_for_support|as_crispy_field }}
+                         </div>
+                    </div>
+                    <div class="form-row" id="funder_lender">
+                         <div class="form-group col-md-12 mb-0">
+                              <label for="funder_lender_product"> Primary Investment Product: </label>
+                             <select id="funder_lender_product" name="funder_lender_product" class="form-control">
+                                 <option value="">Select your investment product</option>
+                                 <option value="Subordinated">Subordinated</option>
+                                 <option value="Senior">Senior</option>
+                                 <option value="Mezzanine">Mezzanine</option>
+                             </select>
+                         </div>
+                    </div>
+                    <div class="form-row" id="funder_grantor">
+                         <div class="form-group col-md-12 mb-0">
+                              <label for="funder_grantor_product"> Primary Investment Product: </label>
+                             <select id="funder_grantor_product" name="funder_grantor_product" class="form-control">
+                                 <option value="">Select your investment product</option>
+                                 <option value="Grants">Grants</option>
+                             </select>
+                         </div>
+                    </div>
+                    <div class="form-row" id="all_investors">
+                      <div class="form-group col-md-6 mb-0">
+                        {{ form.target_sectors|as_crispy_field }}
+                      </div>
+                      <div class="form-group col-md-6 mb-0">
+                          {{ form.target_countries|as_crispy_field }}
+                      </div>
+                    </div>
+                    <div class="form-row" id="investors_lenders">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.elevator_pitch|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div id="investors_only">
+                        <div class="form-row">
+                          <div class="form-group col-md-12 mb-0">
+                              {{ form.assets_under_management|as_crispy_field }}
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                              {{ form.investor_portfolio|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.exits_executed|as_crispy_field }}
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                              <div class="form-group col-md-6 mb-0">
+                                {{ form.impact_investor|as_crispy_field }}
+                              </div>
+                              <div class="form-group col-md-6 mb-0">
+                                  {{ form.impact_measurement|as_crispy_field }}
+                              </div>
+                        </div>
+
+                        <div class="form-row">
+                                <div class="form-group col-md-12 mb-0">
+                                    {{ form.impact_metrics|as_crispy_field }}
+                                </div>
+                        </div>
+                    </div>
+
+                    <div id="lenders_only">
+                        <div class="form-row">
+                          <div class="form-group col-md-6 mb-0">
+                            {{ form.managed_funds|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-6 mb-0">
+                            {{ form.loan_book|as_crispy_field }}
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-4 mb-0">
+                            {{ form.active_loans|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-4 mb-0">
+                            {{ form.average_payback|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-4 mb-0">
+                            {{ form.interest_rate|as_crispy_field }}
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-12 mb-0">
+                            {{ form.collateral_list|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-12 mb-0">
+                            {{ form.loan_approval_process|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-12 mb-0">
+                            {{ form.npl_percentage|as_crispy_field }}
+                          </div>
+                        </div>
+                    </div>
+
+                    <div id="grantors_only">
+                        <div class="form-row">
+                          <div class="form-group col-md-6 mb-0">
+                            {{ form.rfp_list|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-6 mb-0">
+                            {{ form.grants_list|as_crispy_field }}
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-12 mb-0">
+                            {{ form.grant_amount|as_crispy_field }}
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-12 mb-0">
+                            {{ form.target_recepients|as_crispy_field }}
+                          </div>
+                        </div>
+                    </div>
+                   
+                    {% endif %}
+                    
+                    <button class='btn btn-success'>Go to next step</button>
+                </form>
+                  <br/>
+                    <div class="text-center"><a href="{% url 'profile_summary' %}">Continue later</a></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascript %}
+  <script>
+   $(document).ready(function(){
+        var funderSelection = $('#id_funder_type').val();
+
+        if(funderSelection == "Crowdfunder"){
+             $('#funder_company').hide();
+             $('#funder_companyreg').hide();
+             $('#funder_about').hide();
+             $('#funder_role').hide();
+        }else{
+            $('#funder_company').show();
+             $('#funder_companyreg').show();
+             $('#funder_about').show();
+             $('#funder_role').show();
+        }
+
+        $('#id_funder_type').on("change",function(e) {
+            var funderSelection = $(this).val();
+            if(funderSelection == "Crowdfunder"){
+                 $('#funder_company').hide();
+                 $('#funder_companyreg').hide();
+                 $('#funder_about').hide();
+                 $('#funder_role').hide();
+            }else{
+                $('#funder_company').show();
+                 $('#funder_companyreg').show();
+                 $('#funder_about').show();
+                 $('#funder_role').show();
+            }
+        });
+
+        var selection = $('#funder_type').val();
+
+        if(selection == "Investor"){
+             $('#funder_investor').show();
+             $('#all_investors').show();
+             $('#investors_lenders').show();
+             $('#investors_only').show();
+             $('#lenders_only').hide();
+             $('#grantors_only').hide();
+             $('#funder_crowdfunder').hide();
+             $('#funder_lender').hide();
+             $('#funder_grantor').hide();
+        }else if(selection == "Crowdfunder"){
+             $('#funder_investor').hide();
+             $('#all_investors').hide();
+             $('#investors_lenders').hide();
+             $('#investors_only').hide();
+             $('#lenders_only').hide();
+             $('#grantors_only').hide();
+             $('#funder_crowdfunder').show();
+             $('#funder_lender').hide();
+             $('#funder_grantor').hide();
+        }else if(selection == "Lender"){
+             $('#funder_investor').hide();
+             $('#all_investors').show();
+             $('#investors_lenders').show();
+             $('#investors_only').hide();
+             $('#lenders_only').show();
+             $('#grantors_only').hide();
+             $('#funder_crowdfunder').hide();
+             $('#funder_lender').show();
+             $('#funder_grantor').hide();
+        }else if(selection == "Grantor"){
+             $('#funder_investor').hide();
+             $('#all_investors').show();
+             $('#investors_lenders').hide();
+             $('#investors_only').hide();
+             $('#lenders_only').hide();
+             $('#grantors_only').show();
+             $('#funder_crowdfunder').hide();
+             $('#funder_lender').hide();
+             $('#funder_grantor').show();
+        }else{
+             $('#funder_investor').hide();
+             $('#funder_crowdfunder').hide();
+             $('#funder_lender').hide();
+             $('#funder_grantor').hide();
+             $('#all_investors').hide();
+             $('#investors_lenders').hide();
+             $('#investors_only').hide();
+             $('#lenders_only').hide();
+             $('#grantors_only').hide();
+        }
+        $('#funder_type').on("change",function(e) {
+            var selection = $(this).val();
+            if(selection == "Investor"){
+                 $('#funder_investor').show();
+                 $('#all_investors').show();
+                 $('#investors_lenders').show();
+                 $('#investors_only').show();
+                 $('#lenders_only').hide();
+                 $('#grantors_only').hide();
+                 $('#funder_crowdfunder').hide();
+                 $('#funder_lender').hide();
+                 $('#funder_grantor').hide();
+            }else if(selection == "Crowdfunder"){
+                 $('#funder_investor').hide();
+                 $('#all_investors').hide();
+                 $('#investors_lenders').hide();
+                 $('#investors_only').hide();
+                 $('#lenders_only').hide();
+                 $('#grantors_only').hide();
+                 $('#funder_crowdfunder').show();
+                 $('#funder_lender').hide();
+                 $('#funder_grantor').hide();
+            }else if(selection == "Lender"){
+                 $('#funder_investor').hide();
+                 $('#all_investors').show();
+                 $('#investors_lenders').show();
+                 $('#investors_only').hide();
+                 $('#lenders_only').show();
+                 $('#grantors_only').hide();
+                 $('#funder_crowdfunder').hide();
+                 $('#funder_lender').show();
+                 $('#funder_grantor').hide();
+            }else if(selection == "Grantor"){
+                 $('#funder_investor').hide();
+                 $('#all_investors').show();
+                 $('#investors_lenders').hide();
+                 $('#investors_only').hide();
+                 $('#lenders_only').hide();
+                 $('#grantors_only').show();
+                 $('#funder_crowdfunder').hide();
+                 $('#funder_lender').hide();
+                 $('#funder_grantor').show();
+            }else{
+                 $('#funder_investor').hide();
+                 $('#all_investors').hide();
+                 $('#investors_lenders').hide();
+                 $('#investors_only').hide();
+                 $('#lenders_only').hide();
+                 $('#grantors_only').hide();
+                 $('#funder_crowdfunder').hide();
+                 $('#funder_lender').hide();
+                 $('#funder_grantor').hide();
+            }
+
+        });
+   });
+  </script>
+{% endblock %}

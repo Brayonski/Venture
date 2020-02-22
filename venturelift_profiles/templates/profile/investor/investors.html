@@ -1,0 +1,79 @@
+{% extends 'profile/base4.html' %}
+{% load cms_tags staticfiles %}
+{% load crispy_forms_tags %}
+{% block content_1 %}
+
+<div class="col_A_in col_A_in_2">
+  <div class="topbar_2">
+    <div class="row clearfix">
+      <div class="col-md-6 clearfix">
+        <p class="p_title">Funders</p>
+      </div>
+    </div>
+  </div>
+  <div class="row clearfix">
+    <div class='col-md-12 clearfix'>
+      <div class="row clearfix">
+        {% for obj in object_list %}
+        <div class=" col-sm-4 col-xs-4 box_box">
+          <div class="box_box_in">
+            <figure id="box_{{ obj.pk }}" class="box_avi">
+              <!-- Square, 350 X 350 PX -->
+              {% if obj.thumbnail_image %}
+
+              <style type="text/css">
+                #box_{{ obj.pk }}.box_avi {
+                    background:#f9f9f9 url({{ obj.thumbnail_image.url }}) center center;
+                    background-size: cover;
+                    width: 100%;
+                    padding-top: 100%;
+                    height: 0;                  
+                }  
+              </style>
+
+              {% else %}
+              {% if obj.gender == 'Male' or obj.gender == 'Other' %}
+              <img src="{% static 'img/blue-user-icon.svg' %}">
+              {% else %}
+              <img src="{% static 'img/no-img.jpg' %}">
+              {% endif %}
+              {% endif %}
+            </figure>
+            <figure class="box_details">
+              <p class="box_title"><a href="{% url 'investor_profile' obj.pk %}">
+                <span>{{obj.investor_profile.company|title}}</span>
+                <br>{{obj.investor_profile.fullname|title}}</a>
+              </p>
+              <div class="box_social">
+              </div>
+            </figure>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+{% block content_2 %}
+<div class="company_filter">
+  <h4>Filter Funders</h4>
+  <ul class="search_A search_A2">
+    <form method='post'>
+      <li>
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Company Name: </label>
+            <input id="name" class='form-control' name='investor-name' />
+        </div>
+        {{form|crispy }}
+      </li>
+      <li>
+        <button class='btn btn-success'>Filter</button>
+      </li>
+    </form>
+  </ul>
+</div>
+{% endblock %}

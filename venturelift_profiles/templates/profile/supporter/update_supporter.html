@@ -1,0 +1,100 @@
+{% extends 'profile/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content_1 %}
+<div class="info_template col_A_in col_A_in_2">
+    <div class="onboarding_A">
+        <div class="row clearfix">
+            <div class="col-md-8 col-md-offset-2 clearfix">
+                <form method='post' enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% if step1 %}
+                    <h1 class="text-center">Partner Profile</h1>
+                    <h4 class="text-center">Step 1: Basic Information</h4>
+                    <br>
+                    <div class="form-row">
+                        <div class="form-group col-md-12 mb-0">
+                            {{ form.thumbnail_image|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3 mb-0">
+                          {{ form.phone_number|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3 mb-0">
+                          {{ form.first_name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3 mb-0">
+                            {{ form.last_name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3 mb-0">
+                            {{ form.gender|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.company|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-12 mb-0">
+                        {{ form.company_operations|as_crispy_field }}
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-12 mb-0">
+                        {{ form.about|as_crispy_field }}
+                      </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                    {{ form.role|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.company_website|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.company_registration_year|as_crispy_field }}
+                            </div>
+                    </div>
+                    {% elif step2 %}
+                    <h1 class="text-center">Partner Profile</h1>
+                    <h4 class="text-center">Step 2: Profile Details</h4>
+                    <br>
+                    <div class="form-row">
+                        <div class="form-group col-md-12 mb-0">
+                            {{ form.supporter_interest|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6 mb-0">
+                        {{ form.interest_startups|as_crispy_field }}
+                      </div>
+                      <div class="form-group col-md-6 mb-0">
+                          {{ form.interest_sectors|as_crispy_field }}
+                      </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.interest_countries|as_crispy_field }}
+                            </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-12 mb-0">
+                        {{ form.trading_partners|as_crispy_field }}
+                      </div>
+                    </div>
+                   
+                    {% endif %}
+                    
+                    <button class='btn btn-success'>Go to next step</button>
+                </form>
+                  <br/>
+                  <div class="text-center">
+                    <a href="{% url 'profile_summary' %}" class='btn btn-warning'>Continue later</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% load cms_tags staticfiles %}
+{% block title %}VentureLift Africa Media{% endblock title %}
+{% block content %}
+<div class="full_width h_A">
+  <div class="container h_A_container">
+    <div class="row clearfix">
+      <div class="col-md-10 clearfix">
+        <div class="in_style_A">
+          <div class="h_A_row_1 row clearfix">
+            <div class="h_A_row_1A col-md-8">
+              <div class="h_A_row_1A_in">
+                <div class="embed-responsive embed-responsive-16by9">
+                  {% placeholder 'Introductory Video' %}
+                </div>
+              </div>
+            </div>
+            <div class="h_A_row_1B col-md-4">
+              <div class="h_A_row_1B_in">
+                <h1 class="style_A">
+                  {% if object_list %}
+                  <a class="a_A"
+                    href="{% url 'venturelift_media:media_story' object_list.0.pk %}">{{object_list.0.title}}</a>
+                  {% endif %}
+                </h1>
+                <h5 class="meta_A">{{object_list.0.category}}
+                  <!--<span>{{object_list.0.date|timesince}} AGO</span>-->
+                </h5>
+                <ul class="h_A_row_1A_list">
+                  {% for obj in object_list %}
+                  {% if forloop.counter > 1 %}
+                  <li>
+                    <a href="{% url 'venturelift_media:media_story' obj.pk %}">
+                      {{obj.title}}
+                      <h5 class="meta_A">{{obj.category}}</h5>
+                    </a>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="h_A_row_2 row clearfix">
+            {% for obj in other_articles %}
+            <div class="h_A_row_2_in col-md-3">
+              <h3 class="style_B">
+                <a href="{% url 'venturelift_media:media_story' obj.pk %}">{{obj.title}}</a>
+              </h3>
+              <h5 class="meta_A">{{obj.category}}</h5>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 clearfix">
+        <div class="in_style_A">
+          <ul class="social_icons social_side">
+            <li><a class="li" href="https://ke.linkedin.com/company/venturelift-africa">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a></li>
+            <li><a class="tw" href="https://twitter.com/vliftafrica">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a></li>
+            <li><a class="fb" href="https://facebook.com/vlafrica">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a></li>
+            <li><a class="ig" href="https://www.instagram.com/vlafrica/">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a></li>
+          </ul>
+          <ul class="sidebar_list">
+            {% for obj in stories_top %}
+            <li>
+              <a href="{% url 'venturelift_media:media_story' obj.pk %}">
+                <figure class="h_A_list_1_img">
+                  <img src="{{obj.thumbnail_image.url}}">
+                </figure>
+                <h4 class="style_E">
+                  {{obj.title}}
+                </h4>
+                <h5 class="meta_A">{{obj.category}}</h5>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="full_width h_D h_D1">
+  <div class="container h_D_container">
+    <h2 class="h_title_A">DIASPORA</h2>
+    <div class="row clearfix">
+      {% for obj in stories_bottom %}
+      <div class="col-md-4 clearfix">
+        <div class="in_style_A">
+          <a href="{% url 'venturelift_media:media_story' obj.pk %}">
+            <figure class="in_style_A_img">
+              <img src="{{obj.thumbnail_image.url}}">
+            </figure>
+            <h3 class="style_C">{{obj.title}}</h3>
+          </a>
+          <!--<h5 class="meta_A">{{obj.category}}</h5>-->
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<div class="full_width h_B">
+  <div class="container h_B_container">
+    <h2 class="h_title_A">Podcasts</h2>
+    <div class="row clearfix">
+      {% for obj in podcasts %}
+      <div class="col-md-6 clearfix">
+        <div class="in_style_A">
+          {{obj.path|safe}}
+          <!--<img src="{% static 'img/podcast.jpg' %}">-->
+          <h3 class="style_C">{{obj.title}}</h3>
+          <h5 class="meta_A">{{obj.category}}</h5>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="full_width h_C">
+  <div class="container h_C_container">
+    <h2 class="h_title_A">VLA TV</h2>
+    <div class="row clearfix">
+      <div class="col-md-9 clearfix">
+        <div class="in_style_A">
+          <div class="embed-responsive embed-responsive-16by9">
+            <!--{{vla_tv.0.path|safe}}-->
+            <!--<img class="placeholder_image" src="{% static 'img/vlatv.png' %}">-->
+            <iframe width="840" height="500" frameborder="0" src="https://www.bbc.co.uk/programmes/p07jhpl3/player"></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 clearfix">
+        <div class="in_style_A">
+          <h2 class="h_title_A h_title_AB">VIDEOS</h2>
+          <ul class="home_vide_list">
+            {% for obj in videos %}
+            <li>
+              <div class="embed-responsive embed-responsive-16by9">
+                {{obj.path|safe}}
+                <!--<h5 class="meta_A">{{obj.category}}</h5>-->
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="full_width h_D h_D2">
+  <div class="container h_D_container">
+    <h2 class="h_title_A">MORE STORIES</h2>
+    <div class="row clearfix">
+      {% for obj in more_articles %}
+      <div class="col-md-4 clearfix">
+        <div class="in_style_A">
+          <a href="{% url 'venturelift_media:media_story' obj.pk %}">
+            <figure class="in_style_A_img">
+              <img src="{{obj.thumbnail_image.url}}">
+            </figure>
+            <h3 class="style_C">{{obj.title}}</h3>
+          </a>
+          <h5 class="meta_A">{{obj.category}}</h5>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

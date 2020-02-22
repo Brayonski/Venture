@@ -1,0 +1,68 @@
+{% extends 'base3.html' %}
+
+{% load cms_tags staticfiles %}
+{% block title %}{{ content.title }}{% endblock title %}
+{% block content %}
+
+<div class="event_wrapper full_A">
+
+	<nav id="navbar_out_2" class="navbar navbar-default_media">
+		<div class="top_container container">
+
+			<div id="navbarX" class="navbarX1 nav_nav_second navbar-collapse collapse nav-down">
+				{% url 'events_home' as  events_home %}
+				<ul class="category_banner_titles event_titles">
+					<li class="active e-title_1">
+						<h1>{{ content.title }}</h1>
+					</li>
+					<li class="e-title_2X">
+						<h4><a class="" href="/knowledge-center/read-content/filter/2/">Opportunities</a></h4>
+					</li>
+					<li class="e-title_2X">
+						<h4><a href="{% url 'knowledge_center_video_home' %}">Videos</a></h4>
+					</li>
+					<li class="e-title_2X">
+						<h4><a class="" href="/knowledge-center/read-content/filter/1/">Reports</a></h4>
+					</li>
+				</ul>
+				<p class="meta">
+					Author: </span>{{ content.author }} &nbsp;&nbsp;| &nbsp;&nbsp; <span>Category: </span>
+					{{ content.sub_category }} &nbsp;&nbsp;| &nbsp;&nbsp;
+					<span>Membership: </span> {{content.payment_status}} &nbsp;&nbsp;| &nbsp;&nbsp;
+					<span>Published: </span> {{content.date }}
+				</p>
+			</div>
+
+		</div>
+	</nav>
+
+	<div class="container single_post_container">
+		<div class="row clearfix">
+			<div class="col-md-12 clearfix">
+				<div class="in_style_A">
+					<div class="embed-responsiveX embed-responsive-16by9X">
+						<div class="videoWrapper">
+							{% if content.path %}
+							{{content.path|safe}}
+							{% else %}
+							<video height="600px" controls>
+								<source src="{{ content.video_file.url }}" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 clearfix">
+				<div class="in_style_Z single_video_meta">
+					<div class="single_video_content">
+						<p>{{ content.description }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+{% endblock %}

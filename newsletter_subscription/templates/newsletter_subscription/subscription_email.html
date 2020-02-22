@@ -1,0 +1,11 @@
+{% load i18n %}
+{% trans "Newsletter subscription" %}
+
+<b>{% trans "Visit the following link to confirm the newsletter subscription:" %}</b>
+
+{{ subscribe_url }}
+
+{% trans "To stop receiving such messages click the link below. " %}
+{{ unsubscribe_url }}
+
+{% trans "Warm regards" %}

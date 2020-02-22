@@ -1,0 +1,260 @@
+{% load cms_tags menu_tags sekizai_tags staticfiles %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}VentureLift Africa - Portal{% endblock title %}</title>
+
+    <!--jQuery Ui-->
+    <link rel="stylesheet" href="{% static 'css/cssCustom/jquery-ui.css' %}">
+    <!--chosen-->
+    <link rel="stylesheet" href="{% static 'css/cssCustom/chosen.css' %}">
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="{% static 'fonts/fontAwesome/css/all.min.css' %}">
+    <!--slicknav stylesheet-->
+    <link rel="stylesheet" href="{% static 'css/cssCustom/slicknav.min.css' %}">
+    <!--bootstrap stylesheet-->
+    <link rel="stylesheet" href="{% static 'css/cssCustom/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/cssCustom/responsive.css' %}">
+	
+    <!--main stylesheet-->
+
+    <link rel="stylesheet" href="{% static 'custom/stylebusinesspages.css' %}">
+	<link rel="stylesheet" href="{% static 'custom/styleBusiness.css' %}">
+	
+
+	
+
+	{{ form.media.css }}
+  {% render_block "css" %}
+  </head>
+   <body>
+  {% cms_toolbar %}
+    <!--header area start-->
+    <header class="header-area">
+    <!--header top start-->
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-2 col-md-2">
+                        <a href="/" class="logo"> <img src="{% static 'img/logo2.png' %}" alt=""></a>
+                    </div>
+                    <div class="col-xl-7 offset-xl-3 col-md-9 offset-md-1 ">
+                        <nav>
+                            <ul  id="menu">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="#">Business</a>
+									<ul>
+                                        <li><a href="{% url 'business_startup' %}">Startup</a></li>
+                                        <li><a href="{% url 'business_smes' %}">SMEs</a></li>
+                                        
+                                    </ul>
+								</li>
+                                <li><a href="#">Funder</a>
+									<ul>
+                                        <li><a href="{% url 'investor_filter' 'Investor' %}">Investor</a></li>
+                                        <li><a href="{% url 'crowdfunding:index' %}">Crowdfunder</a></li>
+                                        <li><a href="{% url 'investor_filter' 'Lender' %}">Lender</a></li>
+                                        <li><a href="{% url 'investor_filter' 'Grantor' %}">Grantor</a></li>
+                                        
+                                    </ul>
+								</li>
+                                <li><a href="#">Partners</a>
+                                    <ul>
+                                        <li><a href="{% url 'supporter_filter' 'Trade' %}">Trade</a></li>
+                                        <li><a href="{% url 'supporter_filter' 'Supply Chain' %}">Supply Chain</a></li>
+                                        <li><a href="{% url 'supporter_filter' 'Technology' %}">Technology</a></li>
+                                        <li><a href="{% url 'supporter_filter' 'Talent' %}">Talent</a></li>
+                                        <li><a href="{% url 'supporter_filter' 'Professional Services' %}">Professional Services</a></li>
+                                        
+                                    </ul>
+                                </li>
+                                <li><a href="{%url 'knowledge_center_home' %}">Knowledge Center</a></li>
+                                <li><a href="{%url 'events_home' %}">Events</a></li>
+                                <li id="profile-pic-sm"><a href="#">{% if context.supporter %}
+                    {% if context.supporter.thumbnail_image %}
+                      <img src="{{ context.supporter.thumbnail_image.url }}">
+                    {% else %}
+                      {% if context.supporter.gender == 'Male' or context.supporter.gender == 'Other' %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% else %}
+                      <img src="{% static 'img/no-img.jpg' %}">
+                      {% endif %}
+                    {% endif %}
+                  {% elif context.investor %}
+                    {% if context.investor.thumbnail_image %}
+                      <img src="{{ context.investor.thumbnail_image.url }}">
+                    {% else %}
+                      {% if context.investor.gender == 'Male' or context.investor.gender == 'Other' %}
+                        <img src="{% static 'img/blue-user-icon.svg' %}">
+                        {% else %}
+                        <img src="{% static 'img/no-img.jpg' %}">
+                      {% endif %}
+                    {% endif %}
+                  {% elif context.business %}
+                    {% if context.business.thumbnail_image %}
+                    <img src="{{ context.business.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/no-img.jpg' %}">
+                    {% endif %}
+                  {% endif %}</a>
+									<ul>
+                                        <li><a href="{% url 'profile_summary' %}">My Profile</a></li>
+                                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                                        
+                                    </ul>
+								</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+		</header>
+    <!--header top end-->
+	
+	
+	{% block content_1 %}{% endblock %}
+	
+    {% block content %}{% endblock %}
+  
+	
+	<!--Footer area start-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3  col-md-6">
+                    <div class="footer-widget-one widget">
+                        <img src="{% static 'img/logo2.png' %}" alt="">
+                        <p>VentureLift Africa (VLA) launched in 2018 to address resource gaps confronting African startups and growing SMEs, including access to finance, market expansion, human capital and areas of business education.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 offset-lg-1">
+                    <div class="footer-widget-two widget">
+                        <h5 class="footer-title">Company</h5>
+                        <div class="footer-nav">
+                            <ul>
+                                <li><a href="/about-us">About Us</a></li>
+                                <li><a href="/team">Leadership</a></li>
+                                <li><a href="/careers">Careers</a></li>
+                                <li><a href="/help">Faqs</a></li>
+                                <li><a href="/terms-of-use">Terms of Service</a></li>
+                                <li><a href="/contact-us">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget-three widget">
+                        <h5 class="footer-title">Quick Links</h5>
+                        <div class="footer-nav">
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Funder</a></li>
+                                <li><a href="#">Partner</a></li>
+                                <li><a href="{%url 'knowledge_center_home' %}">Knowledge Center</a></li>
+                                <li><a href="{%url 'events_home' %}">Events</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget-four widget">
+                        <h5 class="footer-title">Contact</h5>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone-alt"></i> Telephone</p>
+                            <p> +5876545678-86</p>
+                        </div>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> Email</p>
+                            <p> +5876545678-86</p>
+                        </div>
+                        <div class="social-links">
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Footer area end-->
+    
+    <!--Footer bottom area start-->
+    <section class="footer-bottom">
+        <p>&copy; 2019 VentureLift Africa. All Rights Reserved</p>
+    </section>
+    <!--Footer bottom area end-->
+     
+
+      <!--js files-->
+      <!--jquery js-->
+      
+	  
+	  <script src="{% static 'js/jsCustom/jquery-3.4.1.min.js' %}"></script>
+      <script src="{% static 'js/jsCustom/popper.min.js' %}"></script>
+      <!--bootstrap js-->
+      <script src="{% static 'js/jsCustom/bootstrap.min.js' %}"></script>
+      <!--slicknav js-->
+      <script src="{% static 'js/jsCustom/jquery.slicknav.min.js' %}"></script>
+      <!--jQuery UI-->
+      <script src="{% static 'js/jsCustom/jquery-ui.js' %}"></script>
+      <!--  chosen js-->
+      <script src="{% static 'js/jsCustom/chosen.jquery.js' %}"></script>
+      <!--custom js-->
+      <script src="{% static 'js/jsCustom/activebusinesspages.js' %}"></script>
+	  
+      
+	  
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    window.jQuery or document.write('<script src="js/vendor/jquery.min.js"><\/script>')
+  </script>
+  
+  <script>
+  $(document).ready(function(){    
+     $(function(){
+        $('#menu').slicknav({
+            'prependTo':'nav',
+        });
+    });
+             
+        
+    $("#companyinterestcountry").click(function(){
+        $("#companyinterestdropdown").slideToggle();
+    });
+    
+    $(".partners-filter").click(function(){
+        $("#startup-filter-dropdown-item").slideToggle();
+    });
+
+    $( "#files2" ).selectmenu();
+    $('#choosenactive').chosen();
+    $('#sectorsactive').chosen();
+    $('#funderactive').chosen();
+  
+
+
+    
+    
+});
+  </script>
+ 
+  <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
+  
+    
+          
+  </body>
+</html>

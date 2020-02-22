@@ -1,0 +1,12 @@
+*.pyc
+migrations
+crowdfunding/migrations
+crowdfunding/*.pyc
+settings.py
+media
+/.idea
+celerybeat-schedule
+celerybeat.pid
+django_select2
+nohup.out
+sqlite3.db

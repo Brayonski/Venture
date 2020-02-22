@@ -1,0 +1,252 @@
+{% load cms_tags menu_tags sekizai_tags staticfiles %}
+<!doctype html>
+<html>
+
+<head>
+    <title>{% block title %} VentureLift Africa {% endblock title %}
+    </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#283891">
+    
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
+  
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    {% render_block "css" %}
+</head>
+
+<body class="base_no_root media_index">
+    {% cms_toolbar %}
+
+
+    <!-- Fixed navbar -->
+    <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
+        <div class="top_container container">
+
+            <div class="nav_nav_first navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse"
+                   aria-expanded="false" aria-controls="">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/en/media">
+                  <img src="{% static 'img/mwanzo-media-logo.png' %}" alt="VentureLift Africa Media Centre">
+                </a>
+            </div>
+            <div class="vl_top_top navbar-right collapse navbar-collapse navbar-responsive-collapse" style="">
+                  <ul class="in_line">
+                    <li class="active"><a href="/">Back to VLA Portal</a></li>
+                    <!--<li><a href="{% url 'registration_in' %}">Business</a></li>-->
+                    <!--<li><a href="{% url 'registration_in' %}">Funder</a></li>-->
+                    <!--<li><a href="{% url 'registration_in' %}">Partner</a></li>-->
+                    <!--<li><a href="{%url 'knowledge_center_home' %}">Knowledge Center</a></li>-->
+                    <!--{% if user.is_authenticated %}-->
+                    <!--<li><a href="{%url 'events_home' %}">Events</a></li>-->
+                    <!--<li><a href="/en/media">VLA Media</a></li>-->
+                    <!--<li class="user_nav_item pull_right">-->
+                      <!--<div class="dropdown">-->
+                        <!--<button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown"-->
+                          <!--aria-haspopup="true" aria-expanded="true">-->
+                          <!--<figure class="user_icon_nav">-->
+                            <!--{% if context.supporter %}-->
+                            <!--{% if context.supporter.thumbnail_image %}-->
+                            <!--<img src="{{ context.supporter.thumbnail_image.url }}">-->
+                            <!--{% else %}-->
+                            <!--<img src="{% static 'img/blue-user-icon.svg' %}">-->
+                            <!--{% endif %}-->
+                            <!--{% elif context.investor %}-->
+                            <!--{% if context.investor.thumbnail_image %}-->
+                            <!--<img src="{{ context.investor.thumbnail_image.url }}">-->
+                            <!--{% else %}-->
+                            <!--<img src="{% static 'img/blue-user-icon.svg' %}">-->
+                            <!--{% endif %}-->
+                            <!--{% elif context.business %}-->
+                            <!--{% if context.business.thumbnail_image %}-->
+                            <!--<img src="{{ context.business.thumbnail_image.url }}">-->
+                            <!--{% else %}-->
+                            <!--<img src="{% static 'img/no-img.jpg' %}">-->
+                            <!--{% endif %}-->
+                            <!--{% endif %}-->
+                          <!--</figure>-->
+                        <!--</button>-->
+                        <!--<ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">-->
+                          <!--<li><a href="{% url 'profile_summary' %}">My Profile</a></li>-->
+                          <!--<div class="divider"></div>-->
+                          <!--<li><a href="{% url 'logout' %}">Logout</a></li>-->
+                        <!--</ul>-->
+                      <!--</div>-->
+                    <!--</li>-->
+                    <!--&lt;!&ndash;-->
+                    <!--<li class="pull_right">-->
+                      <!--<a href="#nogo">-->
+                        <!--<ion-icon name="notifications-outline"></ion-icon>-->
+                      <!--</a>-->
+                    <!--</li>-->
+                    <!--&ndash;&gt;-->
+                    <!--{% else %}-->
+                    <!--<li><a href="{%url 'events_home' %}">Events</a></li>-->
+                    <!--<li><a href="/en/media">VLA Media</a></li>-->
+                    <!--<li>-->
+                      <!--<a href="{% url 'login' %}">Sign In</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                      <!--<a class="btn btn-md btn-primary" href="{% url 'registration_in' %}">Join VentureLift Africa</a>-->
+                    <!--</li>-->
+                    <!--{% endif %}-->
+                  </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <nav id="navbar_out_2" class="navbar navbar-default_media">
+        <div class="top_container container">    
+
+            <div id="navbarX" class="nav_nav_second navbar-collapse collapse nav-down">
+                <ul id="navbar2" class="navbarX2 nav navbar-nav">
+                    {% show_menu 0 100 100 100 "menu.html" %}
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="content_container">
+        {% block content %}{% endblock content %}
+    </div>
+
+    <div class="full_width footer primary_footer">
+        
+        <div class="full_width footer foot2">
+            <div class="container clearfix">
+                <ul class="in_style_A_list_A in_style_B1">
+                    <li><a href="/about-us">About us</a></li>
+                    <li><a href="/team">Leadership</a></li>
+                    <li><a href="/careers">Careers</a></li>
+                    <li><a href="/help">FAQ</a></li>
+                    <li><a href="/advertise">Advertise</a></li>
+                    <li><a href="/terms-of-use">Terms of Use</a></li>
+                    <li><a href="/contact-us">Contact us</a></li>
+                </ul>      
+                <ul class="in_style_A_list_A in_style_B3">
+                    <li>
+                      <ul class="social_icons social_bottom">
+                        <li><a class="li" href="https://ke.linkedin.com/company/venturelift-africa"><ion-icon name="logo-linkedin" role="img" class="hydrated" aria-label="logo linkedin"></ion-icon></a></li>
+                        <li><a class="tw" href="https://twitter.com/vliftafrica"><ion-icon name="logo-twitter" role="img" class="hydrated" aria-label="logo twitter"></ion-icon></a></li>
+                        <li><a class="fb" href="https://facebook.com/vlafrica"><ion-icon name="logo-facebook" role="img" class="hydrated" aria-label="logo facebook"></ion-icon></a></li>
+                        <li><a class="ig" href="https://www.instagram.com/vliftafrica/"><ion-icon name="logo-instagram" role="img" class="hydrated" aria-label="logo instagram"></ion-icon></a></li>
+                      </ul>
+                    </li>
+                </ul>
+                <ul class="in_style_A_list_A in_style_B2">
+                    <li class="copright">© 2017&mdash;2019 VentureLift Africa. All Rights Reserved</li>
+                </ul>                              
+            </div>
+        </div>        
+        
+        <div class="full_width primary_footer"> 
+          {# static_placeholder 'footer' #}
+        </div>
+
+
+    </div>
+    
+    {% render_block "js" %}
+</body>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')
+</script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
+
+<script type="text/javascript">
+    // Hide Header on on scroll down
+    /*
+    var didScroll;
+    var lastScrollTop = 0;
+    var delta = 5;
+    var navbarHeight = $('#navbar2').outerHeight();
+
+    $(window).scroll(function (event) {
+        didScroll = true;
+    });
+
+    setInterval(function () {
+        if (didScroll) {
+            hasScrolled();
+            didScroll = false;
+        }
+    }, 250);
+
+    function hasScrolled() {
+        var st = $(this).scrollTop();
+
+        // Make sure they scroll more than delta
+        if (Math.abs(lastScrollTop - st) <= delta)
+            return;
+
+        // If they scrolled down and are past the navbar, add class .nav-up.
+        // This is necessary so you never see what is "behind" the navbar.
+        if (st > lastScrollTop && st > navbarHeight) {
+            // Scroll Down
+            $('#navbar2').removeClass('nav-down').addClass('nav-up');
+        } else {
+            // Scroll Up
+            if (st + $(window).height() < $(document).height()) {
+                $('#navbar2').removeClass('nav-up').addClass('nav-down');
+            }
+        }
+
+        lastScrollTop = st;
+    }
+    */
+
+</script>
+
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $(window).scroll(function() {    
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 100) {
+                $(".navbar-fixed-top").addClass("darkHeader");
+            } else {
+                $(".navbar-fixed-top").removeClass("darkHeader");
+            }
+        });
+    });
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-137967572-1');
+</script>
+
+    <!-- Hotjar Tracking Code for http://vlatest.otbafrica.com -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:1462645,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+</html>

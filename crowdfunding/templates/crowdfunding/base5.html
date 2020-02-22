@@ -1,0 +1,214 @@
+{% load cms_tags menu_tags sekizai_tags staticfiles %}
+<!doctype html>
+<html>
+
+{% include "global-header.html" %}
+
+<body class="crowd_base5 logged_in profile_templates">
+    
+    {% cms_toolbar %}
+
+    <!-- Fixed navbar -->
+    <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
+      <div class="top_container container">
+
+        <div class="nav_nav_first navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'img/logo2.png' %}" alt="VentureLift Africa Media Centre">
+          </a>
+        </div>
+        <div class="vl_top_top navbar-right collapse navbar-collapse navbar-responsive-collapse">
+          <ul class="in_line">
+            <li class="active"><a href="/">Home</a></li>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Business</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'registration_in' %}">Startup</a>
+                    <a href="{% url 'registration_in' %}">SMEs</a>
+                </div>
+              </div>
+            </li>
+            <!--<li><a href="{% url 'registration_in' %}">Funder</a></li>-->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Funder</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'registration_in' %}">Investor</a>
+                    <a href="{% url 'crowdfunding:crowdfunderindex' %}" target="_blank">Crowdfunder</a>
+                    <a href="{% url 'registration_in' %}">Lender</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Partner</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'registration_in' %}">Trade</a>
+                    <a href="{% url 'registration_in' %}">Supply Chain</a>
+                    <a href="{% url 'registration_in' %}">Technology</a>
+                    <a href="{% url 'registration_in' %}">Talent</a>
+                    <a href="{% url 'registration_in' %}">Professional Services</a>
+                </div>
+              </div>
+            </li>
+            <li><a href="{%url 'knowledge_center_home' %}">Knowledge Center</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{%url 'events_home' %}">Events</a></li>
+            <li><a href="/en/media">VLA Media</a></li>
+            <li class="user_nav_item pull_right">
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="true">
+                <figure class="user_icon_nav">
+                  {% if context.supporter %}
+                    {% if context.supporter.thumbnail_image %}
+                      <img src="{{ context.supporter.thumbnail_image.url }}">
+                    {% else %}
+                      {% if context.supporter.gender == 'Male' or context.supporter.gender == 'Other' %}
+                      <img src="{% static 'img/blue-user-icon.svg' %}">
+                      {% else %}
+                      <img src="{% static 'img/no-img.jpg' %}">
+                      {% endif %}
+                    {% endif %}
+                  {% elif context.investor %}
+                    {% if context.investor.thumbnail_image %}
+                      <img src="{{ context.investor.thumbnail_image.url }}">
+                    {% else %}
+                      {% if context.investor.gender == 'Male' or context.investor.gender == 'Other' %}
+                        <img src="{% static 'img/blue-user-icon.svg' %}">
+                        {% else %}
+                        <img src="{% static 'img/no-img.jpg' %}">
+                      {% endif %}
+                    {% endif %}
+                  {% elif context.business %}
+                    {% if context.business.thumbnail_image %}
+                    <img src="{{ context.business.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/no-img.jpg' %}">
+                    {% endif %}
+                  {% endif %}
+                </figure>
+                </button>
+                <ul class="user_nav_item_drop dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+                  <li><a href="{% url 'profile_summary' %}">My Profile</a></li>
+                  <div class="divider"></div>
+                  <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+              </div>
+            </li>
+            <!--
+            <li class="pull_right">
+              <a href="#nogo">
+                <ion-icon name="notifications-outline"></ion-icon>
+              </a>
+            </li>
+            -->
+            {% else %}
+            <li><a href="/en/media">VLA Media</a></li>
+            <li>
+              <a href="{% url 'login' %}">Sign In</a>
+            </li>
+            <li>
+              <a class="btn btn-md btn-primary" href="{% url 'registration_in' %}">Join VentureLift Africa</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+
+
+    <!-- Fixed navbar 
+    <nav id="navbar_out" class="navbar navbar-default2 navbar-fixed-top">
+      <div class="top_container container">
+        <div class="nav_nav_first navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarX" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+
+          <a class="navbar-brand" href="{% url 'crowdfunding:crowdfunderindex' %}">
+            <img src="{% static 'img/logo2.png' %}" alt="VentureLift Africa">
+          </a>
+          <div class="vl_top_top navbar-right">
+            <ul class="vl_top_nav in_line">
+              <li>
+                <a href="{% url 'crowdfunding:crowdfunderindex' %}">
+                  Crowdfunder
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    -->
+
+        <div class="content_container">
+
+            <div class="full_A with-side-filter">
+                <div class="columns_A flex row clearfix">
+                    <div class="col_A_out col_A_out_2 col-md-10 clearfix">
+                        {% block content_1 %}{% endblock %}
+                    </div>
+                    <div class="col_A_out col_A_out_3 col-md-2 clearfix">
+                        <div class="col_A_in col_A_in_co_filter">
+                            {% block content_2 %}{% endblock %}
+                            <div class="sidebar_actions">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         {# include "global-footer.html" #}
+
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      {{ form.media.js }}
+      <script>
+          window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')
+      </script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
+      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+      <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137967572-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137967572-1');
+      </script>        
+
+    <!-- Hotjar Tracking Code for http://vlatest.otbafrica.com -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:1462645,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+
+</body>
+
+</html>
