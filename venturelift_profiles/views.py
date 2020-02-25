@@ -60,8 +60,6 @@ class SummaryView(LoginRequiredMixin, TemplateView):
             business = Business.objects.filter(creator=self.request.user).first()
             description =  MarketDescription.objects.filter(company_name=business).first()
             r_supporter = SupporterProfile.objects.filter(interest_sectors=business.sector)[:3]
-            print(r_supporter)
-            print("helloooooooooooooo")
             r_investor = InvestorProfile.objects.filter(target_sectors=business.sector)[:3]
             r_businesses = Business.objects.filter(sector=business.sector,verified=True).exclude(creator=self.request.user)[:3]
             context.update({'business': business, 'description': description, 'r_supporter': r_supporter,
@@ -77,8 +75,8 @@ class SummaryView(LoginRequiredMixin, TemplateView):
             supporter = Supporter.objects.filter(user=self.request.user).first()
             context['supporter'] = supporter
             context['profile'] = SupporterProfile.objects.get(supporter_profile=supporter)
-            interests = []
-            context['r_supporter'] = SupporterProfile.objects.distinct().exclude(supporter_profile=supporter)[:3]
+            interests = context['profile'].interest_sectors.all()
+            context['r_supporter'] = SupporterProfile.objects.filter(interest_sectors__in=interests).distinct().exclude(supporter_profile=supporter)[:3]
             context['r_businesses'] = Business.objects.filter(sector__in=interests,verified=True).distinct()[:3]
             context['r_investor'] = InvestorProfile.objects.filter(target_sectors__in=interests).distinct()[:3]
             checkUser = AllSystemUser.objects.filter(email=self.request.user.email).exists()

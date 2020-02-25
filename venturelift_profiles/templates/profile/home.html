@@ -342,7 +342,7 @@
                     </a>
                 </div>
                 <div class="col-xl-4 col-md-12">
-                    <a href="#" class="connect-btn" ><i class="fas fa-user-plus"></i> Connect </a>
+                    <a href="{% url 'supporter_follow' user.id %}" class="connect-btn" ><i class="fas fa-user-plus"></i> Connect </a>
                 </div>
             </div>
         </div>
@@ -433,7 +433,7 @@
                             <div class="col-md-6" id="slidetoggle">
                                <div class="company-details">
                                     <div class="company-title">
-                                        <p>Sector of interest</p>
+                                        <p>Sector of interest1</p>
 										{% for p in profile.interest_sectors.all %}
                                           <p class="company-meta">{{p}}</p>
                                           {% endfor %}
@@ -546,8 +546,7 @@
                             <div class="col-12">
                                 <h6>Connection</h6>                                
                             </div>
-							
-							
+							{{business_following}}
                             <div class="col-md-6">
 								{% for obj in business_following %}
                                 <div class="single-connection">
@@ -641,11 +640,12 @@
              <!--   single sidebar start-->  
                         <div class="recommended-business custom-widgets">
                             <h5 class="widget-title">Recommended Funders</h5>
-							{% for funder in r_investor %}
+                            {% for funder in r_investor %}
                             <div class="widget-elements">
-							{% if funder.thumbnail_image %}
-                                <img src="{{ funder.thumbnail_image.url }}">
-                                <p>{{funder.investor_profile.user.username}}</p>
+							{% if funder.investor_profile.thumbnail_image %}
+                                <img src="{{ funder.investor_profile.thumbnail_image.url }}">
+                                <p>{{funder.investor_profile.user.first_name}}</p>
+                                
 								{% else %}
 								<img src="{% static 'img/funder.jpg' %}">
                                 <p>{{funder.investor_profile.user.username}}</p>
@@ -657,14 +657,12 @@
                         
             <!--   single sidebar start-->         
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Partners2</h5>
+                            <h5 class="widget-title">Recommended Partners</h5>
 							{% for partner in r_supporter %}
                             <div class="widget-elements">
-                        
-                
-							{% if partner.thumbnail_image %}
-                                <img src="{{ partner.thumbnail_image.url }}">
-								<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+                            {% if partner.supporter_profile.thumbnail_image %}
+                                <img src="{{ partner.supporter_profile.thumbnail_image.url }}">
+								<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
 							{% else %}
 							<img src="{% static 'img/blue-user-icon.svg' %}">
 							<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
@@ -788,7 +786,7 @@
                             <div class="col-md-6">
                                <div class="company-details">
                                     <div class="company-title">
-                                        <p>Sector of interest</p>
+                                        <p>Sector of interest2</p>
 										{% for obj in profile.target_sectors.all %}
                                         <p class="company-meta">{{obj}}</p>
 										{% endfor %}
@@ -993,7 +991,9 @@
              <!--   single sidebar start-->  
                         <div class="recommended-business custom-widgets">
                             <h5 class="widget-title">Recommended Funders</h5>
-							{% for funder in r_investor %}
+                            
+                            {% for funder in r_investor %}
+                        
                             <div class="widget-elements">
 							{% if funder.thumbnail_image %}
                                 <img src="{{ funder.thumbnail_image.url }}">
