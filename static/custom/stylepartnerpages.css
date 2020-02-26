@@ -150,7 +150,7 @@ li#profile-pic-sm {
     margin-left: -10px;
 }
 .profile-content a h5 {
-    color: #1D2226;
+    color: rgb(38, 29, 29);
     font-family: 'SofiaProSemiBold';
     font-size: 24px;
 }
@@ -172,8 +172,9 @@ li#profile-pic-sm {
     font-family: 'SofiaProSemiBold';
     font-size: 16px;
 }
+
 a.profile-category {
-    color: #00BF4A;;
+    color: #0000;
     margin-top: -16px;
     font-size: 24px;
     font-family: 'SofiaProRegular';

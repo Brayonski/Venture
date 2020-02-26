@@ -14,20 +14,21 @@
     <link rel="stylesheet" href="{% static 'css/cssCustom/chosen.css' %}">
     <!--FontAwesome-->
     <link rel="stylesheet" href="{% static 'fonts/fontAwesome/css/all.min.css' %}">
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <!--slicknav stylesheet-->
     <link rel="stylesheet" href="{% static 'css/cssCustom/slicknav.min.css' %}">
     <!--bootstrap stylesheet-->
-    <link rel="stylesheet" href="{% static 'css/cssCustom/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cssCustom/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'custom/stylePartner.css' %}">
 	<link rel="stylesheet" href="{% static 'css/cssCustom/responsive.css' %}">
 	
     <!--main stylesheet-->
 
-    <link rel="stylesheet" href="{% static 'custom/stylePartner.css' %}">
 	<link rel="stylesheet" href="{% static 'custom/styleFunder.css' %}">
 	<link rel="stylesheet" href="{% static 'custom/styleBusiness.css' %}">
 	
 
-	
 
 	{{ form.media.css }}
   {% render_block "css" %}

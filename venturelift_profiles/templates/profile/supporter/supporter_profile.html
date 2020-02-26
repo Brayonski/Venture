@@ -271,7 +271,7 @@
              
              <!--   single sidebar start-->  
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Funders</h5>
+                            <h5 class="widget-title">Recommended 1Funders</h5>
 							{% for funder in r_investor %}
                             <div class="widget-elements">
 							{% if funder.thumbnail_image %}
@@ -341,7 +341,7 @@
                     </a>
                 </div>
                 <div class="col-xl-4 col-md-12">
-                    <a href="#" class="connect-btn" ><i class="fas fa-user-plus"></i> Connect </a>
+                    <a href="" class="connect-btn" ><i class="fas fa-user-plus"></i> Connect2 </a>
                 </div>
             </div>
         </div>
@@ -511,7 +511,7 @@
                     <div class="connect">
                         <div class="row">
                             <div class="col-12">
-                                <h6>Connection</h6>                                
+                                <h6>Connection2</h6>                                
                             </div>
 							
 							
@@ -607,7 +607,7 @@
              
              <!--   single sidebar start-->  
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Funders</h5>
+                            <h5 class="widget-title">Recommended 3Funders</h5>
 							{% for funder in r_investor %}
                             <div class="widget-elements">
 							{% if funder.thumbnail_image %}
@@ -625,11 +625,11 @@
             <!--   single sidebar start-->         
                         <div class="recommended-business custom-widgets">
                             <h5 class="widget-title">Recommended Partners</h5>
-							{% for partner in r_supporter %}
+                            {% for partner in r_supporter %}
                             <div class="widget-elements">
-							{% if partner.thumbnail_image %}
-                                <img src="{{ partner.thumbnail_image.url }}">
-								<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+							{% if partner.supporter_profile.thumbnail_image %}
+                                <img src="{{ partner.supporter_profile.thumbnail_image.url }}">
+								<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
 							{% else %}
 							<img src="{% static 'img/blue-user-icon.svg' %}">
 							<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
@@ -957,7 +957,7 @@
              
              <!--   single sidebar start-->  
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Funders</h5>
+                            <h5 class="widget-title">Recommended 2Funders</h5>
 							{% for funder in r_investor %}
                             <div class="widget-elements">
 							{% if funder.thumbnail_image %}
@@ -975,7 +975,9 @@
             <!--   single sidebar start-->         
                         <div class="recommended-business custom-widgets">
                             <h5 class="widget-title">Recommended Partners</h5>
-							{% for partner in r_supporter %}
+                            
+                            {% for partner in r_supporter %}
+
                             <div class="widget-elements">
 							{% if partner.thumbnail_image %}
                                 <img src="{{ partner.thumbnail_image.url }}">

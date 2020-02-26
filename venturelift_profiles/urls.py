@@ -94,3 +94,5 @@ urlpatterns = [
     # url(r'^account_activation/$',
     #    views.VerificationAccountWaiting.as_view(), name='account_verification_waiting'),
 ]
+
+

@@ -9,7 +9,7 @@ from django.conf import settings
 
 app = Celery('venturelift_cms')
 app.config_from_object('django.conf:settings')
-app.autodiscover_tasks(settings.INSTALLED_APPS)
+app.autodiscover_tasks('settings.INSTALLED_APPS')
 
 if __name__ == '__main__':
     app.start()

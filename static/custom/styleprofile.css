@@ -144,6 +144,9 @@ li#profile-pic-sm {
     height: 200px;
     float: left;
 }
+a.profile-category{
+    color: rgb(231, 19, 150);
+}
 .profile-details {    
     position: absolute;
     left: 0;
@@ -154,7 +157,7 @@ li#profile-pic-sm {
     margin-left: -10px;
 }
 .profile-content a h5 {
-    color: #1D2226;
+    color: rgb(223, 26, 124);
     font-family: 'SofiaProSemiBold';
     font-size: 24px;
 }

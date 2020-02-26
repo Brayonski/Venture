@@ -180,8 +180,9 @@ li#profile-pic-sm {
     font-family: 'SofiaProSemiBold';
     font-size: 16px;
 }
+
 a.profile-category {
-    color: #009CFF;
+    color: #ff0000;
     margin-top: -16px;
     font-size: 24px;
     font-family: 'SofiaProRegular';
