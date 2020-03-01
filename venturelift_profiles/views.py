@@ -1006,8 +1006,7 @@ class BusinessProfileView(DetailView):
         context['post'] = Post.objects.filter(
             company=context['business'])[:5]
         context['investor_following'] = following(self.request.user, Investor)[:3]
-        context['supporter_following'] = following(
-            self.request.user, Supporter)[:3]
+        context['supporter_following'] = following(self.request.user, Supporter)[:3]
         context['business_following'] = following(self.request.user, Business)[:3]
         context['following'] = following(self.request.user)
         return context
@@ -1031,8 +1030,7 @@ class SupporterProfileView(DetailView):
         context['r_investor'] = InvestorProfile.objects.filter(target_sectors__in=interests).distinct()[:3]
 
         context['investor_following'] = following(self.request.user, Investor)
-        context['supporter_following'] = following(
-            self.request.user, Supporter)
+        context['supporter_following'] = following(self.request.user, Supporter)
         context['business_following'] = following(self.request.user, Business)
         return context
 
