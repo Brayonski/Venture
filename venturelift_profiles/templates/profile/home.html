@@ -294,10 +294,10 @@
                             <div class="widget-elements">
 							{% if partner.thumbnail_image %}
                                 <img src="{{ partner.thumbnail_image.url }}">
-								<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+								<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
 							{% else %}
 							<img src="{% static 'img/blue-user-icon.svg' %}">
-							<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+							<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
 							{% endif %}
                             </div>
                             {% endfor %}
@@ -665,10 +665,10 @@
                             <div class="widget-elements">
                             {% if partner.supporter_profile.thumbnail_image %}
                                 <img src="{{ partner.supporter_profile.thumbnail_image.url }}">
-								<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
+								<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
 							{% else %}
 							<img src="{% static 'img/blue-user-icon.svg' %}">
-							<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+							<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
 							{% endif %}
                             </div>
                             {% endfor %}
@@ -1017,10 +1017,10 @@
                             <div class="widget-elements">
 							{% if partner.thumbnail_image %}
                                 <img src="{{ partner.thumbnail_image.url }}">
-								<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+								<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
 							{% else %}
 							<img src="{% static 'img/blue-user-icon.svg' %}">
-							<p><a href="{% url 'supporter_profile' partner.supporter_profile.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+							<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
 							{% endif %}
                             </div>
                             {% endfor %}
