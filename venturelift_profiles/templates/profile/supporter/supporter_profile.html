@@ -293,7 +293,6 @@
                             <div class="widget-elements">
 							{% if partner.thumbnail_image %}
                                 <img src="{{ partner.thumbnail_image.url }}">
-                                Partner {{partner.pk}}
 								<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
 							{% else %}
 							<img src="{% static 'img/blue-user-icon.svg' %}">
