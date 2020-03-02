@@ -341,9 +341,6 @@
                         <img src="{% static 'img/logo2.png' %}" alt="">
                     </a>
                 </div>
-                <div class="col-xl-4 col-md-12">
-                    <a href=""class="connect-btn" ><i class="fas fa-user-plus"></i> Connect </a>
-                </div>
             </div>
         </div>
     </div>
@@ -544,12 +541,9 @@
                     <div class="connect">
                         <div class="row">
                             <div class="col-12">
-                                <h6>Connection2</h6>                                
+                                <h6>Connection</h6>                                
                             </div>
-                            <p>hghj</p>
-                            {{supporter_following}}
-                            {{business_following}}
-                            {{investor_following}}
+                            
                             <div class="col-md-6">
 								{% for obj in business_following %}
                                 <div class="single-connection">
@@ -573,17 +567,19 @@
 							
 							
 							<div class="col-md-6">
+                                {{supporter_following.}}
+
 								{% for obj in supporter_following %}
                                 <div class="single-connection">
                                     {% if obj.thumbnail_image %}
 									<img src="{{ obj.thumbnail_image.url }}">
-									<div class="connection-detsils">
+									<div class="connection-details">
                                         <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
                                         <p>{{obj.role}}</p>
                                     </div>
 									{% else %}
 									<img src="{% static 'img/no-img.jpg' %}">
-									<div class="connection-detsils">
+									<div class="connection-details">
                                         <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
                                         <p>{{obj.role}}</p>
                                     </div>
