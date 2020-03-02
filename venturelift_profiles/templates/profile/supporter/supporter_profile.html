@@ -341,13 +341,45 @@
                     </a>
                 </div>
                 <div class="col-xl-4 col-md-12">
-                    <a href="{% url 'supporter_follow' supporter.pk %}" class="connect-btn" ><i class="fas fa-user-plus"></i> Connect2 </a>
+                    <a href="{% url 'supporter_follow' supporter.pk %}" class="connect-btn" ><i class="fas fa-user-plus"></i> Connect</a>
                 </div>
             </div>
         </div>
     </div>
     <!--header profile area end-->
-		
+    <style>
+        .profile-details img {
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        a.profile-category {
+            color: #a816ec;
+        }
+
+        .about-and-connect h6 {
+            color: #00e1ff;
+        }
+
+        .about-and-connect p{
+            font-family: 'Source Sans Pro';
+        }
+
+        .connect-btn {
+            color: #00e1ff;
+        }
+
+        .profile-sidebar h5 {
+            color: #00e1ff;
+        }
+
+        .header-profile .row .connect-btn {
+            background-color: #00e1ff;
+        }
+
+        .widget-elements img{
+            object-fit: cover;
+        }
+    </style>
 		 <!--about and connect area start-->
     <div class="about-and-connect">
         <div class="container">
