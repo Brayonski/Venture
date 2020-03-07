@@ -341,7 +341,7 @@
                     </a>
                 </div>
                 <div class="col-xl-4 col-md-12">
-                    <a href="{% url 'supporter_follow' supporter.pk %}" class="connect-btn" ><i class="fas fa-user-plus"></i> Connect</a>
+                    <a style="background-color: #2678f1;" href="{% url 'supporter_follow' supporter.pk %}" class="connect-btn" ><i class="fas fa-user-plus"></i> Connect</a>
                 </div>
             </div>
         </div>
@@ -357,7 +357,7 @@
         }
 
         .about-and-connect h6 {
-            color: #00e1ff;
+            color: #1abedb;
         }
 
         .about-and-connect p{
@@ -365,19 +365,22 @@
         }
 
         .connect-btn {
-            color: #00e1ff;
+            color: #1abedb;
         }
 
         .profile-sidebar h5 {
-            color: #00e1ff;
+            color: #1abedb;
         }
 
         .header-profile .row .connect-btn {
-            background-color: #00e1ff;
+            background-color: #1abedb;
         }
 
         .widget-elements img{
             object-fit: cover;
+        }
+        .widget-elements a{
+            color: #000000;
         }
     </style>
 		 <!--about and connect area start-->
@@ -639,15 +642,15 @@
              
              <!--   single sidebar start-->  
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended 3Funders</h5>
+                            <h5 class="widget-title">Recommended Funders</h5>
 							{% for funder in r_investor %}
                             <div class="widget-elements">
 							{% if funder.thumbnail_image %}
                                 <img src="{{ funder.thumbnail_image.url }}">
-                                <p>{{funder.investor_profile.user.username}}</p>
+                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</p>
 								{% else %}
 								<img src="{% static 'img/funder.jpg' %}">
-                                <p>{{funder.investor_profile.user.username}}</p>
+                                <p>{{funder.investor_profile.user.first_name}}  {{funder.investor_profile.user.last_name}}</p>
 								{% endif %}
                             </div>
                            {% endfor %}

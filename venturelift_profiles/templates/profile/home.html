@@ -13,47 +13,80 @@
 
 {% if business %}
 <!--header profile area start-->
-    <div class="header-profile">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5 col-md-12">
-                    <div class="profile-details">
+<div class="header-profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-md-12">
+                <div class="profile-details">
                     {% if business.thumbnail_image %}
                     <img src="{{ business.thumbnail_image.url }}">
                     {% else %}
-                    <img src="{% static 'img/no-img.png' %}">
+                    <img src="{% static 'img/blue-user-icon.svg' %}">
                     {% endif %}
-                        <div class="profile-content">
-                            <a href="#"><h5>{{ business.name }} 
-							{% if investor.verified %}
-							<i class="fas fa-check"></i> </h5></a>
-							 {% else %}
-							 <i class="fa fa-spinner"></i>
-							{% endif %} </h5></a>
-                            <p>Sector: {{business.sector}}</p>
-                            <a href="#" class="profile-category">{{business.address.name}}</a>
-                        </div>
+                    <div class="profile-content">
+                        <a href="#"><h5>{{ business.name }}
+                        {% if business.verified %}
+                        <i class="fas fa-check"></i> </h5></a>
+                        {% else %}
+                        <i class="fa fa-spinner"></i>
+                        {% endif %} </h5></a>
+                        <p>Sector - {{business.sector}}</p>
+                        <a href="#" class="profile-category">Business</a>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-12 cover-hidden">
-                    <a href="/" class="profile-logo">
-                        <img src="{% static 'img/logo2.png' %}" alt="">
-                    </a>
-                </div>
-                <div class="col-xl-4 col-md-12">
-                    <a href="#" class="connect-btn" ><i class="fas fa-user-plus"></i> Connect </a>
-                </div>
+            </div>
+            <div class="col-xl-3 col-md-12 cover-hidden">
+                <a href="/" class="profile-logo">
+                    <img src="{% static 'img/logo2.png' %}" alt="">
+                </a>
+            </div>
+            <div class="col-xl-4 col-md-12">
+                <a style="background-color: #ffffff;" class="connect-btn" ></a>
             </div>
         </div>
     </div>
-	
+</div>
+	<!--styling-->
+    
+    <style>
+        .profile-details img {
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        a.profile-category {
+            color: #a816ec;
+        }
+
+        .about-and-connect h6 {
+            color: #000000;
+        }
+
+        .about-and-connect p{
+            font-family: 'Source Sans Pro';
+        }
+
+        .profile-sidebar h5 {
+            color: #1abedb;
+        }
+
+        .header-profile .row .connect-btn {
+            background-color: #1abedb;
+        }
+
+        .widget-elements img{
+            object-fit: cover;
+        }
+
+        .widget-elements a{
+            color: #000000;
+        }
+    </style>
 	
 	 <!--about and connect area start-->
     <div class="about-and-connect">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8"></div>
-				
+                <div class="col-lg-8">
 				 <div class="about">
                         <div class="row about-section">
                             <div class="col-12">
@@ -174,7 +207,7 @@
                     <div class="connect">
                         <div class="row">
                             <div class="col-12">
-                                <h6>Connection</h6>                                
+                                <h6 style="color: #1abedb;">Connection</h6>                                
                             </div>
 							
 							
@@ -274,13 +307,13 @@
                             <h5 class="widget-title">Recommended Funders</h5>
 							{% for funder in r_investor %}
                             <div class="widget-elements">
-							{% if funder.thumbnail_image %}
-                                <img src="{{ funder.thumbnail_image.url }}">
-                                <p>{{funder.investor_profile.user.username}}</p>
+							{% if funder.investor_profile.thumbnail_image %}
+                                <img src="{{ funder.investor_profile.thumbnail_image.url }}">
+                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</p>
                                 <p>{{funder.investor_profile.username}}</p>
 								{% else %}
 								<img src="{% static 'img/funder.jpg' %}">
-                                <p>{{funder.investor_profile.user.username}}</p>
+                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</p>
 								{% endif %}
                             </div>
                            {% endfor %}
@@ -292,12 +325,12 @@
                             <h5 class="widget-title">Recommended Partners</h5>
 							{% for partner in r_supporter %}
                             <div class="widget-elements">
-							{% if partner.thumbnail_image %}
-                                <img src="{{ partner.thumbnail_image.url }}">
-								<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+							{% if partner.supporter_profile.thumbnail_image %}
+                                <img src="{{ partner.supporter_profile.thumbnail_image.url }}">
+								<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
 							{% else %}
 							<img src="{% static 'img/blue-user-icon.svg' %}">
-							<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+							<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
 							{% endif %}
                             </div>
                             {% endfor %}
@@ -311,39 +344,41 @@
     </div>
 {% endif %}
 
-
 {% if supporter %}
 <!--header profile area start-->
-    <div class="header-profile">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5 col-md-12">
-                    <div class="profile-details">
-                        {% if supporter.thumbnail_image %}
-                      <img src="{{ supporter.thumbnail_image.url }}">
-                      {% else %}
-                      <img src="{% static 'img/blue-user-icon.svg' %}">
-                      {% endif %}
-                        <div class="profile-content">
-                            <a href="#"><h5>{{ supporter.user.first_name }} {{supporter.user.last_name}}
-							{% if investor.verified %}
-							<i class="fas fa-check"></i> </h5></a>
-							 {% else %}
-							 <i class="fa fa-spinner"></i>
-							{% endif %} </h5></a>
-                            <p>Partner - {{profile.supporter_interest}}</p>
-                            <a href="#" class="profile-category">Partner</a>
-                        </div>
+<div class="header-profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-md-12">
+                <div class="profile-details">
+                    {% if supporter.thumbnail_image %}
+                    <img src="{{ supporter.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/blue-user-icon.svg' %}">
+                    {% endif %}
+                    <div class="profile-content">
+                        <a href="#"><h5>{{ supporter.user.first_name }} {{supporter.user.last_name}}
+                        {% if supporter.verified %}
+                        <i class="fas fa-check"></i> </h5></a>
+                        {% else %}
+                        <i class="fa fa-spinner"></i>
+                        {% endif %} </h5></a>
+                        <p>Partner - {{profile.supporter_interest}}</p>
+                        <a href="#" class="profile-category">Partner</a>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-12 cover-hidden">
-                    <a href="/" class="profile-logo">
-                        <img src="{% static 'img/logo2.png' %}" alt="">
-                    </a>
-                </div>
+            </div>
+            <div class="col-xl-3 col-md-12 cover-hidden">
+                <a href="/" class="profile-logo">
+                    <img src="{% static 'img/logo2.png' %}" alt="">
+                </a>
+            </div>
+            <div class="col-xl-4 col-md-12">
+                <a style="background-color: #ffffff;" class="connect-btn" ></a>
             </div>
         </div>
     </div>
+</div>
     <!--header profile area end-->
 
     <!--styling-->
@@ -358,23 +393,19 @@
         }
 
         .about-and-connect h6 {
-            color: #00e1ff;
+            color: #000000;
         }
 
         .about-and-connect p{
             font-family: 'Source Sans Pro';
         }
 
-        .connect-btn {
-            color: #00e1ff;
-        }
-
         .profile-sidebar h5 {
-            color: #00e1ff;
+            color: #1abedb;
         }
 
         .header-profile .row .connect-btn {
-            background-color: #00e1ff;
+            background-color: #1abedb;
         }
 
         .widget-elements img{
@@ -438,7 +469,7 @@
                             <div class="col-md-6" id="slidetoggle">
                                <div class="company-details">
                                     <div class="company-title">
-                                        <p>Sector of interest1</p>
+                                        <p>Sector of interest</p>
 										{% for p in profile.interest_sectors.all %}
                                           <p class="company-meta">{{p}}</p>
                                           {% endfor %}
@@ -549,7 +580,7 @@
                     <div class="connect">
                         <div class="row">
                             <div class="col-12">
-                                <h6>Connection</h6>                                
+                                <h6 style="color: #1abedb;">Connection</h6>                                
                             </div>
                             
                             <div class="col-md-6">
@@ -651,7 +682,7 @@
                             <div class="widget-elements">
 							{% if funder.investor_profile.thumbnail_image %}
                                 <img src="{{ funder.investor_profile.thumbnail_image.url }}">
-                                <p>{{funder.investor_profile.user.first_name}}</p>
+                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}} </p>
                                 
 								{% else %}
 								<img src="{% static 'img/funder.jpg' %}">
@@ -718,7 +749,7 @@
                     </a>
                 </div>
                 <div class="col-xl-4 col-md-12">
-                    <a href="#" class="connect-btn" ><i class="fas fa-user-plus"></i> Connect </a>
+                    <a style="background-color: #ffffff;" class="connect-btn" ></a>
                 </div>
             </div>
         </div>
@@ -900,7 +931,7 @@
                     <div class="connect">
                         <div class="row">
                             <div class="col-12">
-                                <h6>Connection</h6>                                
+                                <h6 style="color: #1abedb;">Connection</h6>                                
                             </div>
 							
 							
@@ -994,20 +1025,57 @@
                             {% endfor %}
                         </div>
              <!--   single sidebar end-->
+
+             <style>
+            .profile-sidebar h5 {
+                color: #1abedb;
+            }
+            .profile-details img {
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        a.profile-category {
+            color: #a816ec;
+        }
+        .widget-elements a{
+            color: #000000;
+        }
+        
+
+        .about-and-connect p{
+            font-family: 'Source Sans Pro';
+        }
+
+        .connect-btn {
+            color: #1abedb;
+        }
+
+        .profile-sidebar h5 {
+            color: #1abedb;
+        }
+
+        .header-profile .row .connect-btn {
+            background-color: #1abedb;
+        }
+
+        .widget-elements img{
+            object-fit: cover;
+        }
+       
+             </style>
              
              <!--   single sidebar start-->  
                         <div class="recommended-business custom-widgets">
                             <h5 class="widget-title">Recommended Funders</h5>
-                            
-                            {% for funder in r_investor %}
-                        
+							{% for funder in r_investor %}
                             <div class="widget-elements">
-							{% if funder.thumbnail_image %}
-                                <img src="{{ funder.thumbnail_image.url }}">
-                                <p>{{funder.investor_profile.user.username}}</p>
+							{% if funder.investor_profile.thumbnail_image %}
+                                <img src="{{ funder.investor_profile.thumbnail_image.url }}">
+                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</p>
+                                <p>{{funder.investor_profile.username}}</p>
 								{% else %}
 								<img src="{% static 'img/funder.jpg' %}">
-                                <p>{{funder.investor_profile.user.username}}</p>
+                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</p>
 								{% endif %}
                             </div>
                            {% endfor %}
@@ -1019,12 +1087,12 @@
                             <h5 class="widget-title">Recommended Partners</h5>
 							{% for partner in r_supporter %}
                             <div class="widget-elements">
-							{% if partner.thumbnail_image %}
-                                <img src="{{ partner.thumbnail_image.url }}">
-								<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+							{% if partner.supporter_profile.thumbnail_image %}
+                                <img src="{{ partner.supporter_profile.thumbnail_image.url }}">
+								<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}} </a></p>
 							{% else %}
 							<img src="{% static 'img/blue-user-icon.svg' %}">
-							<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+							<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
 							{% endif %}
                             </div>
                             {% endfor %}
@@ -1038,3 +1106,38 @@
     </div>
 {% endif %}
 {% endblock %}
+
+
+<div class="header-profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-md-12">
+                <div class="profile-details">
+                    {% if business.thumbnail_image %}
+                    <img src="{{ business.thumbnail_image.url }}">
+                    {% else %}
+                    <img src="{% static 'img/no-img.png' %}">
+                    {% endif %}
+                    <div class="profile-content">
+                        <a href="#"><h5>{{ business.name }} 
+                        {% if business.verified %}
+                        <i class="fas fa-check"></i> </h5></a>
+                        {% else %}  
+                        <i class="fa fa-spinner"></i>
+                        {% endif %} </h5></a>
+                        <p>Sector: {{business.sector}}</p>
+                        <a href="#" class="profile-category">{{business.address.name}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-12 cover-hidden">
+                <a href="/" class="profile-logo">
+                    <img src="{% static 'img/logo2.png' %}" alt="">
+                </a>
+            </div>
+            <div class="col-xl-4 col-md-12">
+                <a href="#" class="connect-btn" ><i class="fas fa-user-plus"></i> Connect </a>
+            </div>
+        </div>
+    </div>
+</div>
