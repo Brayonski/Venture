@@ -276,6 +276,7 @@ class Business(models.Model):
     company_primary_email = models.EmailField()
     company_website = models.CharField(max_length=200, null=True, blank=True)
     address = CountryField()
+    about = models.TextField(help_text="Briefly describe your self", null=True)
     year_of_company_registration = models.IntegerField(choices=YEAR_CHOICES)
     value_proposition_statement = models.TextField(null=True, blank=True)
     full_time_employee_count = models.IntegerField()
