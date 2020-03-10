@@ -26,9 +26,9 @@
                     <div class="profile-content">
                         <a href="#"><h5>{{ business.name }}
                         {% if business.verified %}
-                        <i class="fas fa-check"></i> </h5></a>
+                        <i class="fas fa-check" title="Verified"></i> </h5></a>
                         {% else %}
-                        <i class="fa fa-spinner"></i>
+                        <i class="fa fa-spinner" title="Not verified"></i>
                         {% endif %} </h5></a>
                         <p>Sector - {{business.sector}}</p>
                         <a href="#" class="profile-category">Business</a>
@@ -204,14 +204,13 @@
                             </div>
                         </div>
                     </div>-->
-					<!--CONNECTIONS-->
-                    <div class="connect">
-                        <div class="row">
-                            <div class="col-12">
-                                <h6 style="color: #1abedb;">Connection</h6>                                
-                            </div>
-							
-							
+
+                    
+                    <!--CONNECTIONS-->
+                    <div class="about">
+                        <div class="row about-information">
+                            <h6 style="color: #1abedb;">Connection</h6>
+                            
                             <div class="col-md-6">  
 								{% for obj in business_following %}
                                 <div class="single-connection">
@@ -231,10 +230,7 @@
                                 </div> 
 							{% endfor %}								
                             </div>
-							
-							
-							
-							<div class="col-md-6"> 
+                            <div class="col-md-6"> 
 								{% for obj in supporter_following %}
                                 <div class="single-connection">
                                     {% if obj.thumbnail_image %}
@@ -274,10 +270,8 @@
 									{% endif %}
                                 </div>
 								{% endfor %}
-                            </div>
-							
-                            
-                        </div>
+                            </div>                   
+                        </div>                      
                     </div>
                 </div> 
 			
@@ -360,9 +354,9 @@
                     <div class="profile-content">
                         <a href="#"><h5>{{ supporter.user.first_name }} {{supporter.user.last_name}}
                         {% if supporter.verified %}
-                        <i class="fas fa-check"></i> </h5></a>
+                        <i class="fas fa-check" title="Verified"></i> </h5></a>
                         {% else %}
-                        <i class="fa fa-spinner"></i>
+                        <i class="fa fa-spinner" title="Not verified"></i>
                         {% endif %} </h5></a>
                         <p>Partner - {{profile.supporter_interest}}</p>
                         <a href="#" class="profile-category">Partner</a>
@@ -585,13 +579,11 @@
                         </div>
                     </div>-->
 					<!--CONNECTIONS -->
-                    <div class="connect">
-                        <div class="row">
-                            <div class="col-12">
-                                <h6 style="color: #1abedb;">Connection</h6>                                
-                            </div>
+                    <div class="about">
+                        <div class="row about-information">
+                            <h6 style="color: #1abedb;">Connection</h6>
                             
-                            <div class="col-md-6">
+                            <div class="col-md-6">  
 								{% for obj in business_following %}
                                 <div class="single-connection">
                                     {% if obj.thumbnail_image %}
@@ -608,36 +600,31 @@
                                     </div>
 									{% endif %}
                                 </div> 
-									{% endfor %}
+							{% endfor %}								
                             </div>
-							
-							
-							
-							<div class="col-md-6">
-                                {{supporter_following.}}
-
+                            <div class="col-md-6"> 
 								{% for obj in supporter_following %}
                                 <div class="single-connection">
                                     {% if obj.thumbnail_image %}
 									<img src="{{ obj.thumbnail_image.url }}">
-									<div class="connection-details">
+									<div class="connection-detsils">
                                         <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
                                         <p>{{obj.role}}</p>
                                     </div>
 									{% else %}
 									<img src="{% static 'img/no-img.jpg' %}">
-									<div class="connection-details">
+									<div class="connection-detsils">
                                         <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
                                         <p>{{obj.role}}</p>
                                     </div>
 									{% endif %}
-                                </div>
-									{% endfor %}
+                                </div> 
+								{% endfor %}
                             </div>
 							
 							
 							
-							<div class="col-md-6">
+							<div class="col-md-6"> 
 								{% for obj in investor_following %}
                                 <div class="single-connection">
                                     {% if obj.thumbnail_image %}
@@ -654,11 +641,9 @@
                                     </div>
 									{% endif %}
                                 </div>
-									{% endfor %}
-                            </div>
-							
-                            
-                        </div>
+								{% endfor %}
+                            </div>                   
+                        </div>                      
                     </div>
                 </div>
 			
@@ -742,9 +727,9 @@
                         <div class="profile-content">
                             <a href="#"><h5>{{ investor.user.first_name }} {{investor.user.last_name}}
 							{% if investor.verified %}
-							<i class="fas fa-check"></i> </h5></a>
+							<i class="fas fa-check" title="Verified"></i> </h5></a>
 							 {% else %}
-							 <i class="fa fa-spinner"></i>
+							 <i class="fa fa-spinner" title="Not verified"></i>
 							{% endif %}
                             <p>{{investor.company_location.name}}</p>
                             <a href="#" class="profile-category">Funder</a>
@@ -938,14 +923,11 @@
                         </div>
                     </div>-->
 					<!--CONNECTIONS-->
-                    <div class="connect">
-                        <div class="row">
-                            <div class="col-12">
-                                <h6 style="color: #1abedb;">Connection</h6>                                
-                            </div>
-							
-							
-                            <div class="col-md-6">
+                    <div class="about">
+                        <div class="row about-information">
+                            <h6 style="color: #1abedb;">Connection</h6>
+                            
+                            <div class="col-md-6">  
 								{% for obj in business_following %}
                                 <div class="single-connection">
                                     {% if obj.thumbnail_image %}
@@ -961,13 +943,10 @@
                                         <p>{{obj.sector}}</p>
                                     </div>
 									{% endif %}
-                                </div>
-									{% endfor %}
+                                </div> 
+							{% endfor %}								
                             </div>
-							
-							
-							
-							<div class="col-md-6">
+                            <div class="col-md-6"> 
 								{% for obj in supporter_following %}
                                 <div class="single-connection">
                                     {% if obj.thumbnail_image %}
@@ -983,13 +962,13 @@
                                         <p>{{obj.role}}</p>
                                     </div>
 									{% endif %}
-                                </div>
-									{% endfor %}
+                                </div> 
+								{% endfor %}
                             </div>
 							
 							
 							
-							<div class="col-md-6">
+							<div class="col-md-6"> 
 								{% for obj in investor_following %}
                                 <div class="single-connection">
                                     {% if obj.thumbnail_image %}
@@ -1005,12 +984,10 @@
                                         <p>{{obj.role}}</p>
                                     </div>
 									{% endif %}
-                                </div> 
-									{% endfor %}
-                            </div>
-							
-                            
-                        </div>
+                                </div>
+								{% endfor %}
+                            </div>                   
+                        </div>                      
                     </div>
                 </div> 
 			
