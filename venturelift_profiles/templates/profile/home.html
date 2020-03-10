@@ -112,6 +112,10 @@
                                         <p>Company size</p>
                                         <p class="company-meta">{{business.size}}</p>
                                     </div>
+                                    <div class="company-title">
+                                        <p>Country</p>
+                                        <p class="company-meta">{{business.address.name}}</p>
+                                    </div>
                                 </div>
                                 
                             </div>
@@ -126,32 +130,29 @@
                                         <p class="company-meta">{{business.year_of_company_registration}}</p>
                                     </div>
                                </div>
+                               <div class="company-title">
+                                <p>Trade partner requirements</p>
+                                <p class="company-meta">
+                                    {% if profile.trading_partners %}
+                                    {{profile.trading_partners}}
+                                    {% else %}
+                                    This information is not provided
+                                    {% endif %}
+                                </p>
+                            </div>
                             </div>  
                             <div class="col-md-6" id="slidetoggle">
                                <div class="company-details">
-                                    <div class="company-title">
-                                        <p>Trade partner requirements</p>
-                                        <p class="company-meta">
-											{% if profile.trading_partners %}
-                                            {{profile.trading_partners}}
-                                            {% else %}
-                                            This information is not provided
-                                            {% endif %}
-										</p>
-                                    </div>
-                                    <div class="company-title">
-                                        <p>Country</p>
-                                        <p class="company-meta">{{business.address.name}}</p>
-                                    </div>
+                                    
                                    
                                </div>
                             </div>                          
                         </div>
-                        <div class="row">
+                        <!--<div class="row">
                             <div class="see-all-section">
                                 <a href="#" id='slideclick' class="see-all">See all</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                    
 				<!--
@@ -458,45 +459,7 @@
                                             {% endif %}
 										</p>
                                     </div>
-                                </div>
-                                
-                            </div>
-                            <div class="col-md-6">
-                               <div class="company-details">
                                     <div class="company-title">
-                                        <p>Region of interest</p>
-                                        <p class="company-meta">{{profile.interest_countries}}</p>
-                                    </div>
-                                    
-                               </div>
-                            </div>
-							
-                            <div class="col-md-6" id="slidetoggle">
-                               <div class="company-details">
-                                    <div class="company-title">
-                                        <p>Sector of interest</p>
-										{% for p in profile.interest_sectors.all %}
-                                          <p class="company-meta">{{p}}</p>
-                                          {% endfor %}
-                                        
-                                    </div>
-                                    <div class="company-title">
-                                        <p>Company preference</p>
-                                        <p class="company-meta">{{profile.supporter_interest}}</p>
-                                    </div>
-                                    <div class="company-title">
-                                        <p>Trade partner requirements</p>
-                                        <p class="company-meta">
-											{% if profile.trading_partners %}
-                                            {{profile.trading_partners}}
-                                            {% else %}
-                                            This information is not provided
-                                            {% endif %}
-										
-										</p>
-                                    </div>
-									
-									 <div class="company-title">
                                         <p>What I hope to deliver and gain</p>
                                         <p class="company-meta">
 											{% if profile.supporter_interest %}
@@ -506,14 +469,54 @@
                                             {% endif %}
 										</p>
                                     </div>
+                                    <div class="company-title">
+                                        <p>Region of interest</p>
+                                        <p class="company-meta">{{profile.interest_countries}}</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-6">
+                               <div class="company-details">
+                                <div class="company-title">
+                                    <p>Sector of interest</p>
+                                    {% for p in profile.interest_sectors.all %}
+                                      <p class="company-meta">{{p}}</p>
+                                      {% endfor %}
+                                    
+                                </div>
+                                <div class="company-title">
+                                    <p>Company preference</p>
+                                    <p class="company-meta">{{profile.supporter_interest}}</p>
+                                </div>
+                                <div class="company-title">
+                                    <p>Trade partner requirements</p>
+                                    <p class="company-meta">
+                                        {% if profile.trading_partners %}
+                                        {{profile.trading_partners}}
+                                        {% else %}
+                                        This information is not provided
+                                        {% endif %}
+                                    
+                                    </p>
+                                </div>
+                                    
+                                    
+                               </div>
+                            </div>
+							
+                            <div class="col-md-6" id="slidetoggle">
+                               <div class="company-details">
+                                    
+									
                                </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="see-all-section">
                                 <a href="#" id='slideclick' class="see-all">See all</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 				
 				<!--
@@ -801,27 +804,19 @@
                                         <p>Region of interest</p>
                                         <p class="company-meta">{{profile.target_countries}}</p>
                                     </div>
+                                    <div class="company-title">
+                                        <p>Current value of assets under our management</p>
+                                        <p class="company-meta">
+                                            {% if profile.assets_under_management %}
+                                        {{profile.assets_under_management}}
+                                        {% else %}
+                                        This information is not provided
+                                        {% endif %}
+                                        </p>
+                                    </div>
                                     <div id='slidetoggle'>
-										<div class="company-title">
-											<p>Current value of assets under our management</p>
-											<p class="company-meta">
-												{% if profile.assets_under_management %}
-                                            {{profile.assets_under_management}}
-                                            {% else %}
-                                            This information is not provided
-                                            {% endif %}
-											</p>
-										</div>
-										<div class="company-title">
-											<p>What I hope to deliver and gain</p>
-											<p class="company-meta">
-												{% if profile.elevator_pitch %}
-                                            {{profile.elevator_pitch}}
-                                            {% else %}
-                                            This information is not provided
-                                            {% endif %}
-											</p>
-										</div>
+										
+										
 									</div>
                                 </div>
                                 
@@ -849,15 +844,25 @@
                                             {% endif %}
 										</p>
                                     </div>
+                                    <div class="company-title">
+											<p>What I hope to deliver and gain</p>
+											<p class="company-meta">
+												{% if profile.elevator_pitch %}
+                                            {{profile.elevator_pitch}}
+                                            {% else %}
+                                            This information is not provided
+                                            {% endif %}
+											</p>
+										</div>
                                </div>
                             </div>
                                                        
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="see-all-section">
                                 <a href="#" id='slideclick' class="see-all">See all</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                    
 				
