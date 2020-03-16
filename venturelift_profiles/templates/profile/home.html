@@ -304,11 +304,10 @@
                             <div class="widget-elements">
 							{% if funder.investor_profile.thumbnail_image %}
                                 <img src="{{ funder.investor_profile.thumbnail_image.url }}">
-                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</p>
-                                <p>{{funder.investor_profile.username}}</p>
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
 								{% else %}
 								<img src="{% static 'img/funder.jpg' %}">
-                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</p>
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
 								{% endif %}
                             </div>
                            {% endfor %}
@@ -321,8 +320,8 @@
 							{% for partner in r_supporter %}
                             <div class="widget-elements">
 							{% if partner.supporter_profile.thumbnail_image %}
-                                <img src="{{ partner.supporter_profile.thumbnail_image.url }}">
-								<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
+                            <img src="{{ partner.supporter_profile.thumbnail_image.url }}">
+                            <p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
 							{% else %}
 							<img src="{% static 'img/blue-user-icon.svg' %}">
 							<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
@@ -676,11 +675,10 @@
                             <div class="widget-elements">
 							{% if funder.investor_profile.thumbnail_image %}
                                 <img src="{{ funder.investor_profile.thumbnail_image.url }}">
-                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}} </p>
-                                
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
 								{% else %}
 								<img src="{% static 'img/funder.jpg' %}">
-                                <p>{{funder.investor_profile.user.username}}</p>
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
 								{% endif %}
                             </div>
                            {% endfor %}
@@ -1059,11 +1057,10 @@
                             <div class="widget-elements">
 							{% if funder.investor_profile.thumbnail_image %}
                                 <img src="{{ funder.investor_profile.thumbnail_image.url }}">
-                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</p>
-                                <p>{{funder.investor_profile.username}}</p>
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
 								{% else %}
 								<img src="{% static 'img/funder.jpg' %}">
-                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</p>
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
 								{% endif %}
                             </div>
                            {% endfor %}
