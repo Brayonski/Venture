@@ -254,7 +254,7 @@
                     <div class="profile-sidebar">
             <!--   single sidebar start-->
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Business</h5>
+                            <h5 class="widget-title">Recommended Businesses</h5>
 							{% for business in r_businesses %}
                             <div class="widget-elements">
 							{% if business.thumbnail_image %}
@@ -631,7 +631,7 @@
                     <div class="profile-sidebar">
             <!--   single sidebar start-->
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Business</h5>
+                            <h5 class="widget-title">Recommended Businesses</h5>
 							{% for business in r_businesses %}
                             <div class="widget-elements">
 							{% if business.thumbnail_image %}
@@ -704,7 +704,7 @@
                         <div class="profile-content">
                             <a href="#"><h5>{{ investor.user.first_name }} {{investor.user.last_name}}
 							{% if investor.verified %}
-							<i class="fas fa-check"></i> </h5></a>
+							<i class="fas fa-check"></i></h5></a>
 							 {% else %}
 							 <i class="fa fa-spinner"></i>
 							{% endif %}
@@ -728,7 +728,44 @@
     
     <!--header area end-->
 	
-	
+	<style>
+        .profile-details img {
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        a.profile-category {
+            color: #a816ec;
+        }
+
+        .about-and-connect h6 {
+            color: #000000;
+        }
+
+        .about-and-connect p{
+            font-family: 'Source Sans Pro';
+        }
+
+        .profile-sidebar h5 {
+            color: #1abedb;
+        }
+
+        .header-profile .row .connect-btn {
+            background-color: #1abedb;
+        }
+
+        .widget-elements img{
+            object-fit: cover;
+        }
+
+        .widget-elements a{
+            color: #000000;
+        }
+
+        .single-connection img{
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
 
 
 	<!--about and connect area start-->
@@ -736,8 +773,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-				
-				<div class="about">
+                    <div class="about">
                         <div class="row about-section">
                             <div class="col-12">
                                 <h6>About</h6>
@@ -766,27 +802,19 @@
                                         <p>Region of interest</p>
                                         <p class="company-meta">{{profile.target_countries}}</p>
                                     </div>
+                                    <div class="company-title">
+                                        <p>Current value of assets under our management</p>
+                                        <p class="company-meta">
+                                            {% if profile.assets_under_management %}
+                                        {{profile.assets_under_management}}
+                                        {% else %}
+                                        This information is not provided
+                                        {% endif %}
+                                        </p>
+                                    </div>
                                     <div id='slidetoggle'>
-										<div class="company-title">
-											<p>Current value of assets under our management</p>
-											<p class="company-meta">
-												{% if profile.assets_under_management %}
-                                            {{profile.assets_under_management}}
-                                            {% else %}
-                                            This information is not provided
-                                            {% endif %}
-											</p>
-										</div>
-										<div class="company-title">
-											<p>What I hope to deliver and gain</p>
-											<p class="company-meta">
-												{% if profile.elevator_pitch %}
-                                            {{profile.elevator_pitch}}
-                                            {% else %}
-                                            This information is not provided
-                                            {% endif %}
-											</p>
-										</div>
+										
+										
 									</div>
                                 </div>
                                 
@@ -794,7 +822,7 @@
                             <div class="col-md-6">
                                <div class="company-details">
                                     <div class="company-title">
-                                        <p>Sector of interest</p>
+                                        <p>Sector of interest2</p>
 										{% for obj in profile.target_sectors.all %}
                                         <p class="company-meta">{{obj}}</p>
 										{% endfor %}
@@ -814,15 +842,25 @@
                                             {% endif %}
 										</p>
                                     </div>
+                                    <div class="company-title">
+											<p>What I hope to deliver and gain</p>
+											<p class="company-meta">
+												{% if profile.elevator_pitch %}
+                                            {{profile.elevator_pitch}}
+                                            {% else %}
+                                            This information is not provided
+                                            {% endif %}
+											</p>
+										</div>
                                </div>
                             </div>
                                                        
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="see-all-section">
                                 <a href="#" id='slideclick' class="see-all">See all</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                    
 				
@@ -973,6 +1011,44 @@
                         </div>
                     </div>
                 </div> 
+                <style>
+                    .profile-details img {
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                    a.profile-category {
+                        color: #a816ec;
+                    }
+            
+                    .about-and-connect h6 {
+                        color: #000000;
+                    }
+            
+                    .about-and-connect p{
+                        font-family: 'Source Sans Pro';
+                    }
+            
+                    .profile-sidebar h5 {
+                        color: #1abedb;
+                    }
+            
+                    .header-profile .row .connect-btn {
+                        background-color: #1abedb;
+                    }
+            
+                    .widget-elements img{
+                        object-fit: cover;
+                    }
+            
+                    .widget-elements a{
+                        color: #000000;
+                    }
+            
+                    .single-connection img{
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                </style>
 			
 	
 	
@@ -981,16 +1057,16 @@
                     <div class="profile-sidebar">
             <!--   single sidebar start-->
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Business</h5>
-							{% for business in r_businesses %}
+                            <h5 class="widget-title">Recommended Businesses</h5>
+                            {% for business in r_businesses %}
                             <div class="widget-elements">
-							{% if business.thumbnail_image %}
+                            {% if business.thumbnail_image %}
                                 <img src="{{ business.thumbnail_image.url }}" alt="">
                                 <p><a href="{% url 'business_profile' business.pk %}">{{business.name}}</a></p>
-							{% else %}
-							<img src="{% static 'img/no-img.png' %}" alt="">
+                            {% else %}
+                            <img src="{% static 'img/no-img.png' %}" alt="">
                                 <p><a href="{% url 'business_profile' business.pk %}">{{business.name}}</a></p>
-							{% endif %}
+                            {% endif %}
                             </div>
                             {% endfor %}
                         </div>
@@ -999,32 +1075,32 @@
              <!--   single sidebar start-->  
                         <div class="recommended-business custom-widgets">
                             <h5 class="widget-title">Recommended Funders</h5>
-							{% for funder in r_investor %}
+                            {% for funder in r_investor %}
                             <div class="widget-elements">
-							{% if funder.thumbnail_image %}
-                                <img src="{{ funder.thumbnail_image.url }}">
-                                <p>{{funder.investor_profile.user.username}}</p>
-								{% else %}
-								<img src="{% static 'img/funder.jpg' %}">
-                                <p>{{funder.investor_profile.user.username}}</p>
-								{% endif %}
+                            {% if funder.investor_profile.thumbnail_image %}
+                                <img src="{{ funder.investor_profile.thumbnail_image.url }}">
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
+                                {% else %}
+                                <img src="{% static 'img/funder.jpg' %}">
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
+                                {% endif %}
                             </div>
-                           {% endfor %}
+                        {% endfor %}
                         </div>
              <!--   single sidebar end-->
                         
             <!--   single sidebar start-->         
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Partners3</h5>
-							{% for partner in r_supporter %}
+                            <h5 class="widget-title">Recommended Partners</h5>
+                            {% for partner in r_supporter %}
                             <div class="widget-elements">
-							{% if partner.thumbnail_image %}
-                                <img src="{{ partner.thumbnail_image.url }}">
-								<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
-							{% else %}
-							<img src="{% static 'img/blue-user-icon.svg' %}">
-							<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
-							{% endif %}
+                            {% if partner.supporter_profile.thumbnail_image %}
+                                <img src="{{ partner.supporter_profile.thumbnail_image.url }}">
+                                <p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
+                            {% else %}
+                            <img src="{% static 'img/blue-user-icon.svg' %}">
+                            <p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
+                            {% endif %}
                             </div>
                             {% endfor %}
                         </div>

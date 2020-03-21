@@ -35,13 +35,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-md-12 cover-hidden">
+            <div class="container h-100 d-flex justify-content-center">
                 <a href="/" class="profile-logo">
                     <img src="{% static 'img/logo2.png' %}" alt="">
                 </a>
-            </div>
-            <div class="col-xl-4 col-md-12">
-                <a style="background-color: #ffffff;" class="connect-btn" ></a>
             </div>
         </div>
     </div>
@@ -49,6 +46,9 @@
 	<!--styling-->
     
     <style>
+        .header-profile{
+            padding-block-end: 9vh;
+        }
         .profile-details img {
             border-radius: 50%;
             object-fit: cover;
@@ -282,7 +282,7 @@
                     <div class="profile-sidebar">
             <!--   single sidebar start-->
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Business</h5>
+                            <h5 class="widget-title">Recommended Businesses</h5>
 							{% for business in r_businesses %}
                             <div class="widget-elements">
 							{% if business.thumbnail_image %}
@@ -304,11 +304,10 @@
                             <div class="widget-elements">
 							{% if funder.investor_profile.thumbnail_image %}
                                 <img src="{{ funder.investor_profile.thumbnail_image.url }}">
-                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</p>
-                                <p>{{funder.investor_profile.username}}</p>
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
 								{% else %}
 								<img src="{% static 'img/funder.jpg' %}">
-                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</p>
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
 								{% endif %}
                             </div>
                            {% endfor %}
@@ -321,8 +320,8 @@
 							{% for partner in r_supporter %}
                             <div class="widget-elements">
 							{% if partner.supporter_profile.thumbnail_image %}
-                                <img src="{{ partner.supporter_profile.thumbnail_image.url }}">
-								<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
+                            <img src="{{ partner.supporter_profile.thumbnail_image.url }}">
+                            <p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
 							{% else %}
 							<img src="{% static 'img/blue-user-icon.svg' %}">
 							<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
@@ -363,14 +362,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-md-12 cover-hidden">
+            <div class="container h-100 d-flex justify-content-center">
                 <a href="/" class="profile-logo">
                     <img src="{% static 'img/logo2.png' %}" alt="">
                 </a>
             </div>
-            <div class="col-xl-4 col-md-12">
-                <a style="background-color: #ffffff;" class="connect-btn" ></a>
-            </div>
+           
         </div>
     </div>
 </div>
@@ -379,6 +376,9 @@
     <!--styling-->
     
     <style>
+        .header-profile{
+            padding-block-end: 9vh;
+        }
         .profile-details img {
             border-radius: 50%;
             object-fit: cover;
@@ -653,7 +653,7 @@
                     <div class="profile-sidebar">
             <!--   single sidebar start-->
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Business</h5>
+                            <h5 class="widget-title">Recommended Businesses</h5>
 							{% for business in r_businesses %}
                             <div class="widget-elements">
 							{% if business.thumbnail_image %}
@@ -675,11 +675,10 @@
                             <div class="widget-elements">
 							{% if funder.investor_profile.thumbnail_image %}
                                 <img src="{{ funder.investor_profile.thumbnail_image.url }}">
-                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}} </p>
-                                
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
 								{% else %}
 								<img src="{% static 'img/funder.jpg' %}">
-                                <p>{{funder.investor_profile.user.username}}</p>
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
 								{% endif %}
                             </div>
                            {% endfor %}
@@ -736,13 +735,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-12 cover-hidden">
+                <div class="container h-100 d-flex justify-content-center">
                     <a href="/" class="profile-logo">
                         <img src="{% static 'img/logo2.png' %}" alt="">
                     </a>
-                </div>
-                <div class="col-xl-4 col-md-12">
-                    <a style="background-color: #ffffff;" class="connect-btn" ></a>
                 </div>
             </div>
         </div>
@@ -998,7 +994,7 @@
                     <div class="profile-sidebar">
             <!--   single sidebar start-->
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Business</h5>
+                            <h5 class="widget-title">Recommended Businesses</h5>
 							{% for business in r_businesses %}
                             <div class="widget-elements">
 							{% if business.thumbnail_image %}
@@ -1013,13 +1009,16 @@
                         </div>
              <!--   single sidebar end-->
 
-             <style>
-            .profile-sidebar h5 {
-                color: #1abedb;
-            }
-            .profile-details img {
-            border-radius: 50%;
-            object-fit: cover;
+        <style>
+        .header-profile{
+        padding-block-end: 9vh;
+        }
+        .profile-sidebar h5 {
+            color: #1abedb;
+        }
+        .profile-details img {
+        border-radius: 50%;
+        object-fit: cover;
         }
         a.profile-category {
             color: #a816ec;
@@ -1058,11 +1057,10 @@
                             <div class="widget-elements">
 							{% if funder.investor_profile.thumbnail_image %}
                                 <img src="{{ funder.investor_profile.thumbnail_image.url }}">
-                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</p>
-                                <p>{{funder.investor_profile.username}}</p>
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
 								{% else %}
 								<img src="{% static 'img/funder.jpg' %}">
-                                <p>{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</p>
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
 								{% endif %}
                             </div>
                            {% endfor %}
@@ -1117,13 +1115,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-md-12 cover-hidden">
+            <div class="container h-100 d-flex justify-content-center">
                 <a href="/" class="profile-logo">
                     <img src="{% static 'img/logo2.png' %}" alt="">
                 </a>
-            </div>
-            <div class="col-xl-4 col-md-12">
-                <a href="#" class="connect-btn" ><i class="fas fa-user-plus"></i> Connect </a>
             </div>
         </div>
     </div>

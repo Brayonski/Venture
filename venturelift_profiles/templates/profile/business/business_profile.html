@@ -25,13 +25,13 @@
                     {% endif %}
                         <div class="profile-content">
                             <a href="#"><h5>{{ business.name }} 
-							{% if investor.verified %}
+							{% if business.verified %}
 							<i class="fas fa-check"></i> </h5></a>
 							 {% else %}
 							 <i class="fa fa-spinner"></i>
 							{% endif %} </h5></a>
                             <p>Sector: {{business.sector}}</p>
-                            <a href="#" class="profile-category">{{business.address.name}}</a>
+                            <a href="#" class="profile-category">Business</a>
                         </div>
                     </div>
                 </div>
@@ -46,80 +46,118 @@
             </div>
         </div>
     </div>
-	
+	<style>
+
+        .profile-details img {
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        a.profile-category {
+            color: #a816ec;
+        }
+
+        .about-and-connect h6 {
+            color: #000000;
+        }
+
+        .about-and-connect p{
+            font-family: 'Source Sans Pro';
+        }
+
+        .profile-sidebar h5 {
+            color: #1abedb;
+        }
+
+        .header-profile .row .connect-btn {
+            background-color: #1abedb;
+        }
+
+        .widget-elements img{
+            object-fit: cover;
+        }
+
+        .widget-elements a{
+            color: #000000;
+        }
+
+        .single-connection img{
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
 	
 	 <!--about and connect area start-->
     <div class="about-and-connect">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-				
-				 <div class="about">
-                        <div class="row about-section">
-                            <div class="col-12">
-                                <h6>About</h6>
-                                <a href="{% url 'update_business_step1' business.pk %}" class="profile-edit"><i class="fas fa-pencil-alt"></i></a>
-                                <p>{{business.about}}</p>
-                            </div>
-                         </div>
-                        <div class="row about-information">
-                           <div class="col-12">
-                                <h6>Company Information</h6>
-                                <a href="{% url 'update_business_step2' business.pk %}" class="profile-edit"><i class="fas fa-pencil-alt"></i></a>
-                               
-                            </div>
-                            <div class="col-md-6">
-                               
-                                <div class="company-details">
-                                    <div class="company-title">
-                                        <p>Employee count</p>
-                                        <p class="company-meta">{{business.full_time_employee_count}}</p>
-                                    </div>
-                                    <div class="company-title">
-                                        <p>Company size</p>
-                                        <p class="company-meta">{{business.size}}</p>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <div class="col-md-6">
-                               <div class="company-details">
-                                    <div class="company-title">
-                                        <p>Sector</p>
-                                        <p class="company-meta">{{business.sector}}</p>
-                                    </div>
-                                    <div class="company-title">
-                                        <p>Year of registration</p>
-                                        <p class="company-meta">{{business.year_of_company_registration}}</p>
-                                    </div>
+                    <div class="about">
+                           <div class="row about-section">
+                               <div class="col-12">
+                                   <h6>About</h6>
+                                   <a href="{% url 'update_business_step1' business.pk %}" class="profile-edit"><i class="fas fa-pencil-alt"></i></a>
+                                   <p>{{business.about}}</p>
                                </div>
-                            </div>  
-                            <div class="col-md-6" id="slidetoggle">
-                               <div class="company-details">
-                                    <div class="company-title">
-                                        <p>Trade partner requirements</p>
-                                        <p class="company-meta">
-											{% if profile.trading_partners %}
-                                            {{profile.trading_partners}}
-                                            {% else %}
-                                            This information is not provided
-                                            {% endif %}
-										</p>
-                                    </div>
-                                    <div class="company-title">
-                                        <p>Country</p>
-                                        <p class="company-meta">{{business.address.name}}</p>
-                                    </div>
+                            </div>
+                           <div class="row about-information">
+                              <div class="col-12">
+                                   <h6>Company Information</h6>
+                                   <a href="{% url 'update_business_step2' business.pk %}" class="profile-edit"><i class="fas fa-pencil-alt"></i></a>
+                                  
+                               </div>
+                               <div class="col-md-6">
+                                  
+                                   <div class="company-details">
+                                       <div class="company-title">
+                                           <p>Employee count</p>
+                                           <p class="company-meta">{{business.full_time_employee_count}}</p>
+                                       </div>
+                                       <div class="company-title">
+                                           <p>Company size</p>
+                                           <p class="company-meta">{{business.size}}</p>
+                                       </div>
+                                       <div class="company-title">
+                                           <p>Country</p>
+                                           <p class="company-meta">{{business.address.name}}</p>
+                                       </div>
+                                   </div>
                                    
                                </div>
-                            </div>                          
-                        </div>
-                        <div class="row">
-                            <div class="see-all-section">
-                                <a href="#" id='slideclick' class="see-all">See all</a>
-                            </div>
-                        </div>
-                    </div>
+                               <div class="col-md-6">
+                                  <div class="company-details">
+                                       <div class="company-title">
+                                           <p>Sector</p>
+                                           <p class="company-meta">{{business.sector}}</p>
+                                       </div>
+                                       <div class="company-title">
+                                           <p>Year of registration</p>
+                                           <p class="company-meta">{{business.year_of_company_registration}}</p>
+                                       </div>
+                                  </div>
+                                  <div class="company-title">
+                                   <p>Trade partner requirements</p>
+                                   <p class="company-meta">
+                                       {% if profile.trading_partners %}
+                                       {{profile.trading_partners}}
+                                       {% else %}
+                                       This information is not provided
+                                       {% endif %}
+                                   </p>
+                               </div>
+                               </div>  
+                               <div class="col-md-6" id="slidetoggle">
+                                  <div class="company-details">
+                                       
+                                      
+                                  </div>
+                               </div>                          
+                           </div>
+                           <!--<div class="row">
+                               <div class="see-all-section">
+                                   <a href="#" id='slideclick' class="see-all">See all</a>
+                               </div>
+                           </div> -->
+                       </div>
                    
 				<!--
                     <div class="about">
@@ -171,13 +209,10 @@
                         </div>
                     </div>-->
 					<!--CONNECTIONS-->
-                    <div class="connect">
-                        <div class="row">
-                            <div class="col-12">
-                                <h6 style="color: #1abedb;">Connection</h6>                                
-                            </div>
-							
-							
+                    <div class="about">
+                        <div class="row about-information">
+                            <h6 style="color: #1abedb;">Connection</h6>
+                            
                             <div class="col-md-6">  
 								{% for obj in business_following %}
                                 <div class="single-connection">
@@ -197,10 +232,7 @@
                                 </div> 
 							{% endfor %}								
                             </div>
-							
-							
-							
-							<div class="col-md-6"> 
+                            <div class="col-md-6"> 
 								{% for obj in supporter_following %}
                                 <div class="single-connection">
                                     {% if obj.thumbnail_image %}
@@ -240,10 +272,8 @@
 									{% endif %}
                                 </div>
 								{% endfor %}
-                            </div>
-							
-                            
-                        </div>
+                            </div>                   
+                        </div>                      
                     </div>
                 </div> 
 			
@@ -254,7 +284,7 @@
                     <div class="profile-sidebar">
             <!--   single sidebar start-->
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Business</h5>
+                            <h5 class="widget-title">Recommended Businesses</h5>
 							{% for business in r_businesses %}
                             <div class="widget-elements">
 							{% if business.thumbnail_image %}
@@ -272,32 +302,32 @@
              <!--   single sidebar start-->  
                         <div class="recommended-business custom-widgets">
                             <h5 class="widget-title">Recommended Funders</h5>
-							{% for funder in r_investor %}
+                            {% for funder in r_investor %}
                             <div class="widget-elements">
-							{% if funder.thumbnail_image %}
-                                <img src="{{ funder.thumbnail_image.url }}">
-                                <p>{{funder.investor_profile.user.username}}</p>
-								{% else %}
-								<img src="{% static 'img/funder.jpg' %}">
-                                <p>{{funder.investor_profile.user.username}}</p>
-								{% endif %}
+                            {% if funder.investor_profile.thumbnail_image %}
+                                <img src="{{ funder.investor_profile.thumbnail_image.url }}">
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
+                                {% else %}
+                                <img src="{% static 'img/funder.jpg' %}">
+                                <p><a href="{% url 'investor_profile' funder.pk %}">{{funder.investor_profile.user.first_name}} {{funder.investor_profile.user.last_name}}</a></p>
+                                {% endif %}
                             </div>
-                           {% endfor %}
+                        {% endfor %}
                         </div>
              <!--   single sidebar end-->
                         
             <!--   single sidebar start-->         
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Partners1</h5>
-							{% for partner in r_supporter %}
+                            <h5 class="widget-title">Recommended Partners</h5>
+                            {% for partner in r_supporter %}
                             <div class="widget-elements">
-							{% if partner.thumbnail_image %}
-                                <img src="{{ partner.thumbnail_image.url }}">
-								<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
-							{% else %}
-							<img src="{% static 'img/blue-user-icon.svg' %}">
-							<p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.username}}</a></p>
-							{% endif %}
+                            {% if partner.supporter_profile.thumbnail_image %}
+                            <img src="{{ partner.supporter_profile.thumbnail_image.url }}">
+                            <p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
+                            {% else %}
+                            <img src="{% static 'img/blue-user-icon.svg' %}">
+                            <p><a href="{% url 'supporter_profile' partner.pk %}">{{partner.supporter_profile.user.first_name}} {{partner.supporter_profile.user.last_name}}</a></p>
+                            {% endif %}
                             </div>
                             {% endfor %}
                         </div>
@@ -629,7 +659,7 @@
                     <div class="profile-sidebar">
             <!--   single sidebar start-->
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Business</h5>
+                            <h5 class="widget-title">Recommended Businesses</h5>
 							{% for business in r_businesses %}
                             <div class="widget-elements">
 							{% if business.thumbnail_image %}
@@ -979,7 +1009,7 @@
                     <div class="profile-sidebar">
             <!--   single sidebar start-->
                         <div class="recommended-business custom-widgets">
-                            <h5 class="widget-title">Recommended Business</h5>
+                            <h5 class="widget-title">Recommended Businesses</h5>
 							{% for business in r_businesses %}
                             <div class="widget-elements">
 							{% if business.thumbnail_image %}
