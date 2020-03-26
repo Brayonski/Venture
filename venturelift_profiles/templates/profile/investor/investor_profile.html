@@ -719,7 +719,7 @@
                     </a>
                 </div>
                 <div class="col-xl-4 col-md-12">
-                    <a href="#" class="connect-btn" ><i class="fas fa-user-plus"></i> Connect </a>
+                    <a style="background-color: #2678f1;" href="{% url 'investor_follow' investor.pk %}" class="connect-btn" ><i class="fas fa-user-plus"></i> Connect</a>
                 </div>
             </div>
         </div>
@@ -777,14 +777,13 @@
                         <div class="row about-section">
                             <div class="col-12">
                                 <h6>About</h6>
-                                <a href="{% url 'update_investor_step1' investor.pk %}" class="profile-edit"><i class="fas fa-pencil-alt"></i></a>
+                               
                                 <p>{{investor.about}}</p>
                             </div>
                          </div>
                         <div class="row about-information">
                            <div class="col-12">
                                 <h6> Information</h6>
-                                <a href="{% url 'update_investor_step2' investor.pk %}" class="profile-edit"><i class="fas fa-pencil-alt"></i></a>
                                
                             </div>
                              <div class="col-md-6">
