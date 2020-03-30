@@ -13,9 +13,17 @@
                     <h4 class="text-center">Step 1: Basic Information</h4>
                     <br>
                     <div class="form-row">
-                        <div class="form-group col-md-12 mb-0">
+                      <div class="form-group col-md-12 mb-0">
+                        <div class="row col-md-12">
+                            <div class="col-md-3">
+                              <img class="image-update" src="{{ supporter.thumbnail_image.url }}" alt="">
+                            </div>
+                            <div class="col-md-3">
                             {{ form.thumbnail_image|as_crispy_field }}
+                            </div>
                         </div>
+                        
+                      </div>
                         <div class="form-group col-md-3 mb-0">
                           {{ form.phone_number|as_crispy_field }}
                         </div>
@@ -86,8 +94,6 @@
                     </div>
                    
                     {% endif %}
-                    
-                    <button class='btn btn-success'>Go to next step</button>
                 </form>
                   <br/>
                   <div class="text-center">
@@ -97,4 +103,13 @@
         </div>
     </div>
 </div>
+
+<style>
+  .image-update{
+    border-radius: 50%;
+    object-fit: cover;
+    height: 10vh;
+    width: 10vh;
+  }
+</style>
 {% endblock %}

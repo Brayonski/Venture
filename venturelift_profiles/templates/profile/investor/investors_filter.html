@@ -21,30 +21,31 @@
                        <div id="funder-filter-dropdown-item">
                            <form method="post">
 						   {% csrf_token %}
-                               <div class="funder-company-name">
-                                   <label for="">Company Name</label>
-                                   <input id="name"  type="text" name='investor-name'>
+                               <div class="funder-company-name" style="width: 9vw">
+                                   <label style="font-size: 15px;" for="">Company Name</label>
+                                   <input class="companyname" id="name"  type="text" name='investor-name'>
                                </div>
                                <div class="funder-sectors">
-                                <label for="">Sectors</label>
-                                <select  style="width: 200px"  id="sectorsactive">         
-                                        <option value="agribusiness">agribusiness</option>
-                                        <option value="fmg retail">fmcg-retail </option>
-                                        <option value="technology">technology</option>
-                                        <option value="creative">creative</option>
-                                        <option value="education">education</option>
-                                        <option value="health">health</option>
+                                <label style="font-size: 15px;" for="">Sectors</label>
+                                <select class="funder-sector"  style="width: 200px"  id="sectorsactive">         
+                                        <option value="agribusiness">Agribusiness</option>
+                                        <option value="fmg retail">Fmcg-retail </option>
+                                        <option value="technology">Technology</option>
+                                        <option value="creative">Creative</option>
+                                        <option value="education">Education</option>
+                                        <option value="health">Health</option>
                                 
                                     </select>
 
                                     
                                </div>
+                               
                                <div class="funder-company-interest">
-                                   <label for="">Countries of interest</label>
+                                   <label style="font-size: 15px;" for="">Countries of Interest</label>
 								   
 									<select   class="company-stage-select" style="width: 200px" name="files3" id="files3">
-										<option value="">Countries</option>
-                                          <option value="egypt">Egypt</option>
+										<option value="Countries">Countries</option>
+                                        <option value="egypt">Egypt</option>
                                         <option value="sa">South Africa</option>
                                         <option value="morocco">Morocco</option>
                                         <option value="ethiopia">Ethiopia</option>
@@ -61,7 +62,7 @@
                                     
                                </div>
                                <div class="funder-exits-executed">
-                                    <label for="">Company Stage interested in</label>
+                                    <label style="font-size: 15px;" for="">Company Stage</label>
 
                                    <select class="company-stage-select" name="files2" id="files2">                      <option value="">None</option>
                                           <option value=""><5</option>
@@ -71,7 +72,7 @@
 
                                     </select>
                                </div>
-                               <div class="filter-submit">
+                               <div style="font-family: 'SofiaProRegular';" class="filter-submit">
                                    <input type="submit" value="Filter">
                                </div>
                                
@@ -172,11 +173,37 @@
     </div>
 
 <style>
-    .single-partner-box{
-        margin-bottom: 15px;
-    }
+   
     .partners-box-title p{
         font-family: 'Source Sans Pro';
+    }
+    .funder-sector{
+        height: 5vh;
+        border: solid #ffffff;
+        border-radius: 5px;
+        font-family: 'SofiaProRegular';
+        margin-right: 15px;
+    }
+    .company-stage-select{
+        height: 5vh;
+        border: solid #ffffff;
+        border-radius: 5px;
+        font-family: 'SofiaProRegular';
+        margin-right: 15px;
+    }
+    .funder-company-name label{
+        font-family: 'SofiaProRegular';
+    }
+    .funder-sectors label{
+        font-family: 'SofiaProRegular';
+    }
+    .funder-company-interest label{
+        font-family: 'SofiaProRegular';
+    }
+    .startup-submit{
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 0px;
     }
 </style>
 

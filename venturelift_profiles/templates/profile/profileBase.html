@@ -79,6 +79,7 @@
                                 </li>
                                 <li><a href="{%url 'knowledge_center_home' %}">Knowledge Center</a></li>
                                 <li><a href="{%url 'events_home' %}">Events</a></li>
+                                
                                 <li id="profile-pic-sm"><a href="#">{% if context.supporter %}
                     {% if context.supporter.thumbnail_image %}
                       <img src="{{ context.supporter.thumbnail_image.url }}">
@@ -128,16 +129,16 @@
   
 	
 	<!--Footer area start-->
-    <footer>
+    <footer class="profile-footer">
         <div class="container">
-            <div class="row">
+            <div class="row text-center">
                 <div class="col-lg-3  col-md-6">
                     <div class="footer-widget-one widget">
                         <img src="{% static 'img/logo2.png' %}" alt="">
-                        <p> (VLA) launched in 2018 to address resource gaps confronting African startups and growing SMEs.</p>
+                        <p>The way to get started is to quit talking and begin doing.” – Walt Disney</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 offset-lg-1">
+                <div class="col-lg-3 col-md-6 ">
                     <div class="footer-widget-two widget">
                         <h5 class="footer-title">Company</h5>
                         <div class="footer-nav">
@@ -149,7 +150,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6">
+                <div class="col-lg-3 col-md-6 ">
                     <div class="footer-widget-three widget">
                         <h5 class="footer-title">Quick Links</h5>
                         <div class="footer-nav">
@@ -164,9 +165,8 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget-four widget">
                         <h5 class="footer-title">Contact</h5>
-                        <div class="contact-info">
-                            <p><i class="fas fa-envelope"></i> Email</p>
-                        </div>
+                            <h5 style="vertical-align: auto;"><i class="fas fa-envelope"></i> Email</h5>
+                            <h5 ><i class="fas fa-phone"></i> Telephone</h5>
                         <div class="social-links">
                             <ul>
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -183,8 +183,7 @@
     
     <!--Footer bottom area start-->
     <section class="footer-bottom">
-        <p class="rights">&copy; 2020. All Rights Reserved</p>
-        <P class="terms">Terms of Service</P>
+        <p class="rights">&copy; 2020. All Rights Reserved | Terms of Use</p>
     </section>
     <!--Footer bottom area end-->
 
@@ -196,11 +195,20 @@
         .footer-bottom{
             font-size: 15px;
         }
-        .rights{
-            text-decoration: underline;
-        }
         .footer-bottom .terms{
             margin-top: -20px;
+        }
+        .footer-widget-one p{
+            border-left: 3px solid #1abedb;
+            padding-left: 2vw;
+            font-family: 'Source Sans Pro';
+        }
+        footer {
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        }
+        .contact-info{
+            margin-bottom: 5px;
         }
     </style>
 
