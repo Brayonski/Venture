@@ -217,8 +217,7 @@
 
                              <div class="row col-md-12">
                                {% for obj in business_following %}
-
-                                     {% if (business and obj.creator.id != business.creator.id) or not business %}
+                                     {% if obj.creator.id != business.creator.id %}
                                         <div class="col-md-4">
                                             <div class="single-connection">
                                                 {% if obj.thumbnail_image %}
@@ -243,25 +242,23 @@
                             
                             <div class="row col-md-12">
                                 {% for obj in supporter_following %}
-                                    {% if obj.user.id != business.user.id %}
-                                        <div class="col-md-4">
-                                            <div class="single-connection">
-                                                {% if obj.thumbnail_image %}
-                                                <img src="{{ obj.thumbnail_image.url }}">
-                                                <div class="connection-detsils">
-                                                    <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
-                                                    <p>{{obj.role|truncatechars:10}}</p>
-                                                </div>
-                                                {% else %}
-                                                <img src="{% static 'img/no-img.jpg' %}">
-                                                <div class="connection-detsils">
-                                                    <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
-                                                    <p>{{obj.role|truncatechars:10}}</p>
-                                                </div>
-                                                {% endif %}
+                                    <div class="col-md-4">
+                                        <div class="single-connection">
+                                            {% if obj.thumbnail_image %}
+                                            <img src="{{ obj.thumbnail_image.url }}">
+                                            <div class="connection-detsils">
+                                                <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
+                                                <p>{{obj.role|truncatechars:10}}</p>
                                             </div>
+                                            {% else %}
+                                            <img src="{% static 'img/no-img.jpg' %}">
+                                            <div class="connection-detsils">
+                                                <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
+                                                <p>{{obj.role|truncatechars:10}}</p>
+                                            </div>
+                                            {% endif %}
                                         </div>
-                                    {% endif %}
+                                    </div>
                                 {% endfor %}
                             </div>
 
@@ -625,23 +622,25 @@
                             
                             <div class="row col-md-12">
                                 {% for obj in supporter_following %}
-                                    <div class="col-md-4">
-                                        <div class="single-connection">
-                                            {% if obj.thumbnail_image %}
-                                            <img src="{{ obj.thumbnail_image.url }}">
-                                            <div class="connection-detsils">
-                                                <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
-                                                <p>{{obj.role|truncatechars:10}}</p>
+                                    {% if obj.user.id != supporter.user.id %}
+                                        <div class="col-md-4">
+                                            <div class="single-connection">
+                                                {% if obj.thumbnail_image %}
+                                                <img src="{{ obj.thumbnail_image.url }}">
+                                                <div class="connection-detsils">
+                                                    <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
+                                                    <p>{{obj.role|truncatechars:10}}</p>
+                                                </div>
+                                                {% else %}
+                                                <img src="{% static 'img/no-img.jpg' %}">
+                                                <div class="connection-detsils">
+                                                    <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
+                                                    <p>{{obj.role|truncatechars:10}}</p>
+                                                </div>
+                                                {% endif %}
                                             </div>
-                                            {% else %}
-                                            <img src="{% static 'img/no-img.jpg' %}">
-                                            <div class="connection-detsils">
-                                                <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
-                                                <p>{{obj.role|truncatechars:10}}</p>
-                                            </div>
-                                            {% endif %}
                                         </div>
-                                    </div>
+                                    {% endif %}
                                 {% endfor %}
                             </div>
 
@@ -994,23 +993,25 @@
 
                             <div class="row col-md-12">
                                 {% for obj in investor_following %}
-                                    <div class="col-md-4">
-                                        <div class="single-connection">
-                                            {% if obj.thumbnail_image %}
-                                            <img src="{{ obj.thumbnail_image.url }}">
-                                            <div class="connection-detsils">
-                                                <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
-                                                <p>{{obj.role|truncatechars:10}}</p>
+                                    {% if obj.user.id != investor.user.id %}
+                                        <div class="col-md-4">
+                                            <div class="single-connection">
+                                                {% if obj.thumbnail_image %}
+                                                <img src="{{ obj.thumbnail_image.url }}">
+                                                <div class="connection-detsils">
+                                                    <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
+                                                    <p>{{obj.role|truncatechars:10}}</p>
+                                                </div>
+                                                {% else %}
+                                                <img src="{% static 'img/no-img.jpg' %}">
+                                                <div class="connection-detsils">
+                                                    <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
+                                                    <p>{{obj.role|truncatechars:10}}</p>
+                                                </div>
+                                                {% endif %}
                                             </div>
-                                            {% else %}
-                                            <img src="{% static 'img/no-img.jpg' %}">
-                                            <div class="connection-detsils">
-                                                <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.user}}</a>
-                                                <p>{{obj.role|truncatechars:10}}</p>
-                                            </div>
-                                            {% endif %}
                                         </div>
-                                    </div>
+                                    {% endif %}
                                 {% endfor %}
                             </div>
 							
