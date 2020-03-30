@@ -134,7 +134,7 @@
                 <div class="col-lg-3  col-md-6">
                     <div class="footer-widget-one widget">
                         <img src="{% static 'img/logo2.png' %}" alt="">
-                        <p> (VLA) launched in 2018 to address resource gaps confronting African startups and growing SMEs, including access to finance, market expansion, human capital and areas of business education.</p>
+                        <p> (VLA) launched in 2018 to address resource gaps confronting African startups and growing SMEs.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 offset-lg-1">
@@ -143,11 +143,8 @@
                         <div class="footer-nav">
                             <ul>
                                 <li><a href="/about-us">About Us</a></li>
-                                <li><a href="/team">Leadership</a></li>
                                 <li><a href="/careers">Careers</a></li>
                                 <li><a href="/help">Faqs</a></li>
-                                <li><a href="/terms-of-use">Terms of Service</a></li>
-                                <li><a href="/contact-us">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -157,12 +154,9 @@
                         <h5 class="footer-title">Quick Links</h5>
                         <div class="footer-nav">
                             <ul>
-                                <li><a href="/">Home</a></li>
                                 <li><a href="#">Business</a></li>
                                 <li><a href="#">Funder</a></li>
                                 <li><a href="#">Partner</a></li>
-                                <li><a href="{%url 'knowledge_center_home' %}">Knowledge Center</a></li>
-                                <li><a href="{%url 'events_home' %}">Events</a></li>
                             </ul>
                         </div>
                     </div>
@@ -172,7 +166,6 @@
                         <h5 class="footer-title">Contact</h5>
                         <div class="contact-info">
                             <p><i class="fas fa-envelope"></i> Email</p>
-                            <p> venturelift@gmail.com</p>
                         </div>
                         <div class="social-links">
                             <ul>
@@ -190,7 +183,8 @@
     
     <!--Footer bottom area start-->
     <section class="footer-bottom">
-        <p>&copy; 2020 All Rights Reserved</p>
+        <p class="rights">&copy; 2020. All Rights Reserved</p>
+        <P class="terms">Terms of Service</P>
     </section>
     <!--Footer bottom area end-->
 
@@ -201,6 +195,12 @@
         }
         .footer-bottom{
             font-size: 15px;
+        }
+        .rights{
+            text-decoration: underline;
+        }
+        .footer-bottom .terms{
+            margin-top: -20px;
         }
     </style>
 
