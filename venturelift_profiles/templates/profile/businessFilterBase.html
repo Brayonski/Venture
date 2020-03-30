@@ -123,50 +123,49 @@
   
 	
 	<!--Footer area start-->
-    <footer>
+    <footer class="profile-footer">
         <div class="container">
-            <div class="row">
+            <div class="row text-center">
                 <div class="col-lg-3  col-md-6">
                     <div class="footer-widget-one widget">
-                        <img src="{% static 'img/logo2.png' %}" alt="">
-                        <p>VentureLift Africa (VLA) launched in 2018 to address resource gaps confronting African startups and growing SMEs.</p>
+                        <img style="clear: left; float: left;" src="{% static 'img/logo2.png' %}" alt="">
+                        <p style="float: left;">The way to get started is to quit talking and begin doing.” – Walt Disney</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 offset-lg-1">
+                <div class="col-lg-3 col-md-6 ">
                     <div class="footer-widget-two widget">
-                        <h5 class="footer-title">Company</h5>
+                        <h5 style="clear: left; float: left;" class="footer-title">Company</h5>
                         <div class="footer-nav">
                             <ul>
-                                <li><a href="/about-us">About Us</a></li>
-                                <li><a href="/careers">Careers</a></li>
-                                <li><a href="/help">FAQ</a></li>
+                                <li style="clear: left; float: left;"><a href="/about-us">About Us</a></li>
+                                <li style="clear: left; float: left;"><a href="/careers">Careers</a></li>
+                                <li style="clear: left; float: left;"><a href="/help">FAQ</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6">
+                <div class="col-lg-3 col-md-6 ">
                     <div class="footer-widget-three widget">
-                        <h5 class="footer-title">Quick Links</h5>
+                        <h5 style="clear: left; float: left;" class="footer-title">Quick Links</h5>
                         <div class="footer-nav">
                             <ul>
-                                <li><a href="#">Business</a></li>
-                                <li><a href="#">Funder</a></li>
-                                <li><a href="#">Partner</a></li>
+                                <li style="clear: left; float: left;"><a href="#">Business</a></li>
+                                <li style="clear: left; float: left;"><a href="#">Funder</a></li>
+                                <li style="clear: left; float: left;"><a href="#">Partner</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget-four widget">
-                        <h5 class="footer-title">Contact</h5>
-                        <div class="contact-info">
-                            <p><i class="fas fa-envelope"></i> Email</p>
-                        </div>
+                        <h5 style="clear: left; float: left;" class="footer-title">Contact</h5>
+                            <h5 style="clear: left; float: left;"><i class="fas fa-envelope"></i> Email</h5>
+                            <h5 style="clear: left; float: left;"><i class="fas fa-phone"></i> Telephone</h5>
                         <div class="social-links">
                             <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li style="clear: left; float: left;"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li style="float: left;"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li style="float: left;"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -178,7 +177,7 @@
     
     <!--Footer bottom area start-->
     <section class="footer-bottom">
-        <p>&copy; 2020. All Rights Reserved</p>
+        <p>&copy; 2020. All Rights Reserved | Terms of Use</p>
     </section>
     <!--Footer bottom area end-->
 
@@ -189,6 +188,33 @@
         }
         .footer-bottom{
             font-size: 15px;
+        }
+        .footer-bottom .terms{
+            margin-top: -20px;
+        }
+        .footer-widget-one p{
+            border-left: 3px solid #1abedb;
+            padding-left: 2vw;
+            font-family: 'Source Sans Pro';
+        }
+        footer {
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        }
+        .contact-info{
+            margin-bottom: 5px;
+        }
+        .footer-widget-one{
+            right: 5vw;
+        }
+        .footer-widget-two{
+            padding-left: 8vw;
+        }
+        .footer-widget-three{
+            padding-left: 5vw;
+        }
+        .footer-widget-four{
+            padding-left: 3vw;
         }
     </style>
 
