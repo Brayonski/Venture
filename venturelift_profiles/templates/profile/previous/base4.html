@@ -179,7 +179,7 @@
                   </li>
               </ul>
               <ul class="in_style_A_list_A in_style_B2">
-                  <li class="copright">&copy; 2020. All Rights Reserved | Terms of Use</li>
+                  <li class="copright"><a href="{% url 'terms-of-use' %}">&copy; 2020. All Rights Reserved | Terms of Use</a></li>
               </ul>                              
           </div>
       </div>        
@@ -189,7 +189,12 @@
   <div id="sampleProfile" style="">
     <p>This is a sample profile</p>
   </div>
-
+  <style>
+    .in_style_A_list_A a{
+      text-decoration: none;
+      color: #ffffff;
+    }
+  </style>
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->

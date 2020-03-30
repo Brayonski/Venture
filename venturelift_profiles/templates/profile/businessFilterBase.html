@@ -177,7 +177,7 @@
     
     <!--Footer bottom area start-->
     <section class="footer-bottom">
-        <p>&copy; 2020. All Rights Reserved | Terms of Use</p>
+        <p><a href="{% url 'terms-of-use' %}">&copy; 2020. All Rights Reserved | Terms of Use</a></p>
     </section>
     <!--Footer bottom area end-->
 
@@ -218,7 +218,11 @@
         }
         .row .col-lg-4{
         padding-bottom: 2vh;
-    }
+        }
+        .footer-bottom a{
+            text-decoration: none;
+            color: #ffffff;
+        }
     </style>
 
       <!--js files-->
