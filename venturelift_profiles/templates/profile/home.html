@@ -223,7 +223,7 @@
                                                 {% if obj.thumbnail_image %}
                                                 <img src="{{ obj.thumbnail_image.url }}">
                                                 <div class="connection-detsils">
-                                                    <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.name}}</a>
+                                                    <a href="{% url 'business_profile' obj.pk %}" class="connection-name">{{obj.name}} Me</a>
                                                     <p>{{obj.sector|truncatechars:10}}</p>
                                                 </div>
                                                 {% else %}
