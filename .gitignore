@@ -10,3 +10,4 @@ celerybeat.pid
 django_select2
 nohup.out
 sqlite3.db
+SQLite3
