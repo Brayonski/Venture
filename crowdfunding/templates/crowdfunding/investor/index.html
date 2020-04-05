@@ -47,35 +47,29 @@
                        <p> VLA provides capital providers (equity, debt and donation crowdfunding) with vetted investment opportunities and connections to qualified transaction advisors and consultants with local knowledge and track record in Africa.</p>
                    </div>
 
-                   <div class="row col-md-12">
+                   <div class="card-deck">
                     {% if campaign_list %}
-					{% for campaign in campaign_list %}
-                       <div class="col-md-4">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="..." alt="Card image cap">
-                            <div class="card-body">
-                                <div class="single-partner-box">
-                                    {% if campaign.campaign_image %}
-                                    <img src="{{ campaign.campaign_image.url }}">
-                                    {% else %}
-                                    <img src="{% static 'img/no-img.jpg' %}">
-                                    {% endif %}
-                                    <h4>{{campaign.campaign_name|title}}</h4>
-                                    <p>{{campaign.campaign_type}}</p>
-                                    <p class="sundry">{{campaign.short_description|truncatewords:5}}</p>
-                                    <a href="{% url 'crowdfunding:create_donation' campaign.id %}" class="btn btn-primary">Fund</a>
-                                </div>
-                            </div>
+                    {% for campaign in campaign_list %}
+                    <div class="card">
+                        {% if campaign.campaign_image %}
+                      <img class="card-img-top" src="{{ campaign.campaign_image.url }}" alt="">
+                      {% else %}
+                      <img class="card-img-top" src="{% static 'img/no-img.jpg' %}" alt="">
+                      <div class="card-body">
+                        <h5 class="card-title">{{campaign.campaign_name|title}}</h5>
+                        <p class="card-text">{{campaign.campaign_type}}</p>
+                        <p class="card-text"><small >{{campaign.short_description|truncatewords:5}}</small></p>
+                        <a href="{% url 'crowdfunding:create_donation' campaign.id %}" class="single-partner-btn">Fund</a>
+                    </div>
+                    </div>
                     {% endfor %}
                     {% else %}
-                    <div>
-                        <p><b>No Available Published Campaigns </b></p>
-                    </div>
+                        <div>
+                            <p><b>No Available Published Campaigns </b></p>
+                        </div>
                     {% endif %}
-                          </div>
-                       </div>
-                   </div>
-                   
+                  </div>
+
                  </div>
 			
 		
