@@ -80,7 +80,6 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'venturelift_cms', 'static'),
 )
-django_heroku.settings(locals())
 
 SITE_ID = 1
 
@@ -320,3 +319,4 @@ CONSUMER_KEY = 'G4fR8iS27KSOwAJ5eOtRq0MFdwDVbwau'
 CONSUMER_SECRET = 'BrPh8l8ZbpCQAoUt'
 SHORTCODE = '174379'
 PASS_KEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
+django_heroku.settings(locals())
