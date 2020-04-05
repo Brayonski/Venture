@@ -1,1 +1,1 @@
-web: gunicorn venturelift_cms.wsgi
+web:gunicorn venturelift_cms.wsgi
