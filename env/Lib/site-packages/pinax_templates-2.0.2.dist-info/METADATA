@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: pinax-templates
+Version: 2.0.2
+Summary: semantic templates for pinax apps
+Home-page: http://github.com/pinax/pinax-templates/
+Author: Pinax Team
+Author-email: team@pinaxprojects.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.11
+Classifier: Framework :: Django :: 2.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: django (>=1.11)
+Requires-Dist: django-bootstrap-form (>=3.0.0)
+
+
+.. image:: http://pinaxproject.com/pinax-design/patches/pinax-templates.svg
+    :target: https://pypi.python.org/pypi/pinax-templates/
+
+===============
+Pinax Templates
+===============
+
+.. image:: https://img.shields.io/pypi/v/pinax-templates.svg
+    :target: https://pypi.python.org/pypi/pinax-templates/
+
+
+.. image:: https://img.shields.io/circleci/project/github/pinax/pinax-templates.svg
+    :target: https://circleci.com/gh/pinax/pinax-templates
+.. image:: https://img.shields.io/codecov/c/github/pinax/pinax-templates.svg
+    :target: https://codecov.io/gh/pinax/pinax-templates
+.. image:: https://img.shields.io/github/contributors/pinax/pinax-templates.svg
+    :target: https://github.com/pinax/pinax-templates/graphs/contributors
+.. image:: https://img.shields.io/github/issues-pr/pinax/pinax-templates.svg
+    :target: https://github.com/pinax/pinax-templates/pulls
+.. image:: https://img.shields.io/github/issues-pr-closed/pinax/pinax-templates.svg
+    :target: https://github.com/pinax/pinax-templates/pulls?q=is%3Apr+is%3Aclosed
+
+
+.. image:: http://slack.pinaxproject.com/badge.svg
+    :target: http://slack.pinaxproject.com/
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+    :target: https://pypi.python.org/pypi/pinax-templates/
+
+
+``pinax-templates`` provides semantically-correct templates for use with Pinax apps.
+
+
+Supported Pinax Apps
+--------------------
+
+* django-user-accounts
+* pinax-announcements
+* pinax-blog
+* pinax-cohorts
+* pinax-documents
+* pinax-invitations
+* pinax-likes
+* pinax-notifications
+* pinax-strip
+
+
+Supported Django and Python Versions
+------------------------------------
+
++-----------------+-----+-----+-----+-----+
+| Django / Python | 2.7 | 3.4 | 3.5 | 3.6 |
++=================+=====+=====+=====+=====+
+|  1.11           |  *  |  *  |  *  |  *  |
++-----------------+-----+-----+-----+-----+
+|  2.0            |     |  *  |  *  |  *  |
++-----------------+-----+-----+-----+-----+
+
+

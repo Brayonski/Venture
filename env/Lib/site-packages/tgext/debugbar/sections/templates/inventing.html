@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      py:strip="True">
+<h1>Inventing Mode</h1>
+<div id="tgdb_debugbar_inventing">
+    <div>
+        Invending mode permits to see on the fly the result of your
+        changes by automatically reloading the web page whenever
+        your python code or the page template changes.
+    </div>
+    <div>
+        It is meant as a way to improve developer experience when
+        experimenting with changes to the source code, just put
+        your browser and your test editor one near the other and
+        enable inventing mode to start experimenting.
+    </div>
+    <div id="tgdb_debugbar_inventing_toggle" class="tgdb_debugbar_button"
+         onclick="tgext_debugbar_inventing.toggle(this);">
+        Turn On
+    </div>
+    <div style="font-style: italic;margin-top: 10px;">
+        To permanently enable inventing mode when in debug add
+        <strong>debugbar.inventing=True</strong> option to your application configuration.
+    </div>
+</div>
+</html>

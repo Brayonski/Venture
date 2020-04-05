@@ -1,0 +1,271 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-05-24 08:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: forms.py:131
+msgid "No items selected"
+msgstr "Keine Elemente gewählt"
+
+#: forms.py:259 forms.py:260
+msgid "Query"
+msgstr "Suchbegriff"
+
+#: forms.py:499
+msgid "Ignore warnings"
+msgstr "Warnungen ignorieren"
+
+#: forms.py:642
+msgid "clear"
+msgstr ""
+
+#: modelview.py:95
+msgid "The new object has been successfully created."
+msgstr "Das neue Objekt wurde erfolgreich erstellt."
+
+#: modelview.py:97
+msgid "You are not allowed to add objects."
+msgstr "Es ist ihnen nicht erlaubt, Objekte hinzuzufügen."
+
+#: modelview.py:99
+msgid "The object has been successfully updated."
+msgstr "Das Objekt wurde erfolgreich aktualisiert."
+
+#: modelview.py:101
+msgid "You are not allowed to edit this object."
+msgstr "Es ist nicht erlaubt dieses Objekt zu bearbeiten."
+
+#: modelview.py:103
+msgid "The object has been successfully deleted."
+msgstr "Das Objekt wurde erfolgreich gelöscht."
+
+#: modelview.py:105
+msgid "You are not allowed to delete this object."
+msgstr "Es ist nicht erlaubt dieses Objekt zu löschen."
+
+#: modelview.py:107
+#, python-format
+msgid ""
+"Deletion not allowed: There are %(pretty_classes)s related to this object."
+msgstr ""
+"Löschen nicht erlaubt: Es sind %(pretty_classes)s mit diesem Objekt "
+"verbunden."
+
+#: modelview.py:667 resources/base.py:288
+msgid "The search query was invalid."
+msgstr "Die Suchanfrage war ungültig."
+
+#: modelview.py:704 resources/base.py:317
+#, python-format
+msgid ""
+"Processed the following items: <br>\n"
+" %s"
+msgstr ""
+"Die folgenden Elemente wurden bearbeitet: <br>\n"
+" %s"
+
+#: modelview.py:796 resources/base.py:474
+#, python-format
+msgid "Add %s"
+msgstr "%s hinzufügen"
+
+#: modelview.py:829
+#, python-format
+msgid "Change %s"
+msgstr "%s ändern"
+
+#: modelview.py:872 modelview.py:924
+msgid " and "
+msgstr " und "
+
+#: modelview.py:956 resources/base.py:684
+#, python-format
+msgid "Delete %s"
+msgstr "%s löschen"
+
+#: quick.py:151
+msgid "Today"
+msgstr "Heute"
+
+#: quick.py:152
+msgid "Tomorrow"
+msgstr "Morgen"
+
+#: resources/base.py:195
+#, python-format
+msgid "You are not allowed to delete %(verbose_name_plural)s."
+msgstr "Es ist nicht erlaubt %(verbose_name_plural)s zu löschen."
+
+#: resources/base.py:198
+#, python-format
+msgid "You are not allowed to delete this %(verbose_name)s."
+msgstr "Es ist nicht erlaubt dieses %(verbose_name)s zu löschen."
+
+#: resources/base.py:217
+#, python-format
+msgid "Deletion not allowed because of related objects: %s"
+msgstr "Löschen wegen folgenden verbundenen Objekten nicht erlaubt: %s"
+
+#: resources/base.py:303
+msgid "Action"
+msgstr "Aktion"
+
+#: resources/base.py:344 resources/base.py:389
+msgid "Delete selected"
+msgstr "Ausgewählte löschen"
+
+#: resources/base.py:373
+msgid "You are not allowed to delete any object in the selection."
+msgstr "Es ist nicht erlaubt, Objekte aus dieser Auswahl zu löschen."
+
+#: resources/base.py:379
+msgid ""
+"Deletion of some objects not allowed. Those have been excluded from the "
+"selection already."
+msgstr ""
+"Löschen einiger Objekte nicht erlaubt. Diese wurden schon aus der Auswahl "
+"entfernt."
+
+#: resources/base.py:383
+msgid "Deletion successful."
+msgstr "Löschen erfolgreich."
+
+#: resources/base.py:473
+#, python-format
+msgid "Edit %s"
+msgstr "%s bearbeiten"
+
+#: resources/base.py:517
+#, python-format
+msgid "The %(verbose_name)s has been successfully saved."
+msgstr "%(verbose_name)s wurde erfolgreich aktualisiert."
+
+#: resources/base.py:635
+#, python-format
+msgid "Select a %s"
+msgstr "%s auswählen"
+
+#: resources/base.py:720
+#, python-format
+msgid "The %(verbose_name)s has been successfully deleted."
+msgstr "%(verbose_name)s wurde erfolgreich gelöscht."
+
+#: templates/modelview/object_delete_confirmation.html:10
+#, python-format
+msgid "Do you really want to delete %(object)s?"
+msgstr "Wollen Sie %(object)s wirklich löschen?"
+
+#: templates/modelview/object_delete_confirmation.html:13
+msgid "You are about to delete the following objects:"
+msgstr "Die folgenden Objekte werden gelöscht:"
+
+#: templates/modelview/object_delete_confirmation.html:26
+#: templates/modelview/object_detail.html:20
+msgid "delete"
+msgstr "löschen"
+
+#: templates/modelview/object_delete_confirmation.html:28
+#: templates/modelview/object_form.html:43
+msgid "cancel"
+msgstr "abbrechen"
+
+#: templates/modelview/object_detail.html:21
+msgid "edit"
+msgstr "bearbeiten"
+
+#: templates/modelview/object_form.html:40
+msgid "save"
+msgstr "sichern"
+
+#: templates/modelview/object_form.html:41
+msgid "Save and continue editing"
+msgstr "Sichern und weiter bearbeiten"
+
+#: templates/modelview/object_list.html:11
+#, python-format
+msgid "Add %(verbose_name)s"
+msgstr "%(verbose_name)s hinzufügen"
+
+#: templates/modelview/object_list.html:27
+msgid "Search"
+msgstr "Suchen"
+
+#: templates/modelview/object_list.html:42
+msgid "object"
+msgstr "object"
+
+#: templates/modelview/object_list.html:61
+msgid "Batch form"
+msgstr "Stapelbearbeitung"
+
+#: templates/modelview/object_list.html:75
+msgid "Submit"
+msgstr "Abschicken"
+
+#: templates/towel/_form_errors.html:3
+msgid "Please correct the following errors:"
+msgstr "Bitte korrigieren Sie die folgenden Fehler:"
+
+#: templates/towel/_form_errors.html:8 templates/towel/_form_errors.html:24
+msgid "Form errors"
+msgstr "Formularfehler"
+
+#: templates/towel/_form_errors.html:19
+msgid "Fieldset errors"
+msgstr "Formularfehler"
+
+#: templates/towel/_form_warnings.html:3
+msgid "Please review the following warnings:"
+msgstr "Bitte prüfen Sie die folgenden Warnungen:"
+
+#: templates/towel/_pagination.html:17
+msgid "show all"
+msgstr "alle anzeigen"
+
+#: templatetags/modelview_detail.py:51
+msgid "yes"
+msgstr "ja"
+
+#: templatetags/modelview_detail.py:52
+msgid "no"
+msgstr "nein"
+
+#: templatetags/modelview_detail.py:53
+msgid "unknown"
+msgstr "unbekannt"
+
+#~ msgid "Save"
+#~ msgstr "Sichern"
+
+#~ msgid ""
+#~ "Deletion of %(instance)s not allowed: <small>There are %(classes)s "
+#~ "related to this object.</small>"
+#~ msgstr ""
+#~ "Löschen von %(instance)s nicht erlaubt: <small>Es sind %(classes)s mit "
+#~ "diesem Objekt verbunden.</small>"
+
+#~ msgid "reset"
+#~ msgstr "rücksetzen"
+
+#~ msgid "New object"
+#~ msgstr "Objekt erstellen"
+
+#~ msgid "Delete %(object)s?"
+#~ msgstr "%(object)s löschen?"
+
+#~ msgid "%(object)s will be deleted permanently!"
+#~ msgstr "%(object)s wird permanent gelöscht!"

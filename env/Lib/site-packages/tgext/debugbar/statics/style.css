@@ -1,0 +1,170 @@
+#tgdb_debugbar {
+	font-family: verdana, arial, helvetica, sans-serif;
+}
+
+#tgdb_debugbar #tgdb_button {
+	z-index: 9999;
+	width: 40px;
+	height: 36px;
+	border-bottom-right-radius: 15px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+	background-repeat: no-repeat;
+	background-image: url('/_debugbar/statics/TgGear.png');
+	cursor: pointer;
+}
+
+#tgdb_debugbar #tgdb_barcontent {
+	width: 100%;
+	height: 24px;
+	top: 0;
+	left: 40px;
+	padding-left: 10px;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: #D3D3D3;
+	z-index: 9998;
+}
+
+#tgdb_debugbar .tgdb_section {
+	float: left;
+}
+
+#tgdb_debugbar .tgdb_title {
+	font-size: 18px;
+	line-height: 21px;
+	font-variant: small-caps;
+	color: #FFF;
+	border-right: 1px solid #CCC;
+	margin-right: 10px;
+	padding-right: 10px;
+	cursor: pointer;
+	height: 24px;
+}
+
+#tgdb_debugbar .tgdb_title.highlight {
+	color: #FC6;
+}
+
+#tgdb_debugbar .tgdb_content {
+	z-index: 9998;
+	color: #000;
+	display: none;
+	width: 100%;
+	height: 600px;
+	overflow: auto;
+	position: fixed;
+	top: 24px;
+	padding-top: 20px;
+	background-color: #EEE;
+	opacity: 1.0;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.8);
+	box-shadow: 0px 20px 20px #444;
+	left: 0px;
+}
+
+#tgdb_debugbar h1 {
+	color: #033;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 25px;
+	margin-bottom: 10px;
+}
+
+#tgdb_debugbar .tgdb_content_box, #tgdb_debugbar .tgdb_detail_box {
+	margin: 10px;
+	font-size: 12px;
+}
+
+#tgdb_debugbar .tgdb_content p {
+	font-size: 12px;
+}
+
+#tgdb_debugbar .tgdb_table {
+	border: 2px solid #CCC;
+	border-collapse: separate;
+	border-spacing: 1px;
+}
+
+#tgdb_debugbar .tgdb_table .highlight pre {
+	white-space: pre-wrap;
+}
+
+#tgdb_debugbar .tgdb_table th {
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #FAFAFA;
+}
+
+#tgdb_debugbar .tgdb_table td {
+	font-size: 12px;
+	background-color: #FFF;
+}
+
+#tgdb_debugbar .tgdb_table th, .tgdb_table td {
+	padding: 4px;
+}
+
+#tgdb_debugbar .tgdb_table .tgdb_row {
+	border-top: 2px solid #CCC;
+}
+
+#tgdb_debugbar .tgdb_table .tgdb_row_odd {
+	background-color: #FAFAFA;
+}
+
+#tgdb_debugbar .tgdb_query, #tgdb_debugbar .tgdb_back {
+	font-variant: small-caps;
+}
+
+#tgdb_debugbar .tgdb_back {
+	text-align: right;
+}
+
+#tgdb_debugbar #tgdb_debugbar_inventing {
+    font-size:14px;
+    max-width: 800px;
+}
+
+#tgdb_debugbar #tgdb_debugbar_inventing > div {
+    margin-bottom: 8px;
+}
+
+#tgdb_debugbar .tgdb_debugbar_button {
+    -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15),0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15),0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15),0 1px 2px rgba(0, 0, 0, 0.05);
+    background-color: #0074CC;
+    background-image: -moz-linear-gradient(top, #08C, #05C);
+    background-image: -ms-linear-gradient(top, #08C, #05C);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08C), to(#05C));
+    background-image: -webkit-linear-gradient(top, #08C, #05C);
+    background-image: -o-linear-gradient(top, #08C, #05C);
+    background-image: linear-gradient(top, #08C, #05C);
+    background-repeat: repeat-x;
+    outline: 0;
+    display: inline-block;
+    cursor: pointer;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    color: white;
+    padding: 9px 14px;
+    font-size: 15px;
+    line-height: normal;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #CCC;
+    border-bottom-color: #B3B3B3;
+    cursor: pointer;
+}
+
+.tgdb_barcontent_error {
+    background-color: rgba(180, 0, 0, 0.6) !important;
+}
+
+.tgdb_barcontent_warning {
+    background-color: rgba(80, 80, 0, 0.6) !important;
+}
+

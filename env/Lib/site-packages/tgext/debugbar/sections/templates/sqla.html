@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:py="http://genshi.edgewall.org/"
+	py:strip="True">
+<h1>Queries Performed</h1>
+<table class="tgdb_table" style="width:90%;">
+	<thead>
+		<tr>
+			<th>Query</th>
+			<th>Params</th>
+			<th>Time</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr py:for="query in queries" class="tgdb_row">
+			<td py:content="Markup(query['sql'])" />
+			<td py:content="Markup(query['params'])" />
+			<td py:content="u'%.4f\xa0ms' % query['duration']" />
+			<td>
+				<div py:if="query['is_select']">
+					<p class="tgdb_query">
+						<a href="${tg.url('/_debugbar/perform_sql', params=dict(stmt=query['raw_sql'], params=query['params'], engine_id=query['engine_id'], duration=query['duration']))}">Results</a>
+					</p>
+					<p class="tgdb_query">
+						<a href="${tg.url('/_debugbar/perform_sql', params=dict(stmt=query['raw_sql'], params=query['params'], engine_id=query['engine_id'], duration=query['duration'], modify='explain'))}">Explain</a>
+					</p>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</html>

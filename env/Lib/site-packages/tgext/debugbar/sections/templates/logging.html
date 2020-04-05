@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:py="http://genshi.edgewall.org/"
+	py:strip="True">
+<h1>Log Messages</h1>
+<table class="tgdb_table">
+	<tr>
+		<th>Level</th>
+		<th>Time</th>
+		<th>Message</th>
+		<th>Location</th>
+	</tr>
+	<tr py:for="i, record in enumerate(records)"
+			class="${'tgdb_row_odd' if i%2 else 'tgdb_row_even'} tgdb_row">
+		<td><strong py:content="record['level']" /></td>
+		<td py:content="record['time']" />
+		<td py:content="record['message']" />
+		<td title="${u'%s:%s' % (record['file_long'], record['line'])}"
+			py:content="u'%s:%s' % (record['file'], record['line'])" />
+	</tr>
+</table>
+</html>
