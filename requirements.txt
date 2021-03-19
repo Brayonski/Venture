@@ -70,7 +70,7 @@ djangocms-snippet==2.1.0
 djangocms-style==2.1.0
 djangocms-text-ckeditor==3.7.0
 djangocms-video==2.1.1
-djangorestframework==3.9.1
+djangorestframework==3.11.2
 docutils==0.14
 easy-thumbnails==2.5
 enum34==1.1.6
