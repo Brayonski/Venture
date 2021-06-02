@@ -143,7 +143,7 @@ ua-parser==0.8.0
 unicodecsv==0.14.1
 Unidecode==1.0.23
 Unipath==1.0
-urllib3==1.24.1
+urllib3==1.26.5
 user-agents==1.1.0
 vine==1.2.0
 virtualenv==20.0.15
